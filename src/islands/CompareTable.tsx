@@ -10,6 +10,16 @@ export interface CompareTool extends ToolRecord {
 const MAX_TOOLS = 4;
 const MIN_TOOLS = 2;
 
+// Classic matchups to start from; slugs that vanish from the catalog are
+// filtered out at render time.
+const PRESETS: [string, string][] = [
+  ['cursor', 'claude-code'],
+  ['github-copilot', 'cursor'],
+  ['midjourney', 'flux'],
+  ['elevenlabs', 'murf'],
+  ['perplexity', 'chatgpt'],
+];
+
 export default function CompareTable({ tools }: { tools: CompareTool[] }) {
   const bySlug = useMemo(() => new Map(tools.map((t) => [t.slug, t])), [tools]);
   const [slugs, setSlugs] = useState<string[]>([]);
@@ -139,11 +149,25 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
           </p>
         )}
         {selected.length < MIN_TOOLS && (
-          <p class="mt-3 text-sm text-ink-dim">
-            Pick {MIN_TOOLS}–{MAX_TOOLS} tools to put them side by side — or open{' '}
-            <span class="font-mono text-xs text-accent">/tools/compare?tools=cursor,aider</span>
-            .
-          </p>
+          <div class="mt-3">
+            <p class="text-sm text-ink-dim">
+              Pick {MIN_TOOLS}–{MAX_TOOLS} tools to put them side by side — or start from a classic
+              matchup:
+            </p>
+            <div class="mt-2 flex flex-wrap gap-2">
+              {PRESETS.filter(([a, b]) => bySlug.has(a) && bySlug.has(b)).map(([a, b]) => (
+                <button
+                  type="button"
+                  onClick={() => update([a, b])}
+                  class="nm-num rounded-sm border-[1.5px] border-ink px-2.5 py-1 text-[13px] font-bold text-ink transition-all duration-100 hover:-translate-y-0.5 hover:text-accent"
+                >
+                  {bySlug.get(a)!.name}
+                  <span class="mx-1.5 font-mono text-[10px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
+                  {bySlug.get(b)!.name}
+                </button>
+              ))}
+            </div>
+          </div>
         )}
       </div>
 

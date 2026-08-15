@@ -1,6 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+
+// Re-check queue: the least recently verified cards, whatever their absolute
+// age — a living list, not an empty staleness filter.
+const tools = await getCollection('tools');
+const queue = [...tools]
+  .sort((a, b) => a.data.last_verified.localeCompare(b.data.last_verified))
+  .slice(0, 6);
 
 const rules = [
   'Verdicts come from real use — ship, situational or skip must reflect something you actually built or ran, not marketing pages.',
@@ -61,6 +69,33 @@ const rules = [
     <h2 class="font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">Standing orders</h2>
     <ul class="mt-4 list-disc space-y-3 pl-5 marker:font-mono marker:text-verdict-skip">
       {rules.map((rule) => <li>{rule}</li>)}
+    </ul>
+  </section>
+
+  <section class="nm-card mt-10 max-w-3xl p-6 md:p-8">
+    <p class="font-mono text-xs font-medium tracking-[0.14em] text-accent uppercase">
+      adopt a page · re-check queue
+    </p>
+    <p class="mt-3 text-sm leading-relaxed text-ink opacity-80">
+      The least recently verified cards. Adopt one: open its file, re-check the price and the
+      verdict against the vendor's own pages, update <span class="font-mono text-xs text-ink-dim">last_verified</span>
+      and open a PR. Small, boring, exactly what keeps this catalog trustworthy.
+    </p>
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {
+        queue.map((t) => (
+          <li>
+            <a
+              href={`https://github.com/SaneSanders/noemium/edit/main/src/content/tools/${t.id}.yaml`}
+              class="nm-num inline-block rounded-sm border-[1.5px] border-ink px-2.5 py-1 text-[13px] font-bold transition-all duration-100 hover:-translate-y-0.5 hover:text-accent"
+              rel="noopener"
+            >
+              {t.data.name}
+              <span class="ml-2 font-mono text-[10px] font-normal tracking-wide text-ink-dim">{t.data.last_verified}</span>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </section>
 
