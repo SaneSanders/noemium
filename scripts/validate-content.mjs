@@ -4,8 +4,10 @@
  *
  * Validates every entry in src/content/{tools,stacks,models} against the
  * shared zod schemas in src/content-schemas.ts, plus repo policy checks:
- *   - affiliate policy: tracking params (?ref=, ?via=, ?aff=, utm_*) are
- *     forbidden on tools marked `affiliate: none`
+ *   - affiliate policy: referral patterns (?ref=, ?via=, ?aff=, utm_*,
+ *     /ref/, getrewardful, partnerstack, dub.co, firstpromoter) are forbidden
+ *     in `url` and `receipts` on ALL tools — referral links live only in
+ *     `affiliate_url` (schema enforces affiliate: declared pairing)
  *   - `last_verified` must not be in the future; >90 days old is a warning
  *   - file slugs must be kebab-case
  *   - cross-references: stacks.tools and tools.models_used must resolve
@@ -44,6 +46,7 @@ async function loadSchemas() {
 }
 
 const AFFILIATE_PARAMS = ['ref', 'via', 'aff'];
+const REFERRAL_SUBSTRINGS = ['/ref/', 'getrewardful', 'partnerstack', 'dub.co', 'firstpromoter'];
 const KEBAB_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const STALE_DAYS = 90;
 
@@ -91,12 +94,24 @@ function hasTrackingParams(rawUrl) {
   try {
     const u = new URL(rawUrl);
     for (const key of u.searchParams.keys()) {
-      if (AFFILIATE_PARAMS.includes(key) || key.startsWith('utm_')) return key;
+      if (AFFILIATE_PARAMS.includes(key) || key.startsWith('utm_')) return `?${key}=`;
     }
   } catch {
     // Non-absolute URLs are already rejected by the zod schema.
   }
   return null;
+}
+
+/**
+ * Referral/affiliate patterns must never appear in `url` or `receipts` —
+ * those stay clean and canonical. Referral links belong in `affiliate_url`.
+ * Returns the matched pattern or null.
+ */
+function findReferralPattern(rawUrl) {
+  const param = hasTrackingParams(rawUrl);
+  if (param) return param;
+  const lower = rawUrl.toLowerCase();
+  return REFERRAL_SUBSTRINGS.find((p) => lower.includes(p)) ?? null;
 }
 
 function checkDate(file, value) {
@@ -156,12 +171,12 @@ for (const { name, dir, exts, schema } of collections) {
     checked += 1;
     checkDate(rel, result.data.last_verified);
 
-    if (name === 'tools' && result.data.affiliate === 'none') {
+    if (name === 'tools') {
       const urls = [result.data.url, ...result.data.receipts];
       for (const u of urls) {
-        const param = hasTrackingParams(u);
-        if (param) {
-          fail(rel, `undeclared affiliate link: "${u}" contains tracking param "${param}" but affiliate is "none"`);
+        const pattern = findReferralPattern(u);
+        if (pattern) {
+          fail(rel, `referral pattern "${pattern}" in "${u}" — url/receipts must stay clean; referral links belong in affiliate_url`);
         }
       }
     }

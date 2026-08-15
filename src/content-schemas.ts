@@ -50,10 +50,28 @@ export const toolSchema = z.object({
   limitations: z.array(z.string()).min(1),
   receipts: z.array(httpsUrl).min(1),
   affiliate: z.enum(['none', 'declared']),
+  // Referral links live ONLY here — never in `url` or `receipts`.
+  affiliate_url: httpsUrl.optional(),
   momentum: z.enum(['blueshift', 'steady', 'redshift']),
   featured: z.boolean().default(false),
   last_verified: isoDate,
   observed_by: z.string().min(1),
+}).superRefine((tool, ctx) => {
+  // Cross-field: affiliate_url and affiliate: declared must come together.
+  if (tool.affiliate_url && tool.affiliate !== 'declared') {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['affiliate_url'],
+      message: 'affiliate_url requires affiliate: declared',
+    });
+  }
+  if (tool.affiliate === 'declared' && !tool.affiliate_url) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['affiliate'],
+      message: 'affiliate: declared requires affiliate_url',
+    });
+  }
 });
 
 export const stackSchema = z.object({

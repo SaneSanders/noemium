@@ -66,6 +66,21 @@ const jsonLd = {
       {t.affiliate === 'declared' && <span class="text-ink-dim">· affiliate link declared</span>}
       <span class="nm-verified">Verified {t.last_verified}</span>
     </p>
+    {
+      t.affiliate_url && (
+        <p class="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs">
+          <a
+            href={t.affiliate_url}
+            rel="sponsored nofollow"
+            class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard-sm"
+          >
+            Visit via our affiliate link
+            <span class="ml-1.5 text-[10px] tracking-[0.12em] text-ink-dim uppercase">affiliate link — declared</span>
+          </a>
+          <span class="text-[11px] text-ink-dim">declared — supports Noemium</span>
+        </p>
+      )
+    }
 
     <section class="nm-card mt-10 p-6 md:p-8">
       <p class="font-mono text-xs tracking-[0.14em] text-ink-dim uppercase">
