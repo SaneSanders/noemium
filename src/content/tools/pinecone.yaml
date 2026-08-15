@@ -10,10 +10,9 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  Operationally the smoothest managed vector DB, and the free tier covers
-  prototypes. But self-hosted Qdrant or pgvector now match it for most
-  workloads at a fraction of the cost — pay only if ops time is your
-  constraint.
+  The smoothest managed vector DB to operate, and the free tier covers
+  prototypes. But self-hosted Qdrant or pgvector now handle most workloads
+  for a fraction of the cost — pay only if ops time is your bottleneck.
 limitations:
   - Costs scale poorly versus self-hosted alternatives.
   - Proprietary; migrating away is a rewrite.

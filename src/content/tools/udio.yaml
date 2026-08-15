@@ -10,9 +10,11 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Audio fidelity edges out Suno on some genres, and the extend/remix workflow
-  suits musicians. But the roadmap wobbled after the label lawsuits and
-  settlements — check current status before committing.
+  Sounds a little better than Suno on some genres, and the extend/remix
+  workflow is built for musicians. But downloads have been disabled since
+  October 2025 because of label deals, the product direction is unclear,
+  and full-song structure is less consistent. Try it, but don't buy a
+  year up front.
 limitations:
   - Downloads disabled since 2025-10 (UMG/Warner licensing deals) — you can't export your tracks.
   - Product direction uncertain after lawsuit settlements.

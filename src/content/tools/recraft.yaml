@@ -10,9 +10,10 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  Earns its place for product and marketing design: vector (SVG) generation,
-  style consistency and brand palettes are things Midjourney simply does not
-  do. Not the pick for pure art.
+  Pick it for product and marketing design: vector SVG output, style
+  consistency and brand palettes are things Midjourney does not handle.
+  Skip it for photorealism or open-ended art; the credit math is also
+  annoying to budget.
 limitations:
   - Photorealism trails the category leaders.
   - Credit system is confusing to budget.

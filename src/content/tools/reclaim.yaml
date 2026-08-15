@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: ship
 verdict_text: >-
-  Quietly one of the most useful AI scheduling tools: habits, tasks and buffer
-  time auto-scheduled and reshuffled when meetings land. The free tier is
-  enough for many.
+  Focus time, habits and tasks slot themselves around your meetings, and the
+  free tier covers a lot. It is built around Google Calendar, so Outlook users
+  get a weaker experience.
 limitations:
   - Google-Calendar-centric; Outlook support historically weaker.
   - Can over-fill your calendar if misconfigured.

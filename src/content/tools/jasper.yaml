@@ -10,9 +10,9 @@ api: true
 self_host: false
 verdict: skip
 verdict_text: >-
-  The original GPT wrapper, now squeezed between ChatGPT and Claude at $20
-  and free built-ins everywhere. Brand-voice features are nice, but not
-  $39+/mo nice when the raw models do 90% of it.
+  The original GPT wrapper, now squeezed between ChatGPT and Claude at
+  $20 and free AI built into every app. Brand-voice features are nice,
+  but not $39+/mo nice when the raw models handle most of it.
 limitations:
   - Core value is a wrapper over models you can access directly.
   - Expensive per seat for what it delivers.

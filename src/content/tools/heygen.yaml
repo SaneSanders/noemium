@@ -10,9 +10,9 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  The clear leader for avatar and presenter video: training content, product
-  explainers, multilingual dubs. If you need a talking head at scale nothing
-  else is close; if you don't, it is useless.
+  The obvious pick for avatar and presenter video — training content,
+  explainers, multilingual dubs. If you need talking heads at scale, nothing
+  else is close. If you don't, it's basically useless.
 limitations:
   - Avatars still read as synthetic on close inspection.
   - Credit-based pricing (up to 20 credits/min on newer avatars) adds up fast.

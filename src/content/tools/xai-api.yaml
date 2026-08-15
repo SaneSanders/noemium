@@ -12,9 +12,9 @@ models_used:
   - grok-4-6
 verdict: situational
 verdict_text: >-
-  Grok 4 benchmarks competitively and the API is straightforward. But the
-  ecosystem is young, and brand adjacency to X is a real procurement
-  conversation in some companies.
+  Grok 4 keeps up on benchmarks and the API is straightforward. The ecosystem
+  is young, though, and the X association is a real procurement risk for some
+  teams. Pricing isn't disruptive compared with Claude or GPT.
 limitations:
   - "Young platform: fewer SDKs, tools and battle-testing."
   - Pricing is not disruptive versus Claude or GPT.

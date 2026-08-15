@@ -12,9 +12,11 @@ models_used:
   - eleven-v3
 verdict: ship
 verdict_text: >-
-  The voice quality bar everyone else is measured against, with an API solid
-  enough to build products on. Voice cloning and multilingual dubbing just
-  work.
+  Still the reference for AI voice quality, and the API is solid enough to
+  build real products on. Voice cloning and multilingual dubbing mostly
+  just work. The credit system is confusing, the best models burn through
+  credits fast, and Creator doubled in price in 2026. Worth it if you need
+  the best voice, but budget carefully.
 limitations:
   - Credit-based pricing makes budgeting confusing.
   - Best voices and models burn credits fast.

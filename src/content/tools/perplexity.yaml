@@ -14,9 +14,9 @@ models_used:
   - gemini-3-1-pro-preview
 verdict: ship
 verdict_text: >-
-  Replaced Google for a real share of practitioner queries: cited answers,
-  follow-up context and model choice on Pro. The receipt-links culture makes
-  it the on-brand search tool.
+  Replaced Google for a real share of day-to-day queries: cited answers,
+  follow-up context, and model choice on Pro. The receipt-link habit fits the
+  catalog mindset.
 limitations:
   - Citations occasionally point at sources that do not support the claim.
   - Complex queries eat through Pro search limits.

@@ -10,9 +10,10 @@ api: true
 self_host: false
 verdict: ship
 verdict_text: >-
-  Infrastructure you already depend on whether you know it or not: model
-  weights, datasets, the transformers library, Spaces demos. The default
-  distribution channel for open AI.
+  The default plumbing for open models — weights, datasets, the transformers
+  library, Spaces demos. You probably depend on it already even if you never
+  opened huggingface.co directly. The Hub has hiccups, and sorting good models
+  from noise is still work.
 limitations:
   - Hub reliability incidents affect the whole ecosystem.
   - Inference Endpoints pricing not always competitive.

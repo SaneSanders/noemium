@@ -12,9 +12,11 @@ models_used:
   - whisper-v3
 verdict: ship
 verdict_text: >-
-  The reason paid transcription became a niche: large-v3 accuracy is
-  production-grade across dozens of languages and it runs on a laptop. Every
-  transcription pipeline starts here.
+  The main reason paid transcription is optional now. large-v3 is accurate
+  across dozens of languages and runs on a laptop. It still hallucinates
+  on silence and noisy segments, doesn't do speaker diarization out of
+  the box, and needs a decent GPU for real-time. Use it as the baseline
+  for any transcription pipeline — hosted or self-hosted.
 limitations:
   - Hallucinates text on silence and noisy segments.
   - No built-in speaker diarization (pair with pyannote).

@@ -12,9 +12,9 @@ models_used:
   - veo-3-1-generate
 verdict: ship
 verdict_text: >-
-  The quality benchmark right now: physics, lip-sync and native sound are a
-  generation ahead. Expensive per second, so use it for final shots, not for
-  iteration.
+  The current quality leader. Physics, lip-sync and native audio are ahead
+  of the pack right now. Per-second pricing is steep, so use it for final
+  shots and short deliverables, not for rapid iteration.
 limitations:
   - Per-second API pricing is steep for experimentation.
   - Access tiers and quotas across Gemini/Flow/Vertex are confusing.

@@ -14,9 +14,10 @@ models_used:
   - claude-sonnet-5
 verdict: ship
 verdict_text: >-
-  The default AI editor for a reason: agent mode plus tab completions
-  measurably speed up daily work. Model routing is opaque, but output quality
-  on Sonnet-class models is consistently strong.
+  Still the default AI editor, and for a reason: agent mode and tab
+  completions genuinely save hours. The model routing is a black box — you
+  never quite know what you're talking to — but on Sonnet-class models the
+  output is consistently good.
 limitations:
   - Pro plan token limits throttle heavy agent sessions mid-month.
   - Closed source; no way to self-host or audit data handling.

@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Genuinely faster email if you live in your inbox — the speed and keyboard
-  flow are real and AI drafting is decent. At $30/mo with Gmail adding free AI,
-  it is a luxury, not a need.
+  Fast email if you are keyboard-driven and live in Gmail. The drafting is
+  fine, but at $25–30/mo it is a luxury now that Gmail and others ship free
+  AI. Try it for the speed, not because you need AI mail.
 limitations:
   - Expensive while free alternatives catch up.
   - Calendar features thinner than dedicated tools.

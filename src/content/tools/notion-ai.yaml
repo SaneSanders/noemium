@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Worth it if your company already lives in Notion: Q&A across your own
-  workspace docs is the killer feature. Standalone writing quality does not
-  beat Claude at the same price.
+  Makes sense only if your team already lives in Notion. Searching across
+  your own workspace docs is the real feature; the writing assistant
+  itself is fine, not special. Don't buy Notion just for the AI.
 limitations:
   - Only makes sense if you already pay for Notion.
   - Per-seat pricing stacks on top of the base plan.

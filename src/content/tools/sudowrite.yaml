@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  The only writing tool built by and for fiction writers: Story Engine,
-  character bibles and scene expansion fit novel workflows. Non-fiction writers
-  should look elsewhere.
+  The only writing tool built by and for fiction writers. Story Engine,
+  character bibles and scene expansion match how novels actually get
+  written. Don't bother if you don't write fiction.
 limitations:
   - Niche by design — useless for business writing.
   - Credit system is confusing.

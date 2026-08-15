@@ -10,9 +10,11 @@ api: true
 self_host: false
 verdict: ship
 verdict_text: >-
-  The workhorse STT API: real-time streaming, solid accuracy and pricing that
-  undercuts most rivals at volume. If self-hosted Whisper's latency does not
-  fit, this is the default.
+  A solid workhorse STT API: real-time streaming, decent accuracy, and
+  cheaper than most rivals at volume. If self-hosting Whisper adds too
+  much latency, this is the obvious fallback. Accuracy drops on heavy
+  accents and noisy audio, and diarization needs per-case tuning. It's
+  another vendor in your stack, but it does the job.
 limitations:
   - Accuracy on heavy accents and noise below a well-tuned Whisper setup.
   - Diarization and formatting need tuning per use case.

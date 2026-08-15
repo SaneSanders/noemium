@@ -10,9 +10,10 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Powerful when your work is deadline-driven tasks — the auto-scheduling
-  genuinely reprioritizes your day. But it is opinionated, pricey, and teams
-  report a steep setup tax before it pays off.
+  Auto-scheduling works when your work is a pile of deadline-driven tasks.
+  It is opinionated, the setup takes time, and the price adds up fast. Try it
+  if your calendar is the problem; skip it if you just want a simple to-do
+  list.
 limitations:
   - Expensive for a personal productivity tool.
   - Requires aggressive onboarding to get value.

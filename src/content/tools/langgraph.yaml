@@ -10,9 +10,10 @@ api: true
 self_host: true
 verdict: ship
 verdict_text: >-
-  When agents go to production, graphs beat loops: explicit state,
-  human-in-the-loop breakpoints and replay make LangGraph the serious choice.
-  Steeper learning curve, worth it.
+  Production agents need explicit state, human checkpoints, and replay —
+  LangGraph delivers all three. The learning curve is real, mostly because
+  LangChain leaks through the abstractions. Overkill for a simple single-agent
+  script; hard to beat once a workflow has to stay observable.
 limitations:
   - Learning curve is real; LangChain abstractions leak through.
   - Docs sprawl across the whole LangChain ecosystem.

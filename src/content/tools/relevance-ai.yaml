@@ -10,9 +10,10 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  Real value for ops and sales teams automating research and outreach without
-  engineers. Engineering-led teams will outgrow the abstraction and prefer
-  CrewAI or LangGraph.
+  Useful when ops or sales needs research and outreach agents without calling a
+  developer. Engineers hit the abstraction ceiling fast and will want something
+  like CrewAI or LangGraph. Pricing also jumps quickly once the free tier is
+  gone.
 limitations:
   - Pricing jumps steeply past the free tier.
   - Black-box agent runs are hard to debug.

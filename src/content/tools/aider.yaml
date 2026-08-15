@@ -10,9 +10,10 @@ api: true
 self_host: true
 verdict: ship
 verdict_text: >-
-  The purist's agent: no IDE lock-in, automatic commits, and it works with
-  almost any model including local ones. If you live in a terminal, this plus a
-  good model beats most paid IDEs.
+  The terminal purist's agent. No IDE lock-in, automatic commits, and it
+  works with almost any model — local ones and the cheap Chinese flagships
+  included. Wire up a good model and this beats most paid IDEs for a fraction
+  of the cost.
 limitations:
   - Terminal-only UI; no inline diff experience.
   - Output quality depends entirely on the model you wire up.

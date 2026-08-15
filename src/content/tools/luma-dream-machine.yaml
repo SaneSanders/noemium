@@ -10,9 +10,10 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  Great for storyboard-speed iteration: keyframe control and fast generation
-  make it the sketchpad of AI video. Final-render quality sits below the top
-  tier.
+  Use it for fast storyboard iteration. Keyframe control and quick
+  generation make it a useful sketchpad, not a final renderer. Realism and
+  motion sit below Veo, Runway and Kling, and the paid lineup still straddles
+  legacy Dream Machine and Luma Agents since 2026-03.
 limitations:
   - Realism and fine motion below Veo and Runway.
   - Limited clip duration per generation.

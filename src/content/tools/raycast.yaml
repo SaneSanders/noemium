@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: ship
 verdict_text: >-
-  The highest-ROI subscription on this list if you are on macOS: AI one
-  keystroke away in any context, plus clipboard, snippets and window management
-  you would want anyway.
+  If you are on macOS, this is hard to beat: AI, clipboard history, snippets
+  and window management in one keystroke. The free tier is generous; the AI
+  quality depends on what you pay for.
 limitations:
   - macOS-only (Windows version still catching up).
   - AI model quality depends on your plan tier.

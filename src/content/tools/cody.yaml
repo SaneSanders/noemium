@@ -10,9 +10,10 @@ api: false
 self_host: false
 verdict: skip
 verdict_text: >-
-  Code-search-aware context was a real edge, but Sourcegraph's attention moved
-  to Amp and Cody's release cadence shows it. New adopters should pick a tool
-  that is clearly its maker's priority.
+  Code-search context was a real edge once. Then Sourcegraph's attention
+  moved to Amp, self-serve plans got killed, and Cody's release cadence shows
+  where it sits in the priority list. Pick a tool its maker actually cares
+  about.
 limitations:
   - Self-serve Free/Pro discontinued; individuals are pointed to Amp instead.
   - Development focus shifted to Amp; Cody feels maintenance-mode.

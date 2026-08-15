@@ -13,9 +13,10 @@ models_used:
   - deepseek-v4-pro
 verdict: situational
 verdict_text: >-
-  Unbeatable price-performance for reasoning workloads — R1-class output at a
-  tenth of frontier prices. But it is hosted in China: many companies simply
-  cannot send data there.
+  The best price-performance around for reasoning workloads — R1-class output
+  at a fraction of frontier cost. The catch is China hosting: plenty of
+  companies simply can't send data there. When compliance allows, it's a
+  no-brainer.
 limitations:
   - Data residency is a compliance blocker for many orgs.
   - API capacity and reliability have wobbled under demand.

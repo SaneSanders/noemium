@@ -14,9 +14,11 @@ models_used:
   - claude-haiku-4-5
 verdict: ship
 verdict_text: >-
-  The strongest agentic coding tool when you give it real scope: multi-file
-  refactors, test runs and git workflows hold up. Lives in the terminal, so it
-  composes with any editor instead of replacing it.
+  Strong agentic coding, nobody argues with that — multi-file refactors,
+  test runs and git workflows hold up. But the API bill on a big repo climbs
+  fast, and it rewrites code with a confidence it hasn't always earned. The
+  Chinese tools (Kimi, Qwen Code) are catching up at a fraction of the price,
+  and that's where things are heading.
 limitations:
   - API-billed sessions on large repos escalate in cost fast.
   - Confidently makes sweeping changes; big diffs need human review.

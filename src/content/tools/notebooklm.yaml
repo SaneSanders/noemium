@@ -12,9 +12,9 @@ models_used:
   - gemini-3-1-pro-preview
 verdict: ship
 verdict_text: >-
-  The most trustworthy consumer RAG: answers stay glued to your uploaded
-  sources with citations, and audio overviews are a legitimately new way to
-  digest material. Free tier is generous.
+  The most reliable consumer RAG for grounded reading: answers stick to your
+  uploaded sources and cite them, and the audio overviews are genuinely
+  useful for digesting material. The free tier is generous.
 limitations:
   - Source count limits per notebook.
   - No API, so no automation.

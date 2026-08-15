@@ -15,9 +15,10 @@ models_used:
   - gpt-5-6-luna
 verdict: ship
 verdict_text: >-
-  The most batteries-included agent API: hosted web search, file search and
-  code interpreter without wiring infra. The Assistants API is deprecated in
-  its favor — build here.
+  Hosted web search, file search, and code interpreter without building
+  plumbing — the most batteries-included agent API. Conversation state lives on
+  OpenAI's side, which keeps things simple until it doesn't. A sensible default
+  if you want an agent running today instead of wiring your own graph.
 limitations:
   - Hosted-tool pricing (storage, search calls) sneaks up on you.
   - Conversation state lives on OpenAI's side.

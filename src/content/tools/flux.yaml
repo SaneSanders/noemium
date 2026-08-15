@@ -12,9 +12,9 @@ models_used:
   - flux-2-pro
 verdict: ship
 verdict_text: >-
-  The best open-weights image models you can actually run: prompt adherence
-  and typography beat SDXL by a mile, and the API is priced sanely. Default
-  choice when you need self-hosting or fine-tunes.
+  The strongest open-weights image model you can self-host: prompt
+  adherence and text rendering are clearly ahead of SDXL, and the API is
+  cheap. First choice if you need weights, fine-tunes, or privacy.
 limitations:
   - FLUX.1 [dev] weights carry a non-commercial license for production use.
   - The top pro tier is API-only, no weights.

@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: skip
 verdict_text: >-
-  The demo-reel agent: impressive on curated tasks, flaky on yours.
-  Long-horizon reliability is not there, and credits vanish on failed runs.
-  Revisit when autonomy actually works.
+  Impressive demo reel, flaky day-to-day. Long-horizon tasks still fall apart,
+  and failed runs burn credits anyway. Wait until autonomous execution is
+  actually reliable.
 limitations:
   - High failure rate on unscripted, real-world tasks.
   - Credits are consumed even on failed attempts.

@@ -10,9 +10,10 @@ api: true
 self_host: true
 verdict: ship
 verdict_text: >-
-  The default glue for AI features in TypeScript apps: one interface across
-  OpenAI, Anthropic and Google, streaming primitives, and React hooks that just
-  work. Saves real weeks.
+  The standard glue for AI features in TypeScript apps. One interface across
+  OpenAI, Anthropic, Google and many others, plus streaming primitives and
+  React hooks that behave sensibly. The abstraction leaks when you need
+  provider-specific features, and the docs churn with each release.
 limitations:
   - The abstraction leaks on advanced provider-specific features.
   - Docs and examples churn with fast releases.

@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  A genuine time-saver for literature reviews: paper tables with extracted
-  methods and results beat skimming 40 PDFs. Only worth paying for if academic
-  literature is your actual input.
+  Saves real time on literature reviews: it pulls methods and results into
+  tables so you do not have to skim dozens of PDFs. Pay for it only if
+  academic papers are a real input to your work.
 limitations:
   - Coverage limited to indexed papers; misses preprints and paywalled work.
   - Extractions need manual verification.

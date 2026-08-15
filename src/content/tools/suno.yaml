@@ -10,8 +10,11 @@ api: false
 self_host: false
 verdict: ship
 verdict_text: >-
-  Absurdly good at what it does: full songs with believable vocals in a
-  minute. For demos, content backgrounds and prototyping it is the fast default.
+  Type a prompt, get a full song with vocals in about a minute. Suno is
+  the fastest way to mock up demos, background tracks or rough ideas. The
+  legal situation around training data is still messy, commercial use
+  needs a paid tier, and arrangement control is shallow. If you're just
+  prototyping, it's the obvious choice.
 limitations:
   - Training-data lawsuits keep a legal cloud over commercial use.
   - Commercial rights require a paid tier.

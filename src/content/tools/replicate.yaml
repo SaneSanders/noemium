@@ -10,9 +10,10 @@ api: true
 self_host: false
 verdict: ship
 verdict_text: >-
-  The fastest way to ship a model you do not want to host: thousands of
-  community models behind one API with per-second billing. Perfect for
-  prototyping and spiky workloads.
+  A quick way to run models you don't want to host yourself — thousands of
+  community models behind one API, billed per second. Good for prototypes and
+  workloads that spike. Steady-state use gets expensive, and quality varies
+  because it's community-published.
 limitations:
   - Per-second pricing gets expensive at steady volume.
   - Cold starts on less-popular models.

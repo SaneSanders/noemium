@@ -19,9 +19,10 @@ models_used:
   - grok-4-6
 verdict: ship
 verdict_text: >-
-  The single most useful piece of AI infra for small teams: swap models by
-  changing a string, compare costs on one bill, get automatic fallbacks. The
-  model-agnostic insurance policy.
+  Small teams get a lot of mileage out of this. Change one string to swap
+  models, see all costs on one bill, get fallbacks when a provider flakes. You
+  pay a small markup for the convenience, but it saves you from wiring a dozen
+  APIs yourself.
 limitations:
   - Small markup over direct API pricing.
   - Adds a network hop and latency.

@@ -14,9 +14,10 @@ models_used:
   - claude-haiku-4-5
 verdict: ship
 verdict_text: >-
-  If your product is code or long-form text, Claude's API is where
-  quality-per-dollar peaks right now. Prompt caching and the batch API make
-  heavy workloads economical.
+  Hard to beat for code and long-form text — prompt caching and batch
+  pricing make heavy workloads cheaper than they look. Quality is still
+  top-tier. But the author of this catalog is moving more workloads to
+  Kimi, Qwen and GLM; the price gap is getting hard to justify.
 limitations:
   - Capacity crunches at peak demand have caused 429s.
   - Fewer auxiliary tools than OpenAI's ecosystem.

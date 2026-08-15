@@ -10,9 +10,10 @@ api: true
 self_host: false
 verdict: ship
 verdict_text: >-
-  The price-performance pick in AI video: motion realism and prompt adherence
-  rival Runway at a fraction of the cost, and free daily credits make
-  experimentation cheap.
+  The best price-performance pick in AI video right now. Motion and prompt
+  adherence rival Runway for a fraction of the cost, and free daily credits
+  keep experimentation cheap. It's a Chinese service, so expect strict
+  moderation, occasional queues, and possible compliance pushback.
 limitations:
   - Content moderation is strict and occasionally arbitrary.
   - Generation queues stretch on lower tiers.

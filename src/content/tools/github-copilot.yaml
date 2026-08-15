@@ -13,9 +13,10 @@ models_used:
   - claude-sonnet-5
 verdict: ship
 verdict_text: >-
-  The path of least resistance if your team already lives on GitHub:
-  completions are fast, PR integration is real, and the free tier is genuinely
-  usable. Not the best agent, but the most frictionless.
+  The zero-friction option if your team already lives on GitHub. Fast
+  completions, real PR integration, a free tier that's actually usable. The
+  agent mode is a step behind Cursor and Claude Code — but nobody has to
+  change a single habit.
 limitations:
   - Agent mode still lags Cursor and Claude Code on multi-step tasks.
   - Output quality varies noticeably between the models in its picker.

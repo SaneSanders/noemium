@@ -13,9 +13,10 @@ models_used:
   - gemini-3-7-flash
 verdict: ship
 verdict_text: >-
-  The best free tier in the API game, and the paid tier undercuts rivals for
-  long-context and multimodal work. Million-token context handles document
-  workflows others cannot touch at this price.
+  Gemini has the most useful free API tier going, and paid plans undercut
+  rivals for long-context and multimodal work. Million-token context makes
+  document workflows cheap here that get expensive elsewhere. Watch the
+  fast-moving model names and the 2027-01 promo expiry.
 limitations:
   - Free-tier prompts may be used for training — read the terms.
   - Safety filters occasionally over-trigger.

@@ -10,9 +10,10 @@ api: true
 self_host: false
 verdict: ship
 verdict_text: >-
-  The most complete AI video workflow: Gen-4 quality is competitive, and the
-  editing tools (inpainting, motion brush, green screen) mean you finish work
-  here, not just generate clips.
+  Still the most complete AI video workflow. Gen-4 quality is competitive,
+  and the editing tools — inpainting, motion brush, green screen — let you
+  finish a shot instead of just generating a clip. Credit math gets painful
+  if you iterate heavily, and the best quality modes sit behind pricier tiers.
 limitations:
   - Credit math gets expensive for iteration-heavy projects.
   - Best quality modes sit behind pricier tiers.

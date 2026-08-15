@@ -10,9 +10,9 @@ api: true
 self_host: true
 verdict: situational
 verdict_text: >-
-  The ecosystem is the product: ControlNet, LoRAs, ComfyUI and thousands of
-  community checkpoints. Base SDXL/SD3 quality is behind FLUX now, but nothing
-  matches the community tooling and tutorials.
+  The value is the ecosystem — ControlNet, LoRAs, ComfyUI, thousands of
+  community checkpoints. Base SDXL/SD3 quality lags behind FLUX now, but
+  for custom pipelines and tutorials it still has the deepest bench.
 limitations:
   - Base models aging against FLUX and newer rivals.
   - Company turbulence eroded trust in the roadmap.

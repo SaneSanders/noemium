@@ -10,9 +10,10 @@ api: false
 self_host: false
 verdict: ship
 verdict_text: >-
-  The meeting-notes tool practitioners actually evangelize: no awkward bot
-  joining calls, and your rough notes get enhanced with transcript detail.
-  Feels like magic on day one.
+  A notepad that listens and fills in the gaps — no bot in the call, just
+  your rough notes enhanced with transcript detail. Apple-only for now, and
+  the team features are still young, but it solves the meeting-notes problem
+  better than the bot-in-call crowd.
 limitations:
   - Apple-platform-centric; Windows users wait.
   - System-audio capture has setup quirks on some machines.

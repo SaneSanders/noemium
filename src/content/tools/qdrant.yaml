@@ -10,8 +10,8 @@ api: true
 self_host: true
 verdict: ship
 verdict_text: >-
-  The pragmatic vector DB pick: single binary, low resource footprint,
-  predictable performance and a genuinely usable free cloud tier. Most RAG
+  The pragmatic vector DB pick: single binary, low footprint, predictable
+  performance, and a free cloud tier that is actually usable. Most RAG
   prototypes should start here.
 limitations:
   - Fewer built-in retrieval features than Weaviate; bring your own reranking.

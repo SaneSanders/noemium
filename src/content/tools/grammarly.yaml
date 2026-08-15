@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Still the smoothest inline correction across every app, and the free tier
-  covers most people. But generative models ate its rewrite features — Premium
-  is hard to justify if you already pay for ChatGPT or Claude.
+  Still the best at catching typos and smoothing tone inside every app.
+  The free tier covers most people. Premium rewrite features are harder
+  to justify now that ChatGPT and Claude do the same job.
 limitations:
   - Suggestions can flatten personal voice into corporate beige.
   - Premium overlaps with what free LLM chats now do.

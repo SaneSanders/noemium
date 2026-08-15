@@ -12,9 +12,9 @@ models_used:
   - mistral-large-2512
 verdict: situational
 verdict_text: >-
-  The pick when EU data residency or open weights are hard requirements, and
-  the small Mistral models are excellent value. For pure frontier quality,
-  Claude and GPT still lead.
+  The pick when EU data residency or open weights are non-negotiable. The
+  small models are excellent value. For raw frontier quality, Claude and GPT
+  still lead, and the product naming keeps changing.
 limitations:
   - Frontier quality a half-step behind OpenAI/Anthropic.
   - Thinner ecosystem and docs.

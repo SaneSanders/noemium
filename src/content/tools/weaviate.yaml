@@ -10,9 +10,9 @@ api: true
 self_host: true
 verdict: ship
 verdict_text: >-
-  Feature-richest open vector DB: hybrid BM25+vector search, multi-tenancy and
-  solid clients. Self-hosts cleanly; the managed cloud is optional, not a toll
-  booth.
+  The most feature-complete open vector DB: hybrid BM25+vector search,
+  multi-tenancy, and solid clients. Self-hosts cleanly, and the managed cloud
+  is optional rather than a trap.
 limitations:
   - Memory-hungry at scale.
   - Operational complexity grows with sharding.

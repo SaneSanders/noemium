@@ -10,9 +10,9 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  Reliable meeting notes with good search across history — the safe
-  enterprise pick. Newer AI-native rivals feel smarter; Otter feels like
-  transcription with AI bolted on.
+  Solid transcription and decent search across meeting history — the safe
+  pick for teams that already use it. Newer rivals write smarter summaries;
+  Otter still feels like transcription with AI layered on top.
 limitations:
   - Accuracy dips with crosstalk and accents.
   - Bot-in-meeting creates friction with external guests.

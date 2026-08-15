@@ -10,8 +10,9 @@ api: true
 self_host: true
 verdict: ship
 verdict_text: >-
-  The fastest way to get a multi-agent prototype running: the role/task/process
-  mental model maps well onto real workflows, and examples are plentiful.
+  Roles, tasks, and processes map cleanly onto real teams, and the examples get
+  a prototype running fast. Good for demos and early workflows. Production means
+  debugging delegation chains and watching token costs climb.
 limitations:
   - Multi-agent loops burn tokens fast.
   - Debugging delegation chains between agents is painful.

@@ -12,9 +12,10 @@ models_used:
   - claude-sonnet-5
 verdict: situational
 verdict_text: >-
-  The fastest editor you will ever use, and the agent panel is honest
-  engineering, not a skin. Best if you want open source plus bring-your-own-key;
-  still rougher than Cursor for heavy agent sessions.
+  Probably the fastest editor around, and the agent panel is honest
+  engineering, not a skin. Bring your own key, point it at any provider —
+  including the cheap Chinese ones — and it gets interesting. Still rougher
+  than Cursor for heavy agent sessions.
 limitations:
   - Plugin ecosystem far smaller than any VS Code fork.
   - Hosted AI features moved behind accounts and paid tiers over time.

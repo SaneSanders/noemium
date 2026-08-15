@@ -10,9 +10,10 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Best in class for social-native effects and quick meme or short-form
-  content — the Pikaffects gimmicks genuinely drive engagement. Not a serious
-  tool for cinematic work.
+  Best for social-native effects and quick meme or short-form content. The
+  Pikaffects gimmicks work for engagement. For cinematic or realistic
+  footage it lags Runway, Kling and Veo, and lower tiers carry watermarks
+  and resolution limits.
 limitations:
   - Realism below Runway, Kling and Veo for live-action-style footage.
   - Short clip lengths per generation.

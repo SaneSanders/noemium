@@ -10,9 +10,9 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  A solid all-in-one for game assets and marketing teams who want fine-tuned
-  styles without running their own GPU. Quality is good-not-great; you are
-  paying for the suite, not the model.
+  A practical all-in-one for game assets and marketing teams that want
+  fine-tuned styles without managing GPUs. Quality is decent, not class-
+  leading; you are mostly paying for the workflow and canvas tools.
 limitations:
   - Raw model quality a notch below Midjourney and FLUX.
   - Token math across features is opaque.

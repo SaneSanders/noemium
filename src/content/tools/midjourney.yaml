@@ -10,9 +10,10 @@ api: false
 self_host: false
 verdict: ship
 verdict_text: >-
-  Still the highest default aesthetic ceiling of any image model — light,
-  texture and art direction come out right more often than rivals. The web app
-  finally made it usable for non-Discord people.
+  Still the easiest route to visually striking images — light, texture and
+  composition usually land on the first try. The web app fixed the Discord
+  friction. No free tier, no real API, and images stay public unless you pay
+  for stealth.
 limitations:
   - No free tier at all.
   - No public API; automation requires unofficial workarounds.

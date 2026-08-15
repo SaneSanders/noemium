@@ -15,8 +15,8 @@ models_used:
   - gpt-5-6-luna
 verdict: ship
 verdict_text: >-
-  Still the best default assistant: frontier reasoning, search, code execution
-  and image tools in one place. The free tier alone outperforms many paid
+  Still the safest default assistant. Reasoning, search, code execution
+  and image tools in one place, and the free tier beats many paid
   rivals.
 limitations:
   - Usage caps on Plus frustrate heavy users mid-task.

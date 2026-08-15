@@ -13,9 +13,9 @@ models_used:
   - qwen3-8-max
 verdict: situational
 verdict_text: >-
-  Genuinely fast, and the compound-AI tooling (function calling, multi-modal)
-  is well done. But it competes with Together and Groq on the same models —
-  pick whoever serves your model cheapest this quarter.
+  Fast inference, and the tooling around it — function calling, multimodal —
+  is solid. The catch is you're shopping the same open models across Fireworks,
+  Together and Groq. Price-check them each quarter and pick whoever's cheaper.
 limitations:
   - Differentiation vs Together/Groq unclear for standard inference.
   - Enterprise pricing opaque.

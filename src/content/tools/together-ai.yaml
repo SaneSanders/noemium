@@ -14,9 +14,10 @@ models_used:
   - deepseek-v4-flash
 verdict: ship
 verdict_text: >-
-  The reliable workhorse for open-model serving: broad catalog, solid uptime,
-  both serverless and dedicated endpoints. Where most open-weight prototypes go
-  to production.
+  Solid uptime, broad catalog, serverless or dedicated endpoints. A safe place
+  to move an open-weight prototype into production. Costs at scale push you
+  toward dedicated GPUs, and the newest models sometimes land later than on
+  specialist hosts.
 limitations:
   - Costs at scale push you toward dedicated GPU contracts.
   - Newest models sometimes arrive later than at specialists.

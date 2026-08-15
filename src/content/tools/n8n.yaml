@@ -10,9 +10,10 @@ api: true
 self_host: true
 verdict: ship
 verdict_text: >-
-  The sweet spot between no-code and code: visual workflows with real AI agent
-  nodes, self-hostable so your data stays yours. Replaces a scary amount of
-  Zapier plus custom glue code.
+  Visual workflows with real AI agent nodes, plus you can self-host. That's a
+  rare mix of approachable and controllable. Fair-code, not fully open source,
+  and big workflows get messy to debug. Still the strongest Zapier alternative
+  once AI steps enter the picture.
 limitations:
   - Fair-code license, not true open source for resale.
   - Error handling in big workflows gets messy.

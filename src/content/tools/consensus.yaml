@@ -10,9 +10,10 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  The "what does the research actually say" tool: the consensus meter and
-  study-quality indicators are honest epistemics. Narrower than Elicit — it
-  answers questions, it does not manage a review.
+  Useful when you need a quick read on what the research actually says: the
+  consensus meter and study-quality flags keep the answer grounded. It is
+  narrower than Elicit — it answers questions, it does not run a full
+  literature review.
 limitations:
   - Only as good as its paper index.
   - Summaries flatten nuance and caveats.

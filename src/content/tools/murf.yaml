@@ -10,9 +10,11 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  Fits corporate e-learning and slide-deck voiceovers where consistency and
-  team licensing matter more than having the most lifelike voices. For APIs or
-  consumer-grade cloning, ElevenLabs wins.
+  A safe pick for corporate training and slide voiceovers where consistency
+  and team licenses matter more than sounding truly human. APIs and
+  consumer cloning are not its strength — ElevenLabs is the better fit
+  there. Good enough for e-learning, just don't expect a warm, natural
+  voice.
 limitations:
   - Voices sound more corporate-synthetic than the leaders.
   - Limited voice-cloning flexibility.

@@ -14,9 +14,10 @@ models_used:
   - claude-haiku-4-5
 verdict: ship
 verdict_text: >-
-  The strongest prose quality and long-document work of any chat assistant,
-  and Projects/Artifacts fit real workflows. Many practitioners draft here even
-  while paying for ChatGPT too.
+  The cleanest prose and the best long-document workflow of any chat
+  assistant; Projects and Artifacts fit real work. The author of this
+  catalog is moving toward cheaper Chinese options like Kimi, Qwen and
+  GLM, but Claude still sets the bar for prose quality.
 limitations:
   - Message caps on Pro hit fast with large context.
   - No image generation.

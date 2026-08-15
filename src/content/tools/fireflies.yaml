@@ -10,9 +10,9 @@ api: true
 self_host: false
 verdict: skip
 verdict_text: >-
-  The feature list is long, but the bot-spam experience burns social capital
-  with clients, and the summaries are interchangeable with cheaper rivals.
-  Bot-free alternatives like Granola are the better answer now.
+  Lots of features on paper, but the bot still joins your calls and the
+  summaries are no better than cheaper options. For most people, a bot-free
+  tool like Granola is the cleaner choice.
 limitations:
   - Bot visibly joins calls — awkward with external meetings.
   - Transcription accuracy is average.

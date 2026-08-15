@@ -15,9 +15,10 @@ models_used:
   - gpt-5-6-luna
 verdict: ship
 verdict_text: >-
-  The safe default for production: a broad model ladder from nano to frontier
-  and the most complete tooling (batch, structured outputs, agents). Rarely the
-  cheapest, rarely the wrong choice.
+  The safe default for production: a model for every tier from nano to
+  frontier, plus the most complete tooling — batch, structured outputs,
+  agents. Rarely the cheapest, rarely the wrong choice. Just expect model
+  names to shift on you.
 limitations:
   - Premium pricing at the frontier tier.
   - Model deprecations move fast.

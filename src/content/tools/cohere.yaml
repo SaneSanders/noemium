@@ -10,9 +10,9 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  Rerank is the quietly essential product — it improves any RAG pipeline
-  regardless of your LLM. The Command chat models are solid but not the reason
-  to come.
+  Rerank is the real product — it quietly improves almost any RAG pipeline,
+  no matter which LLM you use. Command is fine, but it isn't why you sign up.
+  Enterprise sales and confusing pricing don't help.
 limitations:
   - Chat models trail frontier quality.
   - Enterprise-sales motion makes self-serve feel second-class.

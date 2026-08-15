@@ -14,9 +14,10 @@ models_used:
   - deepseek-v4-pro
 verdict: ship
 verdict_text: >-
-  Speed that is a feature, not a benchmark: sub-second responses change what
-  UX you can build — voice agents, autocomplete, real-time tools. The free tier
-  is generous enough to build on.
+  Sub-second responses really do change what you can build — voice agents,
+  autocomplete, anything real-time. The free tier is big enough to prototype
+  on. Just remember the model catalog is limited to what fits their own
+  hardware.
 limitations:
   - Model catalog limited to what fits their hardware.
   - Context windows capped below the biggest hosted rivals.

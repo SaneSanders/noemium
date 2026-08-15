@@ -10,9 +10,9 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  The best AI writing environment if long-form drafting is your job: inline
-  prompts, version history, no bloat. Overkill if you just need occasional
-  paragraph help.
+  A clean, focused long-form writing app. Inline prompts and version
+  history help if drafting is your main job. Overkill for occasional
+  paragraph help, and ChatGPT Canvas covers part of it free.
 limitations:
   - A subscription on top of what ChatGPT Canvas partially does free.
   - Far smaller feature set than Notion or Google Docs.
