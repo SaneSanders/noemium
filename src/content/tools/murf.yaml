@@ -11,7 +11,7 @@ self_host: false
 verdict: situational
 verdict_text: >-
   Fits corporate e-learning and slide-deck voiceovers where consistency and
-  team licensing matter more than cutting-edge realism. For APIs or
+  team licensing matter more than having the most lifelike voices. For APIs or
   consumer-grade cloning, ElevenLabs wins.
 limitations:
   - Voices sound more corporate-synthetic than the leaders.

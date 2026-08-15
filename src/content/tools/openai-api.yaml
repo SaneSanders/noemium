@@ -16,7 +16,7 @@ models_used:
 verdict: ship
 verdict_text: >-
   The safe default for production: a broad model ladder from nano to frontier
-  and best-in-class tooling (batch, structured outputs, agents). Rarely the
+  and the most complete tooling (batch, structured outputs, agents). Rarely the
   cheapest, rarely the wrong choice.
 limitations:
   - Premium pricing at the frontier tier.

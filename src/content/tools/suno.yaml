@@ -11,7 +11,7 @@ self_host: false
 verdict: ship
 verdict_text: >-
   Absurdly good at what it does: full songs with believable vocals in a
-  minute. For demos, content backgrounds and prototyping it is a superpower.
+  minute. For demos, content backgrounds and prototyping it is the fast default.
 limitations:
   - Training-data lawsuits keep a legal cloud over commercial use.
   - Commercial rights require a paid tier.

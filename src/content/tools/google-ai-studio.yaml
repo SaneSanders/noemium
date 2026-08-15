@@ -14,7 +14,7 @@ models_used:
 verdict: ship
 verdict_text: >-
   The best free tier in the API game, and the paid tier undercuts rivals for
-  long-context and multimodal work. Million-token context unlocks document
+  long-context and multimodal work. Million-token context handles document
   workflows others cannot touch at this price.
 limitations:
   - Free-tier prompts may be used for training — read the terms.
