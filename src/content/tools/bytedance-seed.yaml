@@ -1,0 +1,30 @@
+name: ByteDance Seed
+tagline: ByteDance Seed models served through Volcano Engine and BytePlus, including Seed 2.1 Pro/Turbo.
+url: https://llmcostcalc.com/cloud/doubao
+category: models-api
+pricing: paid
+price_note: "Seed 2.1 Pro approx $0.83/$4.17 per 1M (CNY ¥6/¥30), Seed 2.1 Turbo ~$0.42/$2.08; Doubao Pro 32K $0.11/$0.28; no official USD rate card, figures are conversions"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Seed 2.1 Pro is a frontier-class model at aggressive prices, backed by
+  ByteDance's infrastructure. For Western users the access path is murky: no
+  official USD rate card, mostly Chinese docs, and signup through Volcano
+  Engine or BytePlus.
+limitations:
+  - Proprietary closed weights — no self-host or open-weights fallback.
+  - Access outside China requires Volcano Engine/BytePlus setup; documentation mostly Chinese.
+  - USD pricing is approximate; official rate card is CNY-only.
+  - EU/US data-sovereignty and trust concerns around ByteDance.
+receipts:
+  - https://llmcostcalc.com/cloud/doubao
+  - https://essamamdani.com/blog/seed-2-1-pro-turbo-bytedance-doubao-june-2026
+  - https://tokencost.app/models/doubao-seed-2-1-pro
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

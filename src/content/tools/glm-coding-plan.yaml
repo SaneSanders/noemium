@@ -1,0 +1,32 @@
+name: GLM Coding Plan
+tagline: Flat-rate monthly subscription for coding-optimized GLM models via an Anthropic-compatible API.
+url: https://www.aipricing.guru/z-ai-subscription-pricing/
+category: coding
+pricing: paid
+price_note: "Lite ~$18/mo, Pro ~$72/mo, Max ~$160/mo (annual billing $151.20/$604.80/$1,344/year); rate/allowance caps apply"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+models_used:
+  - glm-5-2
+verdict: situational
+verdict_text: >-
+  A flat-rate coding-agent subscription is a rare alternative to per-token
+  billing, and the Anthropic-compatible API plugs into Claude Code, Cline or
+  Cursor. The value depends on whether you hit the plan's rate caps; the entry
+  price also jumped from $3 to $18, so watch for further moves.
+limitations:
+  - Price rose from introductory $3/mo to $18/mo; may rise again.
+  - Rate and allowance caps apply within flat-rate plans.
+  - Ecosystem smaller than Cursor/GitHub Copilot.
+  - Requires an existing agent tool to be useful; not a standalone IDE.
+receipts:
+  - https://www.aipricing.guru/z-ai-subscription-pricing/
+  - https://blogs.truescho.com/en/glm-coding-plan-zai/
+  - https://bota.chat/z-ai/glm-coding-plan/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

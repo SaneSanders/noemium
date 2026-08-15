@@ -1,0 +1,14 @@
+name: Doubao Seed 2.1 Turbo
+provider: ByteDance (Seed / Volcano Engine)
+context_window: 256000
+price_input_per_mtok: 0.42
+price_output_per_mtok: 2.08
+open_weights: false
+best_for:
+  - cost-conscious high-volume 256K-context workloads
+  - applications where Turbo-tier quality is enough
+avoid_for:
+  - maximum reasoning/coding accuracy (use Pro)
+  - teams needing open weights or easy non-China access
+source_attribution: "Prices: LLM Cost Calculator / Volcengine docs, 2026-08-03 (https://llmcostcalc.com/cloud/doubao); USD figures are approximate conversions from CNY; proprietary closed weights; snapshot 2026-08-15"
+last_verified: "2026-08-15"

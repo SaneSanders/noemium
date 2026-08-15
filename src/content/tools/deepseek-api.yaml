@@ -3,7 +3,7 @@ tagline: Open-weights lab with frontier-ish reasoning at disruptive prices.
 url: https://api-docs.deepseek.com
 category: models-api
 pricing: paid
-price_note: "no free API tier; V4 Flash $0.44/$1.32, V4 Pro $1.32/$3.96 per 1M (peak; off-peak 50% off)"
+price_note: "no free API tier; V4 Flash peak $0.44 input (cache miss) / $0.014 cache hit / $1.32 output per 1M, V4 Pro peak $1.32 input / $0.044 cache hit / $3.96 output per 1M; off-peak 50% off (01:00–04:00, 06:00–10:00 UTC); effective 2026-08-16 16:00 UTC"
 free_tier: false
 open_source: false
 api: true
@@ -21,7 +21,7 @@ limitations:
   - Data residency is a compliance blocker for many orgs.
   - API capacity and reliability have wobbled under demand.
   - Censorship baked in on some topics.
-  - Peak/off-peak pricing since 2026-08-16 (peak 01:00-04:00, 06:00-10:00 UTC).
+  - Complex peak/off-peak rate card with 50% discount outside 01:00–04:00 and 06:00–10:00 UTC from 2026-08-16; cache-hit discounts matter but add opacity.
 receipts:
   - https://api-docs.deepseek.com
 affiliate: none

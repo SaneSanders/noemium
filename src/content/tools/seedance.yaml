@@ -1,0 +1,29 @@
+name: Seedance
+tagline: ByteDance text/image-to-video model family served via Volcano Engine and third-party APIs.
+url: https://dynalord.com/blog/seedance-pricing
+category: video
+pricing: paid
+price_note: "Seedance 2.0 ~$0.04–$0.056/s via third-party providers (5s 720p ≈ $0.05); Seedance 2.5 from $0.90/5s at 480p on some providers; no consumer subscription"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Seedance 2.0 is dirt-cheap for capable video, with good motion and prompt
+  adherence. For Western users the path in is through resellers: ByteDance
+  doesn't publish clean USD API pricing or a global self-serve console.
+limitations:
+  - Pricing is CNY-first; USD rates are reseller conversions.
+  - Closed weights; no self-host fallback.
+  - Western access and documentation are limited.
+  - Seedance 2.5 pricing varies widely by provider and resolution.
+receipts:
+  - https://dynalord.com/blog/seedance-pricing
+  - https://www.atlascloud.ai/providers/bytedance
+  - https://wavespeed.ai/seedance-2-5-api
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,31 @@
+name: Qwen API
+tagline: Alibaba Cloud Model Studio API for text, code, image, audio, video and omni models with OpenAI compatibility.
+url: https://www.alibabacloud.com/help/en/model-studio/model-pricing
+category: models-api
+pricing: paid
+price_note: "Qwen3.7 Max ~$1.48/$4.43 per 1M, Qwen3.6 Flash $0.19/$1.13 per 1M, Qwen-Image 2.0 ~$0.04/image; Token Plan and Coding Plan subscriptions available"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+models_used:
+  - qwen3-8-max
+verdict: ship
+verdict_text: >-
+  The widest Chinese model menu in one API, with open weights and a real
+  international region. Pricing is attractive, but the console still feels
+  built for China-first users, so expect some billing and rate-card friction.
+limitations:
+  - International vs China pricing diverges; OpenRouter can be cheaper for some models.
+  - Large MoE models are expensive to self-host.
+  - China-region compliance and billing can be hard for non-China users.
+  - Some docs and rate-card pages are JS-rendered or region-locked.
+receipts:
+  - https://www.alibabacloud.com/help/en/model-studio/model-pricing
+  - https://llmcostcalc.com/cloud/qwen
+  - https://a8gent.com/models/alibaba-qwen
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

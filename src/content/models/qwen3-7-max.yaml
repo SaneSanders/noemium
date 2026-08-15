@@ -1,0 +1,14 @@
+name: Qwen3.7 Max
+provider: Alibaba (Qwen)
+context_window: 1000000
+price_input_per_mtok: 1.48
+price_output_per_mtok: 4.43
+open_weights: true
+best_for:
+  - long-context reasoning and agentic coding
+  - self-hosted frontier-class deployments
+avoid_for:
+  - budget high-volume workloads
+  - teams that need a first-party managed SLA
+source_attribution: "Prices: LLM Cost Calculator / Alibaba Cloud Model Studio pricing, 2026-08-03 (https://llmcostcalc.com/cloud/qwen); Qwen3 family open weights on Hugging Face; snapshot 2026-08-15"
+last_verified: "2026-08-15"

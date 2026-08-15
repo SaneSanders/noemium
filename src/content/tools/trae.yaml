@@ -1,0 +1,31 @@
+name: Trae
+tagline: ByteDance's AI-native IDE with inline completion, chat and autonomous SOLO agent mode.
+url: https://aipedia.wiki/tools/trae/
+category: coding
+pricing: freemium
+price_note: "Free plan with monthly AI allowance; paid tiers Lite $3/mo, Pro $10/mo, Pro+ $30/mo, Ultra $100/mo (token-based); pricing changed 2026-02-18"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - claude-sonnet-5
+verdict: situational
+verdict_text: >-
+  The cheapest way into a full AI IDE, and Lite at $3/mo undercuts everyone.
+  The trade-off is ByteDance hosting your code with no BYOK option; fine for
+  side projects, risky for proprietary work.
+limitations:
+  - ByteDance product — data and privacy concerns for proprietary code.
+  - Token allowances can run out quickly on heavy agent sessions.
+  - Closed source; no BYOK or standalone API.
+  - Western documentation and support are thinner than Cursor/Windsurf.
+receipts:
+  - https://aipedia.wiki/tools/trae/
+  - https://aiagentsquare.com/agents/trae
+  - https://netizenschoice.com/trae-ai-review-2026
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

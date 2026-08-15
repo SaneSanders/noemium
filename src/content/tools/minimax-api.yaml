@@ -1,0 +1,31 @@
+name: MiniMax API
+tagline: MiniMax developer API for text, image, video, music and speech models; also powers Hailuo AI video.
+url: https://platform.minimax.io/docs/guides/pricing-paygo
+category: models-api
+pricing: paid
+price_note: "MiniMax-M3 ≤512K context $0.30/$1.20 per 1M (promo 50% off list $0.60/$2.40), >512K 2× rate; M2.5 $0.282/$1.128; Text-01 not listed on current API docs"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+models_used:
+  - minimax-m3
+verdict: situational
+verdict_text: >-
+  M3 is cheap for high-volume text, and the same platform runs Hailuo video,
+  speech and music. Just watch the pricing: list vs promo rates are unclear,
+  and the open-weight flagship Text-01 has vanished from the main API docs.
+limitations:
+  - Pricing page lists promo vs standard rates; promo expiration unclear.
+  - MiniMax-Text-01, the open-weight flagship, appears deprecated or hidden from main API docs.
+  - Western documentation and support are thinner than Qwen/DeepSeek.
+  - Long-context input (>512K) is billed at 2× the standard rate.
+receipts:
+  - https://platform.minimax.io/docs/guides/pricing-paygo
+  - https://china-llm.com/blog/minimax-api-pricing
+  - https://developer.puter.com/tutorials/minimax-api-pricing/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

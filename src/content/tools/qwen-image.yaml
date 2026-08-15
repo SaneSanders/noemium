@@ -1,0 +1,30 @@
+name: Qwen-Image
+tagline: Alibaba Cloud text-to-image and image-editing models, including Qwen-Image 2.0 and Plus/Max variants.
+url: https://gate.ai/blog/qwen-image-2-0-qwen-specs-pricing-api-use-cases
+category: image
+pricing: paid
+price_note: "Qwen-Image 2.0 ~$0.029/image, Image Plus ~$0.0287/image, Image Edit Max similar per-image rate"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Cheap image generation and editing through the same Alibaba Cloud account as
+  Qwen text. It's not Midjourney or top-tier Flux, but the price and
+  text-in-image accuracy make it a practical choice for apps and bulk
+  workflows.
+limitations:
+  - Quality tier below top closed image models.
+  - Western awareness and community resources are lower than Midjourney/Flux.
+  - China-region compliance and data-residency rules apply.
+  - Editing endpoints are priced separately and can add up.
+receipts:
+  - https://gate.ai/blog/qwen-image-2-0-qwen-specs-pricing-api-use-cases
+  - https://gate.ai/blog/qwen-image-plus-specs-pricing-api-use-cases-2026
+  - https://developer.puter.com/tutorials/qwen-api-pricing/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

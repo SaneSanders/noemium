@@ -1,0 +1,14 @@
+name: Doubao Seed 2.1 Pro
+provider: ByteDance (Seed / Volcano Engine)
+context_window: 256000
+price_input_per_mtok: 0.83
+price_output_per_mtok: 4.17
+open_weights: false
+best_for:
+  - 256K-context reasoning and coding tasks inside the ByteDance ecosystem
+  - users already on Volcano Engine / BytePlus
+avoid_for:
+  - teams needing open-weights or self-host fallback
+  - easy access outside China (docs mostly Chinese, CNY-only rate card)
+source_attribution: "Prices: LLM Cost Calculator / Volcengine docs, 2026-08-03 (https://llmcostcalc.com/cloud/doubao); USD figures are approximate conversions from CNY; proprietary closed weights; snapshot 2026-08-15"
+last_verified: "2026-08-15"

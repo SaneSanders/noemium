@@ -1,0 +1,29 @@
+name: Hailuo AI
+tagline: MiniMax consumer video generator ranked high on physics and motion realism, available via API resellers.
+url: https://www.atlascloud.ai/blog/tips/hailuo-ai-pricing-cost
+category: video
+pricing: freemium
+price_note: "Consumer Standard $7.99/mo, Pro $27.99/mo, Master $63.99/mo (credit-based); API via third-party providers only, e.g. fal.ai ~$0.045/s standard, Segmind ~$0.34–$0.60/video; no first-party public price card"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  One of the best video generators on physics and motion, usually cheaper than
+  Runway. The catch for developers: MiniMax does not publish a first-party
+  video API price, so most Western users buy it through resellers.
+limitations:
+  - First-party API pricing not public; Western access usually via resellers.
+  - Strict content moderation.
+  - Single-model pipeline, no model choice.
+  - Consumer pricing and API pricing are separate, confusing buckets.
+receipts:
+  - https://www.atlascloud.ai/blog/tips/hailuo-ai-pricing-cost
+  - https://awesomeagents.ai/models/hailuo-02/
+  - https://compareaitools.org/best-ai-video-generator/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

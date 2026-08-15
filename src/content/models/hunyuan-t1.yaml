@@ -1,0 +1,14 @@
+name: Hunyuan T1
+provider: Tencent (Hunyuan)
+context_window: 128000
+price_input_per_mtok: 0.14
+price_output_per_mtok: 0.56
+open_weights: false
+best_for:
+  - cheap reasoning model with 128K context
+  - tasks where explicit thinking is useful
+avoid_for:
+  - low-latency non-reasoning workloads
+  - teams needing open weights or easy international access
+source_attribution: "Prices: LLM Cost Calculator / Tencent Cloud docs, 2026-08-03 (https://llmcostcalc.com/cloud/hunyuan); USD figures are approximate conversions from CNY; snapshot 2026-08-15"
+last_verified: "2026-08-15"

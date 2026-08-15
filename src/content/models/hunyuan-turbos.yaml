@@ -1,0 +1,14 @@
+name: Hunyuan TurboS
+provider: Tencent (Hunyuan)
+context_window: 256000
+price_input_per_mtok: 0.11
+price_output_per_mtok: 0.28
+open_weights: false
+best_for:
+  - extremely cheap capable text with 256K context
+  - high-volume chat and batch jobs
+avoid_for:
+  - frontier text reasoning (mid-pack quality)
+  - organizations needing reliable access outside China
+source_attribution: "Prices: LLM Cost Calculator / Tencent Cloud docs, 2026-08-03 (https://llmcostcalc.com/cloud/hunyuan); USD figures are approximate conversions from CNY; snapshot 2026-08-15"
+last_verified: "2026-08-15"

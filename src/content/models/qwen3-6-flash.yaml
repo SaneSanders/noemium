@@ -1,0 +1,14 @@
+name: Qwen3.6 Flash
+provider: Alibaba (Qwen)
+context_window: 1000000
+price_input_per_mtok: 0.19
+price_output_per_mtok: 1.13
+open_weights: true
+best_for:
+  - high-volume long-context tasks on a budget
+  - fast inference where frontier reasoning is not required
+avoid_for:
+  - frontier agentic coding accuracy
+  - small-GPU self-hosting of larger Qwen MoE weights
+source_attribution: "Prices: LLM Cost Calculator / Alibaba Cloud Model Studio pricing, 2026-08-03 (https://llmcostcalc.com/cloud/qwen); Qwen3 family open weights on Hugging Face; snapshot 2026-08-15"
+last_verified: "2026-08-15"

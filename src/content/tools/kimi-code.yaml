@@ -1,0 +1,31 @@
+name: Kimi Code
+tagline: Open-source terminal coding agent from Moonshot AI with Anthropic-compatible gateway and MCP support.
+url: https://www.codeagentswarm.com/en/guides/kimi-code-plans-and-pricing
+category: coding
+pricing: freemium
+price_note: "CLI is free/MIT; hosted coding membership ~$19–$39/mo depending on region; API billed separately at Kimi API rates (K3 $3/$15 per 1M)"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+models_used:
+  - kimi-k3
+verdict: ship
+verdict_text: >-
+  A credible open-source Claude Code alternative. The CLI is free and the
+  Anthropic-compatible gateway means it drops into existing toolchains. Costs
+  can climb if you lean on hosted inference, so BYOK is the smart setup.
+limitations:
+  - Pricing story is complicated; "$19 flat" is misleading for heavy users.
+  - Newer and less polished ecosystem than Claude Code.
+  - Data goes to Moonshot unless self-hosted/BYOK.
+  - Multiple regional plans make comparison confusing.
+receipts:
+  - https://www.codeagentswarm.com/en/guides/kimi-code-plans-and-pricing
+  - https://aireiter.com/blog/kimi-code-vs-claude-code
+  - https://rywalker.com/research/kimi-code
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders
