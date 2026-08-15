@@ -36,4 +36,13 @@ const latestVerified = models.map((m) => m.data.last_verified).sort().at(-1);
     prices — check before billing decisions.
   </p>
   <ModelTable client:load models={data} />
+  <p class="mt-10">
+    <a
+      href="https://github.com/SaneSanders/noemium/tree/main/src/content/models"
+      class="nm-btn nm-btn-outline"
+      rel="noopener"
+    >
+      Edit the data on GitHub
+    </a>
+  </p>
 </Base>
