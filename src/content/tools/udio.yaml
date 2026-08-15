@@ -3,7 +3,7 @@ tagline: High-fidelity music generation, strong on vocals and mix quality.
 url: https://www.udio.com
 category: audio
 pricing: freemium
-price_note: "free tier; Standard $10/mo"
+price_note: "free tier; Standard $10/mo, Pro $30/mo (yearly)"
 free_tier: true
 open_source: false
 api: false
@@ -14,6 +14,7 @@ verdict_text: >-
   suits musicians. But the roadmap wobbled after the label lawsuits and
   settlements — check current status before committing.
 limitations:
+  - Downloads disabled since 2025-10 (UMG/Warner licensing deals) — you can't export your tracks.
   - Product direction uncertain after lawsuit settlements.
   - Less consistent than Suno on full-song structure.
   - Generation limits tight on lower tiers.

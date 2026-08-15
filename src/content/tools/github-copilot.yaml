@@ -3,7 +3,7 @@ tagline: AI completions, chat and agents inside VS Code and JetBrains, from GitH
 url: https://github.com/features/copilot
 category: coding
 pricing: freemium
-price_note: "free tier; Pro $10/mo"
+price_note: "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
 free_tier: true
 open_source: false
 api: false
@@ -20,6 +20,7 @@ limitations:
   - Agent mode still lags Cursor and Claude Code on multi-step tasks.
   - Output quality varies noticeably between the models in its picker.
   - Enterprise features sit behind the pricier tiers.
+  - Billing moved to AI Credits (2026-06); autocomplete unlimited on paid.
 receipts:
   - https://github.com/features/copilot
 affiliate: none

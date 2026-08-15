@@ -3,7 +3,7 @@ tagline: Open-weights lab with frontier-ish reasoning at disruptive prices.
 url: https://api-docs.deepseek.com
 category: models-api
 pricing: paid
-price_note: "deepseek-chat $0.27/1M input (cache miss), $1.10/1M output"
+price_note: "no free API tier; V4 Flash $0.44/$1.32, V4 Pro $1.32/$3.96 per 1M (peak; off-peak 50% off)"
 free_tier: false
 open_source: false
 api: true
@@ -20,6 +20,7 @@ limitations:
   - Data residency is a compliance blocker for many orgs.
   - API capacity and reliability have wobbled under demand.
   - Censorship baked in on some topics.
+  - Peak/off-peak pricing since 2026-08-16 (peak 01:00-04:00, 06:00-10:00 UTC).
 receipts:
   - https://api-docs.deepseek.com
 affiliate: none

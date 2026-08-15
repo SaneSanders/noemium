@@ -3,7 +3,7 @@ tagline: The open-weights classic — the largest community ecosystem of checkpo
 url: https://stability.ai
 category: image
 pricing: freemium
-price_note: "weights free under community license; API pay-per-image"
+price_note: "open weights free; Brand Studio Core $50/mo; API from ~$0.03/image"
 free_tier: true
 open_source: true
 api: true

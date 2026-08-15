@@ -3,7 +3,7 @@ tagline: Writing assistant for grammar, tone and clarity, everywhere you type.
 url: https://www.grammarly.com
 category: writing
 pricing: freemium
-price_note: "free tier; Premium $12/mo (annual)"
+price_note: "free tier (100 AI prompts/mo); Pro $12/mo (yearly)"
 free_tier: true
 open_source: false
 api: false
@@ -17,6 +17,7 @@ limitations:
   - Suggestions can flatten personal voice into corporate beige.
   - Premium overlaps with what free LLM chats now do.
   - Occasional confidently-wrong grammar calls.
+  - Business plan retired; parent company renamed Superhuman (2025-10).
 receipts:
   - https://www.grammarly.com
 affiliate: none

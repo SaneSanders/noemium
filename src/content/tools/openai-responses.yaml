@@ -22,6 +22,7 @@ limitations:
   - Hosted-tool pricing (storage, search calls) sneaks up on you.
   - Conversation state lives on OpenAI's side.
   - Less controllable than explicit-graph frameworks like LangGraph.
+  - Assistants API sunsets 2026-08-26 — Responses is the default for new projects.
 receipts:
   - https://platform.openai.com/docs/api-reference/responses
 affiliate: none

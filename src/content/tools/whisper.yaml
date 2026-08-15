@@ -3,7 +3,7 @@ tagline: OpenAI's open-weights speech recognition — the default transcription 
 url: https://github.com/openai/whisper
 category: audio
 pricing: free
-price_note: "free (open weights); hosted API $0.006/min"
+price_note: "open source (MIT), self-host free; hosted: gpt-4o-transcribe $0.006/min"
 free_tier: true
 open_source: true
 api: true
@@ -19,6 +19,7 @@ limitations:
   - Hallucinates text on silence and noisy segments.
   - No built-in speaker diarization (pair with pyannote).
   - large-v3 needs a decent GPU for real-time work.
+  - whisper-1 API is legacy; the current hosted line is the gpt-transcribe family.
 receipts:
   - https://github.com/openai/whisper
 affiliate: none

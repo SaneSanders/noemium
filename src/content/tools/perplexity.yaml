@@ -3,7 +3,7 @@ tagline: Answer engine with citations — search rebuilt around LLMs.
 url: https://www.perplexity.ai
 category: data
 pricing: freemium
-price_note: "free tier; Pro $20/mo"
+price_note: "free tier; Pro $20/mo, Max $200/mo"
 free_tier: true
 open_source: false
 api: true
@@ -21,6 +21,7 @@ limitations:
   - Citations occasionally point at sources that do not support the claim.
   - Complex queries eat through Pro search limits.
   - Publisher disputes raise long-term sustainability questions.
+  - Comet browser went free for all (2026-03).
 receipts:
   - https://www.perplexity.ai
 affiliate: none

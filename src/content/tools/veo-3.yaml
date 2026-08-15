@@ -1,9 +1,9 @@
-name: Veo 3
+name: Veo 3.1
 tagline: Google's video model with native audio generation — the current quality leader.
 url: https://deepmind.google/models/veo/
 category: video
 pricing: paid
-price_note: "via Google AI Pro $20/mo (limited); API from $0.75/sec"
+price_note: "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
 free_tier: false
 open_source: false
 api: true
@@ -19,6 +19,7 @@ limitations:
   - Per-second API pricing is steep for experimentation.
   - Access tiers and quotas across Gemini/Flow/Vertex are confusing.
   - Roughly 8-second clip limit per generation.
+  - Veo 3.0 retired 2026-06-30; no standalone Veo subscription (via Google AI plans/Flow).
 receipts:
   - https://deepmind.google/models/veo/
 affiliate: none

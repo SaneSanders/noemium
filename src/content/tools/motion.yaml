@@ -3,7 +3,7 @@ tagline: AI project manager that auto-schedules tasks into your calendar.
 url: https://www.usemotion.com
 category: productivity
 pricing: paid
-price_note: "from $19/seat/mo (annual, Pro AI)"
+price_note: "7-day trial; Pro AI $19/seat/mo (yearly)"
 free_tier: false
 open_source: false
 api: false
@@ -17,6 +17,7 @@ limitations:
   - Expensive for a personal productivity tool.
   - Requires aggressive onboarding to get value.
   - Notifications can feel like a micromanaging boss.
+  - No free tier; AI credits model (7.5k credits/seat on Pro).
 receipts:
   - https://www.usemotion.com/pricing
 affiliate: none

@@ -1,9 +1,9 @@
 name: Anthropic API
 tagline: Claude models direct — the practitioner's pick for coding and long-form text.
-url: https://docs.anthropic.com
+url: https://platform.claude.com
 category: models-api
 pricing: paid
-price_note: "Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input"
+price_note: "pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
 free_tier: false
 open_source: false
 api: true

@@ -3,7 +3,7 @@ tagline: GPT-5 family and o-series reasoning models behind one API.
 url: https://platform.openai.com
 category: models-api
 pricing: paid
-price_note: "GPT-5 $1.25/1M input, $10/1M output; mini from $0.25/1M input"
+price_note: "pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); no free tier"
 free_tier: false
 open_source: false
 api: true

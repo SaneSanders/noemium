@@ -3,7 +3,7 @@ tagline: AI research assistant that extracts structured data from academic paper
 url: https://elicit.com
 category: data
 pricing: freemium
-price_note: "free tier; Plus from $10/mo"
+price_note: "free tier; Plus $11/mo, Pro $39/mo (billed yearly)"
 free_tier: true
 open_source: false
 api: false

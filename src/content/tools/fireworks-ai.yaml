@@ -3,7 +3,7 @@ tagline: Fast inference platform for open models — serverless and on-demand GP
 url: https://fireworks.ai
 category: dev-infra
 pricing: freemium
-price_note: "free credits; pay-per-token from ~$0.10/1M (small models)"
+price_note: "$1 starter credits; serverless from $0.10/1M tokens; on-demand GPU from $7/hr"
 free_tier: true
 open_source: false
 api: true
@@ -20,6 +20,7 @@ limitations:
   - Differentiation vs Together/Groq unclear for standard inference.
   - Enterprise pricing opaque.
   - Smaller free tier than rivals.
+  - GPU on-demand prices rise 2026-09-01 (H100 $7 to $8/hr).
 receipts:
   - https://fireworks.ai
 affiliate: none

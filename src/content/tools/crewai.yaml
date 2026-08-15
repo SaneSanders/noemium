@@ -3,7 +3,7 @@ tagline: Python framework for multi-agent crews — roles, tasks and processes.
 url: https://www.crewai.com
 category: agents
 pricing: freemium
-price_note: "open source free; paid enterprise cloud"
+price_note: "open source (MIT); cloud Free Basic (50 exec/mo); Enterprise custom"
 free_tier: true
 open_source: true
 api: true

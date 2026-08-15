@@ -3,7 +3,7 @@ tagline: Premium email client with AI triage, drafts and follow-ups.
 url: https://www.superhuman.com
 category: productivity
 pricing: paid
-price_note: "$30/mo"
+price_note: "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
 free_tier: false
 open_source: false
 api: false
@@ -17,6 +17,7 @@ limitations:
   - Expensive while free alternatives catch up.
   - Calendar features thinner than dedicated tools.
   - Muscle-memory lock-in cuts both ways.
+  - Grammarly acquired Superhuman and renamed the whole company Superhuman (2025); mail not included in Free/Pro suite tiers.
 receipts:
   - https://www.superhuman.com
 affiliate: none

@@ -2,9 +2,9 @@ name: Sourcegraph Cody
 tagline: AI coding assistant with deep code-search context from Sourcegraph.
 url: https://sourcegraph.com/cody
 category: coding
-pricing: freemium
-price_note: "free tier; Pro $9/mo"
-free_tier: true
+pricing: paid
+price_note: "enterprise-only (self-serve discontinued 2025-07); contact sales"
+free_tier: false
 open_source: false
 api: false
 self_host: false
@@ -14,8 +14,8 @@ verdict_text: >-
   to Amp and Cody's release cadence shows it. New adopters should pick a tool
   that is clearly its maker's priority.
 limitations:
+  - Self-serve Free/Pro discontinued; individuals are pointed to Amp instead.
   - Development focus shifted to Amp; Cody feels maintenance-mode.
-  - Free tier heavily restricted.
   - Agentic features trail the category leaders.
 receipts:
   - https://github.com/sourcegraph/cody

@@ -3,7 +3,7 @@ tagline: Open-weights image models from the original Stable Diffusion team.
 url: https://bfl.ai
 category: image
 pricing: freemium
-price_note: "API from $0.04/image (FLUX1.1 pro); dev/schnell weights free"
+price_note: "open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image"
 free_tier: true
 open_source: true
 api: true

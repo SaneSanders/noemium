@@ -3,7 +3,7 @@ tagline: Speech-to-text API built for developers — fast, cheap, real-time.
 url: https://deepgram.com
 category: audio
 pricing: freemium
-price_note: "$200 free credits; then from ~$0.0043/min (Nova models)"
+price_note: "$200 free credits; Nova-3 STT from $0.0048/min (promo)"
 free_tier: true
 open_source: false
 api: true

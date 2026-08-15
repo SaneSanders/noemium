@@ -3,7 +3,7 @@ tagline: Meeting bot that records, transcribes and summarizes across platforms.
 url: https://fireflies.ai
 category: productivity
 pricing: freemium
-price_note: "free tier; Pro from $10/seat/mo (annual)"
+price_note: "free tier (unlimited transcription, 400 min storage); Pro $10/seat/mo (yearly)"
 free_tier: true
 open_source: false
 api: true

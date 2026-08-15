@@ -3,7 +3,7 @@ tagline: The incumbent AI video suite — Gen-4 generation plus a full editing t
 url: https://runwayml.com
 category: video
 pricing: freemium
-price_note: "free one-time credits; from $15/mo (Standard)"
+price_note: "free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
 free_tier: true
 open_source: false
 api: true
@@ -17,6 +17,7 @@ limitations:
   - Credit math gets expensive for iteration-heavy projects.
   - Best quality modes sit behind pricier tiers.
   - Long coherent narratives still need heavy manual stitching.
+  - Unlimited tier replaced by Max for new subscribers (2026-06).
 receipts:
   - https://help.runwayml.com
 affiliate: none

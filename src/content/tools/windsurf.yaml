@@ -1,9 +1,9 @@
-name: Windsurf
+name: Devin Desktop (ex Windsurf)
 tagline: Agentic IDE (VS Code fork) built around the Cascade agent flow.
-url: https://windsurf.com
+url: https://devin.ai
 category: coding
 pricing: freemium
-price_note: "from $15/mo (Pro)"
+price_note: "free tier; Pro $20/mo, Max $200/mo"
 free_tier: true
 open_source: false
 api: false
@@ -17,6 +17,7 @@ verdict_text: >-
   price. Pick it when Cursor's limits bite; ecosystem and polish are a step
   behind.
 limitations:
+  - Rebranded to Devin Desktop after the Cognition acquisition; Cascade retired 2026-07-01.
   - Smaller extension and community ecosystem than Cursor.
   - Ownership turbulence (failed OpenAI deal, Cognition acquisition) makes the roadmap uncertain.
   - Agent occasionally loops on large, unfamiliar repos.

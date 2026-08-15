@@ -17,6 +17,7 @@ limitations:
   - Per-second pricing gets expensive at steady volume.
   - Cold starts on less-popular models.
   - Model quality and maintenance vary by community author.
+  - Acquired by Cloudflare (2025-11); API and pricing unchanged so far.
 receipts:
   - https://replicate.com
 affiliate: none

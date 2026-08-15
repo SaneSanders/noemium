@@ -3,7 +3,7 @@ tagline: European frontier lab — efficient models, open-weights options, EU ho
 url: https://docs.mistral.ai
 category: models-api
 pricing: freemium
-price_note: "free experiment tier; Mistral Large $2/1M input"
+price_note: "free plan incl. $10/mo API credits; pay-per-token (Large 3: $0.50/$1.50 per 1M)"
 free_tier: true
 open_source: false
 api: true
@@ -19,6 +19,7 @@ limitations:
   - Frontier quality a half-step behind OpenAI/Anthropic.
   - Thinner ecosystem and docs.
   - Product naming and tiers are confusing.
+  - Le Chat renamed to Vibe, console is now Mistral Studio (2026 rebrand).
 receipts:
   - https://docs.mistral.ai
 affiliate: none

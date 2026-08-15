@@ -3,7 +3,7 @@ tagline: AI assistant embedded in Notion — summarize, draft and search your wo
 url: https://www.notion.com/product/ai
 category: writing
 pricing: paid
-price_note: "add-on from $8/user/mo (annual billing)"
+price_note: "limited AI trial on free/Plus; full AI in Business $20/member/mo (yearly)"
 free_tier: false
 open_source: false
 api: false
@@ -17,6 +17,7 @@ limitations:
   - Only makes sense if you already pay for Notion.
   - Per-seat pricing stacks on top of the base plan.
   - Which models it routes to is opaque.
+  - Standalone $10 AI add-on discontinued.
 receipts:
   - https://www.notion.com/product/ai
 affiliate: none

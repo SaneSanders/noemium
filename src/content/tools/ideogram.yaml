@@ -3,7 +3,7 @@ tagline: Image generator with the strongest text-in-image rendering.
 url: https://ideogram.ai
 category: image
 pricing: freemium
-price_note: "free tier; from $8/mo (Plus)"
+price_note: "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
 free_tier: true
 open_source: false
 api: true

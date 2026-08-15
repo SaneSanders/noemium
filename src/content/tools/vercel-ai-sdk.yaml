@@ -1,6 +1,6 @@
 name: Vercel AI SDK
 tagline: TypeScript toolkit for AI apps — unified providers, streaming UI primitives.
-url: https://sdk.vercel.ai
+url: https://ai-sdk.dev
 category: dev-infra
 pricing: free
 price_note: "free, open source"

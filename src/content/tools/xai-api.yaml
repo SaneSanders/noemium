@@ -3,7 +3,7 @@ tagline: Grok models via API — strong reasoning, X integration, big context.
 url: https://docs.x.ai
 category: models-api
 pricing: paid
-price_note: "Grok 4 $3/1M input, $15/1M output"
+price_note: "pay-as-you-go; Grok 4.6 $2/$6 per 1M"
 free_tier: false
 open_source: false
 api: true

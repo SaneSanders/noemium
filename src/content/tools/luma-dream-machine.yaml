@@ -3,7 +3,7 @@ tagline: Fast ideation video model with strong start/end keyframe control.
 url: https://lumalabs.ai/dream-machine
 category: video
 pricing: freemium
-price_note: "free tier; from $10/mo (Lite)"
+price_note: "free tier (watermarked); from $30/mo (Luma Agents Plus)"
 free_tier: true
 open_source: false
 api: true
@@ -17,6 +17,7 @@ limitations:
   - Realism and fine motion below Veo and Runway.
   - Limited clip duration per generation.
   - Far fewer post-generation editing tools than Runway.
+  - Two plan ladders coexist (legacy Dream Machine and Luma Agents since 2026-03); clean export from paid only.
 receipts:
   - https://lumalabs.ai/dream-machine
 affiliate: none

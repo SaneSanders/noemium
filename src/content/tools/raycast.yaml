@@ -3,7 +3,7 @@ tagline: macOS launcher with built-in AI chat, commands and a huge extension sto
 url: https://www.raycast.com
 category: productivity
 pricing: freemium
-price_note: "free; Pro with AI from $8/mo (annual)"
+price_note: "free tier (50 AI messages incl.); Pro $10/mo ($8/mo yearly)"
 free_tier: true
 open_source: false
 api: false

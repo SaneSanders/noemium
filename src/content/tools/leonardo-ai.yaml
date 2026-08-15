@@ -3,7 +3,7 @@ tagline: Production-oriented image suite with fine-tuning, canvas editing and te
 url: https://leonardo.ai
 category: image
 pricing: freemium
-price_note: "free daily tokens; from $12/mo (Apprentice)"
+price_note: "free tier (150 tokens/day); Essential $12/mo, Premium $30/mo"
 free_tier: true
 open_source: false
 api: true

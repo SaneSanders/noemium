@@ -3,7 +3,7 @@ tagline: Graph-based agent orchestration from LangChain — stateful and control
 url: https://www.langchain.com/langgraph
 category: agents
 pricing: freemium
-price_note: "open source free; LangSmith Plus $39/seat/mo"
+price_note: "framework free open-source; LangSmith Plus $39/seat/mo"
 free_tier: true
 open_source: true
 api: true
@@ -17,6 +17,7 @@ limitations:
   - Learning curve is real; LangChain abstractions leak through.
   - Docs sprawl across the whole LangChain ecosystem.
   - Overkill for simple single-agent tasks.
+  - LangGraph Platform renamed LangSmith Deployment; usage billed in LCU/LSU.
 receipts:
   - https://github.com/langchain-ai/langgraph
 affiliate: none

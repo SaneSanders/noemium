@@ -5,13 +5,11 @@ monthly_cost_usd: 0
 difficulty: advanced
 tools:
   - aider
-  - continue
   - whisper
   - flux
   - qdrant
 receipts:
   - https://github.com/Aider-AI/aider
-  - https://github.com/continuedev/continue
   - https://github.com/openai/whisper
   - https://github.com/black-forest-labs/flux
   - https://github.com/qdrant/qdrant
@@ -30,9 +28,10 @@ observed_by: whysanesanders
 3. **Coding with Aider.** Point Aider at the local endpoint. Repo-map and
    git integration work the same; expect 70-80% of cloud-model quality on
    refactors, less on greenfield architecture.
-4. **In-editor assist with Continue.** Same local endpoint, now inside VS
-   Code or JetBrains: completions, chat, inline edits. Keep Aider for big
-   agent tasks, Continue for line-level help.
+4. **In-editor assist with Aider.** The previous pick here, Continue, was
+   acquired and its product wound down. Cover the same ground with Aider's
+   watch mode: it picks up instructions from comments in your editor and
+   applies edits against the same local endpoint.
 5. **Transcription with Whisper.** large-v3 locally: batch-transcribe
    meetings and interviews overnight. Add pyannote if you need speakers.
 6. **Images with FLUX.1 [dev].** Open weights, runs on the 24GB card, prompt
