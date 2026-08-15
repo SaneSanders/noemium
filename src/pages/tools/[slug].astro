@@ -146,5 +146,9 @@ const jsonLd = {
       )
     }
   </article>
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')}
+    is:inline
+  />
 </Base>

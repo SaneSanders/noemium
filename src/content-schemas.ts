@@ -13,6 +13,13 @@ const isoDate = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}$/, 'expected date in YYYY-MM-DD format');
 
+/**
+ * Content URLs must be absolute https:// links. Plain z.url() also accepts
+ * javascript:/data: and other schemes, which would let a malicious content
+ * PR smuggle script URLs into rendered hrefs.
+ */
+const httpsUrl = z.url().refine((u) => u.startsWith('https://'), 'only https:// URLs allowed');
+
 export const toolCategories = [
   'coding',
   'image',
@@ -29,7 +36,7 @@ export const toolCategories = [
 export const toolSchema = z.object({
   name: z.string().min(1),
   tagline: z.string().max(120),
-  url: z.url(),
+  url: httpsUrl,
   category: z.enum(toolCategories),
   pricing: z.enum(['free', 'freemium', 'paid']),
   price_note: z.string().optional(),
@@ -41,7 +48,7 @@ export const toolSchema = z.object({
   verdict: z.enum(['ship', 'situational', 'skip']),
   verdict_text: z.string().min(1),
   limitations: z.array(z.string()).min(1),
-  receipts: z.array(z.url()).min(1),
+  receipts: z.array(httpsUrl).min(1),
   affiliate: z.enum(['none', 'declared']),
   momentum: z.enum(['blueshift', 'steady', 'redshift']),
   featured: z.boolean().default(false),
@@ -55,7 +62,7 @@ export const stackSchema = z.object({
   monthly_cost_usd: z.number().nonnegative(),
   difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
   tools: z.array(z.string()).min(1),
-  receipts: z.array(z.url()).min(1),
+  receipts: z.array(httpsUrl).min(1),
   last_verified: isoDate,
   observed_by: z.string().min(1),
 });

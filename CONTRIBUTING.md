@@ -26,8 +26,15 @@ about 5 minutes.
 
 - **Verdicts come from real use.** `ship`, `situational` or `skip` must
   reflect something you actually built or ran, not marketing pages.
-- **At least one receipt.** `receipts` links to evidence: a project you
-  shipped with it, a screenshot, a benchmark run. No receipt, no merge.
+- **At least one receipt.** A receipt is a link that backs a claim. Two
+  kinds count:
+  - *Fact evidence* — official docs, pricing pages, GitHub repos, model
+    cards. These support objective fields (price, context window, license).
+  - *Experience evidence* — a project you shipped with it, a benchmark run,
+    a screenshot. These support the verdict.
+  For new contributions at least one receipt is required, and the verdict
+  itself must come from real use — fact links alone can't justify a
+  `ship`/`skip` call. No receipt, no merge.
 - **Honest limitations.** `limitations` is a required field with named,
   specific downsides. "None" is not a limitation.
 - **Affiliate links are always declared.** If your `url` or `receipts`

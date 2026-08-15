@@ -31,7 +31,8 @@ const latestVerified = models.map((m) => m.data.last_verified).sort().at(-1);
     sub="What a task actually costs, not what a landing page implies. Sort by price per task; unit-priced media models stay in their own group at the bottom."
   />
   <p class="-mt-6 mb-6 max-w-3xl font-mono text-xs leading-relaxed text-ink-dim">
-    Prices from Helicone (Apache-2.0) + LiteLLM (MIT). Verified {latestVerified}. Vendors change
+    Prices from Helicone (Apache-2.0) + LiteLLM (MIT).
+    {latestVerified ? `Verified ${latestVerified}.` : 'No models verified yet.'} Vendors change
     prices — check before billing decisions.
   </p>
   <ModelTable client:load models={data} />

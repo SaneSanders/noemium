@@ -1,9 +1,13 @@
 # Noemium
 
+[![CI](https://github.com/SaneSanders/noemium/actions/workflows/ci.yml/badge.svg)](https://github.com/SaneSanders/noemium/actions/workflows/ci.yml)
+
+![Noemium — the AI landscape, observed](.github/hero.png)
+
 **The AI landscape, observed.**
 
-AI directories are pay-to-list. Noemium is open source. Every recommendation
-is a PR you can audit. No theory, receipts.
+AI directories are pay-to-list. [Noemium](https://noemium.com) is open
+source. Every recommendation is a PR you can audit. No theory, receipts.
 
 Noemium is a hub for AI practitioners:
 
@@ -22,7 +26,7 @@ least one receipt. Affiliate links, when they exist, are always declared.
 - [Astro](https://astro.build) (static output) + Preact islands
 - Tailwind CSS v4 (CSS-first config, "Observatory" design tokens)
 - Content: Astro Content Collections (YAML + Markdown), zod-validated
-- Motion (home page): three.js, GSAP, Lenis
+- Motion (home page): three.js, GSAP
 
 ## Quick start
 

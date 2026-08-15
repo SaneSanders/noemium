@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - "open-weights pipelines (use FLUX.1 [dev]/[schnell])"
   - per-token cost accounting — priced per image
-source_attribution: "Non-token pricing: $0.04 per image (LiteLLM model_prices_and_context_window.json (MIT, key azure_ai/FLUX-1.1-pro)); per-mtok fields set to 0 (no token price exists); context_window is a placeholder (not a token model); snapshot 2026-08-15"
+source_attribution: "Non-token pricing: $0.04 per image (LiteLLM model_prices_and_context_window.json (MIT, key azure_ai/FLUX-1.1-pro)); per-mtok fields set to 0 (no token price exists); snapshot 2026-08-15"
 last_verified: "2026-08-15"

@@ -137,7 +137,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
 
   if (done && winner) {
     const share = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      `My AI stack costs $${winner.monthly_cost_usd}/mo. What's yours? — @noemium`,
+      `My AI stack costs $${winner.monthly_cost_usd}/mo. What's yours? — @whysanesanders`,
     )}`;
     return (
       <div class="nm-step rounded-md border border-line bg-panel p-6 md:p-10">
@@ -178,6 +178,34 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
             class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
           >
             Share on X
+          </a>
+          <button
+            type="button"
+            onClick={restart}
+            class="font-mono text-xs text-ink-dim transition-colors duration-100 hover:text-ink"
+          >
+            Run it again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (done && !winner) {
+    return (
+      <div class="rounded-md border border-line bg-panel p-6 md:p-10">
+        <p class="font-mono text-xs tracking-widest text-ink-dim uppercase">no signal</p>
+        <h2 class="mt-3 font-display text-2xl md:text-4xl">No stacks in the observatory yet</h2>
+        <p class="mt-3 max-w-xl text-ink-dim">
+          There is nothing to match your answers against. Browse the tool catalog instead — or
+          contribute the first stack.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href="/tools"
+            class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
+          >
+            Browse tools
           </a>
           <button
             type="button"

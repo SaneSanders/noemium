@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
+import { navigate } from 'astro:transitions/client';
 import type { Verdict } from './ui';
 
 interface ToolHit {
@@ -245,13 +246,26 @@ export default function CommandPalette() {
     setEasterEgg(false);
   };
 
+  // Close on Escape even when focus is outside the input.
+  useEffect(() => {
+    if (!open) return;
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        close();
+      }
+    };
+    window.addEventListener('keydown', onEsc);
+    return () => window.removeEventListener('keydown', onEsc);
+  }, [open]);
+
   const go = (row: Row) => {
     if (row.href === '#noema') {
       setEasterEgg(true);
       return;
     }
     close();
-    window.location.href = row.href;
+    void navigate(row.href);
   };
 
   const onInputKey = (e: KeyboardEvent) => {
@@ -260,7 +274,7 @@ export default function CommandPalette() {
       close();
     } else if (e.key === 'ArrowDown') {
       e.preventDefault();
-      setSelected((s) => Math.min(s + 1, rows.length - 1));
+      if (rows.length > 0) setSelected((s) => Math.min(s + 1, rows.length - 1));
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       setSelected((s) => Math.max(s - 1, 0));

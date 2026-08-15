@@ -15,8 +15,13 @@ const root = fileURLToPath(new URL('../../..', import.meta.url));
 const fontFile = (p: string) => readFileSync(`${root}node_modules/@fontsource/${p}`);
 
 const tokensCss = readFileSync(`${root}src/styles/tokens.css`, 'utf8');
-const token = (name: string): string =>
-  tokensCss.match(new RegExp(`--${name}:\\s*([^;]+);`))?.[1]?.trim() ?? '';
+const token = (name: string): string => {
+  const value = tokensCss.match(new RegExp(`--${name}:\\s*([^;]+);`))?.[1]?.trim();
+  if (!value) {
+    throw new Error(`og-image: design token --${name} not found in src/styles/tokens.css`);
+  }
+  return value;
+};
 
 const C = {
   void: token('nm-bg-void'),

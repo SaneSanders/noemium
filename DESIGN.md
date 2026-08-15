@@ -71,7 +71,6 @@ Inventory — will grow as components are built. Status: **stub**.
 - `VerdictBadge` — verdict chip (ship / situational / skip), semantic colors.
 - `ShiftArrow` — momentum indicator (blueshift ↗ / steady → / redshift ↘).
 - `ToolCard` — catalog card for a tool entry.
-- `PriceCell` — mono, tabular price cell with free-tier marker.
 - `ModelTable` — dense models comparison table.
 - `SectionHeader` — mono-indexed section heading (`01 /TOOLS` style).
 - `KbdHint` — keyboard shortcut hint (`⌘K` etc.), mono.
@@ -83,8 +82,8 @@ Motion is zoned by page level. Use durations `--nm-dur-1` (80ms),
 `--nm-dur-2` (160ms), `--nm-dur-3` (320ms) and easing
 `--nm-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1)`.
 
-- **L0 — home page: full motion.** Three.js sky, GSAP sequences, Lenis
-  smooth scroll. This is the only place heavy animation lives.
+- **L0 — home page: full motion.** Three.js sky, GSAP sequences. This is
+  the only place heavy animation lives.
 - **L1 — catalog views: medium.** Hover transitions, filter transitions,
   reveal-on-scroll. 160–320ms.
 - **L2 — tables and long-form text: micro.** 80–200ms state changes only.

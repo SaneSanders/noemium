@@ -25,11 +25,11 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage, Astro.site);
 const navItems = [
-  { index: '01', href: '/tools', label: '/TOOLS' },
-  { index: '02', href: '/stacks', label: '/STACKS' },
-  { index: '03', href: '/models', label: '/MODELS' },
-  { index: '04', href: '/quiz', label: '/QUIZ' },
-  { index: '05', href: '/contribute', label: '/CONTRIBUTE' },
+  { index: '01', href: '/tools', label: '/TOOLS', name: 'Tools' },
+  { index: '02', href: '/stacks', label: '/STACKS', name: 'Stacks' },
+  { index: '03', href: '/models', label: '/MODELS', name: 'Models' },
+  { index: '04', href: '/quiz', label: '/QUIZ', name: 'Quiz' },
+  { index: '05', href: '/contribute', label: '/CONTRIBUTE', name: 'Contribute' },
 ];
 ---
 
@@ -98,9 +98,74 @@ const navItems = [
           >
             Star on GitHub
           </a>
+          <button
+            id="nm-nav-open"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nm-mobile-nav"
+            aria-label="Open menu"
+            class="rounded-sm border border-line p-1.5 text-ink-dim transition-colors hover:border-shift-near hover:text-ink md:hidden"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <path d="M2 4h12M2 8h12M2 12h12" />
+            </svg>
+          </button>
         </div>
       </div>
     </header>
+
+    {/* Mobile navigation overlay — same 01–05 links, display type. */}
+    <div
+      id="nm-mobile-nav"
+      class="fixed inset-0 z-50 hidden flex-col bg-void"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site navigation"
+    >
+      <div class="flex items-center justify-between border-b border-line px-4 py-4">
+        <span class="font-display text-2xl tracking-wide">NOEMIUM</span>
+        <button
+          id="nm-nav-close"
+          type="button"
+          aria-label="Close menu"
+          class="rounded-sm border border-line p-1.5 text-ink-dim transition-colors hover:border-shift-near hover:text-ink"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M3 3l10 10M13 3L3 13" />
+          </svg>
+        </button>
+      </div>
+      <nav class="flex flex-1 flex-col justify-center px-6">
+        {
+          navItems.map((item) => (
+            <a href={item.href} class="group flex items-baseline gap-4 border-b border-line py-4 last:border-b-0">
+              <span class="font-mono text-xs text-shift-near">{item.index}</span>
+              <span class="font-display text-4xl text-ink transition-colors group-hover:text-shift-near">
+                {item.name}
+              </span>
+            </a>
+          ))
+        }
+      </nav>
+    </div>
 
     <main class="mx-auto w-full max-w-6xl flex-1 px-4">
       <slot />
@@ -160,6 +225,27 @@ const navItems = [
           depthHandler = null;
         }
       });
+
+      // Mobile nav overlay. Delegated listeners bind once and survive view
+      // transitions (the document persists; the header markup is swapped).
+      function setMobileNav(open: boolean) {
+        const overlay = document.getElementById('nm-mobile-nav');
+        if (!overlay) return;
+        overlay.classList.toggle('hidden', !open);
+        overlay.classList.toggle('flex', open);
+        document.getElementById('nm-nav-open')?.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      document.addEventListener('click', (e) => {
+        const t = e.target;
+        if (!(t instanceof Element)) return;
+        if (t.closest('#nm-nav-open')) setMobileNav(true);
+        else if (t.closest('#nm-nav-close') || t.closest('#nm-mobile-nav a')) setMobileNav(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setMobileNav(false);
+      });
+      document.addEventListener('astro:before-swap', () => setMobileNav(false));
     </script>
   </body>
 </html>

@@ -52,7 +52,9 @@ const UNIT_LABEL: Record<Exclude<ModelRecord['price_unit'], 'mtok'>, string> = {
 };
 
 function formatCtx(ctx?: number): string {
-  if (!ctx) return '—';
+  // Below 1k tokens a context window is meaningless (or absent for
+  // unit-priced media models) — render a dash instead of a fake "0k".
+  if (!ctx || ctx < 1000) return '—';
   if (ctx >= 1_000_000) return `${(ctx / 1_000_000).toLocaleString('en-US', { maximumFractionDigits: 1 })}M`;
   return `${Math.round(ctx / 1000)}k`;
 }
@@ -131,20 +133,25 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
 
   const header = (key: SortKey, label: string, className = '') => (
     <th
-      class={`cursor-pointer p-3 font-mono text-xs font-normal tracking-widest uppercase select-none ${
-        sortKey === key ? 'text-shift-near' : 'text-ink-dim hover:text-ink'
-      } ${className}`}
-      onClick={() => {
-        if (sortKey === key) setSortDir(sortDir === 1 ? -1 : 1);
-        else {
-          setSortKey(key);
-          setSortDir(1);
-        }
-      }}
+      class={`p-0 font-mono text-xs font-normal tracking-widest uppercase ${className}`}
       aria-sort={sortKey === key ? (sortDir === 1 ? 'ascending' : 'descending') : undefined}
     >
-      {label}
-      {sortKey === key && <span class="ml-1">{sortDir === 1 ? '↑' : '↓'}</span>}
+      <button
+        type="button"
+        class={`w-full cursor-pointer p-3 text-left select-none ${
+          sortKey === key ? 'text-shift-near' : 'text-ink-dim hover:text-ink'
+        }`}
+        onClick={() => {
+          if (sortKey === key) setSortDir(sortDir === 1 ? -1 : 1);
+          else {
+            setSortKey(key);
+            setSortDir(1);
+          }
+        }}
+      >
+        {label}
+        {sortKey === key && <span class="ml-1">{sortDir === 1 ? '↑' : '↓'}</span>}
+      </button>
     </th>
   );
 

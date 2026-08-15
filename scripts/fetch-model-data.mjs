@@ -38,9 +38,9 @@ const LITELLM_URL =
  * Per-model match config.
  *  litellm:  candidate keys in model_prices_and_context_window.json, first hit wins.
  *  helicone: { provider, model } exact pair in the Helicone cost API (fallback).
- *  context_fallback: used when no source reports a context window. Media models
- *            have no token context at all — 1 is a schema-pleasing placeholder
- *            (context_window must be a positive int; see source_attribution).
+ *  context_fallback: used when no source reports a context window (token
+ *            models only). Media models have no token context at all — the
+ *            field is simply omitted for them (the schema marks it optional).
  *  seed:     curated fields, written only when creating a new file.
  */
 const MODELS = [
@@ -248,7 +248,6 @@ const MODELS = [
     slug: 'flux-1-1-pro',
     litellm: ['azure_ai/FLUX-1.1-pro'],
     helicone: null,
-    context_fallback: 1, // image model — no token context; see source_attribution
     seed: {
       name: 'FLUX 1.1 Pro',
       provider: 'Black Forest Labs',
@@ -261,7 +260,6 @@ const MODELS = [
     slug: 'sora',
     litellm: ['openai/sora-2'],
     helicone: null,
-    context_fallback: 1, // video model — no token context; see source_attribution
     seed: {
       name: 'Sora 2',
       provider: 'OpenAI',
@@ -286,7 +284,6 @@ const MODELS = [
     slug: 'eleven-v3',
     litellm: ['elevenlabs/eleven_v3'],
     helicone: null,
-    context_fallback: 1, // TTS model — no token context; see source_attribution
     seed: {
       name: 'Eleven v3',
       provider: 'ElevenLabs',
@@ -299,7 +296,6 @@ const MODELS = [
     slug: 'whisper-v3',
     litellm: ['groq/whisper-large-v3'],
     helicone: null,
-    context_fallback: 1, // ASR model — no token context; see source_attribution
     seed: {
       name: 'Whisper Large v3',
       provider: 'OpenAI',
@@ -483,7 +479,7 @@ for (const m of MODELS) {
     }
   }
 
-  if (contextWindow == null) contextWindow = m.context_fallback ?? null;
+  if (contextWindow == null && !unitNote) contextWindow = m.context_fallback ?? null;
 
   // Attribution naming.
   const priceAttr =
@@ -499,11 +495,8 @@ for (const m of MODELS) {
   } else if (priceAttr) {
     parts.push(`Prices: ${priceAttr}`);
   }
-  if (contextWindow != null && litellmKey && priceSource !== 'litellm') {
+  if (contextWindow != null && !unitNote && litellmKey && priceSource !== 'litellm') {
     parts.push('context window: LiteLLM (MIT)');
-  }
-  if (m.context_fallback != null && unitNote) {
-    parts.push('context_window is a placeholder (not a token model)');
   }
   parts.push(`snapshot ${TODAY}`);
   const attribution = parts.join('; ');
@@ -528,8 +521,15 @@ for (const m of MODELS) {
     data.price_input_per_mtok = 0;
     data.price_output_per_mtok = 0;
   }
-  if (contextWindow != null) data.context_window = contextWindow;
-  if (isNew && data.context_window == null) data.context_window = m.context_fallback ?? 1;
+  if (unitNote) {
+    // Media models have no token context window — omit the field entirely
+    // (the schema marks it optional) instead of writing a placeholder.
+    delete data.context_window;
+  } else if (contextWindow != null) {
+    data.context_window = contextWindow;
+  } else if (isNew && data.context_window == null) {
+    data.context_window = m.context_fallback ?? 1;
+  }
   data.source_attribution = attribution;
   data.last_verified = TODAY;
 

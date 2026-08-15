@@ -3,6 +3,8 @@
  * gsap is a lazy dynamic import; under prefers-reduced-motion (or if the
  * import fails) elements simply stay visible.
  */
+let cleanupBound = false;
+
 export function initReveals() {
   const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
   if (targets.length === 0) return;
@@ -15,6 +17,14 @@ export function initReveals() {
     ]);
     if (targets.some((el) => !el.isConnected)) return;
     gsap.registerPlugin(ScrollTrigger);
+    // Kill triggers of the outgoing page — otherwise they leak across
+    // view transitions and keep firing on detached elements.
+    if (!cleanupBound) {
+      cleanupBound = true;
+      document.addEventListener('astro:before-swap', () => {
+        ScrollTrigger.getAll().forEach((t) => t.kill());
+      });
+    }
     for (const el of targets) {
       if (!el.isConnected) continue;
       gsap.from(el, {
