@@ -12,6 +12,7 @@
     "astro": "astro",
     "check": "astro check",
     "validate": "node scripts/validate-content.mjs",
+    "weekly-diff": "node scripts/weekly-diff.mjs",
     "fetch-models": "node scripts/fetch-model-data.mjs"
   },
   "dependencies": {
