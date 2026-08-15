@@ -1,0 +1,29 @@
+name: Vidu
+tagline: Text/image/reference-to-video generator with native audio and strong character consistency.
+url: https://aisotools.com/pricing/vidu-ai
+category: video
+pricing: freemium
+price_note: "Free plan 80 credits/mo; Standard $9.99/mo, Premium $19.99/mo, Ultimate $59.99/mo, Enterprise custom; API credit-based (~1 credit ≈ $0.005)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Strong reference-to-video consistency and a cheap entry point for creators.
+  The aesthetic leans cinematic/anime, the API pricing matrix is complex, and
+  the vendor is smaller and China-based.
+limitations:
+  - Aesthetic leans cinematic/anime/narrative, less suited for UGC or e-commerce ads.
+  - API pricing matrix is complex.
+  - Smaller vendor with China-based operations.
+  - Western access and support are thinner than Runway or Kling.
+receipts:
+  - https://kingy.ai/news/vidu-ai-review-2025-the-ai-video-generator-thats-changing-everything/
+  - https://aisotools.com/pricing/vidu-ai
+  - https://pixelpanda.ai/review/vidu-ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

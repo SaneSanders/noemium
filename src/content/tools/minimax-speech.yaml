@@ -1,0 +1,29 @@
+name: MiniMax Speech
+tagline: Text-to-speech, voice cloning, and audio generation API.
+url: https://platform.minimax.io/docs/guides/pricing-paygo
+category: audio
+pricing: paid
+price_note: "Turbo $60/M characters, HD $100/M characters; subscription plans $5–$150/month on some aggregators; voice clone $1.5/clone on fal.ai"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Strong Chinese voice quality and expressive speech at budget prices.
+  Character-based pricing can get expensive at scale, language coverage is
+  narrower than ElevenLabs, and Western access usually goes through resellers.
+limitations:
+  - Character-based pricing can be expensive at scale vs token-based TTS.
+  - Less language coverage than ElevenLabs or Azure.
+  - Western access is reseller-dependent.
+  - Documentation and brand recognition outside China are limited.
+receipts:
+  - https://platform.minimax.io/docs/guides/pricing-paygo
+  - https://knowara.com/ai-tools/voice/minimax-speech-review/
+  - https://fal.ai/models/fal-ai/minimax/voice-clone
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,29 @@
+name: CosyVoice
+tagline: Text-to-speech and voice-cloning model family from Alibaba Cloud.
+url: https://www.alibabacloud.com/help/en/model-studio/voice-design-user-guide
+category: audio
+pricing: paid
+price_note: "CosyVoice 2 from ~$0.287/M input tokens; voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Best-in-class Chinese TTS naturalness, plus open-source weights you can
+  self-host. Pricing is token-based and can be confusing compared with
+  per-minute audio APIs; English quality is good but not market-leading.
+limitations:
+  - Token/character pricing can be confusing vs per-minute audio APIs.
+  - Commercial rights and voice-cloning ethics need review.
+  - English and non-Chinese quality are good but not market-leading.
+  - Same Alibaba Cloud region/compliance friction as other Qwen services.
+receipts:
+  - https://www.alibabacloud.com/help/en/model-studio/voice-design-user-guide
+  - https://cloudprice.net/models/alibaba-cosyvoice-2
+  - https://guijiagi.com/posts/ai-tts-2026-comparison/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,30 @@
+name: Tongyi Lingma
+tagline: Free IDE plugin and standalone AI IDE from Alibaba for completion, chat and repo refactoring.
+url: https://www.ainspiro.com/en/news/china-ai-coding-tools-2026-lingma-comate-codegeex-trae/
+category: coding
+pricing: free
+price_note: "Completely free for individual developers; enterprise tier custom pricing via Alibaba Cloud"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A genuinely free Copilot-style plugin with solid Chinese-language support.
+  The catch is Alibaba ecosystem lock-in, limited English documentation, and
+  weaker agentic depth than Cursor or Claude Code.
+limitations:
+  - Less powerful than Cursor or Claude Code for agentic tasks.
+  - Heavy Alibaba ecosystem lock-in.
+  - Limited English documentation and Western support.
+  - Enterprise pricing is opaque and China-account oriented.
+receipts:
+  - https://www.ainspiro.com/en/news/china-ai-coding-tools-2026-lingma-comate-codegeex-trae/
+  - https://gowukong.co/en/tools/tongyi-lingma/
+  - https://recatools.com/ai-directory/tongyi-lingma/
+  - https://www.stork.ai/ai-tools/tongyi-lingma
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

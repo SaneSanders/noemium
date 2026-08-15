@@ -1,0 +1,29 @@
+name: CodeGeeX
+tagline: Free and open-source IDE plugin and coding model family from Zhipu.
+url: https://www.ainspiro.com/en/news/china-ai-coding-tools-2026-lingma-comate-codegeex-trae/
+category: coding
+pricing: free
+price_note: "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: ship
+verdict_text: >-
+  A genuinely free, open-source Copilot-style plugin with self-hosting options.
+  It will not match Cursor or GitHub Copilot in ecosystem depth, but the price
+  and privacy story are hard to beat.
+limitations:
+  - Ecosystem smaller than Cursor or GitHub Copilot.
+  - Western documentation and support are thinner.
+  - Model updates and roadmap tied to Zhipu/GLM.
+  - Enterprise features live in the separate paid GLM Coding Plan.
+receipts:
+  - https://www.ainspiro.com/en/news/china-ai-coding-tools-2026-lingma-comate-codegeex-trae/
+  - https://www.aipricing.guru/z-ai-subscription-pricing/
+  - https://blogs.truescho.com/en/glm-coding-plan-zai/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders
