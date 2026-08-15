@@ -1,0 +1,23 @@
+name: GLM 5.2
+provider: Z.ai (GLM)
+context_window: 1048576
+price_input_per_mtok: 1.4
+price_output_per_mtok: 4.4
+open_weights: true
+best_for:
+  - long-horizon agentic coding
+  - self-hosted deployments (MIT)
+avoid_for:
+  - teams needing a first-party managed SLA
+  - latency-critical autocomplete
+benchmarks:
+  - name: Terminal-Bench 2.1
+    score: "81.0"
+    source: official docs.z.ai
+    date: "2026-06-13"
+  - name: SWE-bench Pro
+    score: "62.1"
+    source: official docs.z.ai
+    date: "2026-06-13"
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key dashscope/glm-5.2); open weights (MIT); snapshot 2026-08-15"
+last_verified: "2026-08-15"

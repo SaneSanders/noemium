@@ -1,0 +1,19 @@
+name: Gemini 3.1 Pro Preview
+provider: Google
+context_window: 1048576
+price_input_per_mtok: 2
+price_output_per_mtok: 12
+open_weights: false
+best_for:
+  - flagship reasoning and coding
+  - long-document and multimodal analysis (1M ctx)
+avoid_for:
+  - on-prem or air-gapped deployments
+  - strict data-residency outside Google Cloud
+benchmarks:
+  - name: SWE-bench Verified
+    score: "80.6%"
+    source: Google model card
+    date: "2026-02-19"
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gemini-3.1-pro-preview); >200K input tier: $4/$18 per 1M; snapshot 2026-08-15"
+last_verified: "2026-08-15"

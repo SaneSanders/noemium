@@ -9,9 +9,9 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - gpt-5
-  - claude-sonnet-4-5
-  - gemini-2-5-pro
+  - gpt-5-6-terra
+  - claude-sonnet-5
+  - gemini-3-1-pro-preview
 verdict: ship
 verdict_text: >-
   Replaced Google for a real share of practitioner queries: cited answers,

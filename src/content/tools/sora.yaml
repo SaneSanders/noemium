@@ -8,8 +8,6 @@ free_tier: false
 open_source: false
 api: false
 self_host: false
-models_used:
-  - sora
 verdict: situational
 verdict_text: >-
   Impressive raw generation, and being bundled with ChatGPT Plus makes it the

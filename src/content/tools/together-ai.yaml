@@ -9,9 +9,9 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - llama-4
-  - qwen3
-  - deepseek-v3
+  - llama-4-maverick
+  - qwen3-8-max
+  - deepseek-v4-flash
 verdict: ship
 verdict_text: >-
   The reliable workhorse for open-model serving: broad catalog, solid uptime,

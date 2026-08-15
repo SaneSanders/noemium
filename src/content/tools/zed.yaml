@@ -9,7 +9,7 @@ open_source: true
 api: false
 self_host: true
 models_used:
-  - claude-sonnet-4-5
+  - claude-sonnet-5
 verdict: situational
 verdict_text: >-
   The fastest editor you will ever use, and the agent panel is honest

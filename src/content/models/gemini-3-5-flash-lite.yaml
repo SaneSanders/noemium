@@ -1,0 +1,14 @@
+name: Gemini 3.5 Flash-Lite
+provider: Google
+context_window: 1048576
+price_input_per_mtok: 0.3
+price_output_per_mtok: 2.5
+open_weights: false
+best_for:
+  - "cheapest GA Gemini: high-volume workloads"
+  - bulk classification and extraction
+avoid_for:
+  - frontier reasoning (use 3.1 Pro)
+  - open-weights requirements
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gemini-3.5-flash-lite); snapshot 2026-08-15"
+last_verified: "2026-08-15"

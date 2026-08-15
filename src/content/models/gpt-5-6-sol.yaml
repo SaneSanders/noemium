@@ -1,0 +1,14 @@
+name: GPT-5.6 Sol
+provider: OpenAI
+context_window: 1050000
+price_input_per_mtok: 5
+price_output_per_mtok: 30
+open_weights: false
+best_for:
+  - "complex reasoning, coding and agents (flagship)"
+  - long-horizon autonomous tasks
+avoid_for:
+  - high-volume cheap workloads (use gpt-5.6-luna)
+  - open-weights or on-prem requirements
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gpt-5.6-sol); >272K input bills 2x input / 1.5x output; snapshot 2026-08-15"
+last_verified: "2026-08-15"

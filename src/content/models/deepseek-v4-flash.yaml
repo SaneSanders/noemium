@@ -1,0 +1,14 @@
+name: DeepSeek V4 Flash
+provider: DeepSeek
+context_window: 1000000
+price_input_per_mtok: 0.44
+price_output_per_mtok: 1.32
+open_weights: true
+best_for:
+  - "fast cheap line: high-volume chat and batch"
+  - self-hosted MoE deployments
+avoid_for:
+  - strict compliance/data-residency requirements (China-hosted API)
+  - top-tier agentic coding (use V4 Pro)
+source_attribution: "Prices: vendor pricing page, 2026-08-15; official peak price (off-peak $0.22/$0.66); new peak/off-peak price list effective 2026-08-16; snapshot 2026-08-15"
+last_verified: "2026-08-15"

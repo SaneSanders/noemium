@@ -1,0 +1,14 @@
+name: Claude Fable 5
+provider: Anthropic
+context_window: 1000000
+price_input_per_mtok: 10
+price_output_per_mtok: 50
+open_weights: false
+best_for:
+  - long-horizon autonomous agents
+  - strongest public Anthropic model (Mythos class)
+avoid_for:
+  - cost-sensitive bulk workloads
+  - open-weights requirements
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key claude-fable-5); batch API -50%, cache read 0.1x; snapshot 2026-08-15"
+last_verified: "2026-08-15"

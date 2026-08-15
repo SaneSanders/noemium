@@ -9,7 +9,7 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - grok-4
+  - grok-4-6
 verdict: situational
 verdict_text: >-
   Grok 4 benchmarks competitively and the API is straightforward. But the

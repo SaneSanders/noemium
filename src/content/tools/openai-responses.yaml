@@ -9,10 +9,10 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - gpt-5
-  - gpt-5-mini
-  - o3
-  - o4-mini
+  - gpt-5-6-terra
+  - gpt-5-4-mini
+  - gpt-5-6-sol
+  - gpt-5-6-luna
 verdict: ship
 verdict_text: >-
   The most batteries-included agent API: hosted web search, file search and

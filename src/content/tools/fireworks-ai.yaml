@@ -9,8 +9,8 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - llama-4
-  - qwen3
+  - llama-4-maverick
+  - qwen3-8-max
 verdict: situational
 verdict_text: >-
   Genuinely fast, and the compound-AI tooling (function calling, multi-modal)

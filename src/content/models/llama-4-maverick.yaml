@@ -1,0 +1,14 @@
+name: Llama 4 Maverick
+provider: Meta
+context_window: 1000000
+price_input_per_mtok: 0.2
+price_output_per_mtok: 0.6
+open_weights: true
+best_for:
+  - "open MoE flagship (400B): self-hosted multimodal"
+  - fine-tuning base for custom models
+avoid_for:
+  - teams that need a managed first-party API (Meta Llama API closed 2026-07-06)
+  - use cases restricted by the Llama community license
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key groq/meta-llama/llama-4-maverick-17b-128e-instruct); third-party hosted price (~$0.20–0.27 / $0.60–0.85 across hosts); Meta shut down its own Llama API 2026-07-06; snapshot 2026-08-15"
+last_verified: "2026-08-15"

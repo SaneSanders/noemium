@@ -3,7 +3,7 @@ provider: ElevenLabs
 price_input_per_mtok: 0
 price_output_per_mtok: 0
 price_unit: character
-price_amount: 0.00018
+price_amount: 0.0001
 open_weights: false
 best_for:
   - expressive text-to-speech with emotion tags
@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - "speech-to-text (this is TTS, not transcription)"
   - self-hosted voice pipelines
-source_attribution: "Non-token pricing: $0.00018 per character (LiteLLM model_prices_and_context_window.json (MIT, key elevenlabs/eleven_v3)); per-mtok fields set to 0 (no token price exists); snapshot 2026-08-15"
+source_attribution: "Unit pricing: $0.10 per 1K characters (vendor pricing page, 2026-08-15); 70+ languages; per-mtok fields set to 0 (no token price exists); snapshot 2026-08-15"
 last_verified: "2026-08-15"

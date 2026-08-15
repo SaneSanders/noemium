@@ -1,0 +1,14 @@
+name: Kimi K3
+provider: Moonshot AI (Kimi)
+context_window: 1000000
+price_input_per_mtok: 3
+price_output_per_mtok: 15
+open_weights: true
+best_for:
+  - long-horizon coding
+  - deep reasoning (2.8T flagship with open weights)
+avoid_for:
+  - budget high-volume workloads
+  - strict license-cleanliness requirements (modified MIT)
+source_attribution: "Prices: vendor pricing page, 2026-08-15; cached input $0.30/1M; open weights (modified MIT) released 2026-07-27; snapshot 2026-08-15"
+last_verified: "2026-08-15"

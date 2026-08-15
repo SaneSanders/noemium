@@ -9,7 +9,7 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - veo-3
+  - veo-3-1-generate
 verdict: ship
 verdict_text: >-
   The quality benchmark right now: physics, lip-sync and native sound are a

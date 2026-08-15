@@ -1,0 +1,14 @@
+name: Grok 4.6
+provider: xAI
+context_window: 500000
+price_input_per_mtok: 2
+price_output_per_mtok: 6
+open_weights: false
+best_for:
+  - flagship coding and tool-calling
+  - reasoning with real-time X context
+avoid_for:
+  - on-prem or open-weights requirements
+  - budget high-volume workloads
+source_attribution: "Prices: vendor pricing page, 2026-08-15; ≥200K input bills at 2x; snapshot 2026-08-15"
+last_verified: "2026-08-15"

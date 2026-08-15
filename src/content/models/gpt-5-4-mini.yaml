@@ -1,0 +1,14 @@
+name: GPT-5.4 mini
+provider: OpenAI
+context_window: 400000
+price_input_per_mtok: 0.75
+price_output_per_mtok: 4.5
+open_weights: false
+best_for:
+  - "strongest mini tier: coding and subagents"
+  - budget reasoning at scale
+avoid_for:
+  - flagship-level reasoning (use gpt-5.6-sol)
+  - open-weights requirements
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gpt-5.4-mini); context window 400K per vendor docs; snapshot 2026-08-15"
+last_verified: "2026-08-15"

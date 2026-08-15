@@ -11,7 +11,7 @@ open_source: false
 api: false
 self_host: false
 models_used:
-  - claude-sonnet-4-5
+  - claude-sonnet-5
 verdict: ship
 verdict_text: >-
   The default AI editor for a reason: agent mode plus tab completions

@@ -38,258 +38,375 @@ const LITELLM_URL =
  * Per-model match config.
  *  litellm:  candidate keys in model_prices_and_context_window.json, first hit wins.
  *  helicone: { provider, model } exact pair in the Helicone cost API (fallback).
+ *  fallback: { input, output } per-1M-token prices verified by hand on the
+ *            vendor pricing page — used only when neither source resolves.
  *  context_fallback: used when no source reports a context window (token
  *            models only). Media models have no token context at all — the
  *            field is simply omitted for them (the schema marks it optional).
+ *  context_override: manual context window that wins over source data.
+ *  note:   extra pricing caveat appended to source_attribution.
  *  seed:     curated fields, written only when creating a new file.
  */
 const MODELS = [
+  // --- OpenAI (5.6 line: 1.05M ctx; >272K input bills 2x in / 1.5x out) ---
   {
-    slug: 'gpt-5',
-    litellm: ['gpt-5'],
-    helicone: { provider: 'OPENAI', model: 'gpt-5' },
+    slug: 'gpt-5-6-sol',
+    litellm: ['gpt-5.6-sol'],
+    helicone: null,
+    note: '>272K input bills 2x input / 1.5x output',
     seed: {
-      name: 'GPT-5',
+      name: 'GPT-5.6 Sol',
       provider: 'OpenAI',
       open_weights: false,
-      best_for: ['agentic coding and multi-step tool use', 'complex reasoning over mixed text/image input', 'general-purpose production chat'],
-      avoid_for: ['high-volume cheap classification (use gpt-5-mini)', 'on-prem or air-gapped deployments'],
-      benchmarks: [
-        { name: 'SWE-bench Verified', score: '74.9%', source: 'OpenAI GPT-5 announcement', date: '2025-08-07' },
-      ],
+      best_for: ['complex reasoning, coding and agents (flagship)', 'long-horizon autonomous tasks'],
+      avoid_for: ['high-volume cheap workloads (use gpt-5.6-luna)', 'open-weights or on-prem requirements'],
     },
   },
   {
-    slug: 'gpt-5-mini',
-    litellm: ['gpt-5-mini'],
-    helicone: { provider: 'OPENAI', model: 'gpt-5-mini' },
+    slug: 'gpt-5-6-terra',
+    litellm: ['gpt-5.6-terra'],
+    helicone: null,
+    note: '>272K input bills 2x input / 1.5x output',
     seed: {
-      name: 'GPT-5 mini',
+      name: 'GPT-5.6 Terra',
       provider: 'OpenAI',
       open_weights: false,
-      best_for: ['cheap batch classification', 'high-throughput support chat', 'structured extraction at scale'],
-      avoid_for: ['hardest reasoning tasks (use full GPT-5 or o3)', 'open-weights requirements'],
+      best_for: ['default for most workloads: intelligence/price balance', 'production agentic coding'],
+      avoid_for: ['cheapest high-volume tasks (use gpt-5.6-luna)', 'hardest reasoning (use gpt-5.6-sol)'],
     },
   },
   {
-    slug: 'o3',
-    litellm: ['o3'],
-    helicone: { provider: 'OPENAI', model: 'o3-2025-04-16' },
+    slug: 'gpt-5-6-luna',
+    litellm: ['gpt-5.6-luna'],
+    helicone: null,
+    note: '>272K input bills 2x input / 1.5x output',
     seed: {
-      name: 'o3',
+      name: 'GPT-5.6 Luna',
       provider: 'OpenAI',
       open_weights: false,
-      best_for: ['deep math/science reasoning', 'complex debugging and code analysis', 'multi-step agentic planning'],
-      avoid_for: ['latency-sensitive chat (long thinking traces)', 'cost-sensitive high-volume workloads'],
+      best_for: ['high-volume batch workloads', 'cheap classification and extraction at scale'],
+      avoid_for: ['frontier reasoning (use gpt-5.6-sol/terra)', 'open-weights requirements'],
     },
   },
   {
-    slug: 'o4-mini',
-    litellm: ['o4-mini'],
-    helicone: { provider: 'OPENAI', model: 'o4-mini' },
+    slug: 'gpt-5-4-mini',
+    litellm: ['gpt-5.4-mini'],
+    helicone: null,
+    context_override: 400000, // vendor docs list 400K; LiteLLM still shows 272K
+    note: 'context window 400K per vendor docs',
     seed: {
-      name: 'o4-mini',
+      name: 'GPT-5.4 mini',
       provider: 'OpenAI',
       open_weights: false,
-      best_for: ['fast reasoning on a budget', 'math and coding at scale', 'batch reasoning jobs'],
-      avoid_for: ['frontier-accuracy tasks (use o3)', 'deployments outside the OpenAI API'],
+      best_for: ['strongest mini tier: coding and subagents', 'budget reasoning at scale'],
+      avoid_for: ['flagship-level reasoning (use gpt-5.6-sol)', 'open-weights requirements'],
     },
   },
+  // --- Anthropic (1M ctx except haiku 200K; batch -50%, cache read 0.1x) ---
   {
-    slug: 'claude-sonnet-4-5',
-    litellm: ['claude-sonnet-4-5'],
-    helicone: { provider: 'ANTHROPIC', model: 'claude-sonnet-4-5-20250929' },
+    slug: 'claude-fable-5',
+    litellm: ['claude-fable-5'],
+    helicone: null,
+    note: 'batch API -50%, cache read 0.1x',
     seed: {
-      name: 'Claude Sonnet 4.5',
+      name: 'Claude Fable 5',
       provider: 'Anthropic',
       open_weights: false,
-      best_for: ['agentic coding and multi-step tool use', 'long-document analysis', 'instruction following with tight constraints'],
-      avoid_for: ['latency-critical autocomplete at scale (cost per call)', 'on-prem or air-gapped deployments'],
-      benchmarks: [
-        { name: 'SWE-bench Verified', score: '77.2%', source: 'Anthropic model card', date: '2025-09-29' },
-      ],
+      best_for: ['long-horizon autonomous agents', 'strongest public Anthropic model (Mythos class)'],
+      avoid_for: ['cost-sensitive bulk workloads', 'open-weights requirements'],
     },
   },
   {
-    slug: 'claude-opus-4-1',
-    litellm: ['claude-opus-4-1'],
-    helicone: { provider: 'ANTHROPIC', model: 'claude-opus-4-1-20250805' },
+    slug: 'claude-opus-5',
+    litellm: ['claude-opus-5'],
+    helicone: null,
+    note: 'batch API -50%, cache read 0.1x',
     seed: {
-      name: 'Claude Opus 4.1',
+      name: 'Claude Opus 5',
       provider: 'Anthropic',
       open_weights: false,
-      best_for: ['hardest agentic coding tasks', 'long-horizon autonomous agents', 'deep research and analysis'],
+      best_for: ['complex agentic coding', 'near-Fable quality at half the price'],
       avoid_for: ['cost-sensitive bulk workloads', 'sub-second latency requirements'],
-      benchmarks: [
-        { name: 'SWE-bench Verified', score: '74.5%', source: 'Anthropic announcement', date: '2025-08-05' },
-      ],
     },
   },
   {
-    slug: 'claude-haiku-3-5',
-    litellm: ['heroku/claude-3-5-haiku', 'vertex_ai/claude-3-5-haiku'],
-    helicone: { provider: 'ANTHROPIC', model: 'claude-3-5-haiku-20241022' },
-    prefer: 'helicone', // official Anthropic price ($0.8/$4); LiteLLM resellers list $1/$5
-    context_fallback: 200000,
+    slug: 'claude-sonnet-5',
+    litellm: ['claude-sonnet-5'],
+    helicone: null,
+    note: 'intro price $2/$10 until 2026-08-31, then $3/$15 (secondary sources, unconfirmed); batch API -50%, cache read 0.1x',
     seed: {
-      name: 'Claude Haiku 3.5',
+      name: 'Claude Sonnet 5',
       provider: 'Anthropic',
       open_weights: false,
-      best_for: ['cheap high-volume classification', 'low-latency autocomplete-style tasks', 'bulk summarization'],
-      avoid_for: ['frontier reasoning or agentic coding', 'tasks needing the newest Claude features'],
+      best_for: ['production workhorse: agentic coding and tool use', 'long-document analysis'],
+      avoid_for: ['latency-critical autocomplete at scale (cost per call)', 'on-prem or air-gapped deployments'],
     },
   },
   {
-    slug: 'gemini-2-5-pro',
-    litellm: ['gemini/gemini-2.5-pro', 'gemini-2.5-pro'],
-    helicone: { provider: 'GOOGLE', model: 'gemini-2.5-pro' },
+    slug: 'claude-haiku-4-5',
+    litellm: ['claude-haiku-4-5'],
+    helicone: null,
+    note: 'batch API -50%, cache read 0.1x',
     seed: {
-      name: 'Gemini 2.5 Pro',
+      name: 'Claude Haiku 4.5',
+      provider: 'Anthropic',
+      open_weights: false,
+      best_for: ['speed: classification and routing', 'low-latency high-volume tasks'],
+      avoid_for: ['frontier reasoning or agentic coding', 'open-weights requirements'],
+    },
+  },
+  // --- Google (1M ctx) ---
+  {
+    slug: 'gemini-3-1-pro-preview',
+    litellm: ['gemini-3.1-pro-preview'],
+    helicone: null,
+    note: '>200K input tier: $4/$18 per 1M',
+    seed: {
+      name: 'Gemini 3.1 Pro Preview',
       provider: 'Google',
       open_weights: false,
-      best_for: ['long-document analysis (1M token context)', 'multimodal video/audio understanding', 'reasoning over huge codebases'],
+      best_for: ['flagship reasoning and coding', 'long-document and multimodal analysis (1M ctx)'],
       avoid_for: ['on-prem or air-gapped deployments', 'strict data-residency outside Google Cloud'],
+      benchmarks: [
+        { name: 'SWE-bench Verified', score: '80.6%', source: 'Google model card', date: '2026-02-19' },
+      ],
     },
   },
   {
-    slug: 'gemini-2-5-flash',
-    litellm: ['gemini/gemini-2.5-flash', 'gemini-2.5-flash'],
-    helicone: { provider: 'GOOGLE', model: 'gemini-2.5-flash' },
+    slug: 'gemini-3-7-flash',
+    litellm: ['gemini-3.7-flash'],
+    helicone: null,
+    note: 'promo price until 2026-12-31, then $1.50/$7.50',
     seed: {
-      name: 'Gemini 2.5 Flash',
+      name: 'Gemini 3.7 Flash',
       provider: 'Google',
       open_weights: false,
-      best_for: ['cheap batch classification at scale', 'low-latency production chat', 'multimodal tasks on a budget'],
-      avoid_for: ['hardest reasoning tasks (use 2.5 Pro)', 'open-weights requirements'],
+      best_for: ['agentic workflows', 'multimodal tasks on a budget'],
+      avoid_for: ['hardest reasoning tasks (use 3.1 Pro)', 'open-weights requirements'],
     },
   },
   {
-    slug: 'deepseek-v3',
-    litellm: ['deepseek/deepseek-chat'],
-    helicone: null, // Helicone deepseek-chat price is stale/wrong by >10x; LiteLLM only
+    slug: 'gemini-3-5-flash-lite',
+    litellm: ['gemini-3.5-flash-lite'],
+    helicone: null,
     seed: {
-      name: 'DeepSeek V3',
-      provider: 'DeepSeek',
-      open_weights: true,
-      best_for: ['cheap general-purpose chat at scale', 'self-hosted MoE deployments', 'high-volume batch workloads'],
-      avoid_for: ['strict compliance/data-residency requirements (China-hosted API)', 'top-tier reasoning (use R1)'],
-      benchmarks: [
-        { name: 'MMLU', score: '88.5%', source: 'DeepSeek-V3 technical report (arXiv:2412.19437)', date: '2024-12-26' },
-      ],
-    },
-  },
-  {
-    slug: 'deepseek-r1',
-    litellm: ['deepseek/deepseek-reasoner', 'deepseek/deepseek-r1'],
-    helicone: { provider: 'OPENROUTER', model: 'deepseek/deepseek-r1' },
-    seed: {
-      name: 'DeepSeek R1',
-      provider: 'DeepSeek',
-      open_weights: true,
-      best_for: ['reasoning on a budget', 'self-hosted chain-of-thought workloads', 'math and code proofs'],
-      avoid_for: ['latency-critical apps (long thinking traces)', 'tool-use-heavy agent loops'],
-      benchmarks: [
-        { name: 'AIME 2024', score: '79.8%', source: 'DeepSeek-R1 paper (arXiv:2501.12948)', date: '2025-01-20' },
-      ],
-    },
-  },
-  {
-    slug: 'qwen3',
-    litellm: ['openrouter/qwen/qwen3-235b-a22b-2507'],
-    helicone: { provider: 'OPENROUTER', model: 'qwen/qwen3-235b-a22b-2507' },
-    seed: {
-      name: 'Qwen3 235B A22B',
-      provider: 'Alibaba (Qwen)',
-      open_weights: true,
-      best_for: ['self-hosted multilingual chat (Apache-2.0)', 'commercial self-host without license friction', 'hybrid thinking/non-thinking modes'],
-      avoid_for: ['teams needing a first-party managed SLA', 'small-GPU self-hosting (235B MoE)'],
-    },
-  },
-  {
-    slug: 'llama-4',
-    litellm: [
-      'groq/meta-llama/llama-4-maverick-17b-128e-instruct',
-      'fireworks_ai/accounts/fireworks/models/llama4-maverick-instruct-basic',
-    ],
-    helicone: null, // Helicone LLAMA/* entries report 0/0 — unusable
-    seed: {
-      name: 'Llama 4 Maverick',
-      provider: 'Meta',
-      open_weights: true,
-      best_for: ['self-hosted multimodal MoE', 'fine-tuning base for custom models', 'on-prem enterprise deployments'],
-      avoid_for: ['teams that need a managed first-party API', 'use cases restricted by the Llama community license'],
-    },
-  },
-  {
-    slug: 'mistral-large',
-    litellm: ['mistral/mistral-large-latest'],
-    helicone: null, // Helicone reports 2000/6000 per 1M — off by 1000x
-    seed: {
-      name: 'Mistral Large',
-      provider: 'Mistral AI',
+      name: 'Gemini 3.5 Flash-Lite',
+      provider: 'Google',
       open_weights: false,
-      best_for: ['european data-residency deployments', 'strong multilingual chat (FR/DE/ES)', 'agentic function calling'],
-      avoid_for: ['open-weights requirements (Large line is proprietary)', 'cheapest-possible bulk workloads'],
+      best_for: ['cheapest GA Gemini: high-volume workloads', 'bulk classification and extraction'],
+      avoid_for: ['frontier reasoning (use 3.1 Pro)', 'open-weights requirements'],
+    },
+  },
+  // --- DeepSeek (open weights, MIT; 1M ctx) ---
+  {
+    slug: 'deepseek-v4-pro',
+    litellm: [], // LiteLLM lists reseller (DashScope/Azure) prices, not the official ones
+    helicone: null,
+    fallback: { input: 1.32, output: 3.96 },
+    context_fallback: 1000000,
+    note: 'official peak price (off-peak $0.66/$1.98); new peak/off-peak price list effective 2026-08-16',
+    seed: {
+      name: 'DeepSeek V4 Pro',
+      provider: 'DeepSeek',
+      open_weights: true,
+      best_for: ['flagship agentic coding (open weights)', 'self-hosted frontier-class workloads'],
+      avoid_for: ['strict compliance/data-residency requirements (China-hosted API)', 'sub-second latency requirements'],
+      benchmarks: [
+        { name: 'Terminal-Bench 2.1', score: '87.9', source: 'DeepSeek official changelog', date: '2026-08-13' },
+      ],
     },
   },
   {
-    slug: 'grok-4',
-    litellm: ['xai/grok-4'],
-    helicone: { provider: 'X', model: 'grok-4' },
+    slug: 'deepseek-v4-flash',
+    litellm: [],
+    helicone: null,
+    fallback: { input: 0.44, output: 1.32 },
+    context_fallback: 1000000,
+    note: 'official peak price (off-peak $0.22/$0.66); new peak/off-peak price list effective 2026-08-16',
     seed: {
-      name: 'Grok 4',
+      name: 'DeepSeek V4 Flash',
+      provider: 'DeepSeek',
+      open_weights: true,
+      best_for: ['fast cheap line: high-volume chat and batch', 'self-hosted MoE deployments'],
+      avoid_for: ['strict compliance/data-residency requirements (China-hosted API)', 'top-tier agentic coding (use V4 Pro)'],
+    },
+  },
+  // --- Kimi (Moonshot) ---
+  {
+    slug: 'kimi-k3',
+    litellm: [], // not in LiteLLM/Helicone yet
+    helicone: null,
+    fallback: { input: 3, output: 15 },
+    context_fallback: 1000000,
+    note: 'cached input $0.30/1M; open weights (modified MIT) released 2026-07-27',
+    seed: {
+      name: 'Kimi K3',
+      provider: 'Moonshot AI (Kimi)',
+      open_weights: true,
+      best_for: ['long-horizon coding', 'deep reasoning (2.8T flagship with open weights)'],
+      avoid_for: ['budget high-volume workloads', 'strict license-cleanliness requirements (modified MIT)'],
+    },
+  },
+  // --- xAI ---
+  {
+    slug: 'grok-4-6',
+    litellm: [], // not in LiteLLM/Helicone yet
+    helicone: null,
+    fallback: { input: 2, output: 6 },
+    context_fallback: 500000,
+    note: '≥200K input bills at 2x',
+    seed: {
+      name: 'Grok 4.6',
       provider: 'xAI',
       open_weights: false,
-      best_for: ['reasoning with real-time X/Twitter context', 'long-context analysis (256k)', 'heavy math/science benchmarks'],
+      best_for: ['flagship coding and tool-calling', 'reasoning with real-time X context'],
       avoid_for: ['on-prem or open-weights requirements', 'budget high-volume workloads'],
     },
   },
   {
-    slug: 'flux-1-1-pro',
-    litellm: ['azure_ai/FLUX-1.1-pro'],
+    slug: 'grok-build-0-1',
+    litellm: ['xai/grok-build-0.1'],
     helicone: null,
     seed: {
-      name: 'FLUX 1.1 Pro',
-      provider: 'Black Forest Labs',
+      name: 'Grok Build 0.1',
+      provider: 'xAI',
       open_weights: false,
-      best_for: ['production text-to-image via API', 'fast high-quality product/marketing shots'],
-      avoid_for: ['open-weights pipelines (use FLUX.1 [dev]/[schnell])', 'per-token cost accounting — priced per image'],
+      best_for: ['agentic coding engine', 'autonomous build loops'],
+      avoid_for: ['general-purpose chat', 'open-weights requirements'],
+    },
+  },
+  // --- Meta ---
+  {
+    slug: 'muse-spark-1-2',
+    litellm: [], // LiteLLM only knows muse-spark-1.1
+    helicone: null,
+    fallback: { input: 1.25, output: 4.25 },
+    context_fallback: 1000000,
+    note: 'cached input $0.15/1M; first paid Meta API',
+    seed: {
+      name: 'Muse Spark 1.2',
+      provider: 'Meta',
+      open_weights: false,
+      best_for: ['agentic coding at ~4x below frontier price', 'high-volume production workloads'],
+      avoid_for: ['open-weights or on-prem requirements', 'teams needing a long pricing track record'],
+    },
+  },
+  // --- Open-weights flagships ---
+  {
+    slug: 'qwen3-8-max',
+    litellm: ['dashscope/qwen3.8-max'],
+    helicone: null,
+    context_override: 1000000, // vendor lists 1M; DashScope entry caps at 991808
+    note: 'GA 2026-08-03; open-weights 2.4T-A95B MoE',
+    seed: {
+      name: 'Qwen3.8 Max',
+      provider: 'Alibaba (Qwen)',
+      open_weights: true,
+      best_for: ['autonomous coding (open-weights flagship)', 'self-hosted frontier-class deployments'],
+      avoid_for: ['teams needing a first-party managed SLA', 'small-GPU self-hosting (2.4T MoE)'],
     },
   },
   {
-    slug: 'sora',
-    litellm: ['openai/sora-2'],
+    slug: 'glm-5-2',
+    litellm: ['dashscope/glm-5.2'],
     helicone: null,
+    note: 'open weights (MIT)',
     seed: {
-      name: 'Sora 2',
-      provider: 'OpenAI',
-      open_weights: false,
-      best_for: ['text-to-video generation', 'creative storyboarding and concept clips'],
-      avoid_for: ['deterministic brand-safe pipelines', 'per-token budgeting — priced per video second'],
+      name: 'GLM 5.2',
+      provider: 'Z.ai (GLM)',
+      open_weights: true,
+      best_for: ['long-horizon agentic coding', 'self-hosted deployments (MIT)'],
+      avoid_for: ['teams needing a first-party managed SLA', 'latency-critical autocomplete'],
+      benchmarks: [
+        { name: 'Terminal-Bench 2.1', score: '81.0', source: 'official docs.z.ai', date: '2026-06-13' },
+        { name: 'SWE-bench Pro', score: '62.1', source: 'official docs.z.ai', date: '2026-06-13' },
+      ],
     },
   },
   {
-    slug: 'veo-3',
-    litellm: ['vertex_ai/veo-3.0-generate-001'],
+    slug: 'minimax-m3',
+    litellm: ['minimax/MiniMax-M3'],
     helicone: null,
+    note: 'price applies to ≤512K context',
     seed: {
-      name: 'Veo 3',
+      name: 'MiniMax M3',
+      provider: 'MiniMax',
+      open_weights: true,
+      best_for: ['coding agents on a budget', 'long-context workloads (1M ctx)'],
+      avoid_for: ['frontier-accuracy tasks', 'teams needing a first-party managed SLA'],
+    },
+  },
+  {
+    slug: 'mistral-large-2512',
+    litellm: ['mistral/mistral-large-2512'],
+    helicone: null,
+    note: 'open weights (Apache-2.0)',
+    seed: {
+      name: 'Mistral Large 3',
+      provider: 'Mistral AI',
+      open_weights: true,
+      best_for: ['flagship general + vision (Apache-2.0)', 'european data-residency deployments'],
+      avoid_for: ['cheapest-possible bulk workloads', 'frontier agentic coding (use DeepSeek V4 Pro / GLM 5.2)'],
+    },
+  },
+  {
+    slug: 'llama-4-maverick',
+    litellm: ['groq/meta-llama/llama-4-maverick-17b-128e-instruct'],
+    helicone: null,
+    context_override: 1000000, // model supports 1M; Groq host caps at 128K
+    note: 'third-party hosted price (~$0.20–0.27 / $0.60–0.85 across hosts); Meta shut down its own Llama API 2026-07-06',
+    seed: {
+      name: 'Llama 4 Maverick',
+      provider: 'Meta',
+      open_weights: true,
+      best_for: ['open MoE flagship (400B): self-hosted multimodal', 'fine-tuning base for custom models'],
+      avoid_for: ['teams that need a managed first-party API (Meta Llama API closed 2026-07-06)', 'use cases restricted by the Llama community license'],
+    },
+  },
+  // --- Media (unit-priced; per-mtok fields stay 0) ---
+  {
+    slug: 'veo-3-1-generate',
+    litellm: [], // LiteLLM entries carry no price fields for Veo 3.1
+    helicone: null,
+    note: 'Unit pricing: $0.40/sec 720–1080p with audio, $0.60/sec 4K; fast $0.10–0.30/sec; lite $0.05–0.08/sec (vendor pricing page, 2026-08-15); per-mtok fields set to 0 (no token price exists)',
+    seed: {
+      name: 'Veo 3.1',
       provider: 'Google',
       open_weights: false,
-      best_for: ['video generation with native audio', 'high-fidelity short clips via Vertex AI'],
+      price_unit: 'video_second',
+      price_amount: 0.4,
+      best_for: ['top-tier video generation with synchronized audio', 'high-fidelity 720p–4K clips'],
       avoid_for: ['budget bulk generation (per-second pricing)', 'open or self-hosted video pipelines'],
     },
   },
   {
     slug: 'eleven-v3',
-    litellm: ['elevenlabs/eleven_v3'],
+    litellm: [], // LiteLLM lists $0.00018/char; vendor page says $0.10 per 1K chars
     helicone: null,
+    note: 'Unit pricing: $0.10 per 1K characters (vendor pricing page, 2026-08-15); 70+ languages; per-mtok fields set to 0 (no token price exists)',
     seed: {
       name: 'Eleven v3',
       provider: 'ElevenLabs',
       open_weights: false,
-      best_for: ['expressive text-to-speech with emotion tags', 'multilingual voiceover and audiobooks'],
+      price_unit: 'character',
+      price_amount: 0.0001,
+      best_for: ['flagship TTS: expressive speech with emotion tags', 'multilingual voiceover and audiobooks (70+ languages)'],
       avoid_for: ['speech-to-text (this is TTS, not transcription)', 'self-hosted voice pipelines'],
+    },
+  },
+  {
+    slug: 'flux-2-pro',
+    litellm: [], // azure_ai/flux.2-pro lists $0.04/image; vendor page starts at $0.03
+    helicone: null,
+    note: 'Unit pricing: from $0.03 per image (vendor pricing page, 2026-08-15); open Apache-2.0 variant FLUX.2 Klein 4B from $0.014; per-mtok fields set to 0 (no token price exists)',
+    seed: {
+      name: 'FLUX 2 Pro',
+      provider: 'Black Forest Labs',
+      open_weights: false,
+      price_unit: 'image',
+      price_amount: 0.03,
+      best_for: ['production text-to-image via API', 'fast high-quality product/marketing shots'],
+      avoid_for: ['open-weights pipelines (use FLUX.2 Klein 4B, Apache-2.0)', 'per-token cost accounting — priced per image'],
     },
   },
   {
@@ -300,6 +417,7 @@ const MODELS = [
       name: 'Whisper Large v3',
       provider: 'OpenAI',
       open_weights: true,
+      price_unit: 'audio_second',
       best_for: ['self-hosted speech-to-text (MIT weights)', 'cheap batch transcription via Groq', 'multilingual ASR'],
       avoid_for: ['speaker diarization out of the box', 'sub-second real-time captioning'],
     },
@@ -312,6 +430,8 @@ const KEY_ORDER = [
   'context_window',
   'price_input_per_mtok',
   'price_output_per_mtok',
+  'price_unit',
+  'price_amount',
   'open_weights',
   'best_for',
   'avoid_for',
@@ -468,6 +588,14 @@ for (const m of MODELS) {
     }
   }
 
+  // 3) Vendor-seed fallback for models neither source knows (or knows only
+  //    via resellers) — prices verified by hand on the vendor pricing page.
+  if (priceSource === null && m.fallback) {
+    priceIn = m.fallback.input;
+    priceOut = m.fallback.output;
+    priceSource = 'vendor';
+  }
+
   // Cross-check when both sources have token prices (warn-only).
   const hHit = findHelicone();
   if (priceSource && hHit && priceIn != null && hHit.input_cost_per_1m > 0) {
@@ -480,6 +608,8 @@ for (const m of MODELS) {
   }
 
   if (contextWindow == null && !unitNote) contextWindow = m.context_fallback ?? null;
+  // Manual override wins over source data (e.g. vendor docs newer than LiteLLM).
+  if (m.context_override != null) contextWindow = m.context_override;
 
   // Attribution naming.
   const priceAttr =
@@ -487,7 +617,9 @@ for (const m of MODELS) {
       ? `LiteLLM model_prices_and_context_window.json (MIT, key ${litellmKey})`
       : priceSource === 'helicone'
         ? 'Helicone LLM Cost API (Apache-2.0)'
-        : null;
+        : priceSource === 'vendor'
+          ? `vendor pricing page, ${TODAY}`
+          : null;
 
   const parts = [];
   if (unitNote) {
@@ -498,10 +630,11 @@ for (const m of MODELS) {
   if (contextWindow != null && !unitNote && litellmKey && priceSource !== 'litellm') {
     parts.push('context window: LiteLLM (MIT)');
   }
+  if (m.note) parts.push(m.note);
   parts.push(`snapshot ${TODAY}`);
   const attribution = parts.join('; ');
 
-  // 3) Merge with existing file or create from seed.
+  // 4) Merge with existing file or create from seed.
   let data;
   let isNew = false;
   if (existsSync(filePath)) {
@@ -521,7 +654,8 @@ for (const m of MODELS) {
     data.price_input_per_mtok = 0;
     data.price_output_per_mtok = 0;
   }
-  if (unitNote) {
+  const isMedia = unitNote || (data.price_unit && data.price_unit !== 'mtok');
+  if (isMedia) {
     // Media models have no token context window — omit the field entirely
     // (the schema marks it optional) instead of writing a placeholder.
     delete data.context_window;

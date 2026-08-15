@@ -1,0 +1,14 @@
+name: GPT-5.6 Luna
+provider: OpenAI
+context_window: 1050000
+price_input_per_mtok: 0.2
+price_output_per_mtok: 1.2
+open_weights: false
+best_for:
+  - high-volume batch workloads
+  - cheap classification and extraction at scale
+avoid_for:
+  - frontier reasoning (use gpt-5.6-sol/terra)
+  - open-weights requirements
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gpt-5.6-luna); >272K input bills 2x input / 1.5x output; snapshot 2026-08-15"
+last_verified: "2026-08-15"

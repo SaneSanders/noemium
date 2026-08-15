@@ -1,0 +1,14 @@
+name: MiniMax M3
+provider: MiniMax
+context_window: 1000000
+price_input_per_mtok: 0.3
+price_output_per_mtok: 1.2
+open_weights: true
+best_for:
+  - coding agents on a budget
+  - long-context workloads (1M ctx)
+avoid_for:
+  - frontier-accuracy tasks
+  - teams needing a first-party managed SLA
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key minimax/MiniMax-M3); price applies to ≤512K context; snapshot 2026-08-15"
+last_verified: "2026-08-15"

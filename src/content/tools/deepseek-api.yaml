@@ -9,8 +9,8 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - deepseek-v3
-  - deepseek-r1
+  - deepseek-v4-flash
+  - deepseek-v4-pro
 verdict: situational
 verdict_text: >-
   Unbeatable price-performance for reasoning workloads — R1-class output at a

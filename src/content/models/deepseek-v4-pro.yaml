@@ -1,0 +1,19 @@
+name: DeepSeek V4 Pro
+provider: DeepSeek
+context_window: 1000000
+price_input_per_mtok: 1.32
+price_output_per_mtok: 3.96
+open_weights: true
+best_for:
+  - flagship agentic coding (open weights)
+  - self-hosted frontier-class workloads
+avoid_for:
+  - strict compliance/data-residency requirements (China-hosted API)
+  - sub-second latency requirements
+benchmarks:
+  - name: Terminal-Bench 2.1
+    score: "87.9"
+    source: DeepSeek official changelog
+    date: "2026-08-13"
+source_attribution: "Prices: vendor pricing page, 2026-08-15; official peak price (off-peak $0.66/$1.98); new peak/off-peak price list effective 2026-08-16; snapshot 2026-08-15"
+last_verified: "2026-08-15"

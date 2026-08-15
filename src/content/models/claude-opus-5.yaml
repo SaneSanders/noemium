@@ -1,0 +1,14 @@
+name: Claude Opus 5
+provider: Anthropic
+context_window: 1000000
+price_input_per_mtok: 5
+price_output_per_mtok: 25
+open_weights: false
+best_for:
+  - complex agentic coding
+  - near-Fable quality at half the price
+avoid_for:
+  - cost-sensitive bulk workloads
+  - sub-second latency requirements
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key claude-opus-5); batch API -50%, cache read 0.1x; snapshot 2026-08-15"
+last_verified: "2026-08-15"

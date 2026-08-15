@@ -9,9 +9,9 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - claude-opus-4-1
-  - claude-sonnet-4-5
-  - claude-haiku-3-5
+  - claude-opus-5
+  - claude-sonnet-5
+  - claude-haiku-4-5
 verdict: ship
 verdict_text: >-
   The strongest agentic coding tool when you give it real scope: multi-file

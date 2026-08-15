@@ -9,8 +9,8 @@ open_source: false
 api: false
 self_host: false
 models_used:
-  - gpt-5
-  - claude-sonnet-4-5
+  - gpt-5-6-terra
+  - claude-sonnet-5
 verdict: ship
 verdict_text: >-
   The path of least resistance if your team already lives on GitHub:

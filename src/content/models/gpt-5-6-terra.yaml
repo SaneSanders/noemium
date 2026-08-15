@@ -1,0 +1,14 @@
+name: GPT-5.6 Terra
+provider: OpenAI
+context_window: 1050000
+price_input_per_mtok: 2
+price_output_per_mtok: 12
+open_weights: false
+best_for:
+  - "default for most workloads: intelligence/price balance"
+  - production agentic coding
+avoid_for:
+  - cheapest high-volume tasks (use gpt-5.6-luna)
+  - hardest reasoning (use gpt-5.6-sol)
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gpt-5.6-terra); >272K input bills 2x input / 1.5x output; snapshot 2026-08-15"
+last_verified: "2026-08-15"

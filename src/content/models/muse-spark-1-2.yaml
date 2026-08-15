@@ -1,0 +1,14 @@
+name: Muse Spark 1.2
+provider: Meta
+context_window: 1000000
+price_input_per_mtok: 1.25
+price_output_per_mtok: 4.25
+open_weights: false
+best_for:
+  - agentic coding at ~4x below frontier price
+  - high-volume production workloads
+avoid_for:
+  - open-weights or on-prem requirements
+  - teams needing a long pricing track record
+source_attribution: "Prices: vendor pricing page, 2026-08-15; cached input $0.15/1M; first paid Meta API; snapshot 2026-08-15"
+last_verified: "2026-08-15"

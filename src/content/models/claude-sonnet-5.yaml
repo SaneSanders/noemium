@@ -1,0 +1,14 @@
+name: Claude Sonnet 5
+provider: Anthropic
+context_window: 1000000
+price_input_per_mtok: 2
+price_output_per_mtok: 10
+open_weights: false
+best_for:
+  - "production workhorse: agentic coding and tool use"
+  - long-document analysis
+avoid_for:
+  - latency-critical autocomplete at scale (cost per call)
+  - on-prem or air-gapped deployments
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key claude-sonnet-5); intro price $2/$10 until 2026-08-31, then $3/$15 (secondary sources, unconfirmed); batch API -50%, cache read 0.1x; snapshot 2026-08-15"
+last_verified: "2026-08-15"

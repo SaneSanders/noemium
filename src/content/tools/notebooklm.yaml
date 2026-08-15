@@ -9,7 +9,7 @@ open_source: false
 api: false
 self_host: false
 models_used:
-  - gemini-2-5-pro
+  - gemini-3-1-pro-preview
 verdict: ship
 verdict_text: >-
   The most trustworthy consumer RAG: answers stay glued to your uploaded

@@ -1,0 +1,15 @@
+name: Veo 3.1
+provider: Google
+price_input_per_mtok: 0
+price_output_per_mtok: 0
+price_unit: video_second
+price_amount: 0.4
+open_weights: false
+best_for:
+  - top-tier video generation with synchronized audio
+  - high-fidelity 720p–4K clips
+avoid_for:
+  - budget bulk generation (per-second pricing)
+  - open or self-hosted video pipelines
+source_attribution: "Unit pricing: $0.40/sec 720–1080p with audio, $0.60/sec 4K; fast $0.10–0.30/sec; lite $0.05–0.08/sec (vendor pricing page, 2026-08-15); per-mtok fields set to 0 (no token price exists); snapshot 2026-08-15"
+last_verified: "2026-08-15"

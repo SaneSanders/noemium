@@ -9,8 +9,8 @@ open_source: false
 api: true
 self_host: false
 models_used:
-  - gemini-2-5-pro
-  - gemini-2-5-flash
+  - gemini-3-1-pro-preview
+  - gemini-3-7-flash
 verdict: ship
 verdict_text: >-
   The best free tier in the API game, and the paid tier undercuts rivals for
