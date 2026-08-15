@@ -1,39 +1,41 @@
 /**
- * Scroll reveal — GSAP fade+12px for elements marked [data-reveal].
- * gsap is a lazy dynamic import; under prefers-reduced-motion (or if the
- * import fails) elements simply stay visible.
+ * Scroll reveal — elements marked [data-reveal] fade+rise into view via
+ * IntersectionObserver. No animation library; under prefers-reduced-motion
+ * elements simply stay visible (the .nm-reveal CSS also force-shows them).
  */
-let cleanupBound = false;
+let observer: IntersectionObserver | null = null;
 
 export function initReveals() {
   const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
   if (targets.length === 0) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  void (async () => {
-    const [{ gsap }, { ScrollTrigger }] = await Promise.all([
-      import('gsap'),
-      import('gsap/ScrollTrigger'),
-    ]);
-    if (targets.some((el) => !el.isConnected)) return;
-    gsap.registerPlugin(ScrollTrigger);
-    // Kill triggers of the outgoing page — otherwise they leak across
-    // view transitions and keep firing on detached elements.
-    if (!cleanupBound) {
-      cleanupBound = true;
-      document.addEventListener('astro:before-swap', () => {
-        ScrollTrigger.getAll().forEach((t) => t.kill());
-      });
-    }
-    for (const el of targets) {
-      if (!el.isConnected) continue;
-      gsap.from(el, {
-        opacity: 0,
-        y: 12,
-        duration: 0.6,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-      });
-    }
-  })();
+  if (!observer) {
+    observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer?.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: '0px 0px -12% 0px' },
+    );
+    // The observer outlives view transitions; drop it before each swap so
+    // it never keeps firing on detached elements.
+    document.addEventListener(
+      'astro:before-swap',
+      () => {
+        observer?.disconnect();
+        observer = null;
+      },
+      { once: true },
+    );
+  }
+
+  for (const el of targets) {
+    el.classList.add('nm-reveal');
+    observer.observe(el);
+  }
 }

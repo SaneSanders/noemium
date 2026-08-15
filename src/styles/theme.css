@@ -1,19 +1,20 @@
 @import './tokens.css';
 @import 'tailwindcss';
 
-/* Map Observatory tokens into Tailwind v4 utilities (CSS-first config). */
+/* Map Bold Grid tokens into Tailwind v4 utilities (CSS-first config). */
 @theme {
-  --color-void: var(--nm-bg-void);
-  --color-panel: var(--nm-bg-panel);
-  --color-raised: var(--nm-bg-raised);
-  --color-line: var(--nm-line);
+  --color-paper: var(--nm-bg-paper);
+  --color-card: var(--nm-bg-card);
+  --color-line-soft: var(--nm-line-soft);
 
   --color-ink: var(--nm-ink);
   --color-ink-dim: var(--nm-ink-dim);
 
+  --color-accent: var(--nm-accent);
+
   --color-shift-near: var(--nm-shift-near);
+  --color-shift-steady: var(--nm-shift-steady);
   --color-shift-far: var(--nm-shift-far);
-  --color-gold: var(--nm-gold);
 
   --color-verdict-ship: var(--nm-verdict-ship);
   --color-verdict-situational: var(--nm-verdict-situational);
@@ -26,22 +27,36 @@
   --radius-sm: var(--nm-radius-sm);
   --radius-md: var(--nm-radius-md);
   --radius-lg: var(--nm-radius-lg);
+
+  /* Hard offset shadows — the Bold Grid signature. */
+  --shadow-hard-sm: 3px 3px 0 0 var(--nm-ink);
+  --shadow-hard: 4px 4px 0 0 var(--nm-ink);
+  --shadow-hard-lg: 6px 6px 0 0 var(--nm-ink);
+}
+
+/* Offset display shadows (Archivo headlines). */
+@utility text-shadow-display {
+  text-shadow: 6px 6px 0 var(--nm-accent);
+}
+
+@utility text-shadow-section {
+  text-shadow: 4px 4px 0 var(--nm-accent);
 }
 
 @layer base {
   html {
-    background-color: var(--nm-bg-void);
+    background-color: var(--nm-bg-paper);
     color: var(--nm-ink);
     font-family: var(--nm-font-body);
   }
 
   ::selection {
-    background-color: var(--nm-shift-near);
-    color: var(--nm-bg-void);
+    background-color: var(--nm-accent);
+    color: var(--nm-bg-card);
   }
 
   :focus-visible {
-    outline: 1px solid var(--nm-shift-near);
+    outline: 2px solid var(--nm-accent);
     outline-offset: 2px;
   }
 
@@ -53,8 +68,107 @@
 }
 
 @layer components {
-  /* Observer stamp — used by VerdictBadge and the Preact islands.
-     On hover the stamp "presses in": 1.06 → 1 in --nm-dur-2. */
+  /* White card with ink border; on hover it lifts and throws a hard shadow. */
+  .nm-card {
+    background-color: var(--nm-bg-card);
+    border: 1.5px solid var(--nm-ink);
+    border-radius: var(--nm-radius-lg);
+    transition:
+      transform var(--nm-dur-2) var(--nm-ease-out-expo),
+      box-shadow var(--nm-dur-2) var(--nm-ease-out-expo);
+  }
+
+  .nm-card-hover:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 4px 4px 0 0 var(--nm-ink);
+  }
+
+  /* Slab buttons. */
+  .nm-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1.5px solid var(--nm-ink);
+    border-radius: var(--nm-radius-md);
+    padding: 14px 26px;
+    font-family: var(--nm-font-body);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      transform var(--nm-dur-1) ease,
+      box-shadow var(--nm-dur-1) ease;
+  }
+
+  .nm-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 var(--nm-ink);
+  }
+
+  .nm-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 0 var(--nm-ink);
+  }
+
+  .nm-btn-solid {
+    background-color: var(--nm-accent);
+    color: var(--nm-bg-card);
+    box-shadow: 4px 4px 0 0 var(--nm-ink);
+  }
+
+  .nm-btn-outline {
+    background-color: transparent;
+    color: var(--nm-ink);
+    box-shadow: 4px 4px 0 0 var(--nm-line-soft);
+  }
+
+  /* Verdict sticker — solid verdict color, white uppercase display text,
+     slight rotation. Semantic: never recolor for non-verdict UI. */
+  .nm-sticker {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: var(--nm-radius-sm);
+    font-family: var(--nm-font-display);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--nm-bg-card);
+    white-space: nowrap;
+    transform: rotate(-2deg);
+  }
+
+  .nm-sticker-ship {
+    background-color: var(--nm-verdict-ship);
+  }
+
+  .nm-sticker-situational {
+    background-color: var(--nm-verdict-situational);
+    transform: rotate(1.5deg);
+  }
+
+  .nm-sticker-skip {
+    background-color: var(--nm-verdict-skip);
+  }
+
+  /* Ledger "VERIFIED <date>" stamp — mono, framed, slight rotation. */
+  .nm-verified {
+    display: inline-block;
+    padding: 3px 7px;
+    border: 1.5px solid var(--nm-accent);
+    border-radius: var(--nm-radius-sm);
+    font-family: var(--nm-font-mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nm-accent);
+    transform: rotate(-1.5deg);
+  }
+
+  /* Small stamp (e.g. "copied") — presses in on appearance. */
   .nm-stamp {
     display: inline-block;
     transform: rotate(-3deg);
@@ -89,6 +203,20 @@
     }
   }
 
+  /* Scroll reveal — toggled by src/fx/reveal.ts via IntersectionObserver. */
+  .nm-reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity var(--nm-dur-3) var(--nm-ease-out-expo),
+      transform var(--nm-dur-3) var(--nm-ease-out-expo);
+  }
+
+  .nm-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
   /* Rendered markdown bodies (stack recipes). */
   .nm-prose {
     color: var(--nm-ink);
@@ -99,8 +227,11 @@
     margin-top: var(--nm-space-12);
     margin-bottom: var(--nm-space-4);
     font-family: var(--nm-font-display);
+    font-weight: 800;
     font-size: 1.75rem;
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
   }
 
   .nm-prose p,
@@ -127,18 +258,36 @@
   }
 
   .nm-prose li::marker {
-    color: var(--nm-shift-near);
+    color: var(--nm-accent);
     font-family: var(--nm-font-mono);
   }
 
   .nm-prose strong {
-    font-weight: 600;
+    font-weight: 700;
+  }
+
+  .nm-prose a {
+    color: var(--nm-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .nm-stamp:hover,
     .nm-step {
       animation: none;
+    }
+
+    .nm-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .nm-card-hover:hover,
+    .nm-btn:hover,
+    .nm-btn:active {
+      transform: none;
     }
   }
 }

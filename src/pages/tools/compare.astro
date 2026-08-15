@@ -3,11 +3,14 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CompareTable, { type CompareTool } from '../../islands/CompareTable';
+import { toolNumbers } from '../../lib/tool-numbers';
 
 const tools = await getCollection('tools');
+const numbers = await toolNumbers();
 const data: CompareTool[] = tools
   .map((t) => ({
     slug: t.id,
+    no: numbers.get(t.id) ?? 0,
     name: t.data.name,
     tagline: t.data.tagline,
     category: t.data.category,

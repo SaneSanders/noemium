@@ -1,30 +1,32 @@
-/* Noemium "Observatory" design tokens.
+/* Noemium "Bold Grid" design tokens.
    ALL color values live here and only here. Components and pages must
    reference tokens, never raw hex. See DESIGN.md for usage rules. */
 
 :root {
   /* Surfaces */
-  --nm-bg-void: #05060B;
-  --nm-bg-panel: #0B0E16;
-  --nm-bg-raised: #11151F;
-  --nm-line: #1C2231;
+  --nm-bg-paper: #F4F4F0; /* page background */
+  --nm-bg-card: #FFFFFF; /* cards, panels, header/footer chrome */
+  --nm-line-soft: color-mix(in srgb, var(--nm-ink) 12%, transparent); /* hairlines inside cards */
 
   /* Text */
-  --nm-ink: #E9EDF6;
-  --nm-ink-dim: #97A1B7;
+  --nm-ink: #111111;
+  --nm-ink-dim: #6B6B63;
+
+  /* Accent — electric. The only interactive accent. */
+  --nm-accent: #3B5BFF;
 
   /* Momentum axis */
-  --nm-shift-near: #62D9FF; /* blueshift — gaining */
-  --nm-shift-far: #FF5A36; /* redshift — fading */
-  --nm-gold: #F2C14E; /* featured */
+  --nm-shift-near: #3B5BFF; /* blueshift — gaining (shared with accent) */
+  --nm-shift-steady: #6B6B63; /* steady — holding */
+  --nm-shift-far: #C2402F; /* redshift — fading */
 
   /* Verdicts */
-  --nm-verdict-ship: #5CE0A1;
-  --nm-verdict-situational: #F2C14E;
-  --nm-verdict-skip: #FF5A36;
+  --nm-verdict-ship: #1E7F4F;
+  --nm-verdict-situational: #B07C1F;
+  --nm-verdict-skip: #C2402F;
 
   /* Typography */
-  --nm-font-display: 'Instrument Serif', Georgia, serif;
+  --nm-font-display: 'Archivo', system-ui, sans-serif;
   --nm-font-body: 'Inter', system-ui, sans-serif;
   --nm-font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
@@ -35,9 +37,9 @@
   --nm-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Radii — only three, ever */
-  --nm-radius-sm: 2px;
-  --nm-radius-md: 8px;
-  --nm-radius-lg: 16px;
+  --nm-radius-sm: 4px;
+  --nm-radius-md: 10px;
+  --nm-radius-lg: 14px;
 
   /* Spacing scale — 4px base */
   --nm-space-1: 4px;

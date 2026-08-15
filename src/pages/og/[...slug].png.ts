@@ -24,13 +24,11 @@ const token = (name: string): string => {
 };
 
 const C = {
-  void: token('nm-bg-void'),
-  panel: token('nm-bg-panel'),
-  line: token('nm-line'),
+  paper: token('nm-bg-paper'),
+  card: token('nm-bg-card'),
   ink: token('nm-ink'),
   inkDim: token('nm-ink-dim'),
-  near: token('nm-shift-near'),
-  gold: token('nm-gold'),
+  accent: token('nm-accent'),
   verdict: {
     ship: token('nm-verdict-ship'),
     situational: token('nm-verdict-situational'),
@@ -38,38 +36,21 @@ const C = {
   } as Record<string, string>,
 };
 
-const SERIF = 'Instrument Serif';
+const DISPLAY = 'Archivo';
 const MONO = 'JetBrains Mono';
 
 const fonts = [
-  { name: SERIF, data: fontFile('instrument-serif/files/instrument-serif-latin-400-normal.woff'), weight: 400 as const, style: 'normal' as const },
-  { name: SERIF, data: fontFile('instrument-serif/files/instrument-serif-latin-400-italic.woff'), weight: 400 as const, style: 'italic' as const },
+  { name: DISPLAY, data: fontFile('archivo/files/archivo-latin-800-normal.woff'), weight: 800 as const, style: 'normal' as const },
+  { name: DISPLAY, data: fontFile('archivo/files/archivo-latin-900-normal.woff'), weight: 900 as const, style: 'normal' as const },
   { name: MONO, data: fontFile('jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff'), weight: 400 as const, style: 'normal' as const },
+  { name: MONO, data: fontFile('jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff'), weight: 700 as const, style: 'normal' as const },
 ];
 const fontFiles = [
-  'instrument-serif/files/instrument-serif-latin-400-normal.woff',
-  'instrument-serif/files/instrument-serif-latin-400-italic.woff',
+  'archivo/files/archivo-latin-800-normal.woff',
+  'archivo/files/archivo-latin-900-normal.woff',
   'jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff',
+  'jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff',
 ].map((p) => `${root}node_modules/@fontsource/${p}`);
-
-// Deterministic star scatter for the background (same sky, every build).
-function stars(seed: number, count: number) {
-  let a = seed;
-  const rand = () => {
-    a |= 0;
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-  return Array.from({ length: count }, (_, i) => ({
-    left: Math.round(rand() * 1180),
-    top: Math.round(rand() * 610),
-    size: rand() < 0.85 ? 2 : 3,
-    color: i % 9 === 0 ? C.near : i % 23 === 0 ? C.gold : C.ink,
-    opacity: 0.25 + rand() * 0.5,
-  }));
-}
 
 interface GenericProps {
   kind: 'generic';
@@ -150,26 +131,11 @@ function frame(children: unknown) {
         display: 'flex',
         width: 1200,
         height: 630,
-        backgroundColor: C.void,
-        padding: 56,
-        fontFamily: SERIF,
+        backgroundColor: C.paper,
+        padding: 48,
+        fontFamily: DISPLAY,
       },
     },
-    // star scatter
-    ...stars(42, 60).map((s) =>
-      h('div', {
-        style: {
-          position: 'absolute',
-          left: s.left,
-          top: s.top,
-          width: s.size,
-          height: s.size,
-          borderRadius: 999,
-          backgroundColor: s.color,
-          opacity: s.opacity,
-        },
-      }),
-    ),
     h(
       'div',
       {
@@ -178,9 +144,11 @@ function frame(children: unknown) {
           flexDirection: 'column',
           justifyContent: 'space-between',
           flex: 1,
-          border: `1px solid ${C.line}`,
-          backgroundColor: `${C.panel}`,
-          padding: '40px 48px',
+          border: `3px solid ${C.ink}`,
+          borderRadius: 20,
+          backgroundColor: C.card,
+          boxShadow: `10px 10px 0 0 ${C.accent}`,
+          padding: '44px 52px',
         },
       },
       children,
@@ -193,12 +161,11 @@ function header(right: string) {
     'div',
     { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' } },
     h(
-      'div',
-      { style: { display: 'flex', alignItems: 'baseline' } },
-      h('span', { style: { fontFamily: SERIF, fontSize: 30, color: C.ink, letterSpacing: 2 } }, 'NOEMIUM'),
-      mono(' observatory', { fontSize: 14, marginLeft: 12 }),
+      'span',
+      { style: { fontFamily: DISPLAY, fontWeight: 800, fontSize: 34, color: C.ink, letterSpacing: -1 } },
+      'noemium',
     ),
-    mono(right, { fontSize: 14, color: C.near }),
+    mono(right, { fontSize: 16, color: C.accent, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' as const }),
   );
 }
 
@@ -211,25 +178,44 @@ function footer(meta: string) {
   );
 }
 
-function verdictStamp(verdict: string) {
+function verdictSticker(verdict: string) {
   return h(
     'span',
     {
       style: {
-        fontFamily: MONO,
-        fontSize: 20,
-        letterSpacing: 4,
+        fontFamily: DISPLAY,
+        fontWeight: 800,
+        fontSize: 22,
+        letterSpacing: 3,
         textTransform: 'uppercase' as const,
-        color: C.verdict[verdict] ?? C.ink,
-        border: `2px solid ${C.verdict[verdict] ?? C.ink}`,
-        borderRadius: 2,
-        padding: '4px 14px',
-        transform: 'rotate(-3deg)',
+        color: C.card,
+        backgroundColor: C.verdict[verdict] ?? C.ink,
+        borderRadius: 6,
+        padding: '8px 18px',
+        transform: 'rotate(-2deg)',
       },
     },
     verdict,
   );
 }
+
+const headline = (text: string, size: number) =>
+  h(
+    'span',
+    {
+      style: {
+        fontFamily: DISPLAY,
+        fontWeight: 900,
+        fontSize: size,
+        lineHeight: 0.96,
+        letterSpacing: -2,
+        textTransform: 'uppercase' as const,
+        color: C.ink,
+        textShadow: `5px 5px 0 ${C.accent}`,
+      },
+    },
+    text,
+  );
 
 export const GET: APIRoute = async ({ props }) => {
   const p = props as OgProps;
@@ -237,44 +223,35 @@ export const GET: APIRoute = async ({ props }) => {
   let tree: any;
   if (p.kind === 'generic') {
     tree = frame([
-      header('FIELD: AI · SHIFT: LIVE'),
+      header('The open AI tools catalog'),
       h(
         'div',
         { style: { display: 'flex', flexDirection: 'column' } },
-        h('span', { style: { fontFamily: SERIF, fontSize: 96, color: C.ink } }, 'NOEMIUM'),
-        h(
-          'span',
-          { style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 40, color: C.inkDim, marginTop: 8 } },
-          'The AI landscape, observed.',
-        ),
-        mono('No paid listings. Every verdict is a pull request you can audit.', {
-          fontSize: 18,
-          marginTop: 24,
+        headline('Pick AI tools without getting played.', 72),
+        mono('Honest verdicts, verified prices, receipts for every claim. Open source.', {
+          fontSize: 20,
+          marginTop: 28,
         }),
       ),
       footer(
-        `TOOLS: ${p.counts.tools} · STACKS: ${p.counts.stacks} · MODELS: ${p.counts.models}`,
+        `TOOLS: ${p.counts.tools} · STACKS: ${p.counts.stacks} · MODELS: ${p.counts.models} · PAID PLACEMENTS: 0`,
       ),
     ]);
   } else if (p.kind === 'tool') {
     tree = frame([
-      header(`01 /TOOLS · ${p.category.toUpperCase()}`),
+      header(`Catalog · ${p.category}`),
       h(
         'div',
         { style: { display: 'flex', flexDirection: 'column' } },
         h(
           'div',
           { style: { display: 'flex', alignItems: 'center' } },
-          h(
-            'span',
-            { style: { fontFamily: SERIF, fontSize: p.name.length > 18 ? 60 : 80, color: C.ink } },
-            p.name,
-          ),
-          h('div', { style: { marginLeft: 28, display: 'flex' } }, verdictStamp(p.verdict)),
+          headline(p.name, p.name.length > 18 ? 64 : 88),
+          h('div', { style: { marginLeft: 32, display: 'flex' } }, verdictSticker(p.verdict)),
         ),
         h(
           'span',
-          { style: { fontFamily: SERIF, fontSize: 28, color: C.inkDim, marginTop: 16 } },
+          { style: { fontFamily: MONO, fontSize: 24, color: C.inkDim, marginTop: 20 } },
           p.tagline,
         ),
       ),
@@ -282,18 +259,14 @@ export const GET: APIRoute = async ({ props }) => {
     ]);
   } else {
     tree = frame([
-      header('02 /STACKS'),
+      header('Stacks'),
       h(
         'div',
         { style: { display: 'flex', flexDirection: 'column' } },
+        headline(p.title, p.title.length > 30 ? 56 : 72),
         h(
           'span',
-          { style: { fontFamily: SERIF, fontSize: p.title.length > 30 ? 52 : 68, color: C.ink } },
-          p.title,
-        ),
-        h(
-          'span',
-          { style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 26, color: C.inkDim, marginTop: 14 } },
+          { style: { fontFamily: MONO, fontSize: 22, color: C.inkDim, marginTop: 18 } },
           p.useCase,
         ),
       ),
@@ -305,7 +278,7 @@ export const GET: APIRoute = async ({ props }) => {
   const png = new Resvg(svg, {
     fitTo: { mode: 'width', value: 1200 },
     font: { fontFiles, loadSystemFonts: false },
-    background: C.void,
+    background: C.paper,
   })
     .render()
     .asPng();

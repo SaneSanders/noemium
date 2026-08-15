@@ -24,9 +24,9 @@ least one receipt. Affiliate links, when they exist, are always declared.
 ## Stack
 
 - [Astro](https://astro.build) (static output) + Preact islands
-- Tailwind CSS v4 (CSS-first config, "Observatory" design tokens)
+- Tailwind CSS v4 (CSS-first config, "Bold Grid" design tokens)
 - Content: Astro Content Collections (YAML + Markdown), zod-validated
-- Motion (home page): three.js, GSAP
+- No WebGL/motion libraries — typographic hero, CSS-only motion
 
 ## Quick start
 

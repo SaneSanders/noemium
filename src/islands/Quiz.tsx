@@ -140,17 +140,17 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
       `My AI stack costs $${winner.monthly_cost_usd}/mo. What's yours? — @whysanesanders`,
     )}`;
     return (
-      <div class="nm-step rounded-md border border-line bg-panel p-6 md:p-10">
-        <p class="font-mono text-xs tracking-widest text-shift-near uppercase">
-          observation matched
+      <div class="nm-step nm-card p-6 md:p-10">
+        <p class="font-mono text-xs font-medium tracking-[0.14em] text-accent uppercase">
+          stack matched
         </p>
-        <h2 class="mt-3 font-display text-3xl leading-tight md:text-5xl">{winner.title}</h2>
-        <p class="mt-3 max-w-xl text-ink-dim">{winner.use_case}</p>
+        <h2 class="text-shadow-section mt-4 font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-6xl">{winner.title}</h2>
+        <p class="mt-4 max-w-xl font-medium text-ink opacity-75">{winner.use_case}</p>
         <p class="mt-8">
-          <span class="nm-num text-5xl text-ink md:text-6xl">${winner.monthly_cost_usd}</span>
+          <span class="nm-num text-5xl font-bold text-accent md:text-6xl">${winner.monthly_cost_usd}</span>
           <span class="nm-num ml-2 text-lg text-ink-dim">/mo</span>
         </p>
-        <p class="mt-1 font-mono text-xs tracking-widest text-ink-dim uppercase">
+        <p class="mt-2 font-mono text-xs tracking-[0.14em] text-ink-dim uppercase">
           difficulty: {winner.difficulty}
         </p>
         <div class="mt-6 flex flex-wrap gap-1.5">
@@ -158,7 +158,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
             <a
               key={t.slug}
               href={`/tools/${t.slug}`}
-              class="rounded-sm border border-line px-2 py-1 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+              class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-xs text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard-sm"
             >
               {t.name}
             </a>
@@ -167,7 +167,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
         <div class="mt-8 flex flex-wrap items-center gap-3">
           <a
             href={`/stacks/${winner.slug}`}
-            class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
+            class="nm-btn nm-btn-solid"
           >
             Open the full recipe
           </a>
@@ -175,14 +175,14 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
             href={share}
             target="_blank"
             rel="noopener"
-            class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+            class="nm-btn nm-btn-outline"
           >
             Share on X
           </a>
           <button
             type="button"
             onClick={restart}
-            class="font-mono text-xs text-ink-dim transition-colors duration-100 hover:text-ink"
+            class="font-mono text-xs text-ink-dim underline underline-offset-4 transition-colors duration-100 hover:text-ink"
           >
             Run it again
           </button>
@@ -193,9 +193,9 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
 
   if (done && !winner) {
     return (
-      <div class="rounded-md border border-line bg-panel p-6 md:p-10">
-        <p class="font-mono text-xs tracking-widest text-ink-dim uppercase">no signal</p>
-        <h2 class="mt-3 font-display text-2xl md:text-4xl">No stacks in the observatory yet</h2>
+      <div class="nm-card p-6 md:p-10">
+        <p class="font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">no match</p>
+        <h2 class="mt-3 font-display text-2xl font-extrabold tracking-tight uppercase md:text-4xl">No stacks in the catalog yet</h2>
         <p class="mt-3 max-w-xl text-ink-dim">
           There is nothing to match your answers against. Browse the tool catalog instead — or
           contribute the first stack.
@@ -203,14 +203,14 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
         <div class="mt-8 flex flex-wrap items-center gap-3">
           <a
             href="/tools"
-            class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
+            class="nm-btn nm-btn-solid"
           >
             Browse tools
           </a>
           <button
             type="button"
             onClick={restart}
-            class="font-mono text-xs text-ink-dim transition-colors duration-100 hover:text-ink"
+            class="font-mono text-xs text-ink-dim underline underline-offset-4 transition-colors duration-100 hover:text-ink"
           >
             Run it again
           </button>
@@ -221,12 +221,12 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
 
   const q = QUESTIONS[step];
   return (
-    <div class="rounded-md border border-line bg-panel p-6 md:p-10">
+    <div class="nm-card p-6 md:p-10">
       <p class="nm-num text-xs text-ink-dim" aria-live="polite">
         Q{step + 1} / {QUESTIONS.length}
       </p>
       <div key={step} class="nm-step">
-        <h2 class="mt-3 font-display text-2xl md:text-4xl">{q.title}</h2>
+        <h2 class="mt-3 font-display text-2xl font-extrabold tracking-tight md:text-4xl">{q.title}</h2>
         <div class="mt-6 grid gap-2">
           {q.options.map((opt) => (
             <button
@@ -236,7 +236,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
                 setAnswers({ ...answers, [q.key]: opt.value });
                 setStep(step + 1);
               }}
-              class="rounded-sm border border-line px-4 py-3 text-left text-sm text-ink transition-colors duration-100 hover:border-shift-near hover:bg-raised"
+              class="rounded-md border-[1.5px] border-ink bg-card px-4 py-3 text-left text-sm font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard"
             >
               {opt.label}
             </button>

@@ -52,15 +52,15 @@ function fuzzy(query: string, text: string): number {
 }
 
 const MISSION = [
-  'NOEMIUM — the AI landscape, observed.',
+  'NOEMIUM — pick AI tools without getting played.',
   '',
-  'An open source observatory of AI tools, stacks and models.',
+  'An open source catalog of AI tools, stacks and models.',
   'No paid listings. No sponsored verdicts. No dark patterns.',
   'Every entry is a pull request; every verdict links its receipts;',
   'every limitation is printed next to the praise.',
   '',
   'The catalog is the code. The code is the catalog.',
-  'Fork the sky: github.com/SaneSanders/noemium',
+  'Fork it: github.com/SaneSanders/noemium',
 ];
 
 export default function CommandPalette() {
@@ -288,15 +288,15 @@ export default function CommandPalette() {
   if (!open) return null;
 
   const kindTone: Record<Row['kind'], string> = {
-    tool: 'text-shift-near',
+    tool: 'text-accent',
     stack: 'text-ink-dim',
     model: 'text-ink-dim',
-    command: 'text-gold',
+    command: 'text-accent',
   };
 
   return (
     <div
-      class="fixed inset-0 z-50 flex items-start justify-center bg-void/80 px-4 pt-[14vh]"
+      class="fixed inset-0 z-50 flex items-start justify-center bg-ink/40 px-4 pt-[14vh]"
       onClick={(e) => {
         if (e.target === e.currentTarget) close();
       }}
@@ -304,25 +304,25 @@ export default function CommandPalette() {
       aria-modal="true"
       aria-label="Command palette"
     >
-      <div class="w-full max-w-xl rounded-md border border-line bg-panel shadow-2xl">
+      <div class="w-full max-w-xl rounded-lg border-[1.5px] border-ink bg-card shadow-hard-lg">
         {easterEgg ? (
           <div class="p-6">
-            <p class="font-mono text-xs text-gold">&gt; noema</p>
+            <p class="font-mono text-xs font-bold text-accent">&gt; noema</p>
             <pre class="mt-4 font-mono text-xs leading-relaxed whitespace-pre-wrap text-ink-dim">
               {MISSION.join('\n')}
             </pre>
             <button
               type="button"
               onClick={() => setEasterEgg(false)}
-              class="mt-6 rounded-sm border border-line px-3 py-1 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+              class="mt-6 rounded-sm border-[1.5px] border-ink px-3 py-1 font-mono text-xs text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard-sm"
             >
               back to search
             </button>
           </div>
         ) : (
           <>
-            <div class="flex items-center gap-2 border-b border-line px-4">
-              <span class="font-mono text-xs text-shift-near">{commandMode ? '>' : '⌘K'}</span>
+            <div class="flex items-center gap-2 border-b-[1.5px] border-ink px-4">
+              <span class="font-mono text-xs font-bold text-accent">{commandMode ? '>' : '⌘K'}</span>
               <input
                 ref={inputRef}
                 type="text"
@@ -330,10 +330,10 @@ export default function CommandPalette() {
                 onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
                 onKeyDown={onInputKey}
                 placeholder="Search tools, stacks, models — or type > for commands"
-                class="w-full bg-transparent py-3 font-mono text-sm text-ink caret-shift-near placeholder:text-ink-dim focus:outline-none"
-                aria-label="Search the observatory"
+                class="w-full bg-transparent py-3 font-mono text-sm text-ink caret-accent placeholder:text-ink-dim focus:outline-none"
+                aria-label="Search the catalog"
               />
-              <kbd class="rounded-sm border border-line px-1.5 py-0.5 font-mono text-xs text-ink-dim">
+              <kbd class="rounded-sm border-[1.5px] border-ink px-1.5 py-0.5 font-mono text-xs text-ink-dim">
                 esc
               </kbd>
             </div>
@@ -341,7 +341,7 @@ export default function CommandPalette() {
               {!index && <li class="px-4 py-3 font-mono text-xs text-ink-dim">loading index…</li>}
               {index && rows.length === 0 && (
                 <li class="px-4 py-3 font-mono text-xs text-ink-dim">
-                  no signals — try <span class="text-shift-near">&gt;stack</span> or widen the query
+                  no matches — try <span class="text-accent">&gt;stack</span> or widen the query
                 </li>
               )}
               {rows.map((row, i) => (
@@ -351,7 +351,7 @@ export default function CommandPalette() {
                     onClick={() => go(row)}
                     onMouseEnter={() => setSelected(i)}
                     class={`flex w-full items-baseline gap-3 px-4 py-2 text-left transition-colors duration-100 ${
-                      i === selected ? 'bg-raised' : ''
+                      i === selected ? 'bg-paper' : ''
                     }`}
                   >
                     <span
@@ -365,9 +365,9 @@ export default function CommandPalette() {
                 </li>
               ))}
             </ul>
-            <p class="flex items-center justify-between border-t border-line px-4 py-2 font-mono text-xs text-ink-dim">
+            <p class="flex items-center justify-between border-t-[1.5px] border-ink px-4 py-2 font-mono text-xs text-ink-dim">
               <span>↑↓ navigate · enter open · esc close</span>
-              <a href="/search" class="text-shift-near hover:underline" onClick={close}>
+              <a href="/search" class="font-medium text-accent hover:underline" onClick={close}>
                 full-text search →
               </a>
             </p>

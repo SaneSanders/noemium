@@ -2,75 +2,31 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="404 — Signal lost" description="The coordinates you requested are not in this sky.">
-  <section class="relative overflow-hidden py-24 md:py-32">
-    {/* CSS star scatter — pure decoration, no JS. */}
-    <div aria-hidden="true" class="nm-lost-stars absolute inset-0">
-      <span class="nm-lost-layer nm-lost-dim" />
-      <span class="nm-lost-layer nm-lost-near" />
-      <span class="nm-lost-layer nm-lost-far" />
-    </div>
-
-    <div class="relative">
-      <p class="font-mono text-xs text-shift-far">ERR /404</p>
-      <h1 class="mt-4 font-display text-6xl leading-none md:text-8xl">
-        SIGNAL <em>LOST</em>
-      </h1>
-      <p class="mt-6 max-w-md text-lg text-ink-dim">
-        Nothing answers at these coordinates. The object may have drifted,
-        been renamed — or never existed at all.
-      </p>
-      <p class="nm-num mt-8 text-xs text-ink-dim">
-        RA: — · DEC: — · MAG: n/a · STATUS: UNCHARTED
-      </p>
-      <p class="mt-10">
-        <a
-          href="/"
-          class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
-        >
-          Return to base
-        </a>
-      </p>
-    </div>
+<Base title="404 — Not audited yet" description="This page is not in the catalog — maybe the tool simply hasn't been audited yet.">
+  <section class="py-24 md:py-32">
+    <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-verdict-skip uppercase">
+      <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-verdict-skip"></span>
+      ERR / 404
+    </p>
+    <h1 class="text-shadow-display mt-7 font-display text-7xl leading-[0.94] font-black tracking-tight uppercase md:text-9xl">
+      404
+    </h1>
+    <p class="mt-8 max-w-xl font-display text-2xl font-extrabold tracking-tight uppercase md:text-4xl">
+      This tool hasn't been audited yet.
+    </p>
+    <p class="mt-6 max-w-md text-lg leading-relaxed font-medium text-ink opacity-75">
+      The page you asked for is not in the catalog. If the tool exists and
+      deserves an entry — propose it. Every recommendation is a PR.
+    </p>
+    <p class="mt-10 flex flex-wrap gap-4">
+      <a
+        href="https://github.com/SaneSanders/noemium"
+        class="nm-btn nm-btn-solid"
+        rel="noopener"
+      >
+        Propose it via PR
+      </a>
+      <a href="/" class="nm-btn nm-btn-outline">Back to the catalog</a>
+    </p>
   </section>
 </Base>
-
-<style>
-  .nm-lost-stars {
-    color: var(--nm-ink);
-  }
-
-  .nm-lost-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 2px;
-    border-radius: 9999px;
-  }
-
-  .nm-lost-dim {
-    opacity: 0.45;
-    box-shadow:
-      8vw 10vh 0 0 currentColor, 17vw 64vh 0 0 currentColor, 26vw 28vh 0 0 currentColor,
-      34vw 80vh 0 0 currentColor, 45vw 12vh 0 0 currentColor, 53vw 52vh 0 0 currentColor,
-      62vw 24vh 0 0 currentColor, 70vw 72vh 0 0 currentColor, 78vw 16vh 0 0 currentColor,
-      86vw 44vh 0 0 currentColor, 93vw 70vh 0 0 currentColor, 13vw 42vh 0 0 currentColor,
-      39vw 58vh 0 0 currentColor, 58vw 84vh 0 0 currentColor, 83vw 88vh 0 0 currentColor;
-  }
-
-  .nm-lost-near {
-    color: var(--nm-shift-near);
-    opacity: 0.75;
-    box-shadow:
-      15vw 22vh 0 0 currentColor, 48vw 68vh 0 0 currentColor, 74vw 32vh 0 0 currentColor,
-      30vw 88vh 0 0 currentColor, 88vw 20vh 0 0 currentColor;
-  }
-
-  .nm-lost-far {
-    color: var(--nm-shift-far);
-    opacity: 0.8;
-    box-shadow:
-      64vw 58vh 0 0 currentColor, 22vw 52vh 0 0 currentColor;
-  }
-</style>

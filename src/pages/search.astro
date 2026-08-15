@@ -5,7 +5,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 
 <Base
   title="Search"
-  description="Full-text search across every tool, stack and model page in the observatory."
+  description="Full-text search across every tool, stack and model page in the catalog."
 >
   <SectionHeader
     index="06"
@@ -44,14 +44,14 @@ import SectionHeader from '../components/SectionHeader.astro';
 </Base>
 
 <style is:global>
-  /* Map the Pagefind UI onto Observatory tokens. */
+  /* Map the Pagefind UI onto Bold Grid tokens. */
   :root {
-    --pagefind-ui-primary: var(--nm-shift-near);
+    --pagefind-ui-primary: var(--nm-accent);
     --pagefind-ui-text: var(--nm-ink);
-    --pagefind-ui-background: var(--nm-bg-panel);
-    --pagefind-ui-border: var(--nm-line);
-    --pagefind-ui-tag: var(--nm-bg-raised);
-    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-background: var(--nm-bg-card);
+    --pagefind-ui-border: var(--nm-ink);
+    --pagefind-ui-tag: var(--nm-bg-paper);
+    --pagefind-ui-border-width: 1.5px;
     --pagefind-ui-border-radius: var(--nm-radius-md);
     --pagefind-ui-image-border-radius: var(--nm-radius-md);
     --pagefind-ui-font: var(--nm-font-body);
@@ -59,7 +59,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 
   .pagefind-ui__search-input {
     font-family: var(--nm-font-mono);
-    caret-color: var(--nm-shift-near);
+    caret-color: var(--nm-accent);
   }
 
   .pagefind-ui__result-title,
@@ -73,6 +73,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 
   .pagefind-ui__result-excerpt mark {
     background-color: transparent;
-    color: var(--nm-shift-near);
+    color: var(--nm-accent);
+    font-weight: 700;
   }
 </style>

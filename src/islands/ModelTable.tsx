@@ -139,7 +139,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
       <button
         type="button"
         class={`w-full cursor-pointer p-3 text-left select-none ${
-          sortKey === key ? 'text-shift-near' : 'text-ink-dim hover:text-ink'
+          sortKey === key ? 'text-accent' : 'text-ink-dim hover:text-ink'
         }`}
         onClick={() => {
           if (sortKey === key) setSortDir(sortDir === 1 ? -1 : 1);
@@ -158,31 +158,31 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
   return (
     <section>
       <div class="flex flex-wrap items-center gap-1.5">
-        <span class="mr-1 font-mono text-xs tracking-widest text-ink-dim uppercase">task</span>
+        <span class="mr-1 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">task</span>
         {TASKS.map((t) => (
           <button
             key={t}
             type="button"
             aria-pressed={task === t}
             onClick={() => setTask(task === t ? null : t)}
-            class={`rounded-sm border px-2 py-1 font-mono text-xs transition-colors duration-100 ${
+            class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
               task === t
-                ? 'border-shift-near text-shift-near'
-                : 'border-line text-ink-dim hover:border-ink-dim hover:text-ink'
+                ? 'border-accent bg-accent text-card'
+                : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
             }`}
           >
             {t}
           </button>
         ))}
-        <span class="mx-2 h-4 w-px bg-line" aria-hidden="true" />
+        <span class="mx-2 h-4 w-px bg-line-soft" aria-hidden="true" />
         <button
           type="button"
           aria-pressed={openOnly}
           onClick={() => setOpenOnly(!openOnly)}
-          class={`rounded-sm border px-2 py-1 font-mono text-xs transition-colors duration-100 ${
+          class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
             openOnly
-              ? 'border-shift-near text-shift-near'
-              : 'border-line text-ink-dim hover:border-ink-dim hover:text-ink'
+              ? 'border-accent bg-accent text-card'
+              : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
           }`}
         >
           open weights only
@@ -190,7 +190,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
       </div>
 
       <div class="mt-3 flex flex-wrap items-center gap-1.5">
-        <span class="mr-1 font-mono text-xs tracking-widest text-ink-dim uppercase">
+        <span class="mr-1 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
           price per task
         </span>
         {(Object.keys(PRESETS) as PresetKey[]).map((key) => (
@@ -199,10 +199,10 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
             type="button"
             aria-pressed={presetKey === key}
             onClick={() => setPresetKey(key)}
-            class={`rounded-sm border px-2 py-1 font-mono text-xs transition-colors duration-100 ${
+            class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
               presetKey === key
-                ? 'border-shift-near text-shift-near'
-                : 'border-line text-ink-dim hover:border-ink-dim hover:text-ink'
+                ? 'border-accent bg-accent text-card'
+                : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
             }`}
           >
             {PRESETS[key].label}
@@ -211,20 +211,20 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
         <span class="nm-num text-xs text-ink-dim">{preset.hint}</span>
       </div>
 
-      <div class="mt-6 overflow-x-auto rounded-md border border-line">
-        <table class="w-full min-w-[720px] border-collapse bg-panel text-left">
+      <div class="nm-card mt-6 overflow-x-auto">
+        <table class="w-full min-w-[720px] border-collapse bg-card text-left">
           <thead>
-            <tr class="border-b border-line">
-              {header('name', 'model', 'sticky left-0 bg-panel')}
+            <tr class="border-b-[1.5px] border-ink">
+              {header('name', 'model', 'sticky left-0 bg-card')}
               {header('provider', 'provider')}
               {header('ctx', 'ctx')}
               {header('in', '$in /1M')}
               {header('out', '$out /1M')}
               {header('task', preset.label)}
-              <th class="p-3 font-mono text-xs font-normal tracking-widest text-ink-dim uppercase">
+              <th class="p-3 font-mono text-xs font-normal tracking-[0.12em] text-ink-dim uppercase">
                 open
               </th>
-              <th class="p-3 font-mono text-xs font-normal tracking-widest text-ink-dim uppercase">
+              <th class="p-3 font-mono text-xs font-normal tracking-[0.12em] text-ink-dim uppercase">
                 best for
               </th>
             </tr>
@@ -237,11 +237,11 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                 <tr
                   key={m.slug}
                   id={m.slug}
-                  class="border-b border-line transition-colors duration-100 last:border-b-0 hover:bg-raised"
+                  class="border-b border-line-soft transition-colors duration-100 last:border-b-0 hover:bg-paper"
                 >
                   <th
                     scope="row"
-                    class="sticky left-0 bg-panel p-3 text-left font-body text-sm font-semibold text-ink"
+                    class="sticky left-0 bg-card p-3 text-left font-body text-sm font-bold text-ink"
                   >
                     {m.name}
                   </th>
@@ -261,7 +261,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                       </td>
                     </>
                   )}
-                  <td class="nm-num p-3 text-xs text-shift-near">
+                  <td class="nm-num bg-accent/10 p-3 text-xs font-bold text-accent">
                     {cost === null ? '—' : formatUsd(cost)}
                   </td>
                   <td class="p-3 font-mono text-xs">

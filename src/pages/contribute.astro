@@ -12,29 +12,29 @@ const rules = [
 
 <Base
   title="Contribute"
-  description="Every entry in this observatory is a pull request. Add your observation in about five minutes."
+  description="Every entry in this catalog is a pull request. Add your observation in about five minutes."
 >
   <SectionHeader
     index="05"
     title="Contribute"
-    sub="This observatory runs on signed field notes. If you have real, hands-on experience with an AI tool, stack or model — log it. Every entry is a PR anyone can audit."
+    sub="This catalog runs on signed field notes. If you have real, hands-on experience with an AI tool, stack or model — log it. Every entry is a PR anyone can audit."
   />
 
-  <section class="max-w-3xl rounded-md border border-line bg-panel p-6 md:p-8">
-    <p class="font-mono text-xs tracking-widest text-ink-dim uppercase">
+  <section class="nm-card max-w-3xl p-6 md:p-8">
+    <p class="font-mono text-xs font-medium tracking-[0.14em] text-accent uppercase">
       field protocol · five minutes
     </p>
-    <ol class="mt-4 list-decimal space-y-3 pl-5 marker:font-mono marker:text-shift-near">
+    <ol class="mt-4 list-decimal space-y-3 pl-5 marker:font-mono marker:text-accent">
       <li>
-        <strong class="font-semibold">Fork</strong>
+        <strong class="font-bold">Fork</strong>
         <a
           href="https://github.com/SaneSanders/noemium"
-          class="ml-1 font-mono text-xs text-shift-near hover:underline"
+          class="ml-1 font-mono text-xs text-accent hover:underline"
           rel="noopener">SaneSanders/noemium</a
         >.
       </li>
       <li>
-        <strong class="font-semibold">Copy a template</strong> —
+        <strong class="font-bold">Copy a template</strong> —
         <span class="font-mono text-xs text-ink-dim">src/content/tools/cursor.yaml</span>,
         <span class="font-mono text-xs text-ink-dim">src/content/stacks/solo-founder-saas.md</span>
         or
@@ -42,46 +42,46 @@ const rules = [
         >. Rename it to a kebab-case slug.
       </li>
       <li>
-        <strong class="font-semibold">Fill it in from your own experience</strong> — sign it with
+        <strong class="font-bold">Fill it in from your own experience</strong> — sign it with
         your GitHub handle in <span class="font-mono text-xs text-ink-dim">observed_by</span>.
       </li>
       <li>
-        <strong class="font-semibold">Validate locally</strong>:
-        <code class="rounded-sm border border-line bg-raised px-1.5 py-0.5 font-mono text-xs"
+        <strong class="font-bold">Validate locally</strong>:
+        <code class="rounded-sm border-[1.5px] border-ink bg-paper px-1.5 py-0.5 font-mono text-xs"
           >npm install && npm run validate</code
         >.
       </li>
       <li>
-        <strong class="font-semibold">Open a PR.</strong> The same validation runs in review.
+        <strong class="font-bold">Open a PR.</strong> The same validation runs in review.
       </li>
     </ol>
   </section>
 
   <section class="mt-10 max-w-3xl">
-    <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">Standing orders</h2>
-    <ul class="mt-4 list-disc space-y-3 pl-5 marker:font-mono marker:text-shift-far">
+    <h2 class="font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">Standing orders</h2>
+    <ul class="mt-4 list-disc space-y-3 pl-5 marker:font-mono marker:text-verdict-skip">
       {rules.map((rule) => <li>{rule}</li>)}
     </ul>
   </section>
 
-  <section class="mt-10 flex flex-wrap gap-3">
+  <section class="mt-10 flex flex-wrap gap-4">
     <a
       href="https://github.com/SaneSanders/noemium"
-      class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
+      class="nm-btn nm-btn-solid"
       rel="noopener"
     >
       Open the repository
     </a>
     <a
       href="https://github.com/SaneSanders/noemium/blob/main/CONTRIBUTING.md"
-      class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+      class="nm-btn nm-btn-outline"
       rel="noopener"
     >
       Read CONTRIBUTING.md
     </a>
     <a
       href="https://github.com/SaneSanders/noemium/tree/main/src/content"
-      class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+      class="nm-btn nm-btn-outline"
       rel="noopener"
     >
       Browse the templates

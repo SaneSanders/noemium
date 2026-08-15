@@ -12,7 +12,7 @@ export const GET: APIRoute = async () => {
   const lines = [
     '# Noemium',
     '',
-    '> Noemium is an open source observatory of AI tools, stacks and models.',
+    '> Noemium is an open source catalog of AI tools, stacks and models.',
     '> No paid listings, ever. Every verdict is a pull request anyone can audit,',
     '> with receipts linked and limitations named next to the praise.',
     '',

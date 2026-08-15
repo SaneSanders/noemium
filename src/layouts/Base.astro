@@ -1,13 +1,15 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/theme.css';
-import '@fontsource/instrument-serif/400.css';
-import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource/archivo/800.css';
+import '@fontsource/archivo/900.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
 import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/500.css';
+import '@fontsource/jetbrains-mono/700.css';
 import CommandPalette from '../islands/CommandPalette';
 
 interface Props {
@@ -25,11 +27,12 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage, Astro.site);
 const navItems = [
-  { index: '01', href: '/tools', label: '/TOOLS', name: 'Tools' },
-  { index: '02', href: '/stacks', label: '/STACKS', name: 'Stacks' },
-  { index: '03', href: '/models', label: '/MODELS', name: 'Models' },
-  { index: '04', href: '/quiz', label: '/QUIZ', name: 'Quiz' },
-  { index: '05', href: '/contribute', label: '/CONTRIBUTE', name: 'Contribute' },
+  { href: '/tools', name: 'Tools' },
+  { href: '/stacks', name: 'Stacks' },
+  { href: '/models', name: 'Models' },
+  { href: '/quiz', name: 'Quiz' },
+  { href: '/tools/compare', name: 'Compare' },
+  { href: '/contribute', name: 'Contribute' },
 ];
 ---
 
@@ -54,30 +57,20 @@ const navItems = [
     <meta name="twitter:image" content={ogImageUrl} />
     <ClientRouter />
   </head>
-  <body class="flex min-h-screen flex-col bg-void font-body text-ink antialiased">
-    {/* Scroll-depth readout — 1px progress line + mono percentage. */}
-    <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 z-40 h-px bg-transparent">
-      <div id="nm-depth-bar" class="h-px origin-left scale-x-0 bg-shift-near"></div>
-    </div>
-    <span
-      id="nm-depth-num"
-      aria-hidden="true"
-      class="nm-num pointer-events-none fixed right-3 bottom-3 z-40 text-xs text-ink-dim"
-    >
-      DEPTH 000%
-    </span>
-
-    <header class="border-b border-line bg-panel">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <a href="/" class="flex items-baseline gap-2">
-          <span class="font-display text-2xl tracking-wide">NOEMIUM</span>
-          <span class="font-mono text-xs text-ink-dim">observatory</span>
+  <body class="flex min-h-screen flex-col bg-paper font-body text-ink antialiased">
+    <header class="pt-6">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6">
+        <a href="/" class="font-display text-2xl font-extrabold tracking-tight text-ink">
+          noemium<sup class="ml-1.5 align-super font-mono text-[10px] font-medium tracking-wider text-accent uppercase">open beta</sup>
         </a>
-        <nav class="hidden items-center gap-6 md:flex">
+        <nav class="hidden items-center gap-7 lg:flex">
           {
             navItems.map((item) => (
-              <a href={item.href} class="font-mono text-xs text-ink-dim transition-colors hover:text-ink">
-                <span class="text-shift-near">{item.index}</span> {item.label}
+              <a
+                href={item.href}
+                class="text-sm font-semibold tracking-tight text-ink opacity-70 transition-opacity duration-100 hover:opacity-100"
+              >
+                {item.name}
               </a>
             ))
           }
@@ -86,25 +79,19 @@ const navItems = [
           <button
             type="button"
             onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
-            class="rounded-sm border border-line px-3 py-1 font-mono text-xs text-ink-dim transition-colors hover:border-shift-near hover:text-ink"
+            class="hidden items-center gap-2.5 rounded-full border-[1.5px] border-ink bg-card px-4 py-2 font-mono text-[13px] font-medium text-ink shadow-hard-sm transition-all duration-100 hover:-translate-0.5 hover:shadow-hard sm:inline-flex"
             aria-label="Open command palette (⌘K)"
           >
-            ⌘K
+            <span>Search</span>
+            <span class="text-[11px] opacity-55">⌘K</span>
           </button>
-          <a
-            href="https://github.com/SaneSanders/noemium"
-            class="hidden rounded-sm border border-line px-3 py-1 font-mono text-xs text-ink-dim transition-colors hover:border-shift-near hover:text-ink sm:inline-block"
-            rel="noopener"
-          >
-            Star on GitHub
-          </a>
           <button
             id="nm-nav-open"
             type="button"
             aria-expanded="false"
             aria-controls="nm-mobile-nav"
             aria-label="Open menu"
-            class="rounded-sm border border-line p-1.5 text-ink-dim transition-colors hover:border-shift-near hover:text-ink md:hidden"
+            class="rounded-md border-[1.5px] border-ink bg-card p-2 text-ink shadow-hard-sm lg:hidden"
           >
             <svg
               width="16"
@@ -123,21 +110,21 @@ const navItems = [
       </div>
     </header>
 
-    {/* Mobile navigation overlay — same 01–05 links, display type. */}
+    {/* Mobile navigation overlay — same links, display type. */}
     <div
       id="nm-mobile-nav"
-      class="fixed inset-0 z-50 hidden flex-col bg-void"
+      class="fixed inset-0 z-50 hidden flex-col bg-paper"
       role="dialog"
       aria-modal="true"
       aria-label="Site navigation"
     >
-      <div class="flex items-center justify-between border-b border-line px-4 py-4">
-        <span class="font-display text-2xl tracking-wide">NOEMIUM</span>
+      <div class="flex items-center justify-between border-b-[1.5px] border-ink px-6 py-5">
+        <span class="font-display text-2xl font-extrabold tracking-tight">noemium</span>
         <button
           id="nm-nav-close"
           type="button"
           aria-label="Close menu"
-          class="rounded-sm border border-line p-1.5 text-ink-dim transition-colors hover:border-shift-near hover:text-ink"
+          class="rounded-md border-[1.5px] border-ink bg-card p-2 text-ink shadow-hard-sm"
         >
           <svg
             width="16"
@@ -155,10 +142,10 @@ const navItems = [
       </div>
       <nav class="flex flex-1 flex-col justify-center px-6">
         {
-          navItems.map((item) => (
-            <a href={item.href} class="group flex items-baseline gap-4 border-b border-line py-4 last:border-b-0">
-              <span class="font-mono text-xs text-shift-near">{item.index}</span>
-              <span class="font-display text-4xl text-ink transition-colors group-hover:text-shift-near">
+          navItems.map((item, i) => (
+            <a href={item.href} class="group flex items-baseline gap-4 border-b border-line-soft py-4 last:border-b-0">
+              <span class="nm-num text-xs text-accent">{String(i + 1).padStart(2, '0')}</span>
+              <span class="font-display text-4xl font-extrabold tracking-tight text-ink uppercase transition-colors group-hover:text-accent">
                 {item.name}
               </span>
             </a>
@@ -167,65 +154,29 @@ const navItems = [
       </nav>
     </div>
 
-    <main class="mx-auto w-full max-w-6xl flex-1 px-4">
+    <main class="mx-auto w-full max-w-7xl flex-1 px-6">
       <slot />
     </main>
 
-    <footer class="mt-16 border-t border-line bg-panel">
-      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 font-mono text-xs text-ink-dim">
-        <p>
-          Built in the open by{' '}
-          <a href="https://x.com/whysanesanders" class="text-shift-near hover:underline" rel="noopener">
-            @whysanesanders
-          </a>
+    <footer class="mt-20 border-t-[1.5px] border-ink">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-4 px-6 py-10">
+        <p class="font-mono text-[13px] font-medium tracking-wide text-ink">
+          Code <span class="font-bold text-accent">MIT</span> · Content <span class="font-bold text-accent">CC BY 4.0</span> · Every recommendation is a PR
         </p>
-        <p>Some links are affiliate links — always declared. No paid listings, ever.</p>
-        <p class="flex gap-4">
+        <p class="flex items-center gap-5 font-mono text-xs text-ink-dim">
           <a href="https://github.com/SaneSanders/noemium" class="hover:text-ink" rel="noopener">GitHub</a>
           <a href="/contribute" class="hover:text-ink">Contribute</a>
           <a href="/search" class="hover:text-ink">Search</a>
           <a href="/rss.xml" class="hover:text-ink">RSS</a>
+          <a href="https://x.com/whysanesanders" class="hover:text-ink" rel="noopener">@whysanesanders</a>
         </p>
+        <span class="font-display text-lg font-extrabold tracking-tight">noemium</span>
       </div>
     </footer>
 
     <CommandPalette client:idle transition:persist />
 
     <script>
-      // Scroll-depth readout. Listeners re-bind on every view transition;
-      // the previous one is dropped before each swap.
-      let depthHandler: (() => void) | null = null;
-
-      function bindDepth() {
-        const bar = document.getElementById('nm-depth-bar');
-        const num = document.getElementById('nm-depth-num');
-        if (!bar || !num) return;
-        let ticking = false;
-        const update = () => {
-          ticking = false;
-          const max = document.documentElement.scrollHeight - window.innerHeight;
-          const p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-          bar.style.transform = `scaleX(${p})`;
-          num.textContent = `DEPTH ${String(Math.round(p * 100)).padStart(3, '0')}%`;
-        };
-        depthHandler = () => {
-          if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(update);
-          }
-        };
-        window.addEventListener('scroll', depthHandler, { passive: true });
-        update();
-      }
-
-      document.addEventListener('astro:page-load', bindDepth);
-      document.addEventListener('astro:before-swap', () => {
-        if (depthHandler) {
-          window.removeEventListener('scroll', depthHandler);
-          depthHandler = null;
-        }
-      });
-
       // Mobile nav overlay. Delegated listeners bind once and survive view
       // transitions (the document persists; the header markup is swapped).
       function setMobileNav(open: boolean) {

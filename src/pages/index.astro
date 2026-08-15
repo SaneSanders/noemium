@@ -1,272 +1,242 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import ToolCard from '../components/ToolCard.astro';
 import VerdictBadge from '../components/VerdictBadge.astro';
-import ShiftArrow from '../components/ShiftArrow.astro';
+import { toolNumbers, formatEntryNo } from '../lib/tool-numbers';
 
 const tools = await getCollection('tools');
 const stacks = await getCollection('stacks');
 const models = await getCollection('models');
+const numbers = await toolNumbers();
 
-const featured = tools
-  .filter((t) => t.data.featured)
-  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+// One live example per verdict — the most recently verified tool of each
+// kind (ties break alphabetically, so the pick is deterministic).
+const byVerdict = (v: 'ship' | 'situational' | 'skip') =>
+  tools
+    .filter((t) => t.data.verdict === v)
+    .sort(
+      (a, b) =>
+        b.data.last_verified.localeCompare(a.data.last_verified) ||
+        a.data.name.localeCompare(b.data.name),
+    )[0];
+const verdictCards = (['ship', 'situational', 'skip'] as const)
+  .map(byVerdict)
+  .filter((t) => t !== undefined);
 
-const latest = [
-  ...tools.map((t) => ({
-    kind: 'tool' as const,
-    slug: t.id,
-    name: t.data.name,
-    blurb: t.data.tagline,
-    date: t.data.last_verified,
-    verdict: t.data.verdict,
-    momentum: t.data.momentum,
-  })),
-  ...stacks.map((s) => ({
-    kind: 'stack' as const,
-    slug: s.id,
-    name: s.data.title,
-    blurb: s.data.use_case,
-    date: s.data.last_verified,
-    verdict: null,
-    momentum: null,
-  })),
-]
-  .sort((a, b) => b.date.localeCompare(a.date))
-  .slice(0, 6);
+// Bento previews — all from real content, deterministic ordering.
+const catalogPreview = [...tools]
+  .sort(
+    (a, b) =>
+      b.data.last_verified.localeCompare(a.data.last_verified) ||
+      a.data.name.localeCompare(b.data.name),
+  )
+  .slice(0, 5);
+
+const modelPreview = models
+  .filter((m) => (m.data.price_unit ?? 'mtok') === 'mtok')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  .slice(0, 3);
+
+const stackPreview = [...stacks]
+  .sort((a, b) => a.data.title.localeCompare(b.data.title))
+  .slice(0, 3);
+
+const usd = (v: number) => `$${v.toFixed(2)}`;
 
 const stats = [
-  { value: tools.length, label: 'tools observed' },
-  { value: stacks.length, label: 'stacks mapped' },
-  { value: models.length, label: 'models tracked' },
-];
-
-const manifesto = [
-  {
-    index: '01',
-    title: 'No pay-to-list',
-    text: 'Placement cannot be bought. An entry changes only when someone opens a pull request with evidence — and the diff is public forever.',
-  },
-  {
-    index: '02',
-    title: 'Receipts, not marketing',
-    text: 'Every verdict links to the sources it rests on. Limitations are named on the page, next to the praise, in the same font size.',
-  },
-  {
-    index: '03',
-    title: 'Edit anything via PR',
-    text: 'Disagree with a verdict? The catalog is a git repository. Fork it, change it, argue in the open — maintainers answer with data.',
-  },
+  { value: tools.length, label: 'tools' },
+  { value: models.length, label: 'models' },
+  { value: stacks.length, label: 'stacks' },
+  { value: 0, label: 'paid placements' },
 ];
 ---
 
-<Base title="The AI landscape, observed.">
+<Base title="Pick AI tools without getting played">
   {/* ---------------------------------------------------------------- HERO */}
-  <section class="relative -mx-4 overflow-hidden px-4 py-24 md:py-36">
-    {/* Static CSS poster — visible under reduced motion, before WebGL boots,
-        or as the graceful fallback if WebGL is unavailable. */}
-    <div id="hero-poster" aria-hidden="true" class="nm-poster absolute inset-0">
-      <span class="nm-poster-stars nm-poster-far" />
-      <span class="nm-poster-stars nm-poster-near" />
-      <span class="nm-poster-stars nm-poster-gold" />
-    </div>
-    <canvas id="hero-field" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full" />
-
-    <div class="relative">
-      <p class="font-mono text-xs text-shift-near">00 /INDEX</p>
-      <h1 class="mt-4 max-w-3xl font-display text-5xl leading-tight md:text-7xl">
-        The AI landscape, <em>observed.</em>
-      </h1>
-      <p class="mt-6 max-w-xl text-lg text-ink-dim">
-        An open source observatory of AI tools, stacks and models. No paid listings.
-        Every verdict is a pull request you can audit.
-      </p>
-      <p class="mt-8 flex flex-wrap gap-3">
-        <a
-          href="/tools"
-          class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
-        >
-          Explore the catalog
-        </a>
-        <a
-          href="https://github.com/SaneSanders/noemium"
-          class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
-          rel="noopener"
-        >
-          Star on GitHub
-        </a>
-      </p>
-      <p class="nm-num mt-10 text-xs text-ink-dim">
-        FIELD: AI · OBJECTS: {tools.length} · SHIFT: LIVE
-      </p>
-    </div>
-  </section>
-
-  {/* -------------------------------------------------------------- NUMBERS */}
-  <section data-reveal class="border-t border-line py-12 md:py-16">
-    <p class="font-mono text-xs text-shift-near">01 /COUNT</p>
-    <dl class="mt-8 grid gap-8 sm:grid-cols-3">
-      {
-        stats.map((s) => (
-          <div>
-            <dd class="nm-num text-5xl md:text-6xl">{s.value}</dd>
-            <dt class="mt-3 font-mono text-xs tracking-widest text-ink-dim uppercase">
-              {s.label}
-            </dt>
-          </div>
-        ))
-      }
-    </dl>
-  </section>
-
-  {/* ------------------------------------------------------------- FEATURED */}
-  <section data-reveal class="border-t border-line py-12 md:py-16">
-    <p class="font-mono text-xs text-shift-near">02 /FEATURED</p>
-    <h2 class="mt-3 font-display text-3xl leading-tight md:text-5xl">
-      Bright objects, <em>verified.</em>
-    </h2>
-    <p class="mt-4 max-w-2xl text-ink-dim">
-      The tools we would defend in a code review — marked gold, never paid for.
+  <section class="py-20 md:py-28">
+    <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
+      <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
+      The open AI tools catalog
     </p>
-    <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {featured.map((tool) => <ToolCard tool={tool} />)}
-    </div>
-  </section>
-
-  {/* --------------------------------------------------------------- LATEST */}
-  <section data-reveal class="border-t border-line py-12 md:py-16">
-    <p class="font-mono text-xs text-shift-near">03 /LOG</p>
-    <h2 class="mt-3 font-display text-3xl leading-tight md:text-5xl">
-      Latest <em>observations.</em>
-    </h2>
-    <ul class="mt-8 divide-y divide-line border-y border-line">
-      {
-        latest.map((entry) => (
-          <li>
-            <a
-              href={entry.kind === 'tool' ? `/tools/${entry.slug}` : `/stacks/${entry.slug}`}
-              class="group flex flex-wrap items-baseline gap-x-4 gap-y-1 py-4"
-            >
-              <span class="nm-num w-24 shrink-0 text-xs text-ink-dim">{entry.date}</span>
-              <span class="font-mono text-xs tracking-widest text-shift-near uppercase">
-                {entry.kind}
-              </span>
-              <span class="font-medium text-ink group-hover:text-shift-near">{entry.name}</span>
-              {entry.verdict && <VerdictBadge verdict={entry.verdict} />}
-              {entry.momentum && <ShiftArrow momentum={entry.momentum} class="h-4 w-4" />}
-              <span class="basis-full text-sm text-ink-dim md:basis-auto md:ml-auto md:max-w-md md:truncate">
-                {entry.blurb}
-              </span>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
-
-  {/* ------------------------------------------------------------ MANIFESTO */}
-  <section data-reveal class="border-t border-line py-12 md:py-16">
-    <p class="font-mono text-xs text-shift-near">04 /WHY</p>
-    <h2 class="mt-3 font-display text-3xl leading-tight md:text-5xl">
-      Why <em>open source?</em>
-    </h2>
-    <div class="mt-8 grid gap-4 md:grid-cols-3">
-      {
-        manifesto.map((m) => (
-          <article class="rounded-md border border-line bg-panel p-6">
-            <p class="font-mono text-xs text-shift-near">{m.index}</p>
-            <h3 class="mt-3 font-display text-2xl">{m.title}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink-dim">{m.text}</p>
-          </article>
-        ))
-      }
-    </div>
-  </section>
-
-  {/* ------------------------------------------------------------------ CTA */}
-  <section
-    data-reveal
-    class="mb-16 rounded-md border border-line bg-panel px-6 py-12 text-center md:py-16"
-  >
-    <p class="font-mono text-xs text-shift-near">05 /CONTRIBUTE</p>
-    <h2 class="mx-auto mt-3 max-w-2xl font-display text-3xl leading-tight md:text-5xl">
-      The sky is incomplete <em>without your entry.</em>
-    </h2>
-    <p class="mx-auto mt-4 max-w-xl text-ink-dim">
-      Add a tool, correct a verdict, map a stack. One YAML file and a pull request —
-      that is the whole submission process.
+    <h1 class="text-shadow-display mt-7 max-w-5xl font-display text-6xl leading-[0.94] font-black tracking-tight uppercase md:text-8xl lg:text-9xl">
+      Pick AI tools without getting played.
+    </h1>
+    <p class="mt-9 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-80">
+      Honest verdicts, verified prices, receipts for every claim. Open source.
     </p>
-    <p class="mt-8">
-      <a
-        href="/contribute"
-        class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
-      >
-        Open the contribution guide
+    <p class="mt-10 flex flex-wrap gap-4">
+      <a href="/tools" class="nm-btn nm-btn-solid">Browse {tools.length} tools</a>
+      <a href="/quiz" class="nm-btn nm-btn-outline">30-sec stack quiz</a>
+    </p>
+  </section>
+
+  {/* --------------------------------------------------------- VERDICT CARDS */}
+  <section data-reveal class="pb-20 md:pb-24">
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        verdictCards.map((tool) => (
+          <a href={`/tools/${tool.id}`} class="nm-card nm-card-hover group flex flex-col gap-4 p-7">
+            <div class="flex items-start justify-between gap-3">
+              <span class="font-mono text-[11px] font-medium tracking-[0.12em] text-ink-dim">
+                {formatEntryNo(numbers.get(tool.id))}
+              </span>
+              <VerdictBadge verdict={tool.data.verdict} />
+            </div>
+            <div>
+              <h3 class="font-display text-3xl font-extrabold tracking-tight group-hover:text-accent">
+                {tool.data.name}
+              </h3>
+              <p class="mt-1 font-mono text-[11px] tracking-[0.08em] text-ink-dim uppercase">
+                {tool.data.category}
+              </p>
+            </div>
+            <p class="flex-1 text-[15px] leading-relaxed text-ink opacity-80">
+              {tool.data.tagline}
+            </p>
+            <div class="border-t-[1.5px] border-line-soft pt-4">
+              <p class="nm-num text-[15px] font-bold text-accent">
+                {tool.data.pricing}
+                {tool.data.price_note && (
+                  <span class="block pt-1 text-[13px] font-normal text-ink opacity-60">
+                    {tool.data.price_note}
+                  </span>
+                )}
+              </p>
+              <p class="mt-4">
+                <span class="nm-verified">Verified {tool.data.last_verified}</span>
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* ---------------------------------------------------------------- BENTO */}
+  <section data-reveal class="pb-20 md:pb-24">
+    <h2 class="text-shadow-section mb-12 max-w-3xl font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-6xl">
+      Everything you need to pick a stack
+    </h2>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-12">
+      {/* Catalog */}
+      <a href="/tools" class="nm-card nm-card-hover p-7 md:col-span-5 md:row-span-2">
+        <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">Catalog</p>
+        <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">{tools.length} tools, zero fluff</h3>
+        <p class="mt-2 text-sm text-ink opacity-65">
+          Every entry reviewed by a human, priced from the actual checkout page.
+        </p>
+        <div class="mt-5">
+          {
+            catalogPreview.map((t) => (
+              <p class="flex items-center justify-between gap-3 border-b-[1.5px] border-line-soft py-3 text-sm font-semibold last:border-b-0">
+                <span>
+                  {t.data.name}
+                  <span class="ml-2 font-mono text-[11px] font-normal tracking-wide text-ink-dim">{t.data.category}</span>
+                </span>
+                <span
+                  class:list={[
+                    'h-2.5 w-2.5 shrink-0 rounded-full',
+                    t.data.verdict === 'ship' && 'bg-verdict-ship',
+                    t.data.verdict === 'situational' && 'bg-verdict-situational',
+                    t.data.verdict === 'skip' && 'bg-verdict-skip',
+                  ]}
+                />
+              </p>
+            ))
+          }
+        </div>
+        <p class="mt-4 font-mono text-xs font-medium text-accent">+ {tools.length - catalogPreview.length} more →</p>
       </a>
-    </p>
+
+      {/* Model prices */}
+      <a href="/models" class="nm-card nm-card-hover p-7 md:col-span-4">
+        <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">Model prices</p>
+        <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">API costs, live</h3>
+        <p class="mt-2 text-sm text-ink opacity-65">Per million tokens, no marketing math.</p>
+        <table class="nm-num mt-4 w-full border-collapse text-[13px]">
+          {
+            modelPreview.map((m) => (
+              <tr>
+                <td class="border-b-[1.5px] border-line-soft py-2.5 last:border-b-0">
+                  {m.data.name} <span class="text-[11px] opacity-45">in / out</span>
+                </td>
+                <td class="nm-num border-b-[1.5px] border-line-soft py-2.5 text-right font-bold whitespace-nowrap text-accent last:border-b-0">
+                  {usd(m.data.price_input_per_mtok)} / {usd(m.data.price_output_per_mtok)}
+                </td>
+              </tr>
+            ))
+          }
+        </table>
+      </a>
+
+      {/* Stacks */}
+      <a href="/stacks" class="nm-card nm-card-hover p-7 md:col-span-3 md:row-span-2">
+        <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">Stacks</p>
+        <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">Ready-made combos</h3>
+        <p class="mt-2 text-sm text-ink opacity-65">Curated sets for real workflows.</p>
+        <div class="mt-4">
+          {
+            stackPreview.map((s) => (
+              <p class="border-b-[1.5px] border-line-soft py-3.5 last:border-b-0">
+                <span class="block font-display text-[17px] font-extrabold tracking-tight">{s.data.title}</span>
+                <span class="mt-1 block text-[13px] text-ink opacity-60">
+                  {s.data.tools.length} tools · ${s.data.monthly_cost_usd}/mo total
+                </span>
+              </p>
+            ))
+          }
+        </div>
+      </a>
+
+      {/* Quiz */}
+      <a href="/quiz" class="nm-card nm-card-hover flex flex-col justify-between bg-accent p-7 text-card md:col-span-4">
+        <div>
+          <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-card uppercase opacity-70">Quiz</p>
+          <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-card">Find your stack in 30 seconds</h3>
+        </div>
+        <p class="mt-5 font-display text-4xl font-extrabold leading-none" aria-hidden="true">→</p>
+      </a>
+
+      {/* Compare */}
+      <a href="/tools/compare" class="nm-card nm-card-hover flex items-center justify-between gap-6 p-7 md:col-span-12">
+        <div>
+          <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">Compare</p>
+          <p class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 font-display text-2xl font-extrabold tracking-tight md:text-3xl">
+            Cursor
+            <span class="rounded-md bg-ink px-2.5 py-1 font-mono text-xs font-bold tracking-wider text-card">VS</span>
+            Claude Code
+            <span class="font-mono text-xs font-medium tracking-wide text-ink-dim">— or any 2–4 tools, side by side</span>
+          </p>
+        </div>
+        <span class="shrink-0 font-display text-3xl font-extrabold text-accent" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  {/* ---------------------------------------------------------------- STATS */}
+  <section data-reveal class="border-y-[1.5px] border-ink py-14">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-6">
+      {
+        stats.map((s, i) => (
+          <>
+            {i > 0 && <span aria-hidden="true" class="font-display text-4xl font-black text-accent">·</span>}
+            <p class="flex items-baseline gap-3.5">
+              <span class:list={['font-display text-6xl font-black tracking-tight md:text-7xl', i % 2 === 0 && 'text-shadow-section']}>
+                {s.value}
+              </span>
+              <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink uppercase opacity-60">
+                {s.label}
+              </span>
+            </p>
+          </>
+        ))
+      }
+    </div>
   </section>
 
   <script>
-    import { initHeroField, destroyHeroField } from '../fx/hero-field';
     import { initReveals } from '../fx/reveal';
-
-    document.addEventListener('astro:page-load', () => {
-      const canvas = document.getElementById('hero-field');
-      if (canvas instanceof HTMLCanvasElement) {
-        void initHeroField(canvas, document.getElementById('hero-poster')).catch(() => {
-          // WebGL unavailable — the static CSS poster stays. Nothing to fix.
-        });
-      }
-      initReveals();
-    });
-    document.addEventListener('astro:before-swap', destroyHeroField);
+    document.addEventListener('astro:page-load', initReveals);
   </script>
 </Base>
-
-<style>
-  /* CSS star poster — static fallback for the WebGL constellation.
-     Stars are box-shadows on pseudo-sized spans, colored via currentColor
-     so every value still comes from tokens. */
-  .nm-poster {
-    color: var(--nm-ink);
-  }
-
-  .nm-poster-stars {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 2px;
-    height: 2px;
-    border-radius: 9999px;
-  }
-
-  .nm-poster-far {
-    opacity: 0.5;
-    box-shadow:
-      6vw 12vh 0 0 currentColor, 14vw 68vh 0 0 currentColor, 22vw 30vh 0 0 currentColor,
-      31vw 82vh 0 0 currentColor, 38vw 8vh 0 0 currentColor, 47vw 55vh 0 0 currentColor,
-      55vw 22vh 0 0 currentColor, 63vw 74vh 0 0 currentColor, 71vw 14vh 0 0 currentColor,
-      79vw 48vh 0 0 currentColor, 88vw 30vh 0 0 currentColor, 94vw 66vh 0 0 currentColor,
-      10vw 44vh 0 0 currentColor, 27vw 58vh 0 0 currentColor, 42vw 88vh 0 0 currentColor,
-      58vw 40vh 0 0 currentColor, 74vw 86vh 0 0 currentColor, 85vw 10vh 0 0 currentColor,
-      18vw 24vh 0 0 currentColor, 52vw 66vh 0 0 currentColor, 66vw 34vh 0 0 currentColor,
-      90vw 52vh 0 0 currentColor, 35vw 40vh 0 0 currentColor, 8vw 80vh 0 0 currentColor;
-  }
-
-  .nm-poster-near {
-    color: var(--nm-shift-near);
-    opacity: 0.8;
-    box-shadow:
-      12vw 26vh 0 0 currentColor, 29vw 70vh 0 0 currentColor, 44vw 18vh 0 0 currentColor,
-      60vw 58vh 0 0 currentColor, 76vw 26vh 0 0 currentColor, 87vw 76vh 0 0 currentColor,
-      20vw 50vh 0 0 currentColor, 50vw 80vh 0 0 currentColor, 68vw 10vh 0 0 currentColor;
-  }
-
-  .nm-poster-gold {
-    color: var(--nm-gold);
-    opacity: 0.9;
-    box-shadow:
-      25vw 16vh 0 0 currentColor, 57vw 44vh 0 0 currentColor, 82vw 60vh 0 0 currentColor;
-  }
-</style>

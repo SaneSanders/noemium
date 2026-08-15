@@ -42,35 +42,38 @@ const hostname = (url: string) => {
 ---
 
 <Base title={s.title} description={s.use_case} ogImage={`/og/stacks/${stack.id}.png`}>
-  <article class="py-12 md:py-16">
-    <p class="font-mono text-xs text-shift-near">
-      <a href="/stacks" class="hover:underline">02 /STACKS</a> / {stack.id}
+  <article class="py-14 md:py-20">
+    <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
+      <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
+      <a href="/stacks" class="hover:underline">Stacks</a>
+      <span class="text-ink-dim">/ {stack.id}</span>
     </p>
-    <h1 class="mt-4 max-w-3xl font-display text-4xl leading-tight md:text-6xl">{s.title}</h1>
-    <p class="mt-4 max-w-2xl text-lg text-ink-dim">{s.use_case}</p>
-    <p class="mt-2 font-mono text-xs text-ink-dim">
-      observed by @{s.observed_by} · verified {s.last_verified}
+    <h1 class="text-shadow-section mt-6 max-w-4xl font-display text-5xl leading-[0.98] font-black tracking-tight uppercase md:text-7xl">{s.title}</h1>
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed font-medium text-ink opacity-75">{s.use_case}</p>
+    <p class="mt-5 flex flex-wrap items-center gap-3 font-mono text-xs text-ink-dim">
+      <span>observed by @{s.observed_by}</span>
+      <span class="nm-verified">Verified {s.last_verified}</span>
     </p>
 
-    <div class="mt-10 flex flex-wrap items-end gap-x-10 gap-y-4 rounded-md border border-line bg-panel p-6">
+    <div class="nm-card mt-10 flex flex-wrap items-end gap-x-10 gap-y-5 p-6 md:p-8">
       <p>
-        <span class="font-display text-6xl leading-none md:text-7xl">${s.monthly_cost_usd}</span>
+        <span class="nm-num text-6xl leading-none font-bold text-accent md:text-7xl">${s.monthly_cost_usd}</span>
         <span class="nm-num ml-2 text-lg text-ink-dim">/mo</span>
       </p>
-      <p class="pb-2 font-mono text-xs tracking-widest text-ink-dim uppercase">
+      <p class="pb-2 font-mono text-xs tracking-[0.14em] text-ink-dim uppercase">
         difficulty: {s.difficulty}
       </p>
-      <p class="pb-2">
+      <p class="pb-1">
         <button
           id="copy-markdown"
           type="button"
-          class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+          class="nm-btn nm-btn-outline"
         >
           Copy as markdown
         </button>
         <span
           id="copied-stamp"
-          class="nm-stamp ml-3 hidden rounded-sm border border-verdict-ship px-2 py-0.5 font-mono text-xs font-medium tracking-widest text-verdict-ship uppercase"
+          class="nm-stamp ml-3 hidden rounded-sm border-[1.5px] border-verdict-ship px-2 py-0.5 font-mono text-xs font-medium tracking-widest text-verdict-ship uppercase"
         >
           copied
         </span>
@@ -78,13 +81,13 @@ const hostname = (url: string) => {
     </div>
 
     <section class="mt-10">
-      <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">The components</h2>
+      <h2 class="font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">The components</h2>
       <p class="mt-3 flex flex-wrap gap-1.5">
         {
           stackTools.map((t) => (
             <a
               href={`/tools/${t.id}`}
-              class="rounded-sm border border-line px-2 py-1 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+              class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-xs text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard-sm"
             >
               {t.data.name}
             </a>
@@ -93,23 +96,24 @@ const hostname = (url: string) => {
       </p>
     </section>
 
-    <div class="nm-prose mt-6 max-w-3xl">
+    <div class="nm-prose mt-8 max-w-3xl">
       <Content />
     </div>
 
     <section class="mt-10">
-      <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">Receipts</h2>
-      <ul class="mt-4 space-y-2">
+      <h2 class="font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">Sources</h2>
+      <ol class="mt-4 space-y-2">
         {
-          s.receipts.map((r) => (
-            <li>
-              <a href={r} class="font-mono text-xs text-shift-near hover:underline" rel="noopener">
+          s.receipts.map((r, i) => (
+            <li class="flex items-baseline gap-2 font-mono text-xs">
+              <sup class="font-bold text-accent">{i + 1}</sup>
+              <a href={r} class="text-accent hover:underline" rel="noopener">
                 {hostname(r)}
               </a>
             </li>
           ))
         }
-      </ul>
+      </ol>
     </section>
   </article>
 

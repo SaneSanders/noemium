@@ -91,7 +91,7 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
     {
       label: 'known limitations',
       render: (t) => (
-        <ul class="list-disc space-y-1 pl-4 text-xs text-ink-dim marker:font-mono marker:text-shift-near">
+        <ul class="list-disc space-y-1 pl-4 text-xs text-ink-dim marker:font-mono marker:text-verdict-skip">
           {t.limitations.map((l) => (
             <li key={l}>{l}</li>
           ))}
@@ -102,7 +102,7 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
 
   return (
     <section>
-      <div class="rounded-md border border-line bg-panel p-4">
+      <div class="nm-card p-5">
         <div class="relative">
           <input
             type="text"
@@ -114,16 +114,16 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
                 : 'Add a tool to compare…'
             }
             disabled={slugs.length >= MAX_TOOLS}
-            class="w-full rounded-sm border border-line bg-void px-3 py-2 font-mono text-sm text-ink placeholder:text-ink-dim focus:border-shift-near focus:outline-none disabled:opacity-50"
+            class="w-full rounded-md border-[1.5px] border-ink bg-paper px-3 py-2 font-mono text-sm text-ink placeholder:text-ink-dim focus:border-accent focus:outline-none disabled:opacity-50"
           />
           {suggestions.length > 0 && (
-            <ul class="absolute right-0 left-0 z-10 mt-1 overflow-hidden rounded-sm border border-line bg-raised">
+            <ul class="absolute right-0 left-0 z-10 mt-1 overflow-hidden rounded-md border-[1.5px] border-ink bg-card shadow-hard">
               {suggestions.map((t) => (
                 <li key={t.slug}>
                   <button
                     type="button"
                     onClick={() => add(t.slug)}
-                    class="flex w-full items-baseline justify-between gap-3 px-3 py-2 text-left transition-colors duration-100 hover:bg-panel"
+                    class="flex w-full items-baseline justify-between gap-3 px-3 py-2 text-left transition-colors duration-100 hover:bg-paper"
                   >
                     <span class="text-sm text-ink">{t.name}</span>
                     <span class="font-mono text-xs text-ink-dim">{t.slug}</span>
@@ -134,25 +134,25 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
           )}
         </div>
         {unknown.length > 0 && (
-          <p class="mt-3 font-mono text-xs text-shift-far">
+          <p class="mt-3 font-mono text-xs text-verdict-skip">
             No observation logged for: {unknown.join(', ')} — check the slugs.
           </p>
         )}
         {selected.length < MIN_TOOLS && (
           <p class="mt-3 text-sm text-ink-dim">
             Pick {MIN_TOOLS}–{MAX_TOOLS} tools to put them side by side — or open{' '}
-            <span class="font-mono text-xs text-shift-near">/tools/compare?tools=cursor,aider</span>
+            <span class="font-mono text-xs text-accent">/tools/compare?tools=cursor,aider</span>
             .
           </p>
         )}
       </div>
 
       {selected.length >= MIN_TOOLS && (
-        <div class="mt-6 overflow-x-auto rounded-md border border-line">
-          <table class="w-full min-w-[640px] border-collapse bg-panel text-left">
+        <div class="nm-card mt-6 overflow-x-auto">
+          <table class="w-full min-w-[640px] border-collapse bg-card text-left">
             <thead>
-              <tr class="border-b border-line">
-                <th class="sticky left-0 w-36 bg-panel p-3 font-mono text-xs tracking-widest text-ink-dim uppercase">
+              <tr class="border-b-[1.5px] border-ink">
+                <th class="sticky left-0 w-36 bg-card p-3 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
                   field
                 </th>
                 {selected.map((t) => (
@@ -160,7 +160,7 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
                     <div class="flex items-start justify-between gap-2">
                       <a
                         href={`/tools/${t.slug}`}
-                        class="font-body text-base font-semibold text-ink hover:text-shift-near"
+                        class="font-display text-lg font-extrabold tracking-tight text-ink hover:text-accent"
                       >
                         {t.name}
                       </a>
@@ -168,7 +168,7 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
                         type="button"
                         onClick={() => remove(t.slug)}
                         aria-label={`Remove ${t.name}`}
-                        class="font-mono text-xs text-ink-dim transition-colors duration-100 hover:text-shift-far"
+                        class="font-mono text-xs text-ink-dim transition-colors duration-100 hover:text-verdict-skip"
                       >
                         [x]
                       </button>
@@ -180,10 +180,10 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
             </thead>
             <tbody>
               {rows.map((row) => (
-                <tr key={row.label} class="border-b border-line last:border-b-0">
+                <tr key={row.label} class="border-b border-line-soft last:border-b-0">
                   <th
                     scope="row"
-                    class="sticky left-0 bg-panel p-3 align-top font-mono text-xs font-normal tracking-widest text-ink-dim uppercase"
+                    class="sticky left-0 bg-card p-3 align-top font-mono text-xs font-normal tracking-[0.12em] text-ink-dim uppercase"
                   >
                     {row.label}
                   </th>

@@ -4,6 +4,7 @@ import { FlagBadge, MomentumArrow, VerdictStamp } from './ui';
 
 export interface ToolRecord {
   slug: string;
+  no: number;
   name: string;
   tagline: string;
   category: string;
@@ -105,10 +106,10 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      class={`rounded-sm border px-2 py-1 font-mono text-xs transition-colors duration-100 ${
+      class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
         active
-          ? 'border-shift-near text-shift-near'
-          : 'border-line text-ink-dim hover:border-ink-dim hover:text-ink'
+          ? 'border-accent bg-accent text-card'
+          : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
       }`}
     >
       {children}
@@ -124,33 +125,46 @@ function ToolCardView({ tool }: { tool: ToolRecord }) {
   return (
     <a
       href={`/tools/${tool.slug}`}
-      class="group block rounded-md border border-line bg-panel p-5 transition-colors duration-200 hover:border-shift-near hover:bg-raised"
+      class="nm-card nm-card-hover group flex flex-col p-6"
     >
       <div class="flex items-start justify-between gap-3">
-        <h3 class="font-body text-lg font-semibold text-ink group-hover:text-shift-near">
-          {tool.name}
-          {tool.featured && (
-            <span class="ml-2 font-mono text-xs tracking-widest text-gold uppercase">featured</span>
-          )}
-        </h3>
-        <MomentumArrow momentum={tool.momentum} class="mt-1 shrink-0" />
+        <span class="font-mono text-[11px] font-medium tracking-[0.12em] text-ink-dim">
+          № {String(tool.no).padStart(3, '0')}
+        </span>
+        <VerdictStamp verdict={tool.verdict} />
       </div>
-      <p class="mt-2 text-sm text-ink-dim">{tool.tagline}</p>
-      <p class="mt-4 font-mono text-xs tracking-widest text-ink-dim uppercase">{tool.category}</p>
-      <p class="nm-num mt-1 text-xs text-ink">
-        {tool.pricing}
-        {tool.price_note && <span class="text-ink-dim"> · {tool.price_note}</span>}
+      <h3 class="mt-4 font-display text-2xl font-extrabold tracking-tight text-ink group-hover:text-accent">
+        {tool.name}
+        {tool.featured && (
+          <span class="ml-2 align-middle font-mono text-[10px] font-medium tracking-[0.14em] text-accent uppercase">
+            featured
+          </span>
+        )}
+      </h3>
+      <p class="mt-1 font-mono text-[11px] tracking-[0.08em] text-ink-dim uppercase">
+        {tool.category}
       </p>
+      <p class="mt-3 flex-1 text-sm leading-relaxed text-ink opacity-80">{tool.tagline}</p>
       {flags.length > 0 && (
-        <p class="mt-3 flex flex-wrap gap-1.5">
+        <p class="mt-4 flex flex-wrap gap-1.5">
           {flags.map((flag) => (
             <FlagBadge key={flag} label={flag} />
           ))}
         </p>
       )}
-      <div class="mt-4 flex items-center justify-between gap-3">
-        <VerdictStamp verdict={tool.verdict} />
-        <span class="font-mono text-xs text-ink-dim">verified {tool.last_verified}</span>
+      <div class="mt-5 border-t-[1.5px] border-line-soft pt-4">
+        <p class="nm-num text-sm font-bold text-accent">
+          {tool.pricing}
+          {tool.price_note && (
+            <span class="block pt-1 text-[13px] font-normal text-ink opacity-60">
+              {tool.price_note}
+            </span>
+          )}
+        </p>
+        <div class="mt-4 flex items-center justify-between gap-3">
+          <span class="nm-verified">Verified {tool.last_verified}</span>
+          <MomentumArrow momentum={tool.momentum} />
+        </div>
       </div>
     </a>
   );
@@ -197,20 +211,22 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
     });
   }, [tools, filters]);
 
+  const divider = <span class="mx-2 h-4 w-px bg-line-soft" aria-hidden="true" />;
+
   return (
     <section>
-      <div class="rounded-md border border-line bg-panel p-4">
+      <div class="nm-card p-5">
         <input
           ref={searchRef}
           type="search"
           value={filters.q}
           onInput={(e) => update({ ...filters, q: (e.target as HTMLInputElement).value })}
-          placeholder="Search signals…"
-          class="w-full rounded-sm border border-line bg-void px-3 py-2 font-mono text-sm text-ink placeholder:text-ink-dim focus:border-shift-near focus:outline-none"
+          placeholder="Search the catalog…"
+          class="w-full rounded-md border-[1.5px] border-ink bg-paper px-3 py-2 font-mono text-sm text-ink placeholder:text-ink-dim focus:border-accent focus:outline-none"
         />
         <div class="mt-4 space-y-3">
           <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-20 shrink-0 font-mono text-xs tracking-widest text-ink-dim uppercase">
+            <span class="w-20 shrink-0 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
               sector
             </span>
             {CATEGORIES.map((c) => (
@@ -224,7 +240,7 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
             ))}
           </div>
           <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-20 shrink-0 font-mono text-xs tracking-widest text-ink-dim uppercase">
+            <span class="w-20 shrink-0 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
               pricing
             </span>
             {PRICING.map((p) => (
@@ -236,7 +252,7 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
                 {p}
               </Chip>
             ))}
-            <span class="mx-2 h-4 w-px bg-line" aria-hidden="true" />
+            {divider}
             <Chip
               active={filters.free_tier}
               onClick={() => update({ ...filters, free_tier: !filters.free_tier })}
@@ -257,7 +273,7 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
             </Chip>
           </div>
           <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-20 shrink-0 font-mono text-xs tracking-widest text-ink-dim uppercase">
+            <span class="w-20 shrink-0 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
               verdict
             </span>
             {VERDICTS.map((v) => (
@@ -269,7 +285,7 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
                 {v}
               </Chip>
             ))}
-            <span class="mx-2 h-4 w-px bg-line" aria-hidden="true" />
+            {divider}
             {MOMENTA.map((m) => (
               <Chip
                 key={m}
@@ -284,25 +300,27 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
       </div>
 
       <p class="nm-num mt-6 text-xs text-ink-dim" aria-live="polite">
-        {results.length} / {tools.length} signals
+        {results.length} / {tools.length} entries
       </p>
 
       {results.length === 0 ? (
-        <div class="mt-6 rounded-md border border-line bg-panel p-12 text-center">
-          <p class="font-display text-2xl">No signals in this sector.</p>
-          <p class="mt-2 text-sm text-ink-dim">
-            The sky is empty under these filters — widen the search.
+        <div class="nm-card mt-6 p-12 text-center">
+          <p class="font-display text-3xl font-extrabold tracking-tight uppercase">
+            Nothing on this shelf.
+          </p>
+          <p class="mt-3 text-sm text-ink-dim">
+            The catalog is empty under these filters — widen the search.
           </p>
           <button
             type="button"
             onClick={() => update(EMPTY)}
-            class="mt-6 rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
+            class="nm-btn nm-btn-outline mt-7"
           >
             Reset filters
           </button>
         </div>
       ) : (
-        <div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {results.map((tool) => (
             <ToolCardView key={tool.slug} tool={tool} />
           ))}

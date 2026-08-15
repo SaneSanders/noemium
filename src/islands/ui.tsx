@@ -5,19 +5,13 @@ export type Verdict = 'ship' | 'situational' | 'skip';
 export type Momentum = 'blueshift' | 'steady' | 'redshift';
 
 const verdictTone: Record<Verdict, string> = {
-  ship: 'border-verdict-ship text-verdict-ship',
-  situational: 'border-verdict-situational text-verdict-situational',
-  skip: 'border-verdict-skip text-verdict-skip',
+  ship: 'nm-sticker-ship',
+  situational: 'nm-sticker-situational',
+  skip: 'nm-sticker-skip',
 };
 
 export function VerdictStamp({ verdict }: { verdict: Verdict }) {
-  return (
-    <span
-      class={`nm-stamp rounded-sm border bg-void px-2 py-0.5 font-mono text-xs font-medium tracking-widest uppercase ${verdictTone[verdict]}`}
-    >
-      {verdict}
-    </span>
-  );
+  return <span class={`nm-sticker ${verdictTone[verdict]}`}>{verdict}</span>;
 }
 
 const momentumConfig: Record<Momentum, { label: string; tone: string; path: string }> = {
@@ -28,7 +22,7 @@ const momentumConfig: Record<Momentum, { label: string; tone: string; path: stri
   },
   steady: {
     label: 'Steady momentum',
-    tone: 'text-ink-dim',
+    tone: 'text-shift-steady',
     path: 'M3 8 H13 M10 5 L13 8 L10 11',
   },
   redshift: {
@@ -66,7 +60,7 @@ export function MomentumArrow({
 
 export function FlagBadge({ label }: { label: string }) {
   return (
-    <span class="rounded-sm border border-line px-1.5 py-0.5 font-mono text-xs text-ink-dim">
+    <span class="rounded-sm border-[1.5px] border-ink px-1.5 py-0.5 font-mono text-[10px] font-medium tracking-wider text-ink">
       {label}
     </span>
   );
@@ -74,7 +68,7 @@ export function FlagBadge({ label }: { label: string }) {
 
 export function YesNo({ value }: { value: boolean }) {
   return (
-    <span class={`font-mono text-xs ${value ? 'text-ink' : 'text-ink-dim'}`}>
+    <span class={`font-mono text-xs ${value ? 'font-bold text-ink' : 'text-ink-dim'}`}>
       {value ? 'yes' : 'no'}
     </span>
   );
