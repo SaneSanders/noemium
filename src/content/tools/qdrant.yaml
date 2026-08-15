@@ -3,7 +3,7 @@ tagline: Rust-built open-source vector DB — fast, lean and easy to self-host.
 url: https://qdrant.tech
 category: data
 pricing: freemium
-price_note: "self-host free; managed cloud has a free tier, paid from ~$25/mo"
+price_note: "self-host free; managed cloud free tier, paid usage-based"
 free_tier: true
 open_source: true
 api: true

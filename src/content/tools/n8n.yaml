@@ -3,7 +3,7 @@ tagline: Source-available workflow automation with strong AI agent nodes.
 url: https://n8n.io
 category: agents
 pricing: freemium
-price_note: "self-host free; cloud from ~$24/mo (Starter)"
+price_note: "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
 free_tier: true
 open_source: true
 api: true

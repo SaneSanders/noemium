@@ -3,7 +3,7 @@ tagline: Managed vector database — the serverless default for embeddings at sc
 url: https://www.pinecone.io
 category: data
 pricing: freemium
-price_note: "free Starter; Standard pay-as-you-go (min ~$50/mo)"
+price_note: "free Starter; Builder $20/mo; Standard pay-as-you-go (min $50/mo)"
 free_tier: true
 open_source: false
 api: true

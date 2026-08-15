@@ -1,24 +1,25 @@
 name: Play.ht
-tagline: TTS API and voice library aimed at apps and content teams.
+tagline: TTS API and voice library — shut down after Meta acquihire.
 url: https://play.ht
 category: audio
 pricing: freemium
-price_note: "free tier; paid plans from ~$39/mo"
-free_tier: true
+price_note: "shut down 2025-12-31 (team acquihired by Meta)"
+free_tier: false
 open_source: false
-api: true
+api: false
 self_host: false
 verdict: skip
 verdict_text: >-
-  Was a reasonable ElevenLabs alternative, but voice quality trails and users
-  report aggressive billing and slow support. The market leader costs less at
-  entry — take the hint.
+  Dead. Meta acquihired the team in July 2025 and the platform shut down
+  permanently on 2025-12-31 — accounts, saved audio and voice clones deleted,
+  no migration path. Sites still accepting payments as "Play.ht" are
+  impersonators. Use ElevenLabs or Murf instead.
 limitations:
-  - Noticeable quality gap vs ElevenLabs on expressiveness.
-  - Recurring complaints about billing and cancellation friction.
-  - Pricing tiers change frequently and unpredictably.
+  - Platform permanently shut down on 2025-12-31.
+  - No migration path offered; user data deleted.
+  - Look-alike sites taking payments are impersonators.
 receipts:
-  - https://play.ht
+  - https://trillet.ai/blogs/playai-alternatives-2026
 affiliate: none
 momentum: redshift
 featured: false

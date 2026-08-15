@@ -3,7 +3,7 @@ tagline: Enterprise-focused models — Command generation plus best-in-class Rer
 url: https://docs.cohere.com
 category: models-api
 pricing: freemium
-price_note: "free trial keys; Command models from $0.15/1M input"
+price_note: "free trial keys; pay-as-you-go from $0.50/1M input tokens"
 free_tier: true
 open_source: false
 api: true

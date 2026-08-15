@@ -3,7 +3,7 @@ tagline: Open-source vector database with hybrid search and modular ML integrati
 url: https://weaviate.io
 category: data
 pricing: freemium
-price_note: "self-host free; managed cloud from ~$25/mo"
+price_note: "self-host free; cloud free tier, Flex from $45/mo"
 free_tier: true
 open_source: true
 api: true

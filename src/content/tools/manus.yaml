@@ -3,7 +3,7 @@ tagline: General-purpose autonomous agent that executes multi-step web tasks.
 url: https://manus.im
 category: agents
 pricing: freemium
-price_note: "free credits; paid plans from ~$39/mo"
+price_note: "free daily credits; Pro from $20/mo"
 free_tier: true
 open_source: false
 api: false
