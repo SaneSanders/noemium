@@ -163,8 +163,11 @@ const jsonLd = {
     {
       related.length > 0 && (
         <section class="mt-16">
-          <h2 class="font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">
-            Same shelf — {t.category}
+          <h2 class="flex flex-wrap items-baseline justify-between gap-x-6 font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">
+            <span>Same shelf — {t.category}</span>
+            <a href={`/alternatives/${tool.id}`} class="text-accent normal-case hover:underline">
+              all {t.category} alternatives →
+            </a>
           </h2>
           <div class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {related.map((r) => (

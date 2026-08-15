@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import VerdictBadge from '../../components/VerdictBadge.astro';
+
+export const getStaticPaths = (async () => {
+  const tools = await getCollection('tools');
+  return tools.map((tool) => ({ params: { slug: tool.id }, props: { tool, tools } }));
+}) satisfies GetStaticPaths;
+
+const { tool, tools } = Astro.props;
+const t = tool.data;
+
+// Honest ordering, stated on the page: verdict rank, then freshness, then name.
+const verdictRank: Record<string, number> = { ship: 0, situational: 1, skip: 2 };
+const alternatives = tools
+  .filter((o) => o.id !== tool.id && o.data.category === t.category)
+  .sort(
+    (a, b) =>
+      verdictRank[a.data.verdict] - verdictRank[b.data.verdict] ||
+      b.data.last_verified.localeCompare(a.data.last_verified) ||
+      a.data.name.localeCompare(b.data.name),
+  );
+
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `${t.name} alternatives`,
+  itemListElement: alternatives.map((a, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: new URL(`/tools/${a.id}`, Astro.site).href,
+    name: a.data.name,
+  })),
+};
+---
+
+<Base
+  title={`${t.name} alternatives`}
+  description={`${t.name} alternatives from the ${t.category} shelf — ${alternatives.length} tools with honest verdicts, verified prices and named limitations. Order: verdict, then freshness. No paid placement.`}
+>
+  <SectionHeader
+    index="01"
+    title={`${t.name} alternatives`}
+    sub={`Same shelf — ${t.category}. Order: verdict first, then freshness. No sponsored spots: every position is a pull request away.`}
+  />
+
+  {
+    alternatives.length > 0 ? (
+      <div class="space-y-4">
+        {alternatives.map((a) => (
+          <a href={`/tools/${a.id}`} class="nm-card nm-card-hover flex flex-col gap-3 p-6 md:flex-row md:items-baseline">
+            <div class="flex items-baseline gap-4 md:w-56 md:shrink-0">
+              <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{a.data.name}</h2>
+              <VerdictBadge verdict={a.data.verdict} />
+            </div>
+            <div class="flex-1">
+              <p class="text-[15px] leading-relaxed text-ink opacity-80">{a.data.tagline}</p>
+              <p class="nm-num mt-2 text-[13px] font-bold text-accent">
+                {a.data.pricing}
+                {a.data.price_note && <span class="block pt-1 text-[13px] font-normal text-ink opacity-60">{a.data.price_note}</span>}
+              </p>
+            </div>
+            <p class="shrink-0 font-mono text-[11px] text-ink-dim">
+              <span class="nm-verified">Verified {a.data.last_verified}</span>
+            </p>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p class="nm-card p-6 font-mono text-xs text-ink-dim">
+        No alternatives logged on this shelf yet — the catalog is young. Know a rival {t.name} deserves?
+        <a href="https://github.com/SaneSanders/noemium/tree/main/src/content/tools" class="ml-1 text-accent hover:underline" rel="noopener">
+          Add it as a PR
+        </a>.
+      </p>
+    )
+  }
+
+  <p class="mt-10 flex flex-wrap gap-4">
+    <a href={`/tools/${tool.id}`} class="nm-btn nm-btn-outline">Back to {t.name}</a>
+    <a href={`/tools/compare?tools=${tool.id}${alternatives[0] ? `,${alternatives[0].id}` : ''}`} class="nm-btn nm-btn-solid">
+      Compare side by side
+    </a>
+  </p>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(itemList).replace(/</g, '\\u003c')}
+    is:inline
+  />
+</Base>

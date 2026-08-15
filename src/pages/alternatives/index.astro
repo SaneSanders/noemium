@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+
+const tools = (await getCollection('tools')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+
+<Base
+  title="Alternatives index"
+  description="Every tool in the catalog with its alternatives shelf — honest order: verdict, then freshness. No paid placement."
+>
+  <SectionHeader
+    index="01"
+    title="Alternatives"
+    sub="Pick a tool, see its shelf. Same category, honest order — verdict first, then freshness. No sponsored spots."
+  />
+
+  <ul class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+    {
+      tools.map((t) => (
+        <li>
+          <a
+            href={`/alternatives/${t.id}`}
+            class="nm-card nm-card-hover flex items-baseline justify-between gap-3 px-4 py-3"
+          >
+            <span class="font-display text-lg font-extrabold tracking-tight">{t.data.name}</span>
+            <span class="font-mono text-[10px] tracking-[0.08em] text-ink-dim uppercase">{t.data.category}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
