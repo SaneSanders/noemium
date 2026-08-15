@@ -1,0 +1,413 @@
+{
+  "generated_at": "2026-08-15T23:53:16.467Z",
+  "started_tracking": "2026-08-15",
+  "models": [
+    {
+      "slug": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 10,
+          "out": 50,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "claude-haiku-4-5",
+      "name": "Claude Haiku 4.5",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 1,
+          "out": 5,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 5,
+          "out": 25,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 2,
+          "out": 10,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.44,
+          "out": 1.32,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 1.32,
+          "out": 3.96,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "doubao-seed-2-1-pro",
+      "name": "Doubao Seed 2.1 Pro",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.83,
+          "out": 4.17,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "doubao-seed-2-1-turbo",
+      "name": "Doubao Seed 2.1 Turbo",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.42,
+          "out": 2.08,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "eleven-v3",
+      "name": "Eleven v3",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0,
+          "out": 0,
+          "unit": "character",
+          "amount": 0.00018
+        },
+        {
+          "date": "2026-08-15",
+          "in": 0,
+          "out": 0,
+          "unit": "character",
+          "amount": 0.0001
+        }
+      ]
+    },
+    {
+      "slug": "flux-2-pro",
+      "name": "FLUX 2 Pro",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0,
+          "out": 0,
+          "unit": "image",
+          "amount": 0.03
+        }
+      ]
+    },
+    {
+      "slug": "gemini-3-1-pro-preview",
+      "name": "Gemini 3.1 Pro Preview",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 2,
+          "out": 12,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "gemini-3-5-flash-lite",
+      "name": "Gemini 3.5 Flash-Lite",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.3,
+          "out": 2.5,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "gemini-3-7-flash",
+      "name": "Gemini 3.7 Flash",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.75,
+          "out": 3.75,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "glm-5-2",
+      "name": "GLM 5.2",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 1.4,
+          "out": 4.4,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-5-4-mini",
+      "name": "GPT-5.4 mini",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.75,
+          "out": 4.5,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-5-6-luna",
+      "name": "GPT-5.6 Luna",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.2,
+          "out": 1.2,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-5-6-sol",
+      "name": "GPT-5.6 Sol",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 5,
+          "out": 30,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-5-6-terra",
+      "name": "GPT-5.6 Terra",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 2,
+          "out": 12,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "grok-4-6",
+      "name": "Grok 4.6",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 2,
+          "out": 6,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "grok-build-0-1",
+      "name": "Grok Build 0.1",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 1,
+          "out": 2,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "hunyuan-t1",
+      "name": "Hunyuan T1",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.14,
+          "out": 0.56,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "hunyuan-turbos",
+      "name": "Hunyuan TurboS",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.11,
+          "out": 0.28,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "kimi-k2-7-code",
+      "name": "Kimi K2.7 Code",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.95,
+          "out": 4,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "kimi-k3",
+      "name": "Kimi K3",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 3,
+          "out": 15,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "llama-4-maverick",
+      "name": "Llama 4 Maverick",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.2,
+          "out": 0.6,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "minimax-m3",
+      "name": "MiniMax M3",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.3,
+          "out": 1.2,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "mistral-large-2512",
+      "name": "Mistral Large 3",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.5,
+          "out": 1.5,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "muse-spark-1-2",
+      "name": "Muse Spark 1.2",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 1.25,
+          "out": 4.25,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "qwen3-6-flash",
+      "name": "Qwen3.6 Flash",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0.19,
+          "out": 1.13,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "qwen3-7-max",
+      "name": "Qwen3.7 Max",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 1.48,
+          "out": 4.43,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "qwen3-8-max",
+      "name": "Qwen3.8 Max",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 2,
+          "out": 6,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "veo-3-1-generate",
+      "name": "Veo 3.1",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0,
+          "out": 0,
+          "unit": "video_second",
+          "amount": 0.4
+        }
+      ]
+    },
+    {
+      "slug": "whisper-v3",
+      "name": "Whisper Large v3",
+      "points": [
+        {
+          "date": "2026-08-15",
+          "in": 0,
+          "out": 0,
+          "unit": "audio_second",
+          "amount": 0.00003083
+        }
+      ]
+    }
+  ]
+}
