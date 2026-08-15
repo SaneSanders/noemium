@@ -1,0 +1,26 @@
+name: Pika
+tagline: Fast, playful video generation with viral creative effects (Pikaffects).
+url: https://pika.art
+category: video
+pricing: freemium
+price_note: "free tier; from $10/mo (Standard)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Best in class for social-native effects and quick meme or short-form
+  content — the Pikaffects gimmicks genuinely drive engagement. Not a serious
+  tool for cinematic work.
+limitations:
+  - Realism below Runway, Kling and Veo for live-action-style footage.
+  - Short clip lengths per generation.
+  - Watermark and resolution limits on lower tiers.
+receipts:
+  - https://pika.art
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

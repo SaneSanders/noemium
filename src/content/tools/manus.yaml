@@ -1,0 +1,26 @@
+name: Manus
+tagline: General-purpose autonomous agent that executes multi-step web tasks.
+url: https://manus.im
+category: agents
+pricing: freemium
+price_note: "free credits; paid plans from ~$39/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: skip
+verdict_text: >-
+  The demo-reel agent: impressive on curated tasks, flaky on yours.
+  Long-horizon reliability is not there, and credits vanish on failed runs.
+  Revisit when autonomy actually works.
+limitations:
+  - High failure rate on unscripted, real-world tasks.
+  - Credits are consumed even on failed attempts.
+  - Opaque about what it is doing mid-run.
+receipts:
+  - https://manus.im
+affiliate: none
+momentum: redshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

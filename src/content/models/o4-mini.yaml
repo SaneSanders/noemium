@@ -1,0 +1,15 @@
+name: o4-mini
+provider: OpenAI
+context_window: 200000
+price_input_per_mtok: 1.1
+price_output_per_mtok: 4.4
+open_weights: false
+best_for:
+  - fast reasoning on a budget
+  - math and coding at scale
+  - batch reasoning jobs
+avoid_for:
+  - frontier-accuracy tasks (use o3)
+  - deployments outside the OpenAI API
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key o4-mini); snapshot 2026-08-15"
+last_verified: "2026-08-15"

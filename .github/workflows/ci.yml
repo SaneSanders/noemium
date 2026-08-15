@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate content (schema, cross-refs, undeclared affiliates)
+        run: npm run validate
+      - name: Design-token police (no hex colors outside tokens.css)
+        run: |
+          if grep -RnE '#[0-9a-fA-F]{3,8}\b' src --include='*.astro' --include='*.css' --include='*.ts' --include='*.tsx' | grep -v 'src/styles/tokens.css'; then
+            echo "::error::Hex color found outside src/styles/tokens.css — see DESIGN.md"
+            exit 1
+          fi
+      - run: npm run check
+      - run: npm run build

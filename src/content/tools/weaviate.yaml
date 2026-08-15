@@ -1,0 +1,26 @@
+name: Weaviate
+tagline: Open-source vector database with hybrid search and modular ML integrations.
+url: https://weaviate.io
+category: data
+pricing: freemium
+price_note: "self-host free; managed cloud from ~$25/mo"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  Feature-richest open vector DB: hybrid BM25+vector search, multi-tenancy and
+  solid clients. Self-hosts cleanly; the managed cloud is optional, not a toll
+  booth.
+limitations:
+  - Memory-hungry at scale.
+  - Operational complexity grows with sharding.
+  - Docs span too many product versions.
+receipts:
+  - https://github.com/weaviate/weaviate
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

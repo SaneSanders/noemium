@@ -1,0 +1,26 @@
+name: Play.ht
+tagline: TTS API and voice library aimed at apps and content teams.
+url: https://play.ht
+category: audio
+pricing: freemium
+price_note: "free tier; paid plans from ~$39/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: skip
+verdict_text: >-
+  Was a reasonable ElevenLabs alternative, but voice quality trails and users
+  report aggressive billing and slow support. The market leader costs less at
+  entry — take the hint.
+limitations:
+  - Noticeable quality gap vs ElevenLabs on expressiveness.
+  - Recurring complaints about billing and cancellation friction.
+  - Pricing tiers change frequently and unpredictably.
+receipts:
+  - https://play.ht
+affiliate: none
+momentum: redshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

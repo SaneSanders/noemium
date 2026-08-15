@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import CompareTable, { type CompareTool } from '../../islands/CompareTable';
+
+const tools = await getCollection('tools');
+const data: CompareTool[] = tools
+  .map((t) => ({
+    slug: t.id,
+    name: t.data.name,
+    tagline: t.data.tagline,
+    category: t.data.category,
+    pricing: t.data.pricing,
+    price_note: t.data.price_note,
+    free_tier: t.data.free_tier,
+    open_source: t.data.open_source,
+    api: t.data.api,
+    self_host: t.data.self_host,
+    verdict: t.data.verdict,
+    momentum: t.data.momentum,
+    featured: t.data.featured,
+    last_verified: t.data.last_verified,
+    limitations: t.data.limitations,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Base
+  title="Compare tools"
+  description="Put two to four AI tools side by side — price, free tier, OSS, API, self-host, verdict, limitations, momentum."
+>
+  <SectionHeader
+    index="01"
+    title="Compare"
+    sub="Two to four tools, side by side. Same fields, same honesty — verdicts and limitations included."
+  />
+  <CompareTable client:load tools={data} />
+</Base>

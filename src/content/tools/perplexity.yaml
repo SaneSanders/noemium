@@ -1,0 +1,30 @@
+name: Perplexity
+tagline: Answer engine with citations — search rebuilt around LLMs.
+url: https://www.perplexity.ai
+category: data
+pricing: freemium
+price_note: "free tier; Pro $20/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+models_used:
+  - gpt-5
+  - claude-sonnet-4-5
+  - gemini-2-5-pro
+verdict: ship
+verdict_text: >-
+  Replaced Google for a real share of practitioner queries: cited answers,
+  follow-up context and model choice on Pro. The receipt-links culture makes
+  it the on-brand search tool.
+limitations:
+  - Citations occasionally point at sources that do not support the claim.
+  - Complex queries eat through Pro search limits.
+  - Publisher disputes raise long-term sustainability questions.
+receipts:
+  - https://www.perplexity.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Notion AI
+tagline: AI assistant embedded in Notion — summarize, draft and search your workspace.
+url: https://www.notion.com/product/ai
+category: writing
+pricing: paid
+price_note: "add-on from $8/user/mo (annual billing)"
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Worth it if your company already lives in Notion: Q&A across your own
+  workspace docs is the killer feature. Standalone writing quality does not
+  beat Claude at the same price.
+limitations:
+  - Only makes sense if you already pay for Notion.
+  - Per-seat pricing stacks on top of the base plan.
+  - Which models it routes to is opaque.
+receipts:
+  - https://www.notion.com/product/ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

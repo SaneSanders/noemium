@@ -1,0 +1,26 @@
+name: Hugging Face
+tagline: The GitHub of AI — models, datasets, Spaces and inference endpoints.
+url: https://huggingface.co
+category: dev-infra
+pricing: freemium
+price_note: "free; PRO $9/mo; inference pay-as-you-go"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  Infrastructure you already depend on whether you know it or not: model
+  weights, datasets, the transformers library, Spaces demos. The default
+  distribution channel for open AI.
+limitations:
+  - Hub reliability incidents affect the whole ecosystem.
+  - Inference Endpoints pricing not always competitive.
+  - Discovering quality models among the noise takes effort.
+receipts:
+  - https://huggingface.co
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

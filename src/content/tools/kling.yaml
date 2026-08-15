@@ -1,0 +1,26 @@
+name: Kling AI
+tagline: Kuaishou's video model — strong motion and physics at aggressive prices.
+url: https://klingai.com
+category: video
+pricing: freemium
+price_note: "free daily credits; from $10/mo (Standard)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The price-performance pick in AI video: motion realism and prompt adherence
+  rival Runway at a fraction of the cost, and free daily credits make
+  experimentation cheap.
+limitations:
+  - Content moderation is strict and occasionally arbitrary.
+  - Generation queues stretch on lower tiers.
+  - Data policies of a Chinese vendor may fail some compliance reviews.
+receipts:
+  - https://klingai.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

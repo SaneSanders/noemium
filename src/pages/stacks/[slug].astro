@@ -1,0 +1,129 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+
+export const getStaticPaths = (async () => {
+  const stacks = await getCollection('stacks');
+  return stacks.map((stack) => ({ params: { slug: stack.id }, props: { stack } }));
+}) satisfies GetStaticPaths;
+
+const { stack } = Astro.props;
+const s = stack.data;
+const { Content } = await render(stack);
+
+const toolsById = new Map((await getCollection('tools')).map((t) => [t.id, t]));
+const stackTools = s.tools
+  .map((slug) => toolsById.get(slug))
+  .filter((t) => t !== undefined);
+
+const pageUrl = new URL(`/stacks/${stack.id}`, Astro.site).href;
+const markdown = [
+  `# ${s.title}`,
+  '',
+  `$${s.monthly_cost_usd}/mo · difficulty: ${s.difficulty}`,
+  '',
+  '| Tool | Pricing |',
+  '| --- | --- |',
+  ...stackTools.map(
+    (t) => `| [${t.data.name}](${t.data.url}) | ${t.data.price_note ?? t.data.pricing} |`,
+  ),
+  '',
+  `via ${pageUrl}`,
+].join('\n');
+
+const hostname = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+};
+---
+
+<Base title={s.title} description={s.use_case} ogImage={`/og/stacks/${stack.id}.png`}>
+  <article class="py-12 md:py-16">
+    <p class="font-mono text-xs text-shift-near">
+      <a href="/stacks" class="hover:underline">02 /STACKS</a> / {stack.id}
+    </p>
+    <h1 class="mt-4 max-w-3xl font-display text-4xl leading-tight md:text-6xl">{s.title}</h1>
+    <p class="mt-4 max-w-2xl text-lg text-ink-dim">{s.use_case}</p>
+    <p class="mt-2 font-mono text-xs text-ink-dim">
+      observed by @{s.observed_by} · verified {s.last_verified}
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-end gap-x-10 gap-y-4 rounded-md border border-line bg-panel p-6">
+      <p>
+        <span class="font-display text-6xl leading-none md:text-7xl">${s.monthly_cost_usd}</span>
+        <span class="nm-num ml-2 text-lg text-ink-dim">/mo</span>
+      </p>
+      <p class="pb-2 font-mono text-xs tracking-widest text-ink-dim uppercase">
+        difficulty: {s.difficulty}
+      </p>
+      <p class="pb-2">
+        <button
+          id="copy-markdown"
+          type="button"
+          class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+        >
+          Copy as markdown
+        </button>
+        <span
+          id="copied-stamp"
+          class="nm-stamp ml-3 hidden rounded-sm border border-verdict-ship px-2 py-0.5 font-mono text-xs font-medium tracking-widest text-verdict-ship uppercase"
+        >
+          copied
+        </span>
+      </p>
+    </div>
+
+    <section class="mt-10">
+      <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">The components</h2>
+      <p class="mt-3 flex flex-wrap gap-1.5">
+        {
+          stackTools.map((t) => (
+            <a
+              href={`/tools/${t.id}`}
+              class="rounded-sm border border-line px-2 py-1 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+            >
+              {t.data.name}
+            </a>
+          ))
+        }
+      </p>
+    </section>
+
+    <div class="nm-prose mt-6 max-w-3xl">
+      <Content />
+    </div>
+
+    <section class="mt-10">
+      <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">Receipts</h2>
+      <ul class="mt-4 space-y-2">
+        {
+          s.receipts.map((r) => (
+            <li>
+              <a href={r} class="font-mono text-xs text-shift-near hover:underline" rel="noopener">
+                {hostname(r)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </article>
+
+  <template id="stack-markdown">{markdown}</template>
+
+  <script>
+    const button = document.getElementById('copy-markdown');
+    const stamp = document.getElementById('copied-stamp');
+    const tpl = document.getElementById('stack-markdown') as HTMLTemplateElement | null;
+    button?.addEventListener('click', async () => {
+      const md = tpl?.content.textContent ?? '';
+      await navigator.clipboard.writeText(md);
+      stamp?.classList.remove('hidden');
+      setTimeout(() => stamp?.classList.add('hidden'), 1500);
+    });
+  </script>
+</Base>

@@ -1,0 +1,26 @@
+name: Consensus
+tagline: Scientific search engine that answers questions with evidence from papers.
+url: https://consensus.app
+category: data
+pricing: freemium
+price_note: "free tier; Premium from $10/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  The "what does the research actually say" tool: the consensus meter and
+  study-quality indicators are honest epistemics. Narrower than Elicit — it
+  answers questions, it does not manage a review.
+limitations:
+  - Only as good as its paper index.
+  - Summaries flatten nuance and caveats.
+  - Limited to research-question use cases.
+receipts:
+  - https://consensus.app
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

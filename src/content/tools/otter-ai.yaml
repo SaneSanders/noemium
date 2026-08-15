@@ -1,0 +1,26 @@
+name: Otter.ai
+tagline: Meeting transcription and summaries with deep calendar integration.
+url: https://otter.ai
+category: productivity
+pricing: freemium
+price_note: "free (300 min/mo); Pro from $8/mo (annual)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Reliable meeting notes with good search across history — the safe
+  enterprise pick. Newer AI-native rivals feel smarter; Otter feels like
+  transcription with AI bolted on.
+limitations:
+  - Accuracy dips with crosstalk and accents.
+  - Bot-in-meeting creates friction with external guests.
+  - AI summaries are generic.
+receipts:
+  - https://otter.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: LangGraph
+tagline: Graph-based agent orchestration from LangChain — stateful and controllable.
+url: https://www.langchain.com/langgraph
+category: agents
+pricing: freemium
+price_note: "open source free; LangSmith Plus $39/seat/mo"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  When agents go to production, graphs beat loops: explicit state,
+  human-in-the-loop breakpoints and replay make LangGraph the serious choice.
+  Steeper learning curve, worth it.
+limitations:
+  - Learning curve is real; LangChain abstractions leak through.
+  - Docs sprawl across the whole LangChain ecosystem.
+  - Overkill for simple single-agent tasks.
+receipts:
+  - https://github.com/langchain-ai/langgraph
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const rules = [
+  'Verdicts come from real use — ship, situational or skip must reflect something you actually built or ran, not marketing pages.',
+  'At least one receipt. Link the evidence: a shipped project, a screenshot, a benchmark run. No receipt, no merge.',
+  'Affiliate links are always declared. Undeclared tracking parameters fail validation.',
+  'Self-promotion is allowed — with the same bar as everything else: real receipts and honest, named limitations.',
+];
+---
+
+<Base
+  title="Contribute"
+  description="Every entry in this observatory is a pull request. Add your observation in about five minutes."
+>
+  <SectionHeader
+    index="05"
+    title="Contribute"
+    sub="This observatory runs on signed field notes. If you have real, hands-on experience with an AI tool, stack or model — log it. Every entry is a PR anyone can audit."
+  />
+
+  <section class="max-w-3xl rounded-md border border-line bg-panel p-6 md:p-8">
+    <p class="font-mono text-xs tracking-widest text-ink-dim uppercase">
+      field protocol · five minutes
+    </p>
+    <ol class="mt-4 list-decimal space-y-3 pl-5 marker:font-mono marker:text-shift-near">
+      <li>
+        <strong class="font-semibold">Fork</strong>
+        <a
+          href="https://github.com/SaneSanders/noemium"
+          class="ml-1 font-mono text-xs text-shift-near hover:underline"
+          rel="noopener">SaneSanders/noemium</a
+        >.
+      </li>
+      <li>
+        <strong class="font-semibold">Copy a template</strong> —
+        <span class="font-mono text-xs text-ink-dim">src/content/tools/cursor.yaml</span>,
+        <span class="font-mono text-xs text-ink-dim">src/content/stacks/solo-founder-saas.md</span>
+        or
+        <span class="font-mono text-xs text-ink-dim">src/content/models/claude-sonnet-4-5.yaml</span
+        >. Rename it to a kebab-case slug.
+      </li>
+      <li>
+        <strong class="font-semibold">Fill it in from your own experience</strong> — sign it with
+        your GitHub handle in <span class="font-mono text-xs text-ink-dim">observed_by</span>.
+      </li>
+      <li>
+        <strong class="font-semibold">Validate locally</strong>:
+        <code class="rounded-sm border border-line bg-raised px-1.5 py-0.5 font-mono text-xs"
+          >npm install && npm run validate</code
+        >.
+      </li>
+      <li>
+        <strong class="font-semibold">Open a PR.</strong> The same validation runs in review.
+      </li>
+    </ol>
+  </section>
+
+  <section class="mt-10 max-w-3xl">
+    <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">Standing orders</h2>
+    <ul class="mt-4 list-disc space-y-3 pl-5 marker:font-mono marker:text-shift-far">
+      {rules.map((rule) => <li>{rule}</li>)}
+    </ul>
+  </section>
+
+  <section class="mt-10 flex flex-wrap gap-3">
+    <a
+      href="https://github.com/SaneSanders/noemium"
+      class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
+      rel="noopener"
+    >
+      Open the repository
+    </a>
+    <a
+      href="https://github.com/SaneSanders/noemium/blob/main/CONTRIBUTING.md"
+      class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+      rel="noopener"
+    >
+      Read CONTRIBUTING.md
+    </a>
+    <a
+      href="https://github.com/SaneSanders/noemium/tree/main/src/content"
+      class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+      rel="noopener"
+    >
+      Browse the templates
+    </a>
+  </section>
+</Base>

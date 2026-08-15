@@ -1,0 +1,46 @@
+---
+interface Props {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  class?: string;
+}
+
+const { value, prefix = '$', suffix = '', decimals = 2, class: className = '' } = Astro.props;
+---
+
+<span class:list={['nm-num price-cell', className]} data-value={value} data-decimals={decimals}>
+  {prefix}<span class="price-cell-digit">{value.toFixed(decimals)}</span>{suffix}
+</span>
+
+<script>
+  // Rolling odometer: only the digit animates, prefix/suffix stay static.
+  // prefers-reduced-motion → the server-rendered final value stays as-is.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          io.unobserve(entry.target);
+          const digit = entry.target as HTMLElement;
+          const cell = digit.closest('.price-cell') as HTMLElement | null;
+          const target = parseFloat(cell?.dataset.value ?? '0');
+          const decimals = parseInt(cell?.dataset.decimals ?? '2', 10);
+          const start = performance.now();
+          const duration = 400;
+          const tick = (now: number) => {
+            const p = Math.min((now - start) / duration, 1);
+            const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p); // ease-out-expo
+            digit.textContent = (target * eased).toFixed(decimals);
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.4 },
+    );
+    document.querySelectorAll('.price-cell-digit').forEach((el) => io.observe(el));
+  }
+</script>

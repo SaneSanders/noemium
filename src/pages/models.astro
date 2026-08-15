@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ModelTable, { type ModelRecord } from '../islands/ModelTable';
+
+const models = await getCollection('models');
+const data: ModelRecord[] = models.map((m) => ({
+  slug: m.id,
+  name: m.data.name,
+  provider: m.data.provider,
+  context_window: m.data.context_window,
+  price_input_per_mtok: m.data.price_input_per_mtok,
+  price_output_per_mtok: m.data.price_output_per_mtok,
+  price_unit: m.data.price_unit ?? 'mtok',
+  price_amount: m.data.price_amount,
+  open_weights: m.data.open_weights,
+  best_for: m.data.best_for,
+}));
+
+const latestVerified = models.map((m) => m.data.last_verified).sort().at(-1);
+---
+
+<Base
+  title="Models"
+  description="Model prices, context windows and cost per real task — sourced from Helicone and LiteLLM, verified by hand."
+>
+  <SectionHeader
+    index="03"
+    title="Models"
+    sub="What a task actually costs, not what a landing page implies. Sort by price per task; unit-priced media models stay in their own group at the bottom."
+  />
+  <p class="-mt-6 mb-6 max-w-3xl font-mono text-xs leading-relaxed text-ink-dim">
+    Prices from Helicone (Apache-2.0) + LiteLLM (MIT). Verified {latestVerified}. Vendors change
+    prices — check before billing decisions.
+  </p>
+  <ModelTable client:load models={data} />
+</Base>

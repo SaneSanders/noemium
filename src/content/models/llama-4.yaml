@@ -1,0 +1,15 @@
+name: Llama 4 Maverick
+provider: Meta
+context_window: 131072
+price_input_per_mtok: 0.2
+price_output_per_mtok: 0.6
+open_weights: true
+best_for:
+  - self-hosted multimodal MoE
+  - fine-tuning base for custom models
+  - on-prem enterprise deployments
+avoid_for:
+  - teams that need a managed first-party API
+  - use cases restricted by the Llama community license
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key groq/meta-llama/llama-4-maverick-17b-128e-instruct); snapshot 2026-08-15"
+last_verified: "2026-08-15"

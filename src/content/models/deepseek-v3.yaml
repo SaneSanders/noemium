@@ -1,0 +1,20 @@
+name: DeepSeek V3
+provider: DeepSeek
+context_window: 131072
+price_input_per_mtok: 0.28
+price_output_per_mtok: 0.42
+open_weights: true
+best_for:
+  - cheap general-purpose chat at scale
+  - self-hosted MoE deployments
+  - high-volume batch workloads
+avoid_for:
+  - strict compliance/data-residency requirements (China-hosted API)
+  - top-tier reasoning (use R1)
+benchmarks:
+  - name: MMLU
+    score: "88.5%"
+    source: "DeepSeek-V3 technical report (arXiv:2412.19437)"
+    date: "2024-12-26"
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key deepseek/deepseek-chat); snapshot 2026-08-15"
+last_verified: "2026-08-15"

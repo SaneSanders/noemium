@@ -1,0 +1,26 @@
+name: Granola
+tagline: AI notepad for meetings — your rough notes enhanced, no bot in the call.
+url: https://www.granola.ai
+category: productivity
+pricing: freemium
+price_note: "free tier; Business from ~$14/user/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  The meeting-notes tool practitioners actually evangelize: no awkward bot
+  joining calls, and your rough notes get enhanced with transcript detail.
+  Feels like magic on day one.
+limitations:
+  - Apple-platform-centric; Windows users wait.
+  - System-audio capture has setup quirks on some machines.
+  - Team pricing and admin controls still maturing.
+receipts:
+  - https://www.granola.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

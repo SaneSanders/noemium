@@ -1,0 +1,26 @@
+name: Relevance AI
+tagline: No-code platform for building AI agent workforces for ops teams.
+url: https://relevanceai.com
+category: agents
+pricing: freemium
+price_note: "free tier; paid plans usage-based from ~$19/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Real value for ops and sales teams automating research and outreach without
+  engineers. Engineering-led teams will outgrow the abstraction and prefer
+  CrewAI or LangGraph.
+limitations:
+  - Pricing jumps steeply past the free tier.
+  - Black-box agent runs are hard to debug.
+  - Workflows built on it are locked into the vendor.
+receipts:
+  - https://relevanceai.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

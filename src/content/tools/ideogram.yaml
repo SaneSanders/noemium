@@ -1,0 +1,26 @@
+name: Ideogram
+tagline: Image generator with the strongest text-in-image rendering.
+url: https://ideogram.ai
+category: image
+pricing: freemium
+price_note: "free tier; from $8/mo (Plus)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  The specialist pick when the image must contain accurate text — posters,
+  logo drafts, thumbnails, memes. For general photorealism or art direction,
+  Midjourney and FLUX still win.
+limitations:
+  - Style range narrower than Midjourney.
+  - Free queue can be slow at peak times.
+  - Generations on the free plan are public.
+receipts:
+  - https://ideogram.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

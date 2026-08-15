@@ -1,0 +1,30 @@
+name: Anthropic API
+tagline: Claude models direct — the practitioner's pick for coding and long-form text.
+url: https://docs.anthropic.com
+category: models-api
+pricing: paid
+price_note: "Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+models_used:
+  - claude-opus-4-1
+  - claude-sonnet-4-5
+  - claude-haiku-3-5
+verdict: ship
+verdict_text: >-
+  If your product is code or long-form text, Claude's API is where
+  quality-per-dollar peaks right now. Prompt caching and the batch API make
+  heavy workloads economical.
+limitations:
+  - Capacity crunches at peak demand have caused 429s.
+  - Fewer auxiliary tools than OpenAI's ecosystem.
+  - The Opus tier is expensive.
+receipts:
+  - https://docs.anthropic.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

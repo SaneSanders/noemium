@@ -1,0 +1,272 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ToolCard from '../components/ToolCard.astro';
+import VerdictBadge from '../components/VerdictBadge.astro';
+import ShiftArrow from '../components/ShiftArrow.astro';
+
+const tools = await getCollection('tools');
+const stacks = await getCollection('stacks');
+const models = await getCollection('models');
+
+const featured = tools
+  .filter((t) => t.data.featured)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const latest = [
+  ...tools.map((t) => ({
+    kind: 'tool' as const,
+    slug: t.id,
+    name: t.data.name,
+    blurb: t.data.tagline,
+    date: t.data.last_verified,
+    verdict: t.data.verdict,
+    momentum: t.data.momentum,
+  })),
+  ...stacks.map((s) => ({
+    kind: 'stack' as const,
+    slug: s.id,
+    name: s.data.title,
+    blurb: s.data.use_case,
+    date: s.data.last_verified,
+    verdict: null,
+    momentum: null,
+  })),
+]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 6);
+
+const stats = [
+  { value: tools.length, label: 'tools observed' },
+  { value: stacks.length, label: 'stacks mapped' },
+  { value: models.length, label: 'models tracked' },
+];
+
+const manifesto = [
+  {
+    index: '01',
+    title: 'No pay-to-list',
+    text: 'Placement cannot be bought. An entry changes only when someone opens a pull request with evidence — and the diff is public forever.',
+  },
+  {
+    index: '02',
+    title: 'Receipts, not marketing',
+    text: 'Every verdict links to the sources it rests on. Limitations are named on the page, next to the praise, in the same font size.',
+  },
+  {
+    index: '03',
+    title: 'Edit anything via PR',
+    text: 'Disagree with a verdict? The catalog is a git repository. Fork it, change it, argue in the open — maintainers answer with data.',
+  },
+];
+---
+
+<Base title="The AI landscape, observed.">
+  {/* ---------------------------------------------------------------- HERO */}
+  <section class="relative -mx-4 overflow-hidden px-4 py-24 md:py-36">
+    {/* Static CSS poster — visible under reduced motion, before WebGL boots,
+        or as the graceful fallback if WebGL is unavailable. */}
+    <div id="hero-poster" aria-hidden="true" class="nm-poster absolute inset-0">
+      <span class="nm-poster-stars nm-poster-far" />
+      <span class="nm-poster-stars nm-poster-near" />
+      <span class="nm-poster-stars nm-poster-gold" />
+    </div>
+    <canvas id="hero-field" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full" />
+
+    <div class="relative">
+      <p class="font-mono text-xs text-shift-near">00 /INDEX</p>
+      <h1 class="mt-4 max-w-3xl font-display text-5xl leading-tight md:text-7xl">
+        The AI landscape, <em>observed.</em>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg text-ink-dim">
+        An open source observatory of AI tools, stacks and models. No paid listings.
+        Every verdict is a pull request you can audit.
+      </p>
+      <p class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/tools"
+          class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
+        >
+          Explore the catalog
+        </a>
+        <a
+          href="https://github.com/SaneSanders/noemium"
+          class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+          rel="noopener"
+        >
+          Star on GitHub
+        </a>
+      </p>
+      <p class="nm-num mt-10 text-xs text-ink-dim">
+        FIELD: AI · OBJECTS: {tools.length} · SHIFT: LIVE
+      </p>
+    </div>
+  </section>
+
+  {/* -------------------------------------------------------------- NUMBERS */}
+  <section data-reveal class="border-t border-line py-12 md:py-16">
+    <p class="font-mono text-xs text-shift-near">01 /COUNT</p>
+    <dl class="mt-8 grid gap-8 sm:grid-cols-3">
+      {
+        stats.map((s) => (
+          <div>
+            <dd class="nm-num text-5xl md:text-6xl">{s.value}</dd>
+            <dt class="mt-3 font-mono text-xs tracking-widest text-ink-dim uppercase">
+              {s.label}
+            </dt>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  {/* ------------------------------------------------------------- FEATURED */}
+  <section data-reveal class="border-t border-line py-12 md:py-16">
+    <p class="font-mono text-xs text-shift-near">02 /FEATURED</p>
+    <h2 class="mt-3 font-display text-3xl leading-tight md:text-5xl">
+      Bright objects, <em>verified.</em>
+    </h2>
+    <p class="mt-4 max-w-2xl text-ink-dim">
+      The tools we would defend in a code review — marked gold, never paid for.
+    </p>
+    <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {featured.map((tool) => <ToolCard tool={tool} />)}
+    </div>
+  </section>
+
+  {/* --------------------------------------------------------------- LATEST */}
+  <section data-reveal class="border-t border-line py-12 md:py-16">
+    <p class="font-mono text-xs text-shift-near">03 /LOG</p>
+    <h2 class="mt-3 font-display text-3xl leading-tight md:text-5xl">
+      Latest <em>observations.</em>
+    </h2>
+    <ul class="mt-8 divide-y divide-line border-y border-line">
+      {
+        latest.map((entry) => (
+          <li>
+            <a
+              href={entry.kind === 'tool' ? `/tools/${entry.slug}` : `/stacks/${entry.slug}`}
+              class="group flex flex-wrap items-baseline gap-x-4 gap-y-1 py-4"
+            >
+              <span class="nm-num w-24 shrink-0 text-xs text-ink-dim">{entry.date}</span>
+              <span class="font-mono text-xs tracking-widest text-shift-near uppercase">
+                {entry.kind}
+              </span>
+              <span class="font-medium text-ink group-hover:text-shift-near">{entry.name}</span>
+              {entry.verdict && <VerdictBadge verdict={entry.verdict} />}
+              {entry.momentum && <ShiftArrow momentum={entry.momentum} class="h-4 w-4" />}
+              <span class="basis-full text-sm text-ink-dim md:basis-auto md:ml-auto md:max-w-md md:truncate">
+                {entry.blurb}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  {/* ------------------------------------------------------------ MANIFESTO */}
+  <section data-reveal class="border-t border-line py-12 md:py-16">
+    <p class="font-mono text-xs text-shift-near">04 /WHY</p>
+    <h2 class="mt-3 font-display text-3xl leading-tight md:text-5xl">
+      Why <em>open source?</em>
+    </h2>
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      {
+        manifesto.map((m) => (
+          <article class="rounded-md border border-line bg-panel p-6">
+            <p class="font-mono text-xs text-shift-near">{m.index}</p>
+            <h3 class="mt-3 font-display text-2xl">{m.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-dim">{m.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  {/* ------------------------------------------------------------------ CTA */}
+  <section
+    data-reveal
+    class="mb-16 rounded-md border border-line bg-panel px-6 py-12 text-center md:py-16"
+  >
+    <p class="font-mono text-xs text-shift-near">05 /CONTRIBUTE</p>
+    <h2 class="mx-auto mt-3 max-w-2xl font-display text-3xl leading-tight md:text-5xl">
+      The sky is incomplete <em>without your entry.</em>
+    </h2>
+    <p class="mx-auto mt-4 max-w-xl text-ink-dim">
+      Add a tool, correct a verdict, map a stack. One YAML file and a pull request —
+      that is the whole submission process.
+    </p>
+    <p class="mt-8">
+      <a
+        href="/contribute"
+        class="rounded-sm border border-shift-near px-4 py-2 font-mono text-xs text-shift-near transition-colors duration-100 hover:bg-raised"
+      >
+        Open the contribution guide
+      </a>
+    </p>
+  </section>
+
+  <script>
+    import { initHeroField, destroyHeroField } from '../fx/hero-field';
+    import { initReveals } from '../fx/reveal';
+
+    document.addEventListener('astro:page-load', () => {
+      const canvas = document.getElementById('hero-field');
+      if (canvas instanceof HTMLCanvasElement) {
+        void initHeroField(canvas, document.getElementById('hero-poster')).catch(() => {
+          // WebGL unavailable — the static CSS poster stays. Nothing to fix.
+        });
+      }
+      initReveals();
+    });
+    document.addEventListener('astro:before-swap', destroyHeroField);
+  </script>
+</Base>
+
+<style>
+  /* CSS star poster — static fallback for the WebGL constellation.
+     Stars are box-shadows on pseudo-sized spans, colored via currentColor
+     so every value still comes from tokens. */
+  .nm-poster {
+    color: var(--nm-ink);
+  }
+
+  .nm-poster-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    border-radius: 9999px;
+  }
+
+  .nm-poster-far {
+    opacity: 0.5;
+    box-shadow:
+      6vw 12vh 0 0 currentColor, 14vw 68vh 0 0 currentColor, 22vw 30vh 0 0 currentColor,
+      31vw 82vh 0 0 currentColor, 38vw 8vh 0 0 currentColor, 47vw 55vh 0 0 currentColor,
+      55vw 22vh 0 0 currentColor, 63vw 74vh 0 0 currentColor, 71vw 14vh 0 0 currentColor,
+      79vw 48vh 0 0 currentColor, 88vw 30vh 0 0 currentColor, 94vw 66vh 0 0 currentColor,
+      10vw 44vh 0 0 currentColor, 27vw 58vh 0 0 currentColor, 42vw 88vh 0 0 currentColor,
+      58vw 40vh 0 0 currentColor, 74vw 86vh 0 0 currentColor, 85vw 10vh 0 0 currentColor,
+      18vw 24vh 0 0 currentColor, 52vw 66vh 0 0 currentColor, 66vw 34vh 0 0 currentColor,
+      90vw 52vh 0 0 currentColor, 35vw 40vh 0 0 currentColor, 8vw 80vh 0 0 currentColor;
+  }
+
+  .nm-poster-near {
+    color: var(--nm-shift-near);
+    opacity: 0.8;
+    box-shadow:
+      12vw 26vh 0 0 currentColor, 29vw 70vh 0 0 currentColor, 44vw 18vh 0 0 currentColor,
+      60vw 58vh 0 0 currentColor, 76vw 26vh 0 0 currentColor, 87vw 76vh 0 0 currentColor,
+      20vw 50vh 0 0 currentColor, 50vw 80vh 0 0 currentColor, 68vw 10vh 0 0 currentColor;
+  }
+
+  .nm-poster-gold {
+    color: var(--nm-gold);
+    opacity: 0.9;
+    box-shadow:
+      25vw 16vh 0 0 currentColor, 57vw 44vh 0 0 currentColor, 82vw 60vh 0 0 currentColor;
+  }
+</style>

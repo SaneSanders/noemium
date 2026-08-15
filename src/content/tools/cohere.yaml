@@ -1,0 +1,26 @@
+name: Cohere
+tagline: Enterprise-focused models — Command generation plus best-in-class Rerank.
+url: https://docs.cohere.com
+category: models-api
+pricing: freemium
+price_note: "free trial keys; Command models from $0.15/1M input"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Rerank is the quietly essential product — it improves any RAG pipeline
+  regardless of your LLM. The Command chat models are solid but not the reason
+  to come.
+limitations:
+  - Chat models trail frontier quality.
+  - Enterprise-sales motion makes self-serve feel second-class.
+  - Pricing pages for newer models are confusing.
+receipts:
+  - https://docs.cohere.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

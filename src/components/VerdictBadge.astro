@@ -1,0 +1,24 @@
+---
+interface Props {
+  verdict: 'ship' | 'situational' | 'skip';
+  class?: string;
+}
+
+const { verdict, class: className = '' } = Astro.props;
+
+const tone: Record<Props['verdict'], string> = {
+  ship: 'border-verdict-ship text-verdict-ship',
+  situational: 'border-verdict-situational text-verdict-situational',
+  skip: 'border-verdict-skip text-verdict-skip',
+};
+---
+
+<span
+  class:list={[
+    'nm-stamp rounded-sm border bg-void px-2 py-0.5 font-mono text-xs font-medium tracking-widest uppercase',
+    tone[verdict],
+    className,
+  ]}
+>
+  {verdict}
+</span>

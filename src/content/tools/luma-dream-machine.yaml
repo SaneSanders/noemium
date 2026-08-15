@@ -1,0 +1,26 @@
+name: Luma Dream Machine
+tagline: Fast ideation video model with strong start/end keyframe control.
+url: https://lumalabs.ai/dream-machine
+category: video
+pricing: freemium
+price_note: "free tier; from $10/mo (Lite)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Great for storyboard-speed iteration: keyframe control and fast generation
+  make it the sketchpad of AI video. Final-render quality sits below the top
+  tier.
+limitations:
+  - Realism and fine motion below Veo and Runway.
+  - Limited clip duration per generation.
+  - Far fewer post-generation editing tools than Runway.
+receipts:
+  - https://lumalabs.ai/dream-machine
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

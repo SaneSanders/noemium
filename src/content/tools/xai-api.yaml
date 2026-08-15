@@ -1,0 +1,28 @@
+name: xAI API
+tagline: Grok models via API — strong reasoning, X integration, big context.
+url: https://docs.x.ai
+category: models-api
+pricing: paid
+price_note: "Grok 4 $3/1M input, $15/1M output"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+models_used:
+  - grok-4
+verdict: situational
+verdict_text: >-
+  Grok 4 benchmarks competitively and the API is straightforward. But the
+  ecosystem is young, and brand adjacency to X is a real procurement
+  conversation in some companies.
+limitations:
+  - "Young platform: fewer SDKs, tools and battle-testing."
+  - Pricing is not disruptive versus Claude or GPT.
+  - Reputation risk some orgs will not accept.
+receipts:
+  - https://docs.x.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

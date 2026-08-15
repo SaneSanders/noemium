@@ -1,0 +1,26 @@
+name: Leonardo AI
+tagline: Production-oriented image suite with fine-tuning, canvas editing and team features.
+url: https://leonardo.ai
+category: image
+pricing: freemium
+price_note: "free daily tokens; from $12/mo (Apprentice)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  A solid all-in-one for game assets and marketing teams who want fine-tuned
+  styles without running their own GPU. Quality is good-not-great; you are
+  paying for the suite, not the model.
+limitations:
+  - Raw model quality a notch below Midjourney and FLUX.
+  - Token math across features is opaque.
+  - Acquired by Canva; roadmap now tied to that orbit.
+receipts:
+  - https://leonardo.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

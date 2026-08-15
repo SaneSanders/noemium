@@ -1,0 +1,28 @@
+name: Zed
+tagline: Blazing-fast open-source editor (Rust) with a built-in AI panel and agent mode.
+url: https://zed.dev
+category: coding
+pricing: freemium
+price_note: "editor free; hosted AI plans from $10/mo"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+models_used:
+  - claude-sonnet-4-5
+verdict: situational
+verdict_text: >-
+  The fastest editor you will ever use, and the agent panel is honest
+  engineering, not a skin. Best if you want open source plus bring-your-own-key;
+  still rougher than Cursor for heavy agent sessions.
+limitations:
+  - Plugin ecosystem far smaller than any VS Code fork.
+  - Hosted AI features moved behind accounts and paid tiers over time.
+  - Windows support historically lags macOS/Linux.
+receipts:
+  - https://github.com/zed-industries/zed
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

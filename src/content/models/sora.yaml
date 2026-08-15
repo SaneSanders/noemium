@@ -1,0 +1,15 @@
+name: Sora 2
+provider: OpenAI
+price_input_per_mtok: 0
+price_output_per_mtok: 0
+price_unit: video_second
+price_amount: 0.1
+open_weights: false
+best_for:
+  - text-to-video generation
+  - creative storyboarding and concept clips
+avoid_for:
+  - deterministic brand-safe pipelines
+  - per-token budgeting — priced per video second
+source_attribution: "Non-token pricing: $0.1 per video second (LiteLLM model_prices_and_context_window.json (MIT, key openai/sora-2)); per-mtok fields set to 0 (no token price exists); context_window is a placeholder (not a token model); snapshot 2026-08-15"
+last_verified: "2026-08-15"

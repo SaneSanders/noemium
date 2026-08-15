@@ -1,0 +1,20 @@
+name: Claude Sonnet 4.5
+provider: Anthropic
+context_window: 200000
+price_input_per_mtok: 3
+price_output_per_mtok: 15
+open_weights: false
+best_for:
+  - agentic coding and multi-step tool use
+  - long-document analysis
+  - instruction following with tight constraints
+avoid_for:
+  - latency-critical autocomplete at scale (cost per call)
+  - on-prem or air-gapped deployments
+benchmarks:
+  - name: SWE-bench Verified
+    score: "77.2%"
+    source: Anthropic model card
+    date: "2025-09-29"
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key claude-sonnet-4-5); snapshot 2026-08-15"
+last_verified: "2026-08-15"

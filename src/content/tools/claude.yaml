@@ -1,0 +1,30 @@
+name: Claude
+tagline: Anthropic's assistant — the practitioner's favorite for prose and long documents.
+url: https://claude.ai
+category: writing
+pricing: freemium
+price_note: "free tier; Pro $20/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - claude-opus-4-1
+  - claude-sonnet-4-5
+  - claude-haiku-3-5
+verdict: ship
+verdict_text: >-
+  The strongest prose quality and long-document work of any chat assistant,
+  and Projects/Artifacts fit real workflows. Many practitioners draft here even
+  while paying for ChatGPT too.
+limitations:
+  - Message caps on Pro hit fast with large context.
+  - No image generation.
+  - Smaller plugin/integration ecosystem than ChatGPT.
+receipts:
+  - https://claude.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,35 @@
+name: OpenRouter
+tagline: One API for every major model — unified billing, fallbacks and routing.
+url: https://openrouter.ai
+category: dev-infra
+pricing: freemium
+price_note: "pay-per-token pass-through plus a small fee"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+models_used:
+  - gpt-5
+  - claude-sonnet-4-5
+  - gemini-2-5-pro
+  - deepseek-v3
+  - qwen3
+  - llama-4
+  - mistral-large
+  - grok-4
+verdict: ship
+verdict_text: >-
+  The single most useful piece of AI infra for small teams: swap models by
+  changing a string, compare costs on one bill, get automatic fallbacks. The
+  model-agnostic insurance policy.
+limitations:
+  - Small markup over direct API pricing.
+  - Adds a network hop and latency.
+  - Provider-specific features arrive later than direct APIs.
+receipts:
+  - https://openrouter.ai
+affiliate: none
+momentum: blueshift
+featured: true
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,28 @@
+name: ElevenLabs
+tagline: The reference standard for AI voice — TTS, cloning, dubbing and voice agents.
+url: https://elevenlabs.io
+category: audio
+pricing: freemium
+price_note: "free tier (10k credits/mo); Starter $6/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+models_used:
+  - eleven-v3
+verdict: ship
+verdict_text: >-
+  The voice quality bar everyone else is measured against, with an API solid
+  enough to build products on. Voice cloning and multilingual dubbing just
+  work.
+limitations:
+  - Credit-based pricing makes budgeting confusing.
+  - Best voices and models burn credits fast.
+  - Cloning consent flows add friction even for legitimate use cases.
+receipts:
+  - https://elevenlabs.io/pricing
+affiliate: none
+momentum: blueshift
+featured: true
+last_verified: "2026-08-15"
+observed_by: whysanesanders

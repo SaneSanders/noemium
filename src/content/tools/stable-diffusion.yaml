@@ -1,0 +1,26 @@
+name: Stable Diffusion (Stability AI)
+tagline: The open-weights classic — the largest community ecosystem of checkpoints and tools.
+url: https://stability.ai
+category: image
+pricing: freemium
+price_note: "weights free under community license; API pay-per-image"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The ecosystem is the product: ControlNet, LoRAs, ComfyUI and thousands of
+  community checkpoints. Base SDXL/SD3 quality is behind FLUX now, but nothing
+  matches the community tooling and tutorials.
+limitations:
+  - Base models aging against FLUX and newer rivals.
+  - Company turbulence eroded trust in the roadmap.
+  - Good results require picking the right community checkpoint, not the raw model.
+receipts:
+  - https://github.com/Stability-AI/generative-models
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,30 @@
+# Example/template for a tool entry. Copy this file, rename to a kebab-case
+# slug, fill in from real usage, then run `npm run validate`.
+name: Cursor
+tagline: AI-first code editor (VS Code fork) with agent mode and inline edits.
+url: https://cursor.com
+category: coding
+pricing: freemium
+price_note: "from $20/mo (Pro)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - claude-sonnet-4-5
+verdict: ship
+verdict_text: >-
+  The default AI editor for a reason: agent mode plus tab completions
+  measurably speed up daily work. Model routing is opaque, but output quality
+  on Sonnet-class models is consistently strong.
+limitations:
+  - Pro plan token limits throttle heavy agent sessions mid-month.
+  - Closed source; no way to self-host or audit data handling.
+  - Occasional context-window degradation on very large repos.
+receipts:
+  - https://github.com/SaneSanders
+affiliate: none
+momentum: blueshift
+featured: true
+last_verified: "2026-08-15"
+observed_by: whysanesanders

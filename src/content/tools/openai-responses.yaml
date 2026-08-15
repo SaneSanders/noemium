@@ -1,0 +1,31 @@
+name: OpenAI Responses API
+tagline: OpenAI's agent-building API — tools, web search and file search built in.
+url: https://platform.openai.com/docs/api-reference/responses
+category: agents
+pricing: paid
+price_note: "pay-per-token; e.g. GPT-5 mini $0.25/1M input"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+models_used:
+  - gpt-5
+  - gpt-5-mini
+  - o3
+  - o4-mini
+verdict: ship
+verdict_text: >-
+  The most batteries-included agent API: hosted web search, file search and
+  code interpreter without wiring infra. The Assistants API is deprecated in
+  its favor — build here.
+limitations:
+  - Hosted-tool pricing (storage, search calls) sneaks up on you.
+  - Conversation state lives on OpenAI's side.
+  - Less controllable than explicit-graph frameworks like LangGraph.
+receipts:
+  - https://platform.openai.com/docs/api-reference/responses
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,150 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import VerdictBadge from '../../components/VerdictBadge.astro';
+import ShiftArrow from '../../components/ShiftArrow.astro';
+import ToolCard from '../../components/ToolCard.astro';
+
+export const getStaticPaths = (async () => {
+  const tools = await getCollection('tools');
+  return tools.map((tool) => ({ params: { slug: tool.id }, props: { tool } }));
+}) satisfies GetStaticPaths;
+
+const { tool } = Astro.props;
+const t = tool.data;
+
+const related = (await getCollection('tools'))
+  .filter((x) => x.data.category === t.category && x.id !== tool.id)
+  .slice(0, 3);
+
+const facts: [string, string][] = [
+  ['pricing', t.pricing],
+  ...(t.price_note ? ([['price note', t.price_note]] as [string, string][]) : []),
+  ['free tier', t.free_tier ? 'yes' : 'no'],
+  ['open source', t.open_source ? 'yes' : 'no'],
+  ['api', t.api ? 'yes' : 'no'],
+  ['self-host', t.self_host ? 'yes' : 'no'],
+  ['category', t.category],
+];
+
+const hostname = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: t.name,
+  url: t.url,
+  description: t.tagline,
+  applicationCategory: t.category,
+};
+---
+
+<Base title={t.name} description={t.tagline} ogImage={`/og/tools/${tool.id}.png`}>
+  <article class="py-12 md:py-16">
+    <p class="font-mono text-xs text-shift-near">
+      <a href="/tools" class="hover:underline">01 /TOOLS</a> / {tool.id}
+    </p>
+    <div class="mt-4 flex flex-wrap items-center gap-4">
+      <h1 class="font-display text-4xl leading-tight md:text-6xl">{t.name}</h1>
+      <VerdictBadge verdict={t.verdict} class="text-sm" />
+      <ShiftArrow momentum={t.momentum} class="h-6 w-6" />
+    </div>
+    <p class="mt-4 max-w-2xl text-lg text-ink-dim">{t.tagline}</p>
+    <p class="mt-4 font-mono text-xs">
+      <a href={t.url} class="text-shift-near hover:underline" rel="noopener">{hostname(t.url)}</a>
+      {t.affiliate === 'declared' && <span class="ml-2 text-ink-dim">· affiliate link declared</span>}
+    </p>
+
+    <section class="mt-10 rounded-md border border-line bg-panel p-6 md:p-8">
+      <p class="font-mono text-xs tracking-widest text-ink-dim uppercase">
+        journal entry · observed by @{t.observed_by} · verified {t.last_verified}
+      </p>
+      <p class="mt-4 max-w-3xl leading-relaxed">{t.verdict_text}</p>
+    </section>
+
+    <div class="mt-10 grid gap-10 lg:grid-cols-2">
+      <section>
+        <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">Known limitations</h2>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm marker:font-mono marker:text-shift-far">
+          {t.limitations.map((l) => <li>{l}</li>)}
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">Facts</h2>
+        <dl class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 rounded-md border border-line bg-panel p-5 sm:grid-cols-3">
+          {facts.map(([k, v]) => (
+            <div>
+              <dt class="font-mono text-xs tracking-widest text-ink-dim uppercase">{k}</dt>
+              <dd class="nm-num mt-1 text-sm">{v}</dd>
+            </div>
+          ))}
+        </dl>
+        {
+          t.models_used && t.models_used.length > 0 && (
+            <div class="mt-6">
+              <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">Models used</h2>
+              <p class="mt-3 flex flex-wrap gap-1.5">
+                {t.models_used.map((m) => (
+                  <a
+                    href={`/models#${m}`}
+                    class="rounded-sm border border-line px-2 py-1 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+                  >
+                    {m}
+                  </a>
+                ))}
+              </p>
+            </div>
+          )
+        }
+      </section>
+    </div>
+
+    <section class="mt-10">
+      <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">Receipts</h2>
+      <ul class="mt-4 space-y-2">
+        {t.receipts.map((r) => (
+          <li>
+            <a href={r} class="font-mono text-xs text-shift-near hover:underline" rel="noopener">
+              {hostname(r)}
+              <span class="text-ink-dim">{new URL(r).pathname === '/' ? '' : new URL(r).pathname}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <p class="mt-10">
+      <a
+        href={`https://github.com/SaneSanders/noemium/edit/main/src/content/tools/${tool.id}.yaml`}
+        class="rounded-sm border border-line px-4 py-2 font-mono text-xs text-ink-dim transition-colors duration-100 hover:border-shift-near hover:text-ink"
+        rel="noopener"
+      >
+        Edit this page on GitHub
+      </a>
+    </p>
+
+    {
+      related.length > 0 && (
+        <section class="mt-16">
+          <h2 class="font-mono text-xs tracking-widest text-ink-dim uppercase">
+            Same sector — {t.category}
+          </h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {related.map((r) => (
+              <ToolCard tool={r} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+</Base>

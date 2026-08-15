@@ -1,0 +1,15 @@
+name: Qwen3 235B A22B
+provider: Alibaba (Qwen)
+context_window: 262144
+price_input_per_mtok: 0.071
+price_output_per_mtok: 0.1
+open_weights: true
+best_for:
+  - self-hosted multilingual chat (Apache-2.0)
+  - commercial self-host without license friction
+  - hybrid thinking/non-thinking modes
+avoid_for:
+  - teams needing a first-party managed SLA
+  - small-GPU self-hosting (235B MoE)
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key openrouter/qwen/qwen3-235b-a22b-2507); snapshot 2026-08-15"
+last_verified: "2026-08-15"

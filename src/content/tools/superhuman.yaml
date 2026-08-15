@@ -1,0 +1,26 @@
+name: Superhuman
+tagline: Premium email client with AI triage, drafts and follow-ups.
+url: https://www.superhuman.com
+category: productivity
+pricing: paid
+price_note: "$30/mo"
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Genuinely faster email if you live in your inbox — the speed and keyboard
+  flow are real and AI drafting is decent. At $30/mo with Gmail adding free AI,
+  it is a luxury, not a need.
+limitations:
+  - Expensive while free alternatives catch up.
+  - Calendar features thinner than dedicated tools.
+  - Muscle-memory lock-in cuts both ways.
+receipts:
+  - https://www.superhuman.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

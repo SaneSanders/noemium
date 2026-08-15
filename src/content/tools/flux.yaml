@@ -1,0 +1,28 @@
+name: FLUX (Black Forest Labs)
+tagline: Open-weights image models from the original Stable Diffusion team.
+url: https://bfl.ai
+category: image
+pricing: freemium
+price_note: "API from $0.04/image (FLUX1.1 pro); dev/schnell weights free"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+models_used:
+  - flux-1-1-pro
+verdict: ship
+verdict_text: >-
+  The best open-weights image models you can actually run: prompt adherence
+  and typography beat SDXL by a mile, and the API is priced sanely. Default
+  choice when you need self-hosting or fine-tunes.
+limitations:
+  - FLUX.1 [dev] weights carry a non-commercial license for production use.
+  - The top pro tier is API-only, no weights.
+  - Local runs want a 24GB GPU for comfortable speed.
+receipts:
+  - https://github.com/black-forest-labs/flux
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,29 @@
+name: Fireworks AI
+tagline: Fast inference platform for open models — serverless and on-demand GPUs.
+url: https://fireworks.ai
+category: dev-infra
+pricing: freemium
+price_note: "free credits; pay-per-token from ~$0.10/1M (small models)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+models_used:
+  - llama-4
+  - qwen3
+verdict: situational
+verdict_text: >-
+  Genuinely fast, and the compound-AI tooling (function calling, multi-modal)
+  is well done. But it competes with Together and Groq on the same models —
+  pick whoever serves your model cheapest this quarter.
+limitations:
+  - Differentiation vs Together/Groq unclear for standard inference.
+  - Enterprise pricing opaque.
+  - Smaller free tier than rivals.
+receipts:
+  - https://fireworks.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

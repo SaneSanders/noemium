@@ -1,0 +1,26 @@
+name: HeyGen
+tagline: AI avatar videos — talking presenters, translation and lip-sync dubbing.
+url: https://www.heygen.com
+category: video
+pricing: freemium
+price_note: "free (3 videos/mo); Creator $29/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  The clear leader for avatar and presenter video: training content, product
+  explainers, multilingual dubs. If you need a talking head at scale nothing
+  else is close; if you don't, it is useless.
+limitations:
+  - Avatars still read as synthetic on close inspection.
+  - Credit-based pricing (up to 20 credits/min on newer avatars) adds up fast.
+  - Uncanny valley for emotional or high-stakes content.
+receipts:
+  - https://www.heygen.com/pricing
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

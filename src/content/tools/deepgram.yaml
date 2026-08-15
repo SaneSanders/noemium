@@ -1,0 +1,26 @@
+name: Deepgram
+tagline: Speech-to-text API built for developers — fast, cheap, real-time.
+url: https://deepgram.com
+category: audio
+pricing: freemium
+price_note: "$200 free credits; then from ~$0.0043/min (Nova models)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The workhorse STT API: real-time streaming, solid accuracy and pricing that
+  undercuts most rivals at volume. If self-hosted Whisper's latency does not
+  fit, this is the default.
+limitations:
+  - Accuracy on heavy accents and noise below a well-tuned Whisper setup.
+  - Diarization and formatting need tuning per use case.
+  - Another vendor dependency in your voice pipeline.
+receipts:
+  - https://deepgram.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

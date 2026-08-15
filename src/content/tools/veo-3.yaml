@@ -1,0 +1,28 @@
+name: Veo 3
+tagline: Google's video model with native audio generation — the current quality leader.
+url: https://deepmind.google/models/veo/
+category: video
+pricing: paid
+price_note: "via Google AI Pro $20/mo (limited); API from $0.75/sec"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+models_used:
+  - veo-3
+verdict: ship
+verdict_text: >-
+  The quality benchmark right now: physics, lip-sync and native sound are a
+  generation ahead. Expensive per second, so use it for final shots, not for
+  iteration.
+limitations:
+  - Per-second API pricing is steep for experimentation.
+  - Access tiers and quotas across Gemini/Flow/Vertex are confusing.
+  - Roughly 8-second clip limit per generation.
+receipts:
+  - https://deepmind.google/models/veo/
+affiliate: none
+momentum: blueshift
+featured: true
+last_verified: "2026-08-15"
+observed_by: whysanesanders

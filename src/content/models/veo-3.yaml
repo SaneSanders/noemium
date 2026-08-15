@@ -1,0 +1,15 @@
+name: Veo 3
+provider: Google
+price_input_per_mtok: 0
+price_output_per_mtok: 0
+price_unit: video_second
+price_amount: 0.4
+open_weights: false
+best_for:
+  - video generation with native audio
+  - high-fidelity short clips via Vertex AI
+avoid_for:
+  - budget bulk generation (per-second pricing)
+  - open or self-hosted video pipelines
+source_attribution: "Non-token pricing: $0.4 per second (LiteLLM model_prices_and_context_window.json (MIT, key vertex_ai/veo-3.0-generate-001)); per-mtok fields set to 0 (no token price exists); snapshot 2026-08-15"
+last_verified: "2026-08-15"

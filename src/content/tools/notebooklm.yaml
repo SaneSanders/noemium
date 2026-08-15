@@ -1,0 +1,28 @@
+name: NotebookLM
+tagline: Google's research notebook — grounded Q&A and audio overviews over your own sources.
+url: https://notebooklm.google/
+category: data
+pricing: freemium
+price_note: "free; Plus via Google AI Pro $20/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - gemini-2-5-pro
+verdict: ship
+verdict_text: >-
+  The most trustworthy consumer RAG: answers stay glued to your uploaded
+  sources with citations, and audio overviews are a legitimately new way to
+  digest material. Free tier is generous.
+limitations:
+  - Source count limits per notebook.
+  - No API, so no automation.
+  - Google product-graveyard risk is real.
+receipts:
+  - https://notebooklm.google/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

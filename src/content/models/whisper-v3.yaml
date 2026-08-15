@@ -1,0 +1,16 @@
+name: Whisper Large v3
+provider: OpenAI
+price_input_per_mtok: 0
+price_output_per_mtok: 0
+price_unit: audio_second
+price_amount: 0.00003083
+open_weights: true
+best_for:
+  - self-hosted speech-to-text (MIT weights)
+  - cheap batch transcription via Groq
+  - multilingual ASR
+avoid_for:
+  - speaker diarization out of the box
+  - sub-second real-time captioning
+source_attribution: "Non-token pricing: $0.00003083 per audio second (~$0.111 per hour) (LiteLLM model_prices_and_context_window.json (MIT, key groq/whisper-large-v3)); per-mtok fields set to 0 (no token price exists); context_window is a placeholder (not a token model); snapshot 2026-08-15"
+last_verified: "2026-08-15"

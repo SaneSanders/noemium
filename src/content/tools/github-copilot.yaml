@@ -1,0 +1,29 @@
+name: GitHub Copilot
+tagline: AI completions, chat and agents inside VS Code and JetBrains, from GitHub.
+url: https://github.com/features/copilot
+category: coding
+pricing: freemium
+price_note: "free tier; Pro $10/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - gpt-5
+  - claude-sonnet-4-5
+verdict: ship
+verdict_text: >-
+  The path of least resistance if your team already lives on GitHub:
+  completions are fast, PR integration is real, and the free tier is genuinely
+  usable. Not the best agent, but the most frictionless.
+limitations:
+  - Agent mode still lags Cursor and Claude Code on multi-step tasks.
+  - Output quality varies noticeably between the models in its picker.
+  - Enterprise features sit behind the pricier tiers.
+receipts:
+  - https://github.com/features/copilot
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

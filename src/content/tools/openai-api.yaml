@@ -1,0 +1,31 @@
+name: OpenAI API
+tagline: GPT-5 family and o-series reasoning models behind one API.
+url: https://platform.openai.com
+category: models-api
+pricing: paid
+price_note: "GPT-5 $1.25/1M input, $10/1M output; mini from $0.25/1M input"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+models_used:
+  - gpt-5
+  - gpt-5-mini
+  - o3
+  - o4-mini
+verdict: ship
+verdict_text: >-
+  The safe default for production: a broad model ladder from nano to frontier
+  and best-in-class tooling (batch, structured outputs, agents). Rarely the
+  cheapest, rarely the wrong choice.
+limitations:
+  - Premium pricing at the frontier tier.
+  - Model deprecations move fast.
+  - Conservative rate limits on new accounts.
+receipts:
+  - https://platform.openai.com/docs
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Midjourney
+tagline: The aesthetic benchmark for AI image generation — Discord-born, now web-first.
+url: https://www.midjourney.com
+category: image
+pricing: paid
+price_note: "from $10/mo (Basic)"
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  Still the highest default aesthetic ceiling of any image model — light,
+  texture and art direction come out right more often than rivals. The web app
+  finally made it usable for non-Discord people.
+limitations:
+  - No free tier at all.
+  - No public API; automation requires unofficial workarounds.
+  - Images are public unless you pay for a stealth-capable tier.
+receipts:
+  - https://docs.midjourney.com
+affiliate: none
+momentum: steady
+featured: true
+last_verified: "2026-08-15"
+observed_by: whysanesanders

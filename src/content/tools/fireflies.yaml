@@ -1,0 +1,26 @@
+name: Fireflies.ai
+tagline: Meeting bot that records, transcribes and summarizes across platforms.
+url: https://fireflies.ai
+category: productivity
+pricing: freemium
+price_note: "free tier; Pro from $10/seat/mo (annual)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: skip
+verdict_text: >-
+  The feature list is long, but the bot-spam experience burns social capital
+  with clients, and the summaries are interchangeable with cheaper rivals.
+  Bot-free alternatives like Granola are the better answer now.
+limitations:
+  - Bot visibly joins calls — awkward with external meetings.
+  - Transcription accuracy is average.
+  - Cluttered UI trying to be everything.
+receipts:
+  - https://fireflies.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

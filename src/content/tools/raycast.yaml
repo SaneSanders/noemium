@@ -1,0 +1,26 @@
+name: Raycast
+tagline: macOS launcher with built-in AI chat, commands and a huge extension store.
+url: https://www.raycast.com
+category: productivity
+pricing: freemium
+price_note: "free; Pro with AI from $8/mo (annual)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  The highest-ROI subscription on this list if you are on macOS: AI one
+  keystroke away in any context, plus clipboard, snippets and window management
+  you would want anyway.
+limitations:
+  - macOS-only (Windows version still catching up).
+  - AI model quality depends on your plan tier.
+  - Extension quality varies wildly.
+receipts:
+  - https://www.raycast.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

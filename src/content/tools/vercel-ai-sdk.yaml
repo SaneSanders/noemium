@@ -1,0 +1,26 @@
+name: Vercel AI SDK
+tagline: TypeScript toolkit for AI apps — unified providers, streaming UI primitives.
+url: https://sdk.vercel.ai
+category: dev-infra
+pricing: free
+price_note: "free, open source"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The default glue for AI features in TypeScript apps: one interface across
+  OpenAI, Anthropic and Google, streaming primitives, and React hooks that just
+  work. Saves real weeks.
+limitations:
+  - The abstraction leaks on advanced provider-specific features.
+  - Docs and examples churn with fast releases.
+  - TypeScript/JavaScript only.
+receipts:
+  - https://github.com/vercel/ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

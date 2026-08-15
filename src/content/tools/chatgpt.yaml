@@ -1,0 +1,31 @@
+name: ChatGPT
+tagline: The general-purpose AI assistant that set the category baseline.
+url: https://chatgpt.com
+category: writing
+pricing: freemium
+price_note: "free tier; Plus $20/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - gpt-5
+  - gpt-5-mini
+  - o3
+  - o4-mini
+verdict: ship
+verdict_text: >-
+  Still the best default assistant: frontier reasoning, search, code execution
+  and image tools in one place. The free tier alone outperforms many paid
+  rivals.
+limitations:
+  - Usage caps on Plus frustrate heavy users mid-task.
+  - Memory and personalization features can go stale or wrong.
+  - The app keeps pushing features you may not want.
+receipts:
+  - https://chatgpt.com
+affiliate: none
+momentum: steady
+featured: true
+last_verified: "2026-08-15"
+observed_by: whysanesanders

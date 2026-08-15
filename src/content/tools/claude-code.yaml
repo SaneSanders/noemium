@@ -1,0 +1,30 @@
+name: Claude Code
+tagline: Anthropic's terminal agent that edits, runs and tests code in your repo.
+url: https://docs.anthropic.com/en/docs/claude-code
+category: coding
+pricing: paid
+price_note: "included in Claude Pro from $20/mo; API pay-per-token"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+models_used:
+  - claude-opus-4-1
+  - claude-sonnet-4-5
+  - claude-haiku-3-5
+verdict: ship
+verdict_text: >-
+  The strongest agentic coding tool when you give it real scope: multi-file
+  refactors, test runs and git workflows hold up. Lives in the terminal, so it
+  composes with any editor instead of replacing it.
+limitations:
+  - API-billed sessions on large repos escalate in cost fast.
+  - Confidently makes sweeping changes; big diffs need human review.
+  - No GUI at all — a feature until you want a diff viewer.
+receipts:
+  - https://github.com/anthropics/claude-code
+affiliate: none
+momentum: blueshift
+featured: true
+last_verified: "2026-08-15"
+observed_by: whysanesanders

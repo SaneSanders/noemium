@@ -1,0 +1,15 @@
+name: GPT-5 mini
+provider: OpenAI
+context_window: 272000
+price_input_per_mtok: 0.25
+price_output_per_mtok: 2
+open_weights: false
+best_for:
+  - cheap batch classification
+  - high-throughput support chat
+  - structured extraction at scale
+avoid_for:
+  - hardest reasoning tasks (use full GPT-5 or o3)
+  - open-weights requirements
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gpt-5-mini); snapshot 2026-08-15"
+last_verified: "2026-08-15"

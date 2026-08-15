@@ -1,0 +1,27 @@
+name: Pinecone
+tagline: Managed vector database — the serverless default for embeddings at scale.
+url: https://www.pinecone.io
+category: data
+pricing: freemium
+price_note: "free Starter; Standard pay-as-you-go (min ~$50/mo)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Operationally the smoothest managed vector DB, and the free tier covers
+  prototypes. But self-hosted Qdrant or pgvector now match it for most
+  workloads at a fraction of the cost — pay only if ops time is your
+  constraint.
+limitations:
+  - Costs scale poorly versus self-hosted alternatives.
+  - Proprietary; migrating away is a rewrite.
+  - Pricing-model changes have burned users before.
+receipts:
+  - https://www.pinecone.io
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

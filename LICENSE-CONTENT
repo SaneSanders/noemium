@@ -1,0 +1,18 @@
+The content of this repository — everything under `src/content/` (tool,
+stack and model entries, including their text, verdicts and data) — is
+licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0).
+
+You are free to share and adapt the content for any purpose, even
+commercially, as long as you give appropriate credit to Noemium and the
+individual contributors (`observed_by`), provide a link to the license, and
+indicate if changes were made.
+
+Human-readable deed:
+https://creativecommons.org/licenses/by/4.0/
+
+Legal code:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Note: the source code of this repository is licensed separately under the
+MIT License (see LICENSE).

@@ -1,0 +1,26 @@
+name: Zapier
+tagline: The automation incumbent — 7000+ app integrations, now with AI steps.
+url: https://zapier.com
+category: agents
+pricing: freemium
+price_note: "free tier (100 tasks/mo); Professional from $20/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Unbeatable integration coverage and reliability for standard SaaS plumbing.
+  But per-task pricing punishes AI workflows (every LLM call is tasks), and
+  n8n or Make do AI-native automation cheaper.
+limitations:
+  - Per-task pricing explodes once AI loops enter workflows.
+  - AI features feel bolted on vs AI-native rivals.
+  - Complex branching becomes unmaintainable in the UI.
+receipts:
+  - https://zapier.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

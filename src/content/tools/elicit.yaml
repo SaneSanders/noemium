@@ -1,0 +1,26 @@
+name: Elicit
+tagline: AI research assistant that extracts structured data from academic papers.
+url: https://elicit.com
+category: data
+pricing: freemium
+price_note: "free tier; Plus from $10/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A genuine time-saver for literature reviews: paper tables with extracted
+  methods and results beat skimming 40 PDFs. Only worth paying for if academic
+  literature is your actual input.
+limitations:
+  - Coverage limited to indexed papers; misses preprints and paywalled work.
+  - Extractions need manual verification.
+  - Pricing tiers have changed repeatedly.
+receipts:
+  - https://elicit.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

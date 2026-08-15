@@ -1,0 +1,28 @@
+name: Mistral API (La Plateforme)
+tagline: European frontier lab — efficient models, open-weights options, EU hosting.
+url: https://docs.mistral.ai
+category: models-api
+pricing: freemium
+price_note: "free experiment tier; Mistral Large $2/1M input"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+models_used:
+  - mistral-large
+verdict: situational
+verdict_text: >-
+  The pick when EU data residency or open weights are hard requirements, and
+  the small Mistral models are excellent value. For pure frontier quality,
+  Claude and GPT still lead.
+limitations:
+  - Frontier quality a half-step behind OpenAI/Anthropic.
+  - Thinner ecosystem and docs.
+  - Product naming and tiers are confusing.
+receipts:
+  - https://docs.mistral.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

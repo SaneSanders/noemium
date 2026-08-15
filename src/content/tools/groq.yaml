@@ -1,0 +1,30 @@
+name: Groq
+tagline: Ultra-fast inference on custom LPU hardware — open models at 500+ tok/s.
+url: https://groq.com
+category: dev-infra
+pricing: freemium
+price_note: "free tier; from $0.05/1M tokens (small models)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+models_used:
+  - llama-4
+  - qwen3
+  - deepseek-r1
+verdict: ship
+verdict_text: >-
+  Speed that is a feature, not a benchmark: sub-second responses change what
+  UX you can build — voice agents, autocomplete, real-time tools. The free tier
+  is generous enough to build on.
+limitations:
+  - Model catalog limited to what fits their hardware.
+  - Context windows capped below the biggest hosted rivals.
+  - Free-tier throughput limits are tight for production.
+receipts:
+  - https://groq.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

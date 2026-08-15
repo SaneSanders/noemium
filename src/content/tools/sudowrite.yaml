@@ -1,0 +1,26 @@
+name: Sudowrite
+tagline: Fiction-first AI writing — brainstorm, expand and revise novels.
+url: https://www.sudowrite.com
+category: writing
+pricing: paid
+price_note: "from $10/mo (Hobby & Student)"
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  The only writing tool built by and for fiction writers: Story Engine,
+  character bibles and scene expansion fit novel workflows. Non-fiction writers
+  should look elsewhere.
+limitations:
+  - Niche by design — useless for business writing.
+  - Credit system is confusing.
+  - Output still reads as AI fiction without heavy human revision.
+receipts:
+  - https://www.sudowrite.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

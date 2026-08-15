@@ -1,0 +1,26 @@
+name: Motion
+tagline: AI project manager that auto-schedules tasks into your calendar.
+url: https://www.usemotion.com
+category: productivity
+pricing: paid
+price_note: "from $19/seat/mo (annual, Pro AI)"
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Powerful when your work is deadline-driven tasks — the auto-scheduling
+  genuinely reprioritizes your day. But it is opinionated, pricey, and teams
+  report a steep setup tax before it pays off.
+limitations:
+  - Expensive for a personal productivity tool.
+  - Requires aggressive onboarding to get value.
+  - Notifications can feel like a micromanaging boss.
+receipts:
+  - https://www.usemotion.com/pricing
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Replicate
+tagline: Run any community model via API — pay per second, no GPU wrangling.
+url: https://replicate.com
+category: dev-infra
+pricing: paid
+price_note: "pay per run; image models from ~$0.003/image"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The fastest way to ship a model you do not want to host: thousands of
+  community models behind one API with per-second billing. Perfect for
+  prototyping and spiky workloads.
+limitations:
+  - Per-second pricing gets expensive at steady volume.
+  - Cold starts on less-popular models.
+  - Model quality and maintenance vary by community author.
+receipts:
+  - https://replicate.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

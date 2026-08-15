@@ -1,0 +1,28 @@
+name: Whisper
+tagline: OpenAI's open-weights speech recognition — the default transcription model.
+url: https://github.com/openai/whisper
+category: audio
+pricing: free
+price_note: "free (open weights); hosted API $0.006/min"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+models_used:
+  - whisper-v3
+verdict: ship
+verdict_text: >-
+  The reason paid transcription became a niche: large-v3 accuracy is
+  production-grade across dozens of languages and it runs on a laptop. Every
+  transcription pipeline starts here.
+limitations:
+  - Hallucinates text on silence and noisy segments.
+  - No built-in speaker diarization (pair with pyannote).
+  - large-v3 needs a decent GPU for real-time work.
+receipts:
+  - https://github.com/openai/whisper
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

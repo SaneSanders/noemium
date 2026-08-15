@@ -1,0 +1,144 @@
+@import './tokens.css';
+@import 'tailwindcss';
+
+/* Map Observatory tokens into Tailwind v4 utilities (CSS-first config). */
+@theme {
+  --color-void: var(--nm-bg-void);
+  --color-panel: var(--nm-bg-panel);
+  --color-raised: var(--nm-bg-raised);
+  --color-line: var(--nm-line);
+
+  --color-ink: var(--nm-ink);
+  --color-ink-dim: var(--nm-ink-dim);
+
+  --color-shift-near: var(--nm-shift-near);
+  --color-shift-far: var(--nm-shift-far);
+  --color-gold: var(--nm-gold);
+
+  --color-verdict-ship: var(--nm-verdict-ship);
+  --color-verdict-situational: var(--nm-verdict-situational);
+  --color-verdict-skip: var(--nm-verdict-skip);
+
+  --font-display: var(--nm-font-display);
+  --font-body: var(--nm-font-body);
+  --font-mono: var(--nm-font-mono);
+
+  --radius-sm: var(--nm-radius-sm);
+  --radius-md: var(--nm-radius-md);
+  --radius-lg: var(--nm-radius-lg);
+}
+
+@layer base {
+  html {
+    background-color: var(--nm-bg-void);
+    color: var(--nm-ink);
+    font-family: var(--nm-font-body);
+  }
+
+  ::selection {
+    background-color: var(--nm-shift-near);
+    color: var(--nm-bg-void);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--nm-shift-near);
+    outline-offset: 2px;
+  }
+
+  /* All numbers in data are mono with tabular figures. */
+  .nm-num {
+    font-family: var(--nm-font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* Observer stamp — used by VerdictBadge and the Preact islands.
+     On hover the stamp "presses in": 1.06 → 1 in --nm-dur-2. */
+  .nm-stamp {
+    display: inline-block;
+    transform: rotate(-3deg);
+  }
+
+  .nm-stamp:hover {
+    animation: nm-stamp-in var(--nm-dur-2) var(--nm-ease-out-expo);
+  }
+
+  @keyframes nm-stamp-in {
+    from {
+      transform: rotate(-3deg) scale(1.06);
+    }
+    to {
+      transform: rotate(-3deg) scale(1);
+    }
+  }
+
+  /* Micro step transition for multi-step UIs (quiz, filters). */
+  .nm-step {
+    animation: nm-fade-up var(--nm-dur-2) var(--nm-ease-out-expo);
+  }
+
+  @keyframes nm-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Rendered markdown bodies (stack recipes). */
+  .nm-prose {
+    color: var(--nm-ink);
+    line-height: 1.7;
+  }
+
+  .nm-prose h2 {
+    margin-top: var(--nm-space-12);
+    margin-bottom: var(--nm-space-4);
+    font-family: var(--nm-font-display);
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .nm-prose p,
+  .nm-prose ol,
+  .nm-prose ul {
+    margin-bottom: var(--nm-space-4);
+  }
+
+  .nm-prose ol,
+  .nm-prose ul {
+    padding-left: var(--nm-space-6);
+  }
+
+  .nm-prose ol {
+    list-style: decimal;
+  }
+
+  .nm-prose ul {
+    list-style: disc;
+  }
+
+  .nm-prose li {
+    margin-bottom: var(--nm-space-2);
+  }
+
+  .nm-prose li::marker {
+    color: var(--nm-shift-near);
+    font-family: var(--nm-font-mono);
+  }
+
+  .nm-prose strong {
+    font-weight: 600;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nm-stamp:hover,
+    .nm-step {
+      animation: none;
+    }
+  }
+}

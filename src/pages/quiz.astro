@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Quiz, { type QuizStack } from '../islands/Quiz';
+
+const toolsById = new Map((await getCollection('tools')).map((t) => [t.id, t]));
+const stacks = await getCollection('stacks');
+
+const data: QuizStack[] = stacks.map((stack) => ({
+  slug: stack.id,
+  title: stack.data.title,
+  use_case: stack.data.use_case,
+  monthly_cost_usd: stack.data.monthly_cost_usd,
+  difficulty: stack.data.difficulty,
+  tools: stack.data.tools
+    .map((slug) => toolsById.get(slug))
+    .filter((t) => t !== undefined)
+    .map((t) => ({
+      slug: t.id,
+      name: t.data.name,
+      category: t.data.category,
+      self_host: t.data.self_host,
+    })),
+}));
+---
+
+<Base
+  title="Find your stack"
+  description="Five questions, one stack. Answer what you build, your budget and your level — get a recipe with a real monthly cost."
+>
+  <SectionHeader
+    index="04"
+    title="Find your stack"
+    sub="Five questions, one recipe. We match your answers against the stacks we have actually run — no sponsored placements."
+  />
+  <Quiz client:load stacks={data} />
+</Base>

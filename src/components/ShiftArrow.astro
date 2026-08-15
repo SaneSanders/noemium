@@ -1,0 +1,43 @@
+---
+interface Props {
+  momentum: 'blueshift' | 'steady' | 'redshift';
+  class?: string;
+}
+
+const { momentum, class: className = '' } = Astro.props;
+
+const config: Record<Props['momentum'], { label: string; tone: string; path: string }> = {
+  blueshift: {
+    label: 'Blueshift — gaining momentum',
+    tone: 'text-shift-near',
+    path: 'M4 12 L12 4 M6 4 H12 V10',
+  },
+  steady: {
+    label: 'Steady momentum',
+    tone: 'text-ink-dim',
+    path: 'M3 8 H13 M10 5 L13 8 L10 11',
+  },
+  redshift: {
+    label: 'Redshift — losing momentum',
+    tone: 'text-shift-far',
+    path: 'M4 4 L12 12 M12 6 V12 H6',
+  },
+};
+
+const c = config[momentum];
+---
+
+<svg
+  viewBox="0 0 16 16"
+  class:list={['inline-block h-4 w-4', c.tone, className]}
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  role="img"
+  aria-label={c.label}
+>
+  <title>{c.label}</title>
+  <path d={c.path}></path>
+</svg>

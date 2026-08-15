@@ -1,0 +1,25 @@
+name: Suno
+tagline: Full-song generation — vocals, lyrics, arrangement — from a text prompt.
+url: https://suno.com
+category: audio
+pricing: freemium
+price_note: "free (50 credits/day); Pro $10/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  Absurdly good at what it does: full songs with believable vocals in a
+  minute. For demos, content backgrounds and prototyping it is a superpower.
+limitations:
+  - Training-data lawsuits keep a legal cloud over commercial use.
+  - Commercial rights require a paid tier.
+  - Fine control over arrangement and mix is limited.
+receipts:
+  - https://suno.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Murf AI
+tagline: Business-focused voiceover studio for presentations and e-learning.
+url: https://murf.ai
+category: audio
+pricing: freemium
+price_note: "free tier; from ~$19/mo (Creator)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fits corporate e-learning and slide-deck voiceovers where consistency and
+  team licensing matter more than cutting-edge realism. For APIs or
+  consumer-grade cloning, ElevenLabs wins.
+limitations:
+  - Voices sound more corporate-synthetic than the leaders.
+  - Limited voice-cloning flexibility.
+  - Editor-centric product; weaker API story.
+receipts:
+  - https://murf.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

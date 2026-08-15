@@ -1,0 +1,26 @@
+name: Qdrant
+tagline: Rust-built open-source vector DB — fast, lean and easy to self-host.
+url: https://qdrant.tech
+category: data
+pricing: freemium
+price_note: "self-host free; managed cloud has a free tier, paid from ~$25/mo"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The pragmatic vector DB pick: single binary, low resource footprint,
+  predictable performance and a genuinely usable free cloud tier. Most RAG
+  prototypes should start here.
+limitations:
+  - Fewer built-in retrieval features than Weaviate; bring your own reranking.
+  - Clustering and sharding maturity behind the incumbents.
+  - Smaller ecosystem and fewer integrations than Pinecone.
+receipts:
+  - https://github.com/qdrant/qdrant
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

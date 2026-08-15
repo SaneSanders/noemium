@@ -1,0 +1,29 @@
+name: Windsurf
+tagline: Agentic IDE (VS Code fork) built around the Cascade agent flow.
+url: https://windsurf.com
+category: coding
+pricing: freemium
+price_note: "from $15/mo (Pro)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - claude-sonnet-4-5
+  - gpt-5
+verdict: situational
+verdict_text: >-
+  A credible Cursor alternative with a cleaner agent UX and a lower entry
+  price. Pick it when Cursor's limits bite; ecosystem and polish are a step
+  behind.
+limitations:
+  - Smaller extension and community ecosystem than Cursor.
+  - Ownership turbulence (failed OpenAI deal, Cognition acquisition) makes the roadmap uncertain.
+  - Agent occasionally loops on large, unfamiliar repos.
+receipts:
+  - https://windsurf.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

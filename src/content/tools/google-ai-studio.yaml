@@ -1,0 +1,29 @@
+name: Google AI Studio / Gemini API
+tagline: Gemini API with a real free tier — huge context, multimodal, generous limits.
+url: https://aistudio.google.com
+category: models-api
+pricing: freemium
+price_note: "free tier; Gemini 2.5 Pro from $1.25/1M input"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+models_used:
+  - gemini-2-5-pro
+  - gemini-2-5-flash
+verdict: ship
+verdict_text: >-
+  The best free tier in the API game, and the paid tier undercuts rivals for
+  long-context and multimodal work. Million-token context unlocks document
+  workflows others cannot touch at this price.
+limitations:
+  - Free-tier prompts may be used for training — read the terms.
+  - Safety filters occasionally over-trigger.
+  - API surface and model names change quickly.
+receipts:
+  - https://aistudio.google.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

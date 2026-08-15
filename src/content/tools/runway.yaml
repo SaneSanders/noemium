@@ -1,0 +1,26 @@
+name: Runway
+tagline: The incumbent AI video suite — Gen-4 generation plus a full editing toolchain.
+url: https://runwayml.com
+category: video
+pricing: freemium
+price_note: "free one-time credits; from $15/mo (Standard)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The most complete AI video workflow: Gen-4 quality is competitive, and the
+  editing tools (inpainting, motion brush, green screen) mean you finish work
+  here, not just generate clips.
+limitations:
+  - Credit math gets expensive for iteration-heavy projects.
+  - Best quality modes sit behind pricier tiers.
+  - Long coherent narratives still need heavy manual stitching.
+receipts:
+  - https://help.runwayml.com
+affiliate: none
+momentum: steady
+featured: true
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Reclaim.ai
+tagline: AI calendar that defends focus time, habits and tasks automatically.
+url: https://reclaim.ai
+category: productivity
+pricing: freemium
+price_note: "free tier; from $8/user/mo (annual)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  Quietly one of the most useful AI scheduling tools: habits, tasks and buffer
+  time auto-scheduled and reshuffled when meetings land. The free tier is
+  enough for many.
+limitations:
+  - Google-Calendar-centric; Outlook support historically weaker.
+  - Can over-fill your calendar if misconfigured.
+  - Team features need whole-team buy-in.
+receipts:
+  - https://reclaim.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

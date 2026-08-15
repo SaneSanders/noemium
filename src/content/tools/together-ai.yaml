@@ -1,0 +1,30 @@
+name: Together AI
+tagline: Cloud inference for open models — serverless endpoints and fine-tuning.
+url: https://www.together.ai
+category: dev-infra
+pricing: freemium
+price_note: "starter credits; from $0.10/1M tokens (small open models)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+models_used:
+  - llama-4
+  - qwen3
+  - deepseek-v3
+verdict: ship
+verdict_text: >-
+  The reliable workhorse for open-model serving: broad catalog, solid uptime,
+  both serverless and dedicated endpoints. Where most open-weight prototypes go
+  to production.
+limitations:
+  - Costs at scale push you toward dedicated GPU contracts.
+  - Newest models sometimes arrive later than at specialists.
+  - Fine-tuning UX less polished than the inference side.
+receipts:
+  - https://www.together.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

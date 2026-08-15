@@ -1,0 +1,26 @@
+name: n8n
+tagline: Source-available workflow automation with strong AI agent nodes.
+url: https://n8n.io
+category: agents
+pricing: freemium
+price_note: "self-host free; cloud from ~$24/mo (Starter)"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The sweet spot between no-code and code: visual workflows with real AI agent
+  nodes, self-hostable so your data stays yours. Replaces a scary amount of
+  Zapier plus custom glue code.
+limitations:
+  - Fair-code license, not true open source for resale.
+  - Error handling in big workflows gets messy.
+  - Cloud per-execution pricing stings at volume.
+receipts:
+  - https://github.com/n8n-io/n8n
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

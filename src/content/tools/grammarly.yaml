@@ -1,0 +1,26 @@
+name: Grammarly
+tagline: Writing assistant for grammar, tone and clarity, everywhere you type.
+url: https://www.grammarly.com
+category: writing
+pricing: freemium
+price_note: "free tier; Premium $12/mo (annual)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Still the smoothest inline correction across every app, and the free tier
+  covers most people. But generative models ate its rewrite features — Premium
+  is hard to justify if you already pay for ChatGPT or Claude.
+limitations:
+  - Suggestions can flatten personal voice into corporate beige.
+  - Premium overlaps with what free LLM chats now do.
+  - Occasional confidently-wrong grammar calls.
+receipts:
+  - https://www.grammarly.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

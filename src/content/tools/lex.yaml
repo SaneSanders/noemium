@@ -1,0 +1,26 @@
+name: Lex
+tagline: Minimal AI-native writing app — Google Docs with a co-writer built in.
+url: https://lex.page
+category: writing
+pricing: freemium
+price_note: "free tier; Pro from ~$18/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  The best AI writing environment if long-form drafting is your job: inline
+  prompts, version history, no bloat. Overkill if you just need occasional
+  paragraph help.
+limitations:
+  - A subscription on top of what ChatGPT Canvas partially does free.
+  - Far smaller feature set than Notion or Google Docs.
+  - Mobile experience is thin.
+receipts:
+  - https://lex.page
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

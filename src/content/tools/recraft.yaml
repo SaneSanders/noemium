@@ -1,0 +1,26 @@
+name: Recraft
+tagline: Design-focused image model with vector output and brand style controls.
+url: https://www.recraft.ai
+category: image
+pricing: freemium
+price_note: "free tier; from $10/mo (Basic)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Earns its place for product and marketing design: vector (SVG) generation,
+  style consistency and brand palettes are things Midjourney simply does not
+  do. Not the pick for pure art.
+limitations:
+  - Photorealism trails the category leaders.
+  - Credit system is confusing to budget.
+  - Smaller community and fine-tune ecosystem.
+receipts:
+  - https://www.recraft.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-15"
+observed_by: whysanesanders

@@ -1,0 +1,20 @@
+name: DeepSeek R1
+provider: DeepSeek
+context_window: 131072
+price_input_per_mtok: 0.28
+price_output_per_mtok: 0.42
+open_weights: true
+best_for:
+  - reasoning on a budget
+  - self-hosted chain-of-thought workloads
+  - math and code proofs
+avoid_for:
+  - latency-critical apps (long thinking traces)
+  - tool-use-heavy agent loops
+benchmarks:
+  - name: AIME 2024
+    score: "79.8%"
+    source: "DeepSeek-R1 paper (arXiv:2501.12948)"
+    date: "2025-01-20"
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key deepseek/deepseek-reasoner); snapshot 2026-08-15"
+last_verified: "2026-08-15"
