@@ -113,6 +113,19 @@ export const modelSchema = z.object({
   last_verified: isoDate,
 });
 
+/** Graveyard — dead AI tools with the date, cause and a receipt. */
+export const graveyardSchema = z.object({
+  name: z.string().min(1),
+  url: httpsUrl,
+  category: z.enum(toolCategories),
+  died: isoDate,
+  cause: z.string().min(1),
+  obituary: z.string().min(1),
+  receipt: httpsUrl,
+  last_verified: isoDate,
+});
+
 export type Tool = z.infer<typeof toolSchema>;
 export type Stack = z.infer<typeof stackSchema>;
 export type Model = z.infer<typeof modelSchema>;
+export type Graveyard = z.infer<typeof graveyardSchema>;

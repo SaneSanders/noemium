@@ -1,6 +1,6 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { modelSchema, stackSchema, toolSchema } from './content-schemas';
+import { graveyardSchema, modelSchema, stackSchema, toolSchema } from './content-schemas';
 
 const tools = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/tools' }),
@@ -17,4 +17,9 @@ const models = defineCollection({
   schema: modelSchema,
 });
 
-export const collections = { tools, stacks, models };
+const graveyard = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/graveyard' }),
+  schema: graveyardSchema,
+});
+
+export const collections = { tools, stacks, models, graveyard };

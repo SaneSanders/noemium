@@ -131,13 +131,20 @@ function formatZodIssues(error) {
   return error.issues.map((i) => `${i.path.join('.') || '(root)'}: ${i.message}`).join('; ');
 }
 
-const { toolSchema, stackSchema, modelSchema } = await loadSchemas();
+const { toolSchema, stackSchema, modelSchema, graveyardSchema } = await loadSchemas();
 
 const collections = [
   { name: 'tools', dir: path.join(CONTENT_DIR, 'tools'), exts: ['.yaml', '.yml'], schema: toolSchema },
   { name: 'stacks', dir: path.join(CONTENT_DIR, 'stacks'), exts: ['.md'], schema: stackSchema },
   { name: 'models', dir: path.join(CONTENT_DIR, 'models'), exts: ['.yaml', '.yml'], schema: modelSchema },
+  { name: 'graveyard', dir: path.join(CONTENT_DIR, 'graveyard'), exts: ['.yaml', '.yml'], schema: graveyardSchema },
 ];
+
+// URL fields that must stay referral-free per collection.
+const cleanUrlFields = {
+  tools: (d) => [d.url, ...d.receipts],
+  graveyard: (d) => [d.url, d.receipt],
+};
 
 /** @type {Record<string, Map<string, any>>} collection name -> slug -> data */
 const entries = {};
@@ -171,9 +178,9 @@ for (const { name, dir, exts, schema } of collections) {
     checked += 1;
     checkDate(rel, result.data.last_verified);
 
-    if (name === 'tools') {
-      const urls = [result.data.url, ...result.data.receipts];
-      for (const u of urls) {
+    const urlFields = cleanUrlFields[name];
+    if (urlFields) {
+      for (const u of urlFields(result.data)) {
         const pattern = findReferralPattern(u);
         if (pattern) {
           fail(rel, `referral pattern "${pattern}" in "${u}" — url/receipts must stay clean; referral links belong in affiliate_url`);

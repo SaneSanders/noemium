@@ -1,0 +1,12 @@
+name: Play.ht
+url: https://play.ht
+category: audio
+died: "2025-12-31"
+cause: Team acquihired by Meta (July 2025); platform shut down permanently.
+obituary: >-
+  A TTS API and voice library that once mattered. Meta acquihired the team and
+  the platform closed on 2025-12-31 — accounts, saved audio and voice clones
+  deleted, no migration path offered. Sites still taking payments as "Play.ht"
+  are impersonators. Successors: ElevenLabs, Murf.
+receipt: https://trillet.ai/blogs/playai-alternatives-2026
+last_verified: "2026-08-15"

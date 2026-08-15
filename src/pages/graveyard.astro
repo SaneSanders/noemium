@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const dead = (await getCollection('graveyard')).sort((a, b) =>
+  b.data.died.localeCompare(a.data.died),
+);
+const hostname = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+};
+---
+
+<Base
+  title="Graveyard"
+  description="Dead AI tools with death dates, causes and receipts. Removed from the catalog, not forgotten."
+>
+  <SectionHeader
+    index="09"
+    title="Graveyard"
+    sub={`${dead.length} tools confirmed dead. Every grave has a cause and a receipt — zombie listings don't get to pretend they're alive.`}
+  />
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {
+      dead.map((d, i) => (
+        <article class="nm-card flex flex-col gap-4 p-7">
+          <div class="flex items-start justify-between gap-3">
+            <span class="font-mono text-[11px] font-medium tracking-[0.12em] text-ink-dim">
+              № {String(i + 1).padStart(3, '0')}
+            </span>
+            <span class="inline-block -rotate-1 border-[1.5px] border-ink px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-[0.12em] text-ink uppercase">
+              died {d.data.died}
+            </span>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight uppercase">{d.data.name}</h2>
+            <p class="mt-1 font-mono text-[11px] tracking-[0.08em] text-ink-dim uppercase">{d.data.category}</p>
+          </div>
+          <p class="text-[15px] leading-relaxed text-ink opacity-85">{d.data.obituary}</p>
+          <div class="mt-auto border-t-[1.5px] border-line-soft pt-4">
+            <p class="text-sm font-semibold">{d.data.cause}</p>
+            <p class="mt-2 flex flex-wrap items-center gap-4 font-mono text-[11px] text-ink-dim">
+              <a href={d.data.receipt} class="text-accent hover:underline" rel="noopener">
+                receipt: {hostname(d.data.receipt)}
+              </a>
+              <a href={d.data.url} class="hover:text-accent hover:underline" rel="noopener">
+                {hostname(d.data.url)}
+              </a>
+              <span>verified {d.data.last_verified}</span>
+            </p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <p class="mt-12 font-mono text-xs leading-relaxed text-ink-dim">
+    A tool lands here when it stops working for real users — shut down, acquihired, abandoned.
+    Removals show up in the <a href="/changelog" class="text-accent hover:underline">changelog</a>;
+    the proof lives in each grave. Resurrected? Open a PR and we exhume it.
+  </p>
+</Base>
