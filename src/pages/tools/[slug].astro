@@ -6,6 +6,7 @@ import VerdictBadge from '../../components/VerdictBadge.astro';
 import ShiftArrow from '../../components/ShiftArrow.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import { toolNumbers, formatEntryNo } from '../../lib/tool-numbers';
+import changelog from '../../data/changelog.json';
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection('tools');
@@ -45,6 +46,18 @@ const jsonLd = {
   url: t.url,
   description: t.tagline,
   applicationCategory: t.category,
+};
+
+// Price trail — pricing revisions for this tool, straight from the changelog
+// data (which is itself built from git history).
+const trail = ((changelog as { weeks: { id: string; from: string; changed: { collection: string; slug: string; field: string; from: string | null; to: string | null }[] }[] }).weeks ?? []).flatMap((w) =>
+  w.changed
+    .filter((c) => c.collection === 'tools' && c.slug === tool.id && (c.field === 'pricing' || c.field === 'price note'))
+    .map((c) => ({ week: w.id, date: w.from, field: c.field, from: c.from, to: c.to })),
+);
+const shortTrail = (v: string | null) => {
+  const s = String(v ?? '—');
+  return s.length > 56 ? `${s.slice(0, 53)}…` : s;
 };
 ---
 
@@ -88,6 +101,31 @@ const jsonLd = {
       </p>
       <p class="mt-4 max-w-3xl text-lg leading-relaxed">{t.verdict_text}</p>
     </section>
+
+    {
+      trail.length > 0 && (
+        <section class="mt-8">
+          <h2 class="flex items-baseline justify-between font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">
+            <span>Price trail — {trail.length} revision{trail.length === 1 ? '' : 's'}</span>
+            <a href="/changelog" class="text-accent normal-case hover:underline">
+              changelog →
+            </a>
+          </h2>
+          <ul class="mt-4 space-y-2">
+            {trail.slice(-3).map((e) => (
+              <li class="flex flex-wrap items-baseline gap-x-4 gap-y-1 font-mono text-xs" title={`${e.from ?? ''} → ${e.to ?? ''}`}>
+                <span class="text-ink-dim">{e.week}</span>
+                <span class="nm-num">
+                  <span class="text-ink-dim line-through">{shortTrail(e.from)}</span>
+                  <span class="mx-2" aria-hidden="true">→</span>
+                  <span class="font-bold text-accent">{shortTrail(e.to)}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     <div class="mt-10 grid gap-10 lg:grid-cols-2">
       <section>
