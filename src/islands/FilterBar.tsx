@@ -16,6 +16,7 @@ export interface ToolRecord {
   momentum: Momentum;
   featured: boolean;
   last_verified: string;
+  logo?: string | null;
 }
 
 const CATEGORIES = [
@@ -58,6 +59,14 @@ const EMPTY: Filters = {
   api: false,
 };
 
+// Layer-1 presets: one click applies a whole filter bundle.
+const PRESETS: { key: string; label: string; apply: Partial<Filters> }[] = [
+  { key: 'free-oss', label: 'free + open source', apply: { free_tier: true, open_source: true } },
+  { key: 'ship', label: 'ship it only', apply: { verdicts: ['ship'] } },
+  { key: 'gaining', label: 'gaining (blueshift)', apply: { momenta: ['blueshift'] } },
+  { key: 'api', label: 'has API', apply: { api: true } },
+];
+
 function parseUrl(): Filters {
   const p = new URLSearchParams(window.location.search);
   const list = (key: string) => (p.get(key) ?? '').split(',').filter(Boolean);
@@ -93,6 +102,13 @@ function toggle<T>(list: T[], value: T): T[] {
   return list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
 }
 
+function presetActive(f: Filters, apply: Partial<Filters>): boolean {
+  return Object.entries(apply).every(([k, v]) => {
+    const cur = f[k as keyof Filters];
+    return Array.isArray(v) ? (cur as unknown[]).length > 0 && v.every((x) => (cur as unknown[]).includes(x)) : cur === v;
+  });
+}
+
 function Chip({
   active,
   onClick,
@@ -107,7 +123,7 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      class={`cursor-pointer rounded-md border-[1.5px] px-3 py-1.5 font-mono text-[13px] font-medium transition-all duration-100 ${
+      class={`cursor-pointer rounded-md border-[1.5px] px-3.5 py-2 font-mono text-sm font-medium transition-all duration-100 ${
         active
           ? 'border-accent bg-accent text-on-accent'
           : 'border-ink bg-paper text-ink hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm'
@@ -115,6 +131,29 @@ function Chip({
     >
       {children}
     </button>
+  );
+}
+
+function Logo({ name, src }: { name: string; src?: string | null }) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt=""
+        width="32"
+        height="32"
+        loading="lazy"
+        class="h-8 w-8 shrink-0 rounded-sm border-[1.5px] border-ink bg-card object-contain p-0.5"
+      />
+    );
+  }
+  return (
+    <span
+      aria-hidden="true"
+      class="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border-[1.5px] border-ink bg-paper font-display text-lg font-black text-accent"
+    >
+      {name.charAt(0)}
+    </span>
   );
 }
 
@@ -134,14 +173,17 @@ function ToolCardView({ tool }: { tool: ToolRecord }) {
         </span>
         <VerdictStamp verdict={tool.verdict} />
       </div>
-      <h3 class="mt-4 font-display text-2xl font-extrabold tracking-tight text-ink group-hover:text-accent">
-        {tool.name}
-        {tool.featured && (
-          <span class="ml-2 align-middle font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">
-            featured
-          </span>
-        )}
-      </h3>
+      <div class="mt-4 flex items-center gap-3">
+        <Logo name={tool.name} src={tool.logo} />
+        <h3 class="font-display text-2xl font-extrabold tracking-tight text-ink group-hover:text-accent">
+          {tool.name}
+          {tool.featured && (
+            <span class="ml-2 align-middle font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">
+              featured
+            </span>
+          )}
+        </h3>
+      </div>
       <p class="mt-3 flex-1 text-[15px] leading-relaxed text-ink opacity-80">{tool.tagline}</p>
       {flags.length > 0 && (
         <p class="mt-4 flex flex-wrap gap-1.5">
@@ -170,10 +212,16 @@ function ToolCardView({ tool }: { tool: ToolRecord }) {
 
 export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
   const [filters, setFilters] = useState<Filters>(EMPTY);
+  const [fineOpen, setFineOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setFilters(parseUrl());
+    const initial = parseUrl();
+    setFilters(initial);
+    // Landing from a category tile with fine filters in the URL opens layer 2.
+    if (initial.pricing.length || initial.verdicts.length || initial.momenta.length) {
+      setFineOpen(true);
+    }
     const onKey = (e: KeyboardEvent) => {
       const el = document.activeElement;
       const typing =
@@ -194,6 +242,12 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
     writeUrl(next);
   };
 
+  const categoryCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const t of tools) counts.set(t.category, (counts.get(t.category) ?? 0) + 1);
+    return counts;
+  }, [tools]);
+
   const results = useMemo(() => {
     const q = filters.q.trim().toLowerCase();
     return tools.filter((t) => {
@@ -209,95 +263,155 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
     });
   }, [tools, filters]);
 
-  const divider = <span class="mx-2 h-4 w-px bg-line-soft" aria-hidden="true" />;
+  const fineActiveCount =
+    filters.pricing.length +
+    filters.verdicts.length +
+    filters.momenta.length +
+    (filters.free_tier ? 1 : 0) +
+    (filters.open_source ? 1 : 0) +
+    (filters.api ? 1 : 0);
 
   return (
     <section>
-      <div class="nm-card p-5">
+      {/* ------------------------------------------------ layer 1: the big decisions */}
+      <div class="nm-card p-5 md:p-6">
         <input
           ref={searchRef}
           type="search"
           value={filters.q}
           onInput={(e) => update({ ...filters, q: (e.target as HTMLInputElement).value })}
-          placeholder="Search the catalog…"
-          class="w-full rounded-md border-[1.5px] border-ink bg-paper px-3 py-2 font-mono text-sm text-ink placeholder:text-ink-dim focus:border-accent focus:outline-none"
+          placeholder="Search the catalog…  ( / )"
+          class="w-full rounded-md border-[1.5px] border-ink bg-paper px-4 py-3 font-mono text-base text-ink placeholder:text-ink-dim focus:border-accent focus:outline-none"
         />
-        <div class="mt-4 space-y-3">
-          <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-24 shrink-0 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
-              sector
-            </span>
-            {CATEGORIES.map((c) => (
-              <Chip
+
+        <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+          {CATEGORIES.map((c) => {
+            const active = filters.categories.includes(c);
+            return (
+              <button
                 key={c}
-                active={filters.categories.includes(c)}
+                type="button"
+                aria-pressed={active}
                 onClick={() => update({ ...filters, categories: toggle(filters.categories, c) })}
+                class={`cursor-pointer rounded-md border-[1.5px] px-4 py-3 text-left transition-all duration-100 ${
+                  active
+                    ? 'border-accent bg-accent text-on-accent'
+                    : 'border-ink bg-paper text-ink hover:-translate-0.5 hover:border-accent hover:shadow-hard-sm'
+                }`}
               >
-                {c}
-              </Chip>
-            ))}
-          </div>
-          <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-24 shrink-0 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
-              pricing
-            </span>
-            {PRICING.map((p) => (
-              <Chip
-                key={p}
-                active={filters.pricing.includes(p)}
-                onClick={() => update({ ...filters, pricing: toggle(filters.pricing, p) })}
-              >
-                {p}
-              </Chip>
-            ))}
-            {divider}
-            <Chip
-              active={filters.free_tier}
-              onClick={() => update({ ...filters, free_tier: !filters.free_tier })}
-            >
-              free tier
-            </Chip>
-            <Chip
-              active={filters.open_source}
-              onClick={() => update({ ...filters, open_source: !filters.open_source })}
-            >
-              open source
-            </Chip>
-            <Chip
-              active={filters.api}
-              onClick={() => update({ ...filters, api: !filters.api })}
-            >
-              api
-            </Chip>
-          </div>
-          <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-24 shrink-0 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
-              verdict
-            </span>
-            {VERDICTS.map((v) => (
-              <Chip
-                key={v}
-                active={filters.verdicts.includes(v)}
-                onClick={() => update({ ...filters, verdicts: toggle(filters.verdicts, v) })}
-              >
-                {v}
-              </Chip>
-            ))}
-            {divider}
-            {MOMENTA.map((m) => (
-              <Chip
-                key={m}
-                active={filters.momenta.includes(m)}
-                onClick={() => update({ ...filters, momenta: toggle(filters.momenta, m) })}
-              >
-                {m}
-              </Chip>
-            ))}
-          </div>
+                <span class="block font-display text-base font-extrabold tracking-tight uppercase">
+                  {c}
+                </span>
+                <span
+                  class={`nm-num mt-0.5 block text-[13px] ${active ? 'text-on-accent opacity-75' : 'text-ink-dim'}`}
+                >
+                  {categoryCounts.get(c) ?? 0} tools
+                </span>
+              </button>
+            );
+          })}
         </div>
+
+        <div class="mt-4 flex flex-wrap items-center gap-2">
+          <span class="mr-1 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
+            presets
+          </span>
+          {PRESETS.map((p) => (
+            <Chip
+              key={p.key}
+              active={presetActive(filters, p.apply)}
+              onClick={() => {
+                const on = presetActive(filters, p.apply);
+                const next = { ...filters };
+                for (const [k, v] of Object.entries(p.apply)) {
+                  const key = k as keyof Filters;
+                  if (Array.isArray(v)) {
+                    next[key] = (on
+                      ? (next[key] as unknown[]).filter((x) => !v.includes(x as never))
+                      : [...new Set([...(next[key] as unknown[]), ...v])]) as never;
+                  } else {
+                    next[key] = (on ? false : v) as never;
+                  }
+                }
+                update(next);
+                if (!on) setFineOpen(true);
+              }}
+            >
+              {p.label}
+            </Chip>
+          ))}
+          <button
+            type="button"
+            onClick={() => setFineOpen(!fineOpen)}
+            aria-expanded={fineOpen}
+            class="ml-auto cursor-pointer font-mono text-sm font-medium text-accent hover:underline"
+          >
+            {fineOpen ? 'hide fine tune ↑' : `fine tune ↓${fineActiveCount ? ` (${fineActiveCount} on)` : ''}`}
+          </button>
+        </div>
+
+        {/* -------------------------------------------- layer 2: fine tune */}
+        {fineOpen && (
+          <div class="nm-step mt-5 space-y-4 border-t-[1.5px] border-line-soft pt-5">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="w-24 shrink-0 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
+                pricing
+              </span>
+              {PRICING.map((p) => (
+                <Chip
+                  key={p}
+                  active={filters.pricing.includes(p)}
+                  onClick={() => update({ ...filters, pricing: toggle(filters.pricing, p) })}
+                >
+                  {p}
+                </Chip>
+              ))}
+              <span class="mx-1 h-5 w-px bg-line-soft" aria-hidden="true" />
+              <Chip
+                active={filters.free_tier}
+                onClick={() => update({ ...filters, free_tier: !filters.free_tier })}
+              >
+                free tier
+              </Chip>
+              <Chip
+                active={filters.open_source}
+                onClick={() => update({ ...filters, open_source: !filters.open_source })}
+              >
+                open source
+              </Chip>
+              <Chip active={filters.api} onClick={() => update({ ...filters, api: !filters.api })}>
+                api
+              </Chip>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="w-24 shrink-0 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
+                verdict
+              </span>
+              {VERDICTS.map((v) => (
+                <Chip
+                  key={v}
+                  active={filters.verdicts.includes(v)}
+                  onClick={() => update({ ...filters, verdicts: toggle(filters.verdicts, v) })}
+                >
+                  {v}
+                </Chip>
+              ))}
+              <span class="mx-1 h-5 w-px bg-line-soft" aria-hidden="true" />
+              {MOMENTA.map((m) => (
+                <Chip
+                  key={m}
+                  active={filters.momenta.includes(m)}
+                  onClick={() => update({ ...filters, momenta: toggle(filters.momenta, m) })}
+                >
+                  {m}
+                </Chip>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
-      <p class="nm-num mt-6 text-xs text-ink-dim" aria-live="polite">
+      <p class="nm-num mt-6 text-sm text-ink-dim" aria-live="polite">
         {results.length} / {tools.length} entries
       </p>
 
@@ -306,7 +420,7 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
           <p class="font-display text-3xl font-extrabold tracking-tight uppercase">
             Nothing on this shelf.
           </p>
-          <p class="mt-3 text-sm text-ink-dim">
+          <p class="mt-3 text-[15px] text-ink-dim">
             The catalog is empty under these filters — widen the search.
           </p>
           <button

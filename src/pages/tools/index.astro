@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import KbdHint from '../../components/KbdHint.astro';
 import FilterBar, { type ToolRecord } from '../../islands/FilterBar';
+import { logoSrc } from '../../lib/logos';
 
 const tools = await getCollection('tools');
 const data: ToolRecord[] = tools
@@ -21,6 +22,7 @@ const data: ToolRecord[] = tools
     momentum: t.data.momentum,
     featured: t.data.featured,
     last_verified: t.data.last_verified,
+    logo: logoSrc(t.id),
   }))
   .sort((a, b) => a.name.localeCompare(b.name));
 

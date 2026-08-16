@@ -97,6 +97,10 @@ Signature patterns (CSS lives in `src/styles/theme.css`):
   detail pages carry a superscript reference.
 - `SectionHeader` — mono kicker + Archivo 900 uppercase title with offset
   shadow.
+- Tool logos — committed PNGs in `public/logos/` (`scripts/fetch-logos.mjs`),
+  shown in an ink-bordered tile on cards, the homepage floor table, stack
+  component lists and tool detail pages. Missing logos fall back to a
+  letter tile (Archivo 900 first letter, accent, on paper).
 - `KbdHint` — keyboard shortcut hint (`⌘K` etc.), mono, ink border.
 - `CommandPalette` — global search/navigation overlay.
 - Theme toggle — sun/moon button in the header; icons swap via

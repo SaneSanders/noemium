@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import { logoSrc } from '../../lib/logos';
 
 export const getStaticPaths = (async () => {
   const stacks = await getCollection('stacks');
@@ -85,8 +86,25 @@ const hostname = (url: string) => {
       <ul class="nm-card mt-4 divide-y-[1.5px] divide-line-soft">
         {
           stackTools.map((t) => (
-            <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 p-4">
-              <a href={`/tools/${t.id}`} class="font-display text-lg font-extrabold tracking-tight hover:text-accent">
+            <li class="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 p-4">
+              <a href={`/tools/${t.id}`} class="flex items-center gap-3 font-display text-lg font-extrabold tracking-tight hover:text-accent">
+                {logoSrc(t.id) ? (
+                  <img
+                    src={logoSrc(t.id)!}
+                    alt=""
+                    width="28"
+                    height="28"
+                    loading="lazy"
+                    class="h-7 w-7 shrink-0 rounded-sm border-[1.5px] border-ink bg-card object-contain p-0.5"
+                  />
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    class="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border-[1.5px] border-ink bg-paper font-display text-base font-black text-accent"
+                  >
+                    {t.data.name.charAt(0)}
+                  </span>
+                )}
                 {t.data.name}
               </a>
               <span class="nm-num text-[13px] text-ink-dim">

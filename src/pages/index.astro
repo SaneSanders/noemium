@@ -2,15 +2,53 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ToolCard from '../components/ToolCard.astro';
+import HomeFloor from '../islands/HomeFloor';
+import { logoSrc } from '../lib/logos';
+import type { ToolRecord } from '../islands/FilterBar';
 import changelog from '../data/changelog.json';
 
-const latestWeek = (changelog.weeks as { id: string; counts: { added: number; removed: number; changed: number } }[])[0];
+type Week = {
+  id: string;
+  counts: { added: number; removed: number; changed: number };
+  added: { slug: string; name: string; collection: string }[];
+  removed: { slug: string; name: string; collection: string }[];
+  changed: { slug: string; name: string; collection: string; field: string }[];
+};
+const latestWeek = (changelog.weeks as Week[])[0];
+
 const tools = await getCollection('tools');
 const stacks = await getCollection('stacks');
 const models = await getCollection('models');
+const dead = await getCollection('graveyard');
 
-// Category hub — the first thing a visitor acts on. Links pre-filter the
-// catalog via the `cat` query param that FilterBar understands.
+const floorData: ToolRecord[] = tools.map((t) => ({
+  slug: t.id,
+  name: t.data.name,
+  tagline: t.data.tagline,
+  category: t.data.category,
+  pricing: t.data.pricing,
+  price_note: t.data.price_note,
+  free_tier: t.data.free_tier,
+  open_source: t.data.open_source,
+  api: t.data.api,
+  verdict: t.data.verdict,
+  momentum: t.data.momentum,
+  featured: t.data.featured,
+  last_verified: t.data.last_verified,
+  logo: logoSrc(t.id),
+}));
+
+// Under the radar — computed, not editorial: tools gaining momentum that
+// were never featured. The discovery shelf; zero famous names by construction.
+const underTheRadar = tools
+  .filter((t) => t.data.momentum === 'blueshift' && !t.data.featured)
+  .sort(
+    (a, b) =>
+      b.data.last_verified.localeCompare(a.data.last_verified) ||
+      a.data.name.localeCompare(b.data.name),
+  )
+  .slice(0, 6);
+
 const CATEGORY_META: { slug: string; blurb: string }[] = [
   { slug: 'coding', blurb: 'Code assistants, IDEs, coding agents' },
   { slug: 'design', blurb: 'UI kits, galleries, design-to-code' },
@@ -30,20 +68,6 @@ const categories = CATEGORY_META.map((c) => ({
   count: tools.filter((t) => t.data.category === c.slug).length,
 })).filter((c) => c.count > 0);
 
-// Featured shelf — featured flag first, most recently verified wins; backfill
-// with the freshest entries so the shelf is always full. Deterministic.
-const byFreshness = (
-  a: (typeof tools)[number],
-  b: (typeof tools)[number],
-) =>
-  b.data.last_verified.localeCompare(a.data.last_verified) ||
-  a.data.name.localeCompare(b.data.name);
-const featured = tools.filter((t) => t.data.featured).sort(byFreshness);
-const shelf = [
-  ...featured,
-  ...tools.filter((t) => !t.data.featured).sort(byFreshness),
-].slice(0, 6);
-
 const stackPreview = [...stacks]
   .sort((a, b) => a.data.title.localeCompare(b.data.title))
   .slice(0, 3);
@@ -61,90 +85,130 @@ const stats = [
   { value: stacks.length, label: 'stacks' },
   { value: 0, label: 'paid placements' },
 ];
+
+const weekLink = (e: { collection: string; slug: string }) =>
+  e.collection === 'tools' ? `/tools/${e.slug}` : e.collection === 'stacks' ? `/stacks/${e.slug}` : undefined;
 ---
 
 <Base title="Pick AI tools without getting played">
-  {/* ---------------------------------------------------------------- HERO */}
-  <section class="py-14 md:py-20">
+  {/* ------------------------------------------------------------- MASTHEAD */}
+  <section class="pt-12 pb-10 md:pt-16 md:pb-12">
     <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
-      The open AI tools catalog
+      The open AI tools catalog · 0 paid placements
     </p>
-    <h1 class="text-shadow-display mt-6 max-w-4xl font-display text-5xl leading-[0.96] font-black tracking-tight uppercase md:text-7xl">
+    <h1 class="text-shadow-display mt-5 max-w-4xl font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-6xl">
       Pick AI tools without getting played.
     </h1>
-    <p class="mt-6 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-80">
-      Honest verdicts, verified prices, receipts for every claim. Open source.
-    </p>
-    <p class="mt-8 flex flex-wrap gap-4">
-      <a href="/tools" class="nm-btn nm-btn-solid">Browse {tools.length} tools</a>
-      <a href="/quiz" class="nm-btn nm-btn-outline">30-sec stack quiz</a>
+    <p class="mt-5 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-80">
+      {tools.length} tools actually run by humans — honest verdicts, verified prices, receipts for
+      every claim. The floor is right below.
     </p>
   </section>
 
-  {/* ------------------------------------------------------ WEEKLY SHIFT STRIP */}
+  {/* ---------------------------------------------------------------- FLOOR */}
+  <section data-reveal class="pb-16 md:pb-20">
+    <HomeFloor client:load tools={floorData} />
+  </section>
+
+  {/* ----------------------------------------------------- WEEKLY SHIFT DIFF */}
   {
     latestWeek && (
-      <a
-        href="/changelog"
-        class="group mb-4 block border-y-[1.5px] border-ink py-4 transition-colors duration-100 hover:bg-card"
-      >
-        <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[13px] tracking-wide text-ink-dim">
-          <span class="font-bold text-ink uppercase">{latestWeek.id}</span>
-          <span>this week:</span>
-          <span>
-            <b class="nm-num font-bold text-verdict-ship">+{latestWeek.counts.added}</b> added
-          </span>
-          <span aria-hidden="true">·</span>
-          <span>
-            <b class="nm-num font-bold text-verdict-skip">−{latestWeek.counts.removed}</b> removed
-          </span>
-          <span aria-hidden="true">·</span>
-          <span>
-            <b class="nm-num font-bold text-accent">~{latestWeek.counts.changed}</b> repriced
-          </span>
-          <span class="ml-auto font-medium text-accent group-hover:underline">full diff →</span>
-        </p>
-      </a>
+      <section data-reveal class="pb-16 md:pb-20">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+            This week's shift
+          </h2>
+          <a href="/changelog" class="font-mono text-sm font-medium text-accent hover:underline">
+            full changelog →
+          </a>
+        </div>
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <div class="nm-card p-6">
+            <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-verdict-ship uppercase">
+              +{latestWeek.counts.added} added
+            </p>
+            <ul class="mt-4 space-y-2">
+              {latestWeek.added.slice(0, 8).map((e) => (
+                <li class="text-[15px] font-semibold">
+                  {weekLink(e) ? <a href={weekLink(e)} class="hover:text-accent">{e.name}</a> : e.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="nm-card p-6">
+            <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-verdict-skip uppercase">
+              −{latestWeek.counts.removed} removed
+            </p>
+            <ul class="mt-4 space-y-2">
+              {latestWeek.removed.slice(0, 8).map((e) => (
+                <li class="text-[15px] font-semibold text-ink-dim line-through">{e.name}</li>
+              ))}
+            </ul>
+            {dead.length > 0 && (
+              <p class="mt-4 border-t-[1.5px] border-line-soft pt-3 font-mono text-[13px] text-ink-dim">
+                <a href="/graveyard" class="hover:text-accent hover:underline">
+                  graveyard: {dead.length} confirmed dead →
+                </a>
+              </p>
+            )}
+          </div>
+          <div class="nm-card p-6">
+            <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-accent uppercase">
+              ~{latestWeek.counts.changed} repriced
+            </p>
+            <ul class="mt-4 space-y-2">
+              {latestWeek.changed.slice(0, 8).map((e) => (
+                <li class="text-[15px]">
+                  {weekLink(e) ? (
+                    <a href={weekLink(e)} class="font-semibold hover:text-accent">{e.name}</a>
+                  ) : (
+                    <span class="font-semibold">{e.name}</span>
+                  )}
+                  <span class="ml-2 font-mono text-xs text-ink-dim uppercase">{e.field}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
     )
   }
 
   {/* --------------------------------------------------------- CATEGORY HUB */}
-  <section data-reveal class="py-16 md:py-20">
+  <section data-reveal class="pb-16 md:pb-20">
     <h2 class="text-shadow-section max-w-3xl font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
       What are you working on?
     </h2>
-    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {
         categories.map((c) => (
-          <a href={`/tools?cat=${c.slug}`} class="nm-card nm-card-hover group flex items-center justify-between gap-4 p-6">
-            <div>
-              <h3 class="font-display text-2xl font-extrabold tracking-tight uppercase group-hover:text-accent">
+          <a href={`/tools?cat=${c.slug}`} class="nm-card nm-card-hover group p-5">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="font-display text-xl font-extrabold tracking-tight uppercase group-hover:text-accent">
                 {c.slug}
               </h3>
-              <p class="mt-1.5 text-[15px] text-ink opacity-65">{c.blurb}</p>
+              <span class="nm-num shrink-0 font-mono text-sm font-bold text-accent">{c.count}</span>
             </div>
-            <span class="nm-num shrink-0 font-mono text-sm font-bold text-accent">
-              {c.count} →
-            </span>
+            <p class="mt-1.5 text-sm text-ink opacity-65">{c.blurb}</p>
           </a>
         ))
       }
     </div>
   </section>
 
-  {/* -------------------------------------------------------- FEATURED SHELF */}
+  {/* -------------------------------------------------------- UNDER THE RADAR */}
   <section data-reveal class="pb-16 md:pb-20">
     <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
       <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
-        Featured right now
+        Under the radar
       </h2>
-      <a href="/tools" class="font-mono text-sm font-medium text-accent hover:underline">
-        all {tools.length} tools →
-      </a>
+      <p class="max-w-md font-mono text-[13px] leading-relaxed text-ink-dim">
+        Gaining momentum, never featured. The shelf with zero famous names — computed, not editorial.
+      </p>
     </div>
     <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {shelf.map((tool) => <ToolCard tool={tool} />)}
+      {underTheRadar.map((tool) => <ToolCard tool={tool} />)}
     </div>
   </section>
 
