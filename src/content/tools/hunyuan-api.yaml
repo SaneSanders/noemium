@@ -1,6 +1,6 @@
 name: Hunyuan API
 tagline: Tencent Cloud API for Hunyuan TurboS, T1 reasoning and multimodal image, video and 3D models.
-url: https://llmcostcalc.com/cloud/hunyuan
+url: https://cloud.tencent.com/product/hunyuan
 category: models-api
 pricing: paid
 price_note: "Hunyuan TurboS ~$0.11/$0.28 per 1M (256K context); T1 ~$0.14/$0.56 (128K); HY3 $0.18/$0.72; HY3-preview $0.063/$0.21 via OpenRouter; Hunyuan 3D from $0.02/image"

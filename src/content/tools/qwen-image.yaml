@@ -1,6 +1,6 @@
 name: Qwen-Image
 tagline: Alibaba Cloud text-to-image and image-editing models, including Qwen-Image 2.0 and Plus/Max variants.
-url: https://gate.ai/blog/qwen-image-2-0-qwen-specs-pricing-api-use-cases
+url: https://github.com/QwenLM/Qwen-Image
 category: image
 pricing: paid
 price_note: "Qwen-Image 2.0 ~$0.029/image, Image Plus ~$0.0287/image, Image Edit Max similar per-image rate"

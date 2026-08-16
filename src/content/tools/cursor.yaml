@@ -23,7 +23,7 @@ limitations:
   - Closed source; no way to self-host or audit data handling.
   - Occasional context-window degradation on very large repos.
 receipts:
-  - https://github.com/SaneSanders
+  - https://cursor.com
 affiliate: none
 momentum: blueshift
 featured: true

@@ -1,6 +1,6 @@
 name: Trae
 tagline: ByteDance's AI-native IDE with inline completion, chat and autonomous SOLO agent mode.
-url: https://aipedia.wiki/tools/trae/
+url: https://www.trae.ai
 category: coding
 pricing: freemium
 price_note: "Free plan with monthly AI allowance; paid tiers Lite $3/mo, Pro $10/mo, Pro+ $30/mo, Ultra $100/mo (token-based); pricing changed 2026-02-18"
@@ -21,6 +21,7 @@ limitations:
   - Closed source; no BYOK or standalone API.
   - Western documentation and support are thinner than Cursor/Windsurf.
 receipts:
+  - https://www.trae.ai
   - https://aipedia.wiki/tools/trae/
   - https://aiagentsquare.com/agents/trae
   - https://netizenschoice.com/trae-ai-review-2026

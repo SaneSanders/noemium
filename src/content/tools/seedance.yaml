@@ -1,6 +1,6 @@
 name: Seedance
 tagline: ByteDance text/image-to-video model family served via Volcano Engine and third-party APIs.
-url: https://dynalord.com/blog/seedance-pricing
+url: https://www.byteplus.com/en/product/Seedance
 category: video
 pricing: paid
 price_note: "Seedance 2.0 ~$0.04–$0.056/s via third-party providers (5s 720p ≈ $0.05); Seedance 2.5 from $0.90/5s at 480p on some providers; no consumer subscription"

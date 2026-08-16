@@ -1,6 +1,6 @@
 name: Qwen Code
 tagline: Open-source terminal coding agent from Alibaba, forked from Gemini CLI.
-url: https://aiidelist.com/ide/qwen-code
+url: https://github.com/QwenLM/qwen-code
 category: coding
 pricing: freemium
 price_note: "CLI is free/open source; hosted free tier restricted to ~100 requests/day as of April 2026; Coding Plan Pro ~$50/month (~90K requests/month); BYOK available"
@@ -20,6 +20,7 @@ limitations:
   - Configuration surface is larger than single-vendor tools.
   - Strongest when paired with Qwen models; other providers are supported but less optimized.
 receipts:
+  - https://github.com/QwenLM/qwen-code
   - https://aicoolies.com/reviews/qwen-code-review
   - https://aiidelist.com/ide/qwen-code
   - https://inventivehq.com/blog/qwen-code-still-free-2026-shutdown

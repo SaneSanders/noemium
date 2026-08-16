@@ -1,6 +1,6 @@
 name: Hunyuan Video
 tagline: Open-weights text/image-to-video generation model from Tencent.
-url: https://vuela.ai/models/hunyuan-video/review
+url: https://github.com/Tencent-Hunyuan/HunyuanVideo
 category: video
 pricing: paid
 price_note: "Open weights, self-host infrastructure cost only; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud; hosted API pricing not directly fetched"

@@ -1,6 +1,6 @@
 name: Qwen API
 tagline: Alibaba Cloud Model Studio API for text, code, image, audio, video and omni models with OpenAI compatibility.
-url: https://www.alibabacloud.com/help/en/model-studio/model-pricing
+url: https://qwen.ai
 category: models-api
 pricing: paid
 price_note: "Qwen3.7 Max ~$1.48/$4.43 per 1M, Qwen3.6 Flash $0.19/$1.13 per 1M, Qwen-Image 2.0 ~$0.04/image; Token Plan and Coding Plan subscriptions available"

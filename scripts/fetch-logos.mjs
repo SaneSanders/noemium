@@ -22,6 +22,7 @@ const domainOf = (url) => {
 
 const SOURCES = [
   (d) => `https://www.google.com/s2/favicons?domain=${d}&sz=128`,
+  (d) => `https://logo.clearbit.com/${d}`,
   (d) => `https://icons.duckduckgo.com/ip3/${d}.ico`,
   (d) => `https://${d}/favicon.ico`,
   (d) => `https://${d}/apple-touch-icon.png`,

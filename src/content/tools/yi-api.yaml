@@ -1,6 +1,6 @@
 name: 01.AI Yi API
 tagline: API and open-weights for bilingual Chinese-English Yi LLMs.
-url: https://cloudprice.net/models/01-ai-yi-large
+url: https://platform.lingyiwanwu.com
 category: models-api
 pricing: paid
 price_note: "Yi-Large $3.00/M input and output, 33K context; Yi-Lightning successor pricing not precisely fetched; enterprise managed cloud from ~$199/month"

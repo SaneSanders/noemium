@@ -1,6 +1,6 @@
 name: GLM Coding Plan
 tagline: Flat-rate monthly subscription for coding-optimized GLM models via an Anthropic-compatible API.
-url: https://www.aipricing.guru/z-ai-subscription-pricing/
+url: https://z.ai/subscribe
 category: coding
 pricing: paid
 price_note: "Lite ~$18/mo, Pro ~$72/mo, Max ~$160/mo (annual billing $151.20/$604.80/$1,344/year); rate/allowance caps apply"
@@ -22,6 +22,7 @@ limitations:
   - Ecosystem smaller than Cursor/GitHub Copilot.
   - Requires an existing agent tool to be useful; not a standalone IDE.
 receipts:
+  - https://z.ai/subscribe
   - https://www.aipricing.guru/z-ai-subscription-pricing/
   - https://blogs.truescho.com/en/glm-coding-plan-zai/
   - https://bota.chat/z-ai/glm-coding-plan/

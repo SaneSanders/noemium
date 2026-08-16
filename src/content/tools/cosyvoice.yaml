@@ -1,6 +1,6 @@
 name: CosyVoice
 tagline: Text-to-speech and voice-cloning model family from Alibaba Cloud.
-url: https://www.alibabacloud.com/help/en/model-studio/voice-design-user-guide
+url: https://github.com/FunAudioLLM/CosyVoice
 category: audio
 pricing: paid
 price_note: "CosyVoice 2 from ~$0.287/M input tokens; voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"

@@ -1,6 +1,6 @@
 name: Baidu ERNIE API
 tagline: Enterprise AI platform with ERNIE LLMs, image models, and OpenAI-compatible v2 API.
-url: https://www.eggstriker.com/en/ai-api/baiduqianfan
+url: https://cloud.baidu.com/product/wenxinworkshop
 category: models-api
 pricing: paid
 price_note: "ERNIE 4.5 Turbo 32K ~$0.11/$0.44 per 1M; ERNIE Lite Pro 128K ~$0.028/$0.056; ERNIE Speed Pro 128K ~$0.042/$0.083; ERNIE 5.1 flagship pricing not fetched"
