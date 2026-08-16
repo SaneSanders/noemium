@@ -1,0 +1,29 @@
+name: Voila
+tagline: Cross-platform AI assistant — chat, writing and automation from any tab or app.
+url: https://www.getvoila.ai
+category: productivity
+pricing: freemium
+price_note: free tier; Premium $10/mo ($8 yearly, 3k requests/mo); Ultimate $20/mo ($16 yearly, unlimited)
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A friendly-priced assistant that genuinely runs everywhere — browser, desktop
+  and mobile. Premium at $8/mo billed yearly is one of the cheaper honest
+  entry points in this category. The catch is tier gating: Premium locks you
+  to the Auto model with a request cap, and model choice only arrives with
+  Ultimate. Solid as one convenient assistant; power users will hit the
+  ceiling.
+limitations:
+  - Premium is limited to the Auto model — no model choice on that tier.
+  - Premium caps at 3,000 requests per month.
+receipts:
+  - https://www.getvoila.ai/pricing
+affiliate: declared
+affiliate_url: https://www.getvoila.ai/?via=noemium
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

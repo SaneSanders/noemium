@@ -27,6 +27,7 @@ export const toolCategories = [
   'audio',
   'writing',
   'agents',
+  'automation',
   'data',
   'productivity',
   'dev-infra',

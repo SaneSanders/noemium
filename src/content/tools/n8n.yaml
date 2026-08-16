@@ -1,7 +1,7 @@
 name: n8n
 tagline: Source-available workflow automation with strong AI agent nodes.
 url: https://n8n.io
-category: agents
+category: automation
 pricing: freemium
 price_note: "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
 free_tier: true

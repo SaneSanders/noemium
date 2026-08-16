@@ -26,6 +26,7 @@ const CATEGORIES = [
   'audio',
   'writing',
   'agents',
+  'automation',
   'data',
   'productivity',
   'dev-infra',

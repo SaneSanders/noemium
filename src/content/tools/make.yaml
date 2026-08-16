@@ -1,0 +1,29 @@
+name: Make
+tagline: Visual automation platform — connect 2,000+ apps without writing code.
+url: https://www.make.com
+category: automation
+pricing: freemium
+price_note: free 1,000 credits/mo (2 active scenarios, 15-min intervals); Core $12/mo billed yearly for 10k credits
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The most polished visual automation platform around — 2,000+ integrations
+  and a scenario editor non-technical people actually ship with. The move from
+  operations to credits made monthly costs harder to predict, and busy flows
+  get expensive at volume. If you don't need self-hosting or agent nodes, this
+  is still the default pick.
+limitations:
+  - Credits expire at the end of each month — unused quota doesn't roll over.
+  - No self-hosting; your automations live on Make's cloud.
+  - Credit pricing adds up quickly once flows run at volume.
+receipts:
+  - https://www.make.com/en/pricing
+affiliate: declared
+affiliate_url: https://www.make.com/en/register?pc=noemium
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders
