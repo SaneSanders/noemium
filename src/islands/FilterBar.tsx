@@ -4,7 +4,6 @@ import { FlagBadge, MomentumArrow, VerdictStamp } from './ui';
 
 export interface ToolRecord {
   slug: string;
-  no: number;
   name: string;
   tagline: string;
   category: string;
@@ -107,10 +106,10 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
+      class={`cursor-pointer rounded-md border-[1.5px] px-3 py-1.5 font-mono text-[13px] font-medium transition-all duration-100 ${
         active
-          ? 'border-accent bg-accent text-card'
-          : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
+          ? 'border-accent bg-accent text-on-accent'
+          : 'border-ink bg-paper text-ink hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm'
       }`}
     >
       {children}
@@ -129,23 +128,20 @@ function ToolCardView({ tool }: { tool: ToolRecord }) {
       class="nm-card nm-card-hover group flex flex-col p-6"
     >
       <div class="flex items-start justify-between gap-3">
-        <span class="font-mono text-[11px] font-medium tracking-[0.12em] text-ink-dim">
-          № {String(tool.no).padStart(3, '0')}
+        <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink-dim uppercase">
+          {tool.category}
         </span>
         <VerdictStamp verdict={tool.verdict} />
       </div>
       <h3 class="mt-4 font-display text-2xl font-extrabold tracking-tight text-ink group-hover:text-accent">
         {tool.name}
         {tool.featured && (
-          <span class="ml-2 align-middle font-mono text-[10px] font-medium tracking-[0.14em] text-accent uppercase">
+          <span class="ml-2 align-middle font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">
             featured
           </span>
         )}
       </h3>
-      <p class="mt-1 font-mono text-[11px] tracking-[0.08em] text-ink-dim uppercase">
-        {tool.category}
-      </p>
-      <p class="mt-3 flex-1 text-sm leading-relaxed text-ink opacity-80">{tool.tagline}</p>
+      <p class="mt-3 flex-1 text-[15px] leading-relaxed text-ink opacity-80">{tool.tagline}</p>
       {flags.length > 0 && (
         <p class="mt-4 flex flex-wrap gap-1.5">
           {flags.map((flag) => (
@@ -154,7 +150,7 @@ function ToolCardView({ tool }: { tool: ToolRecord }) {
         </p>
       )}
       <div class="mt-5 border-t-[1.5px] border-line-soft pt-4">
-        <p class="nm-num text-sm font-bold text-accent">
+        <p class="nm-num text-[15px] font-bold text-accent">
           {tool.pricing}
           {tool.price_note && (
             <span class="block pt-1 text-[13px] font-normal text-ink opacity-60">
@@ -227,7 +223,7 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
         />
         <div class="mt-4 space-y-3">
           <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-20 shrink-0 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
+            <span class="w-24 shrink-0 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
               sector
             </span>
             {CATEGORIES.map((c) => (
@@ -241,7 +237,7 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
             ))}
           </div>
           <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-20 shrink-0 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
+            <span class="w-24 shrink-0 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
               pricing
             </span>
             {PRICING.map((p) => (
@@ -274,7 +270,7 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
             </Chip>
           </div>
           <div class="flex flex-wrap items-center gap-1.5">
-            <span class="w-20 shrink-0 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
+            <span class="w-24 shrink-0 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
               verdict
             </span>
             {VERDICTS.map((v) => (

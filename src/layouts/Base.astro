@@ -42,6 +42,17 @@ const navItems = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Dark-first theming: :root is dark, `data-theme="light"` opts into the
+      // light theme. Runs before paint to avoid a flash of the wrong theme.
+      if (localStorage.getItem('nm-theme') === 'light') {
+        document.documentElement.dataset.theme = 'light';
+      }
+      document.addEventListener('astro:before-swap', (e) => {
+        const t = document.documentElement.dataset.theme;
+        if (t) e.newDocument.documentElement.dataset.theme = t;
+      });
+    </script>
     <meta name="generator" content={Astro.generator} />
     <title>{title} — Noemium</title>
     <meta name="description" content={description} />
@@ -77,6 +88,41 @@ const navItems = [
           }
         </nav>
         <div class="flex items-center gap-3">
+          <button
+            id="nm-theme-toggle"
+            type="button"
+            aria-label="Toggle light theme"
+            class="rounded-md border-[1.5px] border-ink bg-card p-2 text-ink shadow-hard-sm transition-all duration-100 hover:-translate-0.5 hover:shadow-hard"
+          >
+            <svg
+              class="nm-icon-sun"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="8" cy="8" r="3.5" />
+              <path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M12.6 3.4l-1 1M4.4 11.6l-1 1" />
+            </svg>
+            <svg
+              class="nm-icon-moon"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M13.5 9.5A6 6 0 0 1 6.5 2.5a6 6 0 1 0 7 7Z" />
+            </svg>
+          </button>
           <button
             type="button"
             onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
@@ -143,9 +189,8 @@ const navItems = [
       </div>
       <nav class="flex flex-1 flex-col justify-center px-6">
         {
-          navItems.map((item, i) => (
+          navItems.map((item) => (
             <a href={item.href} class="group flex items-baseline gap-4 border-b border-line-soft py-4 last:border-b-0">
-              <span class="nm-num text-xs text-accent">{String(i + 1).padStart(2, '0')}</span>
               <span class="font-display text-4xl font-extrabold tracking-tight text-ink uppercase transition-colors group-hover:text-accent">
                 {item.name}
               </span>
@@ -195,7 +240,13 @@ const navItems = [
       document.addEventListener('click', (e) => {
         const t = e.target;
         if (!(t instanceof Element)) return;
-        if (t.closest('#nm-nav-open')) setMobileNav(true);
+        if (t.closest('#nm-theme-toggle')) {
+          const root = document.documentElement;
+          const light = root.dataset.theme === 'light';
+          if (light) delete root.dataset.theme;
+          else root.dataset.theme = 'light';
+          localStorage.setItem('nm-theme', light ? 'dark' : 'light');
+        } else if (t.closest('#nm-nav-open')) setMobileNav(true);
         else if (t.closest('#nm-nav-close') || t.closest('#nm-mobile-nav a')) setMobileNav(false);
       });
       document.addEventListener('keydown', (e) => {

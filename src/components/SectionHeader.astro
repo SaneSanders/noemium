@@ -1,17 +1,16 @@
 ---
 interface Props {
-  index: string;
   title: string;
   sub?: string;
 }
 
-const { index, title, sub } = Astro.props;
+const { title, sub } = Astro.props;
 ---
 
 <header class="py-14 md:py-20">
   <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
     <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
-    {index} / {title}
+    {title}
   </p>
   <h1 class="text-shadow-section mt-6 font-display text-5xl leading-[0.98] font-black tracking-tight uppercase md:text-7xl">
     <slot>{title}</slot>

@@ -192,9 +192,10 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
                         type="button"
                         onClick={() => remove(t.slug)}
                         aria-label={`Remove ${t.name}`}
-                        class="font-mono text-xs text-ink-dim transition-colors duration-100 hover:text-verdict-skip"
+                        title={`Remove ${t.name}`}
+                        class="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-md border-[1.5px] border-ink font-mono text-lg font-bold text-ink transition-all duration-100 hover:-translate-0.5 hover:border-verdict-skip hover:text-verdict-skip hover:shadow-hard-sm"
                       >
-                        [x]
+                        <span aria-hidden="true">×</span>
                       </button>
                     </div>
                     <p class="mt-1 font-mono text-xs text-ink-dim">{t.category}</p>

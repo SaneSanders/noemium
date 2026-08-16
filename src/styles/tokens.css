@@ -1,29 +1,38 @@
 /* Noemium "Bold Grid" design tokens.
    ALL color values live here and only here. Components and pages must
-   reference tokens, never raw hex. See DESIGN.md for usage rules. */
+   reference tokens, never raw hex. See DESIGN.md for usage rules.
+
+   The site is dark-first: :root holds the dark theme. The light theme is
+   an override activated by `data-theme="light"` on <html> (persisted in
+   localStorage by the theme toggle in Base.astro). */
 
 :root {
+  color-scheme: dark;
+
   /* Surfaces */
-  --nm-bg-paper: #F4F4F0; /* page background */
-  --nm-bg-card: #FFFFFF; /* cards, panels, header/footer chrome */
-  --nm-line-soft: color-mix(in srgb, var(--nm-ink) 12%, transparent); /* hairlines inside cards */
+  --nm-bg-paper: #111114; /* page background */
+  --nm-bg-card: #1B1B21; /* cards, panels, header/footer chrome */
+  --nm-line-soft: color-mix(in srgb, var(--nm-ink) 14%, transparent); /* hairlines inside cards */
 
   /* Text */
-  --nm-ink: #111111;
-  --nm-ink-dim: #6B6B63;
+  --nm-ink: #F2F2EC;
+  --nm-ink-dim: #9C9C94;
 
   /* Accent — electric. The only interactive accent. */
-  --nm-accent: #3B5BFF;
+  --nm-accent: #5B74FF;
+
+  /* Text/icons sitting on accent or verdict fills (both themes). */
+  --nm-on-accent: #FFFFFF;
 
   /* Momentum axis */
-  --nm-shift-near: #3B5BFF; /* blueshift — gaining (shared with accent) */
-  --nm-shift-steady: #6B6B63; /* steady — holding */
-  --nm-shift-far: #C2402F; /* redshift — fading */
+  --nm-shift-near: #5B74FF; /* blueshift — gaining (shared with accent) */
+  --nm-shift-steady: #9C9C94; /* steady — holding */
+  --nm-shift-far: #E0593F; /* redshift — fading */
 
   /* Verdicts */
-  --nm-verdict-ship: #1E7F4F;
-  --nm-verdict-situational: #B07C1F;
-  --nm-verdict-skip: #C2402F;
+  --nm-verdict-ship: #2FA36B;
+  --nm-verdict-situational: #D19A2E;
+  --nm-verdict-skip: #E0593F;
 
   /* Typography */
   --nm-font-display: 'Archivo', system-ui, sans-serif;
@@ -50,4 +59,24 @@
   --nm-space-8: 32px;
   --nm-space-12: 48px;
   --nm-space-16: 64px;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --nm-bg-paper: #F4F4F0;
+  --nm-bg-card: #FFFFFF;
+
+  --nm-ink: #111111;
+  --nm-ink-dim: #6B6B63;
+
+  --nm-accent: #3B5BFF;
+
+  --nm-shift-near: #3B5BFF;
+  --nm-shift-steady: #6B6B63;
+  --nm-shift-far: #C2402F;
+
+  --nm-verdict-ship: #1E7F4F;
+  --nm-verdict-situational: #B07C1F;
+  --nm-verdict-skip: #C2402F;
 }

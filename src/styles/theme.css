@@ -11,6 +11,7 @@
   --color-ink-dim: var(--nm-ink-dim);
 
   --color-accent: var(--nm-accent);
+  --color-on-accent: var(--nm-on-accent);
 
   --color-shift-near: var(--nm-shift-near);
   --color-shift-steady: var(--nm-shift-steady);
@@ -52,7 +53,7 @@
 
   ::selection {
     background-color: var(--nm-accent);
-    color: var(--nm-bg-card);
+    color: var(--nm-on-accent);
   }
 
   :focus-visible {
@@ -64,6 +65,19 @@
   .nm-num {
     font-family: var(--nm-font-mono);
     font-variant-numeric: tabular-nums;
+  }
+
+  /* Theme toggle icons: sun shows in dark (switch to light), moon in light. */
+  .nm-icon-moon {
+    display: none;
+  }
+
+  :root[data-theme='light'] .nm-icon-sun {
+    display: none;
+  }
+
+  :root[data-theme='light'] .nm-icon-moon {
+    display: block;
   }
 }
 
@@ -114,7 +128,7 @@
 
   .nm-btn-solid {
     background-color: var(--nm-accent);
-    color: var(--nm-bg-card);
+    color: var(--nm-on-accent);
     box-shadow: 4px 4px 0 0 var(--nm-ink);
   }
 
@@ -128,14 +142,14 @@
      slight rotation. Semantic: never recolor for non-verdict UI. */
   .nm-sticker {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 7px 13px;
     border-radius: var(--nm-radius-sm);
     font-family: var(--nm-font-display);
     font-weight: 800;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--nm-bg-card);
+    color: var(--nm-on-accent);
     white-space: nowrap;
     transform: rotate(-2deg);
   }
@@ -156,11 +170,11 @@
   /* Ledger "VERIFIED <date>" stamp — mono, framed, slight rotation. */
   .nm-verified {
     display: inline-block;
-    padding: 3px 7px;
+    padding: 4px 8px;
     border: 1.5px solid var(--nm-accent);
     border-radius: var(--nm-radius-sm);
     font-family: var(--nm-font-mono);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;

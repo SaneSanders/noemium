@@ -1,46 +1,55 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import VerdictBadge from '../components/VerdictBadge.astro';
-import { toolNumbers, formatEntryNo } from '../lib/tool-numbers';
+import ToolCard from '../components/ToolCard.astro';
 import changelog from '../data/changelog.json';
 
 const latestWeek = (changelog.weeks as { id: string; counts: { added: number; removed: number; changed: number } }[])[0];
 const tools = await getCollection('tools');
 const stacks = await getCollection('stacks');
 const models = await getCollection('models');
-const numbers = await toolNumbers();
 
-// One live example per verdict — the most recently verified tool of each
-// kind (ties break alphabetically, so the pick is deterministic).
-const byVerdict = (v: 'ship' | 'situational' | 'skip') =>
-  tools
-    .filter((t) => t.data.verdict === v)
-    .sort(
-      (a, b) =>
-        b.data.last_verified.localeCompare(a.data.last_verified) ||
-        a.data.name.localeCompare(b.data.name),
-    )[0];
-const verdictCards = (['ship', 'situational', 'skip'] as const)
-  .map(byVerdict)
-  .filter((t) => t !== undefined);
+// Category hub — the first thing a visitor acts on. Links pre-filter the
+// catalog via the `cat` query param that FilterBar understands.
+const CATEGORY_META: { slug: string; blurb: string }[] = [
+  { slug: 'coding', blurb: 'Code assistants, IDEs, coding agents' },
+  { slug: 'image', blurb: 'Image generation and editing' },
+  { slug: 'video', blurb: 'Video generation and editing' },
+  { slug: 'audio', blurb: 'Voice, speech, music' },
+  { slug: 'writing', blurb: 'Writing and editing assistants' },
+  { slug: 'agents', blurb: 'Autonomous agents and frameworks' },
+  { slug: 'automation', blurb: 'Workflow and no-code automation' },
+  { slug: 'data', blurb: 'Search, RAG, vector databases' },
+  { slug: 'productivity', blurb: 'Notes, email, calendars, focus' },
+  { slug: 'dev-infra', blurb: 'Infra and tooling for AI builders' },
+  { slug: 'models-api', blurb: 'Raw model APIs, pay per token' },
+];
+const categories = CATEGORY_META.map((c) => ({
+  ...c,
+  count: tools.filter((t) => t.data.category === c.slug).length,
+})).filter((c) => c.count > 0);
 
-// Bento previews — all from real content, deterministic ordering.
-const catalogPreview = [...tools]
-  .sort(
-    (a, b) =>
-      b.data.last_verified.localeCompare(a.data.last_verified) ||
-      a.data.name.localeCompare(b.data.name),
-  )
-  .slice(0, 5);
+// Featured shelf — featured flag first, most recently verified wins; backfill
+// with the freshest entries so the shelf is always full. Deterministic.
+const byFreshness = (
+  a: (typeof tools)[number],
+  b: (typeof tools)[number],
+) =>
+  b.data.last_verified.localeCompare(a.data.last_verified) ||
+  a.data.name.localeCompare(b.data.name);
+const featured = tools.filter((t) => t.data.featured).sort(byFreshness);
+const shelf = [
+  ...featured,
+  ...tools.filter((t) => !t.data.featured).sort(byFreshness),
+].slice(0, 6);
+
+const stackPreview = [...stacks]
+  .sort((a, b) => a.data.title.localeCompare(b.data.title))
+  .slice(0, 3);
 
 const modelPreview = models
   .filter((m) => (m.data.price_unit ?? 'mtok') === 'mtok')
   .sort((a, b) => a.data.name.localeCompare(b.data.name))
-  .slice(0, 3);
-
-const stackPreview = [...stacks]
-  .sort((a, b) => a.data.title.localeCompare(b.data.title))
   .slice(0, 3);
 
 const usd = (v: number) => `$${v.toFixed(2)}`;
@@ -55,18 +64,18 @@ const stats = [
 
 <Base title="Pick AI tools without getting played">
   {/* ---------------------------------------------------------------- HERO */}
-  <section class="py-20 md:py-28">
+  <section class="py-14 md:py-20">
     <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
       The open AI tools catalog
     </p>
-    <h1 class="text-shadow-display mt-7 max-w-5xl font-display text-6xl leading-[0.94] font-black tracking-tight uppercase md:text-8xl lg:text-9xl">
+    <h1 class="text-shadow-display mt-6 max-w-4xl font-display text-5xl leading-[0.96] font-black tracking-tight uppercase md:text-7xl">
       Pick AI tools without getting played.
     </h1>
-    <p class="mt-9 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-80">
+    <p class="mt-6 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-80">
       Honest verdicts, verified prices, receipts for every claim. Open source.
     </p>
-    <p class="mt-10 flex flex-wrap gap-4">
+    <p class="mt-8 flex flex-wrap gap-4">
       <a href="/tools" class="nm-btn nm-btn-solid">Browse {tools.length} tools</a>
       <a href="/quiz" class="nm-btn nm-btn-outline">30-sec stack quiz</a>
     </p>
@@ -79,7 +88,7 @@ const stats = [
         href="/changelog"
         class="group mb-4 block border-y-[1.5px] border-ink py-4 transition-colors duration-100 hover:bg-card"
       >
-        <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-xs tracking-wide text-ink-dim">
+        <p class="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[13px] tracking-wide text-ink-dim">
           <span class="font-bold text-ink uppercase">{latestWeek.id}</span>
           <span>this week:</span>
           <span>
@@ -99,96 +108,78 @@ const stats = [
     )
   }
 
-  {/* --------------------------------------------------------- VERDICT CARDS */}
-  <section data-reveal class="pb-20 md:pb-24">
-    <div class="grid gap-6 md:grid-cols-3">
+  {/* --------------------------------------------------------- CATEGORY HUB */}
+  <section data-reveal class="py-16 md:py-20">
+    <h2 class="text-shadow-section max-w-3xl font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+      What are you working on?
+    </h2>
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
-        verdictCards.map((tool) => (
-          <a href={`/tools/${tool.id}`} class="nm-card nm-card-hover group flex flex-col gap-4 p-7">
-            <div class="flex items-start justify-between gap-3">
-              <span class="font-mono text-[11px] font-medium tracking-[0.12em] text-ink-dim">
-                {formatEntryNo(numbers.get(tool.id))}
-              </span>
-              <VerdictBadge verdict={tool.data.verdict} />
-            </div>
+        categories.map((c) => (
+          <a href={`/tools?cat=${c.slug}`} class="nm-card nm-card-hover group flex items-center justify-between gap-4 p-6">
             <div>
-              <h3 class="font-display text-3xl font-extrabold tracking-tight group-hover:text-accent">
-                {tool.data.name}
+              <h3 class="font-display text-2xl font-extrabold tracking-tight uppercase group-hover:text-accent">
+                {c.slug}
               </h3>
-              <p class="mt-1 font-mono text-[11px] tracking-[0.08em] text-ink-dim uppercase">
-                {tool.data.category}
-              </p>
+              <p class="mt-1.5 text-[15px] text-ink opacity-65">{c.blurb}</p>
             </div>
-            <p class="flex-1 text-[15px] leading-relaxed text-ink opacity-80">
-              {tool.data.tagline}
-            </p>
-            <div class="border-t-[1.5px] border-line-soft pt-4">
-              <p class="nm-num text-[15px] font-bold text-accent">
-                {tool.data.pricing}
-                {tool.data.price_note && (
-                  <span class="block pt-1 text-[13px] font-normal text-ink opacity-60">
-                    {tool.data.price_note}
-                  </span>
-                )}
-              </p>
-              <p class="mt-4">
-                <span class="nm-verified">Verified {tool.data.last_verified}</span>
-              </p>
-            </div>
+            <span class="nm-num shrink-0 font-mono text-sm font-bold text-accent">
+              {c.count} →
+            </span>
           </a>
         ))
       }
     </div>
   </section>
 
-  {/* ---------------------------------------------------------------- BENTO */}
-  <section data-reveal class="pb-20 md:pb-24">
-    <h2 class="text-shadow-section mb-12 max-w-3xl font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-6xl">
-      Catalog, prices, stacks — pick yours
-    </h2>
+  {/* -------------------------------------------------------- FEATURED SHELF */}
+  <section data-reveal class="pb-16 md:pb-20">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+      <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+        Featured right now
+      </h2>
+      <a href="/tools" class="font-mono text-sm font-medium text-accent hover:underline">
+        all {tools.length} tools →
+      </a>
+    </div>
+    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {shelf.map((tool) => <ToolCard tool={tool} />)}
+    </div>
+  </section>
 
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-12">
-      {/* Catalog */}
-      <a href="/tools" class="nm-card nm-card-hover p-7 md:col-span-5 md:row-span-2">
-        <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">Catalog</p>
-        <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">{tools.length} tools, zero fluff</h3>
-        <p class="mt-2 text-sm text-ink opacity-65">
-          Every entry reviewed by a human, priced from the actual checkout page.
-        </p>
-        <div class="mt-5">
+  {/* ------------------------------------------------- STACKS / MODELS / MORE */}
+  <section data-reveal class="pb-16 md:pb-20">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {/* Stacks */}
+      <a href="/stacks" class="nm-card nm-card-hover p-7">
+        <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">Stacks</p>
+        <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">Ready-made combos</h3>
+        <p class="mt-2 text-[15px] text-ink opacity-65">Whole recipes with the monthly cost attached.</p>
+        <div class="mt-4">
           {
-            catalogPreview.map((t) => (
-              <p class="flex items-center justify-between gap-3 border-b-[1.5px] border-line-soft py-3 text-sm font-semibold last:border-b-0">
-                <span>
-                  {t.data.name}
-                  <span class="ml-2 font-mono text-[11px] font-normal tracking-wide text-ink-dim">{t.data.category}</span>
+            stackPreview.map((s) => (
+              <p class="border-b-[1.5px] border-line-soft py-3.5 last:border-b-0">
+                <span class="block font-display text-lg font-extrabold tracking-tight">{s.data.title}</span>
+                <span class="mt-1 block text-sm text-ink opacity-60">
+                  {s.data.tools.length} tools · ${s.data.monthly_cost_usd}/mo total
                 </span>
-                <span
-                  class:list={[
-                    'h-2.5 w-2.5 shrink-0 rounded-full',
-                    t.data.verdict === 'ship' && 'bg-verdict-ship',
-                    t.data.verdict === 'situational' && 'bg-verdict-situational',
-                    t.data.verdict === 'skip' && 'bg-verdict-skip',
-                  ]}
-                />
               </p>
             ))
           }
         </div>
-        <p class="mt-4 font-mono text-xs font-medium text-accent">+ {tools.length - catalogPreview.length} more →</p>
       </a>
 
       {/* Model prices */}
-      <a href="/models" class="nm-card nm-card-hover p-7 md:col-span-4">
-        <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">Model prices</p>
+      <a href="/models" class="nm-card nm-card-hover p-7">
+        <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">Model prices</p>
         <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">API costs, live</h3>
-        <p class="mt-2 text-sm text-ink opacity-65">Per million tokens, no marketing math.</p>
-        <table class="nm-num mt-4 w-full border-collapse text-[13px]">
+        <p class="mt-2 text-[15px] text-ink opacity-65">Per million tokens, no marketing math.</p>
+        <table class="nm-num mt-4 w-full border-collapse text-sm">
           {
             modelPreview.map((m) => (
               <tr>
                 <td class="border-b-[1.5px] border-line-soft py-2.5 last:border-b-0">
-                  {m.data.name} <span class="text-[11px] opacity-45">in / out</span>
+                  {m.data.name} <span class="text-xs opacity-45">in / out</span>
                 </td>
                 <td class="nm-num border-b-[1.5px] border-line-soft py-2.5 text-right font-bold whitespace-nowrap text-accent last:border-b-0">
                   {usd(m.data.price_input_per_mtok)} / {usd(m.data.price_output_per_mtok)}
@@ -199,44 +190,26 @@ const stats = [
         </table>
       </a>
 
-      {/* Stacks */}
-      <a href="/stacks" class="nm-card nm-card-hover p-7 md:col-span-3 md:row-span-2">
-        <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">Stacks</p>
-        <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">Ready-made combos</h3>
-        <p class="mt-2 text-sm text-ink opacity-65">Whole recipes with the monthly cost attached.</p>
-        <div class="mt-4">
-          {
-            stackPreview.map((s) => (
-              <p class="border-b-[1.5px] border-line-soft py-3.5 last:border-b-0">
-                <span class="block font-display text-[17px] font-extrabold tracking-tight">{s.data.title}</span>
-                <span class="mt-1 block text-[13px] text-ink opacity-60">
-                  {s.data.tools.length} tools · ${s.data.monthly_cost_usd}/mo total
-                </span>
-              </p>
-            ))
-          }
-        </div>
-      </a>
-
       {/* Quiz */}
-      <a href="/quiz" class="nm-card nm-card-hover flex flex-col justify-between bg-accent p-7 text-card md:col-span-4">
+      <a href="/quiz" class="nm-card nm-card-hover flex flex-col justify-between bg-accent p-7 text-on-accent">
         <div>
-          <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-card uppercase opacity-70">Quiz</p>
-          <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-card">Find your stack in 30 seconds</h3>
+          <p class="font-mono text-[13px] font-medium tracking-[0.14em] uppercase opacity-70">Quiz</p>
+          <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">Find your stack in 30 seconds</h3>
+          <p class="mt-2 text-[15px] opacity-80">Five questions, one recipe with a price tag.</p>
         </div>
-        <p class="mt-5 font-display text-4xl font-extrabold leading-none" aria-hidden="true">→</p>
+        <p class="mt-5 font-display text-4xl leading-none font-extrabold" aria-hidden="true">→</p>
       </a>
 
       {/* Compare */}
-      <a href="/tools/compare?tools=cursor,claude-code" class="nm-card nm-card-hover flex items-center justify-between gap-6 p-7 md:col-span-12">
+      <a href="/tools/compare?tools=cursor,claude-code" class="nm-card nm-card-hover flex flex-col justify-between gap-6 p-7">
         <div>
-          <p class="font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase">Compare</p>
-          <p class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2 font-display text-2xl font-extrabold tracking-tight md:text-3xl">
+          <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">Compare</p>
+          <p class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-display text-2xl font-extrabold tracking-tight md:text-3xl">
             Cursor
             <span class="rounded-md bg-ink px-2.5 py-1 font-mono text-xs font-bold tracking-wider text-card">VS</span>
             Claude Code
-            <span class="font-mono text-xs font-medium tracking-wide text-ink-dim">— or any 2–4 tools, side by side</span>
           </p>
+          <p class="mt-2 text-[15px] text-ink opacity-65">Or any 2–4 tools, side by side.</p>
         </div>
         <span class="shrink-0 font-display text-3xl font-extrabold text-accent" aria-hidden="true">→</span>
       </a>

@@ -167,7 +167,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
             onClick={() => setTask(task === t ? null : t)}
             class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
               task === t
-                ? 'border-accent bg-accent text-card'
+                ? 'border-accent bg-accent text-on-accent'
                 : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
             }`}
           >
@@ -181,7 +181,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
           onClick={() => setOpenOnly(!openOnly)}
           class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
             openOnly
-              ? 'border-accent bg-accent text-card'
+              ? 'border-accent bg-accent text-on-accent'
               : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
           }`}
         >
@@ -201,7 +201,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
             onClick={() => setPresetKey(key)}
             class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
               presetKey === key
-                ? 'border-accent bg-accent text-card'
+                ? 'border-accent bg-accent text-on-accent'
                 : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
             }`}
           >

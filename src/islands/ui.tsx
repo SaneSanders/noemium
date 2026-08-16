@@ -60,7 +60,7 @@ export function MomentumArrow({
 
 export function FlagBadge({ label }: { label: string }) {
   return (
-    <span class="rounded-sm border-[1.5px] border-ink px-1.5 py-0.5 font-mono text-[10px] font-medium tracking-wider text-ink">
+    <span class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-medium tracking-wider text-ink">
       {label}
     </span>
   );
