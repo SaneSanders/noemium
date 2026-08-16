@@ -4,6 +4,7 @@ context_window: 1000000
 price_input_per_mtok: 1.25
 price_output_per_mtok: 4.25
 open_weights: false
+popularity: 65
 best_for:
   - agentic coding at ~4x below frontier price
   - high-volume production workloads

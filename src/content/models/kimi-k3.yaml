@@ -4,6 +4,7 @@ context_window: 1000000
 price_input_per_mtok: 3
 price_output_per_mtok: 15
 open_weights: true
+popularity: 90
 best_for:
   - long-horizon coding
   - deep reasoning (2.8T flagship with open weights)

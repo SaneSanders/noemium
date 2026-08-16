@@ -10,11 +10,12 @@ export interface ModelRecord {
   price_unit: 'mtok' | 'image' | 'video_second' | 'audio_second' | 'character';
   price_amount?: number;
   open_weights: boolean;
+  popularity: number;
   best_for: string[];
 }
 
 type Task = 'coding' | 'writing' | 'vision' | 'audio' | 'video' | 'agents';
-type SortKey = 'name' | 'provider' | 'ctx' | 'in' | 'out' | 'task';
+type SortKey = 'pop' | 'name' | 'provider' | 'ctx' | 'in' | 'out' | 'task';
 type PresetKey = 'pdf' | 'chatbot' | 'agent';
 
 const TASKS: Task[] = ['coding', 'writing', 'vision', 'audio', 'video', 'agents'];
@@ -76,12 +77,37 @@ function unitPrice(m: ModelRecord): string | null {
   return `${formatUsd(m.price_amount)}${UNIT_LABEL[m.price_unit]}`;
 }
 
+function Chip({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      class={`cursor-pointer rounded-md border-[1.5px] px-3 py-1.5 font-mono text-[13px] font-medium transition-all duration-100 ${
+        active
+          ? 'border-accent bg-accent text-on-accent'
+          : 'border-ink bg-paper text-ink hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm'
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
 export default function ModelTable({ models }: { models: ModelRecord[] }) {
   const [task, setTask] = useState<Task | null>(null);
   const [openOnly, setOpenOnly] = useState(false);
   const [presetKey, setPresetKey] = useState<PresetKey>('pdf');
-  const [sortKey, setSortKey] = useState<SortKey>('task');
-  const [sortDir, setSortDir] = useState<1 | -1>(1);
+  const [sortKey, setSortKey] = useState<SortKey>('pop');
+  const [sortDir, setSortDir] = useState<1 | -1>(-1);
 
   const preset = PRESETS[presetKey];
 
@@ -97,6 +123,8 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
 
     const value = (m: ModelRecord): number | string => {
       switch (sortKey) {
+        case 'pop':
+          return m.popularity;
         case 'name':
           return m.name.toLowerCase();
         case 'provider':
@@ -124,7 +152,8 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
         typeof va === 'string' && typeof vb === 'string'
           ? va.localeCompare(vb)
           : Number(va) - Number(vb);
-      return d * sortDir;
+      // popularity is the default tiebreaker so equal prices stay sane
+      return d * sortDir || b.popularity - a.popularity;
     };
     tokenRows.sort(cmp);
     unitRows.sort(cmp);
@@ -133,7 +162,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
 
   const header = (key: SortKey, label: string, className = '') => (
     <th
-      class={`p-0 font-mono text-xs font-normal tracking-widest uppercase ${className}`}
+      class={`p-0 font-mono text-[13px] font-normal tracking-widest uppercase ${className}`}
       aria-sort={sortKey === key ? (sortDir === 1 ? 'ascending' : 'descending') : undefined}
     >
       <button
@@ -145,7 +174,9 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
           if (sortKey === key) setSortDir(sortDir === 1 ? -1 : 1);
           else {
             setSortKey(key);
-            setSortDir(1);
+            // Descending reads naturally for "most" metrics (heat, ctx,
+            // price); ascending for alphabetical columns.
+            setSortDir(key === 'name' || key === 'provider' ? 1 : -1);
           }
         }}
       >
@@ -157,58 +188,31 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
 
   return (
     <section>
-      <div class="flex flex-wrap items-center gap-1.5">
-        <span class="mr-1 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">task</span>
-        {TASKS.map((t) => (
-          <button
-            key={t}
-            type="button"
-            aria-pressed={task === t}
-            onClick={() => setTask(task === t ? null : t)}
-            class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
-              task === t
-                ? 'border-accent bg-accent text-on-accent'
-                : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
-            }`}
-          >
-            {t}
-          </button>
-        ))}
-        <span class="mx-2 h-4 w-px bg-line-soft" aria-hidden="true" />
-        <button
-          type="button"
-          aria-pressed={openOnly}
-          onClick={() => setOpenOnly(!openOnly)}
-          class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
-            openOnly
-              ? 'border-accent bg-accent text-on-accent'
-              : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
-          }`}
-        >
-          open weights only
-        </button>
-      </div>
+      <div class="nm-card space-y-4 p-5">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="mr-2 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">task</span>
+          {TASKS.map((t) => (
+            <Chip key={t} active={task === t} onClick={() => setTask(task === t ? null : t)}>
+              {t}
+            </Chip>
+          ))}
+          <span class="mx-1 h-5 w-px bg-line-soft" aria-hidden="true" />
+          <Chip active={openOnly} onClick={() => setOpenOnly(!openOnly)}>
+            open weights only
+          </Chip>
+        </div>
 
-      <div class="mt-3 flex flex-wrap items-center gap-1.5">
-        <span class="mr-1 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
-          price per task
-        </span>
-        {(Object.keys(PRESETS) as PresetKey[]).map((key) => (
-          <button
-            key={key}
-            type="button"
-            aria-pressed={presetKey === key}
-            onClick={() => setPresetKey(key)}
-            class={`rounded-sm border-[1.5px] px-2 py-1 font-mono text-xs transition-all duration-100 ${
-              presetKey === key
-                ? 'border-accent bg-accent text-on-accent'
-                : 'border-ink text-ink-dim hover:-translate-0.5 hover:text-ink hover:shadow-hard-sm'
-            }`}
-          >
-            {PRESETS[key].label}
-          </button>
-        ))}
-        <span class="nm-num text-xs text-ink-dim">{preset.hint}</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="mr-2 font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
+            price per task
+          </span>
+          {(Object.keys(PRESETS) as PresetKey[]).map((key) => (
+            <Chip key={key} active={presetKey === key} onClick={() => setPresetKey(key)}>
+              {PRESETS[key].label}
+            </Chip>
+          ))}
+          <span class="nm-num text-[13px] text-ink-dim">{preset.hint}</span>
+        </div>
       </div>
 
       <div class="nm-card mt-6 overflow-x-auto">
@@ -217,14 +221,15 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
             <tr class="border-b-[1.5px] border-ink">
               {header('name', 'model', 'sticky left-0 bg-card')}
               {header('provider', 'provider')}
+              {header('pop', 'heat')}
               {header('ctx', 'ctx')}
               {header('in', '$in /1M')}
               {header('out', '$out /1M')}
               {header('task', preset.label)}
-              <th class="p-3 font-mono text-xs font-normal tracking-[0.12em] text-ink-dim uppercase">
+              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 open
               </th>
-              <th class="p-3 font-mono text-xs font-normal tracking-[0.12em] text-ink-dim uppercase">
+              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 best for
               </th>
             </tr>
@@ -241,45 +246,53 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                 >
                   <th
                     scope="row"
-                    class="sticky left-0 bg-card p-3 text-left font-body text-sm font-bold text-ink"
+                    class="sticky left-0 bg-card p-3 text-left font-body text-[15px] font-bold text-ink"
                   >
                     {m.name}
                   </th>
                   <td class="p-3 text-sm text-ink-dim">{m.provider}</td>
-                  <td class="nm-num p-3 text-xs">{formatCtx(m.context_window)}</td>
+                  <td
+                    class={`nm-num p-3 text-[13px] font-bold ${
+                      m.popularity >= 85 ? 'text-accent' : 'text-ink-dim'
+                    }`}
+                  >
+                    {m.popularity}
+                  </td>
+                  <td class="nm-num p-3 text-[13px]">{formatCtx(m.context_window)}</td>
                   {unit ? (
-                    <td class="nm-num p-3 text-xs" colSpan={2}>
+                    <td class="nm-num p-3 text-[13px]" colSpan={2}>
                       {unit}
                     </td>
                   ) : (
                     <>
-                      <td class="nm-num p-3 text-xs">
+                      <td class="nm-num p-3 text-[13px]">
                         {formatUsd(m.price_input_per_mtok)}
                       </td>
-                      <td class="nm-num p-3 text-xs">
+                      <td class="nm-num p-3 text-[13px]">
                         {formatUsd(m.price_output_per_mtok)}
                       </td>
                     </>
                   )}
-                  <td class="nm-num bg-accent/10 p-3 text-xs font-bold text-accent">
+                  <td class="nm-num bg-accent/10 p-3 text-[13px] font-bold text-accent">
                     {cost === null ? '—' : formatUsd(cost)}
                   </td>
-                  <td class="p-3 font-mono text-xs">
+                  <td class="p-3 font-mono text-[13px]">
                     {m.open_weights ? (
                       <span class="text-ink">yes</span>
                     ) : (
                       <span class="text-ink-dim">no</span>
                     )}
                   </td>
-                  <td class="max-w-64 p-3 text-xs text-ink-dim">{m.best_for.slice(0, 2).join('; ')}</td>
+                  <td class="max-w-64 p-3 text-[13px] text-ink-dim">{m.best_for.slice(0, 2).join('; ')}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
       </div>
-      <p class="nm-num mt-3 text-xs text-ink-dim">
-        {rows.length} / {models.length} models · unit-priced media models stay at the bottom
+      <p class="nm-num mt-3 text-[13px] text-ink-dim">
+        {rows.length} / {models.length} models · sorted by heat — click a column header to re-sort ·
+        unit-priced media models stay at the bottom
       </p>
     </section>
   );

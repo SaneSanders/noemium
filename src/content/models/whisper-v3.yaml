@@ -5,6 +5,7 @@ price_output_per_mtok: 0
 price_unit: audio_second
 price_amount: 0.00003083
 open_weights: true
+popularity: 60
 best_for:
   - self-hosted speech-to-text (MIT weights)
   - cheap batch transcription via Groq

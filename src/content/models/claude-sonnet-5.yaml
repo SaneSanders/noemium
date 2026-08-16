@@ -4,6 +4,7 @@ context_window: 1000000
 price_input_per_mtok: 2
 price_output_per_mtok: 10
 open_weights: false
+popularity: 90
 best_for:
   - "production workhorse: agentic coding and tool use"
   - long-document analysis

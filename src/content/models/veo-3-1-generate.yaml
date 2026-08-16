@@ -5,6 +5,7 @@ price_output_per_mtok: 0
 price_unit: video_second
 price_amount: 0.4
 open_weights: false
+popularity: 70
 best_for:
   - top-tier video generation with synchronized audio
   - high-fidelity 720p–4K clips

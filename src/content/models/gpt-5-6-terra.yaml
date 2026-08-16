@@ -4,6 +4,7 @@ context_window: 1050000
 price_input_per_mtok: 2
 price_output_per_mtok: 12
 open_weights: false
+popularity: 80
 best_for:
   - "default for most workloads: intelligence/price balance"
   - production agentic coding

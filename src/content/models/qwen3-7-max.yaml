@@ -4,6 +4,7 @@ context_window: 1000000
 price_input_per_mtok: 1.48
 price_output_per_mtok: 4.43
 open_weights: true
+popularity: 70
 best_for:
   - long-context reasoning and agentic coding
   - self-hosted frontier-class deployments

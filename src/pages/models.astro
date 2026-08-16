@@ -16,6 +16,7 @@ const data: ModelRecord[] = models.map((m) => ({
   price_unit: m.data.price_unit ?? 'mtok',
   price_amount: m.data.price_amount,
   open_weights: m.data.open_weights,
+  popularity: m.data.popularity,
   best_for: m.data.best_for,
 }));
 
@@ -44,9 +45,9 @@ const trackingSince = (priceHistory as { started_tracking: string | null }).star
 >
   <SectionHeader
     title="Models"
-    sub="What a task actually costs, not what a landing page implies. Sort by price per task; unit-priced media models stay in their own group at the bottom."
+    sub="The models people actually use, first. Sorted by heat — our editorial score of real-world usage and buzz. Click any column header to re-sort; unit-priced media models stay in their own group at the bottom."
   />
-  <p class="-mt-6 mb-6 max-w-3xl font-mono text-xs leading-relaxed text-ink-dim">
+  <p class="-mt-6 mb-6 max-w-3xl font-mono text-[13px] leading-relaxed text-ink-dim">
     Prices from Helicone (Apache-2.0) + LiteLLM (MIT).
     {latestVerified ? `Verified ${latestVerified}.` : 'No models verified yet.'} Vendors change
     prices — check before billing decisions.
@@ -54,8 +55,8 @@ const trackingSince = (priceHistory as { started_tracking: string | null }).star
   <ModelTable client:load models={data} />
 
   <section class="mt-14">
-    <h2 class="font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">Price audit</h2>
-    <p class="mt-3 max-w-3xl font-mono text-xs leading-relaxed text-ink-dim">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Price audit</h2>
+    <p class="mt-3 max-w-3xl font-mono text-[13px] leading-relaxed text-ink-dim">
       Rebuilt from git history — every price move is a commit. Tracking since
       {trackingSince ?? '—'}; the timeline lengthens as vendors reprice.
     </p>

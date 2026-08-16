@@ -4,6 +4,7 @@ context_window: 1000000
 price_input_per_mtok: 10
 price_output_per_mtok: 50
 open_weights: false
+popularity: 95
 best_for:
   - long-horizon autonomous agents
   - strongest public Anthropic model (Mythos class)

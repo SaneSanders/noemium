@@ -4,6 +4,7 @@ context_window: 200000
 price_input_per_mtok: 1
 price_output_per_mtok: 5
 open_weights: false
+popularity: 72
 best_for:
   - "speed: classification and routing"
   - low-latency high-volume tasks

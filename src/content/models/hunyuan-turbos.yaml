@@ -4,6 +4,7 @@ context_window: 256000
 price_input_per_mtok: 0.11
 price_output_per_mtok: 0.28
 open_weights: false
+popularity: 40
 best_for:
   - extremely cheap capable text with 256K context
   - high-volume chat and batch jobs

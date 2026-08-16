@@ -4,6 +4,7 @@ context_window: 1000000
 price_input_per_mtok: 1.32
 price_output_per_mtok: 3.96
 open_weights: true
+popularity: 86
 best_for:
   - flagship agentic coding (open weights)
   - self-hosted frontier-class workloads

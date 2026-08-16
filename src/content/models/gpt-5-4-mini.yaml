@@ -4,6 +4,7 @@ context_window: 400000
 price_input_per_mtok: 0.75
 price_output_per_mtok: 4.5
 open_weights: false
+popularity: 60
 best_for:
   - "strongest mini tier: coding and subagents"
   - budget reasoning at scale

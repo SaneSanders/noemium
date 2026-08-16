@@ -433,6 +433,7 @@ const KEY_ORDER = [
   'price_unit',
   'price_amount',
   'open_weights',
+  'popularity',
   'best_for',
   'avoid_for',
   'benchmarks',
@@ -666,6 +667,9 @@ for (const m of MODELS) {
   }
   data.source_attribution = attribution;
   data.last_verified = TODAY;
+  // Editorial heat score (0–100) is curated by hand; new entries start
+  // neutral and get re-scored on the next editorial pass.
+  if (data.popularity == null) data.popularity = 50;
 
   writeFileSync(filePath, toYaml(data));
   if (isNew) created++;

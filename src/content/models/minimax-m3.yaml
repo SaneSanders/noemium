@@ -4,6 +4,7 @@ context_window: 1000000
 price_input_per_mtok: 0.3
 price_output_per_mtok: 1.2
 open_weights: true
+popularity: 60
 best_for:
   - coding agents on a budget
   - long-context workloads (1M ctx)

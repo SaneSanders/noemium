@@ -4,6 +4,7 @@ context_window: 256000
 price_input_per_mtok: 0.42
 price_output_per_mtok: 2.08
 open_weights: false
+popularity: 45
 best_for:
   - cost-conscious high-volume 256K-context workloads
   - applications where Turbo-tier quality is enough

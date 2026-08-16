@@ -4,6 +4,7 @@ context_window: 256000
 price_input_per_mtok: 0.83
 price_output_per_mtok: 4.17
 open_weights: false
+popularity: 50
 best_for:
   - 256K-context reasoning and coding tasks inside the ByteDance ecosystem
   - users already on Volcano Engine / BytePlus

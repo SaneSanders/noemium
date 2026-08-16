@@ -5,6 +5,7 @@ price_output_per_mtok: 0
 price_unit: character
 price_amount: 0.0001
 open_weights: false
+popularity: 72
 best_for:
   - expressive text-to-speech with emotion tags
   - multilingual voiceover and audiobooks

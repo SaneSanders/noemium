@@ -4,6 +4,7 @@ context_window: 262144
 price_input_per_mtok: 0.5
 price_output_per_mtok: 1.5
 open_weights: true
+popularity: 58
 best_for:
   - flagship general + vision (Apache-2.0)
   - european data-residency deployments

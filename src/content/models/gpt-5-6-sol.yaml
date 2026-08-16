@@ -4,6 +4,7 @@ context_window: 1050000
 price_input_per_mtok: 5
 price_output_per_mtok: 30
 open_weights: false
+popularity: 96
 best_for:
   - "complex reasoning, coding and agents (flagship)"
   - long-horizon autonomous tasks

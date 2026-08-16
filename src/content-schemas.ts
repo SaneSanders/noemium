@@ -107,6 +107,10 @@ export const modelSchema = z.object({
     .default('mtok'),
   price_amount: z.number().nonnegative().optional(),
   open_weights: z.boolean(),
+  // Editorial heat score 0–100: how much the model is actually being used
+  // and talked about right now (user base, board presence, launch buzz).
+  // Drives the default sort on /models. Re-score on big launches.
+  popularity: z.number().int().min(0).max(100),
   best_for: z.array(z.string()).min(1),
   avoid_for: z.array(z.string()).min(1),
   benchmarks: z.array(benchmarkSchema).optional(),

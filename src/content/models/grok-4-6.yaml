@@ -4,6 +4,7 @@ context_window: 500000
 price_input_per_mtok: 2
 price_output_per_mtok: 6
 open_weights: false
+popularity: 88
 best_for:
   - flagship coding and tool-calling
   - reasoning with real-time X context

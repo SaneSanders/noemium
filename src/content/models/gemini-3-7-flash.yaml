@@ -4,6 +4,7 @@ context_window: 1048576
 price_input_per_mtok: 0.75
 price_output_per_mtok: 3.75
 open_weights: false
+popularity: 84
 best_for:
   - agentic workflows
   - multimodal tasks on a budget

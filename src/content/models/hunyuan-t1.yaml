@@ -4,6 +4,7 @@ context_window: 128000
 price_input_per_mtok: 0.14
 price_output_per_mtok: 0.56
 open_weights: false
+popularity: 45
 best_for:
   - cheap reasoning model with 128K context
   - tasks where explicit thinking is useful

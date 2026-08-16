@@ -49,7 +49,7 @@ const stackPreview = [...stacks]
 
 const modelPreview = models
   .filter((m) => (m.data.price_unit ?? 'mtok') === 'mtok')
-  .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  .sort((a, b) => b.data.popularity - a.data.popularity)
   .slice(0, 3);
 
 const usd = (v: number) => `$${v.toFixed(2)}`;

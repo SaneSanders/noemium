@@ -4,6 +4,7 @@ context_window: 256000
 price_input_per_mtok: 1
 price_output_per_mtok: 2
 open_weights: false
+popularity: 55
 best_for:
   - agentic coding engine
   - autonomous build loops

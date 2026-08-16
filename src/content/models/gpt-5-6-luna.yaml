@@ -4,6 +4,7 @@ context_window: 1050000
 price_input_per_mtok: 0.2
 price_output_per_mtok: 1.2
 open_weights: false
+popularity: 78
 best_for:
   - high-volume batch workloads
   - cheap classification and extraction at scale
