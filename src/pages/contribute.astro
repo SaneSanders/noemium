@@ -28,33 +28,33 @@ const rules = [
   />
 
   <section class="nm-card max-w-3xl p-6 md:p-8">
-    <p class="font-mono text-xs font-medium tracking-[0.14em] text-accent uppercase">
+    <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       field protocol · five minutes
     </p>
-    <ol class="mt-4 list-decimal space-y-3 pl-5 marker:font-mono marker:text-accent">
+    <ol class="mt-4 list-decimal space-y-3 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-accent">
       <li>
         <strong class="font-bold">Fork</strong>
         <a
           href="https://github.com/SaneSanders/noemium"
-          class="ml-1 font-mono text-xs text-accent hover:underline"
+          class="ml-1 font-mono text-[13px] text-accent hover:underline"
           rel="noopener">SaneSanders/noemium</a
         >.
       </li>
       <li>
         <strong class="font-bold">Copy a template</strong> —
-        <span class="font-mono text-xs text-ink-dim">src/content/tools/cursor.yaml</span>,
-        <span class="font-mono text-xs text-ink-dim">src/content/stacks/solo-founder-saas.md</span>
+        <span class="font-mono text-[13px] text-ink-dim">src/content/tools/cursor.yaml</span>,
+        <span class="font-mono text-[13px] text-ink-dim">src/content/stacks/solo-founder-saas.md</span>
         or
-        <span class="font-mono text-xs text-ink-dim">src/content/models/claude-sonnet-4-5.yaml</span
+        <span class="font-mono text-[13px] text-ink-dim">src/content/models/claude-sonnet-5.yaml</span
         >. Rename it to a kebab-case slug.
       </li>
       <li>
         <strong class="font-bold">Fill it in from your own experience</strong> — sign it with
-        your GitHub handle in <span class="font-mono text-xs text-ink-dim">observed_by</span>.
+        your GitHub handle in <span class="font-mono text-[13px] text-ink-dim">observed_by</span>.
       </li>
       <li>
         <strong class="font-bold">Validate locally</strong>:
-        <code class="rounded-sm border-[1.5px] border-ink bg-paper px-1.5 py-0.5 font-mono text-xs"
+        <code class="rounded-sm border-[1.5px] border-ink bg-paper px-1.5 py-0.5 font-mono text-[13px]"
           >npm install && npm run validate</code
         >.
       </li>
@@ -65,19 +65,19 @@ const rules = [
   </section>
 
   <section class="mt-10 max-w-3xl">
-    <h2 class="font-mono text-xs font-medium tracking-[0.14em] text-ink-dim uppercase">Standing orders</h2>
-    <ul class="mt-4 list-disc space-y-3 pl-5 marker:font-mono marker:text-verdict-skip">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Standing orders</h2>
+    <ul class="mt-4 list-disc space-y-3 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-verdict-skip">
       {rules.map((rule) => <li>{rule}</li>)}
     </ul>
   </section>
 
   <section class="nm-card mt-10 max-w-3xl p-6 md:p-8">
-    <p class="font-mono text-xs font-medium tracking-[0.14em] text-accent uppercase">
+    <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       adopt a page · re-check queue
     </p>
-    <p class="mt-3 text-sm leading-relaxed text-ink opacity-80">
+    <p class="mt-3 text-[15px] leading-relaxed text-ink opacity-80">
       The least recently verified cards. Adopt one: open its file, re-check the price and the
-      verdict against the vendor's own pages, update <span class="font-mono text-xs text-ink-dim">last_verified</span>
+      verdict against the vendor's own pages, update <span class="font-mono text-[13px] text-ink-dim">last_verified</span>
       and open a PR. Small, boring, exactly what keeps this catalog trustworthy.
     </p>
     <ul class="mt-4 flex flex-wrap gap-2">
@@ -86,11 +86,11 @@ const rules = [
           <li>
             <a
               href={`https://github.com/SaneSanders/noemium/edit/main/src/content/tools/${t.id}.yaml`}
-              class="nm-num inline-block rounded-sm border-[1.5px] border-ink px-2.5 py-1 text-[13px] font-bold transition-all duration-100 hover:-translate-y-0.5 hover:text-accent"
+              class="nm-num inline-block rounded-md border-[1.5px] border-ink px-3 py-1.5 text-[13px] font-bold transition-all duration-100 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
               rel="noopener"
             >
               {t.data.name}
-              <span class="ml-2 font-mono text-[10px] font-normal tracking-wide text-ink-dim">{t.data.last_verified}</span>
+              <span class="ml-2 font-mono text-[11px] font-normal tracking-wide text-ink-dim">{t.data.last_verified}</span>
             </a>
           </li>
         ))

@@ -78,7 +78,7 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
     {
       label: 'pricing',
       render: (t) => (
-        <span class="nm-num text-xs">
+        <span class="nm-num text-[13px]">
           {t.pricing}
           {t.price_note && <span class="text-ink-dim"> · {t.price_note}</span>}
         </span>
@@ -94,14 +94,14 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
       render: (t) => (
         <span class="inline-flex items-center gap-1.5">
           <MomentumArrow momentum={t.momentum} />
-          <span class="font-mono text-xs text-ink-dim">{t.momentum}</span>
+          <span class="font-mono text-[13px] text-ink-dim">{t.momentum}</span>
         </span>
       ),
     },
     {
       label: 'known limitations',
       render: (t) => (
-        <ul class="list-disc space-y-1 pl-4 text-xs text-ink-dim marker:font-mono marker:text-verdict-skip">
+        <ul class="list-disc space-y-1 pl-4 text-[13px] text-ink-dim marker:font-mono marker:text-verdict-skip">
           {t.limitations.map((l) => (
             <li key={l}>{l}</li>
           ))}
@@ -150,7 +150,7 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
         )}
         {selected.length < MIN_TOOLS && (
           <div class="mt-3">
-            <p class="text-sm text-ink-dim">
+            <p class="text-[15px] text-ink-dim">
               Pick {MIN_TOOLS}–{MAX_TOOLS} tools to put them side by side — or start from a classic
               matchup:
             </p>
@@ -159,10 +159,10 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
                 <button
                   type="button"
                   onClick={() => update([a, b])}
-                  class="nm-num rounded-sm border-[1.5px] border-ink px-2.5 py-1 text-[13px] font-bold text-ink transition-all duration-100 hover:-translate-y-0.5 hover:text-accent"
+                  class="nm-num cursor-pointer rounded-md border-[1.5px] border-ink px-3 py-1.5 text-[13px] font-bold text-ink transition-all duration-100 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                 >
                   {bySlug.get(a)!.name}
-                  <span class="mx-1.5 font-mono text-[10px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
+                  <span class="mx-1.5 font-mono text-[11px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
                   {bySlug.get(b)!.name}
                 </button>
               ))}
@@ -176,7 +176,7 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
           <table class="w-full min-w-[640px] border-collapse bg-card text-left">
             <thead>
               <tr class="border-b-[1.5px] border-ink">
-                <th class="sticky left-0 w-36 bg-card p-3 font-mono text-xs font-medium tracking-[0.12em] text-ink-dim uppercase">
+                <th class="sticky left-0 w-36 bg-card p-3 font-mono text-[13px] font-medium tracking-[0.12em] text-ink-dim uppercase">
                   field
                 </th>
                 {selected.map((t) => (
@@ -198,7 +198,7 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
                         <span aria-hidden="true">×</span>
                       </button>
                     </div>
-                    <p class="mt-1 font-mono text-xs text-ink-dim">{t.category}</p>
+                    <p class="mt-1 font-mono text-[13px] text-ink-dim">{t.category}</p>
                   </th>
                 ))}
               </tr>
@@ -208,12 +208,12 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
                 <tr key={row.label} class="border-b border-line-soft last:border-b-0">
                   <th
                     scope="row"
-                    class="sticky left-0 bg-card p-3 align-top font-mono text-xs font-normal tracking-[0.12em] text-ink-dim uppercase"
+                    class="sticky left-0 bg-card p-3 align-top font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase"
                   >
                     {row.label}
                   </th>
                   {selected.map((t) => (
-                    <td key={t.slug} class="p-3 align-top text-sm">
+                    <td key={t.slug} class="p-3 align-top text-[15px]">
                       {row.render(t)}
                     </td>
                   ))}

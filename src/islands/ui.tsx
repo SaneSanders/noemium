@@ -68,7 +68,7 @@ export function FlagBadge({ label }: { label: string }) {
 
 export function YesNo({ value }: { value: boolean }) {
   return (
-    <span class={`font-mono text-xs ${value ? 'font-bold text-ink' : 'text-ink-dim'}`}>
+    <span class={`font-mono text-[13px] ${value ? 'font-bold text-ink' : 'text-ink-dim'}`}>
       {value ? 'yes' : 'no'}
     </span>
   );
