@@ -1,16 +1,40 @@
 {
-  "generated_at": "2026-08-15T23:33:34.948Z",
+  "generated_at": "2026-08-16T01:33:13.082Z",
   "weeks": [
     {
       "id": "2026-W33",
       "from": "2026-08-10",
       "to": "2026-08-17",
       "counts": {
-        "added": 147,
+        "added": 150,
         "removed": 19,
         "changed": 47
       },
       "added": [
+        {
+          "collection": "tools",
+          "slug": "make",
+          "name": "Make",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "merlin",
+          "name": "Merlin",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "n8n",
+          "name": "n8n",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "voila",
+          "name": "Voila",
+          "category": "productivity"
+        },
         {
           "collection": "tools",
           "slug": "codegeex",
@@ -387,12 +411,6 @@
           "slug": "murf",
           "name": "Murf AI",
           "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "n8n",
-          "name": "n8n",
-          "category": "agents"
         },
         {
           "collection": "tools",
@@ -943,6 +961,15 @@
       "changed": [
         {
           "collection": "tools",
+          "slug": "n8n",
+          "name": "n8n",
+          "category": "automation",
+          "field": "price note",
+          "from": "self-host free; cloud from ~$24/mo (Starter)",
+          "to": "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
+        },
+        {
+          "collection": "tools",
           "slug": "deepseek-api",
           "name": "DeepSeek API",
           "category": "models-api",
@@ -1192,15 +1219,6 @@
           "field": "price note",
           "from": "free tier; from ~$19/mo (Creator)",
           "to": "free tier; Creator Lite $29/mo or $23/mo billed yearly"
-        },
-        {
-          "collection": "tools",
-          "slug": "n8n",
-          "name": "n8n",
-          "category": "agents",
-          "field": "price note",
-          "from": "self-host free; cloud from ~$24/mo (Starter)",
-          "to": "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
         },
         {
           "collection": "tools",
