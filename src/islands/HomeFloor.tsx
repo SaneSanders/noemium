@@ -26,6 +26,26 @@ export default function HomeFloor({ tools }: { tools: ToolRecord[] }) {
 
     const momentumRank = (m: ToolRecord['momentum']) =>
       m === 'blueshift' ? 0 : m === 'steady' ? 1 : 2;
+    const byRecency = (
+      a: ToolRecord,
+      b: ToolRecord,
+    ) =>
+      momentumRank(a.momentum) - momentumRank(b.momentum) ||
+      b.last_verified.localeCompare(a.last_verified) ||
+      a.name.localeCompare(b.name);
+
+    // "All" is a deliberate 50/50 mix: half recognizable anchors (featured),
+    // half niche finds — interleaved so the shelf reads mixed, not blocked.
+    if (tab === 'all') {
+      const anchors = tools.filter((t) => t.featured).sort(byRecency);
+      const finds = tools.filter((t) => !t.featured).sort(byRecency);
+      const mixed: ToolRecord[] = [];
+      for (let i = 0; i < ROWS / 2; i++) {
+        if (anchors[i]) mixed.push(anchors[i]);
+        if (finds[i]) mixed.push(finds[i]);
+      }
+      return mixed;
+    }
 
     return tools
       .filter((t) => {
@@ -34,12 +54,7 @@ export default function HomeFloor({ tools }: { tools: ToolRecord[] }) {
         if (tab === 'fresh') return t.last_verified >= freshAfter;
         return true;
       })
-      .sort(
-        (a, b) =>
-          momentumRank(a.momentum) - momentumRank(b.momentum) ||
-          b.last_verified.localeCompare(a.last_verified) ||
-          a.name.localeCompare(b.name),
-      )
+      .sort(byRecency)
       .slice(0, ROWS);
   }, [tools, tab]);
 

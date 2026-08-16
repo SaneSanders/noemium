@@ -106,8 +106,30 @@ const weekLink = (e: { collection: string; slug: string }) =>
     </p>
   </section>
 
+  {/* --------------------------------------------------------- CATEGORY HUB */}
+  <section data-reveal class="pb-14 md:pb-16">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        categories.map((c) => (
+          <a href={`/tools?cat=${c.slug}`} class="nm-card nm-card-hover group p-5">
+            <div class="flex items-baseline justify-between gap-3">
+              <h3 class="font-display text-xl font-extrabold tracking-tight uppercase group-hover:text-accent">
+                {c.slug}
+              </h3>
+              <span class="nm-num shrink-0 font-mono text-sm font-bold text-accent">{c.count}</span>
+            </div>
+            <p class="mt-1.5 text-sm text-ink opacity-65">{c.blurb}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
   {/* ---------------------------------------------------------------- FLOOR */}
   <section data-reveal class="pb-16 md:pb-20">
+    <h2 class="text-shadow-section mb-8 font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+      The floor
+    </h2>
     <HomeFloor client:load tools={floorData} />
   </section>
 
@@ -174,28 +196,6 @@ const weekLink = (e: { collection: string; slug: string }) =>
       </section>
     )
   }
-
-  {/* --------------------------------------------------------- CATEGORY HUB */}
-  <section data-reveal class="pb-16 md:pb-20">
-    <h2 class="text-shadow-section max-w-3xl font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
-      What are you working on?
-    </h2>
-    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {
-        categories.map((c) => (
-          <a href={`/tools?cat=${c.slug}`} class="nm-card nm-card-hover group p-5">
-            <div class="flex items-baseline justify-between gap-3">
-              <h3 class="font-display text-xl font-extrabold tracking-tight uppercase group-hover:text-accent">
-                {c.slug}
-              </h3>
-              <span class="nm-num shrink-0 font-mono text-sm font-bold text-accent">{c.count}</span>
-            </div>
-            <p class="mt-1.5 text-sm text-ink opacity-65">{c.blurb}</p>
-          </a>
-        ))
-      }
-    </div>
-  </section>
 
   {/* -------------------------------------------------------- UNDER THE RADAR */}
   <section data-reveal class="pb-16 md:pb-20">
