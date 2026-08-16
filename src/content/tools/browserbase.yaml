@@ -1,0 +1,26 @@
+name: Browserbase
+tagline: Serverless browser infrastructure for AI agents and scrapers.
+url: https://www.browserbase.com
+category: data
+pricing: freemium
+price_note: "free tier; paid from $20/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Reliable managed browsers for agents that need to click, fill forms, and
+  capture pages. Pricing is straightforward, but you still write the agent
+  logic yourself.
+limitations:
+  - Requires coding the agent/scraper on top.
+  - Costs scale with browser session time.
+  - Anti-bot protections on some sites still trigger blocks.
+receipts:
+  - https://www.browserbase.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

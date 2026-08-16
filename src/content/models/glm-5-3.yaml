@@ -1,0 +1,24 @@
+name: GLM 5.3
+provider: Z.ai (GLM)
+context_window: 1048576
+price_input_per_mtok: 0
+price_output_per_mtok: 0
+open_weights: false
+popularity: 86
+best_for:
+  - agentic coding jump over GLM-5.2 (same 744B base, post-training gains)
+  - Terminal-Bench-class long-horizon tasks via GLM Coding Plan / ZCode
+avoid_for:
+  - self-hosting (weights withheld pending safety review as of 2026-08-17)
+  - per-token billing (no public rate published yet — subscription access only)
+benchmarks:
+  - name: Terminal-Bench 3.0
+    score: "28.3"
+    source: vendor chart (Z.ai), no independent audit yet
+    date: "2026-08-14"
+  - name: DeepSWE v1.1
+    score: "66.9"
+    source: vendor chart (Z.ai), no independent audit yet
+    date: "2026-08-14"
+source_attribution: "No per-token rate published as of 2026-08-17 (0/0 is a placeholder, not a price); access via GLM Coding Plan and ZCode; weights not released — GLM-5.2 remains the open-weight pick; vendor benchmarks only, unaudited; snapshot 2026-08-17"
+last_verified: "2026-08-16"

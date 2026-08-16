@@ -1,0 +1,26 @@
+name: Resemble AI
+tagline: Voice cloning and synthetic speech platform for games, media, and agents.
+url: https://www.resemble.ai
+category: audio
+pricing: freemium
+price_note: "free trial; paid from $29/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Powerful voice cloning and emotional controls for production pipelines.
+  Pricing is steep for hobbyists, and the web UI is less polished than
+  ElevenLabs. Best when you need deep customization.
+limitations:
+  - Paid plans are expensive for casual use.
+  - Web interface feels dated compared to newer rivals.
+  - Enterprise features require sales contact.
+receipts:
+  - https://www.resemble.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

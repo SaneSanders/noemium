@@ -1,0 +1,26 @@
+name: Lindy
+tagline: AI agent platform that builds automations from natural language.
+url: https://www.lindy.ai
+category: automation
+pricing: freemium
+price_note: "free tier; paid from $49/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Turns plain-English descriptions into agent workflows across email, calendar,
+  and apps. Useful for non-technical operators, but the magic fades when edge
+  cases need explicit handling.
+limitations:
+  - Limited control over precise step-by-step logic.
+  - Pricing escalates with active agents and tasks.
+  - Integrations are narrower than Zapier/Make.
+receipts:
+  - https://www.lindy.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

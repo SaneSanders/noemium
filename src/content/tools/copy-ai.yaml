@@ -1,0 +1,26 @@
+name: Copy.ai
+tagline: Marketing copy generator with workflow automation for go-to-market teams.
+url: https://www.copy.ai
+category: writing
+pricing: freemium
+price_note: "free tier (2k words/mo); Pro from $49/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Strong for short-form marketing copy and sales emails. The workflow builder
+  is useful for repetitive GTM tasks, but long-form content still needs heavy
+  editing and brand voice tuning.
+limitations:
+  - Long-form drafts often feel formulaic.
+  - Brand voice customization requires paid plans.
+  - Output quality varies across content types.
+receipts:
+  - https://www.copy.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

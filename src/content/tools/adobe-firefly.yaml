@@ -1,0 +1,26 @@
+name: Adobe Firefly
+tagline: Generative image, vector and design tools inside Adobe's creative cloud.
+url: https://firefly.adobe.com
+category: image
+pricing: freemium
+price_note: "free tier with credits; Premium from $9.99/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The safest choice for commercial work thanks to Adobe's trained-on-licensed-
+  assets claim. Image quality is solid, not bleeding-edge, and it shines when
+  combined with Photoshop/Illustrator workflows.
+limitations:
+  - Output can look more "stock" than Midjourney or Flux.
+  - Credit system is easy to burn through quickly.
+  - Best features require a Creative Cloud subscription.
+receipts:
+  - https://firefly.adobe.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Inngest
+tagline: Durable workflows and event-driven functions for serverless apps.
+url: https://www.inngest.com
+category: dev-infra
+pricing: freemium
+price_note: "free tier; paid from $20/mo"
+free_tier: true
+open_source: true
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  Makes "sleep for a week then continue" easy in serverless functions. Great
+  for AI pipelines that need human approval or multi-step state. Self-hosting
+  is not the primary path, so heavy compliance needs require evaluation.
+limitations:
+  - Self-hosting story is lighter than Trigger.dev.
+  - Language SDKs are mostly TypeScript/Python.
+  - Event modeling requires upfront design.
+receipts:
+  - https://www.inngest.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

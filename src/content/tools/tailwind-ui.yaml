@@ -1,0 +1,25 @@
+name: Tailwind UI
+tagline: Official Tailwind CSS component library and templates.
+url: "https://tailwindui.com"
+category: design
+pricing: paid
+price_note: all-access from $299 one-time
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  Still the gold standard for Tailwind marketing and application UI. The components are well-designed, accessible, and updated with each Tailwind release.
+limitations:
+  - One-time cost is significant for hobbyists.
+  - No free tier to evaluate before buying.
+  - Templates can look recognizable if used verbatim.
+receipts:
+  - "https://tailwindui.com"
+  - "https://tailwindui.com/all-access"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

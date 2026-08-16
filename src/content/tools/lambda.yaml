@@ -1,0 +1,26 @@
+name: Lambda
+tagline: Cloud GPU instances and API inference for training and deploying AI models.
+url: https://lambdalabs.com
+category: models-api
+pricing: paid
+price_note: "pay-as-you-go GPU and API pricing"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Reliable GPU cloud with competitive pricing for training and inference.
+  Good for teams that need dedicated hardware without hyperscaler complexity.
+  The API product is newer and less mature than compute instances.
+limitations:
+  - API service is newer than the GPU cloud.
+  - Support and tooling lag AWS/GCP.
+  - Pricing for reserved capacity requires planning.
+receipts:
+  - https://lambdalabs.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

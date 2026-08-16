@@ -1,0 +1,25 @@
+name: Mobbin
+tagline: Screenshots and flow library of real mobile and web app designs.
+url: "https://mobbin.com"
+category: design
+pricing: freemium
+price_note: free limited browse; paid from $8/mo
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  Essential reference when you want to see how top apps solve the same UI problem. The library is huge and the tagging makes it fast to find patterns.
+limitations:
+  - Paid plans are needed for full access and downloads.
+  - "Focus is on screenshots, not code."
+  - Can encourage imitation over original thinking.
+receipts:
+  - "https://mobbin.com"
+  - "https://mobbin.com/pricing"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,23 @@
+name: 404s
+tagline: Gallery of creative 404 error page designs.
+url: "https://404s.design"
+category: design
+pricing: free
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A fun source of error-page ideas when you want a 404 that does not look like an afterthought. Pure inspiration; you build it yourself.
+limitations:
+  - No code export.
+  - Niche scope; only useful once per project.
+  - Curation quality varies.
+receipts:
+  - "https://404s.design"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

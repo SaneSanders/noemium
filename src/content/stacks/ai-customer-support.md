@@ -11,7 +11,7 @@ receipts:
   - https://docs.anthropic.com
   - https://qdrant.tech
   - https://n8n.io
-last_verified: "2026-08-15"
+last_verified: "2026-08-16"
 observed_by: whysanesanders
 ---
 
@@ -35,6 +35,17 @@ observed_by: whysanesanders
    every miss becomes a new doc or a chunk fix.
 7. **Review weekly.** Read 20 random conversations. Deflection rate and
    wrong-answer rate are the only two numbers that matter.
+
+## What you pay
+
+- **Anthropic API — pay-as-you-go, ~$20/mo.** Haiku-class answers with prompt
+  caching cost cents per thousand conversations; scale to Sonnet only for the
+  hardest 5% of tickets.
+- **Qdrant — free tier / self-hosted, $0/mo.** The managed free tier or a Docker
+  container on your existing server holds a small-business corpus at no cost.
+- **n8n — Cloud Starter, ~$25/mo.** The cloud starter replaces self-hosting
+  overhead; self-host for free if you already run a server and want to skip
+  per-execution pricing.
 
 ## When this breaks down
 

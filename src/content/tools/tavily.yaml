@@ -1,0 +1,26 @@
+name: Tavily
+tagline: Search API optimized for LLM agents with structured, sourced answers.
+url: https://tavily.com
+category: data
+pricing: freemium
+price_note: "free tier (1k calls/mo); paid from $30/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  Purpose-built for retrieval-augmented generation: clean JSON, source
+  citations, and fast response times. The default for agent search. Result
+  quality drops on obscure technical queries.
+limitations:
+  - Free tier has tight rate limits.
+  - Some obscure queries return thin results.
+  - Advanced reranking requires paid plans.
+receipts:
+  - https://tavily.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

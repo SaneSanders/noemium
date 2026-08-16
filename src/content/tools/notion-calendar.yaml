@@ -1,0 +1,26 @@
+name: Notion Calendar
+tagline: Calendar built on top of Notion, syncing meetings, tasks, and docs.
+url: https://www.notion.so/product/calendar
+category: productivity
+pricing: free
+price_note: "free; requires Notion account"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Clean, minimalist calendar tightly linked to Notion pages and tasks. Great
+  for Notion power users; a thin standalone calendar if you don't use Notion
+  for project management.
+limitations:
+  - Deeply tied to the Notion ecosystem.
+  - Limited advanced scheduling features compared to Calendly or Reclaim.
+  - Mobile experience is simpler than desktop.
+receipts:
+  - https://www.notion.so/product/calendar
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

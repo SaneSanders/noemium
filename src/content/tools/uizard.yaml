@@ -1,0 +1,25 @@
+name: Uizard
+tagline: AI-powered UI design tool for wireframes and mockups.
+url: "https://uizard.io"
+category: design
+pricing: freemium
+price_note: free tier; paid plans from $12/creator/mo
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Handy for non-designers who need quick wireframes from sketches or prompts. The output is good enough for early ideation, not final design handoff.
+limitations:
+  - Generated designs lack polish for production use.
+  - Free tier is limited in projects and exports.
+  - Collaboration features are basic compared to Figma.
+receipts:
+  - "https://uizard.io"
+  - "https://uizard.io/pricing"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

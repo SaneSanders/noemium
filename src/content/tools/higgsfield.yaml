@@ -1,0 +1,26 @@
+name: Higgsfield
+tagline: Generative video model with strong physics and character consistency.
+url: https://www.higgsfield.ai
+category: video
+pricing: freemium
+price_note: "free tier; paid from $12/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Delivers some of the most coherent motion and physics in generated clips,
+  especially for character actions. Rendering is slow, prompt control is still
+  limited, and the best results need patience.
+limitations:
+  - Generation times are longer than competitors.
+  - Fine-grained camera and motion control is limited.
+  - Smaller community and fewer tutorials than Runway/Pika.
+receipts:
+  - https://www.higgsfield.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

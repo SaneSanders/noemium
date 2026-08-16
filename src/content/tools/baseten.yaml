@@ -1,0 +1,26 @@
+name: Baseten
+tagline: Model serving and inference infrastructure for production ML.
+url: https://www.baseten.co
+category: dev-infra
+pricing: paid
+price_note: "usage-based; custom enterprise plans"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Solid managed inference for custom models with scaling and observability.
+  Strong for teams that outgrow Replicate but don't want to build their own
+  serving stack. Pricing is opaque and requires sales for big deployments.
+limitations:
+  - No free tier for production use.
+  - Pricing requires talking to sales for accurate estimates.
+  - Smaller ecosystem than hyperscaler options.
+receipts:
+  - https://www.baseten.co
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

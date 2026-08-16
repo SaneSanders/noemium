@@ -1,0 +1,27 @@
+name: AutoGen
+tagline: Microsoft framework for building multi-agent LLM applications.
+url: https://autogen.ai
+category: agents
+pricing: free
+price_note: "open source (MIT)"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Flexible agent orchestration with human-in-the-loop, code execution, and
+  group chat patterns. Great for research prototypes and complex reasoning
+  chains. The learning curve is steep and debugging multi-agent conversations
+  is hard.
+limitations:
+  - Steep learning curve compared to CrewAI.
+  - Documentation can lag the fast-moving codebase.
+  - Production observability requires extra tooling.
+receipts:
+  - https://autogen.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

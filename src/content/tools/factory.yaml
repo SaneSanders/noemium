@@ -1,0 +1,26 @@
+name: Factory
+tagline: Autonomous software engineering agents for end-to-end codebase tasks.
+url: https://factory.ai
+category: coding
+pricing: paid
+price_note: "custom enterprise pricing"
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Pitches full-codebase agents that plan, write, and review like senior
+  engineers. Impressive demos, but real deployments need tight scoping and
+  human-in-the-loop review. Pricing is enterprise-only.
+limitations:
+  - No self-serve tier or transparent pricing.
+  - Requires onboarding and guardrails to avoid large, wrong changes.
+  - Closed platform; limited visibility into model behavior.
+receipts:
+  - https://factory.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

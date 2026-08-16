@@ -1,0 +1,25 @@
+name: HorizonX
+tagline: "Premium UI kits, Figma templates, and code components for vibecoding."
+url: "https://horizonx.so"
+category: design
+pricing: paid
+price_note: from $24.99/mo subscription
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  High-quality assets if you are building slick landing pages and want production-ready Figma and code together. The subscription model only pays off if you ship multiple sites per month.
+limitations:
+  - No free tier; everything useful is gated.
+  - Subscription can be expensive for one-off projects.
+  - "Heavily focused on marketing sites, not app UI."
+receipts:
+  - "https://horizonx.so"
+  - "https://horizonx.so/pricing"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

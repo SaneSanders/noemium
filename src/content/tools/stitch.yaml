@@ -1,0 +1,23 @@
+name: Stitch
+tagline: Google's experimental AI design tool for generating UI layouts and components.
+url: "https://stitch.withgoogle.com"
+category: design
+pricing: free
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Interesting if you want to see what a Google-backed AI design tool can generate, but it is still experimental. Output tends to need cleanup before it is production-ready.
+limitations:
+  - Experimental; availability and feature set change without warning.
+  - Generated designs often need significant refinement.
+  - Tied to Google's ecosystem and release schedule.
+receipts:
+  - "https://stitch.withgoogle.com"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

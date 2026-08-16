@@ -1,0 +1,25 @@
+name: Origin UI
+tagline: Copy-paste UI components built with Tailwind CSS and React.
+url: "https://originui.com"
+category: design
+pricing: freemium
+price_note: free core; paid templates
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A polished alternative to shadcn/ui blocks with a distinct visual style. Good when you want components that look a bit more designed out of the box.
+limitations:
+  - Smaller ecosystem than shadcn/ui.
+  - Some of the best templates are paid.
+  - Style is opinionated; may not fit every brand.
+receipts:
+  - "https://originui.com"
+  - "https://github.com/origin-space/originui"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

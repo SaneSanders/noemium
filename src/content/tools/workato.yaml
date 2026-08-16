@@ -1,0 +1,26 @@
+name: Workato
+tagline: Enterprise integration and automation platform with AI-assisted workflow building.
+url: https://www.workato.com
+category: automation
+pricing: paid
+price_note: "enterprise pricing"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  The enterprise-safe choice for connecting SaaS and on-prem systems. Security
+  and governance are strong, but pricing is opaque and the product is overkill
+  for small teams.
+limitations:
+  - No transparent self-serve pricing.
+  - Heavy UI for simple automations.
+  - Implementation timelines can stretch for complex integrations.
+receipts:
+  - https://www.workato.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

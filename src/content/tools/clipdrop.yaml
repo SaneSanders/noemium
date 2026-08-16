@@ -1,0 +1,26 @@
+name: Clipdrop
+tagline: Stability AI's suite of generative image tools — uncrop, relight, remove background, and more.
+url: https://clipdrop.co
+category: image
+pricing: freemium
+price_note: "free tier with watermarks; Pro from $9/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Handy modular tools for quick edits: remove background, upscale, relight,
+  inpaint. Individual features work well, but the suite feels fragmented and
+  the best quality sits behind the paid tier.
+limitations:
+  - Free exports are watermarked at higher resolutions.
+  - Multiple tools rather than one cohesive editor.
+  - Model updates have been slower than Midjourney/Flux rivals.
+receipts:
+  - https://clipdrop.co
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

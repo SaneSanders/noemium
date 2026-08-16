@@ -13,7 +13,7 @@ receipts:
   - https://docs.anthropic.com/en/docs/claude-code
   - https://openrouter.ai
   - https://github.com/features/copilot
-last_verified: "2026-08-15"
+last_verified: "2026-08-16"
 observed_by: whysanesanders
 ---
 
@@ -40,6 +40,19 @@ observed_by: whysanesanders
    vibe coding.
 8. **Test what you ship.** Ask the agent to write the tests, then actually
    run them. Vibe-coded apps fail silently in ways only tests catch.
+
+## What you pay
+
+- **Cursor — Pro, $20/mo.** The agent-mode allowance on Pro is the practical
+  floor for real feature work; free-tier limits hit mid-month.
+- **Claude Code — included in Claude Pro, $20/mo.** Terminal agent for
+  multi-file refactors and test runs; the same Pro subscription covers the
+  web chat if you need it.
+- **OpenRouter — pay-as-you-go, ~$10/mo.** One key to A/B models and fall back
+  when a vendor flakes; the markup is small compared to managing five APIs.
+- **GitHub Copilot — free tier, $0/mo.** Tab completions and basic PR chores
+  when Cursor's agent allowance runs low; no need to pay for what the free
+  tier covers here.
 
 ## When this breaks down
 

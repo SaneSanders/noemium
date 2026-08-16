@@ -1,0 +1,26 @@
+name: Bardeen
+tagline: Browser-native automation with AI that scrapes and runs workflows in the cloud.
+url: https://www.bardeen.ai
+category: automation
+pricing: freemium
+price_note: "free tier; paid from $10/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Excellent for browser-heavy tasks — scraping, LinkedIn outreach, meeting
+  prep. The cloud scheduler removes the need to keep a machine awake, but
+  advanced workflows can be brittle when sites change.
+limitations:
+  - Relies on browser selectors that break when websites redesign.
+  - Advanced AI features require paid plans.
+  - Less suited for backend/API-heavy automations.
+receipts:
+  - https://www.bardeen.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Dify
+tagline: Open-source LLM app development platform with agent workflows and RAG.
+url: https://dify.ai
+category: agents
+pricing: freemium
+price_note: "open source self-host free; cloud from $29/mo"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The fastest way to build a RAG chatbot or agent workflow without writing a
+  backend. Self-hosting keeps data in-house, but the UI can feel rigid for
+  complex custom logic.
+limitations:
+  - Complex branching logic can outgrow the visual editor.
+  - Self-hosted setup needs ops effort for scaling.
+  - Some enterprise SSO features require cloud plans.
+receipts:
+  - https://dify.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

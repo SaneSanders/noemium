@@ -1,0 +1,25 @@
+name: Onlook
+tagline: Open-source visual editor that writes code directly into your React project.
+url: "https://onlook.com"
+category: design
+pricing: freemium
+price_note: free open-source; paid cloud collaboration
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  Promising for teams that want a designer-friendly layer on top of a real codebase. It is still early, so expect rough edges and occasional sync issues.
+limitations:
+  - Early-stage; breaking changes are common.
+  - Works best with specific React setups.
+  - Cloud collaboration features are not essential for solo use.
+receipts:
+  - "https://onlook.com"
+  - "https://github.com/onlook-dev/onlook"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,25 @@
+name: Lucide
+tagline: "Open-source icon library with clean, consistent SVG icons."
+url: "https://lucide.dev"
+category: design
+pricing: free
+price_note: ISC license
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  The default icon set for modern React and web projects. The icons are consistent, the packages are well maintained, and it integrates with shadcn/ui out of the box.
+limitations:
+  - Style is uniform; less useful if you need highly custom iconography.
+  - Some niche categories are thinner than larger sets.
+  - Icon naming can differ from other libraries.
+receipts:
+  - "https://lucide.dev"
+  - "https://github.com/lucide-icons/lucide"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

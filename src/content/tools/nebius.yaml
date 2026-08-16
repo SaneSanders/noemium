@@ -1,0 +1,26 @@
+name: Nebius
+tagline: AI cloud platform with GPU VMs and API access to open models.
+url: https://nebius.com
+category: models-api
+pricing: paid
+price_note: "pay-as-you-go; from $0.40/1M tokens for smaller models"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Aggressively priced inference and GPU cloud, useful for cost-sensitive
+  workloads. The platform is newer, so documentation and ecosystem are still
+  catching up to bigger providers.
+limitations:
+  - Newer platform with a smaller ecosystem.
+  - Documentation and support are less mature.
+  - Enterprise features still expanding.
+receipts:
+  - https://nebius.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

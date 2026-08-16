@@ -1,0 +1,26 @@
+name: Mem
+tagline: AI notes and knowledge base that organizes itself from your captures.
+url: https://mem.ai
+category: productivity
+pricing: freemium
+price_note: "free tier; paid from $8/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fast capture with AI search and automatic tagging. Good for people who want
+  a second brain without manual organization. The graph view and exports are
+  weaker than Obsidian or Notion.
+limitations:
+  - Export options are limited.
+  - The AI tagging can miscategorize messy notes.
+  - Less flexible for structured project management.
+receipts:
+  - https://mem.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

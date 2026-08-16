@@ -1,0 +1,26 @@
+name: Krea
+tagline: Real-time AI image generation and editing with visual controls.
+url: https://www.krea.ai
+category: image
+pricing: freemium
+price_note: "free tier with daily credits; Pro from $24/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The live canvas and style controls make it the fastest way to iterate on a
+  look. Great for concept art, logos, and product shots. Print-ready resolution
+  and exact brand fidelity still need work.
+limitations:
+  - Highest resolutions and commercial usage require paid plans.
+  - Style consistency across sessions can drift.
+  - Less suited for precise text-in-image tasks.
+receipts:
+  - https://www.krea.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,25 @@
+name: Refero Styles
+tagline: Design example library and prompts for steering AI agents toward better UI.
+url: "https://refero.io"
+category: design
+pricing: freemium
+price_note: free browse; paid plans unlock full library
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Handy when you need concrete examples to show an AI what "good" looks like. The curation is decent, but it is still a reference gallery with prompts — not components you drop into a repo.
+limitations:
+  - Most useful examples sit behind a paywall.
+  - Not a build tool; you still translate ideas into your own stack.
+  - Coverage is uneven across categories.
+receipts:
+  - "https://refero.io"
+  - "https://refero.io/pricing"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

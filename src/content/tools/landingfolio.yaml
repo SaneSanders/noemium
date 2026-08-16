@@ -1,0 +1,24 @@
+name: Landingfolio
+tagline: "Directory of landing page designs, templates, and components."
+url: "https://landingfolio.com"
+category: design
+pricing: freemium
+price_note: free directory; paid templates
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Useful for browsing landing-page patterns before you design. The free directory is solid; templates are decent if you want a faster start.
+limitations:
+  - Free tier is browse-only.
+  - Template quality is mixed.
+  - Not a component library for copy-paste.
+receipts:
+  - "https://landingfolio.com"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,25 @@
+name: assistant-ui Elements
+tagline: Open-source React components for building AI chat interfaces.
+url: "https://assistant-ui.com"
+category: design
+pricing: freemium
+price_note: free core; paid cloud features
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Saves a lot of time when you need a chat UI that looks professional without building it from scratch. The React integration is clean, though the cloud extras are not necessary for most projects.
+limitations:
+  - Cloud features can blur the open-core boundary.
+  - Custom thread UI still requires effort.
+  - Smaller ecosystem than general component libraries.
+receipts:
+  - "https://assistant-ui.com"
+  - "https://github.com/assistant-ui/assistant-ui"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

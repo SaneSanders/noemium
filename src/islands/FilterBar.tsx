@@ -20,6 +20,7 @@ export interface ToolRecord {
 
 const CATEGORIES = [
   'coding',
+  'design',
   'image',
   'video',
   'audio',

@@ -1,0 +1,25 @@
+name: Magic UI
+tagline: Animated React components and effects for design engineers.
+url: "https://magicui.design"
+category: design
+pricing: free
+price_note: MIT open source
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  Excellent for landing-page sparkle without drowning in animation code. The components copy-paste cleanly into shadcn/ui projects and feel consistent.
+limitations:
+  - Effects can be overused; restraint is required.
+  - Some components assume Tailwind and Framer Motion are already in place.
+  - Not a full app component library.
+receipts:
+  - "https://magicui.design"
+  - "https://github.com/magicuidesign/magicui"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

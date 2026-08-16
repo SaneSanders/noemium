@@ -1,0 +1,26 @@
+name: Cartesia
+tagline: Ultra-low-latency voice AI with streaming TTS and voice cloning.
+url: https://cartesia.ai
+category: audio
+pricing: paid
+price_note: "usage-based; from $5/1M chars on Sonic"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  Sonic models are built for speed: sub-100 ms streaming makes them excellent
+  for voice agents and real-time apps. Voice cloning is strong, but the free
+  trial is thin and pricing is usage-based only.
+limitations:
+  - No meaningful free tier for sustained use.
+  - Voice library is smaller than ElevenLabs.
+  - Usage-based pricing requires careful cost forecasting.
+receipts:
+  - https://cartesia.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Trigger.dev
+tagline: Background jobs and workflows for TypeScript apps with AI-friendly primitives.
+url: https://trigger.dev
+category: dev-infra
+pricing: freemium
+price_note: "self-host free; cloud from $25/mo"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The best DX for long-running background jobs in TypeScript. Retries,
+  scheduling, and observability are first-class. You need to be comfortable
+  with TypeScript; other languages are not supported.
+limitations:
+  - TypeScript-only ecosystem.
+  - Self-hosting needs infrastructure know-how.
+  - Cloud pricing can surprise at high task volume.
+receipts:
+  - https://trigger.dev
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

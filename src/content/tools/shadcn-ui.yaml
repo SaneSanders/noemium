@@ -1,0 +1,25 @@
+name: shadcn/ui
+tagline: Copy-paste React components built on Radix primitives and Tailwind CSS.
+url: "https://ui.shadcn.com"
+category: design
+pricing: free
+price_note: MIT open source
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  The closest thing to a standard React component stack right now. You own the code, theming is straightforward, and the ecosystem of blocks keeps growing.
+limitations:
+  - You maintain the components yourself after installation.
+  - No packaged npm install; copy-paste only.
+  - Quality of community blocks varies.
+receipts:
+  - "https://ui.shadcn.com"
+  - "https://github.com/shadcn-ui/ui"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

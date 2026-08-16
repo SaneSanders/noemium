@@ -1,0 +1,23 @@
+name: Footer
+tagline: Curated gallery of website footer design inspiration.
+url: "https://footer.design"
+category: design
+pricing: free
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  The only dedicated footer inspiration site that is worth bookmarking. Useful when you are stuck on the bottom half of a landing page, but it is still a gallery, not a component store.
+limitations:
+  - No code or assets; screenshots only.
+  - Categories are useful but not exhaustive.
+  - Mobile footer examples are underrepresented.
+receipts:
+  - "https://footer.design"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,26 @@
+name: Speechify
+tagline: Text-to-speech reader and AI voice generator for content consumption.
+url: https://speechify.com
+category: audio
+pricing: freemium
+price_note: "free tier; Premium from $139/year"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  The best-known reading assistant; natural voices make long articles and PDFs
+  listenable. The AI voice-over studio is usable but not as expressive as
+  ElevenLabs or Cartesia for character work.
+limitations:
+  - Best voices and features sit behind the yearly plan.
+  - Voice-over output can sound like a single speaker regardless of content.
+  - Privacy of uploaded documents needs review.
+receipts:
+  - https://speechify.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

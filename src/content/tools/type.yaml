@@ -1,0 +1,26 @@
+name: Type
+tagline: AI-first collaborative writing app for notes, documents, and workflows.
+url: https://type.ai
+category: writing
+pricing: freemium
+price_note: "free tier; Pro from $12/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A clean, fast writing surface with inline AI that stays out of the way.
+  Good for drafting and rewriting, but lacks the depth of Notion for databases
+  or the publishing features of dedicated tools.
+limitations:
+  - Feature set is narrower than Notion/Obsidian.
+  - Offline support is limited.
+  - Collaboration features lag Google Docs.
+receipts:
+  - https://type.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,7 +1,7 @@
 ---
 title: AI Content Pipeline for X/Twitter
 use_case: Run a one-person content factory for X/Twitter — research, drafts, images and short video clips.
-monthly_cost_usd: 63
+monthly_cost_usd: 61
 difficulty: beginner
 tools:
   - perplexity
@@ -15,7 +15,7 @@ receipts:
   - https://ideogram.ai
   - https://klingai.com
   - https://elevenlabs.io/pricing
-last_verified: "2026-08-15"
+last_verified: "2026-08-16"
 observed_by: whysanesanders
 ---
 
@@ -37,6 +37,19 @@ observed_by: whysanesanders
    voice once, reuse. 30k credits cover a month of shorts.
 7. **Schedule natively.** X's own scheduler or a free tool — don't pay for a
    social suite at this stage.
+
+## What you pay
+
+- **Perplexity — Pro, $20/mo.** Cited research is the only paid capability you
+  need here; the free tier caps searches too fast for a weekly pipeline.
+- **Claude — Pro, $20/mo.** Projects and long-context drafts are worth the
+  Plus tier; the free tier hits message limits mid-thread.
+- **Ideogram — Basic, $8/mo.** Readable text-in-image is the reason to pay;
+  the free queue is fine for experiments but not for scheduled content.
+- **Kling — paid tier, ~$7/mo.** The entry paid plan is enough for one clip a
+  week; free daily credits cover failed generations and tests.
+- **ElevenLabs — Starter, $6/mo.** 30k credits cover a month of short
+  voiceovers; skip Creator unless you are dubbing full episodes.
 
 ## When this breaks down
 

@@ -47,6 +47,18 @@ this stack is the setup that makes it routine.
    critical. The ecosystems make different mistakes — the second opinion is
    nearly free and catches real bugs.
 
+## What you pay
+
+- **Kimi Code — hosted membership, ~$19/mo.** The daily volume driver at
+  Chinese-line prices; pick the low end of the regional range for individual
+  use.
+- **Claude Code — included in Claude Pro, $20/mo.** One seat reserved for the
+  hardest 10% of tasks; Pro is the minimum subscription that unlocks it.
+- **OpenRouter — pay-as-you-go, ~$10/mo.** A/B prompts across vendors and a
+  fallback pipe; the small markup beats maintaining five direct API accounts.
+- **Aider — free, open source, $0/mo.** Git-native glue for CI and scripted
+  edits; bring your own OpenRouter or DeepSeek key for the model cost.
+
 ## When this breaks down
 
 Two ecosystems means two billing dashboards, two failure modes and

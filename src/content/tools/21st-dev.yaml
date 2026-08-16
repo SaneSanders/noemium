@@ -1,0 +1,25 @@
+name: 21st.dev
+tagline: Component marketplace and registry for React and modern stacks.
+url: "https://21st.dev"
+category: design
+pricing: freemium
+price_note: free registry; paid pro features
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A useful registry when you want to discover and install community components with one command. Quality control is community-driven, so vet before you ship.
+limitations:
+  - Component quality and maintenance vary widely.
+  - Discovery can feel noisy as the catalog grows.
+  - Some useful blocks are gated behind pro plans.
+receipts:
+  - "https://21st.dev"
+  - "https://github.com/21st-dev"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

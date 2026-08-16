@@ -1,7 +1,7 @@
 ---
 title: RAG Over Company Docs
 use_case: Ask questions over your company's documents — specs, wikis, PDFs — with cited answers.
-monthly_cost_usd: 30
+monthly_cost_usd: 10
 difficulty: intermediate
 tools:
   - openai-api
@@ -11,7 +11,7 @@ receipts:
   - https://platform.openai.com/docs
   - https://github.com/qdrant/qdrant
   - https://github.com/vercel/ai
-last_verified: "2026-08-15"
+last_verified: "2026-08-16"
 observed_by: whysanesanders
 ---
 
@@ -35,6 +35,16 @@ observed_by: whysanesanders
    are how RAG systems lose trust.
 8. **Measure retrieval, not vibes.** Keep a list of 30 real questions with
    known answers; re-run it after every chunking or model change.
+
+## What you pay
+
+- **OpenAI API — pay-as-you-go, ~$10/mo.** Small embedding model plus
+  GPT-5.6-class answers for a few hundred internal queries; most of the bill
+  is generation, not embedding.
+- **Qdrant — self-hosted / managed free tier, $0/mo.** Free for a small
+  company corpus; the open-source binary has no usage limits.
+- **Vercel AI SDK — free, open source, $0/mo.** The TypeScript glue is a
+  dependency, not a subscription.
 
 ## When this breaks down
 

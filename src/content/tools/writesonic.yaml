@@ -1,0 +1,26 @@
+name: Writesonic
+tagline: AI writer and SEO content platform with article generation and chatbot.
+url: https://writesonic.com
+category: writing
+pricing: freemium
+price_note: "free tier; paid from $15/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Bundles article writing, SEO scoring, and chatbot creation in one dashboard.
+  Useful for content marketers pumping out drafts, but the SEO claims are
+  overstated and editing is mandatory.
+limitations:
+  - SEO suggestions are generic; human expertise still wins.
+  - Generated articles need fact-checking and rewriting.
+  - Interface can feel cluttered with upsells.
+receipts:
+  - https://writesonic.com
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

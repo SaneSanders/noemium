@@ -81,19 +81,25 @@ const hostname = (url: string) => {
     </div>
 
     <section class="mt-10">
-      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">The components</h2>
-      <p class="mt-3 flex flex-wrap gap-2">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">The components — what each one costs</h2>
+      <ul class="nm-card mt-4 divide-y-[1.5px] divide-line-soft">
         {
           stackTools.map((t) => (
-            <a
-              href={`/tools/${t.id}`}
-              class="rounded-md border-[1.5px] border-ink px-3 py-1.5 font-mono text-[13px] font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm"
-            >
-              {t.data.name}
-            </a>
+            <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 p-4">
+              <a href={`/tools/${t.id}`} class="font-display text-lg font-extrabold tracking-tight hover:text-accent">
+                {t.data.name}
+              </a>
+              <span class="nm-num text-[13px] text-ink-dim">
+                {t.data.pricing === 'free' && !t.data.price_note ? 'free' : (t.data.price_note ?? t.data.pricing)}
+              </span>
+            </li>
           ))
         }
-      </p>
+        <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 p-4">
+          <span class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">Total</span>
+          <span class="nm-num text-lg font-bold text-accent">${s.monthly_cost_usd}/mo</span>
+        </li>
+      </ul>
     </section>
 
     <div class="nm-prose mt-8 max-w-3xl">

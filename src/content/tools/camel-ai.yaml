@@ -1,0 +1,26 @@
+name: Camel AI
+tagline: Open-source framework for multi-agent collaboration and role-playing.
+url: https://www.camel-ai.org
+category: agents
+pricing: free
+price_note: "open source (Apache 2.0)"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Strong research-oriented framework with role-playing agents and memory.
+  Useful for academic and prototype work. Smaller ecosystem and less tooling
+  than AutoGen or CrewAI.
+limitations:
+  - Smaller community and fewer integrations than CrewAI.
+  - Production deployment path is less mature.
+  - Role-playing setup can be verbose.
+receipts:
+  - https://www.camel-ai.org
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

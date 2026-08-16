@@ -61,6 +61,19 @@ this is the sane default.
   the open weights (K3, GLM-5.2, Qwen3 are all downloadable) or skip this
   stack entirely.
 
+## What you pay
+
+- **Kimi Code — hosted membership, ~$19/mo.** The low end of the regional
+  membership range; enough for daily feature work and refactors. The CLI is
+  free if you bring your own keys.
+- **GLM Coding Plan — Lite, ~$18/mo.** Flat-rate autocomplete and small fixes;
+  cheaper than burning Kimi allowance on low-stakes keystrokes.
+- **DeepSeek API — pay-as-you-go, ~$10/mo.** Bulk renames, test generation and
+  log triage scheduled into off-peak windows; cache-hit pricing keeps
+  repetitive prompts nearly free.
+- **Qwen Code — free tier, $0/mo.** ~100 requests/day on the hosted free tier
+  or BYOK for more; the CLI itself is open source.
+
 ## When this breaks down
 
 Regulated codebases, strict data-residency requirements, or teams that need

@@ -1,0 +1,26 @@
+name: Synthesia
+tagline: AI avatar video platform for corporate training and marketing.
+url: https://www.synthesia.io
+category: video
+pricing: paid
+price_note: "from $22/mo (Starter)"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The default for templated talking-head video at scale. Avatars are
+  presentation-ready, translations are decent, and the editor is genuinely
+  usable by non-editors. Emotional range and gestural nuance still feel canned.
+limitations:
+  - Avatar expressiveness is limited compared to real presenters.
+  - Pricing jumps quickly for multiple videos or custom avatars.
+  - Output can feel samey if not carefully scripted.
+receipts:
+  - https://www.synthesia.io
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

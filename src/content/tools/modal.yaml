@@ -1,0 +1,26 @@
+name: Modal
+tagline: Serverless GPU and compute platform for running ML and AI workloads.
+url: https://modal.com
+category: dev-infra
+pricing: freemium
+price_note: "free tier; pay-as-you-go for compute"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The easiest way to deploy a Python function onto a GPU without touching
+  Kubernetes. Excellent for fine-tuning, inference, and batch jobs. Pricing
+  is usage-based, so runaway jobs can get expensive fast.
+limitations:
+  - Python-first; other languages have limited support.
+  - Usage-based GPU costs require cost monitoring.
+  - Cold starts can be noticeable for some workloads.
+receipts:
+  - https://modal.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

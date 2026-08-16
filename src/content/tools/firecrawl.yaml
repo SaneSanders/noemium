@@ -1,0 +1,26 @@
+name: Firecrawl
+tagline: Turn entire websites into clean, LLM-ready markdown or structured data.
+url: https://www.firecrawl.dev
+category: data
+pricing: freemium
+price_note: "open source self-host free; cloud from $16/mo"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The go-to tool for scraping site content into markdown for RAG. Handles
+  dynamic sites well and the self-hosted option keeps costs down. Very large
+  sites need rate-limiting and chunking discipline.
+limitations:
+  - Large sites require careful rate limiting and caching.
+  - Complex JavaScript apps can still break extraction.
+  - Cloud pricing climbs with page volume.
+receipts:
+  - https://www.firecrawl.dev
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

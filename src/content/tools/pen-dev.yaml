@@ -1,0 +1,25 @@
+name: pen.dev
+tagline: Canvas-based design tool that exports clean production code.
+url: "https://pen.dev"
+category: design
+pricing: freemium
+price_note: free tier; paid plans for export and collaboration
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  The canvas-to-code pitch is appealing for quick mocks, but the generated code still needs engineering review. Best for prototypes and early design exploration.
+limitations:
+  - Generated code rarely lands in production without cleanup.
+  - Smaller community than established design tools.
+  - Collaboration features lag behind Figma.
+receipts:
+  - "https://pen.dev"
+  - "https://pen.dev/pricing"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

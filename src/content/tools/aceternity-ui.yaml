@@ -1,0 +1,25 @@
+name: Aceternity UI
+tagline: Animated React and Next.js components with strong visual effects.
+url: "https://ui.aceternity.com"
+category: design
+pricing: freemium
+price_note: free components; Pro subscription for full access
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  Go-to when you need a landing page that feels expensive. The animations are opinionated but high quality, and the copy-paste workflow fits modern React stacks well.
+limitations:
+  - Effects can be heavy on low-end devices.
+  - Pro tier gates the most impressive components.
+  - Accessibility and performance need manual review.
+receipts:
+  - "https://ui.aceternity.com"
+  - "https://github.com/aceternity"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -3,13 +3,13 @@
 # step-by-step recipe.
 title: Solo Founder SaaS
 use_case: Ship and run a small SaaS product alone — landing, app, billing, support.
-monthly_cost_usd: 40
+monthly_cost_usd: 20
 difficulty: intermediate
 tools:
   - cursor
 receipts:
   - https://github.com/SaneSanders
-last_verified: "2026-08-15"
+last_verified: "2026-08-16"
 observed_by: whysanesanders
 ---
 
@@ -24,6 +24,11 @@ observed_by: whysanesanders
    payment form is not validation.
 4. **Support yourself.** A public changelog and a fast personal inbox beat
    a helpdesk at this scale.
+
+## What you pay
+
+- **Cursor — Pro, $20/mo.** Agent mode and tab completions cover the whole
+  build; the free tier throttles just when you are shipping fastest.
 
 ## When this breaks down
 

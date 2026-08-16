@@ -1,0 +1,26 @@
+name: SambaNova
+tagline: Enterprise AI platform and API for fast inference on open-source models.
+url: https://sambanova.ai
+category: models-api
+pricing: paid
+price_note: "usage-based; enterprise and cloud tiers"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fast inference with a focus on enterprise deployment and data sovereignty.
+  Strong for regulated industries. The developer experience is less polished
+  than API-first rivals, and self-serve onboarding is limited.
+limitations:
+  - Developer onboarding is more enterprise-focused.
+  - Pricing is not as transparent as pure API providers.
+  - Smaller community and example base than OpenAI/Anthropic.
+receipts:
+  - https://sambanova.ai
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

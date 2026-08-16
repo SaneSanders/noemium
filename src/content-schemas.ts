@@ -22,6 +22,7 @@ const httpsUrl = z.url().refine((u) => u.startsWith('https://'), 'only https:// 
 
 export const toolCategories = [
   'coding',
+  'design',
   'image',
   'video',
   'audio',

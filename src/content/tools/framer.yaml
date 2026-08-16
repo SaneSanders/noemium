@@ -1,0 +1,25 @@
+name: Framer
+tagline: Visual site builder with code-level control and publishing.
+url: "https://framer.com"
+category: design
+pricing: freemium
+price_note: free for basic sites; paid from $15/mo
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The best choice for designers who want to ship a real site without writing much code. The editor is smooth, the animations are rich, and the hosting just works.
+limitations:
+  - Locked into Framer hosting for the easiest path.
+  - Complex dynamic data still needs workarounds.
+  - Pricing climbs quickly for sites with traffic or CMS needs.
+receipts:
+  - "https://framer.com"
+  - "https://www.framer.com/pricing"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

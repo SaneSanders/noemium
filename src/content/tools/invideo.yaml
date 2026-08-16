@@ -1,0 +1,26 @@
+name: InVideo
+tagline: AI video generator that turns scripts into publishable clips with stock footage.
+url: https://invideo.io
+category: video
+pricing: freemium
+price_note: "free tier with watermark; Plus from $20/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fastest way to turn a blog post or script into a faceless YouTube-style
+  video. Stock-heavy output works for explainer content but looks generic, and
+  fine editing control is limited.
+limitations:
+  - Generated visuals rely heavily on stock templates.
+  - Voice and avatar quality lag dedicated tools.
+  - Free exports carry a watermark.
+receipts:
+  - https://invideo.io
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

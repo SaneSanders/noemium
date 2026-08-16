@@ -1,0 +1,26 @@
+name: Reflect
+tagline: AI-native note-taking app with networked thoughts and end-to-end encryption.
+url: https://reflect.app
+category: productivity
+pricing: paid
+price_note: "from $10/mo"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fast, keyboard-driven notes with AI summarization and strong privacy.
+  The daily notes workflow is excellent for writers and thinkers. It is
+  smaller and pricier than Notion, with fewer integrations.
+limitations:
+  - No free tier.
+  - Integration ecosystem is small.
+  - Mobile app is less mature than desktop.
+receipts:
+  - https://reflect.app
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

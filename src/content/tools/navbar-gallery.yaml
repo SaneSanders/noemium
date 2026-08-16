@@ -1,0 +1,23 @@
+name: Navbar Gallery
+tagline: Curated gallery of navigation bar designs for web projects.
+url: "https://navbar.gallery"
+category: design
+pricing: free
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Great for browsing navbar patterns before you design your own. It is purely inspirational, so expect to implement everything yourself.
+limitations:
+  - No code export; just screenshots and ideas.
+  - Search and filtering are basic.
+  - Updates depend on the curator's pace.
+receipts:
+  - "https://navbar.gallery"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

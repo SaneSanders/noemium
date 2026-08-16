@@ -1,0 +1,26 @@
+name: Exa
+tagline: Neural search engine for finding and ranking web pages by meaning.
+url: https://exa.ai
+category: data
+pricing: freemium
+price_note: "free tier; paid from $50/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  Far better than keyword search for research and agent context gathering.
+  The API is clean and the results are semantically relevant. Coverage of
+  fresh, niche pages is still uneven.
+limitations:
+  - Smaller index than Google/Bing for real-time news.
+  - Pricing can climb quickly at scale.
+  - Some niche or newly published pages are missing.
+receipts:
+  - https://exa.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

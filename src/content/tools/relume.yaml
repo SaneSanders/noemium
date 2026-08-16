@@ -1,0 +1,25 @@
+name: Relume
+tagline: Webflow site builder and component library for marketing websites.
+url: "https://relume.io"
+category: design
+pricing: freemium
+price_note: free library browse; paid plans for site builder
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Strong for agencies building Webflow sites at speed. The component library is large, but the value drops if you are not in the Webflow ecosystem.
+limitations:
+  - Best inside Webflow; export to other stacks is limited.
+  - Paid plans are required for real site building.
+  - Designs can look samey without custom work.
+receipts:
+  - "https://relume.io"
+  - "https://relume.io/pricing"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

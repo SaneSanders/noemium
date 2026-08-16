@@ -13,7 +13,7 @@ receipts:
   - https://github.com/openai/whisper
   - https://github.com/black-forest-labs/flux
   - https://github.com/qdrant/qdrant
-last_verified: "2026-08-15"
+last_verified: "2026-08-16"
 observed_by: whysanesanders
 ---
 
@@ -41,6 +41,18 @@ observed_by: whysanesanders
    with a local embedding model, and never send a byte out.
 8. **Audit it.** Block the machine's AI processes in the firewall for a day
    and confirm nothing breaks or phones home. Trust, then verify.
+
+## What you pay
+
+- **Aider — free, open source, $0/mo.** Bring your own local or API model;
+  the tool itself costs nothing and works with any OpenAI-compatible endpoint.
+- **Whisper — open source (MIT), self-hosted, $0/mo.** Runs on your own GPU;
+  skip the hosted transcription APIs entirely for a private workflow.
+- **FLUX — open weights, self-hosted, $0/mo.** FLUX.2 klein weights are
+  Apache-2.0 and runnable locally; the dev weights are also free but carry
+  non-commercial terms.
+- **Qdrant — self-hosted, $0/mo.** The open-source vector DB runs in Docker
+  with no usage limits and no cloud calls.
 
 ## When this breaks down
 

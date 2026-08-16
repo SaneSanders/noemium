@@ -1,0 +1,25 @@
+name: Radix UI
+tagline: "Low-level, accessible UI primitives for React."
+url: "https://radix-ui.com"
+category: design
+pricing: free
+price_note: MIT open source
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  The foundation most modern React component libraries are built on. Primitives are accessible, unstyled, and behave correctly across browsers.
+limitations:
+  - You must style everything yourself.
+  - Not a drop-in component library for non-technical users.
+  - Some primitives have a learning curve.
+receipts:
+  - "https://radix-ui.com"
+  - "https://github.com/radix-ui/primitives"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

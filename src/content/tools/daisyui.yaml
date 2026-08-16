@@ -1,0 +1,25 @@
+name: DaisyUI
+tagline: Tailwind CSS component plugin with semantic class names.
+url: "https://daisyui.com"
+category: design
+pricing: free
+price_note: MIT open source
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Speeds up prototyping by giving ready-made component classes like btn and card. Great for quick admin tools and MVPs, but the look is generic without heavy customization.
+limitations:
+  - Visual style is generic out of the box.
+  - Less flexible than utility-first Tailwind for bespoke designs.
+  - Theming requires understanding of the plugin system.
+receipts:
+  - "https://daisyui.com"
+  - "https://github.com/saadeghi/daisyui"
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

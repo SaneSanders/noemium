@@ -1,0 +1,26 @@
+name: Junie
+tagline: JetBrains' autonomous coding agent built into IntelliJ, PyCharm, and the JetBrains IDEs.
+url: https://www.jetbrains.com/junie/
+category: coding
+pricing: freemium
+price_note: "free preview tier; commercial pricing expected"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Best for teams already living in JetBrains IDEs; it understands project
+  structure and can run, test, and iterate. Outside the JetBrains ecosystem it
+  doesn't exist, and preview pricing and availability keep shifting.
+limitations:
+  - Only usable inside JetBrains IDEs.
+  - Still in preview; pricing and availability are in flux.
+  - Can be slow on deeply nested enterprise codebases.
+receipts:
+  - https://www.jetbrains.com/junie/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

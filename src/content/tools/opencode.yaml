@@ -1,0 +1,26 @@
+name: OpenCode
+tagline: Autonomous coding agent that edits files, runs tests, and validates changes in your repo.
+url: https://opencode.ai
+category: coding
+pricing: freemium
+price_note: "free tier; paid plans from $20/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  Spins up a full agent loop in your project, writes code, runs tests, and
+  commits when it succeeds. Good for well-scoped tasks with existing test
+  coverage. Still rough on large refactors and can hallucinate library APIs.
+limitations:
+  - Agent loops can wander on ambiguous requirements.
+  - Token consumption on large codebases adds up fast.
+  - Less mature editor integration than Cursor or Windsurf.
+receipts:
+  - https://opencode.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

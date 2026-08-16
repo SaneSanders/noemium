@@ -1,0 +1,25 @@
+name: Motion
+tagline: "JavaScript and React animation library, formerly Framer Motion."
+url: "https://motion.dev"
+category: design
+pricing: free
+price_note: MIT open source
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  The default choice for React animations for good reason. The API is expressive, the performance is solid, and the new Motion One variant covers vanilla JS projects too.
+limitations:
+  - Bundle size can add up if you import everything.
+  - Layout animations still have edge cases.
+  - The rebrand from Framer Motion created some documentation churn.
+receipts:
+  - "https://motion.dev"
+  - "https://github.com/motiondivision/motion"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

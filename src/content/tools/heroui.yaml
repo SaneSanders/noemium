@@ -1,0 +1,25 @@
+name: HeroUI
+tagline: Modern React component library with Tailwind CSS theming.
+url: "https://heroui.com"
+category: design
+pricing: freemium
+price_note: free core; paid templates and support
+free_tier: true
+open_source: true
+api: false
+self_host: false
+verdict: ship
+verdict_text: >-
+  A reliable component library with good-looking defaults and solid Tailwind integration. Components feel modern and the documentation is easy to follow.
+limitations:
+  - Some advanced features require paid templates.
+  - Component count is smaller than mature competitors.
+  - Theming setup takes a moment if you are new to Tailwind v4.
+receipts:
+  - "https://heroui.com"
+  - "https://github.com/heroui-inc/heroui"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

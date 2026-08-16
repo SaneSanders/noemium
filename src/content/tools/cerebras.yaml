@@ -1,0 +1,26 @@
+name: Cerebras
+tagline: Ultra-fast inference on wafer-scale AI accelerators with competitive API pricing.
+url: https://cerebras.ai
+category: models-api
+pricing: paid
+price_note: "usage-based; from ~$0.60/1M tokens (Llama 3.1 70B)"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  Latency is the selling point: responses feel instant on big open models.
+  Pricing undercuts many cloud APIs. The model menu is narrower and you need
+  to trust their hardware stack.
+limitations:
+  - Model catalog is smaller than OpenRouter or Together.
+  - Requires migration to their API endpoints.
+  - Long-term roadmap depends on hardware business.
+receipts:
+  - https://cerebras.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

@@ -1,0 +1,25 @@
+name: v0
+tagline: Vercel's AI design-to-code tool for React and Tailwind components.
+url: "https://v0.dev"
+category: design
+pricing: freemium
+price_note: free tier with credits; Pro for more generations
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Good for scaffolding UI blocks from a text prompt. The generated code is a decent starting point, but you still need to refactor for real projects.
+limitations:
+  - Generated code often ignores accessibility and edge cases.
+  - Credit limits can interrupt flow on the free tier.
+  - Heavily favors Vercel and Next.js conventions.
+receipts:
+  - "https://v0.dev"
+  - "https://v0.dev/pricing"
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders

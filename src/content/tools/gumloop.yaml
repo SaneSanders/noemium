@@ -1,0 +1,26 @@
+name: Gumloop
+tagline: AI-native automation platform for building agent-driven workflows visually.
+url: https://www.gumloop.com
+category: automation
+pricing: freemium
+price_note: "free tier; paid from $19/mo"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Visual builder for agentic workflows with built-in browser, document, and
+  API nodes. Good for scraping and research pipelines. Still young; expect
+  breaking changes and occasional node limitations.
+limitations:
+  - Newer platform with a smaller integration library than Zapier.
+  - Complex workflows can be hard to debug.
+  - Reliability of browser agents varies by site.
+receipts:
+  - https://www.gumloop.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-16"
+observed_by: whysanesanders
