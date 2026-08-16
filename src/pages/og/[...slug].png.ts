@@ -56,6 +56,10 @@ interface GenericProps {
   kind: 'generic';
   counts: { tools: number; stacks: number; models: number };
 }
+interface QuizProps {
+  kind: 'quiz';
+  stackCount: number;
+}
 interface ToolProps {
   kind: 'tool';
   name: string;
@@ -73,7 +77,7 @@ interface StackProps {
   difficulty: string;
   lastVerified: string;
 }
-type OgProps = GenericProps | ToolProps | StackProps;
+type OgProps = GenericProps | ToolProps | StackProps | QuizProps;
 
 export const getStaticPaths = (async () => {
   const [tools, stacks, models] = await Promise.all([
@@ -88,6 +92,10 @@ export const getStaticPaths = (async () => {
         kind: 'generic',
         counts: { tools: tools.length, stacks: stacks.length, models: models.length },
       } satisfies OgProps,
+    },
+    {
+      params: { slug: 'quiz' },
+      props: { kind: 'quiz', stackCount: stacks.length } satisfies OgProps,
     },
     ...tools.map((t) => ({
       params: { slug: `tools/${t.id}` },
@@ -236,6 +244,20 @@ export const GET: APIRoute = async ({ props }) => {
       footer(
         `TOOLS: ${p.counts.tools} · STACKS: ${p.counts.stacks} · MODELS: ${p.counts.models} · PAID PLACEMENTS: 0`,
       ),
+    ]);
+  } else if (p.kind === 'quiz') {
+    tree = frame([
+      header('Stack quiz'),
+      h(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column' } },
+        headline('Find your AI stack.', 76),
+        mono('Thirty seconds. Honest verdicts, real prices, monthly cost attached.', {
+          fontSize: 20,
+          marginTop: 28,
+        }),
+      ),
+      footer(`quiz · ${p.stackCount} ready-made stacks · paid placements: 0`),
     ]);
   } else if (p.kind === 'tool') {
     tree = frame([

@@ -138,7 +138,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
   if (done && winner) {
     const share = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       `My AI stack costs $${winner.monthly_cost_usd}/mo. What's yours? — @whysanesanders`,
-    )}`;
+    )}&url=${encodeURIComponent('https://noemium.com/quiz')}`;
     return (
       <div class="nm-step nm-card p-6 md:p-10">
         <p class="font-mono text-xs font-medium tracking-[0.14em] text-accent uppercase">
