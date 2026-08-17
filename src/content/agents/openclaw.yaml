@@ -1,0 +1,101 @@
+name: OpenClaw
+vendor: OpenClaw Foundation
+tagline: Open-source personal agent that runs on your devices and works through chat channels, tools, skills, and schedules.
+url: https://openclaw.ai
+agent_layer: personal-agent
+maturity: beta
+license_kind: osi-open-source
+evidence_tier: source-verified
+summary: >-
+  OpenClaw is a single-operator personal agent built around a local Gateway.
+  It connects models, tools, skills, scheduled work, device nodes, and
+  messaging channels while keeping the core runtime on hardware you control.
+best_for:
+  - A personal agent reachable from Telegram, WhatsApp, Slack, Discord, or other chats
+  - Scheduled work and cross-channel context on an existing computer or VPS
+  - Operators who want an extensible local control plane instead of a managed employee product
+deployment:
+  - local
+  - self-hosted
+  - hybrid
+verdict: situational
+verdict_text: >-
+  OpenClaw is the category reference for a self-controlled personal agent and
+  has unusually serious security documentation. The tradeoff is operational:
+  the main session can run tools on the host, so pairing, allowlists,
+  sandboxing, secret isolation, and narrow service accounts are part of the
+  product rather than optional cleanup.
+install:
+  - method: command
+    platform: macOS, Linux, or WSL2
+    command: curl -fsSL https://openclaw.ai/install.sh | bash
+    url: https://docs.openclaw.ai/start/getting-started
+  - method: package
+    platform: Node.js-managed installation
+    command: npm install -g openclaw@latest
+    url: https://github.com/openclaw/openclaw
+requirements:
+  - Node.js 22.22.3+, 24.15+, or 25.9+ when managing Node manually; Node 26 is recommended
+  - macOS, Linux, Windows, Docker, or another documented deployment path
+  - At least one supported model provider, local endpoint, or subscription login
+providers:
+  - OpenAI and ChatGPT
+  - Anthropic
+  - Google
+  - xAI
+  - OpenRouter
+  - local and OpenAI-compatible endpoints
+channels:
+  - WhatsApp
+  - Telegram
+  - Slack
+  - Discord
+  - Signal
+  - iMessage
+  - Google Chat
+  - local dashboard and TUI
+cost_scenarios:
+  - name: Existing computer and existing model access
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: No incremental hardware or model charge; electricity and existing subscriptions excluded.
+  - name: Small VPS plus light API use
+    monthly_usd_min: 5
+    monthly_usd_max: 50
+    assumptions: Small always-on VPS and light-to-moderate paid inference; actual token use varies.
+  - name: Local model
+    monthly_usd_min: 0
+    assumptions: Software is free; hardware purchase, electricity, and maintenance are not included.
+security:
+  privilege: critical
+  data_boundary: Local Gateway and configured devices, plus every selected model provider and messaging channel.
+  cautions:
+    - Pair unknown direct-message senders and keep channel allowlists narrow.
+    - Main-session tools run on the host unless sandboxing is explicitly configured.
+    - Isolate credentials and review third-party skills and plugins before installation.
+limitations:
+  - The large integration surface increases setup and maintenance work.
+  - Always-on behavior requires an always-on machine or server.
+  - Cost varies with model routing, channel APIs, and tool use; one sticker price is misleading.
+  - A local runtime does not keep data local when remote models or channels are enabled.
+evidence:
+  - kind: availability
+    url: https://openclaw.ai
+    checked_at: "2026-08-17"
+  - kind: install
+    url: https://docs.openclaw.ai/start/getting-started
+    checked_at: "2026-08-17"
+  - kind: requirements
+    url: https://github.com/openclaw/openclaw
+    checked_at: "2026-08-17"
+  - kind: pricing
+    url: https://docs.openclaw.ai/reference/token-use
+    checked_at: "2026-08-17"
+  - kind: license
+    url: https://github.com/openclaw/openclaw/blob/main/LICENSE
+    checked_at: "2026-08-17"
+  - kind: security
+    url: https://docs.openclaw.ai/security/THREAT-MODEL-ATLAS
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

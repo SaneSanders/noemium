@@ -5,9 +5,9 @@ category: models-api
 pricing: paid
 price_note: "MiniMax-M3 ≤512K context $0.30/$1.20 per 1M (promo 50% off list $0.60/$2.40), >512K 2× rate; M2.5 $0.282/$1.128; Text-01 not listed on current API docs"
 free_tier: true
-open_source: true
+open_source: false
 api: true
-self_host: true
+self_host: false
 models_used:
   - minimax-m3
 verdict: situational
@@ -16,6 +16,7 @@ verdict_text: >-
   speech and music. Just watch the pricing: list vs promo rates are unclear,
   and the open-weight flagship Text-01 has vanished from the main API docs.
 limitations:
+  - The hosted API is proprietary; any open-weight MiniMax models are separate releases.
   - Pricing page lists promo vs standard rates; promo expiration unclear.
   - MiniMax-Text-01, the open-weight flagship, appears deprecated or hidden from main API docs.
   - Western documentation and support are thinner than Qwen/DeepSeek.
@@ -27,5 +28,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

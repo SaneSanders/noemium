@@ -1,0 +1,27 @@
+name: ZeroClaw
+vendor: ZeroClaw Labs
+tagline: Rust personal-agent runtime exploring a single-binary path across providers, channels, memory, and tools.
+url: https://github.com/zeroclaw-labs/zeroclaw
+agent_layer: personal-agent
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  ZeroClaw is a Rust-based personal-agent alternative with a compact-runtime
+  pitch and a broad planned integration surface. It is worth tracking, but the
+  repository claims have not yet been reproduced by Noemium.
+best_for:
+  - Comparing Rust personal-agent runtimes with Node and Python systems
+  - A clean-room install, upgrade, and channel-security review
+deployment:
+  - local
+  - self-hosted
+limitations:
+  - Noemium has not reproduced the installation or measured the claimed footprint.
+  - Provider, channel, memory, and plugin maturity need independent validation.
+evidence:
+  - kind: availability
+    url: https://github.com/zeroclaw-labs/zeroclaw
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

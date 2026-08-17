@@ -1,0 +1,27 @@
+name: DeerFlow
+vendor: ByteDance
+tagline: Super-agent harness for long-horizon research and production tasks using skills, memory, sandboxes, and subagents.
+url: https://github.com/bytedance/deer-flow
+agent_layer: work-agent
+maturity: beta
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  DeerFlow is ByteDance's broad super-agent direction, spanning research,
+  content, coding, memory, sandboxes, and subagent orchestration. Its scope is
+  substantial, but Noemium has not completed a clean-room deployment review.
+best_for:
+  - Comparing open super-agent architectures for long-running tasks
+  - Evaluating sandbox, memory, and subagent composition
+deployment:
+  - self-hosted
+  - hybrid
+limitations:
+  - Noemium has not reproduced installation, operating cost, or production reliability.
+  - The large dependency and capability surface requires a focused security review.
+evidence:
+  - kind: availability
+    url: https://github.com/bytedance/deer-flow
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

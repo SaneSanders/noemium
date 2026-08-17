@@ -11,6 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
+    "test": "node --test tests/content-schemas.test.mjs tests/agent-content.test.mjs",
     "validate": "node scripts/validate-content.mjs",
     "weekly-diff": "node scripts/weekly-diff.mjs",
     "price-history": "node scripts/price-history.mjs",

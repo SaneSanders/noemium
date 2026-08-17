@@ -1,0 +1,27 @@
+name: OpenFang
+vendor: RightNow AI
+tagline: Agent operating-system project combining autonomous workers, schedules, tools, and a multi-agent control plane.
+url: https://github.com/RightNow-AI/openfang
+agent_layer: control-plane
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  OpenFang presents itself as an agent operating system rather than a single
+  assistant. Its scheduled autonomous workers and control-plane direction are
+  relevant to Noemium's agent taxonomy, but the operational claims need testing.
+best_for:
+  - Researching multi-agent control planes and scheduled autonomous workers
+  - A clean-room install and governance review
+deployment:
+  - local
+  - self-hosted
+limitations:
+  - Noemium has not verified stability, upgrade safety, or unattended execution behavior.
+  - Governance, permissions, secrets, and worker isolation need independent review.
+evidence:
+  - kind: availability
+    url: https://github.com/RightNow-AI/openfang
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

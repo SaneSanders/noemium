@@ -76,6 +76,180 @@ export const toolSchema = z.object({
   }
 });
 
+/**
+ * Operational agent guides are intentionally separate from generic tools.
+ * The schema encodes Noemium's admission rule: strict guides need typed
+ * primary evidence, while Radar entries are discoverable but verdict-free.
+ */
+export const agentLayers = [
+  'coding-harness',
+  'personal-agent',
+  'work-agent',
+  'framework-sdk',
+  'browser-computer-use',
+  'runtime-sandbox',
+  'memory-context',
+  'observability-evals',
+  'control-plane',
+  'protocol',
+] as const;
+
+export const evidenceKinds = [
+  'availability',
+  'install',
+  'requirements',
+  'pricing',
+  'license',
+  'security',
+] as const;
+
+const agentInstallSchema = z
+  .object({
+    method: z.enum(['command', 'download', 'web', 'docker', 'package', 'source']),
+    platform: z.string().min(1),
+    command: z.string().min(1).optional(),
+    url: httpsUrl.optional(),
+  })
+  .refine((method) => Boolean(method.command || method.url), {
+    message: 'install method requires command or url',
+  });
+
+const agentCostScenarioSchema = z
+  .object({
+    name: z.string().min(1),
+    monthly_usd_min: z.number().nonnegative(),
+    monthly_usd_max: z.number().nonnegative().optional(),
+    assumptions: z.string().min(1),
+  })
+  .refine(
+    (scenario) =>
+      scenario.monthly_usd_max === undefined ||
+      scenario.monthly_usd_max >= scenario.monthly_usd_min,
+    {
+      path: ['monthly_usd_max'],
+      message: 'monthly_usd_max must be greater than or equal to monthly_usd_min',
+    },
+  );
+
+const agentSecuritySchema = z.object({
+  privilege: z.enum(['low', 'medium', 'high', 'critical']),
+  data_boundary: z.string().min(1),
+  cautions: z.array(z.string().min(1)).min(1),
+});
+
+const agentEvidenceSchema = z.object({
+  kind: z.enum(evidenceKinds),
+  url: httpsUrl,
+  checked_at: isoDate,
+});
+
+export const agentSchema = z
+  .object({
+    name: z.string().min(1),
+    vendor: z.string().min(1),
+    tagline: z.string().max(140),
+    url: httpsUrl,
+    agent_layer: z.enum(agentLayers),
+    maturity: z.enum(['stable', 'beta', 'experimental', 'prerelease']),
+    license_kind: z.enum([
+      'osi-open-source',
+      'source-available',
+      'proprietary',
+      'unknown',
+    ]),
+    evidence_tier: z.enum(['field-tested', 'source-verified', 'radar']),
+    summary: z.string().min(1),
+    best_for: z.array(z.string().min(1)).min(1),
+    deployment: z.array(z.enum(['local', 'self-hosted', 'managed', 'hybrid'])).min(1),
+    verdict: z.enum(['ship', 'situational', 'skip']).optional(),
+    verdict_text: z.string().min(1).optional(),
+    install: z.array(agentInstallSchema).min(1).optional(),
+    requirements: z.array(z.string().min(1)).min(1).optional(),
+    providers: z.array(z.string().min(1)).min(1).optional(),
+    channels: z.array(z.string().min(1)).min(1).optional(),
+    cost_scenarios: z.array(agentCostScenarioSchema).min(1).optional(),
+    security: agentSecuritySchema.optional(),
+    limitations: z.array(z.string().min(1)).min(1),
+    evidence: z.array(agentEvidenceSchema).min(1),
+    last_verified: isoDate,
+    observed_by: z.string().min(1),
+  })
+  .superRefine((agent, ctx) => {
+    const strict = agent.evidence_tier !== 'radar';
+
+    if (!strict) {
+      if (agent.verdict) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['verdict'],
+          message: 'radar entries cannot carry a verdict',
+        });
+      }
+      if (agent.verdict_text) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['verdict_text'],
+          message: 'radar entries cannot carry verdict text',
+        });
+      }
+      if (agent.cost_scenarios) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['cost_scenarios'],
+          message: 'radar entries cannot carry hard cost scenarios',
+        });
+      }
+      return;
+    }
+
+    const requiredFields = [
+      ['verdict', agent.verdict],
+      ['verdict_text', agent.verdict_text],
+      ['install', agent.install],
+      ['requirements', agent.requirements],
+      ['providers', agent.providers],
+      ['channels', agent.channels],
+      ['cost_scenarios', agent.cost_scenarios],
+      ['security', agent.security],
+    ] as const;
+    for (const [field, value] of requiredFields) {
+      if (value === undefined) {
+        ctx.addIssue({
+          code: 'custom',
+          path: [field],
+          message: `${field} is required for ${agent.evidence_tier} entries`,
+        });
+      }
+    }
+
+    if (agent.license_kind === 'unknown') {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['license_kind'],
+        message: 'strict guides require a known license kind',
+      });
+    }
+
+    const evidence = new Set(agent.evidence.map((item) => item.kind));
+    const requiredEvidence: (typeof evidenceKinds)[number][] = [
+      'availability',
+      'install',
+      'requirements',
+      'pricing',
+      'security',
+    ];
+    if (agent.license_kind !== 'proprietary') requiredEvidence.push('license');
+    for (const kind of requiredEvidence) {
+      if (!evidence.has(kind)) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['evidence'],
+          message: `${agent.evidence_tier} entry requires ${kind} evidence`,
+        });
+      }
+    }
+  });
+
 export const stackSchema = z.object({
   title: z.string().min(1),
   use_case: z.string().min(1),
@@ -132,6 +306,7 @@ export const graveyardSchema = z.object({
 });
 
 export type Tool = z.infer<typeof toolSchema>;
+export type Agent = z.infer<typeof agentSchema>;
 export type Stack = z.infer<typeof stackSchema>;
 export type Model = z.infer<typeof modelSchema>;
 export type Graveyard = z.infer<typeof graveyardSchema>;

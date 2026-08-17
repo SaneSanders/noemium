@@ -3,10 +3,11 @@ import type { APIRoute } from 'astro';
 
 /** Compact search index consumed by the ⌘K command palette (fetched on first open). */
 export const GET: APIRoute = async () => {
-  const [tools, stacks, models] = await Promise.all([
+  const [tools, stacks, models, agents] = await Promise.all([
     getCollection('tools'),
     getCollection('stacks'),
     getCollection('models'),
+    getCollection('agents'),
   ]);
 
   const body = {
@@ -26,6 +27,13 @@ export const GET: APIRoute = async () => {
       slug: m.id,
       name: m.data.name,
       provider: m.data.provider,
+    })),
+    agents: agents.map((a) => ({
+      slug: a.id,
+      name: a.data.name,
+      tagline: a.data.tagline,
+      agent_layer: a.data.agent_layer,
+      evidence_tier: a.data.evidence_tier,
     })),
   };
 

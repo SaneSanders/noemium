@@ -5,9 +5,9 @@ category: models-api
 pricing: paid
 price_note: "Qwen3.7 Max ~$1.48/$4.43 per 1M, Qwen3.6 Flash $0.19/$1.13 per 1M, Qwen-Image 2.0 ~$0.04/image; Token Plan and Coding Plan subscriptions available"
 free_tier: true
-open_source: true
+open_source: false
 api: true
-self_host: true
+self_host: false
 models_used:
   - qwen3-8-max
 verdict: ship
@@ -16,6 +16,7 @@ verdict_text: >-
   international region. Pricing is attractive, but the console still feels
   built for China-first users, so expect some billing and rate-card friction.
 limitations:
+  - The hosted Model Studio API is proprietary; many Qwen weights are open releases available separately.
   - International vs China pricing diverges; OpenRouter can be cheaper for some models.
   - Large MoE models are expensive to self-host.
   - China-region compliance and billing can be hard for non-China users.
@@ -27,5 +28,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

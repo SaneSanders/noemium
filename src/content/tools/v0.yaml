@@ -1,9 +1,9 @@
 name: v0
 tagline: Vercel's AI design-to-code tool for React and Tailwind components.
-url: "https://v0.dev"
+url: "https://v0.app"
 category: design
 pricing: freemium
-price_note: free tier with credits; Pro for more generations
+price_note: Free $0/mo with $5 monthly credits; Plus $30/user/mo; Business $100/user/mo; usage consumes model-priced credits
 free_tier: true
 open_source: false
 api: false
@@ -16,10 +16,10 @@ limitations:
   - Credit limits can interrupt flow on the free tier.
   - Heavily favors Vercel and Next.js conventions.
 receipts:
-  - "https://v0.dev"
-  - "https://v0.dev/pricing"
+  - "https://v0.app"
+  - "https://v0.app/pricing"
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

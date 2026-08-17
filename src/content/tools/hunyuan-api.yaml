@@ -5,9 +5,9 @@ category: models-api
 pricing: paid
 price_note: "Hunyuan TurboS ~$0.11/$0.28 per 1M (256K context); T1 ~$0.14/$0.56 (128K); HY3 $0.18/$0.72; HY3-preview $0.063/$0.21 via OpenRouter; Hunyuan 3D from $0.02/image"
 free_tier: true
-open_source: true
+open_source: false
 api: true
-self_host: true
+self_host: false
 verdict: situational
 verdict_text: >-
   TurboS and T1 are among the cheapest capable LLM APIs, and Hunyuan Video is
@@ -15,6 +15,7 @@ verdict_text: >-
   a mainland account and some endpoints are geo-blocked in the EU, UK and
   South Korea.
 limitations:
+  - The hosted API is proprietary; selected Hunyuan model weights are released separately.
   - Access outside China is difficult; Tencent Cloud console assumes mainland account.
   - Some Hunyuan products are geo-blocked in the EU/UK/South Korea.
   - Text reasoning quality is mid-pack, not frontier.
@@ -26,5 +27,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

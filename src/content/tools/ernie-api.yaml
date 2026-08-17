@@ -5,9 +5,9 @@ category: models-api
 pricing: paid
 price_note: "ERNIE 4.5 Turbo 32K ~$0.11/$0.44 per 1M; ERNIE Lite Pro 128K ~$0.028/$0.056; ERNIE Speed Pro 128K ~$0.042/$0.083; ERNIE 5.1 flagship pricing not fetched"
 free_tier: true
-open_source: true
+open_source: false
 api: true
-self_host: true
+self_host: false
 verdict: situational
 verdict_text: >-
   ERNIE 5.1 ranks high on Chinese leaderboards and the Lite/Speed tiers are
@@ -25,5 +25,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

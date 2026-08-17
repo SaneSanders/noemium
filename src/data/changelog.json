@@ -1,16 +1,772 @@
 {
-  "generated_at": "2026-08-16T01:33:13.082Z",
+  "generated_at": "2026-08-17T05:12:42.110Z",
   "weeks": [
     {
       "id": "2026-W33",
       "from": "2026-08-10",
       "to": "2026-08-17",
       "counts": {
-        "added": 150,
+        "added": 227,
         "removed": 19,
-        "changed": 47
+        "changed": 51
       },
       "added": [
+        {
+          "collection": "tools",
+          "slug": "bytedance-seed",
+          "name": "ByteDance Seed",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "codegeex",
+          "name": "CodeGeeX",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "ernie-api",
+          "name": "Baidu ERNIE API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "glm-coding-plan",
+          "name": "GLM Coding Plan",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "hailuo-ai",
+          "name": "Hailuo AI",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-video",
+          "name": "Hunyuan Video",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "kimi-code",
+          "name": "Kimi Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "qwen-api",
+          "name": "Qwen API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "qwen-code",
+          "name": "Qwen Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "qwen-image",
+          "name": "Qwen-Image",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "seedance",
+          "name": "Seedance",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "stepfun-api",
+          "name": "StepFun API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "tongyi-lingma",
+          "name": "Tongyi Lingma",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "trae",
+          "name": "Trae",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api"
+        },
+        {
+          "collection": "models",
+          "slug": "gemini-omni-flash",
+          "name": "Gemini Omni Flash"
+        },
+        {
+          "collection": "models",
+          "slug": "glm-5-3",
+          "name": "GLM 5.3"
+        },
+        {
+          "collection": "models",
+          "slug": "minimax-h3",
+          "name": "MiniMax H3 (Hailuo 3.0)"
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-content-pipeline",
+          "name": "AI Content Pipeline for X/Twitter"
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-customer-support",
+          "name": "AI Customer Support for Small Business"
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-video-studio",
+          "name": "AI Video Studio"
+        },
+        {
+          "collection": "stacks",
+          "slug": "american-coding-stack",
+          "name": "American Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "chinese-coding-stack",
+          "name": "Chinese Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "local-first-ai",
+          "name": "Local-First Private AI Setup"
+        },
+        {
+          "collection": "stacks",
+          "slug": "maxed-out-dev-stack",
+          "name": "Maxed-Out Dev Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "mixed-coding-stack",
+          "name": "Mixed US × CN Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "one-person-studio",
+          "name": "One-Person Studio"
+        },
+        {
+          "collection": "stacks",
+          "slug": "rag-over-docs",
+          "name": "RAG Over Company Docs"
+        },
+        {
+          "collection": "stacks",
+          "slug": "research-max-stack",
+          "name": "Research Max Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "solo-founder-saas",
+          "name": "Solo Founder SaaS"
+        },
+        {
+          "collection": "stacks",
+          "slug": "student-coding-shoestring",
+          "name": "Student Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "student-zero-budget",
+          "name": "Student Stack: Zero Budget"
+        },
+        {
+          "collection": "stacks",
+          "slug": "vibe-coding-stack",
+          "name": "Vibe Coding Stack 2026"
+        },
+        {
+          "collection": "tools",
+          "slug": "21st-dev",
+          "name": "21st.dev",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "404s",
+          "name": "404s",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "aceternity-ui",
+          "name": "Aceternity UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "adobe-firefly",
+          "name": "Adobe Firefly",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "assistant-ui",
+          "name": "assistant-ui Elements",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "autogen",
+          "name": "AutoGen",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "bardeen",
+          "name": "Bardeen",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "baseten",
+          "name": "Baseten",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "browserbase",
+          "name": "Browserbase",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "camel-ai",
+          "name": "Camel AI",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "cartesia",
+          "name": "Cartesia",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "cerebras",
+          "name": "Cerebras",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "clipdrop",
+          "name": "Clipdrop",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "copy-ai",
+          "name": "Copy.ai",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "daisyui",
+          "name": "DaisyUI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "dify",
+          "name": "Dify",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "exa",
+          "name": "Exa",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "factory",
+          "name": "Factory",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "firecrawl",
+          "name": "Firecrawl",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "footer",
+          "name": "Footer",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "framer",
+          "name": "Framer",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini-code-assist",
+          "name": "Gemini Code Assist",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "gumloop",
+          "name": "Gumloop",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "heroui",
+          "name": "HeroUI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "higgsfield",
+          "name": "Higgsfield",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "horizonx",
+          "name": "HorizonX",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "inngest",
+          "name": "Inngest",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "invideo",
+          "name": "InVideo",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "junie",
+          "name": "Junie",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "krea",
+          "name": "Krea",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "lambda",
+          "name": "Lambda",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "landingfolio",
+          "name": "Landingfolio",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "lindy",
+          "name": "Lindy",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "lucide",
+          "name": "Lucide",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "magic-ui",
+          "name": "Magic UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "mem-ai",
+          "name": "Mem",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "mobbin",
+          "name": "Mobbin",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "modal",
+          "name": "Modal",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "motion-dev",
+          "name": "Motion",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "motion",
+          "name": "Motion",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "navbar-gallery",
+          "name": "Navbar Gallery",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "nebius",
+          "name": "Nebius",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "notion-calendar",
+          "name": "Notion Calendar",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "onlook",
+          "name": "Onlook",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "opencode",
+          "name": "OpenCode",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "origin-ui",
+          "name": "Origin UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "pen-dev",
+          "name": "pen.dev",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "radix-ui",
+          "name": "Radix UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "react-bits",
+          "name": "React Bits",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "refero-styles",
+          "name": "Refero Styles",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "reflect",
+          "name": "Reflect",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "relume",
+          "name": "Relume",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "resemble-ai",
+          "name": "Resemble AI",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "sambanova",
+          "name": "SambaNova",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "shadcn-ui",
+          "name": "shadcn/ui",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "speechify",
+          "name": "Speechify",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "stitch",
+          "name": "Stitch",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "synthesia",
+          "name": "Synthesia",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "tailark",
+          "name": "Tailark",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "tailwind-ui",
+          "name": "Tailwind UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "tavily",
+          "name": "Tavily",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "trigger-dev",
+          "name": "Trigger.dev",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "type",
+          "name": "Type",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "uizard",
+          "name": "Uizard",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "v0",
+          "name": "v0",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "workato",
+          "name": "Workato",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "writesonic",
+          "name": "Writesonic",
+          "category": "writing"
+        },
+        {
+          "collection": "models",
+          "slug": "claude-fable-5",
+          "name": "Claude Fable 5"
+        },
+        {
+          "collection": "models",
+          "slug": "claude-haiku-4-5",
+          "name": "Claude Haiku 4.5"
+        },
+        {
+          "collection": "models",
+          "slug": "claude-opus-5",
+          "name": "Claude Opus 5"
+        },
+        {
+          "collection": "models",
+          "slug": "claude-sonnet-5",
+          "name": "Claude Sonnet 5"
+        },
+        {
+          "collection": "models",
+          "slug": "deepseek-v4-flash",
+          "name": "DeepSeek V4 Flash"
+        },
+        {
+          "collection": "models",
+          "slug": "deepseek-v4-pro",
+          "name": "DeepSeek V4 Pro"
+        },
+        {
+          "collection": "models",
+          "slug": "doubao-seed-2-1-pro",
+          "name": "Doubao Seed 2.1 Pro"
+        },
+        {
+          "collection": "models",
+          "slug": "doubao-seed-2-1-turbo",
+          "name": "Doubao Seed 2.1 Turbo"
+        },
+        {
+          "collection": "models",
+          "slug": "eleven-v3",
+          "name": "Eleven v3"
+        },
+        {
+          "collection": "models",
+          "slug": "flux-2-pro",
+          "name": "FLUX 2 Pro"
+        },
+        {
+          "collection": "models",
+          "slug": "gemini-3-1-pro-preview",
+          "name": "Gemini 3.1 Pro Preview"
+        },
+        {
+          "collection": "models",
+          "slug": "gemini-3-7-flash",
+          "name": "Gemini 3.7 Flash"
+        },
+        {
+          "collection": "models",
+          "slug": "glm-5-2",
+          "name": "GLM 5.2"
+        },
+        {
+          "collection": "models",
+          "slug": "gpt-5-4-mini",
+          "name": "GPT-5.4 mini"
+        },
+        {
+          "collection": "models",
+          "slug": "gpt-5-6-luna",
+          "name": "GPT-5.6 Luna"
+        },
+        {
+          "collection": "models",
+          "slug": "gpt-5-6-sol",
+          "name": "GPT-5.6 Sol"
+        },
+        {
+          "collection": "models",
+          "slug": "gpt-5-6-terra",
+          "name": "GPT-5.6 Terra"
+        },
+        {
+          "collection": "models",
+          "slug": "grok-4-6",
+          "name": "Grok 4.6"
+        },
+        {
+          "collection": "models",
+          "slug": "grok-build-0-1",
+          "name": "Grok Build 0.1"
+        },
+        {
+          "collection": "models",
+          "slug": "hunyuan-t1",
+          "name": "Hunyuan T1"
+        },
+        {
+          "collection": "models",
+          "slug": "hunyuan-turbos",
+          "name": "Hunyuan TurboS"
+        },
+        {
+          "collection": "models",
+          "slug": "kimi-k2-7-code",
+          "name": "Kimi K2.7 Code"
+        },
+        {
+          "collection": "models",
+          "slug": "kimi-k3",
+          "name": "Kimi K3"
+        },
+        {
+          "collection": "models",
+          "slug": "minimax-m3",
+          "name": "MiniMax M3"
+        },
+        {
+          "collection": "models",
+          "slug": "muse-spark-1-2",
+          "name": "Muse Spark 1.2"
+        },
+        {
+          "collection": "models",
+          "slug": "qwen3-6-flash",
+          "name": "Qwen3.6 Flash"
+        },
+        {
+          "collection": "models",
+          "slug": "qwen3-7-max",
+          "name": "Qwen3.7 Max"
+        },
+        {
+          "collection": "models",
+          "slug": "qwen3-8-max",
+          "name": "Qwen3.8 Max"
+        },
+        {
+          "collection": "models",
+          "slug": "veo-3-1-generate",
+          "name": "Veo 3.1"
+        },
+        {
+          "collection": "models",
+          "slug": "whisper-v3",
+          "name": "Whisper Large v3"
+        },
         {
           "collection": "tools",
           "slug": "make",
@@ -37,104 +793,9 @@
         },
         {
           "collection": "tools",
-          "slug": "codegeex",
-          "name": "CodeGeeX",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "cosyvoice",
-          "name": "CosyVoice",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "ernie-api",
-          "name": "Baidu ERNIE API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-video",
-          "name": "Hunyuan Video",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
           "slug": "minimax-speech",
           "name": "MiniMax Speech",
           "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "qwen-code",
-          "name": "Qwen Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "stepfun-api",
-          "name": "StepFun API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "tongyi-lingma",
-          "name": "Tongyi Lingma",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "vidu",
-          "name": "Vidu",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "category": "models-api"
-        },
-        {
-          "collection": "models",
-          "slug": "doubao-seed-2-1-pro",
-          "name": "Doubao Seed 2.1 Pro"
-        },
-        {
-          "collection": "models",
-          "slug": "doubao-seed-2-1-turbo",
-          "name": "Doubao Seed 2.1 Turbo"
-        },
-        {
-          "collection": "models",
-          "slug": "hunyuan-t1",
-          "name": "Hunyuan T1"
-        },
-        {
-          "collection": "models",
-          "slug": "hunyuan-turbos",
-          "name": "Hunyuan TurboS"
-        },
-        {
-          "collection": "models",
-          "slug": "kimi-k2-7-code",
-          "name": "Kimi K2.7 Code"
-        },
-        {
-          "collection": "models",
-          "slug": "qwen3-6-flash",
-          "name": "Qwen3.6 Flash"
-        },
-        {
-          "collection": "models",
-          "slug": "qwen3-7-max",
-          "name": "Qwen3.7 Max"
-        },
-        {
-          "collection": "tools",
-          "slug": "bytedance-seed",
-          "name": "ByteDance Seed",
-          "category": "models-api"
         },
         {
           "collection": "tools",
@@ -150,57 +811,9 @@
         },
         {
           "collection": "tools",
-          "slug": "glm-coding-plan",
-          "name": "GLM Coding Plan",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "hailuo-ai",
-          "name": "Hailuo AI",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-api",
-          "name": "Hunyuan API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "kimi-code",
-          "name": "Kimi Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "minimax-api",
           "name": "MiniMax API",
           "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "qwen-api",
-          "name": "Qwen API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "qwen-image",
-          "name": "Qwen-Image",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "seedance",
-          "name": "Seedance",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "trae",
-          "name": "Trae",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -255,12 +868,6 @@
           "slug": "crewai",
           "name": "CrewAI",
           "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -399,12 +1006,6 @@
           "slug": "mistral-api",
           "name": "Mistral API (La Plateforme)",
           "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "motion",
-          "name": "Motion",
-          "category": "productivity"
         },
         {
           "collection": "tools",
@@ -593,11 +1194,6 @@
           "category": "coding"
         },
         {
-          "collection": "stacks",
-          "slug": "local-first-ai",
-          "name": "Local-First Private AI Setup"
-        },
-        {
           "collection": "tools",
           "slug": "continue",
           "name": "Continue",
@@ -617,18 +1213,8 @@
         },
         {
           "collection": "models",
-          "slug": "claude-fable-5",
-          "name": "Claude Fable 5"
-        },
-        {
-          "collection": "models",
           "slug": "claude-haiku-3-5",
           "name": "Claude Haiku 3.5"
-        },
-        {
-          "collection": "models",
-          "slug": "claude-haiku-4-5",
-          "name": "Claude Haiku 4.5"
         },
         {
           "collection": "models",
@@ -637,18 +1223,8 @@
         },
         {
           "collection": "models",
-          "slug": "claude-opus-5",
-          "name": "Claude Opus 5"
-        },
-        {
-          "collection": "models",
           "slug": "claude-sonnet-4-5",
           "name": "Claude Sonnet 4.5"
-        },
-        {
-          "collection": "models",
-          "slug": "claude-sonnet-5",
-          "name": "Claude Sonnet 5"
         },
         {
           "collection": "models",
@@ -662,68 +1238,13 @@
         },
         {
           "collection": "models",
-          "slug": "deepseek-v4-flash",
-          "name": "DeepSeek V4 Flash"
-        },
-        {
-          "collection": "models",
-          "slug": "deepseek-v4-pro",
-          "name": "DeepSeek V4 Pro"
-        },
-        {
-          "collection": "models",
-          "slug": "eleven-v3",
-          "name": "Eleven v3"
-        },
-        {
-          "collection": "models",
           "slug": "flux-1-1-pro",
           "name": "FLUX 1.1 Pro"
         },
         {
           "collection": "models",
-          "slug": "flux-2-pro",
-          "name": "FLUX 2 Pro"
-        },
-        {
-          "collection": "models",
           "slug": "gemini-2-5-pro",
           "name": "Gemini 2.5 Pro"
-        },
-        {
-          "collection": "models",
-          "slug": "gemini-3-1-pro-preview",
-          "name": "Gemini 3.1 Pro Preview"
-        },
-        {
-          "collection": "models",
-          "slug": "gemini-3-7-flash",
-          "name": "Gemini 3.7 Flash"
-        },
-        {
-          "collection": "models",
-          "slug": "glm-5-2",
-          "name": "GLM 5.2"
-        },
-        {
-          "collection": "models",
-          "slug": "gpt-5-4-mini",
-          "name": "GPT-5.4 mini"
-        },
-        {
-          "collection": "models",
-          "slug": "gpt-5-6-luna",
-          "name": "GPT-5.6 Luna"
-        },
-        {
-          "collection": "models",
-          "slug": "gpt-5-6-sol",
-          "name": "GPT-5.6 Sol"
-        },
-        {
-          "collection": "models",
-          "slug": "gpt-5-6-terra",
-          "name": "GPT-5.6 Terra"
         },
         {
           "collection": "models",
@@ -737,33 +1258,8 @@
         },
         {
           "collection": "models",
-          "slug": "grok-4-6",
-          "name": "Grok 4.6"
-        },
-        {
-          "collection": "models",
           "slug": "grok-4",
           "name": "Grok 4"
-        },
-        {
-          "collection": "models",
-          "slug": "grok-build-0-1",
-          "name": "Grok Build 0.1"
-        },
-        {
-          "collection": "models",
-          "slug": "kimi-k3",
-          "name": "Kimi K3"
-        },
-        {
-          "collection": "models",
-          "slug": "minimax-m3",
-          "name": "MiniMax M3"
-        },
-        {
-          "collection": "models",
-          "slug": "muse-spark-1-2",
-          "name": "Muse Spark 1.2"
         },
         {
           "collection": "models",
@@ -777,11 +1273,6 @@
         },
         {
           "collection": "models",
-          "slug": "qwen3-8-max",
-          "name": "Qwen3.8 Max"
-        },
-        {
-          "collection": "models",
           "slug": "qwen3",
           "name": "Qwen3 235B A22B"
         },
@@ -789,11 +1280,6 @@
           "collection": "models",
           "slug": "sora",
           "name": "Sora 2"
-        },
-        {
-          "collection": "models",
-          "slug": "veo-3-1-generate",
-          "name": "Veo 3.1"
         },
         {
           "collection": "models",
@@ -805,11 +1291,6 @@
           "slug": "play-ht",
           "name": "Play.ht",
           "category": "audio"
-        },
-        {
-          "collection": "models",
-          "slug": "whisper-v3",
-          "name": "Whisper Large v3"
         },
         {
           "collection": "models",
@@ -825,36 +1306,6 @@
           "collection": "models",
           "slug": "mistral-large",
           "name": "Mistral Large"
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-content-pipeline",
-          "name": "AI Content Pipeline for X/Twitter"
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-customer-support",
-          "name": "AI Customer Support for Small Business"
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-video-studio",
-          "name": "AI Video Studio"
-        },
-        {
-          "collection": "stacks",
-          "slug": "rag-over-docs",
-          "name": "RAG Over Company Docs"
-        },
-        {
-          "collection": "stacks",
-          "slug": "solo-founder-saas",
-          "name": "Solo Founder SaaS"
-        },
-        {
-          "collection": "stacks",
-          "slug": "vibe-coding-stack",
-          "name": "Vibe Coding Stack 2026"
         }
       ],
       "removed": [
@@ -959,6 +1410,55 @@
         }
       ],
       "changed": [
+        {
+          "collection": "stacks",
+          "slug": "ai-content-pipeline",
+          "name": "AI Content Pipeline for X/Twitter",
+          "field": "monthly cost",
+          "from": 63,
+          "to": 61
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-video-studio",
+          "name": "AI Video Studio",
+          "field": "monthly cost",
+          "from": 60,
+          "to": 67
+        },
+        {
+          "collection": "stacks",
+          "slug": "rag-over-docs",
+          "name": "RAG Over Company Docs",
+          "field": "monthly cost",
+          "from": 30,
+          "to": 10
+        },
+        {
+          "collection": "stacks",
+          "slug": "solo-founder-saas",
+          "name": "Solo Founder SaaS",
+          "field": "monthly cost",
+          "from": 40,
+          "to": 20
+        },
+        {
+          "collection": "tools",
+          "slug": "motion",
+          "name": "Motion (usemotion)",
+          "category": "productivity",
+          "field": "price note",
+          "from": "from $19/seat/mo (annual, Pro AI)",
+          "to": "7-day trial; Pro AI $19/seat/mo (yearly)"
+        },
+        {
+          "collection": "models",
+          "slug": "eleven-v3",
+          "name": "Eleven v3",
+          "field": "price",
+          "from": 0.00018,
+          "to": 0.0001
+        },
         {
           "collection": "tools",
           "slug": "n8n",
@@ -1204,15 +1704,6 @@
         },
         {
           "collection": "tools",
-          "slug": "motion",
-          "name": "Motion",
-          "category": "productivity",
-          "field": "price note",
-          "from": "from $19/seat/mo (annual, Pro AI)",
-          "to": "7-day trial; Pro AI $19/seat/mo (yearly)"
-        },
-        {
-          "collection": "tools",
           "slug": "murf",
           "name": "Murf AI",
           "category": "audio",
@@ -1372,14 +1863,6 @@
           "field": "price note",
           "from": "Grok 4 $3/1M input, $15/1M output",
           "to": "pay-as-you-go; Grok 4.6 $2/$6 per 1M"
-        },
-        {
-          "collection": "models",
-          "slug": "eleven-v3",
-          "name": "Eleven v3",
-          "field": "price",
-          "from": 0.00018,
-          "to": 0.0001
         }
       ]
     }

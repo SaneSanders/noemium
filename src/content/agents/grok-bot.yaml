@@ -1,0 +1,86 @@
+name: Grok Bot
+vendor: SpaceXAI / Cursor
+tagline: Managed AI teammates with persistent cloud computers, shared routines, and parallel work.
+url: https://x.ai/bot
+agent_layer: work-agent
+maturity: beta
+license_kind: proprietary
+evidence_tier: source-verified
+summary: >-
+  Grok Bot is the new managed work-agent product, not the Grok Build coding
+  CLI. Each Bot gets a vendor-operated cloud computer, can sign in to web
+  tools, learn routines, keep working after the user's laptop closes, and
+  collaborate with other Bots in shared threads.
+best_for:
+  - Browser-heavy business operations that lack clean APIs
+  - Persistent sales, recruiting, support, and back-office routines
+  - Teams that want several managed agents working in parallel
+deployment:
+  - managed
+verdict: situational
+verdict_text: >-
+  This is the clearest commercial expression of the always-on work-agent
+  category, but the beta is expensive and the trust boundary is unusually
+  large: Bots hold app sessions and take actions inside a managed cloud
+  computer. Start with reversible, review-gated workflows and isolated
+  accounts rather than production credentials.
+install:
+  - method: download
+    platform: macOS on Apple silicon
+    url: https://x.ai/bot
+  - method: web
+    platform: iOS and plan sign-in
+    url: https://x.ai/bot
+requirements:
+  - Cursor Ultra, SuperGrok Heavy, or Cursor Premium Teams access during the early beta
+  - An Apple silicon Mac for the currently published desktop download; iOS access is also advertised
+  - Separate credentials for every app or website the Bot must operate
+providers:
+  - Grok
+channels:
+  - macOS desktop
+  - iOS
+  - shared Bot threads
+cost_scenarios:
+  - name: Cursor Ultra
+    monthly_usd_min: 200
+    monthly_usd_max: 200
+    assumptions: One individual subscription billed monthly.
+  - name: SuperGrok Heavy
+    monthly_usd_min: 300
+    monthly_usd_max: 300
+    assumptions: One individual subscription billed monthly.
+  - name: Cursor Premium Teams
+    monthly_usd_min: 120
+    monthly_usd_max: 120
+    assumptions: Per seat, billed monthly; team total scales with seat count.
+security:
+  privilege: critical
+  data_boundary: Vendor-managed cloud computer holding authenticated browser sessions and work context.
+  cautions:
+    - Use dedicated low-privilege service accounts instead of personal administrator identities.
+    - Require human approval for money movement, deletion, publishing, and outbound communication.
+    - Treat learned routines and shared Bot context as sensitive operational data.
+limitations:
+  - Early beta availability and limits can change without notice.
+  - The entry price is far above most self-hosted personal-agent setups.
+  - The official page does not publish a self-hosted or bring-your-own-model path.
+  - Browser sessions create a larger credential and prompt-injection surface than API-only automation.
+evidence:
+  - kind: availability
+    url: https://x.ai/bot
+    checked_at: "2026-08-17"
+  - kind: install
+    url: https://x.ai/bot
+    checked_at: "2026-08-17"
+  - kind: requirements
+    url: https://x.ai/bot
+    checked_at: "2026-08-17"
+  - kind: pricing
+    url: https://x.ai/bot
+    checked_at: "2026-08-17"
+  - kind: security
+    url: https://x.ai/security
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

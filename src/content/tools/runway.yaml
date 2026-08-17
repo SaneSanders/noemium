@@ -1,6 +1,6 @@
 name: Runway
 tagline: The incumbent AI video suite — Gen-4 generation plus a full editing toolchain.
-url: https://runwayml.com
+url: https://runway.com
 category: video
 pricing: freemium
 price_note: "free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
@@ -24,5 +24,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: true
-last_verified: "2026-08-15"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

@@ -19,14 +19,22 @@ interface ModelHit {
   name: string;
   provider: string;
 }
+interface AgentHit {
+  slug: string;
+  name: string;
+  tagline: string;
+  agent_layer: string;
+  evidence_tier: 'field-tested' | 'source-verified' | 'radar';
+}
 interface Index {
   tools: ToolHit[];
   stacks: StackHit[];
   models: ModelHit[];
+  agents: AgentHit[];
 }
 
 interface Row {
-  kind: 'tool' | 'stack' | 'model' | 'command';
+  kind: 'tool' | 'agent' | 'stack' | 'model' | 'command';
   label: string;
   hint: string;
   href: string;
@@ -166,8 +174,27 @@ export default function CommandPalette() {
           href: `/stacks/${s.slug}`,
         }));
       }
+      if (cmd === 'agent') {
+        const hits = index.agents
+          .map((agent) => ({
+            agent,
+            score: arg
+              ? Math.max(fuzzy(arg, agent.name), fuzzy(arg, agent.tagline), fuzzy(arg, agent.agent_layer))
+              : 1,
+          }))
+          .filter((x) => x.score >= 0)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 8);
+        return hits.map(({ agent }) => ({
+          kind: 'agent' as const,
+          label: agent.name,
+          hint: agent.evidence_tier === 'radar' ? 'agent · radar' : `agent · ${agent.agent_layer}`,
+          href: `/agents/${agent.slug}`,
+        }));
+      }
       return [
         { kind: 'command', label: 'compare <a> <b>', hint: 'side-by-side table', href: '/tools/compare' },
+        { kind: 'command', label: 'agent <query>', hint: 'search agent guides', href: '/agents' },
         { kind: 'command', label: 'stack <query>', hint: 'search stacks', href: '/stacks' },
         { kind: 'command', label: 'noema', hint: 'mission', href: '#noema' },
       ];
@@ -182,6 +209,15 @@ export default function CommandPalette() {
           hint: t.category,
           href: `/tools/${t.slug}`,
         })),
+        ...index.agents
+          .filter((agent) => agent.evidence_tier !== 'radar')
+          .slice(0, 3)
+          .map((agent) => ({
+            kind: 'agent' as const,
+            label: agent.name,
+            hint: `agent · ${agent.agent_layer}`,
+            href: `/agents/${agent.slug}`,
+          })),
         ...index.stacks.slice(0, 3).map((s) => ({
           kind: 'stack' as const,
           label: s.title,
@@ -217,6 +253,23 @@ export default function CommandPalette() {
       .filter((x) => x.score >= 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 3);
+    const agents = index.agents
+      .map((agent) => ({
+        row: {
+          kind: 'agent' as const,
+          label: agent.name,
+          hint: agent.evidence_tier === 'radar' ? 'agent · radar' : `agent · ${agent.agent_layer}`,
+          href: `/agents/${agent.slug}`,
+        },
+        score: Math.max(
+          fuzzy(q, agent.name),
+          fuzzy(q, agent.tagline) * 0.6,
+          fuzzy(q, agent.agent_layer) * 0.5,
+        ),
+      }))
+      .filter((x) => x.score >= 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 4);
     const models = index.models
       .map((m) => ({
         row: {
@@ -230,7 +283,7 @@ export default function CommandPalette() {
       .filter((x) => x.score >= 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 3);
-    return [...tools, ...stacks, ...models].map((x) => x.row);
+    return [...tools, ...agents, ...stacks, ...models].map((x) => x.row);
   }, [index, query, commandMode, commandBody]);
 
   useEffect(() => setSelected(0), [rows.length, query]);
@@ -289,6 +342,7 @@ export default function CommandPalette() {
 
   const kindTone: Record<Row['kind'], string> = {
     tool: 'text-accent',
+    agent: 'text-accent',
     stack: 'text-ink-dim',
     model: 'text-ink-dim',
     command: 'text-accent',
@@ -329,7 +383,7 @@ export default function CommandPalette() {
                 value={query}
                 onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
                 onKeyDown={onInputKey}
-                placeholder="Search tools, stacks, models — or type > for commands"
+                placeholder="Search tools, agents, stacks, models — or type > for commands"
                 class="w-full bg-transparent py-3 font-mono text-sm text-ink caret-accent placeholder:text-ink-dim focus:outline-none"
                 aria-label="Search the catalog"
               />
@@ -341,7 +395,7 @@ export default function CommandPalette() {
               {!index && <li class="px-4 py-3 font-mono text-xs text-ink-dim">loading index…</li>}
               {index && rows.length === 0 && (
                 <li class="px-4 py-3 font-mono text-xs text-ink-dim">
-                  no matches — try <span class="text-accent">&gt;stack</span> or widen the query
+                  no matches — try <span class="text-accent">&gt;agent</span> or widen the query
                 </li>
               )}
               {rows.map((row, i) => (

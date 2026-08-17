@@ -1,25 +1,28 @@
-name: Origin UI
-tagline: Copy-paste UI components built with Tailwind CSS and React.
-url: "https://originui.com"
+name: COSS UI (formerly Origin UI)
+tagline: Open-source copy-paste React components, evolved from Origin UI.
+url: "https://coss.com/ui"
 category: design
-pricing: freemium
-price_note: free core; paid templates
+pricing: free
+price_note: free and open source
 free_tier: true
 open_source: true
 api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  A polished alternative to shadcn/ui blocks with a distinct visual style. Good when you want components that look a bit more designed out of the box.
+  Origin UI has moved into COSS UI after its acquisition by Cal.com. The new
+  library remains a polished shadcn-compatible alternative with a distinct
+  visual style, but the migration is still in progress.
 limitations:
   - Smaller ecosystem than shadcn/ui.
-  - Some of the best templates are paid.
+  - Original Origin UI components are now legacy and receive limited support.
+  - The COSS UI roadmap is still in an active migration phase.
   - Style is opinionated; may not fit every brand.
 receipts:
-  - "https://originui.com"
-  - "https://github.com/origin-space/originui"
+  - "https://coss.com/ui/docs/roadmap"
+  - "https://github.com/cosscom/coss"
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

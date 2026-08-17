@@ -1,0 +1,26 @@
+name: IronClaw
+vendor: NEAR AI
+tagline: Security-oriented personal-agent project using isolated execution and a heavier self-hosted architecture.
+url: https://github.com/nearai/ironclaw
+agent_layer: personal-agent
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  This entry refers specifically to NEAR AI's IronClaw repository; unrelated
+  projects share the name. Its security-first architecture is promising, but
+  Noemium has not yet reproduced the deployment or tested its boundaries.
+best_for:
+  - Comparing security-first personal-agent architectures
+  - Evaluating isolation tradeoffs against setup and database requirements
+deployment:
+  - self-hosted
+limitations:
+  - Noemium has not reproduced installation or verified the documented security boundary.
+  - The heavier operational footprint may be excessive for a single-user agent.
+evidence:
+  - kind: availability
+    url: https://github.com/nearai/ironclaw
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

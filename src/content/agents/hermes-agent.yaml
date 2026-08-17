@@ -1,0 +1,104 @@
+name: Hermes Agent
+vendor: Nous Research
+tagline: MIT-licensed personal and super-agent with persistent memory, messaging, schedules, subagents, and a learning loop.
+url: https://hermes-agent.nousresearch.com
+agent_layer: personal-agent
+maturity: beta
+license_kind: osi-open-source
+evidence_tier: source-verified
+summary: >-
+  Hermes is a provider-neutral personal agent with a terminal UI, messaging
+  gateway, cron, persistent memory, subagents, and a learning loop that can
+  create and improve skills. It can run locally, on a VPS, or against several
+  container and cloud backends.
+best_for:
+  - Provider-neutral personal agents with persistent memory and scheduled work
+  - Telegram, Discord, Slack, WhatsApp, Signal, or email control of a remote agent
+  - Operators who want local, Docker, SSH, or cloud sandbox backends
+deployment:
+  - local
+  - self-hosted
+  - hybrid
+verdict: situational
+verdict_text: >-
+  Hermes combines a broad personal-agent surface with better-than-average
+  approval, pairing, file-safety, and sandbox controls. The learning loop and
+  provider breadth are genuinely differentiated, but a default local terminal
+  backend still shares the user's filesystem authority and the 64K context
+  floor makes small local models a poor fit.
+install:
+  - method: command
+    platform: Linux, macOS, WSL2, or Android via Termux
+    command: curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+    url: https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/
+  - method: download
+    platform: Hermes Desktop on macOS or Windows
+    url: https://hermes-agent.nousresearch.com/docs/getting-started/installation/
+requirements:
+  - Git; Linux also needs curl and xz-utils before the installer runs
+  - A model with at least 64,000 tokens of context for agent tool use
+  - At least one supported subscription, API provider, or local OpenAI-compatible endpoint
+providers:
+  - Nous Portal
+  - OpenAI and ChatGPT
+  - Anthropic and Claude subscriptions
+  - xAI and SuperGrok
+  - GitHub Copilot
+  - OpenRouter
+  - Ollama, vLLM, llama.cpp, and other OpenAI-compatible endpoints
+channels:
+  - terminal TUI
+  - Telegram
+  - Discord
+  - Slack
+  - WhatsApp
+  - Signal
+  - email
+cost_scenarios:
+  - name: Software with a free or existing provider
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: Hermes software is free; existing hardware and provider access are excluded.
+  - name: Nous Portal Plus
+    monthly_usd_min: 20
+    monthly_usd_max: 20
+    assumptions: Current monthly plan includes $22 of portal credits.
+  - name: Hermes Cloud small instance
+    monthly_usd_min: 9
+    assumptions: Roughly $0.29 per running day rounded to a 30-day month; inference and tools are extra.
+security:
+  privilege: critical
+  data_boundary: Selected terminal backend, Hermes state directory, messaging channels, and configured model/tool providers.
+  cautions:
+    - The default local backend has the same filesystem access as the operating-system user.
+    - Keep smart or manual approvals enabled and use Docker or a cloud sandbox for untrusted tasks.
+    - Pair messaging users, keep allowlists narrow, and never enable an allow-all gateway with terminal access.
+limitations:
+  - A 64K model context is mandatory for agent tool use.
+  - The broad feature set and provider matrix create a large configuration surface.
+  - Smart approvals reduce accidental damage but are not a sandbox against a hostile agent.
+  - Cloud-instance prices exclude inference and external tool charges.
+evidence:
+  - kind: availability
+    url: https://github.com/hermes-agent-org/hermes
+    checked_at: "2026-08-17"
+  - kind: install
+    url: https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/
+    checked_at: "2026-08-17"
+  - kind: requirements
+    url: https://hermes-agent.nousresearch.com/docs/integrations/providers/
+    checked_at: "2026-08-17"
+  - kind: pricing
+    url: https://portal.nousresearch.com/
+    checked_at: "2026-08-17"
+  - kind: pricing
+    url: https://portal.nousresearch.com/info
+    checked_at: "2026-08-17"
+  - kind: license
+    url: https://github.com/hermes-agent-org/hermes/blob/main/LICENSE
+    checked_at: "2026-08-17"
+  - kind: security
+    url: https://hermes-agent.nousresearch.com/docs/user-guide/security/
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

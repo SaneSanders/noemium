@@ -13,6 +13,9 @@ Noemium is a hub for AI practitioners:
 
 - **Tools** — honest verdicts (`ship` / `situational` / `skip`) with named
   limitations and evidence links.
+- **Agents** — operational field guides with install paths, requirements, cost
+  scenarios, security boundaries, and explicit evidence tiers. Grok Bot and
+  Grok Build are treated as separate products.
 - **Stacks** — copy-pasteable recipes: which tools combined, at what monthly
   cost, for which use case.
 - **Models** — context windows, per-MTok pricing, strengths and anti-use
@@ -48,12 +51,15 @@ npm run validate   # validate all content entries (CI-friendly)
 ```
 src/content/
 ├── tools/    # *.yaml — one file per tool (see cursor.yaml as template)
+├── agents/   # *.yaml — strict field guides and verdict-free Radar entries
 ├── stacks/   # *.md   — frontmatter + recipe body (see solo-founder-saas.md)
-└── models/   # *.yaml — one file per model (see claude-sonnet-4-5.yaml)
+└── models/   # *.yaml — one file per model (see gpt-5-6-sol.yaml)
 ```
 
 Schemas live in `src/content-schemas.ts` and are enforced both at build
-time and by `npm run validate`.
+time and by `npm run validate`. Agent entries declare `field-tested`,
+`source-verified`, or `radar`; Radar entries cannot carry verdicts or hard cost
+scenarios.
 
 ## Contributing
 

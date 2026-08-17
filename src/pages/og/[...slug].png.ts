@@ -1,6 +1,6 @@
 /**
  * Build-time Open Graph images: /og/noemium.png, /og/tools/<slug>.png,
- * /og/stacks/<slug>.png — 1200×630 PNGs rendered with satori + resvg.
+ * /og/agents/<slug>.png, /og/stacks/<slug>.png — 1200×630 PNGs rendered with satori + resvg.
  * Colors are parsed out of src/styles/tokens.css so the design tokens stay
  * the single source of truth; fonts come from the installed @fontsource packs.
  */
@@ -54,7 +54,7 @@ const fontFiles = [
 
 interface GenericProps {
   kind: 'generic';
-  counts: { tools: number; stacks: number; models: number };
+  counts: { tools: number; agents: number; stacks: number; models: number };
 }
 interface QuizProps {
   kind: 'quiz';
@@ -69,6 +69,15 @@ interface ToolProps {
   verdict: 'ship' | 'situational' | 'skip';
   lastVerified: string;
 }
+interface AgentProps {
+  kind: 'agent';
+  name: string;
+  tagline: string;
+  layer: string;
+  evidenceTier: 'field-tested' | 'source-verified' | 'radar';
+  verdict?: 'ship' | 'situational' | 'skip';
+  lastVerified: string;
+}
 interface StackProps {
   kind: 'stack';
   title: string;
@@ -77,11 +86,12 @@ interface StackProps {
   difficulty: string;
   lastVerified: string;
 }
-type OgProps = GenericProps | ToolProps | StackProps | QuizProps;
+type OgProps = GenericProps | ToolProps | AgentProps | StackProps | QuizProps;
 
 export const getStaticPaths = (async () => {
-  const [tools, stacks, models] = await Promise.all([
+  const [tools, agents, stacks, models] = await Promise.all([
     getCollection('tools'),
+    getCollection('agents'),
     getCollection('stacks'),
     getCollection('models'),
   ]);
@@ -90,7 +100,12 @@ export const getStaticPaths = (async () => {
       params: { slug: 'noemium' },
       props: {
         kind: 'generic',
-        counts: { tools: tools.length, stacks: stacks.length, models: models.length },
+        counts: {
+          tools: tools.length,
+          agents: agents.length,
+          stacks: stacks.length,
+          models: models.length,
+        },
       } satisfies OgProps,
     },
     {
@@ -107,6 +122,18 @@ export const getStaticPaths = (async () => {
         pricing: t.data.pricing,
         verdict: t.data.verdict,
         lastVerified: t.data.last_verified,
+      } satisfies OgProps,
+    })),
+    ...agents.map((agent) => ({
+      params: { slug: `agents/${agent.id}` },
+      props: {
+        kind: 'agent',
+        name: agent.data.name,
+        tagline: agent.data.tagline,
+        layer: agent.data.agent_layer,
+        evidenceTier: agent.data.evidence_tier,
+        verdict: agent.data.verdict,
+        lastVerified: agent.data.last_verified,
       } satisfies OgProps,
     })),
     ...stacks.map((s) => ({
@@ -242,7 +269,7 @@ export const GET: APIRoute = async ({ props }) => {
         }),
       ),
       footer(
-        `TOOLS: ${p.counts.tools} · STACKS: ${p.counts.stacks} · MODELS: ${p.counts.models} · PAID PLACEMENTS: 0`,
+        `TOOLS: ${p.counts.tools} · AGENTS: ${p.counts.agents} · STACKS: ${p.counts.stacks} · MODELS: ${p.counts.models} · PAID: 0`,
       ),
     ]);
   } else if (p.kind === 'quiz') {
@@ -278,6 +305,45 @@ export const GET: APIRoute = async ({ props }) => {
         ),
       ),
       footer(`${p.category} · ${p.pricing} · verified ${p.lastVerified}`),
+    ]);
+  } else if (p.kind === 'agent') {
+    tree = frame([
+      header(`Agent Field Guide · ${p.layer.replaceAll('-', ' ')}`),
+      h(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column' } },
+        h(
+          'div',
+          { style: { display: 'flex', alignItems: 'center' } },
+          headline(p.name, p.name.length > 18 ? 64 : 82),
+          p.verdict
+            ? h('div', { style: { marginLeft: 32, display: 'flex' } }, verdictSticker(p.verdict))
+            : h(
+                'span',
+                {
+                  style: {
+                    fontFamily: MONO,
+                    fontWeight: 700,
+                    fontSize: 18,
+                    letterSpacing: 2,
+                    textTransform: 'uppercase' as const,
+                    color: C.accent,
+                    border: `2px solid ${C.accent}`,
+                    borderRadius: 6,
+                    padding: '8px 14px',
+                    marginLeft: 32,
+                  },
+                },
+                'radar · no verdict',
+              ),
+        ),
+        h(
+          'span',
+          { style: { fontFamily: MONO, fontSize: 22, color: C.inkDim, marginTop: 20 } },
+          p.tagline,
+        ),
+      ),
+      footer(`${p.evidenceTier} · ${p.layer} · verified ${p.lastVerified}`),
     ]);
   } else {
     tree = frame([

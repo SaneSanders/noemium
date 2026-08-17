@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import AgentCard from '../../components/AgentCard.astro';
+import { agentLayerLabels } from '../../lib/agent-display';
+
+const agents = await getCollection('agents');
+const strict = agents
+  .filter((agent) => agent.data.evidence_tier !== 'radar')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const radar = agents
+  .filter((agent) => agent.data.evidence_tier === 'radar')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const representedLayers = [...new Set(agents.map((agent) => agent.data.agent_layer))].sort();
+
+const layerDescriptions: Record<string, string> = {
+  'coding-harness': 'Works inside repositories and runs code, commands, tools, and review loops.',
+  'personal-agent': 'Persistent single-operator agent with memory, schedules, tools, and chat channels.',
+  'work-agent': 'Managed teammate that owns longer business workflows, often on its own cloud computer.',
+  'framework-sdk': 'Code primitives for building a new agent rather than operating a finished one.',
+  'browser-computer-use': 'Acts through browser or desktop interfaces when an API is unavailable.',
+  'runtime-sandbox': 'Isolated compute in which an agent can execute risky work.',
+  'memory-context': 'Long-lived state, retrieval, identity, and relationship context.',
+  'observability-evals': 'Traces, quality tests, regressions, and cost visibility.',
+  'control-plane': 'Supervises several agents, harness sessions, schedules, and handoffs.',
+  protocol: 'Interoperability contract rather than an end-user agent.',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Noemium Agent Field Guide',
+  itemListElement: agents.map((agent, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: agent.data.name,
+    url: new URL(`/agents/${agent.id}`, Astro.site).href,
+  })),
+};
+---
+
+<Base
+  title="Agent Field Guide"
+  description={`${strict.length} operational agent guides and ${radar.length} Radar entries, with install, requirements, cost, security boundaries, and typed evidence.`}
+>
+  <SectionHeader
+    title="Agent Field Guide"
+    sub="Operational agents and coding harnesses, separated by what they actually do. Strict guides show install, requirements, real cost scenarios, and the security boundary. Radar keeps the obscure discoveries visible without inventing a verdict."
+  />
+
+  <section class="-mt-2 grid gap-4 md:grid-cols-2">
+    <div class="nm-card p-5">
+      <p class="font-mono text-[12px] font-bold tracking-[0.12em] text-accent uppercase">Field tested / source verified</p>
+      <p class="mt-2 text-[15px] leading-relaxed text-ink opacity-75">
+        Operational claims carry typed primary receipts. These entries may receive a verdict; source-verified does not pretend Noemium performed the install.
+      </p>
+    </div>
+    <div class="nm-card border-dashed p-5">
+      <p class="font-mono text-[12px] font-bold tracking-[0.12em] text-ink-dim uppercase">Radar</p>
+      <p class="mt-2 text-[15px] leading-relaxed text-ink opacity-75">
+        A real project worth tracking, but no reproduced install, hard price claim, or Ship verdict yet. Discovery is not experience.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+      <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+        Field guides
+      </h2>
+      <p class="font-mono text-[13px] text-ink-dim">{strict.length} strict entries</p>
+    </div>
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      {strict.map((agent) => <AgentCard agent={agent} />)}
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+      <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+        Radar
+      </h2>
+      <p class="max-w-lg font-mono text-[13px] leading-relaxed text-ink-dim">
+        Obscure, early, or insufficiently reproduced. Every card links the canonical project; none carries a verdict.
+      </p>
+    </div>
+    <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {radar.map((agent) => <AgentCard agent={agent} />)}
+    </div>
+  </section>
+
+  <section class="mt-16 border-y-[1.5px] border-ink py-10">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Layers represented</h2>
+    <div class="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {representedLayers.map((layer) => (
+        <div class="border-l-[3px] border-accent pl-4">
+          <h3 class="font-display text-lg font-extrabold tracking-tight uppercase">{agentLayerLabels[layer]}</h3>
+          <p class="mt-1 text-[14px] leading-relaxed text-ink opacity-70">{layerDescriptions[layer]}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} is:inline />
+</Base>

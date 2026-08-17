@@ -1,0 +1,27 @@
+name: NanoClaw
+vendor: NanoCo AI
+tagline: Small container-oriented personal agent with a deliberately narrower surface than full agent operating systems.
+url: https://github.com/nanocoai/nanoclaw
+agent_layer: personal-agent
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  NanoClaw is a compact personal-agent project discovered during the harness
+  scan. Its container-first direction is interesting, but Noemium has not yet
+  reproduced installation, security boundaries, or ongoing operating cost.
+best_for:
+  - Readers comparing small personal-agent architectures
+  - A clean-room install and isolation review
+deployment:
+  - local
+  - self-hosted
+limitations:
+  - Noemium has not reproduced the installation or verified production readiness.
+  - License, provider cost, credential handling, and container isolation need a dedicated audit.
+evidence:
+  - kind: availability
+    url: https://github.com/nanocoai/nanoclaw
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

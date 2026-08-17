@@ -17,6 +17,7 @@ type Week = {
 const latestWeek = (changelog.weeks as Week[])[0];
 
 const tools = await getCollection('tools');
+const agents = await getCollection('agents');
 const stacks = await getCollection('stacks');
 const models = await getCollection('models');
 const dead = await getCollection('graveyard');
@@ -72,6 +73,12 @@ const stackPreview = [...stacks]
   .sort((a, b) => a.data.title.localeCompare(b.data.title))
   .slice(0, 3);
 
+const strictAgentPreview = agents
+  .filter((agent) => agent.data.evidence_tier !== 'radar')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name))
+  .slice(0, 4);
+const radarAgentCount = agents.filter((agent) => agent.data.evidence_tier === 'radar').length;
+
 const modelPreview = models
   .filter((m) => (m.data.price_unit ?? 'mtok') === 'mtok')
   .sort((a, b) => b.data.popularity - a.data.popularity)
@@ -81,13 +88,20 @@ const usd = (v: number) => `$${v.toFixed(2)}`;
 
 const stats = [
   { value: tools.length, label: 'tools' },
+  { value: agents.length, label: 'agent guides' },
   { value: models.length, label: 'models' },
   { value: stacks.length, label: 'stacks' },
   { value: 0, label: 'paid placements' },
 ];
 
 const weekLink = (e: { collection: string; slug: string }) =>
-  e.collection === 'tools' ? `/tools/${e.slug}` : e.collection === 'stacks' ? `/stacks/${e.slug}` : undefined;
+  e.collection === 'tools'
+    ? `/tools/${e.slug}`
+    : e.collection === 'agents'
+      ? `/agents/${e.slug}`
+      : e.collection === 'stacks'
+        ? `/stacks/${e.slug}`
+        : undefined;
 ---
 
 <Base title="Pick AI tools without getting played">
@@ -101,8 +115,8 @@ const weekLink = (e: { collection: string; slug: string }) =>
       Pick AI tools without getting played.
     </h1>
     <p class="mt-5 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-80">
-      {tools.length} tools actually run by humans — honest verdicts, verified prices, receipts for
-      every claim. The floor is right below.
+      {tools.length} tools plus {agents.length} operational agent guides — honest verdicts where the
+      evidence earns them, verified prices, and receipts for every claim.
     </p>
   </section>
 
@@ -215,6 +229,37 @@ const weekLink = (e: { collection: string; slug: string }) =>
   {/* ------------------------------------------------- STACKS / MODELS / MORE */}
   <section data-reveal class="pb-16 md:pb-20">
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {/* Operational agent field guides */}
+      <a href="/agents" class="nm-card nm-card-hover p-7 md:col-span-2">
+        <div class="grid gap-7 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+          <div>
+            <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
+              Agent Field Guide
+            </p>
+            <h3 class="mt-4 max-w-xl font-display text-3xl font-extrabold tracking-tight md:text-4xl">
+              Install it. Price it. Bound it.
+            </h3>
+            <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink opacity-65">
+              Operational guides for Grok Bot, Grok Build, OpenClaw and Hermes: exact setup paths,
+              requirements, real cost scenarios, security boundaries, and primary-source receipts.
+              Another {radarAgentCount} niche agents stay in Radar until the evidence bar is met.
+            </p>
+          </div>
+          <div class="grid gap-2 sm:grid-cols-2">
+            {
+              strictAgentPreview.map((agent) => (
+                <p class="flex items-center justify-between gap-3 border-b-[1.5px] border-line-soft py-3 last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0">
+                  <span class="font-display text-lg font-extrabold tracking-tight">{agent.data.name}</span>
+                  <span class="font-mono text-[11px] tracking-wide text-ink-dim uppercase">
+                    {agent.data.agent_layer}
+                  </span>
+                </p>
+              ))
+            }
+          </div>
+        </div>
+      </a>
+
       {/* Stacks */}
       <a href="/stacks" class="nm-card nm-card-hover p-7">
         <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">Stacks</p>

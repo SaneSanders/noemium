@@ -1,0 +1,26 @@
+name: OSA
+vendor: Miosa
+tagline: Local system-agent project packaging model flexibility and computer access behind a guided installer.
+url: https://github.com/Miosa-osa/OSA
+agent_layer: personal-agent
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  OSA is an emerging local system-agent project with a packaged-installation
+  pitch and model flexibility. It is discoverable here because the direction
+  is useful, not because Noemium has verified the installer or security model.
+best_for:
+  - Comparing packaged local-agent onboarding with CLI-first systems
+  - A clean-room computer-access and credential review
+deployment:
+  - local
+limitations:
+  - Noemium has not reproduced installation, updates, or computer-control reliability.
+  - Model routing, telemetry, credential storage, and permission boundaries need verification.
+evidence:
+  - kind: availability
+    url: https://github.com/Miosa-osa/OSA
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

@@ -16,12 +16,18 @@ import { fileURLToPath } from 'node:url';
 import * as yaml from 'js-yaml';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CONTENT_DIRS = ['src/content/tools', 'src/content/models', 'src/content/stacks'];
+const CONTENT_DIRS = [
+  'src/content/tools',
+  'src/content/agents',
+  'src/content/models',
+  'src/content/stacks',
+];
 const OUT = join(root, 'src/data/changelog.json');
 
 // Fields whose changes are worth printing; keys are collection names.
 const TRACKED = {
   tools: { pricing: 'pricing', price_note: 'price note', verdict: 'verdict' },
+  agents: { evidence_tier: 'evidence tier', maturity: 'maturity', verdict: 'verdict' },
   models: {
     price_input_per_mtok: 'input $/Mtok',
     price_output_per_mtok: 'output $/Mtok',

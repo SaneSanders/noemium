@@ -5,7 +5,7 @@ category: automation
 pricing: freemium
 price_note: "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
 free_tier: true
-open_source: true
+open_source: false
 api: true
 self_host: true
 verdict: ship
@@ -23,5 +23,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

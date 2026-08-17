@@ -131,19 +131,25 @@ function formatZodIssues(error) {
   return error.issues.map((i) => `${i.path.join('.') || '(root)'}: ${i.message}`).join('; ');
 }
 
-const { toolSchema, stackSchema, modelSchema, graveyardSchema } = await loadSchemas();
+const { toolSchema, stackSchema, modelSchema, graveyardSchema, agentSchema } = await loadSchemas();
 
 const collections = [
   { name: 'tools', dir: path.join(CONTENT_DIR, 'tools'), exts: ['.yaml', '.yml'], schema: toolSchema },
   { name: 'stacks', dir: path.join(CONTENT_DIR, 'stacks'), exts: ['.md'], schema: stackSchema },
   { name: 'models', dir: path.join(CONTENT_DIR, 'models'), exts: ['.yaml', '.yml'], schema: modelSchema },
   { name: 'graveyard', dir: path.join(CONTENT_DIR, 'graveyard'), exts: ['.yaml', '.yml'], schema: graveyardSchema },
+  { name: 'agents', dir: path.join(CONTENT_DIR, 'agents'), exts: ['.yaml', '.yml'], schema: agentSchema },
 ];
 
 // URL fields that must stay referral-free per collection.
 const cleanUrlFields = {
   tools: (d) => [d.url, ...d.receipts],
   graveyard: (d) => [d.url, d.receipt],
+  agents: (d) => [
+    d.url,
+    ...d.evidence.map((item) => item.url),
+    ...(d.install ?? []).flatMap((method) => (method.url ? [method.url] : [])),
+  ],
 };
 
 /** @type {Record<string, Map<string, any>>} collection name -> slug -> data */

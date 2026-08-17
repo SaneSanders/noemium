@@ -1,0 +1,27 @@
+name: NullClaw
+vendor: NullClaw
+tagline: Zig personal-agent experiment focused on an unusually small runtime and portable local deployment.
+url: https://github.com/nullclaw/nullclaw
+agent_layer: personal-agent
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  NullClaw pushes the minimal-runtime idea further with Zig and an aggressively
+  small footprint claim. That makes it notable Radar material, not a Ship
+  recommendation: Noemium has not reproduced the binary size or agent behavior.
+best_for:
+  - Minimal-runtime and embedded personal-agent research
+  - Reproducible binary-size, memory, and security testing
+deployment:
+  - local
+  - self-hosted
+limitations:
+  - Performance and footprint claims remain README claims until reproduced.
+  - Noemium has not audited providers, channels, persistence, or secret handling.
+evidence:
+  - kind: availability
+    url: https://github.com/nullclaw/nullclaw
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

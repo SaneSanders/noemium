@@ -5,15 +5,16 @@ category: models-api
 pricing: paid
 price_note: "Yi-Large $3.00/M input and output, 33K context; Yi-Lightning successor pricing not precisely fetched; enterprise managed cloud from ~$199/month"
 free_tier: true
-open_source: true
+open_source: false
 api: true
-self_host: true
+self_host: false
 verdict: situational
 verdict_text: >-
   Strong bilingual Chinese-English performance and open-weights roots. Yi-Large
   is pricey at $3 per million tokens, the successor Lightning was not precisely
   priced, and the ecosystem is smaller than Qwen or DeepSeek.
 limitations:
+  - The hosted API is proprietary; older Yi weights are separate downloadable releases.
   - Yi-Large is effectively deprecated in favor of Yi-Lightning; roadmap is unclear.
   - Harder API access and weaker ecosystem vs Qwen or DeepSeek.
   - Smaller model family with no image/video/audio breadth.
@@ -25,5 +26,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

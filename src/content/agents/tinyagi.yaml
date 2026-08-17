@@ -1,0 +1,26 @@
+name: TinyAGI
+vendor: TinyAGI
+tagline: Multi-team, multi-channel orchestration project aimed at turning agent groups into a small autonomous company.
+url: https://github.com/TinyAGI/tinyagi
+agent_layer: control-plane
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  TinyAGI targets the one-person-company end of the market with teams, roles,
+  channels, and coordinated agents. That makes it relevant to the long-term
+  catalog, but Noemium has not validated deployment or coordination quality.
+best_for:
+  - Researching role-based multi-agent company architectures
+  - Testing coordination failure modes and human approval gates
+deployment:
+  - self-hosted
+limitations:
+  - Noemium has not reproduced installation, cost, or multi-agent reliability.
+  - Broad autonomy claims need task-level evaluation and explicit approval boundaries.
+evidence:
+  - kind: availability
+    url: https://github.com/TinyAGI/tinyagi
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

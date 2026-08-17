@@ -5,7 +5,7 @@ category: dev-infra
 pricing: freemium
 price_note: "free tier; paid from $20/mo"
 free_tier: true
-open_source: true
+open_source: false
 api: true
 self_host: false
 verdict: ship
@@ -14,13 +14,15 @@ verdict_text: >-
   for AI pipelines that need human approval or multi-step state. Self-hosting
   is not the primary path, so heavy compliance needs require evaluation.
 limitations:
+  - The server and CLI use SSPL with delayed Apache-2.0 conversion, not an OSI open-source license today.
   - Self-hosting story is lighter than Trigger.dev.
   - Language SDKs are mostly TypeScript/Python.
   - Event modeling requires upfront design.
 receipts:
-  - https://www.inngest.com
+  - https://github.com/inngest/inngest
+  - https://www.inngest.com/pricing
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

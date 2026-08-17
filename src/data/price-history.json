@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T23:53:16.467Z",
+  "generated_at": "2026-08-17T05:12:40.430Z",
   "started_tracking": "2026-08-15",
   "models": [
     {
@@ -168,6 +168,19 @@
       ]
     },
     {
+      "slug": "gemini-omni-flash",
+      "name": "Gemini Omni Flash",
+      "points": [
+        {
+          "date": "2026-08-17",
+          "in": 0,
+          "out": 0,
+          "unit": "video_second",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
       "slug": "glm-5-2",
       "name": "GLM 5.2",
       "points": [
@@ -175,6 +188,18 @@
           "date": "2026-08-15",
           "in": 1.4,
           "out": 4.4,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "glm-5-3",
+      "name": "GLM 5.3",
+      "points": [
+        {
+          "date": "2026-08-17",
+          "in": 0,
+          "out": 0,
           "unit": "mtok"
         }
       ]
@@ -308,6 +333,19 @@
           "in": 0.2,
           "out": 0.6,
           "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "minimax-h3",
+      "name": "MiniMax H3 (Hailuo 3.0)",
+      "points": [
+        {
+          "date": "2026-08-17",
+          "in": 0,
+          "out": 0,
+          "unit": "video_second",
+          "amount": 0.13
         }
       ]
     },

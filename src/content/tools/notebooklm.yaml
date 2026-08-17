@@ -1,6 +1,6 @@
 name: NotebookLM
 tagline: Google's research notebook — grounded Q&A and audio overviews over your own sources.
-url: https://notebooklm.google/
+url: https://notebook.google/
 category: data
 pricing: freemium
 price_note: "free; Plus via Google AI Pro $20/mo"
@@ -20,9 +20,9 @@ limitations:
   - No API, so no automation.
   - Google product-graveyard risk is real.
 receipts:
-  - https://notebooklm.google/
+  - https://notebook.google/
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

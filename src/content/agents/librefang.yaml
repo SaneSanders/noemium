@@ -1,0 +1,27 @@
+name: LibreFang
+vendor: LibreFang community
+tagline: Community-governed agent control-plane fork exploring an alternative governance path to OpenFang.
+url: https://github.com/librefang/librefang
+agent_layer: control-plane
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  LibreFang is worth tracking mainly as a governance and lineage question: it
+  follows the OpenFang direction while presenting a community-led alternative.
+  Noemium has not yet compared code divergence, releases, or operator safety.
+best_for:
+  - Comparing governance and maintenance models for agent control planes
+  - Reviewing fork lineage, release cadence, and security ownership
+deployment:
+  - local
+  - self-hosted
+limitations:
+  - Noemium has not reproduced installation or confirmed meaningful divergence from OpenFang.
+  - Governance and name similarity must not be mistaken for production maturity.
+evidence:
+  - kind: availability
+    url: https://github.com/librefang/librefang
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

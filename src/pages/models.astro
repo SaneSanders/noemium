@@ -41,16 +41,17 @@ const trackingSince = (priceHistory as { started_tracking: string | null }).star
 
 <Base
   title="Models"
-  description="Model prices, context windows and cost per real task — sourced from Helicone and LiteLLM, verified by hand."
+  description="Model prices, context windows and cost per real task — sourced from vendor pages and open pricing datasets."
 >
   <SectionHeader
     title="Models"
     sub="The models people actually use, first. Sorted by heat — our editorial score of real-world usage and buzz. Click any column header to re-sort; unit-priced media models stay in their own group at the bottom."
   />
   <p class="-mt-6 mb-6 max-w-3xl font-mono text-[13px] leading-relaxed text-ink-dim">
-    Prices from Helicone (Apache-2.0) + LiteLLM (MIT).
-    {latestVerified ? `Verified ${latestVerified}.` : 'No models verified yet.'} Vendors change
-    prices — check before billing decisions.
+    Prices combine vendor pages with LiteLLM (MIT), Helicone (Apache-2.0), and clearly named
+    secondary sources where primary data is inaccessible.
+    {latestVerified ? `Latest review ${latestVerified}.` : 'No models reviewed yet.'} Follow each
+    model's attribution and recheck the vendor before billing decisions.
   </p>
   <ModelTable client:load models={data} />
 

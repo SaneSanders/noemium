@@ -18,7 +18,13 @@ type Week = {
 
 const weeks = changelog.weeks as Week[];
 const link = (e: Entry) =>
-  e.collection === 'tools' ? `/tools/${e.slug}` : e.collection === 'stacks' ? `/stacks/${e.slug}` : undefined;
+  e.collection === 'tools'
+    ? `/tools/${e.slug}`
+    : e.collection === 'agents'
+      ? `/agents/${e.slug}`
+      : e.collection === 'stacks'
+        ? `/stacks/${e.slug}`
+        : undefined;
 const commitsHref = (w: Week) =>
   `https://github.com/SaneSanders/noemium/commits/main/src/content?since=${w.from}&until=${w.to}`;
 const short = (v: string | number | null) => {

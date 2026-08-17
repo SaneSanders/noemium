@@ -20,7 +20,7 @@ interface Props {
 
 const {
   title,
-  description = 'Noemium — an open, auditable directory of AI tools, stacks and models. No pay-to-list. Every recommendation is a PR you can audit.',
+  description = 'Noemium — an open, auditable directory of AI tools, agent field guides, stacks and models. No pay-to-list. Every recommendation is a PR you can audit.',
   ogImage = '/og/noemium.png',
 } = Astro.props;
 
@@ -28,6 +28,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage, Astro.site);
 const navItems = [
   { href: '/tools', name: 'Tools' },
+  { href: '/agents', name: 'Agents' },
   { href: '/stacks', name: 'Stacks' },
   { href: '/models', name: 'Models' },
   { href: '/quiz', name: 'Quiz' },
@@ -75,7 +76,7 @@ const navItems = [
         <a href="/" class="font-display text-2xl font-extrabold tracking-tight text-ink">
           noemium<sup class="ml-1.5 align-super font-mono text-[10px] font-medium tracking-wider text-accent uppercase">open beta</sup>
         </a>
-        <nav class="hidden items-center gap-7 lg:flex">
+        <nav class="hidden items-center gap-5 lg:flex xl:gap-7">
           {
             navItems.map((item) => (
               <a
@@ -212,7 +213,7 @@ const navItems = [
         <p class="w-full font-mono text-[11px] text-ink-dim">
           Some outbound links are affiliate links — always declared, never affecting verdicts.
         </p>
-        <p class="flex items-center gap-5 font-mono text-xs text-ink-dim">
+        <p class="flex flex-wrap items-center gap-5 font-mono text-xs text-ink-dim">
           <a href="https://github.com/SaneSanders/noemium" class="hover:text-ink" rel="noopener">GitHub</a>
           <a href="/contribute" class="hover:text-ink">Contribute</a>
           <a href="/search" class="hover:text-ink">Search</a>

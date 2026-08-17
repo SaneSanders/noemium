@@ -1,11 +1,11 @@
 name: Dify
-tagline: Open-source LLM app development platform with agent workflows and RAG.
+tagline: Source-available LLM app platform with agent workflows and RAG.
 url: https://dify.ai
 category: agents
 pricing: freemium
-price_note: "open source self-host free; cloud from $29/mo"
+price_note: "self-host free under the restricted Dify license; cloud from $29/mo"
 free_tier: true
-open_source: true
+open_source: false
 api: true
 self_host: true
 verdict: ship
@@ -14,13 +14,15 @@ verdict_text: >-
   backend. Self-hosting keeps data in-house, but the UI can feel rigid for
   complex custom logic.
 limitations:
+  - The Dify license restricts multi-tenant use and frontend rebranding, so it is not OSI open source.
   - Complex branching logic can outgrow the visual editor.
   - Self-hosted setup needs ops effort for scaling.
   - Some enterprise SSO features require cloud plans.
 receipts:
-  - https://dify.ai
+  - https://github.com/langgenius/dify
+  - https://github.com/langgenius/dify/blob/main/LICENSE
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

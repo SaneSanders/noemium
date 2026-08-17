@@ -1,0 +1,91 @@
+name: Grok Build
+vendor: SpaceXAI
+tagline: Open-source terminal coding harness with TUI, headless automation, ACP, plugins, and sandbox controls.
+url: https://docs.x.ai/build/overview
+agent_layer: coding-harness
+maturity: beta
+license_kind: osi-open-source
+evidence_tier: source-verified
+summary: >-
+  Grok Build is SpaceXAI's local coding harness and is separate from Grok Bot.
+  It edits repositories, runs shell tools, works interactively or headlessly,
+  exposes ACP integration, supports plugins and MCP, and can point at custom
+  OpenAI-compatible model endpoints.
+best_for:
+  - Terminal-first repository work with Grok models
+  - Headless coding jobs and CI-friendly structured output
+  - Teams that need ACP, plugins, MCP, worktrees, and explicit permission rules
+deployment:
+  - local
+  - hybrid
+verdict: situational
+verdict_text: >-
+  The harness is broad, open, and no longer just a thin model wrapper. It is a
+  credible alternative when Grok access or its headless mode fits the job, but
+  it still has the normal high-risk coding-agent surface and needs sandbox and
+  permission rules before unattended use.
+install:
+  - method: command
+    platform: macOS, Linux, WSL, or Git Bash
+    command: curl -fsSL https://x.ai/cli/install.sh | bash
+    url: https://docs.x.ai/build/overview
+  - method: command
+    platform: Windows PowerShell
+    command: irm https://x.ai/cli/install.ps1 | iex
+    url: https://github.com/xai-org/grok-build
+requirements:
+  - macOS, Linux, WSL, Git Bash, or Windows PowerShell
+  - Browser authentication for an eligible Grok account, or XAI_API_KEY for headless use
+  - A repository or working directory the harness is allowed to inspect and modify
+providers:
+  - Grok subscription
+  - xAI API
+  - custom OpenAI-compatible endpoint
+channels:
+  - interactive terminal TUI
+  - headless CLI and CI
+  - ACP-compatible editors
+cost_scenarios:
+  - name: Open-source harness only
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: Binary and source are free; model access is excluded.
+  - name: SuperGrok subscription route
+    monthly_usd_min: 30
+    monthly_usd_max: 30
+    assumptions: Current SuperGrok monthly price; actual Build limits depend on the plan.
+  - name: API or custom endpoint
+    monthly_usd_min: 0
+    assumptions: Pay-as-you-go total depends on the selected model, token volume, and endpoint.
+security:
+  privilege: high
+  data_boundary: Source code and tool results stay local until sent to the configured model or remote tools.
+  cautions:
+    - Keep --always-approve and equivalent YOLO modes out of persistent environments.
+    - Use allow and deny rules plus a sandbox profile for unattended or untrusted repositories.
+    - Review plugin, MCP, hook, and marketplace sources before enabling them.
+limitations:
+  - Model usage is not free merely because the harness source is Apache-2.0.
+  - Custom endpoints can differ materially in tool-calling quality and privacy.
+  - Local shell, plugin, hook, and MCP access create a large supply-chain surface.
+evidence:
+  - kind: availability
+    url: https://docs.x.ai/build/overview
+    checked_at: "2026-08-17"
+  - kind: install
+    url: https://docs.x.ai/build/overview
+    checked_at: "2026-08-17"
+  - kind: requirements
+    url: https://docs.x.ai/build/overview
+    checked_at: "2026-08-17"
+  - kind: pricing
+    url: https://x.ai/pricing
+    checked_at: "2026-08-17"
+  - kind: license
+    url: https://github.com/xai-org/grok-build/blob/main/LICENSE
+    checked_at: "2026-08-17"
+  - kind: security
+    url: https://docs.x.ai/build/cli/reference
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

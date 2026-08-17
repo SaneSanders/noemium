@@ -12,6 +12,7 @@ const queue = [...tools]
 
 const rules = [
   'Verdicts come from real use — ship, situational or skip must reflect something you actually built or ran, not marketing pages.',
+  'Agent entries use evidence tiers. Radar is discovery-only and carries no verdict or hard cost; source-verified guides need typed primary evidence for availability, setup, requirements, pricing and security.',
   'At least one receipt. Link the evidence: a shipped project, a screenshot, a benchmark run. No receipt, no merge.',
   'Affiliate links are always declared. Undeclared tracking parameters fail validation.',
   'Self-promotion is allowed — with the same bar as everything else: real receipts and honest, named limitations.',
@@ -24,7 +25,7 @@ const rules = [
 >
   <SectionHeader
     title="Contribute"
-    sub="This catalog runs on signed field notes. If you have real, hands-on experience with an AI tool, stack or model — log it. Every entry is a PR anyone can audit."
+    sub="This catalog runs on signed field notes and typed primary evidence. If you know an AI tool, operational agent, stack or model — log what the evidence can actually support. Every entry is a PR anyone can audit."
   />
 
   <section class="nm-card max-w-3xl p-6 md:p-8">
@@ -43,14 +44,17 @@ const rules = [
       <li>
         <strong class="font-bold">Copy a template</strong> —
         <span class="font-mono text-[13px] text-ink-dim">src/content/tools/cursor.yaml</span>,
+        <span class="font-mono text-[13px] text-ink-dim">src/content/agents/grok-bot.yaml</span>,
         <span class="font-mono text-[13px] text-ink-dim">src/content/stacks/solo-founder-saas.md</span>
         or
         <span class="font-mono text-[13px] text-ink-dim">src/content/models/claude-sonnet-5.yaml</span
         >. Rename it to a kebab-case slug.
       </li>
       <li>
-        <strong class="font-bold">Fill it in from your own experience</strong> — sign it with
-        your GitHub handle in <span class="font-mono text-[13px] text-ink-dim">observed_by</span>.
+        <strong class="font-bold">Fill it to the right evidence tier</strong> — strict agent guides
+        need primary-source receipts for setup, cost, security and availability; untested discoveries
+        belong in Radar without a verdict. Sign it with your GitHub handle in
+        <span class="font-mono text-[13px] text-ink-dim">observed_by</span>.
       </li>
       <li>
         <strong class="font-bold">Validate locally</strong>:

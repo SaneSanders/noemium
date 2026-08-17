@@ -1,0 +1,27 @@
+name: PicoClaw
+vendor: Sipeed
+tagline: Tiny personal-agent runtime aimed at old phones, single-board computers, and other constrained edge hardware.
+url: https://github.com/sipeed/picoclaw
+agent_layer: personal-agent
+maturity: experimental
+license_kind: unknown
+evidence_tier: radar
+summary: >-
+  PicoClaw targets the edge-device end of the personal-agent market. The
+  direction is valuable because it separates small runtime requirements from
+  remote model inference, but Noemium has not reproduced its footprint claims.
+best_for:
+  - Edge-agent experiments on old phones and single-board computers
+  - Measuring runtime footprint separately from model requirements
+deployment:
+  - local
+  - self-hosted
+limitations:
+  - Noemium has not reproduced installation, resource usage, or channel reliability.
+  - Hardware, remote-provider, update, and secret-storage assumptions need field testing.
+evidence:
+  - kind: availability
+    url: https://github.com/sipeed/picoclaw
+    checked_at: "2026-08-17"
+last_verified: "2026-08-17"
+observed_by: whysanesanders

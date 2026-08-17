@@ -1,6 +1,6 @@
 name: Lambda
 tagline: Cloud GPU instances and API inference for training and deploying AI models.
-url: https://lambdalabs.com
+url: https://lambda.ai
 category: models-api
 pricing: paid
 price_note: "pay-as-you-go GPU and API pricing"
@@ -18,9 +18,9 @@ limitations:
   - Support and tooling lag AWS/GCP.
   - Pricing for reserved capacity requires planning.
 receipts:
-  - https://lambdalabs.com
+  - https://lambda.ai
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-17"
 observed_by: whysanesanders

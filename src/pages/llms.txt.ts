@@ -3,29 +3,39 @@ import type { APIRoute } from 'astro';
 
 /** llms.txt — machine-facing project summary in the llmstxt.org format. */
 export const GET: APIRoute = async () => {
-  const [tools, stacks, models] = await Promise.all([
+  const [tools, stacks, models, agents] = await Promise.all([
     getCollection('tools'),
     getCollection('stacks'),
     getCollection('models'),
+    getCollection('agents'),
   ]);
+  const strictAgents = agents.filter((agent) => agent.data.evidence_tier !== 'radar');
 
   const lines = [
     '# Noemium',
     '',
-    '> Noemium is an open source catalog of AI tools, stacks and models.',
+    '> Noemium is an open source catalog of AI tools, operational agent guides, stacks and models.',
     '> No paid listings, ever. Every verdict is a pull request anyone can audit,',
     '> with receipts linked and limitations named next to the praise.',
     '',
-    `The catalog currently tracks ${tools.length} tools, ${stacks.length} stacks`,
-    `and ${models.length} models, each with a signed verdict and a verification date.`,
+    `The catalog currently tracks ${tools.length} tools, ${stacks.length} stacks, ${models.length} models,`,
+    `and ${agents.length} agent field-guide entries. ${strictAgents.length} agent guides meet the current source-verification bar;`,
+    `the rest are clearly labeled Radar entries without editorial verdicts or hard cost claims.`,
     '',
     '## Catalog',
     '',
     '- [Tools](https://noemium.com/tools): the full tool catalog with verdicts, pricing and limitations',
+    '- [Agents](https://noemium.com/agents): operational field guides with installation, requirements, cost scenarios, security boundaries and evidence tiers',
     '- [Compare tools](https://noemium.com/tools/compare): side-by-side tables, e.g. /tools/compare?tools=cursor,aider',
     '- [Stacks](https://noemium.com/stacks): copy-pasteable tool stacks with monthly cost and difficulty',
     '- [Models](https://noemium.com/models): model data — context windows, token prices, benchmarks',
     '- [Quiz](https://noemium.com/quiz): pick a stack by answering a few questions',
+    '',
+    '## Source-verified agent guides',
+    '',
+    ...strictAgents.map(
+      (agent) => `- [${agent.data.name}](https://noemium.com/agents/${agent.id}): ${agent.data.tagline}`,
+    ),
     '',
     '## Stacks',
     '',
