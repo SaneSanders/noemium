@@ -4,6 +4,12 @@ Noemium is an **open source hub about AI tools** — a catalog of tools,
 copy-pasteable stacks, and model data, where every recommendation is an
 auditable PR. The site is a static Astro build.
 
+## Session continuity
+
+Before continuing product, roadmap, or implementation work, read
+[`MEMORY.md`](MEMORY.md) for durable decisions and [`HANDOFF.md`](HANDOFF.md)
+for the exact current checkpoint. Update both at meaningful stop points.
+
 ## Development
 
 When starting the dev server, use background mode:
