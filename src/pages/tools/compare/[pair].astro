@@ -1,0 +1,234 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import SectionHeader from '../../../components/SectionHeader.astro';
+import VerdictBadge from '../../../components/VerdictBadge.astro';
+import ShiftArrow from '../../../components/ShiftArrow.astro';
+import { COMPARE_PAIRS } from '../../../data/compare-presets';
+
+export const getStaticPaths = (async () => {
+  const tools = await getCollection('tools');
+  const byId = new Map(tools.map((t) => [t.id, t]));
+
+  return COMPARE_PAIRS.map(({ a, b }) => {
+    const ta = byId.get(a);
+    const tb = byId.get(b);
+    if (!ta || !tb) {
+      const missing = [!ta && a, !tb && b].filter(Boolean).join(', ');
+      throw new Error(`Compare preset references missing tool slug(s): ${missing}`);
+    }
+    if (ta.data.category !== tb.data.category) {
+      throw new Error(
+        `Compare preset "${a}-vs-${b}" mixes categories: ${ta.data.category} vs ${tb.data.category}`,
+      );
+    }
+    return {
+      params: { pair: `${a}-vs-${b}` },
+      props: { a: ta, b: tb },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { a, b } = Astro.props;
+const da = a.data;
+const db = b.data;
+const liveHref = `/tools/compare/?tools=${a.id},${b.id}`;
+
+const hostname = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+};
+
+const yesNo = (v: boolean) => (v ? 'yes' : 'no');
+
+const flags = (t: typeof da) =>
+  [
+    t.open_source && 'open source',
+    t.api && 'an API',
+    t.self_host && 'self-hostable',
+    t.free_tier && 'a free tier',
+  ]
+    .filter(Boolean)
+    .join(', ') || 'none of those flags';
+
+const intro =
+  `Both are ${da.category} tools. ${da.name} is ${da.pricing}${da.price_note ? ` (${da.price_note})` : ''} with ${flags(da)}; ${db.name} is ${db.pricing}${db.price_note ? ` (${db.price_note})` : ''} with ${flags(db)}. `.replace(
+    /, ([^,]*)$/,
+    ' and $1',
+  ) +
+  `The catalog verdict is ${da.verdict} for ${da.name} and ${db.verdict} for ${db.name}, last verified ${da.last_verified} and ${db.last_verified} respectively.`;
+
+const title = `${da.name} vs ${db.name}`;
+const description = `Compare ${da.name} and ${db.name} on pricing, free tier, open source, API, self-host, verdict and momentum. Both are ${da.category} tools.`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  about: [
+    {
+      '@type': 'SoftwareApplication',
+      name: da.name,
+      applicationCategory: da.category,
+      url: da.url,
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: db.name,
+      applicationCategory: db.category,
+      url: db.url,
+    },
+  ],
+};
+
+const rows: { label: string; a: string | null; b: string | null }[] = [
+  { label: 'pricing', a: `${da.pricing}${da.price_note ? ` · ${da.price_note}` : ''}`, b: `${db.pricing}${db.price_note ? ` · ${db.price_note}` : ''}` },
+  { label: 'free tier', a: yesNo(da.free_tier), b: yesNo(db.free_tier) },
+  { label: 'open source', a: yesNo(da.open_source), b: yesNo(db.open_source) },
+  { label: 'api', a: yesNo(da.api), b: yesNo(db.api) },
+  { label: 'self-host', a: yesNo(da.self_host), b: yesNo(db.self_host) },
+  { label: 'verdict', a: null, b: null },
+  { label: 'momentum', a: da.momentum, b: db.momentum },
+  { label: 'last verified', a: da.last_verified, b: db.last_verified },
+  { label: 'key limitation', a: da.limitations[0] ?? '—', b: db.limitations[0] ?? '—' },
+];
+---
+
+<Base title={title} description={description}>
+  <link slot="head" rel="alternate" type="application/json" href={`/tools/${a.id}.json`} />
+  <link slot="head" rel="alternate" type="application/json" href={`/tools/${b.id}.json`} />
+
+  <SectionHeader title={`${da.name} vs ${db.name}`} sub={description} />
+
+  <p class="max-w-3xl text-[15px] leading-relaxed text-ink opacity-80 md:text-base">{intro}</p>
+
+  <div class="mt-8 grid gap-4 md:grid-cols-2">
+    <a href={`/tools/${a.id}/`} class="nm-card nm-card-hover group block p-5">
+      <div class="flex items-start justify-between gap-3">
+        <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{da.name}</h2>
+        <VerdictBadge verdict={da.verdict} />
+      </div>
+      <p class="mt-2 text-[15px] leading-relaxed text-ink opacity-80">{da.tagline}</p>
+    </a>
+    <a href={`/tools/${b.id}/`} class="nm-card nm-card-hover group block p-5">
+      <div class="flex items-start justify-between gap-3">
+        <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{db.name}</h2>
+        <VerdictBadge verdict={db.verdict} />
+      </div>
+      <p class="mt-2 text-[15px] leading-relaxed text-ink opacity-80">{db.tagline}</p>
+    </a>
+  </div>
+
+  <div class="nm-card mt-8 overflow-x-auto">
+    <table class="w-full min-w-[640px] border-collapse bg-card text-left">
+      <thead>
+        <tr class="border-b-[1.5px] border-ink">
+          <th class="w-40 p-4 font-mono text-[13px] font-medium tracking-[0.12em] text-ink-dim uppercase">field</th>
+          <th class="min-w-56 p-4">
+            <a href={`/tools/${a.id}/`} class="font-display text-xl font-extrabold tracking-tight text-ink hover:text-accent">
+              {da.name}
+            </a>
+          </th>
+          <th class="min-w-56 p-4">
+            <a href={`/tools/${b.id}/`} class="font-display text-xl font-extrabold tracking-tight text-ink hover:text-accent">
+              {db.name}
+            </a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr class="border-b border-line-soft last:border-b-0">
+            <th
+              scope="row"
+              class="p-4 align-top font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase"
+            >
+              {row.label}
+            </th>
+            {row.label === 'verdict' ? (
+              <>
+                <td class="p-4 align-top">
+                  <VerdictBadge verdict={da.verdict} />
+                </td>
+                <td class="p-4 align-top">
+                  <VerdictBadge verdict={db.verdict} />
+                </td>
+              </>
+            ) : row.label === 'momentum' ? (
+              <>
+                <td class="p-4 align-top">
+                  <span class="inline-flex items-center gap-1.5">
+                    <ShiftArrow momentum={da.momentum} />
+                    <span class="font-mono text-[13px] text-ink-dim">{da.momentum}</span>
+                  </span>
+                </td>
+                <td class="p-4 align-top">
+                  <span class="inline-flex items-center gap-1.5">
+                    <ShiftArrow momentum={db.momentum} />
+                    <span class="font-mono text-[13px] text-ink-dim">{db.momentum}</span>
+                  </span>
+                </td>
+              </>
+            ) : (
+              <>
+                <td class="p-4 align-top text-[15px] leading-relaxed">{row.a}</td>
+                <td class="p-4 align-top text-[15px] leading-relaxed">{row.b}</td>
+              </>
+            )}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-8 grid gap-6 md:grid-cols-2">
+    <section>
+      <h3 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">{da.name} sources</h3>
+      <ol class="mt-3 space-y-2">
+        {da.receipts.map((r, i) => (
+          <li class="flex items-baseline gap-2 font-mono text-[13px]">
+            <sup class="font-bold text-accent">{i + 1}</sup>
+            <a href={r} class="text-accent hover:underline" rel="noopener">
+              {hostname(r)}
+              <span class="text-ink-dim">{new URL(r).pathname === '/' ? '' : new URL(r).pathname}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+    <section>
+      <h3 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">{db.name} sources</h3>
+      <ol class="mt-3 space-y-2">
+        {db.receipts.map((r, i) => (
+          <li class="flex items-baseline gap-2 font-mono text-[13px]">
+            <sup class="font-bold text-accent">{i + 1}</sup>
+            <a href={r} class="text-accent hover:underline" rel="noopener">
+              {hostname(r)}
+              <span class="text-ink-dim">{new URL(r).pathname === '/' ? '' : new URL(r).pathname}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+  </div>
+
+  <p class="mt-10 flex flex-wrap gap-4">
+    <a href={liveHref} class="nm-btn nm-btn-solid">Open live compare →</a>
+    <a href={`/tools/${a.id}/`} class="nm-btn nm-btn-outline">{da.name} page</a>
+    <a href={`/tools/${b.id}/`} class="nm-btn nm-btn-outline">{db.name} page</a>
+    <a href={`/tools/${a.id}.json`} class="nm-btn nm-btn-outline">{da.name}.json</a>
+    <a href={`/tools/${b.id}.json`} class="nm-btn nm-btn-outline">{db.name}.json</a>
+  </p>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')}
+    is:inline
+  />
+</Base>
