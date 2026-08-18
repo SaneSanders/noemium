@@ -10,6 +10,7 @@ import CopyButton from '../../components/CopyButton.astro';
 import { logoSrc } from '../../lib/logos';
 import { observationMarkdown } from '../../lib/observation';
 import { relatedIds, SKIP_ALTERNATIVE } from '../../lib/shelf';
+import { COMPARE_PAIRS } from '../../data/compare-presets';
 import changelog from '../../data/changelog.json';
 
 export const getStaticPaths = (async () => {
@@ -38,6 +39,14 @@ const related = relatedIdList
   .filter((x) => x !== undefined);
 const skipPeer = SKIP_ALTERNATIVE[tool.id];
 const skipPeerTool = skipPeer ? catalog.find((x) => x.id === skipPeer) : undefined;
+
+const comparePairs = COMPARE_PAIRS.filter((p) => p.a === tool.id || p.b === tool.id)
+  .map((p) => {
+    const otherSlug = p.a === tool.id ? p.b : p.a;
+    const other = catalog.find((x) => x.id === otherSlug);
+    return other ? { slug: `${p.a}-vs-${p.b}`, otherName: other.data.name } : null;
+  })
+  .filter((x): x is { slug: string; otherName: string } => x !== null);
 
 const facts: [string, string][] = [
   ['pricing', t.pricing],
@@ -273,6 +282,21 @@ const shortTrail = (v: string | null) => {
               all alternatives →
             </a>
           </h2>
+          {
+            comparePairs.length > 0 && (
+              <p class="mt-3 font-mono text-[13px] text-ink-dim">
+                Compare:
+                {comparePairs.map((p, i) => (
+                  <>
+                    {i > 0 && <span class="mx-1.5" aria-hidden="true">·</span>}
+                    <a href={`/tools/compare/${p.slug}/`} class="text-accent hover:underline">
+                      {t.name} vs {p.otherName}
+                    </a>
+                  </>
+                ))}
+              </p>
+            )
+          }
           <div class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {related.map((r) => (
               <ToolCard tool={r} />
