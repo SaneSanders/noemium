@@ -1,32 +1,100 @@
 ---
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+
+const initial = Astro.url.searchParams.get('q') ?? '';
 ---
 
 <Base
   title="Search"
-  description="⌘K is the catalog search — tools, stacks, models and agent guides. The box on /tools filters the shelf."
+  description="Full-text search across the Noemium catalog — tools, agents, stacks, models and pages."
 >
   <SectionHeader
     title="Search"
-    sub="⌘K is the catalog. This page opens the same palette. The search box on /tools only filters the shelf."
+    sub="Full-text search across the catalog. For quick navigation, the command palette is usually faster."
   />
-  <p class="pb-16 font-mono text-sm text-ink-dim">
-    Opening the command palette… if it doesn't, press ⌘K or
-    <button
-      type="button"
-      class="text-accent underline"
-      onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
-    >
-      click here
-    </button>
-    .
-  </p>
+
+  <div class="nm-card p-5 md:p-6">
+    <form id="nm-search-form" class="flex gap-3" role="search" action="/search/" method="get">
+      <input
+        id="nm-search-input"
+        type="search"
+        name="q"
+        value={initial}
+        placeholder="Search the catalog…"
+        class="nm-field flex-1"
+      />
+      <button type="submit" class="nm-btn nm-btn-solid">Search</button>
+    </form>
+    <p class="mt-3 flex flex-wrap items-center gap-2 font-mono text-[13px] text-ink-dim">
+      <span>Or open the</span>
+      <button
+        type="button"
+        class="text-accent underline"
+        onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
+      >
+        command palette
+      </button>
+      <span>(</span>
+      <kbd class="rounded-sm border-[1.5px] border-ink px-1.5 py-0.5 font-mono text-xs">⌘K</kbd>
+      <span>/</span>
+      <kbd class="rounded-sm border-[1.5px] border-ink px-1.5 py-0.5 font-mono text-xs">Ctrl K</kbd>
+      <span>).</span>
+    </p>
+  </div>
+
+  <p id="nm-search-status" class="nm-num mt-6 text-sm text-ink-dim" aria-live="polite"></p>
+  <div id="nm-search-results" class="mt-5 space-y-4"></div>
+
   <script>
-    function openPalette() {
-      window.dispatchEvent(new CustomEvent('nm:palette:open'));
-    }
-    document.addEventListener('astro:page-load', openPalette);
-    openPalette();
+    (async () => {
+      const input = document.getElementById('nm-search-input');
+      const status = document.getElementById('nm-search-status');
+      const results = document.getElementById('nm-search-results');
+      if (!input || !status || !results) return;
+
+      input.focus();
+
+      const q = new URLSearchParams(window.location.search).get('q')?.trim() ?? '';
+      if (!q) {
+        status.textContent = 'Enter a query above or open the command palette.';
+        return;
+      }
+
+      try {
+        const pagefindPath = '/pagefind/pagefind.js';
+        const pagefind = await import(/* @vite-ignore */ pagefindPath);
+        if (typeof pagefind.init === 'function') await pagefind.init();
+        const search = await pagefind.search(q);
+        if (search.results.length === 0) {
+          status.textContent = `No results for “${q}”.`;
+          return;
+        }
+        status.textContent = `${search.results.length} result${search.results.length === 1 ? '' : 's'} for “${q}”`;
+        const data = await Promise.all(search.results.map((r: { data: () => Promise<any> }) => r.data()));
+        results.innerHTML = '';
+        for (const item of data) {
+          const article = document.createElement('article');
+          article.className = 'nm-card p-5';
+          const a = document.createElement('a');
+          a.href = item.url;
+          a.className = 'font-display text-lg font-extrabold tracking-tight text-ink hover:text-accent';
+          a.textContent = item.meta?.title ?? item.url;
+          const excerpt = document.createElement('p');
+          excerpt.className = 'mt-2 text-[15px] text-ink-dim';
+          excerpt.innerHTML = item.excerpt ?? '';
+          const url = document.createElement('p');
+          url.className = 'mt-2 font-mono text-[12px] text-accent';
+          url.textContent = item.url;
+          article.appendChild(a);
+          article.appendChild(excerpt);
+          article.appendChild(url);
+          results.appendChild(article);
+        }
+      } catch {
+        status.textContent =
+          'Search index is not available until after a production build. Use the command palette (⌘K / Ctrl K) for now.';
+      }
+    })();
   </script>
 </Base>

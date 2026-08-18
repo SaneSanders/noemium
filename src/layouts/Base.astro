@@ -60,9 +60,11 @@ function navCurrent(href: string): boolean {
     <script is:inline>
       // Dark-first theming: :root is dark, `data-theme="light"` opts into the
       // light theme. Runs before paint to avoid a flash of the wrong theme.
-      if (localStorage.getItem('nm-theme') === 'light') {
-        document.documentElement.dataset.theme = 'light';
-      }
+      try {
+        if (localStorage.getItem('nm-theme') === 'light') {
+          document.documentElement.dataset.theme = 'light';
+        }
+      } catch {}
       document.addEventListener('astro:before-swap', (e) => {
         const t = document.documentElement.dataset.theme;
         if (t) e.newDocument.documentElement.dataset.theme = t;
@@ -127,6 +129,7 @@ function navCurrent(href: string): boolean {
             id="nm-theme-toggle"
             type="button"
             aria-label="Switch to light theme"
+            aria-pressed="false"
             class="rounded-md border-[1.5px] border-ink bg-card p-2 text-ink shadow-hard-sm transition-all duration-100 hover:-translate-0.5 hover:shadow-hard"
           >
             <svg
@@ -282,22 +285,39 @@ function navCurrent(href: string): boolean {
     <script>
       // Mobile nav overlay. Delegated listeners bind once and survive view
       // transitions (the document persists; the header markup is swapped).
+      function focusableElements(root: HTMLElement): HTMLElement[] {
+        return Array.from(
+          root.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter((el) => !el.hasAttribute('disabled') && el.offsetParent !== null);
+      }
+
       function setMobileNav(open: boolean) {
         const overlay = document.getElementById('nm-mobile-nav');
+        const trigger = document.getElementById('nm-nav-open');
         if (!overlay) return;
         overlay.classList.toggle('hidden', !open);
         overlay.classList.toggle('flex', open);
-        document.getElementById('nm-nav-open')?.setAttribute('aria-expanded', String(open));
+        trigger?.setAttribute('aria-expanded', String(open));
         document.body.style.overflow = open ? 'hidden' : '';
+        if (open) {
+          const first = focusableElements(overlay as HTMLElement)[0];
+          requestAnimationFrame(() => first?.focus());
+        } else {
+          requestAnimationFrame(() => trigger?.focus());
+        }
       }
-      function syncThemeLabel() {
+
+      function syncThemeToggle() {
         const btn = document.getElementById('nm-theme-toggle');
         if (!btn) return;
         const light = document.documentElement.dataset.theme === 'light';
         btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+        btn.setAttribute('aria-pressed', String(light));
       }
-      syncThemeLabel();
-      document.addEventListener('astro:page-load', syncThemeLabel);
+      syncThemeToggle();
+      document.addEventListener('astro:page-load', syncThemeToggle);
       document.addEventListener('click', (e) => {
         const t = e.target;
         if (!(t instanceof Element)) return;
@@ -306,8 +326,10 @@ function navCurrent(href: string): boolean {
           const light = root.dataset.theme === 'light';
           if (light) delete root.dataset.theme;
           else root.dataset.theme = 'light';
-          localStorage.setItem('nm-theme', light ? 'dark' : 'light');
-          syncThemeLabel();
+          try {
+            localStorage.setItem('nm-theme', light ? 'dark' : 'light');
+          } catch {}
+          syncThemeToggle();
         } else if (t.closest('[data-nm-palette]')) {
           setMobileNav(false);
           window.dispatchEvent(new CustomEvent('nm:palette:open'));
@@ -315,7 +337,27 @@ function navCurrent(href: string): boolean {
         else if (t.closest('#nm-nav-close') || t.closest('#nm-mobile-nav a')) setMobileNav(false);
       });
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') setMobileNav(false);
+        const overlay = document.getElementById('nm-mobile-nav');
+        const open = overlay !== null && !overlay.classList.contains('hidden');
+        if (e.key === 'Escape') {
+          if (open) {
+            e.preventDefault();
+            setMobileNav(false);
+          }
+          return;
+        }
+        if (e.key !== 'Tab' || !open) return;
+        const focusables = focusableElements(overlay as HTMLElement);
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
       });
       document.addEventListener('astro:before-swap', () => setMobileNav(false));
     </script>

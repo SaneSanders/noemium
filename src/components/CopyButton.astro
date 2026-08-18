@@ -15,6 +15,35 @@ const { label, text } = Astro.props;
 </span>
 
 <script>
+  async function copyToClipboard(text: string): Promise<boolean> {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch {}
+    }
+    // Fallback for Safari Private Mode and contexts where the async Clipboard
+    // API is blocked. Removes the temporary textarea even if execCommand throws.
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      // Legacy fallback for Safari Private Mode and other locked-down contexts.
+      // execCommand is deprecated; this branch only runs when navigator.clipboard
+      // is unavailable, so the cast avoids a TS warning without changing behavior.
+      const ok = (document as any).execCommand('copy');
+      document.body.removeChild(textarea);
+      return ok;
+    } catch {
+      document.body.removeChild(textarea);
+      return false;
+    }
+  }
+
   function bindCopy() {
     document.querySelectorAll('.js-nm-copy').forEach((node) => {
       if (!(node instanceof HTMLButtonElement) || node.dataset.bound) return;
@@ -24,11 +53,11 @@ const { label, text } = Astro.props;
       const tpl = wrap?.querySelector('template.js-nm-copy-src');
       node.addEventListener('click', async () => {
         const md = tpl instanceof HTMLTemplateElement ? (tpl.content.textContent ?? '') : '';
-        await navigator.clipboard.writeText(md.trim());
-        node.textContent = 'Copied';
+        const ok = await copyToClipboard(md.trim());
+        node.textContent = ok ? 'Copied' : 'Copy failed';
         setTimeout(() => {
           node.textContent = original;
-        }, 1500);
+        }, ok ? 1500 : 2500);
       });
     });
   }

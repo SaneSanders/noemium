@@ -18,6 +18,9 @@ const data: ModelRecord[] = models.map((m) => ({
   open_weights: m.data.open_weights,
   popularity: m.data.popularity,
   best_for: m.data.best_for,
+  avoid_for: m.data.avoid_for,
+  benchmarks: m.data.benchmarks,
+  source_attribution: m.data.source_attribution,
 }));
 
 const latestVerified = models.map((m) => m.data.last_verified).sort().at(-1);
