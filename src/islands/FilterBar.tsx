@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import { isBuilderKit, plural } from '../lib/shelf';
+import { plural } from '../lib/shelf';
 import type { Momentum, Verdict } from './ui';
 import { FlagBadge, MomentumArrow, VerdictStamp } from './ui';
 
@@ -48,7 +48,6 @@ interface Filters {
   free_tier: boolean;
   open_source: boolean;
   api: boolean;
-  kit: boolean;
 }
 
 const EMPTY: Filters = {
@@ -60,7 +59,6 @@ const EMPTY: Filters = {
   free_tier: false,
   open_source: false,
   api: false,
-  kit: false,
 };
 
 // Layer-1 presets: one click applies a whole filter bundle.
@@ -69,7 +67,6 @@ const PRESETS: { key: string; label: string; apply: Partial<Filters> }[] = [
   { key: 'ship', label: 'ship it only', apply: { verdicts: ['ship'] } },
   { key: 'gaining', label: 'gaining (blueshift)', apply: { momenta: ['blueshift'] } },
   { key: 'api', label: 'has API', apply: { api: true } },
-  { key: 'kit', label: 'builder kit', apply: { kit: true } },
 ];
 
 function parseUrl(): Filters {
@@ -86,7 +83,6 @@ function parseUrl(): Filters {
     free_tier: p.get('free') === '1',
     open_source: p.get('oss') === '1',
     api: p.get('api') === '1',
-    kit: p.get('kit') === '1',
   };
 }
 
@@ -100,7 +96,6 @@ function writeUrl(f: Filters) {
   if (f.free_tier) p.set('free', '1');
   if (f.open_source) p.set('oss', '1');
   if (f.api) p.set('api', '1');
-  if (f.kit) p.set('kit', '1');
   const qs = p.toString();
   window.history.replaceState(null, '', qs ? `?${qs}` : window.location.pathname);
 }
@@ -267,19 +262,13 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
 
   const categoryCounts = useMemo(() => {
     const counts = new Map<string, number>();
-    const source = filters.kit
-      ? tools
-      : tools.filter((t) => !isBuilderKit({ slug: t.slug, category: t.category, tagline: t.tagline }));
-    for (const t of source) counts.set(t.category, (counts.get(t.category) ?? 0) + 1);
+    for (const t of tools) counts.set(t.category, (counts.get(t.category) ?? 0) + 1);
     return counts;
-  }, [tools, filters.kit]);
+  }, [tools]);
 
   const results = useMemo(() => {
     const q = filters.q.trim().toLowerCase();
     return tools.filter((t) => {
-      const kit = isBuilderKit({ slug: t.slug, category: t.category, tagline: t.tagline });
-      if (kit && !filters.kit && !q) return false;
-      if (filters.kit && !kit && !q) return false;
       if (q && !`${t.name} ${t.tagline} ${t.category}`.toLowerCase().includes(q)) return false;
       if (filters.categories.length && !filters.categories.includes(t.category)) return false;
       if (filters.pricing.length && !filters.pricing.includes(t.pricing)) return false;

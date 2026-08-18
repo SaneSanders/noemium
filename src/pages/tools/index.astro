@@ -5,7 +5,7 @@ import SectionHeader from '../../components/SectionHeader.astro';
 import KbdHint from '../../components/KbdHint.astro';
 import FilterBar, { type ToolRecord } from '../../islands/FilterBar';
 import { logoSrc } from '../../lib/logos';
-import { isBuilderKit, plural } from '../../lib/shelf';
+import { plural } from '../../lib/shelf';
 
 const tools = await getCollection('tools');
 const data: ToolRecord[] = tools
@@ -28,11 +28,6 @@ const data: ToolRecord[] = tools
   }))
   .sort((a, b) => a.name.localeCompare(b.name));
 
-const kitCount = data.filter((t) =>
-  isBuilderKit({ slug: t.slug, category: t.category, tagline: t.tagline }),
-).length;
-const defaultCount = data.length - kitCount;
-
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -48,11 +43,11 @@ const jsonLd = {
 
 <Base
   title="Tools"
-  description={`${plural(defaultCount, 'AI tool')} with signed verdicts and named limitations. No pay-to-list — every entry is a pull request you can audit.`}
+  description={`${plural(data.length, 'tool')} with signed verdicts and named limitations. No pay-to-list — every entry is a pull request you can audit.`}
 >
   <SectionHeader
     title="Catalog"
-    sub={`${plural(defaultCount, 'tool')} on the default shelf, each with a signed verdict and named limitations. Icon sets and UI galleries sit on the builder-kit shelf. No pay-to-list — every entry is a pull request you can audit.`}
+    sub={`${plural(data.length, 'tool')} with signed verdicts and named limitations. No pay-to-list — every entry is a pull request you can audit.`}
   />
   <p class="-mt-6 mb-6 font-mono text-xs text-ink-dim">
     Press <KbdHint keys="/" /> to filter this shelf. ⌘K searches the whole catalog.

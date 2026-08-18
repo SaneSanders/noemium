@@ -1,52 +1,7 @@
 /**
- * Catalog-shelf helpers: builder-kit hiding, similar-job alternatives,
- * and copy that shouldn't lie about counts.
+ * Catalog-shelf helpers: similar-job alternatives and copy that
+ * shouldn't lie about counts.
  */
-
-export const BUILDER_KIT_SLUGS = new Set([
-  'lucide',
-  'footer',
-  'navbar-gallery',
-  '404s',
-  'origin-ui',
-  'tailwind-ui',
-  'aceternity-ui',
-  'shadcn-ui',
-  'react-bits',
-  'daisyui',
-  'magic-ui',
-  'radix-ui',
-  'heroui',
-  'landingfolio',
-  'refero-styles',
-  'mobbin',
-  '21st-dev',
-  'assistant-ui',
-  'horizonx',
-  'tailark',
-  'motion-dev',
-]);
-
-const AI_DESIGN_SLUGS = new Set([
-  'v0',
-  'uizard',
-  'stitch',
-  'onlook',
-  'pen-dev',
-  'framer',
-  'relume',
-]);
-
-export function isBuilderKit(tool: { slug: string; category: string; tagline?: string }): boolean {
-  if (AI_DESIGN_SLUGS.has(tool.slug)) return false;
-  if (BUILDER_KIT_SLUGS.has(tool.slug)) return true;
-  if (tool.category !== 'design') return false;
-  const hay = `${tool.slug} ${tool.tagline ?? ''}`.toLowerCase();
-  if (/\b(ai|llm|generative|prompt|design-to-code)\b/.test(hay)) return false;
-  return /\b(icon|icons|component|components|gallery|ui kit|copy-paste|screenshot|tailwind|radix|shadcn)\b/.test(
-    hay,
-  );
-}
 
 /** Flagships whose shelf is a job, not a category dump. */
 export const JOB_PEERS: Record<string, readonly string[]> = {
@@ -88,12 +43,7 @@ export function relatedIds(slug: string, tools: RelatedTool[], limit = 3): strin
   const self = byId.get(slug);
   const category = self?.category;
   return tools
-    .filter(
-      (t) =>
-        t.id !== slug &&
-        t.category === category &&
-        !isBuilderKit({ slug: t.id, category: t.category, tagline: t.tagline }),
-    )
+    .filter((t) => t.id !== slug && t.category === category)
     .sort(
       (a, b) =>
         (VERDICT_RANK[a.verdict] ?? 9) - (VERDICT_RANK[b.verdict] ?? 9) ||
@@ -116,12 +66,7 @@ export function alternativeIds(slug: string, tools: RelatedTool[]): string[] {
   }
   const self = byId.get(slug);
   return tools
-    .filter(
-      (t) =>
-        t.id !== slug &&
-        t.category === self?.category &&
-        !isBuilderKit({ slug: t.id, category: t.category, tagline: t.tagline }),
-    )
+    .filter((t) => t.id !== slug && t.category === self?.category)
     .sort(
       (a, b) =>
         (VERDICT_RANK[a.verdict] ?? 9) - (VERDICT_RANK[b.verdict] ?? 9) ||
