@@ -5,7 +5,7 @@ import ToolCard from '../components/ToolCard.astro';
 import HomeFloor from '../islands/HomeFloor';
 import { logoSrc } from '../lib/logos';
 import { dateMinusDays, floorSlice, newestVerified, DUST_DAYS, FRESH_DAYS, type FloorTool } from '../lib/floor';
-import { COMPARE_HREF, isBuilderKit, plural } from '../lib/shelf';
+import { COMPARE_HREF, plural } from '../lib/shelf';
 import changelog from '../data/changelog.json';
 
 type Week = {
@@ -23,11 +23,7 @@ const stacks = await getCollection('stacks');
 const models = await getCollection('models');
 const dead = await getCollection('graveyard');
 
-const catalogTools = tools.filter(
-  (t) => !isBuilderKit({ slug: t.id, category: t.data.category, tagline: t.data.tagline }),
-);
-
-const floorTools: FloorTool[] = catalogTools.map((t) => ({
+const floorTools: FloorTool[] = tools.map((t) => ({
   slug: t.id,
   name: t.data.name,
   category: t.data.category,
@@ -49,11 +45,9 @@ const floorTabs = {
   fresh: floorSlice(floorTools, 'fresh', freshAfter),
 };
 
-const kitCount = tools.length - catalogTools.length;
-
 // Under the radar — computed, not editorial: tools gaining momentum that
 // were never anchors. The discovery shelf; zero famous names by construction.
-const underTheRadar = catalogTools
+const underTheRadar = tools
   .filter((t) => t.data.momentum === 'blueshift' && !t.data.featured)
   .sort(
     (a, b) =>
@@ -64,7 +58,7 @@ const underTheRadar = catalogTools
 
 const CATEGORY_META: { slug: string; blurb: string }[] = [
   { slug: 'coding', blurb: 'Code assistants, IDEs, coding agents' },
-  { slug: 'design', blurb: 'AI design-to-code and visual builders' },
+  { slug: 'design', blurb: 'UI kits, visual builders, design-to-code' },
   { slug: 'image', blurb: 'Image generation and editing' },
   { slug: 'video', blurb: 'Video generation and editing' },
   { slug: 'audio', blurb: 'Voice, speech, music' },
@@ -78,7 +72,7 @@ const CATEGORY_META: { slug: string; blurb: string }[] = [
 ];
 const categories = CATEGORY_META.map((c) => ({
   ...c,
-  count: catalogTools.filter((t) => t.data.category === c.slug).length,
+  count: tools.filter((t) => t.data.category === c.slug).length,
 })).filter((c) => c.count > 0);
 
 const stackPreview = [...stacks]
@@ -155,16 +149,6 @@ const weekLink = (e: { collection: string; slug: string }) =>
         ))
       }
     </div>
-    {
-      kitCount > 0 && (
-        <p class="mt-4 font-mono text-[13px] text-ink-dim">
-          Icon sets and UI galleries live on a separate shelf —{' '}
-          <a href="/tools?kit=1" class="text-accent hover:underline">
-            {plural(kitCount, 'builder kit')} →
-          </a>
-        </p>
-      )
-    }
   </section>
 
   {/* ---------------------------------------------------------------- FLOOR */}
@@ -262,7 +246,7 @@ const weekLink = (e: { collection: string; slug: string }) =>
       </h2>
       <p class="max-w-md font-mono text-[13px] leading-relaxed text-ink-dim">
         Gaining momentum, never an anchor. The shelf with zero famous names — computed, not
-        editorial. Builder kits stay off this list.
+        editorial.
       </p>
     </div>
     <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

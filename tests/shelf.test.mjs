@@ -2,18 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   alternativeIds,
-  isBuilderKit,
   isHomepageReceipt,
   plural,
   relatedIds,
 } from '../src/lib/shelf.ts';
-
-test('hides Lucide and footer galleries as builder kit', () => {
-  assert.equal(isBuilderKit({ slug: 'lucide', category: 'design', tagline: 'icons' }), true);
-  assert.equal(isBuilderKit({ slug: 'footer', category: 'design', tagline: 'gallery' }), true);
-  assert.equal(isBuilderKit({ slug: 'v0', category: 'design', tagline: 'AI design-to-code' }), false);
-  assert.equal(isBuilderKit({ slug: 'cursor', category: 'coding' }), false);
-});
 
 test('ChatGPT alternatives are assistants, not Jasper', () => {
   const tools = [
