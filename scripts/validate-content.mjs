@@ -144,7 +144,11 @@ const collections = [
 // URL fields that must stay referral-free per collection.
 const cleanUrlFields = {
   tools: (d) => [d.url, ...d.receipts],
-  graveyard: (d) => [d.url, d.receipt],
+  graveyard: (d) => [
+    d.url,
+    d.receipt,
+    ...('url' in (d.succeeded_by ?? {}) && d.succeeded_by.url ? [d.succeeded_by.url] : []),
+  ],
   agents: (d) => [
     d.url,
     ...d.evidence.map((item) => item.url),
@@ -209,6 +213,42 @@ for (const [slug, stack] of entries.stacks) {
     if (!entries.tools.has(toolSlug)) {
       fail(`src/content/stacks/${slug}.md`, `tools references unknown tool "${toolSlug}"`);
     }
+  }
+  if (stack.budget) {
+    for (const toolSlug of stack.budget.tools) {
+      if (!entries.tools.has(toolSlug)) {
+        fail(`src/content/stacks/${slug}.md`, `budget.tools references unknown tool "${toolSlug}"`);
+      }
+    }
+  }
+  if (stack.twin) {
+    if (stack.twin.slug === slug) {
+      fail(`src/content/stacks/${slug}.md`, `twin.slug cannot point at itself`);
+    } else if (!entries.stacks.has(stack.twin.slug)) {
+      fail(`src/content/stacks/${slug}.md`, `twin.slug references unknown stack "${stack.twin.slug}"`);
+    } else {
+      const other = entries.stacks.get(stack.twin.slug);
+      if (stack.twin.kind === 'shoestring' && other.monthly_cost_usd > stack.monthly_cost_usd) {
+        fail(
+          `src/content/stacks/${slug}.md`,
+          `twin.kind is shoestring but ${stack.twin.slug} costs more ($${other.monthly_cost_usd} > $${stack.monthly_cost_usd})`,
+        );
+      }
+      if (stack.twin.kind === 'studio' && other.monthly_cost_usd < stack.monthly_cost_usd) {
+        fail(
+          `src/content/stacks/${slug}.md`,
+          `twin.kind is studio but ${stack.twin.slug} costs less ($${other.monthly_cost_usd} < $${stack.monthly_cost_usd})`,
+        );
+      }
+    }
+  }
+}
+for (const [slug, grave] of entries.graveyard) {
+  if (!('none' in grave.succeeded_by) && grave.succeeded_by.slug && !entries.tools.has(grave.succeeded_by.slug)) {
+    fail(
+      `src/content/graveyard/${slug}.yaml`,
+      `succeeded_by.slug references unknown tool "${grave.succeeded_by.slug}"`,
+    );
   }
 }
 

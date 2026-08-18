@@ -1,0 +1,33 @@
+name: Kimi API
+tagline: Moonshot OpenAI-compatible API — K3 1M context, K2.7 Code, pay-as-you-go after a $1 top-up.
+url: https://platform.kimi.ai
+category: models-api
+pricing: paid
+price_note: "no free API calls; K3 unlocked after ≥$1 top-up; K3 $0.30 cache-hit / $3 input / $15 output per 1M; K2.7 Code $0.19 / $0.95 / $4 per 1M; K2.6 $0.16 / $0.95 / $4"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+models_used:
+  - kimi-k3
+  - kimi-k2-7-code
+verdict: situational
+verdict_text: >-
+  The Moonshot token meter, not Kimi Code CLI and not kimi.com chat.
+  OpenAI SDK against api.moonshot.ai. K3 is flat $3/$15 with a cheap
+  cache hit; coding SKU is K2.7 Code. Rate limits follow cumulative
+  top-up. China-hosted — same compliance question as other CN labs.
+  Not field-called here.
+limitations:
+  - "K3 is gated behind a successful top-up (docs: minimum $1); this is not a free playground."
+  - Rate limits scale with lifetime recharge, not with a published unlimited Pro seat.
+  - Docs currently warn that web_search is being updated — don't build on that tool yet.
+  - Separate from Kimi Code membership (~$19–$39) and from the MIT CLI.
+receipts:
+  - https://platform.kimi.ai/docs/pricing/chat-k3
+  - https://platform.kimi.ai/docs/overview
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

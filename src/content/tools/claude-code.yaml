@@ -3,7 +3,7 @@ tagline: Anthropic's terminal agent that edits, runs and tests code in your repo
 url: https://docs.anthropic.com/en/docs/claude-code
 category: coding
 pricing: paid
-price_note: "included in Claude Pro from $20/mo; API pay-per-token"
+price_note: "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
 free_tier: false
 open_source: false
 api: true
@@ -23,10 +23,13 @@ limitations:
   - API-billed sessions on large repos escalate in cost fast.
   - Confidently makes sweeping changes; big diffs need human review.
   - No GUI at all — a feature until you want a diff viewer.
+  - Usage is shared with claude.ai chat on the same seat.
 receipts:
   - https://github.com/anthropics/claude-code
+  - https://www.anthropic.com/pricing
+  - https://docs.anthropic.com/en/docs/claude-code
 affiliate: none
 momentum: blueshift
 featured: true
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
 observed_by: whysanesanders

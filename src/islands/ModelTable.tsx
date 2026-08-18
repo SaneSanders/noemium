@@ -60,6 +60,15 @@ function formatCtx(ctx?: number): string {
   return `${Math.round(ctx / 1000)}k`;
 }
 
+function unpublishedRate(m: ModelRecord): boolean {
+  return (
+    (m.price_unit ?? 'mtok') === 'mtok' &&
+    m.price_input_per_mtok === 0 &&
+    m.price_output_per_mtok === 0 &&
+    m.price_amount === undefined
+  );
+}
+
 function formatUsd(value: number): string {
   if (value === 0) return '$0.00';
   if (value < 0.01) return `$${value.toPrecision(2)}`;
@@ -68,6 +77,7 @@ function formatUsd(value: number): string {
 }
 
 function taskCost(m: ModelRecord, preset: (typeof PRESETS)[PresetKey]): number | null {
+  if (unpublishedRate(m)) return null;
   if ((m.price_unit ?? 'mtok') !== 'mtok') return null;
   return (preset.inTok * m.price_input_per_mtok + preset.outTok * m.price_output_per_mtok) / 1e6;
 }
@@ -236,7 +246,8 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
           </thead>
           <tbody>
             {rows.map((m) => {
-              const unit = unitPrice(m);
+              const unpublished = unpublishedRate(m);
+              const unit = unpublished ? null : unitPrice(m);
               const cost = taskCost(m, preset);
               return (
                 <tr
@@ -259,7 +270,11 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                     {m.popularity}
                   </td>
                   <td class="nm-num p-3 text-[13px]">{formatCtx(m.context_window)}</td>
-                  {unit ? (
+                  {unpublished ? (
+                    <td class="p-3 font-mono text-[12px] text-ink-dim" colSpan={2}>
+                      no public rate — Coding Plan only
+                    </td>
+                  ) : unit ? (
                     <td class="nm-num p-3 text-[13px]" colSpan={2}>
                       {unit}
                     </td>

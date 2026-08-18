@@ -1,0 +1,28 @@
+name: Fathom
+tagline: AI meeting recorder — unlimited free capture for individuals, paid team CRM/coaching layers.
+url: https://fathom.video
+category: productivity
+pricing: freemium
+price_note: "individual Free $0 (unlimited recordings/summaries); Premium $20/mo ($16 billed yearly); Team $19/user/mo ($15 yearly, 2-user min)"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  One of the few meeting tools whose free individual tier is actually
+  unlimited recordings, not a three-call tease. Paid is for action items,
+  Ask Fathom, CRM sync, coaching. Bot vs bot-free capture is a preference
+  and a security review. Not a Gong replacement on Free.
+limitations:
+  - Free individual omits advanced summaries, action items, and team search.
+  - Team/Business have a 2-user minimum.
+  - CRM field sync and coaching scorecards are Business, not Premium.
+  - Bot-in-meeting vs bot-free (Mac beta) is a policy choice, not a quality guarantee.
+receipts:
+  - https://fathom.video/pricing
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

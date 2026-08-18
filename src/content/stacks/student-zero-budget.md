@@ -17,6 +17,12 @@ receipts:
   - https://www.notion.com/product/ai
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+twin:
+  slug: student-coding-shoestring
+  kind: studio
+  tradeoff: >-
+    GLM Lite plus DeepSeek off-peak on top of free CLIs. Pay the $23 when
+    free quotas die during finals. This $0 stack is already the shoestring.
 ---
 
 ## The recipe

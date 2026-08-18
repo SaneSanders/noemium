@@ -1,0 +1,29 @@
+name: Figma
+tagline: Design tool of record; Figma Make (prompt-to-app) is bundled into Full seats, not a separate SKU.
+url: https://www.figma.com
+category: design
+pricing: freemium
+price_note: "Starter free (150 AI credits/day, cap 500/mo); Professional Full seat $16/mo billed yearly; Make is Full-seat only on paid plans"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Still the file everyone already has. Make is Figma's AI app builder, sold
+  as Full-seat access plus monthly AI credits (3,000 on Professional), not as
+  Make.com. Starter credits are a taste. Heavy Make use burns the credit pool
+  and then pay-as-you-go. Not a field test of Make output quality.
+limitations:
+  - Figma Make is Full-seat on paid plans; Dev/Collab seats are not the Make license.
+  - AI credits are per seat; unused teammate credits do not cover your overage.
+  - Starter AI is 150/day with a 500/mo cap — enough to demo, not to ship.
+  - This is not Make.com (Integromat); automations live on that other card.
+receipts:
+  - https://www.figma.com/pricing/
+  - https://help.figma.com/hc/en-us/articles/31304485164695-Create-a-Figma-Make-file
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

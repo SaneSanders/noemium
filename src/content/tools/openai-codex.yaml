@@ -1,0 +1,35 @@
+name: OpenAI Codex
+tagline: OpenAI's coding agent — terminal CLI, IDE, and cloud tasks, bundled into ChatGPT plans.
+url: https://chatgpt.com/codex
+category: coding
+pricing: freemium
+price_note: "included in ChatGPT Free/Go/Plus/Pro; Plus $20/mo, Pro from $100/mo; extra credits after 5h caps; API key billed at API rates"
+free_tier: true
+open_source: true
+api: true
+self_host: false
+models_used:
+  - gpt-5-6-sol
+  - gpt-5-6-terra
+  - gpt-5-6-luna
+verdict: situational
+verdict_text: >-
+  The CLI on GitHub is real and the ChatGPT bundle makes it the lowest-friction
+  OpenAI coding agent. Caps sit on a five-hour window, credits replaced
+  per-message billing in Apr 2026, and cloud tasks are Plus-and-up. Not a
+  second Responses API card — this is the product you run against a repo.
+  No field run here, so this is not a Ship stamp.
+limitations:
+  - Local and cloud usage share a rolling 5-hour window; weekly caps also apply.
+  - Free/Go are trial-level; cloud GitHub review and plugins sit on Plus+.
+  - Token-credit metering (from 2026-04) makes a session's cost hard to predict.
+  - Conversation/repo context still leaves OpenAI; no self-host of the hosted agent.
+receipts:
+  - https://chatgpt.com/codex/pricing/
+  - https://github.com/openai/codex
+  - https://help.openai.com/en/articles/20001106-codex-rate-card
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

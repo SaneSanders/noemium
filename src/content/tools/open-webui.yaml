@@ -1,0 +1,29 @@
+name: Open WebUI
+tagline: Self-hosted chat UI for Ollama and OpenAI-compatible APIs — your models, your box.
+url: https://openwebui.com
+category: dev-infra
+pricing: freemium
+price_note: "self-host free (pip/docker); Enterprise SSO/RBAC/air-gap is a commercial SKU (talk to sales)"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The default homelab ChatGPT skin: Ollama, OpenAI, Anthropic, RAG, voice,
+  a huge community library. The product is the interface, not the model.
+  Enterprise exists for SSO and air-gap. Ops (auth, updates, disk) are on
+  you. Not a cloud assistant.
+limitations:
+  - You operate Docker/GPU/backups; this is not a hosted chat product.
+  - Feature surface is huge; upgrades can reshuffle the UI (see v0.11 notes).
+  - Connecting cloud APIs reintroduces the data-residency question you self-hosted to avoid.
+  - Enterprise controls are not the MIT community build.
+receipts:
+  - https://github.com/open-webui/open-webui
+  - https://docs.openwebui.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

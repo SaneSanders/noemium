@@ -1,0 +1,32 @@
+name: Grok
+tagline: xAI's consumer assistant on grok.com — chat, search, Imagine; not the xAI API and not in-X Grok.
+url: https://grok.com
+category: productivity
+pricing: freemium
+price_note: "free tier on grok.com; paid SuperGrok upgrades sold in-app (official public $ card is not a stable HTML page — confirm at checkout)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - grok-4-6
+verdict: situational
+verdict_text: >-
+  grok.com is the standalone chat product. xAI API is a different card; the
+  Grok tab inside X is a different surface. Free exists. Paid SuperGrok is
+  real but x.ai/grok returned 403 here, so this catalog will not invent a
+  dollar figure from blogs. Personality and X-data are the draw; procurement
+  and moderation are the drag.
+limitations:
+  - No stable public HTML price table fetched (x.ai/grok 403); treat in-app SuperGrok as authoritative.
+  - Not a substitute for the xAI API rate card (see the xAI API entry).
+  - X-association is a procurement issue for some teams.
+  - Imagine/video features are quota-gated on paid tiers; this card is the chat app, not Grok Imagine as a studio.
+receipts:
+  - https://grok.com
+  - https://docs.x.ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

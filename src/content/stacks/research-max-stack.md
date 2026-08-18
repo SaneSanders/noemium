@@ -19,6 +19,18 @@ receipts:
   - https://chatgpt.com
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 30
+  tools:
+    - google-ai-studio
+    - perplexity
+    - consensus
+    - notebooklm
+    - chatgpt
+  tradeoff: >-
+    Perplexity Pro (not Max) plus Consensus Premium and free NotebookLM / AI
+    Studio / ChatGPT. No Elicit extraction tables, no uncapped Perplexity. A
+    literature sketch works; a systematic review will stall on caps.
 ---
 
 ## The recipe

@@ -1,0 +1,28 @@
+name: Kiro
+tagline: AWS spec-driven IDE — requirements and tasks before code, billed in monthly credits.
+url: https://kiro.dev
+category: coding
+pricing: freemium
+price_note: "Free $0 (50 credits); Pro $20/user/mo (1,000 credits); Pro+ $40; Pro Max $100; Power $200; overage $0.04/credit"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Amazon's IDE bet after Q: you approve a spec, then the agent implements.
+  Credit math is public ($20 → 1k credits, $0.04 overage). Unused credits do
+  not roll over on the FAQ. Not Amazon Q, not Bedrock console. Untested here
+  on a real spec cycle.
+limitations:
+  - Monthly credits do not roll over (stated on the pricing FAQ).
+  - Free-tier model mix (Sonnet 4.5 + open weights) is narrower than paid Auto/Opus.
+  - Premium models are geo-restricted; not every country gets the full picker.
+  - Spec-first workflow is overhead if you just wanted tab-complete.
+receipts:
+  - https://kiro.dev/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

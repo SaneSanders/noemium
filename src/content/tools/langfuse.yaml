@@ -1,0 +1,30 @@
+name: Langfuse
+tagline: Open-source LLM observability — traces, prompts, evals; MIT self-host or Cloud from Hobby.
+url: https://langfuse.com
+category: dev-infra
+pricing: freemium
+price_note: "self-host OSS free (MIT); Cloud Hobby $0 (50k units/mo, 2 users); Core $29/mo; Pro $199/mo; Enterprise from $2,499/mo; overage from $8/100k units"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  langfuse.com is live (the 404 rumor is stale). Cloud is unit-metered
+  (traces + observations + scores); Hobby is a real free POC; Core at $29 is
+  the production on-ramp. Self-host OSS is full core features, Enterprise is
+  the RBAC/audit layer plus ClickHouse commercial. Not a field install here.
+limitations:
+  - A "unit" is every trace, span, generation, and score — verbose agents get expensive.
+  - Hobby hard-caps at 50k units and 2 users; no overage.
+  - SSO/RBAC on Cloud is Pro+$300 Teams add-on or Enterprise, not Core.
+  - Self-host Enterprise pricing is additive to ClickHouse Cloud/BYOC.
+receipts:
+  - https://langfuse.com/pricing
+  - https://langfuse.com/pricing-self-host
+  - https://github.com/langfuse/langfuse
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

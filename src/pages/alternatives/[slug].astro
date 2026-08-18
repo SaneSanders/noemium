@@ -4,6 +4,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
+import { alternativeIds, JOB_PEERS } from '../../lib/shelf';
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection('tools');
@@ -12,17 +13,21 @@ export const getStaticPaths = (async () => {
 
 const { tool, tools } = Astro.props;
 const t = tool.data;
-
-// Honest ordering, stated on the page: verdict rank, then freshness, then name.
-const verdictRank: Record<string, number> = { ship: 0, situational: 1, skip: 2 };
-const alternatives = tools
-  .filter((o) => o.id !== tool.id && o.data.category === t.category)
-  .sort(
-    (a, b) =>
-      verdictRank[a.data.verdict] - verdictRank[b.data.verdict] ||
-      b.data.last_verified.localeCompare(a.data.last_verified) ||
-      a.data.name.localeCompare(b.data.name),
-  );
+const jobPeers = Boolean(JOB_PEERS[tool.id]);
+const altIds = alternativeIds(
+  tool.id,
+  tools.map((o) => ({
+    id: o.id,
+    name: o.data.name,
+    category: o.data.category,
+    tagline: o.data.tagline,
+    verdict: o.data.verdict,
+    last_verified: o.data.last_verified,
+  })),
+);
+const alternatives = altIds
+  .map((id) => tools.find((o) => o.id === id))
+  .filter((o) => o !== undefined);
 
 const itemList = {
   '@context': 'https://schema.org',
@@ -39,11 +44,15 @@ const itemList = {
 
 <Base
   title={`${t.name} alternatives`}
-  description={`${t.name} alternatives from the ${t.category} shelf — ${alternatives.length} tools with honest verdicts, verified prices and named limitations. Order: verdict, then freshness. No paid placement.`}
+  description={`${t.name} alternatives for the same job — ${alternatives.length} tools with honest verdicts, verified prices and named limitations. No paid placement.`}
 >
   <SectionHeader
     title={`${t.name} alternatives`}
-    sub={`Same shelf — ${t.category}. Order: verdict first, then freshness. No sponsored spots: every position is a pull request away.`}
+    sub={
+      jobPeers
+        ? `Same job, not the whole ${t.category} shelf. Order is editorial peers first. No sponsored spots.`
+        : `Same shelf — ${t.category}. Order: verdict first, then freshness. Builder kits omitted. No sponsored spots.`
+    }
   />
 
   {
@@ -70,7 +79,7 @@ const itemList = {
       </div>
     ) : (
       <p class="nm-card p-6 font-mono text-xs text-ink-dim">
-        No alternatives logged on this shelf yet — the catalog is young. Know a rival {t.name} deserves?
+        No alternatives logged for this job yet — the catalog is young. Know a rival {t.name} deserves?
         <a href="https://github.com/SaneSanders/noemium/tree/main/src/content/tools" class="ml-1 text-accent hover:underline" rel="noopener">
           Add it as a PR
         </a>.

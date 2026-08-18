@@ -1,0 +1,32 @@
+name: LlamaParse
+tagline: LlamaIndex hosted document parser — credits per page, not an OSS engine.
+url: https://www.llamaindex.ai
+category: data
+pricing: freemium
+price_note: "10K credits/mo on Free (hard stop); 1,000 credits = $1.25 (NA/EU); v2 Fast 1 / Cost-effective 3 / Agentic 10 / Agentic Plus 45 credits/page; Starter 40K incl. (PAYG to $500/mo); Pro 400K (PAYG to $5,000/mo); seat $ not in this HTML extract"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  The PDF hammer in LlamaIndex tutorials is a commercial API. Official FAQ:
+  LlamaParse is not open source; the GitHub repo is a client. Free is 10K
+  credits/month then 402. $1.25 per 1,000 credits makes Fast ~$1.25/1k pages
+  and Agentic Plus much more. VPC exists for enterprises, not a docker OSS
+  story. Confirm Starter/Pro seat dollars in the console — they were not in
+  this HTML extract.
+limitations:
+  - "Official FAQ: LlamaParse itself is not OSS; don't confuse the Python client with the parser."
+  - Free plan has no PAYG — extra usage returns 402 until you upgrade.
+  - Agentic Plus is 45 credits/page (~$0.056) before extract add-ons.
+  - Seat prices for Starter/Pro were not rendered as dollars in the public HTML; budget from credits + PAYG caps.
+receipts:
+  - https://developers.llamaindex.ai/llamaparse/general/pricing/
+  - https://www.llamaindex.ai/pricing
+  - https://github.com/run-llama/llama_parse
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

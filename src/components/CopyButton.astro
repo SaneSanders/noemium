@@ -1,0 +1,37 @@
+---
+interface Props {
+  label: string;
+  text: string;
+}
+
+const { label, text } = Astro.props;
+---
+
+<span class="js-nm-copy-wrap inline-flex items-center">
+  <button type="button" class="js-nm-copy nm-btn nm-btn-outline">
+    {label}
+  </button>
+  <template class="js-nm-copy-src">{text}</template>
+</span>
+
+<script>
+  function bindCopy() {
+    document.querySelectorAll('.js-nm-copy').forEach((node) => {
+      if (!(node instanceof HTMLButtonElement) || node.dataset.bound) return;
+      node.dataset.bound = '1';
+      const original = node.textContent ?? 'Copy';
+      const wrap = node.closest('.js-nm-copy-wrap');
+      const tpl = wrap?.querySelector('template.js-nm-copy-src');
+      node.addEventListener('click', async () => {
+        const md = tpl instanceof HTMLTemplateElement ? (tpl.content.textContent ?? '') : '';
+        await navigator.clipboard.writeText(md.trim());
+        node.textContent = 'Copied';
+        setTimeout(() => {
+          node.textContent = original;
+        }, 1500);
+      });
+    });
+  }
+  bindCopy();
+  document.addEventListener('astro:page-load', bindCopy);
+</script>

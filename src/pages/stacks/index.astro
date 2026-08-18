@@ -2,8 +2,10 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import { plural } from '../../lib/shelf';
 
 const stacks = await getCollection('stacks');
+const byId = new Map(stacks.map((s) => [s.id, s]));
 const toolNames = new Map(
   (await getCollection('tools')).map((t) => [t.id, t.data.name]),
 );
@@ -44,8 +46,20 @@ const toolNames = new Map(
             <p>
               <span class="nm-num text-3xl font-bold text-accent">${stack.data.monthly_cost_usd}</span>
               <span class="nm-num ml-1 text-sm text-ink-dim">/mo</span>
+              {stack.data.budget && (
+                <span class="mt-1 block font-mono text-[11px] font-medium tracking-wide text-ink-dim uppercase">
+                  shoestring ${stack.data.budget.monthly_cost_usd}
+                </span>
+              )}
+              {stack.data.twin &&
+                byId.get(stack.data.twin.slug) &&
+                byId.get(stack.data.twin.slug)!.data.monthly_cost_usd !== stack.data.budget?.monthly_cost_usd && (
+                <span class="mt-1 block font-mono text-[11px] font-medium tracking-wide text-ink-dim uppercase">
+                  {stack.data.twin.kind} ${byId.get(stack.data.twin.slug)!.data.monthly_cost_usd}
+                </span>
+              )}
             </p>
-            <span class="font-mono text-[13px] text-ink-dim">{stack.data.tools.length} tools</span>
+            <span class="font-mono text-[13px] text-ink-dim">{plural(stack.data.tools.length, 'tool')}</span>
           </div>
         </a>
       ))

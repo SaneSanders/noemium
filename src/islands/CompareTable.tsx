@@ -20,29 +20,48 @@ const PRESETS: [string, string][] = [
   ['perplexity', 'chatgpt'],
 ];
 
-export default function CompareTable({ tools }: { tools: CompareTool[] }) {
-  const bySlug = useMemo(() => new Map(tools.map((t) => [t.slug, t])), [tools]);
+const DEFAULT_SLUGS = ['cursor', 'claude-code'];
+
+export default function CompareTable() {
+  const [tools, setTools] = useState<CompareTool[]>([]);
   const [slugs, setSlugs] = useState<string[]>([]);
   const [unknown, setUnknown] = useState<string[]>([]);
   const [query, setQuery] = useState('');
+  const [ready, setReady] = useState(false);
+
+  const bySlug = useMemo(() => new Map(tools.map((t) => [t.slug, t])), [tools]);
 
   useEffect(() => {
-    const raw = (new URLSearchParams(window.location.search).get('tools') ?? '')
-      .split(',')
-      .map((s) => s.trim())
-      .filter(Boolean);
-    const valid: string[] = [];
-    const missing: string[] = [];
-    for (const slug of raw) {
-      if (bySlug.has(slug)) {
-        if (!valid.includes(slug)) valid.push(slug);
-      } else {
-        missing.push(slug);
-      }
-    }
-    setSlugs(valid.slice(0, MAX_TOOLS));
-    setUnknown(missing);
-  }, [bySlug]);
+    fetch('/compare-index.json')
+      .then((r) => r.json())
+      .then((data: CompareTool[]) => {
+        setTools(data);
+        const map = new Map(data.map((t) => [t.slug, t]));
+        const raw = (new URLSearchParams(window.location.search).get('tools') ?? '')
+          .split(',')
+          .map((s) => s.trim())
+          .filter(Boolean);
+        const seed = raw.length ? raw : DEFAULT_SLUGS;
+        const valid: string[] = [];
+        const missing: string[] = [];
+        for (const slug of seed) {
+          if (map.has(slug)) {
+            if (!valid.includes(slug)) valid.push(slug);
+          } else if (raw.length) {
+            missing.push(slug);
+          }
+        }
+        setSlugs(valid.slice(0, MAX_TOOLS));
+        setUnknown(missing);
+        if (!raw.length && valid.length) {
+          const p = new URLSearchParams(window.location.search);
+          p.set('tools', valid.join(','));
+          window.history.replaceState(null, '', `?${p.toString()}`);
+        }
+        setReady(true);
+      })
+      .catch(() => setReady(true));
+  }, []);
 
   const update = (next: string[]) => {
     setSlugs(next);
@@ -109,6 +128,10 @@ export default function CompareTable({ tools }: { tools: CompareTool[] }) {
       ),
     },
   ];
+
+  if (!ready) {
+    return <p class="font-mono text-sm text-ink-dim">loading compare index…</p>;
+  }
 
   return (
     <section>

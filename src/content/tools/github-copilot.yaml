@@ -1,9 +1,9 @@
 name: GitHub Copilot
-tagline: AI completions, chat and agents inside VS Code and JetBrains, from GitHub.
+tagline: Completions, chat, agents, and Copilot CLI — one GitHub Copilot seat, not a third CLI product.
 url: https://github.com/features/copilot
 category: coding
 pricing: freemium
-price_note: "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
+price_note: "Free $0 (2,000 completions/mo + Copilot CLI); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
 free_tier: true
 open_source: false
 api: false
@@ -14,18 +14,20 @@ models_used:
 verdict: ship
 verdict_text: >-
   The zero-friction option if your team already lives on GitHub. Fast
-  completions, real PR integration, a free tier that's actually usable. The
-  agent mode is a step behind Cursor and Claude Code — but nobody has to
-  change a single habit.
+  completions, real PR integration, a free tier that's actually usable, and
+  Copilot CLI is on that same seat (not a separate catalog card). Agent
+  mode still trails Cursor and Claude Code. Pro+ unlocks third-party
+  agents (Claude Code, Codex) inside the GitHub bill.
 limitations:
   - Agent mode still lags Cursor and Claude Code on multi-step tasks.
   - Output quality varies noticeably between the models in its picker.
-  - Enterprise features sit behind the pricier tiers.
+  - Chat, agent, CLI, and cloud agent all draw GitHub AI Credits on paid plans.
   - Billing moved to AI Credits (2026-06); autocomplete unlimited on paid.
 receipts:
-  - https://github.com/features/copilot
+  - https://github.com/features/copilot/plans
+  - https://docs.github.com/en/copilot
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
 observed_by: whysanesanders

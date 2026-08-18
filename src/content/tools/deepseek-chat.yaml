@@ -1,0 +1,32 @@
+name: DeepSeek Chat
+tagline: DeepSeek's consumer chat app — not the developer API (that's a separate card).
+url: https://chat.deepseek.com
+category: productivity
+pricing: freemium
+price_note: "web/app chat is free-to-start; API is a different product (see DeepSeek API) with peak/off-peak token rates"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - deepseek-v4-flash
+  - deepseek-v4-pro
+verdict: situational
+verdict_text: >-
+  The chat surface for DeepSeek's models. Bot fetches to chat.deepseek.com
+  403; the app is still the canonical URL. This is not the API rate card.
+  China hosting and topic filters apply. Compare with ChatGPT/Claude on this
+  shelf. No logged-in session in this pass.
+limitations:
+  - chat.deepseek.com is aggressive toward bots (403); humans still use the app.
+  - Data residency is a compliance blocker for many orgs (same as the API card).
+  - Censorship on some topics is baked in.
+  - Do not confuse free chat with the paid, peak/off-peak API.
+receipts:
+  - https://api-docs.deepseek.com
+  - https://www.deepseek.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

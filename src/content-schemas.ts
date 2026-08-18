@@ -250,16 +250,44 @@ export const agentSchema = z
     }
   });
 
-export const stackSchema = z.object({
-  title: z.string().min(1),
-  use_case: z.string().min(1),
+const budgetTwinSchema = z.object({
   monthly_cost_usd: z.number().nonnegative(),
-  difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
   tools: z.array(z.string()).min(1),
-  receipts: z.array(httpsUrl).min(1),
-  last_verified: isoDate,
-  observed_by: z.string().min(1),
+  tradeoff: z.string().min(1),
 });
+
+const stackTwinSchema = z.object({
+  slug: z.string().min(1),
+  // What the *other* stack is relative to this one.
+  kind: z.enum(['studio', 'shoestring']),
+  tradeoff: z.string().min(1),
+});
+
+export const stackSchema = z
+  .object({
+    title: z.string().min(1),
+    use_case: z.string().min(1),
+    monthly_cost_usd: z.number().nonnegative(),
+    difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
+    tools: z.array(z.string()).min(1),
+    receipts: z.array(httpsUrl).min(1),
+    last_verified: isoDate,
+    observed_by: z.string().min(1),
+    // Same recipe, cheaper cut — rendered as a toggle on this page.
+    budget: budgetTwinSchema.optional(),
+    // Sibling stack page (studio ↔ shoestring) when the cheaper/dearer
+    // cut is its own recipe, not just a tier swap.
+    twin: stackTwinSchema.optional(),
+  })
+  .superRefine((stack, ctx) => {
+    if (stack.budget && stack.budget.monthly_cost_usd >= stack.monthly_cost_usd) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['budget', 'monthly_cost_usd'],
+        message: 'budget twin must cost less than the studio stack',
+      });
+    }
+  });
 
 export const benchmarkSchema = z.object({
   name: z.string().min(1),
@@ -293,6 +321,22 @@ export const modelSchema = z.object({
   last_verified: isoDate,
 });
 
+const successorSchema = z
+  .object({
+    name: z.string().min(1),
+    slug: z.string().min(1).optional(),
+    url: httpsUrl.optional(),
+    note: z.string().min(1),
+  })
+  .refine((s) => Boolean(s.slug || s.url), {
+    message: 'succeeded_by needs a catalog slug or an https url',
+  });
+
+const noSuccessorSchema = z.object({
+  none: z.literal(true),
+  note: z.string().min(1),
+});
+
 /** Graveyard — dead AI tools with the date, cause and a receipt. */
 export const graveyardSchema = z.object({
   name: z.string().min(1),
@@ -303,6 +347,8 @@ export const graveyardSchema = z.object({
   obituary: z.string().min(1),
   receipt: httpsUrl,
   last_verified: isoDate,
+  // Every obituary names a replacement, or explicitly says there isn't one.
+  succeeded_by: z.union([successorSchema, noSuccessorSchema]),
 });
 
 export type Tool = z.infer<typeof toolSchema>;

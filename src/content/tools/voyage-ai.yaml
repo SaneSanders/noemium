@@ -1,0 +1,28 @@
+name: Voyage AI
+tagline: Embedding and rerank APIs — large free-token grants, then cheap per-million rates.
+url: https://www.voyageai.com
+category: data
+pricing: freemium
+price_note: "voyage-4 $0.06/1M after 200M free tokens; voyage-4-lite $0.02/1M; rerank-2.5 $0.05/1M after 200M free; Batch API 33% off, no free-token apply"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Retrieval people already know the name. The public docs (updated 2026-08-13)
+  still give 200M free tokens on voyage-4 family, then $0.02–$0.12/1M.
+  Rerank is a separate meter. Batch is cheaper and burns no free grant.
+  Not a vector database — pair with Chroma/Qdrant/Pinecone.
+limitations:
+  - Free tokens do not apply to Batch API.
+  - Domain models (finance/law/code-2) only include 50M free tokens.
+  - Multimodal is token + pixel billed; tiny images still hit a 50k-pixel floor.
+  - Fine-tuned dedicated instances are sales-only.
+receipts:
+  - https://docs.voyageai.com/docs/pricing
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

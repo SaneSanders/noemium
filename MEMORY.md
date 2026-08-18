@@ -1,6 +1,6 @@
 # Noemium Project Memory
 
-Last updated: 2026-08-17
+Last updated: 2026-08-18 (catalog + launch surfaces shipping; `/decide` stays local, not prod)
 
 This file contains durable decisions. For branch state and the exact next
 action, read [`HANDOFF.md`](HANDOFF.md).
@@ -18,106 +18,91 @@ The initial Decision OS user is a technical solo founder, AI practitioner, or
 technical lead. The long-term promise is a defensible recommendation in under
 ten minutes from a natural-language task and a short adaptive interview.
 
-The approved long-term architecture is an evidence-first Decision Graph plus a
-reproducible Decision Engine:
-
-- typed data and deterministic rules select and compare candidates;
-- AI may interpret intent, ask questions, and explain a structured trace;
-- AI may not invent product facts, silently change weights, relax hard
-  constraints, or publish evidence changes autonomously;
-- catalog presence and recommendation eligibility are separate;
-- broad discovery is allowed, but only evidence-complete candidates may be
-  Recommendable;
-- every important weight, claim, source, cost assumption, and exclusion must
-  have visible provenance.
+Long-term architecture remains an evidence-first Decision Graph plus a
+reproducible Decision Engine. That architecture is **not** the first
+implementation. A Decision Engine is unauthorized until the demand gates in
+the validation spec pass.
 
 ## Validation-First Correction
 
-Before implementation, the complete design was sent to the locally available
-`qwen3.8-max` model for an adversarial pre-mortem. Qwen's verdict was:
+Qwen 3.8 Max rejected the platform-sized design (NO-GO) and allowed a narrow
+slice (CONDITIONAL GO). A second review of the written validation spec
+rejected the remaining engine-before-demand design. Vladimir accepted those
+cuts on 2026-08-17.
 
-- original platform-sized design: **NO-GO**;
-- narrow validation slice: **CONDITIONAL GO**.
-
-The founder accepted the correction. The approved first slice is only:
+The first slice is an operator-assisted demand experiment for:
 
 > **coding tool/harness + compatible model route**
 
-Agents, Stacks, automated Market Intelligence, accounts, teams, dynamic private
-workspaces, payment integration, generated deployment configurations, and
-remote execution are not part of this first slice.
+It is not a scoring CLI, compatibility graph, or new evidence schema.
 
-The durable reasons for validation-first are:
+Agents, Stacks, automated Market Intelligence, accounts, teams, dynamic
+private workspaces, payment integration, generated deployment configurations,
+remote execution, Watch, and site-wide Recommendable badges are out of this
+slice.
 
-- comparative evidence must be proven before it is scaled;
-- the recommendation-eligible cohort is initially too small for honest
-  Tool + Model + Agent + Stack decisions;
-- editorial/revalidation capacity must be measured rather than assumed;
-- demand must be demonstrated before building a dynamic application platform;
-- Noemium must prove that users value an auditable record more than a quick
-  answer from a frontier chat model.
+Durable reasons:
+
+- demand must be proven before building a decision engine;
+- comparative evidence can be a template policy before it is a data model;
+- editorial time must be measured with a stopwatch, not assumed in software;
+- Noemium must prove that users pay for an auditable record rather than a
+  chat answer — at a price that matches a high-stakes job.
 
 ## Pilot Offer
 
-The approved validation pricing is:
+- **$99** one time for one Decision Record, delivered as Markdown within 48
+  hours;
+- no Watch SKU, no bundled month of monitoring, no $19 price;
+- no advertised free tier;
+- up to three internal calibration records, not counted in demand metrics;
+- payment via an operator-issued external link only.
 
-- first three Decision Records: free calibration records;
-- subsequent pilot Decision Record: **$19 one time**;
-- first month of manual Watch included;
-- founding Watch renewal: **$9/month**.
+$99 exists to test the stated JTBD. $19 would have tested a cheap second
+opinion.
 
-This price is intentionally subsidized research pricing, not the assumed final
-business model. Working economics use $25/hour direct labor, about $0.60 model
-cost per record, and an assumed 3.5% + $0.30 payment fee. At one operator hour,
-a $19 record has approximately -40% fully loaded margin; the ten-record pilot
-has an expected research subsidy of roughly $75–100. The operator-time cap is
-60 minutes after the first three calibration records.
+Working labor assumption for bookkeeping is $25/hour. Operator minutes are
+instrumented. They are not a pass gate. Loaded margin at $99 is positive only
+if the work stays near ~two hours; that is a learning input for automation,
+not a claim.
 
-Payment remains outside the application through an operator-issued payment
-link. No payment credentials enter Noemium during validation.
+## Cohort
 
-## Validation Principles
+Live catalog cards only:
 
-- The pilot starts only after at least five coding tools/harnesses and five
-  model routes pass the evidence contract.
-- A tool-model pair must have an explicit compatibility edge; candidates are
-  not combined as a free Cartesian product.
-- Comparative claims follow a claim-type × source-type policy.
-- Evidence coverage is a recommendation gate and warning, never a positive
-  product-quality score.
-- Community signals may affect the research queue but never scoring.
-- Alternatives are optional; do not fill a three-card layout when no materially
-  different alternative exists.
-- A small weight change that flips the winner produces a
-  `preference-sensitive` result, not false certainty.
-- Known but insufficiently evaluated candidates must be disclosed.
-- No participant brief, private record, secret, or identifying pilot ledger is
-  committed to the public repository.
-- Manual Watch is the validation prototype for later Market Intelligence.
-- Setup links/checklists are the only Deployment Workbench-adjacent output
-  allowed in validation.
+- Cursor, Claude Code, GitHub Copilot, Aider, Qwen Code, Kimi Code.
+
+Codex and Kilo Code stay out until they have cards. Tool × model is not a
+Cartesian product: Cursor/Copilot bundle routing; Claude Code is
+provider-locked unless current docs say otherwise; Aider/Qwen/Kimi can be
+BYOK.
+
+## Intake
+
+Static `/decide/` plus a hosted form (Tally or equivalent). X is not the
+inbox. No public project text, no secrets in the form. Cap: three paid
+records per week; pause the form when full. The four-week recruitment clock
+starts on first public pointer to live `/decide/`, not on spec approval.
 
 ## Validation Gates
 
-The automation design is not authorized until the written specification's
-gates pass. The central gates are:
+Demand pass (authorizes a *separate* automation design, not this spec’s
+engine):
 
-- at least 20 qualified briefs in a four-week distribution attempt;
-- the $19 offer made to at least 15 qualified prospects;
-- at least five paid records and at least ten participant records completed;
-- at least 60% actionable records;
-- at least 80% defensible records in a 20-record independent review sample;
-- median post-calibration production time no more than 60 operator minutes;
-- at least 20% paid Watch continuation after the included month;
-- 60-day regret no more than 30%;
-- no hard-constraint violation or unsupported material structured claim;
-- no more than 25% of qualified briefs unserviceable due to evidence coverage;
-- reviewer agreement reaches Cohen's kappa of at least 0.60.
+- ≥20 qualified briefs in four weeks of distribution;
+- $99 offered to ≥15 qualified prospects;
+- ≥5 paid from those offers;
+- ≥60% of **paid** records actionable.
 
-Three or four purchases trigger one bounded offer/price revision. Fewer than
-three purchases from 15 qualified offers stops paid-product implementation.
-Failure of a product/evidence gate may be revised once; repeating the failure
-stops or pivots the slice.
+Actionable does **not** include “this confirmed I should keep my current
+setup.”
+
+Kill: <20 briefs, or <3 paid of 15. Revise once at 3–4 paid of 15, or if
+paid actionable rate <60%. Same gate failing twice stops or pivots the slice.
+
+Watch continuation, Cohen’s kappa, 20-record mixed samples, 60-day regret,
+and a 60-minute production cap are **not** pass gates. Instrument some of
+them. Do not AND them.
 
 ## Existing Product and Architecture
 
@@ -132,6 +117,8 @@ stops or pivots the slice.
 - Grok Bot and Grok Build are distinct products. Grok Bot is at
   `https://noemium.com/agents/grok-bot/`; the Agent Field Guide is at
   `https://noemium.com/agents/`.
+- Agents already have typed evidence. Tools still use `receipts`. Lifting
+  agent evidence onto coding tools is catalog work, not this slice.
 - Repository project rules remain in [`AGENTS.md`](AGENTS.md) and visual rules
   in [`DESIGN.md`](DESIGN.md).
 
@@ -147,14 +134,10 @@ stops or pivots the slice.
 - Before claiming completion, run the relevant verification gates and inspect
   their output.
 
-## Written Design Awaiting Final Review
+## Written Design
 
-The current written design, incorporating all conversationally approved
-decisions, is:
+Source of truth for the first slice:
 
 [`docs/superpowers/specs/2026-08-17-decision-os-validation-design.md`](docs/superpowers/specs/2026-08-17-decision-os-validation-design.md)
 
-Vladimir has not yet given the separate final approval of this written file.
-After that approval it becomes the source of truth for the first validation
-slice. Later product layers require their own design and implementation-plan
-cycles.
+Implemented locally 2026-08-17 (`/decide/` + form + template). 2026-08-18: catalog/launch push authorized; keep `/decide` off production until inbox (Web3Forms) and payment link are wired and Vladimir explicitly asks to ship the offer.

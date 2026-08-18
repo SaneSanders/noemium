@@ -1,0 +1,29 @@
+name: Cline
+tagline: Open-source autonomous coding agent for VS Code and CLI — BYOK, you pay the model bill.
+url: https://cline.bot
+category: coding
+pricing: freemium
+price_note: "extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA)"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The honest Cursor alternative if you already have API keys: Apache-licensed
+  agent in the editor, MCP marketplace, no seat fee for solo use. The bill is
+  the model, and agent loops on Sonnet/Opus burn tokens fast. Enterprise is a
+  different product (JetBrains, SSO, provider allowlists). Not field-tested here.
+limitations:
+  - Inference is usage-based; a long agent session can exceed a $20 IDE sub.
+  - You operate the keys, spend caps, and model routing yourself.
+  - JetBrains, SSO, RBAC, and SLA are Enterprise-only on the public pricing page.
+  - Client-side agent still needs you to review diffs; autonomy is not a guarantee.
+receipts:
+  - https://cline.bot/pricing
+  - https://github.com/cline/cline
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

@@ -1,7 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import CopyButton from '../../components/CopyButton.astro';
 import { logoSrc } from '../../lib/logos';
 
 export const getStaticPaths = (async () => {
@@ -13,22 +15,38 @@ const { stack } = Astro.props;
 const s = stack.data;
 const { Content } = await render(stack);
 
+const allStacks = await getCollection('stacks');
 const toolsById = new Map((await getCollection('tools')).map((t) => [t.id, t]));
-const stackTools = s.tools
-  .map((slug) => toolsById.get(slug))
-  .filter((t) => t !== undefined);
+const resolveTools = (slugs: string[]) =>
+  slugs.map((slug) => toolsById.get(slug)).filter((t) => t !== undefined);
+
+const stackTools = resolveTools(s.tools);
+const budgetTools = s.budget ? resolveTools(s.budget.tools) : [];
+const twinStack = s.twin ? allStacks.find((entry) => entry.id === s.twin!.slug) : undefined;
+
+type ToolEntry = CollectionEntry<'tools'>;
+const tiers: { id: 'studio' | 'shoestring'; cost: number; tools: ToolEntry[] }[] = [
+  { id: 'studio', cost: s.monthly_cost_usd, tools: stackTools },
+  ...(s.budget
+    ? [{ id: 'shoestring' as const, cost: s.budget.monthly_cost_usd, tools: budgetTools }]
+    : []),
+];
+
+const priceLine = (t: ToolEntry) =>
+  t.data.pricing === 'free' && !t.data.price_note ? 'free' : (t.data.price_note ?? t.data.pricing);
 
 const pageUrl = new URL(`/stacks/${stack.id}`, Astro.site).href;
 const markdown = [
   `# ${s.title}`,
   '',
-  `$${s.monthly_cost_usd}/mo · difficulty: ${s.difficulty}`,
+  s.budget
+    ? `$${s.monthly_cost_usd}/mo studio · $${s.budget.monthly_cost_usd}/mo shoestring · difficulty: ${s.difficulty}`
+    : `$${s.monthly_cost_usd}/mo · difficulty: ${s.difficulty}`,
   '',
+  ...(s.budget ? [`Shoestring tradeoff: ${s.budget.tradeoff}`, ''] : []),
   '| Tool | Pricing |',
   '| --- | --- |',
-  ...stackTools.map(
-    (t) => `| [${t.data.name}](${t.data.url}) | ${t.data.price_note ?? t.data.pricing} |`,
-  ),
+  ...stackTools.map((t) => `| [${t.data.name}](${t.data.url}) | ${priceLine(t)} |`),
   '',
   `via ${pageUrl}`,
 ].join('\n');
@@ -43,7 +61,7 @@ const hostname = (url: string) => {
 ---
 
 <Base title={s.title} description={s.use_case} ogImage={`/og/stacks/${stack.id}.png`}>
-  <article class="py-14 md:py-20">
+  <article class="py-14 md:py-20" data-stack-tiers>
     <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
       <a href="/stacks" class="hover:underline">Stacks</a>
@@ -57,67 +75,112 @@ const hostname = (url: string) => {
     </p>
 
     <div class="nm-card mt-10 flex flex-wrap items-end gap-x-10 gap-y-5 p-6 md:p-8">
-      <p>
-        <span class="nm-num text-6xl leading-none font-bold text-accent md:text-7xl">${s.monthly_cost_usd}</span>
-        <span class="nm-num ml-2 text-lg text-ink-dim">/mo</span>
-      </p>
+      {
+        tiers.map((tier) => (
+          <p class:list={[tier.id !== 'studio' && 'hidden']} data-tier-cost={tier.id}>
+            <span class="nm-num text-6xl leading-none font-bold text-accent md:text-7xl">${tier.cost}</span>
+            <span class="nm-num ml-2 text-lg text-ink-dim">/mo</span>
+          </p>
+        ))
+      }
       <p class="pb-2 font-mono text-xs tracking-[0.14em] text-ink-dim uppercase">
         difficulty: {s.difficulty}
       </p>
+      {
+        s.budget && (
+          <p class="flex flex-wrap gap-2 pb-1">
+            <button
+              type="button"
+              data-tier="studio"
+              aria-pressed="true"
+              class="rounded-sm border-[1.5px] border-ink px-3 py-1.5 font-mono text-[13px] font-bold tracking-wide uppercase aria-pressed:border-accent aria-pressed:text-accent"
+            >
+              Studio ${s.monthly_cost_usd}
+            </button>
+            <button
+              type="button"
+              data-tier="shoestring"
+              aria-pressed="false"
+              class="rounded-sm border-[1.5px] border-ink px-3 py-1.5 font-mono text-[13px] font-bold tracking-wide uppercase aria-pressed:border-accent aria-pressed:text-accent"
+            >
+              Shoestring ${s.budget.monthly_cost_usd}
+            </button>
+          </p>
+        )
+      }
       <p class="pb-1">
-        <button
-          id="copy-markdown"
-          type="button"
-          class="nm-btn nm-btn-outline"
-        >
-          Copy as markdown
-        </button>
-        <span
-          id="copied-stamp"
-          class="nm-stamp ml-3 hidden rounded-sm border-[1.5px] border-verdict-ship px-2 py-0.5 font-mono text-xs font-medium tracking-widest text-verdict-ship uppercase"
-        >
-          copied
-        </span>
+        <CopyButton label="Copy as markdown" text={markdown} />
       </p>
     </div>
 
+    {
+      s.budget && (
+        <p class="mt-4 max-w-3xl text-[15px] leading-relaxed text-ink opacity-80">
+          <span class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">Shoestring tradeoff. </span>
+          {s.budget.tradeoff}
+        </p>
+      )
+    }
+    {
+      !s.budget && s.monthly_cost_usd === 0 && !s.twin && (
+        <p class="mt-4 max-w-3xl text-[15px] leading-relaxed text-ink opacity-80">
+          Already $0/mo — this is the shoestring. Paying more usually means cloud APIs, which is a
+          different privacy deal, not a cheaper cut of this recipe.
+        </p>
+      )
+    }
+    {
+      twinStack && s.twin && (
+        <p class="mt-4 max-w-3xl text-[15px] leading-relaxed">
+          <a href={`/stacks/${twinStack.id}`} class="font-bold hover:text-accent">
+            {s.twin.kind === 'shoestring' ? 'Shoestring twin' : 'Studio twin'} → {twinStack.data.title}
+            <span class="nm-num ml-2 text-ink-dim">${twinStack.data.monthly_cost_usd}/mo</span>
+          </a>
+          <span class="mt-2 block text-ink opacity-80">{s.twin.tradeoff}</span>
+        </p>
+      )
+    }
+
     <section class="mt-10">
       <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">The components — what each one costs</h2>
-      <ul class="nm-card mt-4 divide-y-[1.5px] divide-line-soft">
-        {
-          stackTools.map((t) => (
-            <li class="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 p-4">
-              <a href={`/tools/${t.id}`} class="flex items-center gap-3 font-display text-lg font-extrabold tracking-tight hover:text-accent">
-                {logoSrc(t.id) ? (
-                  <img
-                    src={logoSrc(t.id)!}
-                    alt=""
-                    width="28"
-                    height="28"
-                    loading="lazy"
-                    class="h-7 w-7 shrink-0 rounded-sm border-[1.5px] border-ink bg-card object-contain p-0.5"
-                  />
-                ) : (
-                  <span
-                    aria-hidden="true"
-                    class="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border-[1.5px] border-ink bg-paper font-display text-base font-black text-accent"
-                  >
-                    {t.data.name.charAt(0)}
-                  </span>
-                )}
-                {t.data.name}
-              </a>
-              <span class="nm-num text-[13px] text-ink-dim">
-                {t.data.pricing === 'free' && !t.data.price_note ? 'free' : (t.data.price_note ?? t.data.pricing)}
-              </span>
+      {
+        tiers.map((tier) => (
+          <ul
+            class:list={['nm-card mt-4 divide-y-[1.5px] divide-line-soft', tier.id !== 'studio' && 'hidden']}
+            data-tier-panel={tier.id}
+          >
+            {tier.tools.map((t) => (
+              <li class="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 p-4">
+                <a href={`/tools/${t.id}`} class="flex items-center gap-3 font-display text-lg font-extrabold tracking-tight hover:text-accent">
+                  {logoSrc(t.id) ? (
+                    <img
+                      src={logoSrc(t.id)!}
+                      alt=""
+                      width="28"
+                      height="28"
+                      loading="lazy"
+                      class="h-7 w-7 shrink-0 rounded-sm border-[1.5px] border-ink bg-card object-contain p-0.5"
+                    />
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      class="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border-[1.5px] border-ink bg-paper font-display text-base font-black text-accent"
+                    >
+                      {t.data.name.charAt(0)}
+                    </span>
+                  )}
+                  {t.data.name}
+                </a>
+                <span class="nm-num text-[13px] text-ink-dim">{priceLine(t)}</span>
+              </li>
+            ))}
+            <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 p-4">
+              <span class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">Total</span>
+              <span class="nm-num text-lg font-bold text-accent">${tier.cost}/mo</span>
             </li>
-          ))
-        }
-        <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 p-4">
-          <span class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">Total</span>
-          <span class="nm-num text-lg font-bold text-accent">${s.monthly_cost_usd}/mo</span>
-        </li>
-      </ul>
+          </ul>
+        ))
+      }
     </section>
 
     <div class="nm-prose mt-8 max-w-3xl">
@@ -151,17 +214,25 @@ const hostname = (url: string) => {
     </p>
   </article>
 
-  <template id="stack-markdown">{markdown}</template>
-
   <script>
-    const button = document.getElementById('copy-markdown');
-    const stamp = document.getElementById('copied-stamp');
-    const tpl = document.getElementById('stack-markdown') as HTMLTemplateElement | null;
-    button?.addEventListener('click', async () => {
-      const md = tpl?.content.textContent ?? '';
-      await navigator.clipboard.writeText(md);
-      stamp?.classList.remove('hidden');
-      setTimeout(() => stamp?.classList.add('hidden'), 1500);
-    });
+    function bindTiers() {
+      document.querySelectorAll('[data-stack-tiers]').forEach((root) => {
+        if (!(root instanceof HTMLElement) || root.dataset.bound) return;
+        root.dataset.bound = '1';
+        const buttons = [...root.querySelectorAll('[data-tier]')];
+        if (buttons.length === 0) return;
+        const panels = root.querySelectorAll('[data-tier-panel]');
+        const costs = root.querySelectorAll('[data-tier-cost]');
+        buttons.forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-tier');
+            buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+            panels.forEach((p) => p.classList.toggle('hidden', p.getAttribute('data-tier-panel') !== id));
+            costs.forEach((c) => c.classList.toggle('hidden', c.getAttribute('data-tier-cost') !== id));
+          });
+        });
+      });
+    }
+    document.addEventListener('astro:page-load', bindTiers);
   </script>
 </Base>

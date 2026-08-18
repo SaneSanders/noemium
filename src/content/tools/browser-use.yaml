@@ -1,0 +1,32 @@
+name: Browser Use
+tagline: Open-source browser agent library plus managed cloud browsers — task-in, work-out, or raw CDP.
+url: https://browser-use.com
+category: agents
+pricing: freemium
+price_note: "OSS library free; Cloud Free $0 (10 agent tasks/mo); PAYG credits; Dev $29/mo; browser time $0.02/hour; default V4 model GPT-5.6 Luna $0.24/$1.44 per 1M"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+models_used:
+  - gpt-5-6-luna
+verdict: situational
+verdict_text: >-
+  Two products, one brand: pip-install the agent locally, or buy managed
+  browsers at $0.02/hour. Cloud Free is 10 agent tasks/month. Stealth
+  benchmarks are vendor-published — treat as a receipt, not a guarantee.
+  Adjacent to Browserbase, not a duplicate of it.
+limitations:
+  - Cloud Free is 10 agent tasks/month; PAYG starts after a credit top-up.
+  - BYOK and custom proxies start at Dev ($29), not Free.
+  - Residential proxy is $5/GB (Scaleup $4/GB) — stealth traffic is the real bill.
+  - V2/V3 APIs still exist; new work should be V4 or you inherit old meters.
+receipts:
+  - https://browser-use.com/pricing.md
+  - https://docs.browser-use.com/open-source/quickstart
+  - https://github.com/browser-use/browser-use
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

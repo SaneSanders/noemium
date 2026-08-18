@@ -1,0 +1,18 @@
+---
+interface Props {
+  slug: string;
+  date: string;
+}
+
+const { slug, date } = Astro.props;
+---
+
+<button
+  type="button"
+  class="nm-verified cursor-pointer hover:bg-accent hover:text-on-accent"
+  data-proof-slug={slug}
+  aria-haspopup="dialog"
+  aria-label={`Open proof drawer for verification on ${date}`}
+>
+  Verified {date}
+</button>

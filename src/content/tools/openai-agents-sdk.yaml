@@ -1,0 +1,29 @@
+name: OpenAI Agents SDK
+tagline: Official Python agents runtime — agents, handoffs, guardrails, sessions; not the Responses API itself.
+url: https://openai.github.io/openai-agents-python/
+category: agents
+pricing: free
+price_note: "SDK free (pip install openai-agents); model/tool calls billed at OpenAI API rates; tracing uses your OpenAI account"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The runtime on top of Responses, not a second Responses card. Tiny
+  primitives (agent, handoff, guardrail, session) plus sandbox and realtime
+  paths. You own orchestration less than with raw Responses, more than with
+  a visual builder. Tokens still land on the API bill.
+limitations:
+  - Default loop talks to OpenAI; other providers are possible but second-class.
+  - Built-in tracing is convenient and also a data-boundary choice.
+  - Not a no-code product; you write Python.
+  - Swarm is the old experiment — this SDK is the replacement.
+receipts:
+  - https://openai.github.io/openai-agents-python/
+  - https://github.com/openai/openai-agents-python
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

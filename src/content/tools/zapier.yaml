@@ -1,9 +1,9 @@
 name: Zapier
 tagline: The automation incumbent — 7000+ app integrations, now with AI steps.
 url: https://zapier.com
-category: agents
+category: automation
 pricing: freemium
-price_note: "free tier (100 tasks/mo); Professional from $20/mo"
+price_note: "free 100 tasks/mo; Professional from $19.99/mo billed yearly (750 tasks) or $29.99/mo monthly"
 free_tier: true
 open_source: false
 api: true
@@ -18,9 +18,9 @@ limitations:
   - AI features feel bolted on vs AI-native rivals.
   - Complex branching becomes unmaintainable in the UI.
 receipts:
-  - https://zapier.com
+  - https://zapier.com/pricing
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
 observed_by: whysanesanders

@@ -5,80 +5,28 @@ import SectionHeader from '../components/SectionHeader.astro';
 
 <Base
   title="Search"
-  description="Full-text search across every tool, stack and model page in the catalog."
+  description="⌘K is the catalog search — tools, stacks, models and agent guides. The box on /tools filters the shelf."
 >
   <SectionHeader
     title="Search"
-    sub="Full-text search across every observation — tools, stacks and models. The index is static, built at deploy time; nothing leaves your browser."
+    sub="⌘K is the catalog. This page opens the same palette. The search box on /tools only filters the shelf."
   />
-  <div id="nm-search" class="pb-16"></div>
-
+  <p class="pb-16 font-mono text-sm text-ink-dim">
+    Opening the command palette… if it doesn't, press ⌘K or
+    <button
+      type="button"
+      class="text-accent underline"
+      onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
+    >
+      click here
+    </button>
+    .
+  </p>
   <script>
-    declare const PagefindUI: any;
-
-    function initSearch() {
-      const el = document.getElementById('nm-search');
-      if (!el || el.dataset.ready) return;
-      el.dataset.ready = '1';
-
-      const css = document.createElement('link');
-      css.rel = 'stylesheet';
-      css.href = '/pagefind/pagefind-ui.css';
-      document.head.appendChild(css);
-
-      const script = document.createElement('script');
-      script.src = '/pagefind/pagefind-ui.js';
-      script.onload = () => {
-        new PagefindUI({ element: '#nm-search', showImages: false, showSubResults: true });
-      };
-      script.onerror = () => {
-        el.innerHTML =
-          '<p class="font-mono text-xs text-ink-dim">The search index is generated at build time — run <code>npm run build</code> and open the site via <code>npm run preview</code>.</p>';
-      };
-      document.head.appendChild(script);
+    function openPalette() {
+      window.dispatchEvent(new CustomEvent('nm:palette:open'));
     }
-
-    document.addEventListener('astro:page-load', initSearch);
+    document.addEventListener('astro:page-load', openPalette);
+    openPalette();
   </script>
 </Base>
-
-<style is:global>
-  /* Map the Pagefind UI onto Bold Grid tokens. */
-  :root {
-    --pagefind-ui-primary: var(--nm-accent);
-    --pagefind-ui-text: var(--nm-ink);
-    --pagefind-ui-background: var(--nm-bg-card);
-    --pagefind-ui-border: var(--nm-ink);
-    --pagefind-ui-tag: var(--nm-bg-paper);
-    --pagefind-ui-border-width: 1.5px;
-    --pagefind-ui-border-radius: var(--nm-radius-md);
-    --pagefind-ui-image-border-radius: var(--nm-radius-md);
-    --pagefind-ui-font: var(--nm-font-body);
-  }
-
-  .pagefind-ui__search-input {
-    font-family: var(--nm-font-mono);
-    font-size: 16px;
-    padding: 14px 16px;
-    caret-color: var(--nm-accent);
-  }
-
-  .pagefind-ui__result-title,
-  .pagefind-ui__result-link {
-    font-family: var(--nm-font-body);
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  .pagefind-ui__result-excerpt {
-    color: var(--nm-ink-dim);
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .pagefind-ui__result-excerpt mark {
-    background-color: transparent;
-    color: var(--nm-accent);
-    font-weight: 700;
-  }
-</style>

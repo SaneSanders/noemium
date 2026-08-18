@@ -1,0 +1,30 @@
+name: Photoroom
+tagline: Product-photo editor — background removal plus credit-metered generative tools for listings.
+url: https://www.photoroom.com
+category: image
+pricing: freemium
+price_note: "Free Space (no commercial use); paid yearly Pro 8,000 AI credits + 1,000 exports/mo, Max 25,000 + 3,000, Ultra 75,000 + 10,000; USD is JS-rendered on the pricing page — confirm in-browser; API/MCP billed separately"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  The listing-photo hammer: core retouch/background tools are in the paid
+  plans; Virtual Model / video / Edit-with-AI burn a shared credit pool.
+  This fetch saw credits and export caps on photoroom.com/pricing, not a
+  stable HTML dollar figure, so the card will not copy blog "$7.50/mo"
+  numbers. Free is not a commercial license. API is a second wallet.
+limitations:
+  - Dollar amounts are JS-rendered; do not budget from third-party blogs.
+  - Free Space forbids commercial use; seats follow the Space, not the user.
+  - Credit-heavy tools (video, fashion models, Edit with AI) exhaust the pool fast.
+  - REST/MCP usage is not the app export quota — it's a separate credit wallet.
+receipts:
+  - https://www.photoroom.com/pricing
+  - https://help.photoroom.com/en/articles/6976012-what-are-photoroom-s-plans
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

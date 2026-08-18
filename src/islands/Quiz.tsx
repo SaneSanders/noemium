@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'preact/hooks';
+import { navigate } from 'astro:transitions/client';
 
 export interface QuizStackTool {
   slug: string;
@@ -78,7 +79,7 @@ const GOAL_CATEGORIES: Record<string, string[]> = {
   app: ['coding', 'dev-infra', 'models-api', 'agents'],
   content: ['writing', 'image', 'video', 'audio'],
   research: ['data', 'writing', 'productivity'],
-  automation: ['agents', 'productivity', 'dev-infra', 'data'],
+  automation: ['automation', 'agents', 'productivity', 'dev-infra', 'data'],
   other: [],
 };
 
@@ -135,59 +136,16 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
     setStep(0);
   };
 
+  useEffect(() => {
+    if (done && winner) void navigate(`/quiz/${winner.slug}?from=quiz`);
+  }, [done, winner]);
+
   if (done && winner) {
-    const share = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      `My AI stack costs $${winner.monthly_cost_usd}/mo. What's yours? — @whysanesanders`,
-    )}&url=${encodeURIComponent('https://noemium.com/quiz')}`;
     return (
-      <div class="nm-step nm-card p-6 md:p-10">
-        <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
-          stack matched
-        </p>
-        <h2 class="text-shadow-section mt-4 font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-6xl">{winner.title}</h2>
-        <p class="mt-4 max-w-xl text-lg font-medium text-ink opacity-80">{winner.use_case}</p>
-        <p class="mt-8">
-          <span class="nm-num text-5xl font-bold text-accent md:text-6xl">${winner.monthly_cost_usd}</span>
-          <span class="nm-num ml-2 text-lg text-ink-dim">/mo</span>
-        </p>
-        <p class="mt-2 font-mono text-[13px] tracking-[0.14em] text-ink-dim uppercase">
-          difficulty: {winner.difficulty}
-        </p>
-        <div class="mt-6 flex flex-wrap gap-2">
-          {winner.tools.map((t) => (
-            <a
-              key={t.slug}
-              href={`/tools/${t.slug}`}
-              class="rounded-md border-[1.5px] border-ink px-3 py-1.5 font-mono text-[13px] font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm"
-            >
-              {t.name}
-            </a>
-          ))}
-        </div>
-        <div class="mt-8 flex flex-wrap items-center gap-3">
-          <a
-            href={`/stacks/${winner.slug}`}
-            class="nm-btn nm-btn-solid"
-          >
-            Open the full recipe
-          </a>
-          <a
-            href={share}
-            target="_blank"
-            rel="noopener"
-            class="nm-btn nm-btn-outline"
-          >
-            Share on X
-          </a>
-          <button
-            type="button"
-            onClick={restart}
-            class="cursor-pointer font-mono text-[13px] text-ink-dim underline underline-offset-4 transition-colors duration-100 hover:text-ink"
-          >
-            Run it again
-          </button>
-        </div>
-      </div>
+      <p class="nm-card p-6 font-mono text-sm text-ink-dim md:p-10">
+        Opening <a href={`/quiz/${winner.slug}?from=quiz`} class="text-accent hover:underline">{winner.title}</a>
+        …
+      </p>
     );
   }
 

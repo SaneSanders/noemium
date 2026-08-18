@@ -1,0 +1,28 @@
+name: LTX Studio
+tagline: Lightricks' AI film studio — storyboards, LTX-2.5 video, credit-metered plans from a free pile.
+url: https://ltx.studio
+category: video
+pricing: freemium
+price_note: "Free $0 with 800 one-time credits (personal use only); Lite $15/mo (8k credits); Standard $35/mo (28k); Pro $125/mo (110k); yearly ~20% off ($12 / $28 / $100)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A timeline/storyboard product, not a single-clip model playground. Free
+  is 800 credits once and personal-use licensed. Commercial use starts at
+  Standard. Veo and Kling sit on higher SKUs; LTX's own 2.5 is on all plans.
+  Credit spend per shot is the real bill. Not field-cut here.
+limitations:
+  - Free credits are one-time, not monthly, and cannot be used for paid/business work.
+  - Third-party models (Veo, Kling, Seedance, GPT Image) are gated to Standard/Pro, not Lite.
+  - Promo/Cyber Monday strikethroughs on the page — budget the non-promo monthly/yearly numbers.
+  - Collaboration beyond three people per project is Enterprise.
+receipts:
+  - https://ltx.studio/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

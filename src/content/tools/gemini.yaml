@@ -1,0 +1,31 @@
+name: Gemini
+tagline: Google's consumer AI assistant — chat, Deep Research, image/video tools, bundled Google AI plans.
+url: https://gemini.google.com
+category: productivity
+pricing: freemium
+price_note: "free with Google Account; AI Plus $4.99/mo; AI Pro $19.99/mo; AI Ultra from $99.99/mo (5x) or $199.99/mo (20x)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - gemini-3-1-pro-preview
+  - gemini-3-7-flash
+verdict: situational
+verdict_text: >-
+  The Gemini app is the assistant, not AI Studio and not Antigravity. Free is
+  usable; Plus is $4.99 for 2× caps; Pro at $19.99 also unlocks Jules and
+  Antigravity entry limits. Caps refresh on a 5-hour window until a weekly
+  ceiling. Sit it next to ChatGPT/Claude, not Grammarly.
+limitations:
+  - Usage is compute-weighted, not a simple message count; weekly caps still bite.
+  - Image/video (Nano Banana, Veo, Flow credits) are plan-gated and regional.
+  - This card is the consumer app — Gemini API lives on the Google AI Studio card.
+  - Workspace/enterprise Gemini is a different SKU (Gemini Enterprise).
+receipts:
+  - https://gemini.google/subscriptions/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

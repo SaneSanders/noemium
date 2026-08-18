@@ -1,0 +1,29 @@
+name: vLLM
+tagline: High-throughput OSS inference engine — PagedAttention, OpenAI-compatible server, you bring GPUs.
+url: https://github.com/vllm-project/vllm
+category: dev-infra
+pricing: free
+price_note: "Apache-licensed engine free; you pay GPUs/cloud; no vLLM seat fee"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The default way to serve open weights if you already have NVIDIA (or a
+  growing list of other accelerators). OpenAI-compatible HTTP, continuous
+  batching, quantization zoo. The bill is hardware and the on-call, not a
+  SaaS SKU. Not a hosted model API. Not field-run in this pass.
+limitations:
+  - You operate CUDA/ROCm, drivers, and capacity; this is not serverless inference.
+  - Day-0 support for a brand-new architecture can lag the lab's own stack.
+  - Multi-node parallelism is real ops, not a checkbox.
+  - No public vLLM Cloud price — third-party hosts are other cards.
+receipts:
+  - https://github.com/vllm-project/vllm
+  - https://docs.vllm.ai/en/latest/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

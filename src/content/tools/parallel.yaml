@@ -1,0 +1,28 @@
+name: Parallel
+tagline: Web research APIs for agents — priced per request, not per token, with a free monthly cap.
+url: https://www.parallel.ai
+category: data
+pricing: freemium
+price_note: "up to 5,000 requests/mo free; Search from $0.001–$0.005/10 results; Task API $0.005–$2.40/request; Extract $0.001/request"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Agent-web-search with a cost you can quote before the call. Search/Extract
+  are cheap and sync; Task/Ultra processors get into dollars per request.
+  Not Tavily and not Exa — those are other cards. SOC2 on the public table.
+  Untested against a live agent loop here.
+limitations:
+  - Ultra8x Task is $2.40/request; "deep research" is not the $0.001 Search line.
+  - Find All bills per match plus a processor fixed fee — easy to surprise.
+  - 5k free requests/mo is shared across APIs in the marketing table; confirm in console.
+  - Not a general search engine UI; this is an API.
+receipts:
+  - https://www.parallel.ai/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

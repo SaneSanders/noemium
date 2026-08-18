@@ -1,0 +1,30 @@
+name: Kilo Code
+tagline: MIT-licensed coding agent for VS Code, JetBrains, CLI, and cloud — models at provider rates, no markup.
+url: https://kilo.ai
+category: coding
+pricing: freemium
+price_note: "individual platform $0; Teams $15/user/mo; Kilo Pass from $19/mo; Gateway at provider rates + 5% credit-purchase fee; cloud compute from $0.33–$1.20/h"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Open-source agent with a zero-markup gateway is the pitch, and the public
+  price page actually separates platform / inference / cloud compute. Solo with
+  BYOK or local models is free; Teams and Pass are optional. Auto-routing and
+  a 5% credit fee still need watching. Not a Ship without a repo run.
+limitations:
+  - Three meters (platform, inference, cloud compute) make a real bill three line items.
+  - Credit top-ups carry a 5% processing fee on the published card.
+  - Cloud agents bill per second on top of tokens; idle VMs are not free.
+  - '"Free models" via Auto Free depend on whatever the gateway currently offers.'
+receipts:
+  - https://kilo.ai/pricing
+  - https://kilo.ai/docs/gateway/usage-and-billing
+  - https://github.com/Kilo-Org/kilocode
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

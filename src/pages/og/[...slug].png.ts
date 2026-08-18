@@ -60,6 +60,12 @@ interface QuizProps {
   kind: 'quiz';
   stackCount: number;
 }
+interface QuizResultProps {
+  kind: 'quiz-result';
+  title: string;
+  monthlyCost: number;
+  useCase: string;
+}
 interface ToolProps {
   kind: 'tool';
   name: string;
@@ -86,7 +92,7 @@ interface StackProps {
   difficulty: string;
   lastVerified: string;
 }
-type OgProps = GenericProps | ToolProps | AgentProps | StackProps | QuizProps;
+type OgProps = GenericProps | ToolProps | AgentProps | StackProps | QuizProps | QuizResultProps;
 
 export const getStaticPaths = (async () => {
   const [tools, agents, stacks, models] = await Promise.all([
@@ -112,6 +118,15 @@ export const getStaticPaths = (async () => {
       params: { slug: 'quiz' },
       props: { kind: 'quiz', stackCount: stacks.length } satisfies OgProps,
     },
+    ...stacks.map((s) => ({
+      params: { slug: `quiz/${s.id}` },
+      props: {
+        kind: 'quiz-result',
+        title: s.data.title,
+        monthlyCost: s.data.monthly_cost_usd,
+        useCase: s.data.use_case,
+      } satisfies OgProps,
+    })),
     ...tools.map((t) => ({
       params: { slug: `tools/${t.id}` },
       props: {
@@ -263,7 +278,7 @@ export const GET: APIRoute = async ({ props }) => {
         'div',
         { style: { display: 'flex', flexDirection: 'column' } },
         headline('Pick AI tools without getting played.', 72),
-        mono('Honest verdicts, verified prices, receipts for every claim. Open source.', {
+        mono('Honest verdicts, verified prices, a receipt wherever we print a number.', {
           fontSize: 20,
           marginTop: 28,
         }),
@@ -285,6 +300,20 @@ export const GET: APIRoute = async ({ props }) => {
         }),
       ),
       footer(`quiz · ${p.stackCount} ready-made stacks · paid placements: 0`),
+    ]);
+  } else if (p.kind === 'quiz-result') {
+    tree = frame([
+      header('Quiz match'),
+      h(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column' } },
+        headline(p.title, p.title.length > 28 ? 52 : 68),
+        mono(`$${p.monthlyCost}/mo · matched against stacks we actually run.`, {
+          fontSize: 20,
+          marginTop: 28,
+        }),
+      ),
+      footer('0 paid placements · noemium.com/quiz'),
     ]);
   } else if (p.kind === 'tool') {
     tree = frame([

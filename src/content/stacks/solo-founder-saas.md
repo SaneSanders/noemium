@@ -1,7 +1,7 @@
 ---
 # Example/template for a stack entry. The body below the frontmatter is the
 # step-by-step recipe.
-title: Solo Founder SaaS
+title: Solo Founder SaaS — Cursor-only $20
 use_case: Ship and run a small SaaS product alone — landing, app, billing, support.
 monthly_cost_usd: 20
 difficulty: intermediate
@@ -11,6 +11,14 @@ receipts:
   - https://github.com/SaneSanders
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 0
+  tools:
+    - zed
+  tradeoff: >-
+    Zed (free editor) instead of Cursor Pro. Agent mode is gone. You write
+    more of the code. A landing page is fine; auth, billing and a real app
+    will take longer.
 ---
 
 ## The recipe

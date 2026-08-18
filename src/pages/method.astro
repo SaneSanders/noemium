@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+---
+
+<Base
+  title="Method"
+  description="How Noemium grades tools: ship / situational / skip, what counts as a receipt, and why a PR is the unit of truth."
+>
+  <SectionHeader
+    title="Method"
+    sub="The ledger, not the vibe. How a card earns a verdict, a receipt, and a place on the floor."
+  />
+
+  <article class="max-w-2xl space-y-10 pb-16 text-[15px] leading-relaxed">
+    <section>
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Verdicts</h2>
+      <dl class="mt-4 space-y-4">
+        <div>
+          <dt class="font-display text-xl font-extrabold tracking-tight uppercase">Ship</dt>
+          <dd class="mt-1 text-ink opacity-80">
+            We run it and would run it again for the job on the card. Limitations are still
+            printed — ship is not a trophy.
+          </dd>
+        </div>
+        <div>
+          <dt class="font-display text-xl font-extrabold tracking-tight uppercase">Situational</dt>
+          <dd class="mt-1 text-ink opacity-80">
+            It wins in a named setup and loses outside it. Read the limitations before you pay.
+          </dd>
+        </div>
+        <div>
+          <dt class="font-display text-xl font-extrabold tracking-tight uppercase">Skip</dt>
+          <dd class="mt-1 text-ink opacity-80">
+            We would pick something else for the same job. The card stays so you can see why —
+            and who we point to instead, when we have a peer.
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section>
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Receipts</h2>
+      <p class="mt-4 text-ink opacity-80">
+        A receipt is a URL that backs a printed fact. Pricing pages first. Vendor docs, licenses,
+        and git repos count. A marketing homepage is a weak receipt: we still show it, we just
+        don't let it pretend to be a price.
+      </p>
+      <p class="mt-3 text-ink opacity-80">
+        If we can't show a source, we don't print the number. Click any VERIFIED stamp for the
+        date, the observer, the footnotes, and the file on GitHub.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        No stars
+      </h2>
+      <p class="mt-4 text-ink opacity-80">
+        A 4.3 from nine reviews is an invoice costume. We don't average vibes. The unit of truth
+        is a pull request: one file, one observer, one date, named limitations. Wrong? Edit the
+        page. The history is public.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        Paid placements
+      </h2>
+      <p class="mt-4 text-ink opacity-80">
+        Zero. Anchor cards on the floor are an editorial mix so the shelf isn't only famous
+        names — not a slot you can buy. Affiliate links are declared in the YAML and marked on
+        the page. They never move a verdict.
+      </p>
+    </section>
+
+    <p class="font-mono text-[13px] text-ink-dim">
+      <a href="/about" class="text-accent hover:underline">About</a>
+      <span class="mx-2" aria-hidden="true">·</span>
+      <a href="/contribute" class="text-accent hover:underline">Contribute a card</a>
+    </p>
+  </article>
+</Base>

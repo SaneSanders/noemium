@@ -1,0 +1,30 @@
+name: LiteLLM
+tagline: Open-source OpenAI-compatible gateway — 100+ providers, spend keys, optional Enterprise license.
+url: https://www.litellm.ai
+category: dev-infra
+pricing: freemium
+price_note: "OSS proxy/SDK free (self-host); SSO free up to 5 users; Enterprise license is usage-quoted (30-day trial, no public $ table); 24/7 SLA extra"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The self-host cousin of OpenRouter: one OpenAI-shaped interface, virtual
+  keys, budgets, fallbacks. OSS already does a lot. Enterprise is SSO/SCIM,
+  audit, multi-region, and a license key — docs say pricing is usage-based
+  and sales-quoted, so this card will not copy third-party $250/$30k blogs.
+  You still pay every upstream model bill.
+limitations:
+  - docs.litellm.ai/docs/pricing 404s; Enterprise dollars are not on a public SKU page.
+  - SSO beyond 5 users requires the commercial license.
+  - You run Postgres/Redis/the proxy; the "free" gateway is not zero-ops.
+  - Several built-in guardrail callbacks are Enterprise-gated, not OSS.
+receipts:
+  - https://docs.litellm.ai/docs/enterprise
+  - https://github.com/BerriAI/litellm
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

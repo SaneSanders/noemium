@@ -17,6 +17,13 @@ receipts:
   - https://www.perplexity.ai
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+twin:
+  slug: american-coding-stack
+  kind: shoestring
+  tradeoff: >-
+    You drop ChatGPT Pro ($200) and Perplexity and keep the US coding seats.
+    The $479 stack was paying for overlap and a research oracle. If you don't
+    actually rotate all five tools, the American stack is the honest one.
 ---
 
 ## The recipe

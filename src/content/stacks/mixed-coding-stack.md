@@ -15,6 +15,14 @@ receipts:
   - https://aider.chat
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 19
+  tools:
+    - kimi-code
+    - aider
+  tradeoff: >-
+    Kimi Code membership plus free Aider. No Claude tiebreaker, no OpenRouter
+    A/B. When Kimi fails twice you wait, or you pay the $20 you skipped.
 ---
 
 ## Why this stack exists

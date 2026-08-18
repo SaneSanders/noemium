@@ -1,6 +1,6 @@
 name: Kimi Code
 tagline: Open-source terminal coding agent from Moonshot AI with Anthropic-compatible gateway and MCP support.
-url: https://www.kimi.com
+url: https://www.kimi.com/code
 category: coding
 pricing: freemium
 price_note: "CLI is free/MIT; hosted coding membership ~$19–$39/mo depending on region; API billed separately at Kimi API rates (K3 $3/$15 per 1M)"
@@ -21,12 +21,11 @@ limitations:
   - Data goes to Moonshot unless self-hosted/BYOK.
   - Multiple regional plans make comparison confusing.
 receipts:
-  - https://www.kimi.com
-  - https://www.codeagentswarm.com/en/guides/kimi-code-plans-and-pricing
-  - https://aireiter.com/blog/kimi-code-vs-claude-code
-  - https://rywalker.com/research/kimi-code
+  - https://www.kimi.com/code
+  - https://github.com/MoonshotAI/kimi-code
+  - https://moonshotai.github.io/kimi-code/en/
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
 observed_by: whysanesanders

@@ -7,6 +7,15 @@ obituary: >-
   A TTS API and voice library that once mattered. Meta acquihired the team and
   the platform closed on 2025-12-31 — accounts, saved audio and voice clones
   deleted, no migration path offered. Sites still taking payments as "Play.ht"
-  are impersonators. Successors: ElevenLabs, Murf.
+  are impersonators.
 receipt: https://trillet.ai/blogs/playai-alternatives-2026
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
+succeeded_by:
+  name: Inworld TTS
+  url: https://inworld.ai/resources/migrate-from-playht
+  note: >-
+    Inworld published the PlayHT → Realtime TTS migration path after Meta's
+    acquihire. Clones were deleted — you reclone from original audio, there is
+    no transfer. Not a Noemium card. If you wanted Play.ht for studio dubbing
+    or a huge voice library, ElevenLabs is the in-catalog default (Inworld says
+    so too).

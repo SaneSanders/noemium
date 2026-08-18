@@ -1,0 +1,29 @@
+name: E2B
+tagline: Isolated cloud sandboxes for agents — firecracker VMs billed per second of CPU/RAM.
+url: https://e2b.dev
+category: agents
+pricing: freemium
+price_note: "Hobby $0 + usage (one-time $100 credits, 1h sessions, 20 concurrent); Pro $150/mo + usage (24h sessions, 100 concurrent); default 2 vCPU $0.000028/s"
+free_tier: true
+open_source: true
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  The sandbox other agent products quietly run on. Hobby is usage plus a
+  one-time $100 credit pile; Pro is $150 plus the same per-second meters.
+  You still write the agent. Not Browser Use (that's a browser); this is a
+  VM. No production agent parked here.
+limitations:
+  - Seat fee and usage are separate; idle sandboxes still tick CPU/RAM.
+  - Hobby session cap is 1 hour; long jobs need Pro.
+  - Self-host of the commercial control plane is not the public SKU.
+  - Concurrency above 100 is a Pro extra purchase, not included.
+receipts:
+  - https://e2b.dev/pricing
+  - https://github.com/e2b-dev/E2B
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

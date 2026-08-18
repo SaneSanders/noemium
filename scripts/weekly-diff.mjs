@@ -99,9 +99,15 @@ for (const line of log.split('\n')) {
   } else if (line && currentCommit) {
     const [status, ...rest] = line.split('\t');
     const path = rest.at(-1);
+    const fromPath = status[0] === 'R' ? rest[0] : undefined;
     if (!CONTENT_DIRS.some((d) => path.startsWith(`${d}/`))) continue;
     if (!eventsByPath.has(path)) eventsByPath.set(path, []);
-    eventsByPath.get(path).push({ ...currentCommit, status: status[0], prevSha: `${currentCommit.sha}^` });
+    eventsByPath.get(path).push({
+      ...currentCommit,
+      status: status[0],
+      fromPath,
+      prevSha: `${currentCommit.sha}^`,
+    });
   }
 }
 for (const events of eventsByPath.values()) events.reverse(); // oldest first
@@ -146,7 +152,15 @@ for (const [path, events] of eventsByPath) {
     const first = evs[0];
     const last = evs.at(-1);
 
-    if (first.status === 'A') {
+    if (first.status === 'R' || last.status === 'R') {
+      const from = first.fromPath ?? last.fromPath;
+      wk.changed.push({
+        ...meta(path, parseEntry(blobAt(last.sha, path) ?? '', path)),
+        field: 'renamed',
+        from: from ? slugOf(from) : null,
+        to: slugOf(path),
+      });
+    } else if (first.status === 'A') {
       wk.added.push(meta(path, parseEntry(blobAt(first.sha, path) ?? '', path)));
     }
     if (last.status === 'D') {
@@ -174,9 +188,51 @@ for (const [path, events] of eventsByPath) {
   }
 }
 
+function pairReplacements(week) {
+  const usedAdded = new Set();
+  const usedRemoved = new Set();
+  const replaced = [];
+  const score = (a, b) => {
+    if (a.collection !== b.collection) return 0;
+    if (a.collection !== 'models' && a.collection !== 'tools') return 0;
+    if ((a.slug.split('-')[0] ?? '') !== (b.slug.split('-')[0] ?? '')) return 0;
+    let i = 0;
+    const as = a.slug;
+    const bs = b.slug;
+    while (i < as.length && i < bs.length && as[i] === bs[i]) i++;
+    return i;
+  };
+  for (let ri = 0; ri < week.removed.length; ri++) {
+    let best = -1;
+    let bestScore = 0;
+    for (let ai = 0; ai < week.added.length; ai++) {
+      if (usedAdded.has(ai)) continue;
+      const s = score(week.removed[ri], week.added[ai]);
+      if (s > bestScore) {
+        bestScore = s;
+        best = ai;
+      }
+    }
+    if (best >= 0 && bestScore >= 4) {
+      usedRemoved.add(ri);
+      usedAdded.add(best);
+      replaced.push({
+        ...week.added[best],
+        field: 'replaced',
+        from: week.removed[ri].name,
+        to: week.added[best].name,
+      });
+    }
+  }
+  week.added = week.added.filter((_, i) => !usedAdded.has(i));
+  week.removed = week.removed.filter((_, i) => !usedRemoved.has(i));
+  week.changed.push(...replaced);
+}
+
 const weeksOut = [...result.entries()]
   .filter(([, v]) => v.added.length || v.removed.length || v.changed.length)
   .map(([key, v]) => {
+    pairReplacements(v);
     const { start, end } = weeks.get(key);
     return {
       id: key,

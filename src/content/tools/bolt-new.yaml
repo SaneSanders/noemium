@@ -1,0 +1,28 @@
+name: Bolt.new
+tagline: StackBlitz's in-browser AI app builder — prompt to a hosted full-stack site, billed in tokens.
+url: https://bolt.new
+category: coding
+pricing: freemium
+price_note: "Free $0 (300k tokens/day, 1M/mo, Bolt branding); Pro $25/mo (from 10M tokens/mo, rollover); Teams $30/member/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fastest path from a sentence to a public URL, running in WebContainers.
+  Token burn scales with project size because the filesystem is synced into
+  context. Free is a demo with branding and a daily cap. Not a replacement
+  for a real repo once the app outgrows the sandbox.
+limitations:
+  - Token cost tracks project size; big codebases eat the monthly bucket fast.
+  - Free sites carry Bolt branding and a 10MB upload cap.
+  - Teams tokens are per member, not a shared pool.
+  - Generated apps still need a human pass for auth, data, and production ops.
+receipts:
+  - https://bolt.new/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

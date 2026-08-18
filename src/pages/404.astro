@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="404 — Not audited yet" description="This page is not in the catalog — maybe the tool simply hasn't been audited yet.">
+<Base title="404 — Not found" description="This page is not in the catalog.">
   <section class="py-24 md:py-32">
     <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-verdict-skip uppercase">
       <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-verdict-skip"></span>
@@ -11,12 +11,17 @@ import Base from '../layouts/Base.astro';
     <h1 class="text-shadow-display mt-7 font-display text-7xl leading-[0.94] font-black tracking-tight uppercase md:text-9xl">
       404
     </h1>
-    <p class="mt-8 max-w-xl font-display text-2xl font-extrabold tracking-tight uppercase md:text-4xl">
-      This tool hasn't been audited yet.
+    <p
+      id="nm-404-lead"
+      class="mt-8 max-w-xl font-display text-2xl font-extrabold tracking-tight uppercase md:text-4xl"
+      data-tool="This tool hasn't been audited yet."
+      data-page="This page isn't in the catalog."
+    >
+      This page isn't in the catalog.
     </p>
-    <p class="mt-6 max-w-md text-lg leading-relaxed font-medium text-ink opacity-75">
-      The page you asked for is not in the catalog. If the tool exists and
-      deserves an entry — propose it. Every recommendation is a PR.
+    <p id="nm-404-sub" class="mt-6 max-w-md text-lg leading-relaxed font-medium text-ink opacity-75">
+      The URL you asked for is not a page we publish. If a tool belongs here — propose it. Every
+      recommendation is a PR.
     </p>
     <p class="mt-10 flex flex-wrap gap-4">
       <a
@@ -29,4 +34,14 @@ import Base from '../layouts/Base.astro';
       <a href="/" class="nm-btn nm-btn-outline">Back to the catalog</a>
     </p>
   </section>
+  <script>
+    function apply404Copy() {
+      const lead = document.getElementById('nm-404-lead');
+      if (!lead) return;
+      const toolish = /^\/(tools|alternatives)\/[^/]+\/?$/.test(location.pathname);
+      lead.textContent = toolish ? (lead.dataset.tool ?? lead.textContent) : (lead.dataset.page ?? lead.textContent);
+    }
+    document.addEventListener('astro:page-load', apply404Copy);
+    apply404Copy();
+  </script>
 </Base>

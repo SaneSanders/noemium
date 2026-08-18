@@ -1,0 +1,30 @@
+name: Dia
+tagline: The Browser Company's AI browser — free Chromium shell, paid Answers/Days; macOS Apple Silicon.
+url: https://www.diabrowser.com
+category: productivity
+pricing: freemium
+price_note: "Better Browser free; Better Answers $20/mo; Better Days $100/mo; homepage includes a 14-day Better Days trial; macOS 14+ M1+"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Arc's successor as an AI browser, now with a public three-rung price
+  table. Free is a real browser (profiles, split view, ad/tracker block,
+  sync). $20 is page-chat; $100 is Morning Brief / decks / meeting prep.
+  /pricing 404s — /plans is the receipt. Windows is still a waitlist
+  question. Not Comet, not ChatGPT in Chrome.
+limitations:
+  - Public download is macOS 14+ Apple Silicon; Windows is not a general GA claim on the homepage.
+  - Usage limits apply on paid tiers; the table does not publish chat quotas as numbers.
+  - Default content-sharing to improve Dia is on unless you turn it off in Settings > Privacy.
+  - Atlassian ownership is a procurement fact, not a feature list.
+receipts:
+  - https://www.diabrowser.com/plans
+  - https://www.diabrowser.com/privacy
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

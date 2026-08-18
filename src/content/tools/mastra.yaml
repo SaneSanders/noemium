@@ -1,0 +1,29 @@
+name: Mastra
+tagline: TypeScript agent framework plus a hosted platform — OSS to build, Cloud to observe and run.
+url: https://mastra.ai
+category: agents
+pricing: freemium
+price_note: "framework OSS; Platform Starter $0 (100k obs events, 24 CPU-h); Teams $250/mo; gateway tokens at market + 5.5%"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  A TS-native LangGraph-shaped kit with evals and a real price page for the
+  hosted control plane. Starter is $0 plus overage; Teams is $250. Gateway
+  markup is 5.5% on tokens. Persistent 24/7 servers are $100/project extra.
+  Framework ≠ platform bill.
+limitations:
+  - Hosted CPU, events, and tokens are three meters; a chatty agent trips all three.
+  - 5.5% gateway markup on top of provider rates if you use their gateway.
+  - Persistent servers are a $100/project add-on, not included in Starter.
+  - Self-host still needs you to run evals, tracing storage, and secrets.
+receipts:
+  - https://mastra.ai/pricing
+  - https://github.com/mastra-ai/mastra
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

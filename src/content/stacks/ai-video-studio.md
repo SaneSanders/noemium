@@ -17,6 +17,21 @@ receipts:
   - https://www.heygen.com/pricing
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 16
+  tools:
+    - kling
+    - elevenlabs
+  tradeoff: >-
+    Kling + ElevenLabs only. No Runway Gen-4 hero shots, no HeyGen presenter,
+    no Suno commercial music. B-roll and a cloned voice. Social-length drafts,
+    not a branded series.
+twin:
+  slug: one-person-studio
+  kind: studio
+  tradeoff: >-
+    Mega/Max/Scale tiers plus Midjourney stealth. Pay it when the output has
+    to look like a studio, not a social clip.
 ---
 
 ## The recipe

@@ -1,0 +1,29 @@
+name: Wan
+tagline: Alibaba Tongyi Wanxiang video models — hosted on tongyi.aliyun.com/wan; older weights on GitHub.
+url: https://tongyi.aliyun.com/wan
+category: video
+pricing: freemium
+price_note: "Tongyi web app + Alibaba Cloud DashScope; hosted video is regional pay-as-you-go (confirm in console — no stable public USD card fetched); Wan2.1 Apache weights are self-hostable"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  This is Wan the video stack, not Qwen-Image. The consumer surface is Tongyi
+  Wanxiang; API is DashScope. GitHub Wan2.1 is the open-weights generation,
+  not a promise that the latest hosted Wan is OSI. China-region console and
+  moderation apply. No USD list price we could pin without the billing console.
+limitations:
+  - No durable public USD price table fetched; treat Alibaba console as source of truth.
+  - Latest hosted Wan is not the same artifact as Apache Wan2.1 weights.
+  - China-region account, payment, and content-moderation constraints.
+  - Not Qwen-Image (that's the still-image card).
+receipts:
+  - https://github.com/Wan-Video/Wan2.1
+  - https://tongyi.aliyun.com/wan
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

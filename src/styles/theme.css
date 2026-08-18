@@ -138,6 +138,22 @@
     box-shadow: 4px 4px 0 0 var(--nm-line-soft);
   }
 
+  .nm-field {
+    width: 100%;
+    border: 1.5px solid var(--nm-ink);
+    border-radius: var(--nm-radius-md);
+    background-color: var(--nm-bg-paper);
+    color: var(--nm-ink);
+    padding: 10px 12px;
+    font-family: var(--nm-font-body);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .nm-field:disabled {
+    opacity: 0.55;
+  }
+
   /* Verdict sticker — solid verdict color, white uppercase display text,
      slight rotation. Semantic: never recolor for non-verdict UI. */
   .nm-sticker {
@@ -180,6 +196,16 @@
     text-transform: uppercase;
     color: var(--nm-accent);
     transform: rotate(-1.5deg);
+  }
+
+  /* Stale floor rows — dust, not mourning. */
+  .nm-dust {
+    opacity: 0.78;
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--nm-ink-dim) 35%, transparent) 0.55px,
+      transparent 0.7px
+    );
+    background-size: 5px 5px;
   }
 
   /* Small stamp (e.g. "copied") — presses in on appearance. */

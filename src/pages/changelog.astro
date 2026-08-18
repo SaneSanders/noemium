@@ -3,6 +3,8 @@ import changelog from '../data/changelog.json';
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import VerdictBadge from '../components/VerdictBadge.astro';
+import CopyButton from '../components/CopyButton.astro';
+import { formatWeekThread } from '../lib/week-thread';
 
 type Entry = { collection: string; slug: string; name: string; category?: string };
 type Change = Entry & { field: string; from: string | number | null; to: string | number | null };
@@ -35,11 +37,11 @@ const short = (v: string | number | null) => {
 
 <Base
   title="Changelog"
-  description="Weekly diff of the Noemium catalog — every addition, price move and removal, generated from git history."
+  description="Weekly git diff of the Noemium repo — cards added, removed or repriced. Not a market index, not a daily feed."
 >
   <SectionHeader
     title="Changelog"
-    sub="The catalog's weekly diff: what came in, what got repriced, what died. The latest week is open — older weeks fold away. Every line is a commit you can check."
+    sub="Git of this repo — not the market. Cards logged, fields changed, files unlisted. A name here means we wrote the file, not that the product launched. Latest week is open."
   />
 
   <div class="space-y-6">
@@ -70,6 +72,9 @@ const short = (v: string | number | null) => {
           </summary>
 
           <div class="mt-5 border-t-[1.5px] border-ink pt-6">
+            <p class="mb-6">
+              <CopyButton label="Copy as X thread" text={formatWeekThread(w)} />
+            </p>
             {w.added.length > 0 && (
               <section>
                 <h3 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Added</h3>
@@ -161,6 +166,6 @@ const short = (v: string | number | null) => {
 
   <p class="mt-12 font-mono text-[13px] leading-relaxed text-ink-dim">
     Rebuilt weekly from git history (npm run weekly-diff). Copy edits and last_verified bumps don't
-    make the cut — only data that changes a decision.
+    make the cut — only data that changes a decision. This is a weekly snapshot, not a daily feed.
   </p>
 </Base>

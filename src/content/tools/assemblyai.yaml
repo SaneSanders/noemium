@@ -1,0 +1,29 @@
+name: AssemblyAI
+tagline: Speech-to-text and voice-agent APIs — Universal-3.5 Pro, streaming billed on socket time.
+url: https://www.assemblyai.com
+category: audio
+pricing: freemium
+price_note: "$50 free credits (no card); Universal-3.5 Pro $0.21/hr async / $0.45/hr streaming; Voice Agent API $4.50/hr all-in; add-ons stack"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  A real STT rate card, not a homepage teaser. Async Pro is $0.21/hr;
+  streaming Pro is $0.45/hr on WebSocket open time (idle counts). Voice
+  Agent is $4.50/hr bundled. EU region is the same price. $50 credits get
+  you a prototype. Not Deepgram, not Whisper on your GPU.
+limitations:
+  - Streaming bills session duration, not speech duration — leaving a socket open is a bill.
+  - Multichannel audio is billed per channel (stereo = 2×).
+  - Add-ons stack on the base rate; diarization/PII/medical are extra meters.
+  - Free-tier streaming concurrency is 5 new streams/min vs 100 on pay-as-you-go.
+receipts:
+  - https://www.assemblyai.com/pricing
+  - https://www.assemblyai.com/docs
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

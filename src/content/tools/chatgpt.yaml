@@ -1,7 +1,7 @@
 name: ChatGPT
 tagline: The general-purpose AI assistant that set the category baseline.
 url: https://chatgpt.com
-category: writing
+category: productivity
 pricing: freemium
 price_note: "free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
 free_tier: true
@@ -15,17 +15,20 @@ models_used:
   - gpt-5-6-luna
 verdict: ship
 verdict_text: >-
-  Still the safest default assistant. Reasoning, search, code execution
-  and image tools in one place, and the free tier beats many paid
-  rivals.
+  Still the safest default assistant — sit it next to Claude and Gemini,
+  not Grammarly. Reasoning, search, code execution and images in one
+  place; the free tier still beats many paid rivals. Image generation is
+  a separate catalog job (GPT Image 2); Codex is a separate coding card.
 limitations:
   - Usage caps on Plus frustrate heavy users mid-task.
   - Memory and personalization features can go stale or wrong.
   - The app keeps pushing features you may not want.
+  - This is the chat assistant, not the API and not Codex.
 receipts:
-  - https://chatgpt.com
+  - https://chatgpt.com/pricing
+  - https://help.openai.com/en/articles/11369540
 affiliate: none
 momentum: steady
 featured: true
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
 observed_by: whysanesanders

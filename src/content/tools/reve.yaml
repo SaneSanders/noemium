@@ -1,0 +1,29 @@
+name: Reve
+tagline: 4K image model with layout-native edit/create — consumer energy plans plus a credit API.
+url: https://reve.art
+category: image
+pricing: freemium
+price_note: "Free with daily energy; Lite $7.99/mo (5× energy); Pro $19.99/mo (100× energy, video energy); API credits sold separately in console"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Layout-aware image tool (create/edit/remix, annotations, live layers), not
+  a Midjourney clone. Consumer math is energy, not seats: Lite $7.99, Pro
+  $19.99 on Reve's help center. API is a second wallet in the console. Video
+  energy is Pro. Untested on production brand work.
+limitations:
+  - '"Energy" is opaque versus a per-image rate card; Lite/Pro multiply Free, they don''t publish a raw count here.'
+  - API pricing lives in the console, not a public HTML table.
+  - Training opt-out is Lite/Pro; Free is default opt-in.
+  - Video is a Pro energy pool, not the core image SKU.
+receipts:
+  - https://help.reve.com/hc/en-us/articles/46732445465108-Subscription-plans-overview
+  - https://help.reve.com/hc/en-us/articles/46837930295316-Reve-API
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

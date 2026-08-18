@@ -5,7 +5,7 @@ tagline: AI-first code editor (VS Code fork) with agent mode and inline edits.
 url: https://cursor.com
 category: coding
 pricing: freemium
-price_note: "from $20/mo (Pro)"
+price_note: "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
 free_tier: true
 open_source: false
 api: false
@@ -23,9 +23,10 @@ limitations:
   - Closed source; no way to self-host or audit data handling.
   - Occasional context-window degradation on very large repos.
 receipts:
-  - https://cursor.com
+  - https://cursor.com/pricing
+  - https://cursor.com/docs
 affiliate: none
 momentum: blueshift
 featured: true
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
 observed_by: whysanesanders

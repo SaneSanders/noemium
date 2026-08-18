@@ -1,0 +1,29 @@
+name: PydanticAI
+tagline: Pydantic's typed Python agent SDK — models, tools, evals, OpenTelemetry, not a hosted studio.
+url: https://ai.pydantic.dev
+category: agents
+pricing: free
+price_note: "MIT SDK free; you pay model/provider bills; Pydantic Logfire observability is a separate product"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  How Python people actually want to write agents: Pydantic models in,
+  Pydantic models out, graph/durable exec if you need it. Tiny compared with
+  LangGraph's sprawl. You still own the loop, keys, and evals. Not a
+  replacement for a hosted agent platform.
+limitations:
+  - No bundled hosting; production is your process + your tracing backend.
+  - Logfire is optional and billed separately if you use it.
+  - Ecosystem is younger than LangChain; fewer copy-paste recipes.
+  - Type-safety doesn't stop a model from calling the wrong tool.
+receipts:
+  - https://ai.pydantic.dev
+  - https://github.com/pydantic/pydantic-ai
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

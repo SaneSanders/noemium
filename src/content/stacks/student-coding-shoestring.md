@@ -15,6 +15,24 @@ receipts:
   - https://zed.dev
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 0
+  tools:
+    - zed
+    - qwen-code
+    - kimi-code
+    - google-ai-studio
+  tradeoff: >-
+    Free CLIs (Kimi, Qwen) plus Zed and Gemini's free quota. No GLM flat-rate
+    agent, no DeepSeek bulk. The week before a deadline, daily caps are the
+    $23 you skipped.
+twin:
+  slug: student-zero-budget
+  kind: shoestring
+  tradeoff: >-
+    A different $0 recipe: GitHub Education Copilot plus NotebookLM, not
+    Chinese CLIs. Use it if you can verify student status; this stack's $0
+    cut does not need that.
 ---
 
 ## The recipe

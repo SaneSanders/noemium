@@ -1,0 +1,29 @@
+name: Pi
+tagline: Minimal open-source coding-agent harness — TUI, SDK, RPC, BYOK, customize instead of feature-bloat.
+url: https://pi.dev
+category: coding
+pricing: free
+price_note: "CLI/SDK free; you pay the model provider; packages install from npm or git"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Mario Zechner's harness: small prompt, tree-structured sessions, 15+
+  providers, and a bias toward "build the feature as an extension" instead of
+  shipping MCP/subagents/plan mode. Powerful if you like assembling; empty
+  if you wanted Cursor. Not a Ship without using it on a repo.
+limitations:
+  - No bundled MCP, sub-agents, or permission UI — by design, you add them.
+  - Quality is 100% the model you authenticate.
+  - Docs and packages assume comfort with git/npm and a terminal.
+  - Not Inflection Pi and not π the number — this is pi.dev / pi-mono.
+receipts:
+  - https://pi.dev
+  - https://github.com/badlogic/pi-mono
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

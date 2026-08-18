@@ -1,0 +1,28 @@
+name: Goose
+tagline: Open-source, extensible local agent from Block/AAIF — recipes, MCP, BYOK, beyond autocomplete.
+url: https://github.com/aaif-goose/goose
+category: coding
+pricing: free
+price_note: "CLI/desktop free (Apache); you pay the model provider; no Goose seat fee"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  A local agent you can actually read: recipes, extensions, MCP, runs on your
+  machine against whatever provider you wire. Quality is the model, not a
+  hosted IDE. Docs URLs have moved with the AAIF donation, so start from the
+  GitHub repo. Not field-run in this pass.
+limitations:
+  - No bundled inference; a frontier model bill is still a frontier model bill.
+  - Desktop/docs hosting moved off some Block GitHub Pages paths (404s happen).
+  - You own secrets, tool allowlists, and what the agent can execute locally.
+  - Smaller packaged UX than Cursor/Claude Code; more assembly required.
+receipts:
+  - https://github.com/aaif-goose/goose
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

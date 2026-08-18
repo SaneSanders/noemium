@@ -15,6 +15,16 @@ receipts:
   - https://github.com/QwenLM/qwen-code
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 18
+  tools:
+    - glm-coding-plan
+    - qwen-code
+    - kimi-code
+  tradeoff: >-
+    GLM Coding Plan Lite plus free Kimi/Qwen CLIs as backup. No Kimi hosted
+    membership, no DeepSeek off-peak bulk. Daily small fixes stay cheap;
+    long-horizon K3 sessions and batch test generation go away.
 ---
 
 ## Why this stack exists

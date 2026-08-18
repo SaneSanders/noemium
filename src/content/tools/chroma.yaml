@@ -1,0 +1,29 @@
+name: Chroma
+tagline: Open-source search infrastructure for AI — local library plus usage-priced Cloud.
+url: https://www.trychroma.com
+category: data
+pricing: freemium
+price_note: "OSS self-host free; Cloud Starter $0 + usage ($5 credits); Team $250/mo + usage ($100 credits, no rollover); write $2.50/GiB, storage $0.33/GiB-mo"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The Python-native vector store people actually start with. Local Chroma is
+  free. Cloud Starter is $0 plus $2.50/GiB write after a small credit pile;
+  Team is a $250 seat on the same meters. Not Pinecone (that's managed-only)
+  and not a retrieval API (that's Voyage). Untested at production QPS here.
+limitations:
+  - Starter is usage-priced; large ingest bills write GiB, not "free forever".
+  - Team's $100 included credits do not roll over.
+  - Hitting customer or Chroma usage limits pauses the service until raised.
+  - Local OSS and Cloud are not feature-identical (serverless search vs laptop DB).
+receipts:
+  - https://www.trychroma.com/pricing
+  - https://github.com/chroma-core/chroma
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

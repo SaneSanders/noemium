@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+---
+
+<Base
+  title="About"
+  description="Noemium is an open catalog for picking AI tools without getting played. Every recommendation is a public PR."
+>
+  <SectionHeader
+    title="About"
+    sub="Pick AI tools without getting played. The catalog is the repo. The repo is the product."
+  />
+
+  <article class="nm-card max-w-2xl space-y-5 p-6 text-[15px] leading-relaxed md:p-8">
+    <p>
+      I'm Vladimir. I got tired of “best AI tools” lists that are invoices. Noemium is the
+      opposite: an open catalog of tools, stacks and models I actually run, with named
+      limitations and a date on every number.
+    </p>
+    <p>
+      The rule: no source, no number. If we print a price or a claim, it needs a receipt —
+      a pricing page when we can get one, at least one primary link when we can't. Homepages
+      still show; they don't pretend to be invoices.
+    </p>
+    <p>
+      A pull request is the product. Every card is a YAML file. Wrong price? Open a PR. Paid
+      placements in rankings: never. Affiliate links exist, are declared in the data file, and
+      fail CI if they sneak in elsewhere.
+    </p>
+    <p>
+      There are no star ratings. Stars on nine reviews are a costume. We print ship /
+      situational / skip, what the tool can't do, and the git history behind the card.
+    </p>
+    <p>
+      That's the whole pitch. Fork it, break a number, send the receipt.
+    </p>
+    <p class="font-mono text-[13px] text-ink-dim">
+      <a href="/method" class="text-accent hover:underline">How we grade →</a>
+      <span class="mx-2" aria-hidden="true">·</span>
+      <a href="/contribute" class="text-accent hover:underline">Contribute</a>
+      <span class="mx-2" aria-hidden="true">·</span>
+      <a href="https://github.com/SaneSanders/noemium" class="text-accent hover:underline" rel="noopener">
+        GitHub
+      </a>
+    </p>
+  </article>
+</Base>

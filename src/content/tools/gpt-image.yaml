@@ -1,0 +1,30 @@
+name: GPT Image 2
+tagline: OpenAI's image generation/editing model (ChatGPT Images in the app; gpt-image-2 on the API).
+url: https://developers.openai.com/api/docs/models/gpt-image-2
+category: image
+pricing: freemium
+price_note: "in ChatGPT: Free/Go limited, Plus expanded, Pro unlimited/faster; API gpt-image-2 $8/1M image-in, $2 cached, $30/1M image-out, $5/1M text-in"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  This is the image job, not a second ChatGPT card. In the app it rides
+  ChatGPT plan caps; on the API it is token-priced (image out is the expensive
+  line). Free API tier does not include it. Quality/size settings change the
+  token count — use OpenAI's calculator, not a flat $/image folklore.
+limitations:
+  - API is token-priced; a "per image" number depends on quality, size, and edits.
+  - "Not available on the OpenAI API Free tier (TPM table: Not supported)."
+  - ChatGPT image quotas are plan-gated and slower on Free/Go.
+  - This is not DALL·E 3 and not Sora; video is a different OpenAI SKU.
+receipts:
+  - https://developers.openai.com/api/docs/pricing
+  - https://developers.openai.com/api/docs/models/gpt-image-2
+  - https://chatgpt.com/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

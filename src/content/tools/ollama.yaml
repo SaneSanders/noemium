@@ -1,0 +1,29 @@
+name: Ollama
+tagline: Run open models locally (CLI, app, API) — optional Ollama Cloud Pro/Max for hosted large models.
+url: https://ollama.com
+category: dev-infra
+pricing: freemium
+price_note: "local runtime $0 unlimited on your hardware; Cloud Free light usage; Pro $20/mo ($200/yr); Max $100/mo (new Max sign-ups paused)"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The local-model default: one CLI, an OpenAI-shaped API, desktop apps, and
+  you keep weights on disk. Cloud Pro is a separate $20 meter with 5-hour and
+  weekly caps; Max is capacity-paused for new buyers. Local is the product;
+  cloud is overflow. Not a quality claim about any one model.
+limitations:
+  - Local quality and speed are your GPU; Ollama is the runner, not the weights.
+  - Cloud usage is token-and-model-weighted, not a flat token bucket.
+  - New Max subscriptions paused while they add capacity (existing Max kept).
+  - Cloud hosts primarily in the US (EU/Singapore overflow); data-residency still a question.
+receipts:
+  - https://ollama.com/pricing
+  - https://github.com/ollama/ollama
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

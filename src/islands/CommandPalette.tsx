@@ -157,7 +157,7 @@ export default function CommandPalette() {
             kind: 'command',
             label: 'compare <tool> <tool> [tool…]',
             hint: 'name 2–4 tools',
-            href: '/tools/compare',
+            href: '/tools/compare?tools=cursor,claude-code',
           },
         ];
       }
@@ -193,7 +193,7 @@ export default function CommandPalette() {
         }));
       }
       return [
-        { kind: 'command', label: 'compare <a> <b>', hint: 'side-by-side table', href: '/tools/compare' },
+        { kind: 'command', label: 'compare <a> <b>', hint: 'side-by-side table', href: '/tools/compare?tools=cursor,claude-code' },
         { kind: 'command', label: 'agent <query>', hint: 'search agent guides', href: '/agents' },
         { kind: 'command', label: 'stack <query>', hint: 'search stacks', href: '/stacks' },
         { kind: 'command', label: 'noema', hint: 'mission', href: '#noema' },

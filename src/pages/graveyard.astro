@@ -6,6 +6,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 const dead = (await getCollection('graveyard')).sort((a, b) =>
   b.data.died.localeCompare(a.data.died),
 );
+const toolsById = new Map((await getCollection('tools')).map((t) => [t.id, t]));
 const hostname = (url: string) => {
   try {
     return new URL(url).hostname.replace(/^www\./, '');
@@ -13,45 +14,79 @@ const hostname = (url: string) => {
     return url;
   }
 };
+
+function successorHref(d: (typeof dead)[number]['data']['succeeded_by']): string | undefined {
+  if ('none' in d) return undefined;
+  if (d.slug && toolsById.has(d.slug)) return `/tools/${d.slug}`;
+  return d.url;
+}
 ---
 
 <Base
   title="Graveyard"
-  description="Dead AI tools with death dates, causes and receipts. Removed from the catalog, not forgotten."
+  description="Dead AI tools with death dates, causes, receipts and what to use instead. Removed from the catalog, not forgotten."
 >
   <SectionHeader
     title="Graveyard"
-    sub={`${dead.length} tools confirmed dead. Every grave has a cause and a receipt — zombie listings don't get to pretend they're alive.`}
+    sub={`${dead.length} tools confirmed dead. Every grave has a cause, a receipt, and either a successor or an honest "none".`}
   />
 
   <div class="grid gap-6 md:grid-cols-2">
     {
-      dead.map((d) => (
-        <article class="nm-card flex flex-col gap-4 p-7">
-          <div class="flex items-start justify-between gap-3">
-            <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink-dim uppercase">
-              {d.data.category}
-            </span>
-            <span class="inline-block -rotate-1 border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-semibold tracking-[0.12em] text-ink uppercase">
-              died {d.data.died}
-            </span>
-          </div>
-          <h2 class="font-display text-3xl font-extrabold tracking-tight uppercase">{d.data.name}</h2>
-          <p class="text-[15px] leading-relaxed text-ink opacity-85">{d.data.obituary}</p>
-          <div class="mt-auto border-t-[1.5px] border-line-soft pt-4">
-            <p class="text-[15px] font-semibold">{d.data.cause}</p>
-            <p class="mt-2 flex flex-wrap items-center gap-4 font-mono text-xs text-ink-dim">
-              <a href={d.data.receipt} class="text-accent hover:underline" rel="noopener">
-                receipt: {hostname(d.data.receipt)}
-              </a>
-              <a href={d.data.url} class="hover:text-accent hover:underline" rel="noopener">
-                {hostname(d.data.url)}
-              </a>
-              <span>verified {d.data.last_verified}</span>
-            </p>
-          </div>
-        </article>
-      ))
+      dead.map((d) => {
+        const successor = d.data.succeeded_by;
+        const href = successorHref(successor);
+        return (
+          <article class="nm-card flex flex-col gap-4 p-7">
+            <div class="flex items-start justify-between gap-3">
+              <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink-dim uppercase">
+                {d.data.category}
+              </span>
+              <span class="inline-block -rotate-1 border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-semibold tracking-[0.12em] text-ink uppercase">
+                died {d.data.died}
+              </span>
+            </div>
+            <h2 class="font-display text-3xl font-extrabold tracking-tight uppercase">{d.data.name}</h2>
+            <p class="text-[15px] leading-relaxed text-ink opacity-85">{d.data.obituary}</p>
+            <div class="mt-auto border-t-[1.5px] border-line-soft pt-4">
+              <p class="text-[15px] font-semibold">{d.data.cause}</p>
+              <p class="mt-3 text-[15px] leading-relaxed">
+                {'none' in successor ? (
+                  <>
+                    <span class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
+                      No honest successor
+                    </span>
+                    <span class="mt-1 block text-ink opacity-80">{successor.note}</span>
+                  </>
+                ) : (
+                  <>
+                    <span class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink uppercase">
+                      Succeeded by →{' '}
+                    </span>
+                    {href ? (
+                      <a href={href} class="font-bold hover:text-accent" rel={href.startsWith('http') ? 'noopener' : undefined}>
+                        {successor.name}
+                      </a>
+                    ) : (
+                      <span class="font-bold">{successor.name}</span>
+                    )}
+                    <span class="mt-1 block text-ink opacity-80">{successor.note}</span>
+                  </>
+                )}
+              </p>
+              <p class="mt-2 flex flex-wrap items-center gap-4 font-mono text-xs text-ink-dim">
+                <a href={d.data.receipt} class="text-accent hover:underline" rel="noopener">
+                  receipt: {hostname(d.data.receipt)}
+                </a>
+                <a href={d.data.url} class="hover:text-accent hover:underline" rel="noopener">
+                  {hostname(d.data.url)}
+                </a>
+                <span>verified {d.data.last_verified}</span>
+              </p>
+            </div>
+          </article>
+        );
+      })
     }
   </div>
 

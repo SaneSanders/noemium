@@ -1,0 +1,29 @@
+name: Lovable
+tagline: Prompt-to-full-stack app builder — credits for builds, GitHub/GitLab sync, hosted backends.
+url: https://lovable.dev
+category: coding
+pricing: freemium
+price_note: "Free $0 (5 daily build credits, 30/mo cap); Pro from $25/mo (100 credits); Business from $50/mo; annual Pro $250/yr"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  The polished sibling of Bolt: credits, roles, custom domains, Git sync.
+  Pro is $25 for 100 monthly credits plus 5 daily builds; Business is the
+  same credit floor with SSO. Daily credits die at midnight UTC. Cloud and
+  AI grants are extra meters. No production app shipped from here.
+limitations:
+  - Daily build credits reset 00:00 UTC and do not roll over.
+  - Free cannot download code or hide the Lovable badge.
+  - Business is governance (SSO, security center), not extra base credits.
+  - Credit spend is opaque per prompt — a messy refactor can torch the month.
+receipts:
+  - https://docs.lovable.dev/introduction/subscription-plans
+  - https://lovable.dev/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

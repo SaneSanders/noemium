@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+
+export const getStaticPaths = (async () => {
+  const stacks = await getCollection('stacks');
+  return stacks.map((stack) => ({ params: { slug: stack.id }, props: { stack } }));
+}) satisfies GetStaticPaths;
+
+const { stack } = Astro.props;
+const s = stack.data;
+const toolsById = new Map((await getCollection('tools')).map((t) => [t.id, t]));
+const stackTools = s.tools
+  .map((slug) => toolsById.get(slug))
+  .filter((t) => t !== undefined);
+
+const shareText = 'My AI stack costs $' + s.monthly_cost_usd + "/mo. What's yours? — @whysanesanders";
+const shareUrl = 'https://noemium.com/quiz/' + stack.id + '/';
+const share =
+  'https://twitter.com/intent/tweet?text=' +
+  encodeURIComponent(shareText) +
+  '&url=' +
+  encodeURIComponent(shareUrl);
+---
+
+<Base
+  title={`${s.title} — quiz match`}
+  description={`${s.title} · $${s.monthly_cost_usd}/mo. Matched against stacks we actually run. 0 paid placements.`}
+  ogImage={`/og/quiz/${stack.id}.png`}
+>
+  <article class="py-14 md:py-20">
+    <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
+      <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
+      stack matched
+    </p>
+    <h1 class="text-shadow-section mt-4 max-w-4xl font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-6xl">
+      {s.title}
+    </h1>
+    <p class="mt-4 max-w-xl text-lg font-medium text-ink opacity-80">{s.use_case}</p>
+    <p class="mt-8">
+      <span class="nm-num text-5xl font-bold text-accent md:text-6xl">${s.monthly_cost_usd}</span>
+      <span class="nm-num ml-2 text-lg text-ink-dim">/mo</span>
+    </p>
+    <p class="mt-2 font-mono text-[13px] tracking-[0.14em] text-ink-dim uppercase">
+      difficulty: {s.difficulty}
+    </p>
+    <p class="mt-4 max-w-xl font-mono text-[13px] leading-relaxed text-ink-dim">
+      Matched against stacks we actually run. 0 paid placements.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-2">
+      {
+        stackTools.map((t) => (
+          <a
+            href={`/tools/${t.id}`}
+            class="rounded-md border-[1.5px] border-ink px-3 py-1.5 font-mono text-[13px] font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm"
+          >
+            {t.data.name}
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <a href={`/stacks/${stack.id}`} class="nm-btn nm-btn-solid">Open the full recipe</a>
+      <a href={share} target="_blank" rel="noopener" class="nm-btn nm-btn-outline">Share on X</a>
+      <a
+        href="/quiz"
+        class="cursor-pointer font-mono text-[13px] text-ink-dim underline underline-offset-4 transition-colors duration-100 hover:text-ink"
+      >
+        Run it again
+      </a>
+    </div>
+  </article>
+</Base>

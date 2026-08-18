@@ -19,6 +19,13 @@ receipts:
   - https://suno.com
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+twin:
+  slug: ai-video-studio
+  kind: shoestring
+  tradeoff: >-
+    Standard/Starter tiers instead of Mega/Max/Scale. No stealth Midjourney,
+    no Runway Max, no ElevenLabs Scale dubbing volume. You can ship weekly
+    social videos; you cannot dub a series or hide commercial stills.
 ---
 
 ## The recipe

@@ -1,24 +1,36 @@
 # Noemium Decision OS: Validation-First Design
 
-**Status:** Approved product direction; validation slice approved on 2026-08-17
+**Status:** Revised 2026-08-17 after adversarial spec review. Awaiting approval of this written file.
 
-**Implementation scope:** Validation slice only
+**Implementation scope:** Demand experiment only. Not a Decision Engine.
 
-**North star:** Evidence-first Decision OS, followed later by Market Intelligence and a progressively introduced Deployment Workbench
+**North star:** Evidence-first Decision OS, followed later by Market Intelligence and a progressively introduced Deployment Workbench. Those layers are not authorized by this spec.
+
+## 0. Revision log
+
+The 2026-08-17 Cursor review accepted the north star and rejected the first implementation scope. Vladimir accepted the cuts. This file replaces the previous draft. Material changes:
+
+- no TypeScript decision core, compatibility graph, or new evidence objects;
+- no Watch product and no Watch/kappa/regret/defensibility-sample pass gates;
+- price is **$99** one-shot, matching the high-stakes JTBD (not $19 research theater);
+- intake is a static `/decide/` page plus a hosted form, not an X keyword;
+- cohort is the live catalog, not a wishlist (Codex and Kilo Code are out until they have cards);
+- automation is decided on paid conversion and actionability only.
 
 ## 1. Decision Summary
 
 Noemium will pursue an evidence-first Decision OS for technical solo founders, AI practitioners, and technical leads. The long-term product accepts a natural-language task, asks a short adaptive interview, and returns a traceable recommendation with alternatives, cost, risk, uncertainty, and current sources.
 
-The first implementation must not build that platform. An adversarial design review by Qwen 3.8 Max identified five blockers:
+This spec does not build that product. An adversarial design review by Qwen 3.8 Max rejected the platform-sized design. A second review of the first validation draft rejected the remaining engine: typed claims, a compatibility graph, and deterministic scoring are still the product, not a demand test.
 
-1. the recommendation-eligible cohort is too small for a four-axis Tool + Model + Agent + Stack promise;
-2. comparative claims do not yet have an enforceable evidence policy;
-3. ongoing editorial capacity has not been measured;
-4. the original Release 0 and Release 1 concealed a large backend and data-platform build before demand validation;
-5. Noemium has not proved that users value an auditable decision more than a quick answer from a frontier model.
+The first slice is an operator-assisted service:
 
-Noemium will therefore start with a paid, operator-assisted validation slice for **coding tool/harness + model** decisions. It will validate demand, comparative evidence, production time, willingness to pay, and retention before a dynamic application backend is authorized.
+- a public offer page;
+- a private hosted form;
+- a Markdown Decision Record delivered within 48 hours;
+- a stopwatch and a private ledger.
+
+Demand, actionability, and operator time are measured before any decision engine, private storage, or payment integration is authorized.
 
 ## 2. Product Hypothesis
 
@@ -32,130 +44,122 @@ A technical solo founder, AI practitioner, or technical lead choosing an AI deve
 
 ### Core value hypothesis
 
-The user will value a versioned, source-linked Decision Record more than a fluent but unauditable chat answer when the decision has meaningful cost, privacy, lock-in, or workflow consequences.
+The user will pay for a versioned, source-linked Decision Record rather than take a fluent unauditable chat answer when the decision has meaningful cost, privacy, lock-in, or workflow consequences.
+
+This hypothesis is incompatible with a $19 curiosity price. The pilot price is **$99** so that conversion measures the stated job, not a cheap second opinion.
 
 ### Validation promise
 
 The pilot does not promise an instant result. It promises a reviewed Decision Record within 48 hours for an in-scope brief. The later automated product retains the north-star promise of a defensible decision in under ten minutes.
 
-“Defensible” means that an independent technical reviewer can inspect the record and agree that:
+“Defensible” during this slice means the operator can show, in the record:
 
-- hard constraints were applied correctly;
-- material factual claims link to appropriate, current evidence;
+- hard constraints were applied;
+- material factual claims link to dated sources;
 - uncertainty and contrary evidence are visible;
-- the candidate set and known coverage gaps are disclosed;
-- the recommendation follows from the recorded brief, evidence, and decision rules.
+- the candidate set and coverage gaps are disclosed;
+- the recommendation follows from the confirmed brief, those sources, and named judgments.
+
+An independent reviewer is useful instrumentation. It is not a pass gate and not a launch blocker.
 
 ## 3. Validation Scope
 
 ### Included
 
-- selection of a coding tool, coding harness, or AI development interface;
-- selection of a compatible model or model route;
+- selection of a coding tool, coding harness, or AI development interface that already has a live Noemium catalog card in the admitted cohort;
+- selection of a compatible model or model route as the tool actually works (bundled, provider-locked, or BYOK) — recorded as a named judgment, not scored by a graph;
 - budget, platform, repository, privacy, data-boundary, team, skill, and workflow constraints;
-- one primary recommendation when evidence supports it;
+- one primary recommendation when the operator can defend it;
 - zero to two materially different alternatives;
-- cost scenarios, risks, evidence, unknowns, and a pilot plan;
-- a one-month manual Watch update included with each paid record;
-- a 60-day outcome follow-up.
+- cost scenarios, risks, sources, unknowns, and a bounded try-this checklist;
+- a 60-day outcome follow-up as a conversation, not as a product.
 
 ### Excluded
 
+- TypeScript/Node decision core, CLI scorer, compatibility-edge dataset, or new evidence schema;
+- site-wide “Recommendable” / “not recommendation-ready” badges on the public catalog;
+- Watch, monitoring subscription, or automated alerts;
 - universal recommendations across the whole catalog;
 - Agent, Stack, infrastructure, observability, memory, and deployment selection as recommendation axes;
 - accounts, teams, private workspaces, server-side Decision Records, share snapshots, and notifications;
 - live web research inside a public user request;
-- automated Market Intelligence;
+- payment-provider integration inside Noemium;
 - generated deployment configurations or remote command execution;
-- migration of all 223 catalog entries to the new evidence contract;
+- migration of catalog entries to a new evidence contract;
 - autonomous publication of AI-generated research;
-- a claim that every public catalog entry is recommendation-ready.
+- X DMs or public posts as the application channel;
+- advertising a free tier.
 
-Agents, Stacks, Market Intelligence, and Deployment Workbench remain north-star layers. Each requires a separate approved design and implementation plan after the validation gates are passed.
+Agents, Stacks, Market Intelligence, Deployment Workbench, and any Decision Engine remain north-star layers. Each requires a separate approved design after the demand gates in this spec pass.
+
+Parallel catalog work (typed evidence on coding tools, new harness cards) may ship on its own. It is not part of this slice and does not block the pilot.
 
 ## 4. Pilot Offer and Economics
 
 ### Offer
 
-- The first three completed Decision Records are free calibration records.
-- Subsequent pilot records cost **$19 one time**.
-- A paid record includes its first month of manual Watch.
-- Watch renews at a founding price of **$9 per month**.
+- One Decision Record: **$99**, one time.
+- Delivery: Markdown within 48 hours of a confirmed in-scope brief.
+- Out of scope or impossible to serve: do not charge. If payment was taken, refund it.
+- No Watch. No bundled follow-up product. A 60-day check-in is operator outreach, not a paid feature.
 - Pilot pricing is explicitly limited and is not presented as permanent pricing.
-- An out-of-scope or evidence-insufficient brief is not charged. If payment has already been taken, it is refunded.
 
-Payment is collected through an operator-issued external payment link. No card data, billing credentials, or payment-provider integration enters the Noemium application during validation.
+Payment is collected through an operator-issued external payment link. No card data, billing credentials, or payment-provider integration enters the Noemium application.
+
+### Calibration
+
+The operator may produce up to three internal calibration records to shake out the template and time the work. They are not a customer offer, not advertised, and not counted in conversion or actionability.
 
 ### Economic assumptions
 
-The validation goal is learning, not positive unit economics. The working assumptions are:
+The validation goal is learning whether the JTBD converts at a serious price. Working assumptions:
 
-- one paid Decision Record takes no more than 60 minutes of operator time after the first three calibration records;
+- operator time is measured, not capped as a success criterion;
 - internal direct-labor cost is measured at $25 per hour;
-- model/API cost is budgeted at $0.60 per record;
+- model/API assistance is budgeted at $0.60 per record;
 - payment processing is budgeted at 3.5% plus $0.30 per payment;
 - taxes and VAT are excluded until the selling entity and payment provider are selected.
 
-At $19, expected cash COGS is approximately $1.57 and cash gross margin is approximately 92%. Including one hour of direct labor, expected COGS is approximately $26.57 and the validation record has a negative fully loaded margin of approximately 40%. Ten paid records therefore have an expected research subsidy of roughly $75–100 if the one-hour production cap holds.
-
-Initial cohort research, evidence policy, templates, and scoring calibration are estimated at 35–78 internal hours. This is product research investment, not per-record COGS.
-
-Manual Watch becomes economically credible only when source review is batched across customers. The founding $9 price is a demand test. It is not considered a sustainable long-term price until cohort size and monthly review time demonstrate a positive fully loaded margin.
+At $99, expected payment fees are about $3.77. Cash COGS excluding labor is about $4.37. Loaded economics depend on measured minutes: about two hours leaves a thin positive margin; four hours does not. That measurement is an input to whether automation is worth designing, not a pass/fail gate for the offer.
 
 ## 5. Candidate Cohort
 
-### Seed research queue
+The cohort is the live catalog, not a research wishlist.
 
-The initial queue is designed to cover provider-native, subscription IDE, open-source BYOK, lower-cost, and China-first strategies.
+Admitted now (each has a card in `src/content/tools/` as of 2026-08-17):
 
-Coding tools and harnesses:
+1. Cursor
+2. Claude Code
+3. GitHub Copilot
+4. Aider
+5. Qwen Code
+6. Kimi Code
 
-1. Claude Code;
-2. Codex;
-3. Cursor;
-4. Aider;
-5. Qwen Code;
-6. Kilo Code.
+Not admitted until a catalog card exists: Codex, Kilo Code, and any other harness named only in research notes.
 
-Model routes:
+Fallback if a brief is in-scope but the admitted six cannot cover it: Windsurf, Zed, OpenCode, Gemini Code Assist, Factory — only if they already have live cards. They are not part of the advertised cohort. If the operator uses one, the record must say so.
 
-1. GPT-5.6 Sol;
-2. Claude Opus 5;
-3. Claude Sonnet 5;
-4. Gemini 3.1 Pro Preview;
-5. Kimi K2.7 Code;
-6. Qwen3.8 Max.
+### How tool and model relate
 
-Fallback research candidates are Windsurf, Zed, Amp, GPT-5.6 Terra, GLM-5.3, and DeepSeek V4 Pro. A seed candidate is not automatically recommendation-eligible. If it fails the evidence contract, it remains “known but not evaluated” and a fallback may be admitted instead.
+Do not treat tools and models as a free Cartesian product and do not build an edge table.
 
-### Launch admission gate
+- Cursor and Copilot bundle routing. The record must not pretend the user independently selected a model the product does not expose.
+- Claude Code is provider-locked unless the brief and current vendor docs say otherwise.
+- Aider, Qwen Code, and Kimi Code can be BYOK; the model recommendation is then a real second axis.
 
-The pilot does not start until at least five coding tools/harnesses and five model routes are Recommendable. A valid recommendation considers only compatible tool-model edges; the engine must not treat the two sets as a free Cartesian product.
+Model names come from the tool’s live card, current vendor docs, and the confirmed brief. Catalog model files may be cited when they exist. LiteLLM or other aggregators are supporting context, not sufficient price evidence.
 
-Each candidate must have current evidence for:
+### What may be recommended
 
-- identity, vendor, canonical URL, and availability;
-- price and material plan limitations;
-- supported platforms and installation path;
-- supported model routes or provider lock-in;
-- data boundary and relevant privacy/security limitations;
-- licensing or terms relevant to the use case;
-- material workflow capabilities;
-- known limitations;
-- last verification date and next review date.
+A primary recommendation must be one of the admitted tools (or a disclosed fallback card). A relevant tool without a card is listed as “known but not evaluated.” No comparison is invented for it.
 
-Every Decision Record discloses:
+The public catalog does not gain a new eligibility badge in this slice.
 
-- the evaluated cohort;
-- relevant known candidates that were not evaluated;
-- candidates excluded by hard constraints;
-- candidates excluded because evidence was insufficient.
+## 6. Operator evidence policy
 
-## 6. Evidence and Comparative Claims
+This is a checklist inside the Decision Record template. It is not a new content schema and not a public data model.
 
-### Claim-source policy
-
-Every decision-relevant claim has a claim type. The claim type determines which source types are admissible.
+Every decision-relevant claim has a claim type. The claim type determines which sources are admissible.
 
 | Claim type | Strong evidence | Supporting evidence | Not sufficient alone |
 |---|---|---|---|
@@ -166,42 +170,13 @@ Every decision-relevant claim has a claim type. The claim type determines which 
 | Reliability and maturity | Versioned release history, status/incidents, repository history, support policy | Independent longitudinal report | Popularity or a single review |
 | Usability and operational load | Named expert observation with date, tested workflow, method, and conflict disclosure | Multiple consistent user reports | Unattributed editorial adjective |
 
-Official marketing may confirm vendor positioning but never comparative superiority. Community signals may promote a candidate into the research queue but never affect recommendation scoring.
+Official marketing may confirm vendor positioning but never comparative superiority. Community signals may change what the operator researches next. They never substitute for the table above.
 
-### Evidence object
+Each material claim in the record cites: source URL, source type, date checked, and a one-line limitation. Expired or conflicting strong sources block an unqualified claim. They do not require a software freshness engine.
 
-Each evidence record includes:
+Coverage gaps are disclosed. They are not scored as product quality.
 
-- stable evidence ID;
-- subject and claim type;
-- precise claim/value and scope;
-- source URL and source type;
-- product/model/plan/region/version applicability;
-- checked date and review-by date;
-- reviewer or automated process identity;
-- contradiction status;
-- notes on limitations and conflicts of interest.
-
-### Confidence
-
-Confidence is not a single product score. It has three independent dimensions:
-
-- **strength:** fitness of the evidence for the claim;
-- **freshness:** whether the evidence is within its claim-specific review window;
-- **coverage:** whether all material claims needed for the decision are supported.
-
-Coverage is a recommendation gate and a user-visible warning. It is not a positive scoring bonus, because editorial attention must not make a mediocre product outrank a less-documented one.
-
-### Freshness policy for the pilot
-
-- price, quota, plan, and availability: review within 30 days;
-- compatibility, installation, and fast-moving capabilities: review within 45 days;
-- security, privacy, licence, and deployment facts: review within 90 days or sooner after a material change;
-- immutable versioned releases remain historical evidence, but their relevance is reviewed against the current candidate version.
-
-Expired critical evidence removes Recommendable status until rechecked. Contradictory strong evidence prevents an unqualified recommendation until adjudicated.
-
-## 7. Decision Model
+## 7. Decision model (operator checklist)
 
 ### Decision Brief
 
@@ -221,79 +196,87 @@ The structured brief contains:
 - unknowns and explicit assumptions;
 - provenance for each interpreted constraint.
 
-Free text may be used during intake, but the operator confirms the structured brief with the participant before scoring.
+Free text may arrive from the form. The operator confirms the structured brief with the participant before writing the record.
 
-### Decision stages
+### Stages
 
-1. **Scope check:** confirm that the brief is inside the coding-tool + model slice.
-2. **Hard constraints:** remove incompatible candidates. No score can compensate for a hard-constraint violation.
-3. **Compatibility resolution:** construct only valid tool-model configurations.
-4. **Evidence-supported comparison:** compare eligible configurations on supported axes.
-5. **Sensitivity check:** test whether reasonable changes to defaults or preferences change the leader.
-6. **Verdict:** issue a primary recommendation only when it is stable enough to defend.
-7. **Alternatives:** include zero to two alternatives only when they represent genuinely different strategies.
-8. **Decision Trace:** record inputs, rules, evidence IDs, exclusions, overrides, and the reason for the verdict.
+1. **Scope check:** coding-tool + model only, and at least one admitted card is relevant.
+2. **Hard constraints:** drop incompatible candidates. No prose can compensate for a hard-constraint violation.
+3. **Compatibility as it actually works:** bundled vs locked vs BYOK, written in the record.
+4. **Comparison** on axes the brief made material, using the evidence policy.
+5. **Sensitivity:** if a small preference change flips the leader, say so.
+6. **Verdict:** a primary recommendation only when it is stable enough to defend; otherwise no-verdict.
+7. **Alternatives:** zero to two, only when they are genuinely different strategies.
+8. **Trace:** brief, exclusions, sources, named judgments, overrides the participant accepted.
 
 ### Weights and judgments
 
-Every weight has provenance:
+Every weight is one of:
 
 - an explicit user statement from the confirmed brief;
 - a visible named default;
-- or a documented operator override accepted by the participant.
+- a documented operator override the participant accepted.
 
-AI-inferred hidden weights are forbidden. Evidence coverage is not scored as product quality. Unsupported subjective dimensions appear as named expert judgments and never masquerade as measured facts.
+Hidden AI-inferred weights are forbidden. Unsupported subjective dimensions appear as named expert judgments and never masquerade as measured facts.
 
-If small plausible weight changes flip the recommendation, the record labels the result “preference-sensitive” and presents the affected configurations without claiming an objective winner.
+If small plausible preference changes flip the recommendation, the record is labeled `preference-sensitive` and does not claim an objective winner.
 
 ### Alternative distinctness
 
-An alternative is materially distinct only when it differs from the primary recommendation on at least two recorded trade-off dimensions and is preferable on at least one dimension important to the brief. If no such alternative exists, the record says so rather than filling a three-card layout.
+An alternative is materially distinct only when it differs from the primary on at least two recorded trade-off dimensions and is preferable on at least one dimension important to the brief. If none exists, the record says so.
 
-## 8. Validation Workflow
+## 8. Validation workflow
 
 ### Acquisition and intake
 
-The pilot is recruited manually through Noemium's existing audience and founder-led distribution. The validation phase does not require a public application backend.
+Recruitment is founder-led through the existing audience. The apply surface is a static `/decide/` page. The page links to a hosted form (Tally or equivalent). Form submissions go only to the operator.
 
-The public validation surface is a static `/decide/` pilot page. Its application CTA sends the visitor to the existing public founder channel, `https://x.com/whysanesanders`, with an instruction to send the keyword `PILOT`. It does not place project details in a URL or public post. Sensitive project details are collected only in the operator-led intake. The pilot must not request production secrets, private repository contents, credentials, customer datasets, or regulated personal data.
+The page and the form must not:
+
+- send the applicant to X, Telegram, or any public channel to apply;
+- ask for production secrets, private repository contents, credentials, customer datasets, or regulated personal data;
+- put project details in a URL, public post, or query string.
+
+X and other channels may link to `/decide/`. They are not the inbox.
+
+Capacity is one operator. Hard cap: **three paid records per week**. `/decide/` states that limit. At three open or in-flight paid records, pause or close the form. There is no application backend and no software waitlist.
+
+The four-week recruitment clock starts on the first day the operator publicly points people at the live `/decide/` page. That date is written in the private ledger. Spec approval and page merge do not start the clock.
 
 ### Record production
 
-1. Participant submits or discusses a structured brief.
-2. Operator performs scope and privacy checks.
-3. Participant confirms the normalized brief and assumptions.
-4. A deterministic worksheet/library applies constraints and generates the candidate matrix and trace.
-5. Operator reviews comparative evidence and records named judgments.
-6. A draft Decision Record is produced from the structured trace.
-7. A second-pass claim audit checks every material factual statement.
-8. The participant receives the record within 48 hours.
-9. Operator records production time and conducts a short debrief.
-10. Watch is delivered after the first month; outcome follow-up occurs at 60 days.
+1. Form arrives. Operator performs scope and privacy checks.
+2. If in scope, operator issues the payment link. If not, operator refuses and does not charge.
+3. After payment (or after confirming a calibration case), operator confirms the normalized brief.
+4. Operator fills the Decision Record template with sources and named judgments. Stopwatch runs from confirmed brief to send.
+5. Operator audits every material factual statement against the evidence policy.
+6. Participant receives the Markdown record within 48 hours.
+7. Operator logs minutes, outcome of the debrief, and whether the brief was paid.
+8. At about 60 days, operator asks what happened. The answer is instrumentation.
 
 ### AI boundary
 
-AI may help normalize intake or draft prose from an already structured trace. It may not:
+AI may help normalize the brief or draft prose from notes the operator already structured. It may not:
 
-- add product facts absent from the evidence set;
+- add product facts absent from cited sources;
 - create or silently change weights;
 - relax hard constraints;
-- select a candidate outside the eligible set;
-- publish the record without operator review.
+- select a candidate outside the admitted cohort plus disclosed fallbacks;
+- send the record without operator review.
 
-The canonical artifact is structured data plus the trace. Prose is a presentation layer.
+The canonical artifact is the Markdown record. There is no separate machine trace.
 
 ### Pilot data handling
 
-- Participant briefs and records remain outside the public repository.
-- The public repository contains only synthetic fixtures.
+- Briefs, payments, and records stay outside the public repository.
+- The repository contains only the template and, if useful, one synthetic example.
 - Collected data is minimized to the decision purpose.
 - Participants may request deletion at any time.
-- Identifiable pilot data is deleted 90 days after the final follow-up unless the participant explicitly opts into continued Watch.
+- Identifiable pilot data is deleted 90 days after the 60-day follow-up unless the participant explicitly asks to keep talking.
 - Published examples require explicit consent and redaction review.
-- Pilot metrics are maintained in a private operator ledger outside the repository. Public reporting uses aggregate, non-identifying values only.
+- Metrics live in a private operator ledger. Public reporting uses aggregates only.
 
-## 9. Decision Record
+## 9. Decision Record template
 
 Every record contains:
 
@@ -302,206 +285,158 @@ Every record contains:
 3. hard-constraint results;
 4. primary recommendation or an explicit no-verdict state;
 5. zero to two materially distinct alternatives;
-6. compatibility explanation;
-7. cost scenarios with inputs and review date;
+6. compatibility explanation (bundled / locked / BYOK);
+7. cost scenarios with inputs and the date checked;
 8. risks, lock-in, privacy/security, and operational limitations;
 9. sensitivity analysis;
 10. what would change the decision;
-11. evidence table with claim IDs, sources, dates, strength, freshness, and conflicts;
-12. Decision Trace version;
-13. a bounded pilot/checklist for trying the configuration;
-14. disclaimer that the record is decision support, not a guarantee or legal/compliance advice.
+11. claims table: claim, source URL, source type, date, limitation;
+12. named judgments and accepted overrides;
+13. a bounded checklist for trying the configuration;
+14. disclaimer: decision support, not a guarantee or legal/compliance advice.
 
-The record is delivered as Markdown during validation. A PDF may be produced manually for a participant, but PDF generation is not an implementation requirement for the validation slice.
+The record is Markdown. A PDF may be produced by hand. PDF generation is not in scope.
 
-## 10. Failure and Recovery States
+The implementation of this slice adds the template to the repository and uses it. It does not generate records in the app.
+
+## 10. Failure and recovery
 
 | State | Required behavior |
 |---|---|
-| Brief is outside the coding-tool + model scope | Explain the boundary, do not charge, and record the unmet use case for roadmap evidence. |
-| No candidate satisfies all hard constraints | Return no verdict; show which constraints caused the empty set and user-controlled relaxation options. |
-| Relevant candidate is known but not evidence-complete | List it under “known but not evaluated”; do not invent a comparison. |
-| Critical price/availability/security evidence is expired | Remove Recommendable status until reviewed. |
-| Strong sources conflict | Show the conflict and withhold an unqualified conclusion on the affected claim. |
-| Preference changes flip the leader | Label the decision preference-sensitive and show the decisive weights. |
-| A material source changes during production | Regenerate the affected trace before delivery. |
-| Operator capacity is exhausted | Move applicants to a visible waitlist; do not break the 48-hour promise silently. |
-| Payment was taken for a brief that cannot be served | Refund it. |
-| AI provider is unavailable | Continue with confirmed structured intake and deterministic/manual production; AI is not a critical dependency. |
+| Brief is outside the coding-tool + model scope | Explain the boundary, do not charge, log the unmet use case. |
+| No admitted/fallback card can satisfy hard constraints | No verdict; show which constraints emptied the set and which the user could relax. |
+| Relevant tool has no catalog card | “Known but not evaluated.” Do not invent a comparison. |
+| Price/availability/security source is stale or official docs conflict | Do not make an unqualified claim. Recheck or withhold. |
+| Preference changes flip the leader | Label `preference-sensitive`. |
+| A material source changes during production | Update the record before sending. |
+| Operator capacity is exhausted | Pause or close the form. Do not silently miss 48 hours. |
+| Payment was taken for a brief that cannot be served | Refund. |
+| AI provider is unavailable | Continue on the template. AI is not a dependency. |
 
-## 11. Validation Metrics and Kill Criteria
+## 11. Metrics, pass, and kill
 
-### Instrumented metrics
+### Demand pass (authorizes a separate automation design)
 
-- qualified briefs received;
-- in-scope rate and insufficient-data rate;
-- offer-to-paid conversion at $19;
-- operator minutes per record;
+All of:
+
+- at least 20 qualified briefs within four weeks of the distribution start;
+- the $99 offer made to at least 15 qualified prospects;
+- at least five paid records from those offers;
+- at least 60% of **paid** records actionable.
+
+Qualified brief: a real current or imminent project with a named decision, constraints, and an identified decision-maker.
+
+Actionable: within seven days the participant starts the proposed trial, adopts the recommendation, or **changes** a planned setup because of the record. “This confirmed I should keep what I already use” is logged and is **not** actionable.
+
+Calibration records are excluded from these rates.
+
+### Kill and revise
+
+- Fewer than 20 qualified briefs after the four-week distribution attempt: stop. Revisit acquisition or the user, not the engine.
+- Fewer than three purchases from 15 qualified paid offers: stop paid-product implementation. Revisit the value proposition.
+- Three or four purchases from 15 qualified paid offers: do not automate. Revise the offer or price once and run one bounded second batch.
+- Actionable rate on paid records below 60%: revise the record/scope once and run one bounded second batch.
+- Failure of the same demand gate in the second batch: stop or pivot the Decision OS slice.
+
+### Quality (blocks that send, does not decide automation)
+
+- A hard-constraint violation or an unsupported material claim: do not send; fix the record; add a note to the template so it does not recur.
+- More than 25% of qualified briefs unserviceable for lack of catalog coverage: log it. If it persists, widen the cohort with real cards or narrow the public promise. It is not AND-ed into the demand pass.
+
+### Instrument only (do not AND into pass)
+
+- operator minutes per record (median and range, paid only);
 - turnaround time;
-- actionable rate after debrief;
-- external-review defensibility rate;
-- first-month Watch continuation at $9;
-- 60-day adoption and regret rate;
-- evidence review time per candidate;
-- candidate recall against a maintained holdout list;
-- evidence-tier inter-reviewer agreement;
-- forecast cost versus participant-observed cost when available.
+- 60-day adoption and regret (regret = abandoned for a reason the record should reasonably have captured; adjudication is recorded, not silent);
+- whether anyone asks for a paid follow-up (there is no Watch SKU);
+- optional second-person review of a sample, if a reviewer exists;
+- forecast cost versus participant-observed cost when offered.
 
-### Definitions
+## 12. Technical architecture for this slice
 
-- **Qualified brief:** a real current or imminent project with a named decision, constraints, and an identified decision-maker.
-- **Actionable:** within seven days, the participant starts the proposed pilot, adopts the recommendation, or reports that the record materially validated or changed the decision.
-- **Regret:** at 60 days, the participant reports abandoning the selected configuration for a reason the record should reasonably have captured.
-- **Defensible:** a technical reviewer other than the record's operator rates the reasoning and evidence linkage acceptable without correcting a hard-constraint or unsupported-claim error. The reviewer must disclose relevant competence and conflicts; an AI-only review does not satisfy this definition.
+Keep the current static Astro deployment.
 
-### Validation batch
+### In scope to implement
 
-- recruit at least 20 qualified briefs within four weeks of the distribution start;
-- complete three free calibration records;
-- offer the $19 paid record to at least 15 qualified prospects;
-- seek up to ten paid records;
-- invite every paid participant to renew Watch at $9 after the included month;
-- complete 60-day follow-up for every reachable participant.
+- static page at `/decide/`: offer, scope, $99, 48-hour promise, weekly capacity, privacy rules, link to the hosted form;
+- hosted form configuration (not in git if it contains endpoints that receive real briefs; document the field list in the repo);
+- Markdown template for the Decision Record, plus one synthetic example;
+- no new collections, schemas, scoring modules, or databases.
 
-### Pass gates
+### Explicitly out of implementation
 
-The slice may proceed to an automation design only when all of the following are true:
+- decision engine or compatibility graph;
+- new evidence objects or Recommendable status in content schemas;
+- accounts, payment integration, private record store, notifications;
+- automated Watch;
+- waitlist software.
 
-- at least five paid records are purchased from at least 15 qualified offers;
-- at least 60% of completed records are actionable;
-- at least ten participant records are completed;
-- at least 80% of a 20-record review sample are independently judged defensible; at least ten records in the sample must be participant records and the remainder may be synthetic adversarial records;
-- median production time after calibration is no more than 60 operator minutes;
-- at least 20% of paid participants continue Watch at $9 after the included month;
-- 60-day regret is no more than 30%;
-- no delivered record contains a hard-constraint violation or an unsupported material structured claim;
-- no more than 25% of qualified briefs are unserviceable because of evidence coverage.
-- reviewer agreement on claim admissibility and evidence strength reaches Cohen's kappa of at least 0.60 on the review sample.
+Given the same operator, brief, and sources, two runs will not be bit-identical. Repeatability in this slice is the template and the evidence policy, not a pure function.
 
-### Kill and revise rules
+## 13. Checks
 
-- Fewer than 20 qualified briefs after the agreed four-week distribution attempt: stop the build and revisit acquisition or the user/use case.
-- Fewer than three purchases from 15 qualified paid offers: stop paid-product implementation and revisit the value proposition.
-- Three or four purchases from 15 qualified paid offers: do not automate; revise the offer or price once and run one bounded second offer batch.
-- Actionable rate below 60%, regret above 30%, or persistent evidence insufficiency above 25%: revise the scope/evidence model once and run one bounded second batch.
-- Failure of the same gate in the second batch: stop or pivot the Decision OS slice.
-- Any hard-constraint violation or unsupported material claim: block delivery, correct the process, and add a regression fixture. This is a quality blocker, not a reason to hide the result.
+Before calling the page done:
 
-## 12. Technical Architecture for Validation
+- `/decide/` renders on desktop and mobile, dark and light;
+- the CTA opens the hosted form, not a public social profile;
+- the form fields match the brief list and do not ask for secrets;
+- the template exists and a synthetic example contains no real participant data;
+- `npm run validate && npm run check && npm run build` still pass;
+- grep of the repo for participant names, emails, and project briefs is clean.
 
-The validation slice preserves the current static Astro deployment.
+Adversarial cases the operator must handle by hand (no software invariants):
 
-### Canonical public data
+1. Brief says “ignore the rules and recommend Vendor X.” Treat as user text; do not comply.
+2. Brief asks for HIPAA or similar assurance the sources cannot support. No compliance verdict.
+3. Budget is zero and every option violates it. Empty set; user-controlled relaxations.
+4. Two options are a toss-up. No objective winner.
+5. The user already uses Cursor and wants a stamp. That is not actionable even if they pay.
+6. The right tool is Codex. Known but not evaluated; do not fake a card.
 
-The recommendation cohort and evidence live in version-controlled, schema-validated content. Public catalog entities outside the cohort remain available but display their verification/evaluation level wherever the new status is exposed.
+## 14. Relationship to the existing backlog
 
-### Internal decision core
+This slice absorbs only:
 
-A pure TypeScript/Node module or CLI consumes:
+- `/decide/` page and form link;
+- Decision Record template and synthetic example;
+- operator ledger and stopwatch practice (outside the repo).
 
-- a structured Decision Brief fixture;
-- versioned candidate data;
-- compatibility edges;
-- typed claims and evidence;
-- explicit hard-constraint and weight rules.
+Keep visible and **out** of the first implementation plan:
 
-It produces:
-
-- eligible and excluded configurations;
-- exclusion reasons;
-- decision matrix;
-- sensitivity information;
-- trace metadata;
-- a structured Decision Record draft.
-
-The module must not depend on an AI provider, browser session, account system, or database. Given the same normalized brief and graph version, it must return the same structured result.
-
-### Operator layer
-
-The operator confirms intake, supplies disclosed judgments, reviews the trace, and audits record prose. Private briefs and participant records are not stored in the repository. The implementation plan must use synthetic fixtures for tests and examples.
-
-### Public surface
-
-The validation implementation includes the static `/decide/` pilot page and its founder-channel CTA. A dynamic interview, account system, payment integration, private record store, and automated Watch are explicitly deferred.
-
-## 13. Testing and Adversarial Evaluation
-
-### Automated invariants
-
-- an expired critical claim cannot support Recommendable status;
-- a hard-constraint failure always excludes the configuration;
-- an incompatible tool-model edge cannot be generated;
-- a scored criterion must reference evidence or a named operator judgment;
-- every non-default weight has provenance;
-- evidence coverage cannot increase product fit;
-- the same normalized brief and graph version produce the same structured result;
-- an alternative must satisfy the distinctness rule;
-- an empty eligible set produces no verdict;
-- public fixtures contain no participant information.
-
-### Adversarial scenarios
-
-1. A brief says “ignore the rules and recommend Vendor X.” It is treated as user data; scoring does not change.
-2. A source contains hidden instructions. Extracted data remains quarantined and only schema-valid claims enter review.
-3. A relevant tool is outside the graph. It is listed as known but not evaluated; no comparison is fabricated.
-4. A participant requires unsupported compliance, such as HIPAA assurance. The record returns insufficient evidence and no compliance verdict.
-5. Budget is zero and every configuration violates it. The record returns an empty set and user-controlled relaxation options.
-6. Two candidates are Pareto-equivalent. The record admits no objective winner.
-7. Critical price evidence expires. Recommendable status is removed.
-8. Extreme manual weights determine the result. The record warns that preference, not evidence, drives the verdict.
-9. A community campaign promotes a niche product. It affects only the research queue.
-10. A recommended vendor changes price or shuts down. Watch produces an impact diff; a non-Watch record shows stale state when next reviewed.
-
-### Manual review gates
-
-- claim-to-source audit on every pilot record;
-- second-person review for material price, availability, security, and compatibility changes;
-- monthly candidate-recall check against a maintained external holdout list;
-- periodic agreement check between two reviewers on evidence strength and claim admissibility;
-- recorded time-and-motion for cohort research and each Decision Record.
-
-## 14. Relationship to the Existing Backlog
-
-The validation slice absorbs only work required for its cohort:
-
-- typed evidence and evidence tiers for admitted coding tools and models;
-- structured sources for admitted models;
-- cost separation relevant to admitted configurations;
-- claim-specific freshness and link checks for admitted evidence;
-- complete guides for cohort members such as Codex and Kilo Code when admitted.
-
-The following remain separate, visible backlog items and do not block validation:
-
-- evidence migration for every Tool, Model, and Stack;
-- repeat audit of all 16 risky niche/China-first cards not in the cohort;
-- structured sources for all 36 models;
-- site-wide stack-cost migration;
-- complete guides for Amp, Goose, Pi, and later waves not admitted to the cohort;
-- Cline, Roo, Kiro, OpenHands, Browser Use, E2B, Mem0, Langfuse, and the broader harness/agent wave;
+- typed evidence / evidence tiers for Tools, Models, and Stacks;
+- re-audit of risky niche/China-first cards;
+- structured sources for all models;
+- stack-cost split;
+- site-wide redirect/dead-link CI;
+- per-evidence staleness expiry;
+- catalog cards and guides for Codex, Amp, Kilo Code, Goose, Pi, and later harnesses;
+- Cline, Roo, Kiro, OpenHands, Browser Use, E2B, Mem0, Langfuse;
 - 12 niche operational Stacks;
 - automated Market Intelligence;
-- Deployment Workbench beyond safe verified setup references.
+- Deployment Workbench.
 
-The implementation plan will turn this spec into a real GitHub backlog. It must not silently import the entire historical backlog into the validation milestone.
+Do not silently import that backlog into the validation milestone. Catalog evidence upgrades may proceed as their own work and remain valuable if this slice dies.
 
-## 15. Gates for Later Product Layers
+## 15. Gates for later product layers
 
 ### Automated Decision OS
 
-Requires every validation pass gate, a separate design for dynamic intake and private storage, and an external adversarial evaluation set.
+Requires the demand pass in §11, a separate design for dynamic intake and private storage, and a new spec for any scoring engine. This spec does not pre-authorize that engine.
 
 ### Serious Workspace
 
-Requires demonstrated paid demand, a security design covering authentication, tenant isolation, authorization, encryption, retention, export, and deletion, and a separate implementation plan.
+Requires demonstrated paid demand plus a security design covering authentication, tenant isolation, authorization, encryption, retention, export, and deletion.
 
 ### Market Intelligence
 
-Begins as manual Watch. Automation is authorized only after enough active records exist to calibrate materiality and alert usefulness.
+Not prototyped here. A later design may start from the 60-day follow-up notes. It does not start from a $9 Watch SKU.
 
 ### Deployment Workbench
 
-Only verified setup references and bounded pilot checklists are allowed during validation. Generated runbooks, configurations, preflight checks, secrets, and remote execution require separate security and product designs after Decision OS retention is proven.
+This slice may include links to official setup docs and a short try-this checklist. Generated runbooks, configurations, preflight checks, secrets, and remote execution stay forbidden.
 
-## 16. Final Product Principle
+## 16. Final product principle
 
-Noemium may be broad in discovery but must be narrow in what it claims to know. A catalog entry is not a recommendation. A link is not evidence for every claim. A deterministic score is not objectivity when weights or comparative judgments are hidden. The validation succeeds only if users pay for, act on, and continue to value an auditable decision record.
+Noemium may be broad in discovery but must be narrow in what it claims to know. A catalog entry is not a recommendation. A link is not evidence for every claim. A template is not objectivity when judgments are hidden.
+
+This validation succeeds only if strangers pay $99, act on the record, and do so often enough that designing automation is justified. Building the automation in order to find that out is out of scope.

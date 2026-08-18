@@ -13,6 +13,16 @@ receipts:
   - https://github.com/vercel/ai
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 0
+  tools:
+    - google-ai-studio
+    - qdrant
+    - vercel-ai-sdk
+  tradeoff: >-
+    Gemini free via AI Studio instead of paid OpenAI. Qdrant and the Vercel
+    SDK stay. Prototype RAG on the free quota; a few hundred internal queries
+    a day will throttle, and embeddings won't match the OpenAI ones you tested.
 ---
 
 ## The recipe

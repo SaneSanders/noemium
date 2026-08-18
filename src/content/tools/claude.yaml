@@ -1,9 +1,9 @@
 name: Claude
 tagline: Anthropic's assistant — the practitioner's favorite for prose and long documents.
 url: https://claude.ai
-category: writing
+category: productivity
 pricing: freemium
-price_note: "free tier; Pro $20/mo"
+price_note: "free tier; Pro $20/mo ($17/mo billed yearly, $200 up front); Max from $100/mo"
 free_tier: true
 open_source: false
 api: false
@@ -15,17 +15,18 @@ models_used:
 verdict: ship
 verdict_text: >-
   The cleanest prose and the best long-document workflow of any chat
-  assistant; Projects and Artifacts fit real work. The author of this
-  catalog is moving toward cheaper Chinese options like Kimi, Qwen and
-  GLM, but Claude still sets the bar for prose quality.
+  assistant; Projects and Artifacts fit real work. Compare it with
+  ChatGPT and Gemini on this shelf, not with Grammarly. Claude Code is
+  a separate coding card and shares the same usage pool on paid plans.
 limitations:
-  - Message caps on Pro hit fast with large context.
+  - Usage caps on Pro hit fast with large context; Code/Cowork draw from the same pool.
   - No image generation.
   - Smaller plugin/integration ecosystem than ChatGPT.
 receipts:
+  - https://www.anthropic.com/pricing
   - https://claude.ai
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
 observed_by: whysanesanders

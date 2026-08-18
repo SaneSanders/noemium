@@ -13,6 +13,16 @@ receipts:
   - https://n8n.io
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 20
+  tools:
+    - anthropic-api
+    - qdrant
+    - n8n
+  tradeoff: >-
+    Same Anthropic + Qdrant, but you self-host n8n instead of Cloud Starter.
+    You save ~$25 and inherit Docker, backups and upgrades. If you don't
+    already run a server, the $25 is cheaper than the ops time.
 ---
 
 ## The recipe

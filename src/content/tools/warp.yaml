@@ -1,0 +1,28 @@
+name: Warp
+tagline: Modern terminal with a first-party coding agent — credits for Warp Agent, BYOK on Free.
+url: https://www.warp.dev
+category: coding
+pricing: freemium
+price_note: "Free $0 (BYOK + limited agent); Build from $20/mo (1,500 credits); Max from $200/mo (18,000 credits); Business from $50/user/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  The terminal people already wanted, now with an agent meter. Free stays a
+  real terminal plus BYOK; Build is $20 for 1,500 credits at API-shaped rates.
+  Factories (cloud agent fleets) are a second SKU with a 20% PAYG markup.
+  Closed client. No hands-on run in this catalog pass.
+limitations:
+  - Agent credits and terminal UX are sold together; heavy agent use is not the Free plan.
+  - Cloud agents and Factories are extra surface area with their own markup.
+  - Closed source; you cannot audit the client or self-host the agent service.
+  - Team SSO and BYOLLM sit on Business/Enterprise, not Build.
+receipts:
+  - https://www.warp.dev/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

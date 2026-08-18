@@ -11,6 +11,8 @@ import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/500.css';
 import '@fontsource/jetbrains-mono/700.css';
 import CommandPalette from '../islands/CommandPalette';
+import ProofDrawer from '../islands/ProofDrawer';
+import { COMPARE_HREF } from '../lib/shelf';
 
 interface Props {
   title: string;
@@ -20,22 +22,34 @@ interface Props {
 
 const {
   title,
-  description = 'Noemium — an open, auditable directory of AI tools, agent field guides, stacks and models. No pay-to-list. Every recommendation is a PR you can audit.',
+  description = 'Noemium — pick AI tools without getting played. An open catalog of AI tools, stacks and models. No pay-to-list. Every recommendation is a PR you can audit.',
   ogImage = '/og/noemium.png',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage, Astro.site);
+const cfBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN as string | undefined;
+const path = Astro.url.pathname;
 const navItems = [
   { href: '/tools', name: 'Tools' },
   { href: '/agents', name: 'Agents' },
   { href: '/stacks', name: 'Stacks' },
   { href: '/models', name: 'Models' },
   { href: '/quiz', name: 'Quiz' },
-  { href: '/tools/compare', name: 'Compare' },
+  { href: COMPARE_HREF, name: 'Compare' },
   { href: '/changelog', name: 'Changelog' },
-  { href: '/contribute', name: 'Contribute' },
+  { href: '/about', name: 'About' },
 ];
+
+function navCurrent(href: string): boolean {
+  const clean = href.split('?')[0] ?? href;
+  if (clean === '/tools') {
+    return path === '/tools' || (path.startsWith('/tools/') && !path.startsWith('/tools/compare'));
+  }
+  if (clean === '/tools/compare') return path.startsWith('/tools/compare');
+  if (clean === '/quiz') return path === '/quiz' || path.startsWith('/quiz/');
+  return path === clean || path.startsWith(`${clean}/`);
+}
 ---
 
 <!doctype html>
@@ -59,7 +73,7 @@ const navItems = [
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" type="application/rss+xml" title="Noemium observations" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Noemium weekly catalog diff" href="/rss.xml" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`Noemium — ${title}`} />
     <meta property="og:description" content={description} />
@@ -67,21 +81,41 @@ const navItems = [
     <meta property="og:site_name" content="Noemium" />
     <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`Noemium — ${title}`} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:site" content="@noemiumai" />
     <ClientRouter />
+    {
+      cfBeacon && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: cfBeacon })}
+        />
+      )
+    }
   </head>
   <body class="flex min-h-screen flex-col bg-paper font-body text-ink antialiased">
+    <a
+      href="#nm-main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:border-[1.5px] focus:border-ink focus:bg-accent focus:px-3 focus:py-2 focus:font-mono focus:text-sm focus:text-on-accent"
+    >
+      Skip to content
+    </a>
     <header class="pt-6">
       <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6">
         <a href="/" class="font-display text-2xl font-extrabold tracking-tight text-ink">
           noemium<sup class="ml-1.5 align-super font-mono text-[10px] font-medium tracking-wider text-accent uppercase">open beta</sup>
         </a>
-        <nav class="hidden items-center gap-5 lg:flex xl:gap-7">
+        <nav class="hidden items-center gap-5 lg:flex xl:gap-7" aria-label="Primary">
           {
             navItems.map((item) => (
               <a
                 href={item.href}
                 class="text-sm font-semibold tracking-tight text-ink opacity-70 transition-opacity duration-100 hover:opacity-100"
+                aria-current={navCurrent(item.href) ? 'page' : undefined}
               >
                 {item.name}
               </a>
@@ -92,7 +126,7 @@ const navItems = [
           <button
             id="nm-theme-toggle"
             type="button"
-            aria-label="Toggle light theme"
+            aria-label="Switch to light theme"
             class="rounded-md border-[1.5px] border-ink bg-card p-2 text-ink shadow-hard-sm transition-all duration-100 hover:-translate-0.5 hover:shadow-hard"
           >
             <svg
@@ -127,11 +161,11 @@ const navItems = [
           <button
             type="button"
             onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
-            class="hidden items-center gap-2.5 rounded-full border-[1.5px] border-ink bg-card px-4 py-2 font-mono text-[13px] font-medium text-ink shadow-hard-sm transition-all duration-100 hover:-translate-0.5 hover:shadow-hard sm:inline-flex"
+            class="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-ink bg-card px-4 py-2 font-mono text-[13px] font-medium text-ink shadow-hard-sm transition-all duration-100 hover:-translate-0.5 hover:shadow-hard"
             aria-label="Open command palette (⌘K)"
           >
             <span>Search</span>
-            <span class="text-[11px] opacity-55">⌘K</span>
+            <span class="hidden text-[11px] opacity-55 sm:inline">⌘K</span>
           </button>
           <button
             id="nm-nav-open"
@@ -189,9 +223,22 @@ const navItems = [
         </button>
       </div>
       <nav class="flex flex-1 flex-col justify-center px-6">
+        <button
+          type="button"
+          data-nm-palette
+          class="group flex items-baseline gap-4 border-b border-line-soft py-4 text-left"
+        >
+          <span class="font-display text-4xl font-extrabold tracking-tight text-ink uppercase transition-colors group-hover:text-accent">
+            Search
+          </span>
+        </button>
         {
           navItems.map((item) => (
-            <a href={item.href} class="group flex items-baseline gap-4 border-b border-line-soft py-4 last:border-b-0">
+            <a
+              href={item.href}
+              class="group flex items-baseline gap-4 border-b border-line-soft py-4 last:border-b-0"
+              aria-current={navCurrent(item.href) ? 'page' : undefined}
+            >
               <span class="font-display text-4xl font-extrabold tracking-tight text-ink uppercase transition-colors group-hover:text-accent">
                 {item.name}
               </span>
@@ -201,7 +248,7 @@ const navItems = [
       </nav>
     </div>
 
-    <main class="mx-auto w-full max-w-7xl flex-1 px-6">
+    <main id="nm-main" class="mx-auto w-full max-w-7xl flex-1 px-6">
       <slot />
     </main>
 
@@ -215,10 +262,14 @@ const navItems = [
         </p>
         <p class="flex flex-wrap items-center gap-5 font-mono text-xs text-ink-dim">
           <a href="https://github.com/SaneSanders/noemium" class="hover:text-ink" rel="noopener">GitHub</a>
+          <a href="/about" class="hover:text-ink">About</a>
+          <a href="/method" class="hover:text-ink">Method</a>
           <a href="/contribute" class="hover:text-ink">Contribute</a>
           <a href="/search" class="hover:text-ink">Search</a>
           <a href="/graveyard" class="hover:text-ink">Graveyard</a>
           <a href="/rss.xml" class="hover:text-ink">RSS</a>
+          <a href="/llms.txt" class="hover:text-ink">llms.txt</a>
+          <a href="/api/tools.json" class="hover:text-ink">tools.json</a>
           <a href="https://x.com/whysanesanders" class="hover:text-ink" rel="noopener">@whysanesanders</a>
         </p>
         <span class="font-display text-lg font-extrabold tracking-tight">noemium</span>
@@ -226,6 +277,7 @@ const navItems = [
     </footer>
 
     <CommandPalette client:idle transition:persist />
+    <ProofDrawer client:idle transition:persist />
 
     <script>
       // Mobile nav overlay. Delegated listeners bind once and survive view
@@ -238,6 +290,14 @@ const navItems = [
         document.getElementById('nm-nav-open')?.setAttribute('aria-expanded', String(open));
         document.body.style.overflow = open ? 'hidden' : '';
       }
+      function syncThemeLabel() {
+        const btn = document.getElementById('nm-theme-toggle');
+        if (!btn) return;
+        const light = document.documentElement.dataset.theme === 'light';
+        btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+      }
+      syncThemeLabel();
+      document.addEventListener('astro:page-load', syncThemeLabel);
       document.addEventListener('click', (e) => {
         const t = e.target;
         if (!(t instanceof Element)) return;
@@ -247,6 +307,10 @@ const navItems = [
           if (light) delete root.dataset.theme;
           else root.dataset.theme = 'light';
           localStorage.setItem('nm-theme', light ? 'dark' : 'light');
+          syncThemeLabel();
+        } else if (t.closest('[data-nm-palette]')) {
+          setMobileNav(false);
+          window.dispatchEvent(new CustomEvent('nm:palette:open'));
         } else if (t.closest('#nm-nav-open')) setMobileNav(true);
         else if (t.closest('#nm-nav-close') || t.closest('#nm-mobile-nav a')) setMobileNav(false);
       });

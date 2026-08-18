@@ -1,0 +1,29 @@
+name: Steel
+tagline: Open-source cloud browsers for agents — sessions API, CAPTCHA, proxies, or Docker self-host.
+url: https://steel.dev
+category: data
+pricing: freemium
+price_note: "Launch $0 + usage ($30 one-time credits, $0.10/browser-hour); Scale $250/mo + usage ($0.08/h, $100 credits/mo); proxy $6–$10/GB"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Browserbase-shaped, with a public OSS docker story. Launch is $0 plus
+  $0.10/hour after a $30 credit. Scale drops the hour rate and raises
+  session length. CAPTCHA/proxies on Launch need a $10 paid deposit.
+  Adjacent to Browser Use, not a duplicate.
+limitations:
+  - Launch sessions cap at 15 minutes; 24h sessions are Enterprise.
+  - Proxies and CAPTCHA on Launch require a $10 paid balance, not free credits.
+  - Stealth browser is Enterprise-only on the June 2026 limits table.
+  - Browser hours round up to the next minute.
+receipts:
+  - https://docs.steel.dev/overview/pricinglimits
+  - https://github.com/steel-dev/steel-browser
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

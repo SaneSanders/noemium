@@ -15,6 +15,15 @@ receipts:
   - https://github.com/features/copilot
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 20
+  tools:
+    - cursor
+    - github-copilot
+  tradeoff: >-
+    Cursor Pro plus Copilot free. No Claude Code, no OpenRouter. Spec-driven
+    scaffolding still works; "make the build green" across many files gets
+    slower when the Cursor allowance runs out.
 ---
 
 ## The recipe

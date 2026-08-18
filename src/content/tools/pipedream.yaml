@@ -1,0 +1,29 @@
+name: Pipedream
+tagline: Workflow automation plus Connect APIs for embedding 3,000+ apps into your own product.
+url: https://pipedream.com
+category: automation
+pricing: freemium
+price_note: "Free plan with daily credit cap; paid platform fee includes a credit base — see pipedream.com/pricing; Connect also bills unique end users"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Zapier for people who will write Node in a step. Credits are 30s of
+  256MB compute, not per-step. Connect is a second product: credits plus
+  unique end users. Docs are the receipt; the marketing pricing page is
+  JS-heavy. Prototype on Free, don't pretend the daily cap is production.
+limitations:
+  - Free has a daily credit ceiling; overage requires a paid plan.
+  - Memory bumps multiply credits (512MB = 2×).
+  - Connect production and unique-user billing are easy to miss at prototype time.
+  - Custom private event sources are not covered by the "source run is free" rule.
+receipts:
+  - https://pipedream.com/docs/pricing
+  - https://pipedream.com/pricing
+affiliate: none
+momentum: steady
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

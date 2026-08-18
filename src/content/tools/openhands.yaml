@@ -1,0 +1,30 @@
+name: OpenHands
+tagline: Open-source software-engineering agent — GUI, CLI, SDK, plus a hosted Cloud.
+url: https://openhands.dev
+category: coding
+pricing: freemium
+price_note: "self-host MIT/community repos free (BYOK); Cloud is commercial at app.all-hands.dev — no public HTML $ card fetched, confirm in-product"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The open Devin-shaped stack: Agent Canvas in the browser, a Python SDK,
+  CLI, and sandboxes you can run yourself. Cloud is a hosted SKU, not the
+  license. Repos split MIT vs commercial enterprise directories — read the
+  LICENSE in the repo you actually deploy. Not field-run here.
+limitations:
+  - Cloud pricing is in-product; this card will not invent a $20 figure from blogs.
+  - Multiple repos (Canvas, SDK, sandbox, automation) — "OpenHands" is a family.
+  - You still bring a model; sandbox compute is the other bill.
+  - Legacy Local GUI is deprecated; Canvas is the current browser client.
+receipts:
+  - https://docs.openhands.dev
+  - https://github.com/OpenHands/OpenHands
+  - https://docs.openhands.dev/openhands/usage/cloud/openhands-cloud
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

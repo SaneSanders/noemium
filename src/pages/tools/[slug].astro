@@ -5,7 +5,11 @@ import Base from '../../layouts/Base.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 import ShiftArrow from '../../components/ShiftArrow.astro';
 import ToolCard from '../../components/ToolCard.astro';
+import VerifiedStamp from '../../components/VerifiedStamp.astro';
+import CopyButton from '../../components/CopyButton.astro';
 import { logoSrc } from '../../lib/logos';
+import { observationMarkdown } from '../../lib/observation';
+import { relatedIds, SKIP_ALTERNATIVE } from '../../lib/shelf';
 import changelog from '../../data/changelog.json';
 
 export const getStaticPaths = (async () => {
@@ -17,14 +21,28 @@ const { tool } = Astro.props;
 const t = tool.data;
 const logo = logoSrc(tool.id);
 
-const related = (await getCollection('tools'))
-  .filter((x) => x.data.category === t.category && x.id !== tool.id)
-  .slice(0, 3);
+const catalog = await getCollection('tools');
+const relatedIdList = relatedIds(
+  tool.id,
+  catalog.map((x) => ({
+    id: x.id,
+    name: x.data.name,
+    category: x.data.category,
+    tagline: x.data.tagline,
+    verdict: x.data.verdict,
+    last_verified: x.data.last_verified,
+  })),
+);
+const related = relatedIdList
+  .map((id) => catalog.find((x) => x.id === id))
+  .filter((x) => x !== undefined);
+const skipPeer = SKIP_ALTERNATIVE[tool.id];
+const skipPeerTool = skipPeer ? catalog.find((x) => x.id === skipPeer) : undefined;
 
 const facts: [string, string][] = [
   ['pricing', t.pricing],
   ...(t.price_note ? ([['price note', t.price_note]] as [string, string][]) : []),
-  ['free tier', t.free_tier ? 'yes' : 'no'],
+  ['free tier', t.free_tier ? (t.pricing === 'paid' ? 'yes — paid to keep using' : 'yes') : 'no'],
   ['open source', t.open_source ? 'yes' : 'no'],
   ['api', t.api ? 'yes' : 'no'],
   ['self-host', t.self_host ? 'yes' : 'no'],
@@ -46,6 +64,17 @@ const jsonLd = {
   url: t.url,
   description: t.tagline,
   applicationCategory: t.category,
+  dateModified: t.last_verified,
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'USD',
+    category: t.pricing,
+    description: t.price_note ?? t.pricing,
+    availability:
+      t.pricing === 'free'
+        ? 'https://schema.org/FreeOfCharge'
+        : 'https://schema.org/InStock',
+  },
 };
 
 // Price trail — pricing revisions for this tool, straight from the changelog
@@ -97,7 +126,11 @@ const shortTrail = (v: string | null) => {
       <a href={t.url} class="nm-btn nm-btn-solid" rel="noopener">
         Visit {hostname(t.url)} →
       </a>
-      <span class="nm-verified">Verified {t.last_verified}</span>
+      <CopyButton
+        label="Copy observation"
+        text={observationMarkdown(t, new URL(`/tools/${tool.id}`, Astro.site).href)}
+      />
+      <VerifiedStamp slug={tool.id} date={t.last_verified} />
       {t.affiliate === 'declared' && <span class="font-mono text-xs text-ink-dim">affiliate link declared</span>}
     </p>
     {
@@ -121,6 +154,17 @@ const shortTrail = (v: string | null) => {
         ledger entry · observed by @{t.observed_by}
       </p>
       <p class="mt-4 max-w-3xl text-lg leading-relaxed">{t.verdict_text}</p>
+      {
+        t.verdict === 'skip' && skipPeerTool && (
+          <p class="mt-4 font-mono text-[13px] text-ink-dim">
+            Skip this for the same job — try{' '}
+            <a href={`/tools/${skipPeerTool.id}`} class="text-accent hover:underline">
+              {skipPeerTool.data.name}
+            </a>
+            .
+          </p>
+        )
+      }
     </section>
 
     {
@@ -223,9 +267,9 @@ const shortTrail = (v: string | null) => {
       related.length > 0 && (
         <section class="mt-16">
           <h2 class="flex flex-wrap items-baseline justify-between gap-x-6 font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
-            <span>Same shelf — {t.category}</span>
+            <span>Similar job</span>
             <a href={`/alternatives/${tool.id}`} class="text-accent normal-case hover:underline">
-              all {t.category} alternatives →
+              all alternatives →
             </a>
           </h2>
           <div class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

@@ -1,0 +1,31 @@
+name: Google Antigravity
+tagline: Google's agentic IDE — free individual preview, paid quota via Google AI Pro/Ultra, org via Cloud.
+url: https://antigravity.google
+category: coding
+pricing: freemium
+price_note: "individual $0/mo with weekly agent caps; higher quota via Google AI Pro $19.99/mo or Ultra from $99.99/mo; orgs via Google Cloud consumption"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - gemini-3-1-pro-preview
+verdict: situational
+verdict_text: >-
+  A real Google coding surface, not Gemini Code Assist: agent models (Gemini,
+  Claude, gpt-oss) inside Antigravity, unlimited tab/command on the free
+  individual plan, paid quota bolted onto Google AI Pro/Ultra. Rate-limit
+  opacity is the tax. Separate from the Gemini consumer app and from Code Assist.
+limitations:
+  - Agent quota is weekly/credit-shaped; the public page does not publish a token rate card.
+  - Hitting the cap locks you until refresh unless you buy AI credits or Ultra.
+  - Organization access is Google Cloud / Gemini Enterprise, not a self-serve IDE seat.
+  - Not a replacement for Gemini Code Assist in existing JetBrains/VS Code installs.
+receipts:
+  - https://antigravity.google/pricing
+  - https://gemini.google/subscriptions/
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

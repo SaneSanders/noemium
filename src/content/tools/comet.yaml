@@ -1,0 +1,31 @@
+name: Comet
+tagline: Perplexity's agentic browser — free download; Comet Plus is a $5 journalism add-on.
+url: https://www.perplexity.ai/comet
+category: productivity
+pricing: freemium
+price_note: "browser free worldwide; Comet Plus $5/mo standalone, included with Perplexity Pro/Max; Comet Agent quotas follow Pro/Max on the hub pricing table"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A separate product from Perplexity search: Chromium with an assistant
+  that can click and fill. The browser itself went free. Comet Plus is
+  publisher access at $5, not the browser license. Agent depth still
+  tracks the Perplexity seat. This pass hit Cloudflare/timeouts on the
+  Comet URLs — receipts are the Plus announcement and hub pricing, not a
+  live install. Not Dia.
+limitations:
+  - perplexity.ai/comet timed out for this bot; confirm download in a browser.
+  - Comet Agent is quota-gated on Free vs Pro/Max — the free browser is not unlimited agent.
+  - Comet Plus is journalism access, not more agent compute.
+  - This is not a second Perplexity search card; citations still live on perplexity.ai.
+receipts:
+  - https://www.perplexity.ai/hub/blog/introducing-comet-plus
+  - https://www.perplexity.ai/hub/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

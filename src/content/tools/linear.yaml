@@ -1,0 +1,28 @@
+name: Linear
+tagline: Issue tracker with a first-party agent platform — issues, cycles, and an agent that can open coding sessions.
+url: https://linear.app
+category: productivity
+pricing: freemium
+price_note: "Free $0 (2 teams, 250 issues); Basic $10/user/mo billed yearly; Business $16/user/mo billed yearly; coding sessions spend AI credits"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  The tracker teams actually keep using. Agent platform and Linear Agent ship
+  on Free; coding sessions are starred as AI-credit extras. Basic/Business are
+  yearly-priced on the public page. This is project ops, not an IDE. No
+  production workspace run in this pass.
+limitations:
+  - Free caps at 250 issues and 2 teams.
+  - Coding sessions and some agent features consume AI credits on top of the seat.
+  - Business/Enterprise features (Asks, Insights, SAML) are not on Basic.
+  - Not a substitute for GitHub Issues if the team already lives in PRs only.
+receipts:
+  - https://linear.app/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

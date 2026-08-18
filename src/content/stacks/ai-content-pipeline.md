@@ -17,6 +17,17 @@ receipts:
   - https://elevenlabs.io/pricing
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 14
+  tools:
+    - chatgpt
+    - ideogram
+    - elevenlabs
+  tradeoff: >-
+    Free ChatGPT instead of Claude Pro and Perplexity Pro, and no Kling. You
+    keep Ideogram quote cards and an ElevenLabs starter voice. You lose cited
+    research and the weekly motion clip. Fine for a side account; a daily
+    posting job will hit free-tier walls mid-week.
 ---
 
 ## The recipe

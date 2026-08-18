@@ -1,0 +1,29 @@
+name: Amp
+tagline: Sourcegraph's agentic coding product (not Cody) — subscription orbs plus linked ChatGPT/Grok usage.
+url: https://ampcode.com
+category: coding
+pricing: paid
+price_note: "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing; education $10/mo"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Amp is the product Sourcegraph actually pushes; Cody is the skip. $20
+  Megawatt includes agent usage and a pile of "orbs," and you can attach a
+  ChatGPT or SuperGrok sub for extra tokens at no Amp markup. Closed, hosted,
+  and still a second IDE habit. Cody remains a separate, enterprise-only card.
+limitations:
+  - No public free tier on the Amp pricing page.
+  - Orb hours and included agent dollars are two different meters.
+  - Max two subscriptions per human; orbs are not a resale compute pool.
+  - Team workspace billing is manual — no auto-seat provisioning yet.
+receipts:
+  - https://ampcode.com/pricing
+  - https://sourcegraph.com/docs/cody
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-18"
+observed_by: whysanesanders

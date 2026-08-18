@@ -4,10 +4,11 @@
 
 ![Noemium — the AI landscape, observed](.github/hero.png)
 
-**The AI landscape, observed.**
+**Pick AI tools without getting played.**
 
 AI directories are pay-to-list. [Noemium](https://noemium.com) is open
-source. Every recommendation is a PR you can audit. No theory, receipts.
+source. Every recommendation is a PR you can audit. Receipts where we
+print a number.
 
 Noemium is a hub for AI practitioners:
 

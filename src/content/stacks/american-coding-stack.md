@@ -15,6 +15,14 @@ receipts:
   - https://platform.openai.com/docs
 last_verified: "2026-08-16"
 observed_by: whysanesanders
+budget:
+  monthly_cost_usd: 20
+  tools:
+    - cursor
+  tradeoff: >-
+    Cursor Pro, nothing else. No Claude Code terminal agent, no Copilot PR
+    summaries, no OpenAI glue API. One watched editor seat. Fine for a solo
+    app; a production incident will make you miss the other three.
 ---
 
 ## Why this stack exists

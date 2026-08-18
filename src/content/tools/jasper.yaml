@@ -3,7 +3,7 @@ tagline: Marketing-focused AI writing platform for teams and brand voice.
 url: https://www.jasper.ai
 category: writing
 pricing: paid
-price_note: "Pro $69/seat/mo or $59/seat/mo billed yearly"
+price_note: "$69/seat/mo"
 free_tier: false
 open_source: false
 api: true
@@ -12,15 +12,15 @@ verdict: skip
 verdict_text: >-
   The original GPT wrapper, now squeezed between ChatGPT and Claude at
   $20 and free AI built into every app. Brand-voice features are nice,
-  but not $39+/mo nice when the raw models handle most of it.
+  but not $69/mo nice when the raw models handle most of it.
 limitations:
   - Core value is a wrapper over models you can access directly.
   - Expensive per seat for what it delivers.
   - Output needs the same editing as raw ChatGPT output.
 receipts:
-  - https://www.jasper.ai
+  - https://www.jasper.ai/pricing
 affiliate: none
 momentum: redshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-18"
 observed_by: whysanesanders
