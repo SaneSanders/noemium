@@ -1,16 +1,298 @@
 {
-  "generated_at": "2026-08-18T11:34:04.206Z",
+  "generated_at": "2026-08-18T13:01:26.524Z",
   "weeks": [
     {
       "id": "2026-W34",
       "from": "2026-08-17",
       "to": "2026-08-24",
       "counts": {
-        "added": 14,
+        "added": 61,
         "removed": 0,
-        "changed": 5
+        "changed": 11
       },
       "added": [
+        {
+          "collection": "tools",
+          "slug": "activepieces",
+          "name": "Activepieces",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "amp",
+          "name": "Amp",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "assemblyai",
+          "name": "AssemblyAI",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "bolt-new",
+          "name": "Bolt.new",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "browser-use",
+          "name": "Browser Use",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "chroma",
+          "name": "Chroma",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "cline",
+          "name": "Cline",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "comet",
+          "name": "Comet",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepseek-chat",
+          "name": "DeepSeek Chat",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "dia",
+          "name": "Dia",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "e2b",
+          "name": "E2B",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "fathom",
+          "name": "Fathom",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "figma",
+          "name": "Figma",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "fish-audio",
+          "name": "Fish Audio",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini-nano-banana",
+          "name": "Gemini Nano Banana 2",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini",
+          "name": "Gemini",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "google-antigravity",
+          "name": "Google Antigravity",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "goose",
+          "name": "Goose",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "gpt-image",
+          "name": "GPT Image 2",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "grok",
+          "name": "Grok",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "kilo-code",
+          "name": "Kilo Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "kimi-api",
+          "name": "Kimi API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "kiro",
+          "name": "Kiro",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "langfuse",
+          "name": "Langfuse",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "linear",
+          "name": "Linear",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "litellm",
+          "name": "LiteLLM",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "llamaparse",
+          "name": "LlamaParse",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "lovable",
+          "name": "Lovable",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "ltx-studio",
+          "name": "LTX Studio",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "mastra",
+          "name": "Mastra",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "mistral-vibe",
+          "name": "Mistral Vibe",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "ollama",
+          "name": "Ollama",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "open-webui",
+          "name": "Open WebUI",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "openai-agents-sdk",
+          "name": "OpenAI Agents SDK",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "openai-codex",
+          "name": "OpenAI Codex",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "openhands",
+          "name": "OpenHands",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "parallel",
+          "name": "Parallel",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "photoroom",
+          "name": "Photoroom",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "pi",
+          "name": "Pi",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "pipedream",
+          "name": "Pipedream",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "pydantic-ai",
+          "name": "PydanticAI",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "reve",
+          "name": "Reve",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "steel",
+          "name": "Steel",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "vllm",
+          "name": "vLLM",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "voyage-ai",
+          "name": "Voyage AI",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "wan",
+          "name": "Wan",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "warp",
+          "name": "Warp",
+          "category": "coding"
+        },
         {
           "collection": "agents",
           "slug": "deerflow",
@@ -86,6 +368,60 @@
       "changed": [
         {
           "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "category": "coding",
+          "field": "price note",
+          "from": "included in Claude Pro from $20/mo; API pay-per-token",
+          "to": "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
+        },
+        {
+          "collection": "tools",
+          "slug": "claude",
+          "name": "Claude",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free tier; Pro $20/mo",
+          "to": "free tier; Pro $20/mo ($17/mo billed yearly, $200 up front); Max from $100/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding",
+          "field": "price note",
+          "from": "from $20/mo (Pro)",
+          "to": "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
+        },
+        {
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "category": "coding",
+          "field": "price note",
+          "from": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo",
+          "to": "Free $0 (2,000 completions/mo + Copilot CLI); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
+        },
+        {
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "category": "writing",
+          "field": "price note",
+          "from": "Pro $69/seat/mo or $59/seat/mo billed yearly",
+          "to": "$69/seat/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "zapier",
+          "name": "Zapier",
+          "category": "automation",
+          "field": "price note",
+          "from": "free tier (100 tasks/mo); Professional from $20/mo",
+          "to": "free 100 tasks/mo; Professional from $19.99/mo billed yearly (750 tasks) or $29.99/mo monthly"
+        },
+        {
+          "collection": "tools",
           "slug": "dify",
           "name": "Dify",
           "category": "agents",
@@ -141,6 +477,130 @@
         "changed": 72
       },
       "added": [
+        {
+          "collection": "stacks",
+          "slug": "ai-content-pipeline",
+          "name": "AI Content Pipeline for X/Twitter"
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-customer-support",
+          "name": "AI Customer Support for Small Business"
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-video-studio",
+          "name": "AI Video Studio"
+        },
+        {
+          "collection": "stacks",
+          "slug": "american-coding-stack",
+          "name": "American Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "chinese-coding-stack",
+          "name": "Chinese Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "maxed-out-dev-stack",
+          "name": "Maxed-Out Dev Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "mixed-coding-stack",
+          "name": "Mixed US × CN Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "one-person-studio",
+          "name": "One-Person Studio"
+        },
+        {
+          "collection": "stacks",
+          "slug": "rag-over-docs",
+          "name": "RAG Over Company Docs"
+        },
+        {
+          "collection": "stacks",
+          "slug": "research-max-stack",
+          "name": "Research Max Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "solo-founder-saas",
+          "name": "Solo Founder SaaS"
+        },
+        {
+          "collection": "stacks",
+          "slug": "student-coding-shoestring",
+          "name": "Student Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "student-zero-budget",
+          "name": "Student Stack: Zero Budget"
+        },
+        {
+          "collection": "stacks",
+          "slug": "vibe-coding-stack",
+          "name": "Vibe Coding Stack 2026"
+        },
+        {
+          "collection": "tools",
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "claude",
+          "name": "Claude",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "kimi-code",
+          "name": "Kimi Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "windsurf",
+          "name": "Windsurf",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "zapier",
+          "name": "Zapier",
+          "category": "agents"
+        },
         {
           "collection": "tools",
           "slug": "cody",
@@ -251,12 +711,6 @@
         },
         {
           "collection": "tools",
-          "slug": "windsurf",
-          "name": "Windsurf",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "yi-api",
           "name": "01.AI Yi API",
           "category": "models-api"
@@ -271,12 +725,6 @@
           "collection": "tools",
           "slug": "codegeex",
           "name": "CodeGeeX",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
           "category": "coding"
         },
         {
@@ -296,12 +744,6 @@
           "slug": "hunyuan-video",
           "name": "Hunyuan Video",
           "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "kimi-code",
-          "name": "Kimi Code",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -350,78 +792,8 @@
         },
         {
           "collection": "stacks",
-          "slug": "ai-content-pipeline",
-          "name": "AI Content Pipeline for X/Twitter"
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-customer-support",
-          "name": "AI Customer Support for Small Business"
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-video-studio",
-          "name": "AI Video Studio"
-        },
-        {
-          "collection": "stacks",
-          "slug": "american-coding-stack",
-          "name": "American Coding Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "chinese-coding-stack",
-          "name": "Chinese Coding Stack"
-        },
-        {
-          "collection": "stacks",
           "slug": "local-first-ai",
           "name": "Local-First Private AI Setup"
-        },
-        {
-          "collection": "stacks",
-          "slug": "maxed-out-dev-stack",
-          "name": "Maxed-Out Dev Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "mixed-coding-stack",
-          "name": "Mixed US × CN Coding Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "one-person-studio",
-          "name": "One-Person Studio"
-        },
-        {
-          "collection": "stacks",
-          "slug": "rag-over-docs",
-          "name": "RAG Over Company Docs"
-        },
-        {
-          "collection": "stacks",
-          "slug": "research-max-stack",
-          "name": "Research Max Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "solo-founder-saas",
-          "name": "Solo Founder SaaS"
-        },
-        {
-          "collection": "stacks",
-          "slug": "student-coding-shoestring",
-          "name": "Student Coding Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "student-zero-budget",
-          "name": "Student Stack: Zero Budget"
-        },
-        {
-          "collection": "stacks",
-          "slug": "vibe-coding-stack",
-          "name": "Vibe Coding Stack 2026"
         },
         {
           "collection": "tools",
@@ -963,24 +1335,6 @@
         },
         {
           "collection": "tools",
-          "slug": "chatgpt",
-          "name": "ChatGPT",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "claude",
-          "name": "Claude",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
           "slug": "cohere",
           "name": "Cohere",
           "category": "models-api"
@@ -1035,12 +1389,6 @@
         },
         {
           "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "google-ai-studio",
           "name": "Google AI Studio / Gemini API",
           "category": "models-api"
@@ -1080,12 +1428,6 @@
           "slug": "ideogram",
           "name": "Ideogram",
           "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "category": "writing"
         },
         {
           "collection": "tools",
@@ -1293,12 +1635,6 @@
         },
         {
           "collection": "tools",
-          "slug": "zapier",
-          "name": "Zapier",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
           "slug": "zed",
           "name": "Zed",
           "category": "coding"
@@ -1353,6 +1689,74 @@
       ],
       "changed": [
         {
+          "collection": "stacks",
+          "slug": "ai-content-pipeline",
+          "name": "AI Content Pipeline for X/Twitter",
+          "field": "monthly cost",
+          "from": 63,
+          "to": 61
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-video-studio",
+          "name": "AI Video Studio",
+          "field": "monthly cost",
+          "from": 60,
+          "to": 67
+        },
+        {
+          "collection": "stacks",
+          "slug": "rag-over-docs",
+          "name": "RAG Over Company Docs",
+          "field": "monthly cost",
+          "from": 30,
+          "to": 10
+        },
+        {
+          "collection": "stacks",
+          "slug": "solo-founder-saas",
+          "name": "Solo Founder SaaS",
+          "field": "monthly cost",
+          "from": 40,
+          "to": 20
+        },
+        {
+          "collection": "tools",
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Plus $20/mo",
+          "to": "free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "category": "coding",
+          "field": "price note",
+          "from": "free tier; Pro $10/mo",
+          "to": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "category": "writing",
+          "field": "price note",
+          "from": "from ~$39/mo (Creator)",
+          "to": "Pro $69/seat/mo or $59/seat/mo billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "windsurf",
+          "name": "Devin Desktop (ex Windsurf)",
+          "category": "coding",
+          "field": "price note",
+          "from": "from $15/mo (Pro)",
+          "to": "free tier; Pro $20/mo, Max $200/mo"
+        },
+        {
           "collection": "tools",
           "slug": "cody",
           "name": "Sourcegraph Cody",
@@ -1387,47 +1791,6 @@
           "field": "price note",
           "from": "free one-time credits; from $15/mo (Standard)",
           "to": "free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "windsurf",
-          "name": "Devin Desktop (ex Windsurf)",
-          "category": "coding",
-          "field": "price note",
-          "from": "from $15/mo (Pro)",
-          "to": "free tier; Pro $20/mo, Max $200/mo"
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-content-pipeline",
-          "name": "AI Content Pipeline for X/Twitter",
-          "field": "monthly cost",
-          "from": 63,
-          "to": 61
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-video-studio",
-          "name": "AI Video Studio",
-          "field": "monthly cost",
-          "from": 60,
-          "to": 67
-        },
-        {
-          "collection": "stacks",
-          "slug": "rag-over-docs",
-          "name": "RAG Over Company Docs",
-          "field": "monthly cost",
-          "from": 30,
-          "to": 10
-        },
-        {
-          "collection": "stacks",
-          "slug": "solo-founder-saas",
-          "name": "Solo Founder SaaS",
-          "field": "monthly cost",
-          "from": 40,
-          "to": 20
         },
         {
           "collection": "tools",
@@ -1487,15 +1850,6 @@
           "field": "price note",
           "from": "Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input",
           "to": "pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
-        },
-        {
-          "collection": "tools",
-          "slug": "chatgpt",
-          "name": "ChatGPT",
-          "category": "writing",
-          "field": "price note",
-          "from": "free tier; Plus $20/mo",
-          "to": "free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
         },
         {
           "collection": "tools",
@@ -1571,15 +1925,6 @@
         },
         {
           "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "category": "coding",
-          "field": "price note",
-          "from": "free tier; Pro $10/mo",
-          "to": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
-        },
-        {
-          "collection": "tools",
           "slug": "google-ai-studio",
           "name": "Google AI Studio / Gemini API",
           "category": "models-api",
@@ -1613,15 +1958,6 @@
           "field": "price note",
           "from": "free tier; from $8/mo (Plus)",
           "to": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "category": "writing",
-          "field": "price note",
-          "from": "from ~$39/mo (Creator)",
-          "to": "Pro $69/seat/mo or $59/seat/mo billed yearly"
         },
         {
           "collection": "tools",
