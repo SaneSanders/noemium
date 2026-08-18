@@ -1,5 +1,12 @@
 import { useMemo, useState } from 'preact/hooks';
 
+export interface Benchmark {
+  name: string;
+  score: number | string;
+  source: string;
+  date: string;
+}
+
 export interface ModelRecord {
   slug: string;
   name: string;
@@ -12,6 +19,9 @@ export interface ModelRecord {
   open_weights: boolean;
   popularity: number;
   best_for: string[];
+  avoid_for: string[];
+  benchmarks?: Benchmark[];
+  source_attribution: string;
 }
 
 type Task = 'coding' | 'writing' | 'vision' | 'audio' | 'video' | 'agents';
@@ -226,7 +236,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
       </div>
 
       <div class="nm-card mt-6 overflow-x-auto">
-        <table class="w-full min-w-[720px] border-collapse bg-card text-left">
+        <table class="w-full min-w-[1120px] border-collapse bg-card text-left">
           <thead>
             <tr class="border-b-[1.5px] border-ink">
               {header('name', 'model', 'sticky left-0 bg-card')}
@@ -241,6 +251,15 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
               </th>
               <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 best for
+              </th>
+              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+                avoid for
+              </th>
+              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+                benchmarks
+              </th>
+              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+                source
               </th>
             </tr>
           </thead>
@@ -299,6 +318,24 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                     )}
                   </td>
                   <td class="max-w-64 p-3 text-[13px] text-ink-dim">{m.best_for.slice(0, 2).join('; ')}</td>
+                  <td class="max-w-64 p-3 text-[13px] text-ink-dim">{m.avoid_for.slice(0, 2).join('; ')}</td>
+                  <td class="max-w-72 p-3">
+                    {m.benchmarks && m.benchmarks.length > 0 ? (
+                      <ul class="space-y-1">
+                        {m.benchmarks.map((b, i) => (
+                          <li key={`${b.name}-${i}`} class="font-mono text-[12px]">
+                            <span class="text-ink">
+                              {b.name}: {b.score}
+                            </span>
+                            <span class="text-ink-dim"> · {b.source} · {b.date}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <span class="font-mono text-[12px] text-ink-dim">—</span>
+                    )}
+                  </td>
+                  <td class="max-w-56 p-3 text-[13px] text-ink-dim">{m.source_attribution}</td>
                 </tr>
               );
             })}

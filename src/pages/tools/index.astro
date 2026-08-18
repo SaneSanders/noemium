@@ -3,28 +3,15 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import KbdHint from '../../components/KbdHint.astro';
-import FilterBar, { type ToolRecord } from '../../islands/FilterBar';
-import { logoSrc } from '../../lib/logos';
+import ToolCard from '../../components/ToolCard.astro';
+import FilterBar from '../../islands/FilterBar';
 import { plural } from '../../lib/shelf';
 
 const tools = await getCollection('tools');
-const data: ToolRecord[] = tools
+const data = tools
   .map((t) => ({
     slug: t.id,
     name: t.data.name,
-    tagline: t.data.tagline,
-    category: t.data.category,
-    pricing: t.data.pricing,
-    price_note: t.data.price_note,
-    free_tier: t.data.free_tier,
-    open_source: t.data.open_source,
-    api: t.data.api,
-    verdict: t.data.verdict,
-    momentum: t.data.momentum,
-    featured: t.data.featured,
-    last_verified: t.data.last_verified,
-    logo: logoSrc(t.id),
-    observed_by: t.data.observed_by,
   }))
   .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -52,7 +39,10 @@ const jsonLd = {
   <p class="-mt-6 mb-6 font-mono text-xs text-ink-dim">
     Press <KbdHint keys="/" /> to filter this shelf. ⌘K searches the whole catalog.
   </p>
-  <FilterBar client:load tools={data} />
+  <FilterBar client:load />
+  <div id="nm-tool-grid" class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {tools.sort((a, b) => a.data.name.localeCompare(b.data.name)).map((tool) => <ToolCard tool={tool} />)}
+  </div>
   <script
     type="application/ld+json"
     set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')}

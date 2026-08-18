@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { plural } from '../lib/shelf';
 import type { Momentum, Verdict } from './ui';
-import { FlagBadge, MomentumArrow, VerdictStamp } from './ui';
 
 export interface ToolRecord {
   slug: string;
@@ -111,6 +110,37 @@ function presetActive(f: Filters, apply: Partial<Filters>): boolean {
   });
 }
 
+function getCards(): HTMLElement[] {
+  return Array.from(document.querySelectorAll<HTMLElement>('[data-nm-card="tool"]'));
+}
+
+function applyFilters(f: Filters, cards: HTMLElement[]) {
+  const q = f.q.trim().toLowerCase();
+  cards.forEach((card) => {
+    const category = card.dataset.category ?? '';
+    const pricing = card.dataset.pricing ?? '';
+    const verdict = card.dataset.verdict ?? '';
+    const momentum = card.dataset.momentum ?? '';
+    const freeTier = card.dataset.freeTier === 'true';
+    const openSource = card.dataset.openSource === 'true';
+    const api = card.dataset.api === 'true';
+    const name = card.dataset.name ?? '';
+    const tagline = card.dataset.tagline ?? '';
+
+    let visible = true;
+    if (q && !`${name} ${tagline} ${category}`.toLowerCase().includes(q)) visible = false;
+    if (f.categories.length && !f.categories.includes(category)) visible = false;
+    if (f.pricing.length && !f.pricing.includes(pricing)) visible = false;
+    if (f.verdicts.length && !f.verdicts.includes(verdict as Verdict)) visible = false;
+    if (f.momenta.length && !f.momenta.includes(momentum as Momentum)) visible = false;
+    if (f.free_tier && !freeTier) visible = false;
+    if (f.open_source && !openSource) visible = false;
+    if (f.api && !api) visible = false;
+
+    card.classList.toggle('hidden', !visible);
+  });
+}
+
 function Chip({
   active,
   onClick,
@@ -136,110 +166,27 @@ function Chip({
   );
 }
 
-function Logo({ name, src }: { name: string; src?: string | null }) {
-  if (src) {
-    return (
-      <img
-        src={src}
-        alt=""
-        width="32"
-        height="32"
-        loading="lazy"
-        class="h-8 w-8 shrink-0 rounded-sm border-[1.5px] border-ink bg-card object-contain p-0.5"
-      />
-    );
-  }
-  return (
-    <span
-      aria-hidden="true"
-      class="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border-[1.5px] border-ink bg-paper font-display text-lg font-black text-accent"
-    >
-      {name.charAt(0)}
-    </span>
-  );
-}
-
-function ToolCardView({ tool }: { tool: ToolRecord }) {
-  const flags: string[] = [];
-  if (tool.open_source) flags.push('OSS');
-  if (tool.api) flags.push('API');
-  if (tool.free_tier) flags.push('FREE TIER');
-  return (
-    <a
-      href={`/tools/${tool.slug}/`}
-      class="nm-card nm-card-hover group flex flex-col p-6"
-    >
-      <div class="flex items-start justify-between gap-3">
-        <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink-dim uppercase">
-          {tool.category}
-        </span>
-        <VerdictStamp verdict={tool.verdict} />
-      </div>
-      <div class="mt-4 flex items-center gap-3">
-        <Logo name={tool.name} src={tool.logo} />
-        <h3 class="font-display text-2xl font-extrabold tracking-tight text-ink group-hover:text-accent">
-          {tool.name}
-          {tool.featured && (
-            <span
-              class="ml-2 align-middle font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase"
-              title="Editorial mix on the floor — not a paid placement"
-            >
-              anchor
-            </span>
-          )}
-        </h3>
-      </div>
-      <p class="mt-3 flex-1 text-[15px] leading-relaxed text-ink opacity-80">{tool.tagline}</p>
-      {flags.length > 0 && (
-        <p class="mt-4 flex flex-wrap gap-1.5">
-          {flags.map((flag) => (
-            <FlagBadge key={flag} label={flag} />
-          ))}
-        </p>
-      )}
-      <div class="mt-5 border-t-[1.5px] border-line-soft pt-4">
-        <p class="nm-num text-[15px] font-bold text-accent">
-          {tool.pricing}
-          {tool.free_tier && tool.pricing === 'paid' && (
-            <span class="block pt-1 text-[13px] font-normal text-ink opacity-60">
-              free allowance — paid to keep using
-            </span>
-          )}
-          {tool.price_note && (
-            <span class="block pt-1 text-[13px] font-normal text-ink opacity-60">
-              {tool.price_note}
-            </span>
-          )}
-        </p>
-        <div class="mt-4 flex items-center justify-between gap-3">
-          <button
-            type="button"
-            class="nm-verified cursor-pointer hover:bg-accent hover:text-on-accent"
-            data-proof-slug={tool.slug}
-            aria-haspopup="dialog"
-            aria-label={`Open proof drawer for verification on ${tool.last_verified}`}
-          >
-            Verified {tool.last_verified}
-          </button>
-          <MomentumArrow momentum={tool.momentum} />
-        </div>
-      </div>
-    </a>
-  );
-}
-
-export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
+export default function FilterBar() {
   const [filters, setFilters] = useState<Filters>(EMPTY);
   const [fineOpen, setFineOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
+  const [mounted, setMounted] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    const cards = getCards();
+    setTotalCount(cards.length);
+    setMounted(true);
     const initial = parseUrl();
     setFilters(initial);
     // Landing from a category tile with fine filters in the URL opens layer 2.
     if (initial.pricing.length || initial.verdicts.length || initial.momenta.length) {
       setFineOpen(true);
     }
+    applyFilters(initial, cards);
+    setVisibleCount(cards.filter((c) => !c.classList.contains('hidden')).length);
+
     const onKey = (e: KeyboardEvent) => {
       const el = document.activeElement;
       const typing =
@@ -258,28 +205,20 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
   const update = (next: Filters) => {
     setFilters(next);
     writeUrl(next);
+    const cards = getCards();
+    applyFilters(next, cards);
+    setVisibleCount(cards.filter((c) => !c.classList.contains('hidden')).length);
   };
 
   const categoryCounts = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const t of tools) counts.set(t.category, (counts.get(t.category) ?? 0) + 1);
+    if (typeof document === 'undefined') return counts;
+    for (const card of getCards()) {
+      const c = card.dataset.category;
+      if (c) counts.set(c, (counts.get(c) ?? 0) + 1);
+    }
     return counts;
-  }, [tools]);
-
-  const results = useMemo(() => {
-    const q = filters.q.trim().toLowerCase();
-    return tools.filter((t) => {
-      if (q && !`${t.name} ${t.tagline} ${t.category}`.toLowerCase().includes(q)) return false;
-      if (filters.categories.length && !filters.categories.includes(t.category)) return false;
-      if (filters.pricing.length && !filters.pricing.includes(t.pricing)) return false;
-      if (filters.verdicts.length && !filters.verdicts.includes(t.verdict)) return false;
-      if (filters.momenta.length && !filters.momenta.includes(t.momentum)) return false;
-      if (filters.free_tier && !t.free_tier) return false;
-      if (filters.open_source && !t.open_source) return false;
-      if (filters.api && !t.api) return false;
-      return true;
-    });
-  }, [tools, filters]);
+  }, [totalCount]);
 
   const fineActiveCount =
     filters.pricing.length +
@@ -430,10 +369,10 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
       </div>
 
       <p class="nm-num mt-6 text-sm text-ink-dim" aria-live="polite">
-        {results.length} / {tools.length} entries
+        {mounted ? `${visibleCount} / ${totalCount} entries` : '\u00A0'}
       </p>
 
-      {results.length === 0 ? (
+      {mounted && visibleCount === 0 && (
         <div class="nm-card mt-6 p-12 text-center">
           <p class="font-display text-3xl font-extrabold tracking-tight uppercase">
             Nothing on this shelf.
@@ -448,12 +387,6 @@ export default function FilterBar({ tools }: { tools: ToolRecord[] }) {
           >
             Reset filters
           </button>
-        </div>
-      ) : (
-        <div class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {results.map((tool) => (
-            <ToolCardView key={tool.slug} tool={tool} />
-          ))}
         </div>
       )}
     </section>

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { ToolRecord } from './FilterBar';
 import { MomentumArrow, VerdictStamp, YesNo } from './ui';
 
@@ -27,7 +27,9 @@ export default function CompareTable() {
   const [slugs, setSlugs] = useState<string[]>([]);
   const [unknown, setUnknown] = useState<string[]>([]);
   const [query, setQuery] = useState('');
+  const [highlighted, setHighlighted] = useState(0);
   const [ready, setReady] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const bySlug = useMemo(() => new Map(tools.map((t) => [t.slug, t])), [tools]);
 
@@ -76,6 +78,7 @@ export default function CompareTable() {
     if (slugs.includes(slug) || slugs.length >= MAX_TOOLS) return;
     update([...slugs, slug]);
     setQuery('');
+    setHighlighted(0);
   };
 
   const remove = (slug: string) => update(slugs.filter((s) => s !== slug));
@@ -138,9 +141,37 @@ export default function CompareTable() {
       <div class="nm-card p-5">
         <div class="relative">
           <input
+            ref={inputRef}
             type="text"
+            role="combobox"
+            aria-expanded={suggestions.length > 0}
+            aria-autocomplete="list"
+            aria-controls="compare-suggestions"
+            aria-activedescendant={
+              suggestions.length > 0 ? `compare-suggestion-${suggestions[highlighted].slug}` : undefined
+            }
             value={query}
-            onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
+            onInput={(e) => {
+              setQuery((e.target as HTMLInputElement).value);
+              setHighlighted(0);
+            }}
+            onKeyDown={(e) => {
+              if (suggestions.length === 0) return;
+              if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setHighlighted((h) => Math.min(h + 1, suggestions.length - 1));
+              } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                setHighlighted((h) => Math.max(h - 1, 0));
+              } else if (e.key === 'Enter') {
+                e.preventDefault();
+                add(suggestions[highlighted].slug);
+              } else if (e.key === 'Escape') {
+                e.preventDefault();
+                setQuery('');
+                setHighlighted(0);
+              }
+            }}
             placeholder={
               slugs.length >= MAX_TOOLS
                 ? `Maximum ${MAX_TOOLS} tools — remove one to add another`
@@ -150,17 +181,25 @@ export default function CompareTable() {
             class="w-full rounded-md border-[1.5px] border-ink bg-paper px-3 py-2 font-mono text-sm text-ink placeholder:text-ink-dim focus:border-accent focus:outline-none disabled:opacity-50"
           />
           {suggestions.length > 0 && (
-            <ul class="absolute right-0 left-0 z-10 mt-1 overflow-hidden rounded-md border-[1.5px] border-ink bg-card shadow-hard">
-              {suggestions.map((t) => (
-                <li key={t.slug}>
-                  <button
-                    type="button"
-                    onClick={() => add(t.slug)}
-                    class="flex w-full items-baseline justify-between gap-3 px-3 py-2 text-left transition-colors duration-100 hover:bg-paper"
-                  >
-                    <span class="text-sm text-ink">{t.name}</span>
-                    <span class="font-mono text-xs text-ink-dim">{t.slug}</span>
-                  </button>
+            <ul
+              id="compare-suggestions"
+              role="listbox"
+              class="absolute right-0 left-0 z-10 mt-1 overflow-hidden rounded-md border-[1.5px] border-ink bg-card shadow-hard"
+            >
+              {suggestions.map((t, i) => (
+                <li
+                  key={t.slug}
+                  id={`compare-suggestion-${t.slug}`}
+                  role="option"
+                  aria-selected={i === highlighted}
+                  onClick={() => add(t.slug)}
+                  onMouseEnter={() => setHighlighted(i)}
+                  class={`flex w-full cursor-pointer items-baseline justify-between gap-3 px-3 py-2 text-left transition-colors duration-100 ${
+                    i === highlighted ? 'bg-paper' : 'hover:bg-paper'
+                  }`}
+                >
+                  <span class="text-sm text-ink">{t.name}</span>
+                  <span class="font-mono text-xs text-ink-dim">{t.slug}</span>
                 </li>
               ))}
             </ul>
