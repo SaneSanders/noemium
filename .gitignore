@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# maintainer-local session continuity files (internal strategy; not tracked)
+HANDOFF.md
+MEMORY.md

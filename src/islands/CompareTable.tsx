@@ -206,7 +206,7 @@ export default function CompareTable() {
                   <th key={t.slug} class="min-w-48 p-3 align-top">
                     <div class="flex items-start justify-between gap-2">
                       <a
-                        href={`/tools/${t.slug}`}
+                        href={`/tools/${t.slug}/`}
                         class="font-display text-lg font-extrabold tracking-tight text-ink hover:text-accent"
                       >
                         {t.name}

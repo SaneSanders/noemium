@@ -36,7 +36,7 @@ const jsonLd = {
     '@type': 'ListItem',
     position: index + 1,
     name: agent.data.name,
-    url: new URL(`/agents/${agent.id}`, Astro.site).href,
+    url: new URL(`/agents/${agent.id}/`, Astro.site).href,
   })),
 };
 ---

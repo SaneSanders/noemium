@@ -35,7 +35,7 @@ const tiers: { id: 'studio' | 'shoestring'; cost: number; tools: ToolEntry[] }[]
 const priceLine = (t: ToolEntry) =>
   t.data.pricing === 'free' && !t.data.price_note ? 'free' : (t.data.price_note ?? t.data.pricing);
 
-const pageUrl = new URL(`/stacks/${stack.id}`, Astro.site).href;
+const pageUrl = new URL(`/stacks/${stack.id}/`, Astro.site).href;
 const markdown = [
   `# ${s.title}`,
   '',
@@ -64,7 +64,7 @@ const hostname = (url: string) => {
   <article class="py-14 md:py-20" data-stack-tiers>
     <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
-      <a href="/stacks" class="hover:underline">Stacks</a>
+      <a href="/stacks/" class="hover:underline">Stacks</a>
       <span class="text-ink-dim">/ {stack.id}</span>
     </p>
     <h1 class="text-shadow-section mt-6 max-w-4xl font-display text-5xl leading-[0.98] font-black tracking-tight uppercase md:text-7xl">{s.title}</h1>
@@ -132,7 +132,7 @@ const hostname = (url: string) => {
     {
       twinStack && s.twin && (
         <p class="mt-4 max-w-3xl text-[15px] leading-relaxed">
-          <a href={`/stacks/${twinStack.id}`} class="font-bold hover:text-accent">
+          <a href={`/stacks/${twinStack.id}/`} class="font-bold hover:text-accent">
             {s.twin.kind === 'shoestring' ? 'Shoestring twin' : 'Studio twin'} → {twinStack.data.title}
             <span class="nm-num ml-2 text-ink-dim">${twinStack.data.monthly_cost_usd}/mo</span>
           </a>
@@ -151,7 +151,7 @@ const hostname = (url: string) => {
           >
             {tier.tools.map((t) => (
               <li class="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 p-4">
-                <a href={`/tools/${t.id}`} class="flex items-center gap-3 font-display text-lg font-extrabold tracking-tight hover:text-accent">
+                <a href={`/tools/${t.id}/`} class="flex items-center gap-3 font-display text-lg font-extrabold tracking-tight hover:text-accent">
                   {logoSrc(t.id) ? (
                     <img
                       src={logoSrc(t.id)!}

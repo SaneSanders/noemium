@@ -94,4 +94,4 @@ export function githubToolBlob(slug: string): string {
 }
 
 export const COMPARE_PRESET = 'cursor,claude-code';
-export const COMPARE_HREF = `/tools/compare?tools=${COMPARE_PRESET}`;
+export const COMPARE_HREF = `/tools/compare/?tools=${COMPARE_PRESET}`;

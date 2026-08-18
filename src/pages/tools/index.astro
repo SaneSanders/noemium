@@ -36,7 +36,7 @@ const jsonLd = {
     '@type': 'ListItem',
     position: i + 1,
     name: t.name,
-    url: new URL(`/tools/${t.slug}`, Astro.site).href,
+    url: new URL(`/tools/${t.slug}/`, Astro.site).href,
   })),
 };
 ---

@@ -154,7 +154,7 @@ export default function ProofDrawer() {
             <p class="border-t-[1.5px] border-line-soft pt-4 font-mono text-[12px] leading-relaxed text-ink-dim">
               A homepage receipt still counts as a source — it just isn't a price. How we grade
               claims:{' '}
-              <a href="/method" class="text-accent hover:underline">
+              <a href="/method/" class="text-accent hover:underline">
                 /method
               </a>
               .

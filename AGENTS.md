@@ -6,9 +6,11 @@ auditable PR. The site is a static Astro build.
 
 ## Session continuity
 
-Before continuing product, roadmap, or implementation work, read
-[`MEMORY.md`](MEMORY.md) for durable decisions and [`HANDOFF.md`](HANDOFF.md)
-for the exact current checkpoint. Update both at meaningful stop points.
+`MEMORY.md` and `HANDOFF.md` are maintainer-local session-continuity files.
+They are intentionally **not tracked** in the public repo (they can leak
+internal strategy). For the maintainer's agents: before continuing work, read
+`MEMORY.md` for durable decisions and `HANDOFF.md` for the exact current
+checkpoint, and update both at meaningful stop points.
 
 ## Development
 

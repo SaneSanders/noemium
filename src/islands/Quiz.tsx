@@ -137,13 +137,13 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
   };
 
   useEffect(() => {
-    if (done && winner) void navigate(`/quiz/${winner.slug}?from=quiz`);
+    if (done && winner) void navigate(`/quiz/${winner.slug}/?from=quiz`);
   }, [done, winner]);
 
   if (done && winner) {
     return (
       <p class="nm-card p-6 font-mono text-sm text-ink-dim md:p-10">
-        Opening <a href={`/quiz/${winner.slug}?from=quiz`} class="text-accent hover:underline">{winner.title}</a>
+        Opening <a href={`/quiz/${winner.slug}/?from=quiz`} class="text-accent hover:underline">{winner.title}</a>
         …
       </p>
     );
@@ -160,7 +160,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
         </p>
         <div class="mt-8 flex flex-wrap items-center gap-3">
           <a
-            href="/tools"
+            href="/tools/"
             class="nm-btn nm-btn-solid"
           >
             Browse tools

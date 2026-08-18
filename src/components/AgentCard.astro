@@ -13,7 +13,7 @@ const cost = lowestAgentCost(a);
 const strict = a.evidence_tier !== 'radar';
 ---
 
-<a href={`/agents/${agent.id}`} class="nm-card nm-card-hover group flex h-full flex-col p-6">
+<a href={`/agents/${agent.id}/`} class="nm-card nm-card-hover group flex h-full flex-col p-6">
   <div class="flex flex-wrap items-center justify-between gap-2">
     <span class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-bold tracking-[0.1em] text-ink uppercase">
       {agentLayerLabels[a.agent_layer]}

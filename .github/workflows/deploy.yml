@@ -15,8 +15,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm
@@ -24,10 +24,18 @@ jobs:
       - run: npm run validate
       - run: npm run build
       - name: rsync to Vultr VPS
+        # Generate VPS_HOST_KEY once via `ssh-keyscan -H <vps-host>`, store the
+        # output as the VPS_HOST_KEY repository secret, and rotate on host changes.
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_HOST_KEY: ${{ secrets.VPS_HOST_KEY }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
         run: |
           mkdir -p "$HOME/.ssh" && chmod 700 "$HOME/.ssh"
           install -m 600 /dev/null "$HOME/.ssh/deploy_key"
-          echo "${{ secrets.VPS_SSH_KEY }}" > "$HOME/.ssh/deploy_key"
+          printf '%s\n' "$VPS_SSH_KEY" > "$HOME/.ssh/deploy_key"
+          printf '%s\n' "$VPS_HOST_KEY" > "$HOME/.ssh/known_hosts"
           rsync -avzr --delete --quiet \
-            -e "ssh -i $HOME/.ssh/deploy_key -o StrictHostKeyChecking=accept-new" \
-            dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/noemium/
+            -e "ssh -i $HOME/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+            dist/ "${VPS_USER}@${VPS_HOST}:/var/www/noemium/"
