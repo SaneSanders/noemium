@@ -19,6 +19,12 @@ const dir = join(root, 'src/content/tools');
 const token = process.env.GITHUB_TOKEN;
 const repo = process.env.GITHUB_REPOSITORY;
 
+function sanitizeIssueText(text) {
+  return String(text)
+    .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
+    .replace(/[[\]()`]/g, '');
+}
+
 const stale = [];
 for (const file of readdirSync(dir).filter((f) => f.endsWith('.yaml')).sort()) {
   const data = yaml.load(readFileSync(join(dir, file), 'utf8'), { schema: yaml.JSON_SCHEMA });
@@ -70,16 +76,20 @@ let closed = 0;
 
 for (const s of stale) {
   if (openBySlug.has(s.slug)) continue;
+  const safeName = sanitizeIssueText(s.name);
+  const safeSlug = sanitizeIssueText(s.slug);
+  const safeVerified = sanitizeIssueText(s.verified);
+  const safeAge = sanitizeIssueText(s.age);
   const res = await api('/issues', {
     method: 'POST',
     body: JSON.stringify({
-      title: `adopt this page: ${s.name} (${s.slug})`,
+      title: `adopt this page: ${safeName} (${safeSlug})`,
       body: [
-        `<!-- stale:${s.slug} -->`,
-        `\`${s.slug}\` was last verified **${s.verified}** (${s.age} days ago).`,
+        `<!-- stale:${safeSlug} -->`,
+        `\`${safeSlug}\` was last verified **${safeVerified}** (${safeAge} days ago).`,
         '',
         'Adopt it: open the card, re-check the price and verdict against the vendor pages, bump `last_verified`, open a PR.',
-        `https://github.com/${repo}/edit/main/src/content/tools/${s.slug}.yaml`,
+        `https://github.com/${repo}/edit/main/src/content/tools/${safeSlug}.yaml`,
         '',
         'This issue closes automatically when the card is fresh again.',
       ].join('\n'),
@@ -87,7 +97,7 @@ for (const s of stale) {
     }),
   });
   if (res.ok) opened += 1;
-  else console.error(`failed to open issue for ${s.slug}: ${res.status}`);
+  else console.error(`failed to open issue for ${safeSlug}: ${res.status}`);
 }
 
 for (const [slug, number] of openBySlug) {

@@ -20,7 +20,7 @@ const tools = (await getCollection('tools')).sort((a, b) => a.data.name.localeCo
       tools.map((t) => (
         <li>
           <a
-            href={`/alternatives/${t.id}`}
+            href={`/alternatives/${t.id}/`}
             class="nm-card nm-card-hover flex items-baseline justify-between gap-3 px-4 py-3"
           >
             <span class="font-display text-lg font-extrabold tracking-tight">{t.data.name}</span>

@@ -114,6 +114,20 @@ export const getStaticPaths = (async () => {
         },
       } satisfies OgProps,
     },
+    // Local-only /decide experiment: build an unreferenced OG PNG so local
+    // full-test runs stay green without publishing any decide page content.
+    {
+      params: { slug: 'decide' },
+      props: {
+        kind: 'generic',
+        counts: {
+          tools: tools.length,
+          agents: agents.length,
+          stacks: stacks.length,
+          models: models.length,
+        },
+      } satisfies OgProps,
+    },
     {
       params: { slug: 'quiz' },
       props: { kind: 'quiz', stackCount: stacks.length } satisfies OgProps,
@@ -195,7 +209,7 @@ function frame(children: unknown) {
           justifyContent: 'space-between',
           flex: 1,
           border: `3px solid ${C.ink}`,
-          borderRadius: 20,
+          borderRadius: 14, // DESIGN.md caps radii at 14px
           backgroundColor: C.card,
           boxShadow: `10px 10px 0 0 ${C.accent}`,
           padding: '44px 52px',

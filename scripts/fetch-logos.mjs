@@ -28,8 +28,11 @@ const SOURCES = [
   (d) => `https://${d}/apple-touch-icon.png`,
 ];
 
+const MAX_LOGO_BYTES = 512 * 1024;
+
 const looksLikeImage = (buf) =>
   buf.length >= 500 &&
+  buf.length <= MAX_LOGO_BYTES &&
   (buf.subarray(1, 4).toString() === 'PNG' || buf.subarray(0, 4).toString('hex') === '00000100');
 
 const tools = readdirSync(TOOLS_DIR)

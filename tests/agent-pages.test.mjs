@@ -25,8 +25,8 @@ test('formats fixed, ranged, and open-ended monthly agent costs', () => {
 
 test('builds an agent index that keeps Grok Bot and Grok Build separate', () => {
   const html = built('agents/index.html');
-  assert.match(html, /href="\/agents\/grok-bot"/);
-  assert.match(html, /href="\/agents\/grok-build"/);
+  assert.match(html, /href="\/agents\/grok-bot\/"/);
+  assert.match(html, /href="\/agents\/grok-build\/"/);
   assert.match(html, /Source verified/i);
   assert.match(html, /Radar/i);
 });
@@ -56,13 +56,13 @@ test('publishes agents through search and machine-readable discovery surfaces', 
   assert.equal(index.agents.some((agent) => agent.slug === 'openclaw'), true);
 
   const llms = built('llms.txt');
-  assert.match(llms, /\[Agents\]\(https:\/\/noemium\.com\/agents\)/);
+  assert.match(llms, /\[Agents\]\(https:\/\/noemium\.com\/agents\/\)/);
   assert.match(llms, /14 agent field-guide entries/);
 });
 
 test('links the Agent Field Guide from the homepage and emits agent OG art', () => {
   const home = built('index.html');
-  assert.match(home, /href="\/agents"/);
+  assert.match(home, /href="\/agents\/"/);
   assert.match(home, /Agent Field Guide/i);
   assert.equal(existsSync(new URL('dist/og/agents/grok-bot.png', root)), true);
 });

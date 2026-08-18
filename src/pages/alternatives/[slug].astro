@@ -36,7 +36,7 @@ const itemList = {
   itemListElement: alternatives.map((a, i) => ({
     '@type': 'ListItem',
     position: i + 1,
-    url: new URL(`/tools/${a.id}`, Astro.site).href,
+    url: new URL(`/tools/${a.id}/`, Astro.site).href,
     name: a.data.name,
   })),
 };
@@ -59,7 +59,7 @@ const itemList = {
     alternatives.length > 0 ? (
       <div class="space-y-4">
         {alternatives.map((a) => (
-          <a href={`/tools/${a.id}`} class="nm-card nm-card-hover flex flex-col gap-3 p-6 md:flex-row md:items-baseline">
+          <a href={`/tools/${a.id}/`} class="nm-card nm-card-hover flex flex-col gap-3 p-6 md:flex-row md:items-baseline">
             <div class="flex items-baseline gap-4 md:w-56 md:shrink-0">
               <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{a.data.name}</h2>
               <VerdictBadge verdict={a.data.verdict} />
@@ -88,8 +88,8 @@ const itemList = {
   }
 
   <p class="mt-10 flex flex-wrap gap-4">
-    <a href={`/tools/${tool.id}`} class="nm-btn nm-btn-outline">Back to {t.name}</a>
-    <a href={`/tools/compare?tools=${tool.id}${alternatives[0] ? `,${alternatives[0].id}` : ''}`} class="nm-btn nm-btn-solid">
+    <a href={`/tools/${tool.id}/`} class="nm-btn nm-btn-outline">Back to {t.name}</a>
+    <a href={`/tools/compare/?tools=${tool.id}${alternatives[0] ? `,${alternatives[0].id}` : ''}`} class="nm-btn nm-btn-solid">
       Compare side by side
     </a>
   </p>

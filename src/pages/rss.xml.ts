@@ -20,7 +20,7 @@ export async function GET(context: APIContext) {
     items: weeks.map((week) => ({
       title: formatWeekRssTitle(week),
       description: formatWeekRssDescription(week),
-      link: '/changelog',
+      link: '/changelog/',
       pubDate: new Date(`${week.to}T00:00:00Z`),
     })),
   });

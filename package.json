@@ -12,6 +12,8 @@
     "astro": "astro",
     "check": "astro check",
     "test": "node --test tests/content-schemas.test.mjs tests/agent-content.test.mjs tests/shelf.test.mjs tests/catalog-surfaces.test.mjs",
+    "test:dist": "node --test tests/agent-pages.test.mjs",
+    "test:all": "node --test tests/*.test.mjs # includes untracked local tests (decide-*) — run after build",
     "validate": "node scripts/validate-content.mjs",
     "weekly-diff": "node scripts/weekly-diff.mjs",
     "price-history": "node scripts/price-history.mjs",
@@ -36,6 +38,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@astrojs/markdown-remark": "^7.2.2",
     "@types/js-yaml": "^4.0.9",
     "typescript": "^6.0.3"
   },

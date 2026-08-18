@@ -31,11 +31,11 @@ const ogImageUrl = new URL(ogImage, Astro.site);
 const cfBeacon = import.meta.env.PUBLIC_CF_BEACON_TOKEN as string | undefined;
 const path = Astro.url.pathname;
 const navItems = [
-  { href: '/tools', name: 'Tools' },
-  { href: '/agents', name: 'Agents' },
-  { href: '/stacks', name: 'Stacks' },
-  { href: '/models', name: 'Models' },
-  { href: '/quiz', name: 'Quiz' },
+  { href: '/tools/', name: 'Tools' },
+  { href: '/agents/', name: 'Agents' },
+  { href: '/stacks/', name: 'Stacks' },
+  { href: '/models/', name: 'Models' },
+  { href: '/quiz/', name: 'Quiz' },
   { href: COMPARE_HREF, name: 'Compare' },
   { href: '/changelog', name: 'Changelog' },
   { href: '/about', name: 'About' },
@@ -262,11 +262,11 @@ function navCurrent(href: string): boolean {
         </p>
         <p class="flex flex-wrap items-center gap-5 font-mono text-xs text-ink-dim">
           <a href="https://github.com/SaneSanders/noemium" class="hover:text-ink" rel="noopener">GitHub</a>
-          <a href="/about" class="hover:text-ink">About</a>
-          <a href="/method" class="hover:text-ink">Method</a>
-          <a href="/contribute" class="hover:text-ink">Contribute</a>
-          <a href="/search" class="hover:text-ink">Search</a>
-          <a href="/graveyard" class="hover:text-ink">Graveyard</a>
+          <a href="/about/" class="hover:text-ink">About</a>
+          <a href="/method/" class="hover:text-ink">Method</a>
+          <a href="/contribute/" class="hover:text-ink">Contribute</a>
+          <a href="/search/" class="hover:text-ink">Search</a>
+          <a href="/graveyard/" class="hover:text-ink">Graveyard</a>
           <a href="/rss.xml" class="hover:text-ink">RSS</a>
           <a href="/llms.txt" class="hover:text-ink">llms.txt</a>
           <a href="/api/tools.json" class="hover:text-ink">tools.json</a>

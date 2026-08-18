@@ -58,7 +58,7 @@ export const toolSchema = z.object({
   featured: z.boolean().default(false),
   last_verified: isoDate,
   observed_by: z.string().min(1),
-}).superRefine((tool, ctx) => {
+}).strict().superRefine((tool, ctx) => {
   // Cross-field: affiliate_url and affiliate: declared must come together.
   if (tool.affiliate_url && tool.affiliate !== 'declared') {
     ctx.addIssue({
@@ -110,6 +110,7 @@ const agentInstallSchema = z
     command: z.string().min(1).optional(),
     url: httpsUrl.optional(),
   })
+  .strict()
   .refine((method) => Boolean(method.command || method.url), {
     message: 'install method requires command or url',
   });
@@ -121,6 +122,7 @@ const agentCostScenarioSchema = z
     monthly_usd_max: z.number().nonnegative().optional(),
     assumptions: z.string().min(1),
   })
+  .strict()
   .refine(
     (scenario) =>
       scenario.monthly_usd_max === undefined ||
@@ -135,13 +137,13 @@ const agentSecuritySchema = z.object({
   privilege: z.enum(['low', 'medium', 'high', 'critical']),
   data_boundary: z.string().min(1),
   cautions: z.array(z.string().min(1)).min(1),
-});
+}).strict();
 
 const agentEvidenceSchema = z.object({
   kind: z.enum(evidenceKinds),
   url: httpsUrl,
   checked_at: isoDate,
-});
+}).strict();
 
 export const agentSchema = z
   .object({
@@ -174,6 +176,7 @@ export const agentSchema = z
     last_verified: isoDate,
     observed_by: z.string().min(1),
   })
+  .strict()
   .superRefine((agent, ctx) => {
     const strict = agent.evidence_tier !== 'radar';
 
@@ -254,14 +257,14 @@ const budgetTwinSchema = z.object({
   monthly_cost_usd: z.number().nonnegative(),
   tools: z.array(z.string()).min(1),
   tradeoff: z.string().min(1),
-});
+}).strict();
 
 const stackTwinSchema = z.object({
   slug: z.string().min(1),
   // What the *other* stack is relative to this one.
   kind: z.enum(['studio', 'shoestring']),
   tradeoff: z.string().min(1),
-});
+}).strict();
 
 export const stackSchema = z
   .object({
@@ -279,6 +282,7 @@ export const stackSchema = z
     // cut is its own recipe, not just a tier swap.
     twin: stackTwinSchema.optional(),
   })
+  .strict()
   .superRefine((stack, ctx) => {
     if (stack.budget && stack.budget.monthly_cost_usd >= stack.monthly_cost_usd) {
       ctx.addIssue({
@@ -294,7 +298,7 @@ export const benchmarkSchema = z.object({
   score: z.union([z.number(), z.string()]),
   source: z.string().min(1),
   date: isoDate,
-});
+}).strict();
 
 export const modelSchema = z.object({
   name: z.string().min(1),
@@ -319,7 +323,7 @@ export const modelSchema = z.object({
   benchmarks: z.array(benchmarkSchema).optional(),
   source_attribution: z.string().min(1),
   last_verified: isoDate,
-});
+}).strict();
 
 const successorSchema = z
   .object({
@@ -328,6 +332,7 @@ const successorSchema = z
     url: httpsUrl.optional(),
     note: z.string().min(1),
   })
+  .strict()
   .refine((s) => Boolean(s.slug || s.url), {
     message: 'succeeded_by needs a catalog slug or an https url',
   });
@@ -335,7 +340,7 @@ const successorSchema = z
 const noSuccessorSchema = z.object({
   none: z.literal(true),
   note: z.string().min(1),
-});
+}).strict();
 
 /** Graveyard — dead AI tools with the date, cause and a receipt. */
 export const graveyardSchema = z.object({
@@ -349,7 +354,7 @@ export const graveyardSchema = z.object({
   last_verified: isoDate,
   // Every obituary names a replacement, or explicitly says there isn't one.
   succeeded_by: z.union([successorSchema, noSuccessorSchema]),
-});
+}).strict();
 
 export type Tool = z.infer<typeof toolSchema>;
 export type Agent = z.infer<typeof agentSchema>;

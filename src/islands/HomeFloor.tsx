@@ -38,7 +38,7 @@ export default function HomeFloor({
             {t.label}
           </button>
         ))}
-        <a href="/tools" class="ml-auto font-mono text-sm font-medium text-accent hover:underline">
+        <a href="/tools/" class="ml-auto font-mono text-sm font-medium text-accent hover:underline">
           full catalog →
         </a>
       </div>
@@ -64,7 +64,7 @@ export default function HomeFloor({
                   class={`group border-b border-line-soft transition-colors duration-100 last:border-b-0 hover:bg-paper ${dusty ? 'nm-dust' : ''}`}
                 >
                   <td class="p-3">
-                    <a href={`/tools/${t.slug}`} class="flex items-center gap-3">
+                    <a href={`/tools/${t.slug}/`} class="flex items-center gap-3">
                       {t.logo ? (
                         <img
                           src={t.logo}

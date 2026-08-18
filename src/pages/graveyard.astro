@@ -17,7 +17,7 @@ const hostname = (url: string) => {
 
 function successorHref(d: (typeof dead)[number]['data']['succeeded_by']): string | undefined {
   if ('none' in d) return undefined;
-  if (d.slug && toolsById.has(d.slug)) return `/tools/${d.slug}`;
+  if (d.slug && toolsById.has(d.slug)) return `/tools/${d.slug}/`;
   return d.url;
 }
 ---
@@ -92,7 +92,7 @@ function successorHref(d: (typeof dead)[number]['data']['succeeded_by']): string
 
   <p class="mt-12 font-mono text-xs leading-relaxed text-ink-dim">
     A tool lands here when it stops working for real users — shut down, acquihired, abandoned.
-    Removals show up in the <a href="/changelog" class="text-accent hover:underline">changelog</a>;
+    Removals show up in the <a href="/changelog/" class="text-accent hover:underline">changelog</a>;
     the proof lives in each grave. Resurrected? Open a PR and we exhume it.
   </p>
 </Base>

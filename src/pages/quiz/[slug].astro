@@ -52,7 +52,7 @@ const share =
       {
         stackTools.map((t) => (
           <a
-            href={`/tools/${t.id}`}
+            href={`/tools/${t.id}/`}
             class="rounded-md border-[1.5px] border-ink px-3 py-1.5 font-mono text-[13px] font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm"
           >
             {t.data.name}
@@ -61,10 +61,10 @@ const share =
       }
     </div>
     <div class="mt-8 flex flex-wrap items-center gap-3">
-      <a href={`/stacks/${stack.id}`} class="nm-btn nm-btn-solid">Open the full recipe</a>
+      <a href={`/stacks/${stack.id}/`} class="nm-btn nm-btn-solid">Open the full recipe</a>
       <a href={share} target="_blank" rel="noopener" class="nm-btn nm-btn-outline">Share on X</a>
       <a
-        href="/quiz"
+        href="/quiz/"
         class="cursor-pointer font-mono text-[13px] text-ink-dim underline underline-offset-4 transition-colors duration-100 hover:text-ink"
       >
         Run it again

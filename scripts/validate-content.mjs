@@ -156,6 +156,72 @@ const cleanUrlFields = {
   ],
 };
 
+// Every URL field, across every collection — also checked for homographs,
+// IP literals, userinfo, and known shorteners/redirectors.
+const allUrlFields = {
+  tools: (d) => [
+    ['url', d.url],
+    ...(d.affiliate_url ? [['affiliate_url', d.affiliate_url]] : []),
+    ...d.receipts.map((u) => ['receipts', u]),
+  ],
+  stacks: (d) => d.receipts.map((u) => ['receipts', u]),
+  models: () => [],
+  graveyard: (d) => [
+    ['url', d.url],
+    ['receipt', d.receipt],
+    ...('url' in (d.succeeded_by ?? {}) && d.succeeded_by.url ? [['succeeded_by.url', d.succeeded_by.url]] : []),
+  ],
+  agents: (d) => [
+    ['url', d.url],
+    ...d.evidence.map((item) => ['evidence.url', item.url]),
+    ...(d.install ?? []).flatMap((method) => (method.url ? [['install.url', method.url]] : [])),
+  ],
+};
+
+const SHORTENER_HOSTS = new Set([
+  'bit.ly',
+  'tinyurl.com',
+  't.co',
+  'goo.gl',
+  'ow.ly',
+  'is.gd',
+  'buff.ly',
+  'rb.gy',
+  'cutt.ly',
+  'shorturl.at',
+  'tiny.cc',
+]);
+
+const IPV4_RE = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/;
+
+function looksLikeIp(host) {
+  return host.startsWith('[') || IPV4_RE.test(host);
+}
+
+function isSuspiciousHost(host) {
+  const lower = host.toLowerCase();
+  if (lower.includes('xn--') || /[^\x00-\x7F]/.test(lower)) return 'punycode/non-ASCII hostname';
+  if (looksLikeIp(lower)) return 'IP-literal hostname';
+  if (SHORTENER_HOSTS.has(lower)) return 'shortener/redirector hostname';
+  return null;
+}
+
+function checkUrlSecurity(file, field, rawUrl) {
+  try {
+    const u = new URL(rawUrl);
+    if (u.username || u.password) {
+      fail(file, `${field} contains userinfo — URLs must not embed credentials: "${rawUrl}"`);
+      return;
+    }
+    const reason = isSuspiciousHost(u.hostname);
+    if (reason) {
+      fail(file, `${field} uses ${reason}: "${rawUrl}"`);
+    }
+  } catch {
+    // Invalid URLs are already rejected by the zod schema.
+  }
+}
+
 /** @type {Record<string, Map<string, any>>} collection name -> slug -> data */
 const entries = {};
 let checked = 0;
@@ -195,6 +261,13 @@ for (const { name, dir, exts, schema } of collections) {
         if (pattern) {
           fail(rel, `referral pattern "${pattern}" in "${u}" — url/receipts must stay clean; referral links belong in affiliate_url`);
         }
+      }
+    }
+
+    const securityFields = allUrlFields[name];
+    if (securityFields) {
+      for (const [field, u] of securityFields(result.data)) {
+        checkUrlSecurity(rel, field, u);
       }
     }
   }

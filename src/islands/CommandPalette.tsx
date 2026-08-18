@@ -148,7 +148,7 @@ export default function CommandPalette() {
               kind: 'command',
               label: `compare ${unique.join(' · ')}`,
               hint: `${unique.length} tools side by side`,
-              href: `/tools/compare?tools=${unique.join(',')}`,
+              href: `/tools/compare/?tools=${unique.join(',')}`,
             },
           ];
         }
@@ -157,7 +157,7 @@ export default function CommandPalette() {
             kind: 'command',
             label: 'compare <tool> <tool> [tool…]',
             hint: 'name 2–4 tools',
-            href: '/tools/compare?tools=cursor,claude-code',
+            href: '/tools/compare/?tools=cursor,claude-code',
           },
         ];
       }
@@ -171,7 +171,7 @@ export default function CommandPalette() {
           kind: 'stack' as const,
           label: s.title,
           hint: 'stack',
-          href: `/stacks/${s.slug}`,
+          href: `/stacks/${s.slug}/`,
         }));
       }
       if (cmd === 'agent') {
@@ -189,13 +189,13 @@ export default function CommandPalette() {
           kind: 'agent' as const,
           label: agent.name,
           hint: agent.evidence_tier === 'radar' ? 'agent · radar' : `agent · ${agent.agent_layer}`,
-          href: `/agents/${agent.slug}`,
+          href: `/agents/${agent.slug}/`,
         }));
       }
       return [
-        { kind: 'command', label: 'compare <a> <b>', hint: 'side-by-side table', href: '/tools/compare?tools=cursor,claude-code' },
-        { kind: 'command', label: 'agent <query>', hint: 'search agent guides', href: '/agents' },
-        { kind: 'command', label: 'stack <query>', hint: 'search stacks', href: '/stacks' },
+        { kind: 'command', label: 'compare <a> <b>', hint: 'side-by-side table', href: '/tools/compare/?tools=cursor,claude-code' },
+        { kind: 'command', label: 'agent <query>', hint: 'search agent guides', href: '/agents/' },
+        { kind: 'command', label: 'stack <query>', hint: 'search stacks', href: '/stacks/' },
         { kind: 'command', label: 'noema', hint: 'mission', href: '#noema' },
       ];
     }
@@ -207,7 +207,7 @@ export default function CommandPalette() {
           kind: 'tool' as const,
           label: t.name,
           hint: t.category,
-          href: `/tools/${t.slug}`,
+          href: `/tools/${t.slug}/`,
         })),
         ...index.agents
           .filter((agent) => agent.evidence_tier !== 'radar')
@@ -216,13 +216,13 @@ export default function CommandPalette() {
             kind: 'agent' as const,
             label: agent.name,
             hint: `agent · ${agent.agent_layer}`,
-            href: `/agents/${agent.slug}`,
+            href: `/agents/${agent.slug}/`,
           })),
         ...index.stacks.slice(0, 3).map((s) => ({
           kind: 'stack' as const,
           label: s.title,
           hint: 'stack',
-          href: `/stacks/${s.slug}`,
+          href: `/stacks/${s.slug}/`,
         })),
       ];
     }
@@ -233,7 +233,7 @@ export default function CommandPalette() {
           kind: 'tool' as const,
           label: t.name,
           hint: `${t.category} · ${t.verdict}`,
-          href: `/tools/${t.slug}`,
+          href: `/tools/${t.slug}/`,
         },
         score: Math.max(fuzzy(q, t.name), fuzzy(q, t.tagline) * 0.6, fuzzy(q, t.category) * 0.5),
       }))
@@ -246,7 +246,7 @@ export default function CommandPalette() {
           kind: 'stack' as const,
           label: s.title,
           hint: 'stack',
-          href: `/stacks/${s.slug}`,
+          href: `/stacks/${s.slug}/`,
         },
         score: Math.max(fuzzy(q, s.title), fuzzy(q, s.use_case) * 0.6),
       }))
@@ -259,7 +259,7 @@ export default function CommandPalette() {
           kind: 'agent' as const,
           label: agent.name,
           hint: agent.evidence_tier === 'radar' ? 'agent · radar' : `agent · ${agent.agent_layer}`,
-          href: `/agents/${agent.slug}`,
+          href: `/agents/${agent.slug}/`,
         },
         score: Math.max(
           fuzzy(q, agent.name),
@@ -276,7 +276,7 @@ export default function CommandPalette() {
           kind: 'model' as const,
           label: m.name,
           hint: `model · ${m.provider}`,
-          href: `/models#${m.slug}`,
+          href: `/models/#${m.slug}`,
         },
         score: Math.max(fuzzy(q, m.name), fuzzy(q, m.provider) * 0.5),
       }))
@@ -421,7 +421,7 @@ export default function CommandPalette() {
             </ul>
             <p class="flex items-center justify-between border-t-[1.5px] border-ink px-4 py-2 font-mono text-xs text-ink-dim">
               <span>↑↓ navigate · enter open · esc close</span>
-              <a href="/search" class="font-medium text-accent hover:underline" onClick={close}>
+              <a href="/search/" class="font-medium text-accent hover:underline" onClick={close}>
                 full-text search →
               </a>
             </p>

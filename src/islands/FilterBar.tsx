@@ -166,7 +166,7 @@ function ToolCardView({ tool }: { tool: ToolRecord }) {
   if (tool.free_tier) flags.push('FREE TIER');
   return (
     <a
-      href={`/tools/${tool.slug}`}
+      href={`/tools/${tool.slug}/`}
       class="nm-card nm-card-hover group flex flex-col p-6"
     >
       <div class="flex items-start justify-between gap-3">

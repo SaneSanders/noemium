@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import preact from '@astrojs/preact';
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import tailwindcss from '@tailwindcss/vite';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -42,9 +43,13 @@ const lastmods = catalogLastmods();
 // https://astro.build/config
 export default defineConfig({
   site: 'https://noemium.com',
+  trailingSlash: 'always',
   integrations: [
     preact(),
     sitemap({
+      filter(page) {
+        return !page.includes('/decide');
+      },
       serialize(item) {
         const path = new URL(item.url).pathname;
         const lastmod = lastmods[path];
@@ -53,6 +58,9 @@ export default defineConfig({
       },
     }),
   ],
+  markdown: {
+    processor: unified({ remarkRehype: { allowDangerousHtml: false } }),
+  },
   vite: {
     plugins: [tailwindcss()],
   },
