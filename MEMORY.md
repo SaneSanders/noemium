@@ -1,6 +1,6 @@
 # Noemium Project Memory
 
-Last updated: 2026-08-18 (catalog + launch surfaces shipping; `/decide` stays local, not prod)
+Last updated: 2026-08-18 ~19:05 MSK (204-tool catalog on prod; UI kits stay on the default shelf; `/decide` stays local)
 
 This file contains durable decisions. For branch state and the exact next
 action, read [`HANDOFF.md`](HANDOFF.md).
@@ -72,10 +72,11 @@ Live catalog cards only:
 
 - Cursor, Claude Code, GitHub Copilot, Aider, Qwen Code, Kimi Code.
 
-Codex and Kilo Code stay out until they have cards. Tool × model is not a
-Cartesian product: Cursor/Copilot bundle routing; Claude Code is
-provider-locked unless current docs say otherwise; Aider/Qwen/Kimi can be
-BYOK.
+Codex (`openai-codex`) and Kilo Code (`kilo-code`) have catalog cards as of
+2026-08-18 wave A. They can enter the cohort after a field pass; “no card”
+is no longer the blocker. Tool × model is not a Cartesian product:
+Cursor/Copilot bundle routing; Claude Code is provider-locked unless current
+docs say otherwise; Aider/Qwen/Kimi can be BYOK.
 
 ## Intake
 
@@ -104,6 +105,17 @@ Watch continuation, Cohen’s kappa, 20-record mixed samples, 60-day regret,
 and a 60-minute production cap are **not** pass gates. Instrument some of
 them. Do not AND them.
 
+## Catalog scope (2026-08-18)
+
+The site is **not AI-only**. It is tools *and* tools for working with AI
+(UI kits, icon sets, galleries, builders). Vladimir: we add cards, we do not
+subtract them. Do not hide catalog entries behind a “builder kit” / non-AI
+filter. That hide shipped, design dropped 29→8, and was reverted in `613dbad`.
+
+Agent Skills are a different object (`SKILL.md`), not a 13th `/tools`
+category. If built later: a separate `/skills` hub (12–15 curated cards), not
+a scrape of skills.sh. Not before/during the Product Hunt slot.
+
 ## Existing Product and Architecture
 
 - The application repository is `/Users/vladimir/projects/noemium/app`.
@@ -111,9 +123,11 @@ them. Do not AND them.
   YAML/Markdown content and schema validation.
 - Production deploy is GitHub Actions build followed by `rsync` of `dist/` to
   Vultr.
-- The live site already includes Tools, Models, Stacks, Compare, quiz,
-  alternatives, guides, changelog, graveyard, stale/adopt-a-page, price
-  history, RSS, search, `llms.txt`, and the Agent Field Guide.
+- The live site already includes Tools, Models, Stacks, Compare, quiz
+  (permalink `/quiz/<stack>/`), alternatives, `/about`, `/method`, changelog,
+  graveyard, stale/adopt-a-page, price history, RSS, search, `llms.txt`,
+  JSON dumps (`/api/tools.json`), and the Agent Field Guide. Default catalog
+  shows all 204 tools including design kits.
 - Grok Bot and Grok Build are distinct products. Grok Bot is at
   `https://noemium.com/agents/grok-bot/`; the Agent Field Guide is at
   `https://noemium.com/agents/`.
