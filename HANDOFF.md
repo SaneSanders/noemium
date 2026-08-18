@@ -1,21 +1,16 @@
 # Noemium Handoff
 
-Стоп-кадр: 2026-08-18 ~16:00 МСК. Владимир явно: commit + push + deploy сегодняшнего среза. `/decide` как живой $99 оффер на прод **не** выкатывать.
+Стоп-кадр: 2026-08-18 ~16:05 МСК. Push+deploy прошли. `/decide` на проде — **404**, не $99.
 
 ## Стоп-кадр
 
-**Сделано (диск, уходит в git без `/decide` page):** каталог A+B (факт: **204 tools / 36 models / 15 stacks** + 14 agents), `/about` `/method`, quiz permalink, Floor, twins, JSON API, copy observation, weekly thread, graveyard successor, лонч-фиксы сайта. Нав/главная/⌘K без Decide.
+**Прод:** `dc05f4f` на `main` → GitHub Actions Deploy [32140135852](https://github.com/SaneSanders/noemium/actions/runs/32140135852) success → rsync Vultr. curl: `/` 200 (204 tools, нав без Decide, about/quiz, footer method), `/tools/openai-codex/` 200, `/api/tools.json` count 204, `/about` `/method` `/quiz` 200, `/decide` и `/decide/` **404** (title «404 — Not found», нет $99).
 
-**Не в коммите (локальный слайс 17.08):** `src/pages/decide.astro`, `DecideForm`, `decide-intake.json`, `docs/decide/`, `decide-brief` lib/tests. Инбокс (Web3Forms) и ссылка оплаты не заведены. Часы набора не стартовали.
+**В git без Decide-страницы:** каталог A+B (**204 tools / 36 models / 15 stacks** + 14 agents), `/about` `/method`, quiz permalink, Floor, twins, JSON API, copy observation, weekly thread, graveyard successor.
 
-**Прод:** GitHub Actions `Deploy` на push в `main` → rsync `dist/` на Vultr (`noemium.com`). Ожидаемый `/decide` на проде: не 200 с $99.
+**Не в git (локальный слайс 17.08):** `src/pages/decide.astro`, `DecideForm`, `decide-intake.json`, `docs/decide/`, `decide-brief` lib/tests. Инбокс и оплата не заведены. Часы набора не стартовали.
 
-**Старт следующей сессии:** проверить прод (curl `/` `/tools/openai-codex/` `/api/tools.json` `/decide`). Decide не включать, пока Владимир явно не скажет (инбокс + оплата).
-
-```
-[стоп-кадр · механика] 18.08.2026
-noemium/app [main] — каталог+лонч-поверхности к коммиту/пушу; /decide page остаётся untracked.
-```
+**Старт следующей сессии:** Decide не включать, пока Владимир явно не скажет (инбокс + оплата).
 
 ## Read First
 
@@ -24,10 +19,4 @@ noemium/app [main] — каталог+лонч-поверхности к ком�
 
 ## Exact Stop Point
 
-Vladimir 18.08: ship today's catalog and launch surfaces. Do not publish `/decide` as a live $99 offer. Inbox still unwired.
-
-## Local decide (not on prod)
-
-- `/decide/` — $99, 48h, 3/week — files on disk only
-- no engine, no Watch, no X `PILOT`
-- Without the Web3Forms key the form copies the brief
+Vladimir 18.08: ship today's catalog and launch surfaces. Do not publish `/decide` as a live $99 offer. Inbox still unwired. Done and verified on prod.
