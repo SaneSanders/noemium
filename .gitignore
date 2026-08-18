@@ -26,3 +26,6 @@ pnpm-debug.log*
 # maintainer-local session continuity files (internal strategy; not tracked)
 HANDOFF.md
 MEMORY.md
+
+# link-check reports
+reports/

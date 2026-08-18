@@ -54,6 +54,7 @@ export const toolSchema = z.object({
   affiliate: z.enum(['none', 'declared']),
   // Referral links live ONLY here — never in `url` or `receipts`.
   affiliate_url: httpsUrl.optional(),
+  evidence_tier: z.enum(['field-tested', 'source-verified', 'radar']).optional(),
   momentum: z.enum(['blueshift', 'steady', 'redshift']),
   featured: z.boolean().default(false),
   last_verified: isoDate,
