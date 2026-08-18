@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ToolCard from '../components/ToolCard.astro';
+import AgentCard from '../components/AgentCard.astro';
+
+const tools = await getCollection('tools');
+const agents = await getCollection('agents');
+
+const fieldTestedTools = tools
+  .filter((tool) => tool.data.evidence_tier === 'field-tested')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const fieldTestedAgents = agents
+  .filter((agent) => agent.data.evidence_tier === 'field-tested')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const sourceVerifiedAgents = agents.filter((agent) => agent.data.evidence_tier === 'source-verified');
+---
+
+<Base
+  title="Verified"
+  description="The shelf of field-tested cards. A card lands here only after a real hands-on field pass. Empty counts are the honest content."
+>
+  <SectionHeader
+    title="Verified"
+    sub="The shelf of field-tested cards. A card lands here only after a real hands-on pass with receipts, not after reading a landing page."
+  />
+
+  <article class="max-w-5xl pb-16">
+    <section>
+      <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b-[1.5px] border-ink pb-4">
+        <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Tools</h2>
+        <p class="font-mono text-[13px] text-ink-dim">
+          <span class="nm-num text-accent">{fieldTestedTools.length}</span>
+          <span class="mx-1">of</span>
+          <span class="nm-num">{tools.length}</span> tools
+        </p>
+      </div>
+
+      {fieldTestedTools.length > 0 ? (
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          {fieldTestedTools.map((tool) => <ToolCard tool={tool} />)}
+        </div>
+      ) : (
+        <div class="mt-8 border border-dashed border-ink p-6">
+          <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-accent uppercase">0 of {tools.length} tools</p>
+          <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink opacity-80">
+            None yet. A tool lands here only after a real hands-on field pass, with receipts, linked to the
+            <a href="/method/" class="text-accent hover:underline">method</a>.
+            The other cards are source-verified and still useful — receipts back the printed facts — but they are not field-tested.
+          </p>
+        </div>
+      )}
+    </section>
+
+    <section class="mt-16">
+      <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b-[1.5px] border-ink pb-4">
+        <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Agents</h2>
+        <p class="font-mono text-[13px] text-ink-dim">
+          <span class="nm-num text-accent">{fieldTestedAgents.length}</span>
+          <span class="mx-1">field-tested ·</span>
+          <span class="nm-num">{sourceVerifiedAgents.length}</span>
+          <span class="mx-1">source-verified ·</span>
+          <span class="nm-num">{agents.length}</span> total
+        </p>
+      </div>
+
+      {fieldTestedAgents.length > 0 ? (
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          {fieldTestedAgents.map((agent) => <AgentCard agent={agent} />)}
+        </div>
+      ) : (
+        <div class="mt-8 border border-dashed border-ink p-6">
+          <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-accent uppercase">
+            0 of {agents.length} agents field-tested
+          </p>
+          <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink opacity-80">
+            None yet. Field-tested agent guides require a reproduced install, real cost scenarios, and a security boundary check.
+            Source-verified guides are audited against primary sources but not run here.
+          </p>
+        </div>
+      )}
+    </section>
+
+    <p class="mt-16 font-mono text-[13px] text-ink-dim">
+      Read the <a href="/method/" class="text-accent hover:underline">method</a>
+      <span class="mx-2" aria-hidden="true">·</span>
+      <a href="/refusals/" class="text-accent hover:underline">Open Refusal Ledger</a>
+    </p>
+  </article>
+</Base>
