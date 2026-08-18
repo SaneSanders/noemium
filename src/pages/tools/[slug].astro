@@ -91,6 +91,7 @@ const shortTrail = (v: string | null) => {
 ---
 
 <Base title={t.name} description={t.tagline} ogImage={`/og/tools/${tool.id}.png`}>
+  <link slot="head" rel="alternate" type="application/json" href={`/tools/${tool.id}.json`} />
   <article class="py-14 md:py-20">
     <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
