@@ -29,6 +29,9 @@ export const COMPARE_PAIRS: ComparePair[] = [
   { a: 'cursor', b: 'windsurf' },
   { a: 'cline', b: 'cursor' },
   { a: 'kimi-code', b: 'claude-code' },
+  { a: 'openai-codex', b: 'jules' },
+  { a: 'bolt-new', b: 'replit-agent' },
+  { a: 'warp', b: 'clinch' },
 
   // productivity — anchor: chatgpt
   { a: 'chatgpt', b: 'claude' },
@@ -42,6 +45,7 @@ export const COMPARE_PAIRS: ComparePair[] = [
   { a: 'elevenlabs', b: 'deepgram' },
   { a: 'elevenlabs', b: 'murf' },
   { a: 'suno', b: 'udio' },
+  { a: 'elevenlabs', b: 'inworld-tts' },
 
   // automation
   { a: 'zapier', b: 'activepieces' },
@@ -53,14 +57,34 @@ export const COMPARE_PAIRS: ComparePair[] = [
   { a: 'ollama', b: 'open-webui' },
   { a: 'openrouter', b: 'together-ai' },
   { a: 'groq', b: 'fireworks-ai' },
+  { a: 'inngest', b: 'temporal' },
 
   // image — anchor: midjourney
   { a: 'midjourney', b: 'flux' },
   { a: 'midjourney', b: 'adobe-firefly' },
   { a: 'midjourney', b: 'krea' },
+  { a: 'gpt-image', b: 'seedream' },
+  { a: 'midjourney', b: 'grok-imagine' },
 
   // video — anchor: runway
   { a: 'runway', b: 'veo-3' },
   { a: 'runway', b: 'kling' },
   { a: 'runway', b: 'luma-dream-machine' },
+  { a: 'runway', b: 'descript' },
+  { a: 'invideo', b: 'capcut' },
+
+  // writing — anchor: jasper
+  { a: 'jasper', b: 'writer' },
+  { a: 'sudowrite', b: 'jenni' },
+  { a: 'grammarly', b: 'languagetool' },
+
+  // models-api
+  { a: 'amazon-bedrock', b: 'google-vertex-ai' },
+  { a: 'openai-api', b: 'amazon-bedrock' },
+
+  // agents
+  { a: 'crewai', b: 'singular' },
+
+  // design
+  { a: 'figma', b: 'penpot' },
 ];

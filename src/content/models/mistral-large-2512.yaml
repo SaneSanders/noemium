@@ -11,5 +11,6 @@ best_for:
 avoid_for:
   - cheapest-possible bulk workloads
   - frontier agentic coding (use DeepSeek V4 Pro / GLM 5.2)
+  - new builds — retires 2026-08-31; Mistral Medium 3.5 is the named successor
 source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key mistral/mistral-large-2512) and Mistral docs models overview; open weights (Apache-2.0); snapshot 2026-08-19"
 last_verified: "2026-08-19"
