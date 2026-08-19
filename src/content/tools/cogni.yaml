@@ -1,0 +1,29 @@
+name: Cogni
+tagline: MCP memory server that connects facts in an entity graph so agents reason over what they remember.
+url: https://getcogni.io/
+category: agents
+pricing: freemium
+price_note: "Free personal tier; Pro for higher limits and graph inspection; Team/Enterprise custom"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Exposes memory tools over MCP with deterministic graph traversal rather than
+  pure vector similarity, which helps with multi-hop questions that share no
+  vocabulary with the answer. The free tier is genuinely useful, and it works
+  with any model. Hosted-only for now; self-hosted deployments are on the
+  roadmap.
+limitations:
+  - Hosted service; memory text leaves your machine unless you wait for the self-hosted tier.
+  - Effectiveness depends on the agent consistently calling recall before answering.
+  - Pro and team pricing is not published transparently on the site.
+receipts:
+  - https://getcogni.io/
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

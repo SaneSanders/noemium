@@ -3,7 +3,7 @@ tagline: Screenshots and flow library of real mobile and web app designs.
 url: "https://mobbin.com"
 category: design
 pricing: freemium
-price_note: free limited browse; paid from $8/mo
+price_note: free limited browse; Pro kr100/mo billed yearly
 free_tier: true
 open_source: false
 api: false
@@ -21,5 +21,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

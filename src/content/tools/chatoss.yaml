@@ -1,0 +1,29 @@
+name: ChatOSS
+tagline: Native desktop workspace for agentic coding with local Ollama models and optional cloud models.
+url: https://chatoss.ai/
+category: coding
+pricing: freemium
+price_note: "Free for local Ollama; Starter $8/mo, Plus $20/mo, Pro $60/mo, Ultra $200/mo for cloud models"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A Codex-style workspace built around open-weight models, with agents that write
+  code, manage a Kanban board, and review PRs. The free tier is genuinely usable
+  with local Ollama, and paid tiers add concurrent cloud models. Worth a look if
+  you want an agentic IDE that does not default to OpenAI.
+limitations:
+  - Proprietary app; no public source repository yet.
+  - Cloud plans require an account and ongoing payment; local-only mode needs a capable machine.
+  - Newer than the established agentic IDEs, so ecosystem and stability are unproven.
+receipts:
+  - https://chatoss.ai/
+  - https://chatoss.ai/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

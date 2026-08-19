@@ -1,0 +1,28 @@
+name: Descript
+tagline: "AI audio and video editor that turns transcripts into a doc-style timeline — record, edit, overdub, and repurpose."
+url: https://www.descript.com
+category: video
+pricing: freemium
+price_note: "Free $0; Hobbyist $16/mo (annual) or $24/mo; Creator $24/$35; Business $50/$65; Enterprise custom."
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Descript shines for podcasters, marketers, and solo creators who want to edit audio and video by editing text.
+  Overdub, Studio Sound, and AI clip generation save hours on repetitive post-production.
+  The trade-off is a proprietary cloud project format and usage quotas; heavy teams will outgrow the cheaper tiers quickly.
+limitations:
+  - Free plan is capped at 60 minutes of imported/recorded media, 5 GB storage, 720p export, and one-time AI credits.
+  - AI features consume credits that can run out mid-project, and overage costs add up for high-volume creators.
+  - Doc-style editing sacrifices the fine timeline control that traditional editors expect for complex multicam work.
+receipts:
+  - https://www.descript.com
+  - https://www.descript.com/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

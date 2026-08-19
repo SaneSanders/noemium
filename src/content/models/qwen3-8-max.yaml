@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - teams needing a first-party managed SLA
   - small-GPU self-hosting (2.4T MoE)
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key dashscope/qwen3.8-max); GA 2026-08-03; open-weights 2.4T-A95B MoE; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key dashscope/qwen3.8-max) and Alibaba Cloud Model Studio model page; GA 2026-08-03; open-weights 2.4T-A95B MoE; snapshot 2026-08-19"
+last_verified: "2026-08-19"

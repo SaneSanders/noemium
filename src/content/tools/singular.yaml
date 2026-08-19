@@ -1,0 +1,29 @@
+name: Singular
+tagline: Autonomous multi-agent orchestration engine that runs coding agents in parallel against a repo.
+url: https://github.com/alex-reysa/singular-lite
+category: agents
+pricing: free
+price_note: "GPL-3.0 open source; bring your own runner (Claude Code, Codex, etc.)"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  Brings git-worktree isolation, durable leases, and a three-tier scheduler to
+  long-running agent workflows. It is engineered for teams that want many
+  autonomous coding agents working on the same repo without stepping on each
+  other. Setup is nontrivial and the documentation assumes you already run
+  Claude Code or Codex.
+limitations:
+  - Requires bash 4+, Python, git, and a supported runner CLI already configured.
+  - Engine must be installed from a checkout; there is no download mechanism for the pinned engine.
+  - The default promoter is minimal, so real workflows need custom gate and promoter scripts.
+receipts:
+  - https://github.com/alex-reysa/singular-lite
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

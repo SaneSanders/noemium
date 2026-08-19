@@ -3,7 +3,7 @@ tagline: Meeting transcription and summaries with deep calendar integration.
 url: https://otter.ai
 category: productivity
 pricing: freemium
-price_note: "free (300 min/mo); Pro from $8/mo (annual)"
+price_note: "Basic free (300 min/mo); Business $19.99/user/mo (annual)"
 free_tier: true
 open_source: false
 api: true
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

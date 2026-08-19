@@ -3,7 +3,7 @@ tagline: Gemini API with a real free tier — huge context, multimodal, generous
 url: https://aistudio.google.com
 category: models-api
 pricing: freemium
-price_note: "free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01)"
+price_note: "free tier (text models); paid from $0.75/1M input (Gemini 3.7 Flash promo till 2027-01)"
 free_tier: true
 open_source: false
 api: true
@@ -27,5 +27,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

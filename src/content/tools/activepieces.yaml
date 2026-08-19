@@ -3,7 +3,7 @@ tagline: Open-source automation — unlimited flows, agents, MCP; cloud credits 
 url: https://www.activepieces.com
 category: automation
 pricing: freemium
-price_note: "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only)"
+price_note: "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
 free_tier: true
 open_source: true
 api: true
@@ -25,5 +25,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-18"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

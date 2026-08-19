@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - open-weights or on-prem requirements
   - teams needing a long pricing track record
-source_attribution: "Prices: vendor pricing page, 2026-08-15; cached input $0.15/1M; first paid Meta API; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: Meta vendor pricing page and LiteLLM model_prices_and_context_window.json (MIT, key meta/muse-spark-1.2); cached input $0.15/1M; first paid Meta API; snapshot 2026-08-19"
+last_verified: "2026-08-19"

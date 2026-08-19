@@ -3,7 +3,7 @@ tagline: AI-native automation platform for building agent-driven workflows visua
 url: https://www.gumloop.com
 category: automation
 pricing: freemium
-price_note: "free tier; paid from $19/mo"
+price_note: "Pro from $37/mo"
 free_tier: true
 open_source: false
 api: true
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

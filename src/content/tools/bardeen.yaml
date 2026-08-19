@@ -3,7 +3,7 @@ tagline: Browser-native automation with AI that scrapes and runs workflows in th
 url: https://www.bardeen.ai
 category: automation
 pricing: freemium
-price_note: "free tier; paid from $10/mo"
+price_note: "free tier (100 credits/mo); paid from $10/mo"
 free_tier: true
 open_source: false
 api: false
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

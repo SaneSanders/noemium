@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - frontier-accuracy tasks
   - teams needing a first-party managed SLA
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key minimax/MiniMax-M3); price applies to ≤512K context; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key minimax/MiniMax-M3); price applies to ≤512K context; snapshot 2026-08-19"
+last_verified: "2026-08-19"

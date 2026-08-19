@@ -1,0 +1,28 @@
+name: Google Vertex AI
+tagline: "Google Cloud's ML and generative AI platform, now branded Gemini Enterprise Agent Platform."
+url: https://cloud.google.com/vertex-ai
+category: models-api
+pricing: paid
+price_note: "Pay-as-you-go for models, compute, storage, and pipelines; new Google Cloud customers get $300 in credits. Agent Platform offers limited free tiers for agent compute, memory, and storage."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Vertex AI / Agent Platform is a full-stack shop for teams already on Google Cloud, combining Model Garden, tuning, MLOps, and agent tooling.
+  It supports a wide range of Google, third-party, and open models with deep BigQuery and Cloud integrations.
+  The platform is powerful but sprawling; pricing has many moving parts, and the recent rebranding creates navigation friction.
+limitations:
+  - Pricing is fragmented across model inference, compute, storage, pipelines, and management fees.
+  - The shift from "Vertex AI" to "Gemini Enterprise Agent Platform" means docs, SKUs, and URLs are in transition.
+  - Best value is for GCP-centric teams; multi-cloud or simple API-only users may find it heavyweight.
+receipts:
+  - https://cloud.google.com/vertex-ai
+  - https://cloud.google.com/vertex-ai/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

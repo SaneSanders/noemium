@@ -1,0 +1,30 @@
+name: Voidleap Code
+tagline: Local-first agentic IDE with your own keys, per-turn model switching, and full observability.
+url: https://voidleap.com/
+category: coding
+pricing: freemium
+price_note: "Free: 3 workspaces, 3 projects each, 1 key profile, 7-day history; Pro €20/seat/mo; Team €50/seat/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Positions itself as a harness rather than a wrapper: you see system prompts,
+  context entries, and cost/latency charts for every thread. Bring-your-own-key
+  model support is broad, including Anthropic, OpenAI, Gemini, Ollama,
+  OpenRouter, and Bedrock. The free plan is real but small; most solo developers
+  will outgrow the project limits quickly.
+limitations:
+  - Pro and Team tiers are still in development; only the Free plan ships today.
+  - macOS and Windows desktop only.
+  - Requires periodic online license validation even though the runtime is local.
+receipts:
+  - https://voidleap.com/
+  - https://voidleap.com/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

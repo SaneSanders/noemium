@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - hardest reasoning tasks (use 3.1 Pro)
   - open-weights requirements
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gemini-3.7-flash); promo price until 2026-12-31, then $1.50/$7.50; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: Google Cloud Agent Platform pricing (gemini-3.7-flash), 2026-08-19; promo price until 2026-12-31, then $1.50/$7.50; snapshot 2026-08-19"
+last_verified: "2026-08-19"

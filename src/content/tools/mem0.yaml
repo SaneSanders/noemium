@@ -1,0 +1,29 @@
+name: Mem0
+tagline: "Drop-in long-term memory layer for AI agents and apps — open-source library plus managed cloud platform."
+url: https://www.mem0.ai
+category: dev-infra
+pricing: freemium
+price_note: "Open-source library and self-hosted server are free; managed Hobby plan is free (10k add requests/mo), Starter $19/mo, Pro $249/mo, Enterprise custom."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Mem0 gives agents persistent, queryable memory without rebuilding retrieval pipelines from scratch.
+  The open-source Python/JS SDK and Docker-based self-hosted server make it easy to prototype, and the managed platform adds analytics and graph memory.
+  It is still a young layer; production teams need to think hard about memory accuracy, privacy, and the cost of retrieval at scale.
+limitations:
+  - Memory quality depends on the underlying LLM and embedding model; bad extractions compound over time.
+  - Free and Starter plans have tight request limits; production scale quickly lands on the $249/mo Pro tier or Enterprise.
+  - Self-hosted setup requires managing vector storage and auth, not a one-line drop-in for most teams.
+receipts:
+  - https://www.mem0.ai
+  - https://www.mem0.ai/pricing
+  - https://github.com/mem0ai/mem0
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

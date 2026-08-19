@@ -1,6 +1,6 @@
 name: Luma Dream Machine
 tagline: Fast ideation video model with strong start/end keyframe control.
-url: https://lumalabs.ai/dream-machine
+url: https://lumalabs.ai
 category: video
 pricing: freemium
 price_note: "free tier (watermarked); from $30/mo (Luma Agents Plus)"
@@ -20,9 +20,9 @@ limitations:
   - Far fewer post-generation editing tools than Runway.
   - Two plan ladders coexist (legacy Dream Machine and Luma Agents since 2026-03); clean export from paid only.
 receipts:
-  - https://lumalabs.ai/dream-machine
+  - https://lumalabs.ai
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

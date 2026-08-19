@@ -1,0 +1,29 @@
+name: Replit Agent
+tagline: Replit's browser-based AI app builder with built-in deployment and effort-based credits.
+url: https://replit.com/agent
+category: coding
+pricing: freemium
+price_note: "Starter free with limited daily credits; Core $25/mo ($20/mo annual) with usage credits; Pro $100/mo; Enterprise custom"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fastest zero-setup path from prompt to deployed app, now with Agent 4 and a
+  design canvas. The effort-based credit model is fairer than flat
+  checkpoints, but costs scale with task complexity. Browser IDE still lags
+  behind local tools for serious engineering.
+limitations:
+  - Agent tasks burn credits that scale with complexity; bills can surprise heavy users.
+  - Browser editor and debugger are less capable than VS Code or JetBrains.
+  - Production hosting is mostly Replit's platform; exporting to external infra takes work.
+receipts:
+  - https://replit.com/agent
+  - https://replit.com/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

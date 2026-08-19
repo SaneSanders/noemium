@@ -3,11 +3,11 @@ tagline: Durable workflows and event-driven functions for serverless apps.
 url: https://www.inngest.com
 category: dev-infra
 pricing: freemium
-price_note: "free tier; paid from $20/mo"
+price_note: "free Hobby tier; Pro $99/mo"
 free_tier: true
 open_source: false
 api: true
-self_host: false
+self_host: true
 verdict: ship
 verdict_text: >-
   Makes "sleep for a week then continue" easy in serverless functions. Great
@@ -24,5 +24,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-17"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -1,5 +1,5 @@
 name: GLM Coding Plan
-tagline: Flat-rate monthly subscription for coding-optimized GLM models via an Anthropic-compatible API.
+tagline: Flat-rate monthly subscription for coding-optimized GLM models via an OpenAI-compatible API.
 url: https://z.ai/subscribe
 category: coding
 pricing: paid
@@ -9,11 +9,12 @@ open_source: false
 api: true
 self_host: false
 models_used:
+  - glm-5-3
   - glm-5-2
 verdict: situational
 verdict_text: >-
   A flat-rate coding-agent subscription is a rare alternative to per-token
-  billing, and the Anthropic-compatible API plugs into Claude Code, Cline or
+  billing, and the OpenAI-compatible API plugs into Claude Code, Cline or
   Cursor. The value depends on whether you hit the plan's rate caps; the entry
   price also jumped from $3 to $18, so watch for further moves.
 limitations:
@@ -29,5 +30,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

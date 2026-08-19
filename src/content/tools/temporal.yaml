@@ -1,0 +1,28 @@
+name: Temporal
+tagline: "Durable workflow orchestration engine, open-source and cloud-hosted, popular for reliable AI agent pipelines."
+url: https://temporal.io
+category: dev-infra
+pricing: freemium
+price_note: "Open-source self-hosted under MIT license is free; Temporal Cloud starts at $100/mo Essentials and offers $1,000 in free credits."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Temporal turns fragile agent scripts and long-running AI pipelines into durable, observable workflows that survive crashes and retries.
+  The open-source server is mature and MIT-licensed, while Temporal Cloud removes operational burden for a premium.
+  It is not a low-code tool; teams must be willing to model workflows and activities in code.
+limitations:
+  - "There is a learning curve: workers, workflows, activities, and event history are new concepts for many teams."
+  - Self-hosted operation requires running the Temporal Server, persistence, and observability stack.
+  - Cloud pricing scales with Actions and storage; high-throughput workloads need careful capacity planning.
+receipts:
+  - https://temporal.io
+  - https://temporal.io/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

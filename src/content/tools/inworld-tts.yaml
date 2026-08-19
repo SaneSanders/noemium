@@ -1,0 +1,28 @@
+name: Inworld TTS
+tagline: "Realtime text-to-speech API aimed at voice agents and characters, with voice cloning and LLM routing."
+url: https://www.inworld.ai
+category: audio
+pricing: freemium
+price_note: "On-Demand free tier includes up to 70 min TTS; paid plans start at $25/mo (Creator), then $100/mo Builder, $300/mo Developer, $1,500/mo Growth, and Enterprise custom."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Inworld TTS-2 is built for low-latency, expressive voice agents and ranks well on TTS benchmarks.
+  The realtime steering and character-friendly voices make it a strong choice for games, companions, and call agents.
+  It is still a narrower ecosystem than ElevenLabs, and the bundled LLM/STT credits can obscure true per-project cost.
+limitations:
+  - Pricing is credit-based across TTS, STT, and LLM routing; estimating bills for mixed workloads takes work.
+  - Smaller community and third-party integration library compared to the established audio leaders.
+  - Voice cloning and professional features are gated behind higher tiers or paid add-ons.
+receipts:
+  - https://www.inworld.ai
+  - https://www.inworld.ai/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

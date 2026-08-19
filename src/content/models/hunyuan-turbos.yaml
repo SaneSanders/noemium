@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - frontier text reasoning (mid-pack quality)
   - organizations needing reliable access outside China
-source_attribution: "Prices: LLM Cost Calculator / Tencent Cloud docs, 2026-08-03 (https://llmcostcalc.com/cloud/hunyuan); USD figures are approximate conversions from CNY; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: LLM Cost Calculator / Tencent Cloud docs, 2026-08-19 (https://llmcostcalc.com/cloud/hunyuan); USD figures are approximate conversions from CNY; snapshot 2026-08-19"
+last_verified: "2026-08-19"

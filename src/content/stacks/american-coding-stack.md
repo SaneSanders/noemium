@@ -13,7 +13,7 @@ receipts:
   - https://cursor.com
   - https://github.com/features/copilot
   - https://platform.openai.com/docs
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 20

@@ -13,7 +13,7 @@ receipts:
   - https://docs.anthropic.com/en/docs/claude-code
   - https://openrouter.ai
   - https://aider.chat
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 19

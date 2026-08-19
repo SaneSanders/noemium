@@ -1,6 +1,6 @@
 name: Mistral Vibe
 tagline: Mistral's assistant (ex Le Chat) plus Vibe coding CLI/IDE — not the La Plateforme API card.
-url: https://mistral.ai/products/le-chat
+url: https://mistral.ai/products/vibe/
 category: productivity
 pricing: freemium
 price_note: "Free $0; Pro $14.99/mo (students $5.99); Team $24.99/user/mo; $30/mo API credits on Pro; usage beyond plan at API rates"
@@ -23,9 +23,9 @@ limitations:
   - Not a duplicate of the Mistral API card.
 receipts:
   - https://mistral.ai/pricing/
-  - https://mistral.ai/products/le-chat
+  - https://mistral.ai/products/vibe/
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-18"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

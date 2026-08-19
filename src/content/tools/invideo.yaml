@@ -3,7 +3,7 @@ tagline: AI video generator that turns scripts into publishable clips with stock
 url: https://invideo.io
 category: video
 pricing: freemium
-price_note: "free tier with watermark; Plus from $20/mo"
+price_note: "Plus from $17/mo"
 free_tier: true
 open_source: false
 api: false
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

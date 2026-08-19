@@ -3,7 +3,7 @@ tagline: MiniMax developer API for text, image, video, music and speech models; 
 url: https://platform.minimax.io/docs/guides/pricing-paygo
 category: models-api
 pricing: paid
-price_note: "MiniMax-M3 ≤512K context $0.30/$1.20 per 1M (promo 50% off list $0.60/$2.40), >512K 2× rate; M2.5 $0.282/$1.128; Text-01 not listed on current API docs"
+price_note: "MiniMax-M3 ≤512K context $0.30/$1.20 per 1M (promo 50% off list $0.60/$2.40), >512K 2× rate; M2.5 $0.30/$1.20 per 1M; Text-01 not listed on current API docs"
 free_tier: true
 open_source: false
 api: true
@@ -28,5 +28,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-17"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

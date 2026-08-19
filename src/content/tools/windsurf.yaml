@@ -1,5 +1,5 @@
 name: Devin Desktop (ex Windsurf)
-tagline: Agentic IDE (VS Code fork) built around the Cascade agent flow.
+tagline: Agentic IDE (VS Code fork) with Devin agents and cloud coding.
 url: https://devin.ai
 category: coding
 pricing: freemium
@@ -27,5 +27,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-18"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

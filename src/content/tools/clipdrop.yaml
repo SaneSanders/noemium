@@ -1,5 +1,5 @@
 name: Clipdrop
-tagline: Stability AI's suite of generative image tools — uncrop, relight, remove background, and more.
+tagline: Jasper's suite of generative image tools — uncrop, relight, remove background, and more.
 url: https://clipdrop.co
 category: image
 pricing: freemium
@@ -19,8 +19,9 @@ limitations:
   - Model updates have been slower than Midjourney/Flux rivals.
 receipts:
   - https://clipdrop.co
+  - https://clipdrop.co/remove-background
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

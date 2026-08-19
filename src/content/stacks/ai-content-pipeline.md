@@ -15,7 +15,7 @@ receipts:
   - https://ideogram.ai
   - https://klingai.com
   - https://elevenlabs.io/pricing
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 14

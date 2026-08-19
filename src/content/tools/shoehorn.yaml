@@ -1,0 +1,28 @@
+name: Shoehorn
+tagline: Quantize any language model to fit your machine's actual VRAM, then serve it locally.
+url: https://notactuallytreyanastasio.github.io/shoehorn/
+category: dev-infra
+pricing: free
+price_note: "open source; bring your own compute and API keys"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  A practical answer to "will this model run on my GPU?" Shoehorn solves a
+  per-tensor mixed-precision assignment from your real memory budget instead of
+  forcing a preset quantization, squeezing out quality other presets waste. Free,
+  local, and genuinely useful for anyone running LLMs on consumer hardware.
+limitations:
+  - Requires a working llama.cpp setup and some CLI comfort; the web UI still shells the same pipeline.
+  - Windows support is compile-tested but not yet field-tested.
+  - Auto-generated imatrices are skipped on Windows, so you need repos that publish one.
+receipts:
+  - https://github.com/notactuallytreyanastasio/shoehorn
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

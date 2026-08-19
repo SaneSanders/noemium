@@ -3,14 +3,16 @@ tagline: Copy-paste animated React components for landing pages and interactions
 url: "https://reactbits.dev"
 category: design
 pricing: free
-price_note: MIT open source
+price_note: "MIT + Commons Clause; source available, free for personal and commercial use"
 free_tier: true
-open_source: true
+open_source: false
 api: false
 self_host: false
 verdict: ship
 verdict_text: >-
-  A solid source of polished animated components you can copy straight into a React project. The motion quality is consistently good and the MIT license keeps usage simple.
+  A solid source of polished animated components you can copy straight into a
+  React project. The motion quality is consistently good, but the license is MIT
+  plus a Commons Clause, so check the terms before redistributing.
 limitations:
   - Tailwind-first styling assumes your project is already on that stack.
   - Some components need accessibility tweaks out of the box.
@@ -21,5 +23,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

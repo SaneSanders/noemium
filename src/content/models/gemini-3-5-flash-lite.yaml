@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - frontier reasoning (use 3.1 Pro)
   - open-weights requirements
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gemini-3.5-flash-lite); snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: Google Cloud Agent Platform pricing (gemini-3.5-flash-lite), 2026-08-19; snapshot 2026-08-19"
+last_verified: "2026-08-19"

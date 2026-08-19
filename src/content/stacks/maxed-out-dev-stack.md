@@ -15,7 +15,7 @@ receipts:
   - https://cursor.com
   - https://github.com/features/copilot
   - https://www.perplexity.ai
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 twin:
   slug: american-coding-stack

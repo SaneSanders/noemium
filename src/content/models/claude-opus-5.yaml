@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - cost-sensitive bulk workloads
   - sub-second latency requirements
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key claude-opus-5); batch API -50%, cache read 0.1x; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key claude-opus-5), cross-checked via Google Cloud Agent Platform partner pricing; batch API -50%, cache read 0.1x; snapshot 2026-08-19"
+last_verified: "2026-08-19"

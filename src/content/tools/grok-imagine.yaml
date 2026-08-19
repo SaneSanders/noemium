@@ -1,0 +1,28 @@
+name: Grok Imagine
+tagline: "xAI's integrated image and video generator inside Grok — up to 2K images and 15-second 1080p videos."
+url: https://x.ai/grok
+category: image
+pricing: freemium
+price_note: "Free tier on grok.com; SuperGrok $30/mo unlocks higher Imagine limits and 1080p video; SuperGrok Plus $100/mo for priority and significantly higher usage."
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Grok Imagine is the easiest way for existing Grok users to generate images and short videos without leaving the chat thread.
+  Quality is competitive for quick social assets and memes, but it is tied to Grok's subscription tiers and usage quotas rather than a standalone creative studio.
+  For production pipelines that need API access, batch rendering, or fine-grained control, the xAI API or dedicated media generators are a better fit.
+limitations:
+  - No direct API or self-hosted option for Imagine; everything routes through the Grok consumer app.
+  - Video output is limited to 15-second clips and 1080p at the top tier, with quotas that can throttle heavy use.
+  - X/ByteDance-style content moderation and data residency concerns apply for sensitive or enterprise work.
+receipts:
+  - https://x.ai/grok
+  - https://x.ai/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

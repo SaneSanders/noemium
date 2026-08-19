@@ -3,7 +3,7 @@ tagline: AI-first collaborative writing app for notes, documents, and workflows.
 url: https://type.ai
 category: writing
 pricing: freemium
-price_note: "free tier; Pro from $12/mo"
+price_note: "free tier; Pro from $8/mo"
 free_tier: true
 open_source: false
 api: false
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

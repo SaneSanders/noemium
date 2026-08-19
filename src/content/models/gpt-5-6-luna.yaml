@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - frontier reasoning (use gpt-5.6-sol/terra)
   - open-weights requirements
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gpt-5.6-luna); >272K input bills 2x input / 1.5x output; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: OpenAI API model docs (gpt-5.6-luna), 2026-08-19; >272K input bills 2x input / 1.5x output; snapshot 2026-08-19"
+last_verified: "2026-08-19"

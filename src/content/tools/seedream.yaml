@@ -1,0 +1,29 @@
+name: Seedream
+tagline: ByteDance's image generation model, served via BytePlus ModelArk and Dreamina.
+url: https://www.byteplus.com/en/product/Seedream
+category: image
+pricing: paid
+price_note: "BytePlus ModelArk pay-as-you-go; Seedream 5.0 Pro packages from ~$6.99 intro; standard from $0.045/image"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Seedream 5.0 Pro produces strong prompt adherence and visual quality at
+  aggressive per-image prices. Western access is through BytePlus ModelArk,
+  with CNY-first billing and sparse USD documentation. A capable option for
+  bulk asset generation if you accept ByteDance's trust boundary.
+limitations:
+  - Access and pricing are CNY-first; clean USD rate cards are hard to find.
+  - Closed weights with no self-host or open-weights fallback.
+  - Western signup, docs, and data-sovereignty concerns mirror other ByteDance AI products.
+receipts:
+  - https://www.byteplus.com/en/product/Seedream
+  - https://ai.byteplus.com/product/Seedream
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

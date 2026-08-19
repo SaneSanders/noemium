@@ -16,5 +16,5 @@ benchmarks:
     score: "80.6%"
     source: Google model card
     date: "2026-02-19"
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key gemini-3.1-pro-preview); >200K input tier: $4/$18 per 1M; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: Google Cloud Agent Platform pricing (gemini-3.1-pro-preview), 2026-08-19; >200K input tier: $4/$18 per 1M; snapshot 2026-08-19"
+last_verified: "2026-08-19"
