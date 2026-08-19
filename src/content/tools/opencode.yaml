@@ -5,7 +5,7 @@ category: coding
 pricing: freemium
 price_note: "free tier; paid plans from $20/mo"
 free_tier: true
-open_source: false
+open_source: true
 api: false
 self_host: false
 verdict: ship
@@ -19,6 +19,7 @@ limitations:
   - Less mature editor integration than Cursor or Windsurf.
 receipts:
   - https://opencode.ai
+  - https://github.com/anomalyco/opencode
 affiliate: none
 momentum: blueshift
 featured: false
