@@ -2,8 +2,8 @@ name: HeroUI
 tagline: Modern React component library with Tailwind CSS theming.
 url: "https://heroui.com"
 category: design
-pricing: freemium
-price_note: free core; paid templates and support
+pricing: free
+price_note: free and open source
 free_tier: true
 open_source: true
 api: false
@@ -21,5 +21,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

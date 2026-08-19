@@ -3,7 +3,7 @@ tagline: Open-source React components for building AI chat interfaces.
 url: "https://assistant-ui.com"
 category: design
 pricing: freemium
-price_note: free core; paid cloud features
+price_note: "open-source MIT core; assistant-cloud free up to 200 MAU, Pro $50/mo"
 free_tier: true
 open_source: true
 api: true
@@ -21,5 +21,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

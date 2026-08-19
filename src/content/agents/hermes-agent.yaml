@@ -81,24 +81,24 @@ limitations:
 evidence:
   - kind: availability
     url: https://github.com/hermes-agent-org/hermes
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: install
     url: https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: requirements
     url: https://hermes-agent.nousresearch.com/docs/integrations/providers/
-    checked_at: "2026-08-17"
-  - kind: pricing
-    url: https://portal.nousresearch.com/
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: pricing
     url: https://portal.nousresearch.com/info
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
+  - kind: pricing
+    url: https://portal.nousresearch.com/info
+    checked_at: "2026-08-19"
   - kind: license
     url: https://github.com/hermes-agent-org/hermes/blob/main/LICENSE
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: security
     url: https://hermes-agent.nousresearch.com/docs/user-guide/security/
-    checked_at: "2026-08-17"
-last_verified: "2026-08-17"
+    checked_at: "2026-08-19"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

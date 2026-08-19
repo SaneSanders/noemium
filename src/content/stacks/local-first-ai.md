@@ -13,7 +13,7 @@ receipts:
   - https://github.com/openai/whisper
   - https://github.com/black-forest-labs/flux
   - https://github.com/qdrant/qdrant
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 ---
 

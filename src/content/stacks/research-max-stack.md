@@ -17,7 +17,7 @@ receipts:
   - https://elicit.com
   - https://notebooklm.google/
   - https://chatgpt.com
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 30

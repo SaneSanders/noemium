@@ -69,18 +69,18 @@ limitations:
 evidence:
   - kind: availability
     url: https://x.ai/bot
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: install
     url: https://x.ai/bot
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: requirements
     url: https://x.ai/bot
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: pricing
     url: https://x.ai/bot
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: security
     url: https://x.ai/security
     checked_at: "2026-08-17"
-last_verified: "2026-08-17"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

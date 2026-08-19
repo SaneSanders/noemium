@@ -3,7 +3,7 @@ tagline: AI calendar that defends focus time, habits and tasks automatically.
 url: https://reclaim.ai
 category: productivity
 pricing: freemium
-price_note: "free tier; from $8/user/mo (annual)"
+price_note: "free tier; from $10/user/mo (annual)"
 free_tier: true
 open_source: false
 api: false
@@ -11,10 +11,10 @@ self_host: false
 verdict: ship
 verdict_text: >-
   Focus time, habits and tasks slot themselves around your meetings, and the
-  free tier covers a lot. It is built around Google Calendar, so Outlook users
-  get a weaker experience.
+  free tier covers a lot. It works with both Google and Outlook calendars,
+  though the richest integrations still lean Google.
 limitations:
-  - Google-Calendar-centric; Outlook support historically weaker.
+  - Calendar-centric by design; deepest automations still lean Google-side.
   - Can over-fill your calendar if misconfigured.
   - Team features need whole-team buy-in.
 receipts:
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -1,6 +1,6 @@
 name: AutoGen
 tagline: Microsoft framework for building multi-agent LLM applications.
-url: https://autogen.ai
+url: https://github.com/microsoft/autogen
 category: agents
 pricing: free
 price_note: "open source (MIT)"
@@ -15,13 +15,14 @@ verdict_text: >-
   chains. The learning curve is steep and debugging multi-agent conversations
   is hard.
 limitations:
+  - Now in maintenance mode; new users are directed to Microsoft Agent Framework.
   - Steep learning curve compared to CrewAI.
   - Documentation can lag the fast-moving codebase.
   - Production observability requires extra tooling.
 receipts:
-  - https://autogen.ai
+  - https://github.com/microsoft/autogen
 affiliate: none
-momentum: steady
+momentum: redshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

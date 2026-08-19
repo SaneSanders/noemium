@@ -3,7 +3,7 @@ tagline: Background jobs and workflows for TypeScript apps with AI-friendly prim
 url: https://trigger.dev
 category: dev-infra
 pricing: freemium
-price_note: "self-host free; cloud from $25/mo"
+price_note: "self-host free; cloud from $10/mo (Hobby)"
 free_tier: true
 open_source: true
 api: true
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

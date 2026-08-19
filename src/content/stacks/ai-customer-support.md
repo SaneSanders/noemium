@@ -11,7 +11,7 @@ receipts:
   - https://docs.anthropic.com
   - https://qdrant.tech
   - https://n8n.io
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 20
@@ -21,8 +21,8 @@ budget:
     - n8n
   tradeoff: >-
     Same Anthropic + Qdrant, but you self-host n8n instead of Cloud Starter.
-    You save ~$25 and inherit Docker, backups and upgrades. If you don't
-    already run a server, the $25 is cheaper than the ops time.
+    You save ~$24 and inherit Docker, backups and upgrades. If you don't
+    already run a server, the $24 is cheaper than the ops time.
 ---
 
 ## The recipe
@@ -36,7 +36,7 @@ budget:
    email/chat webhook → embed question → Qdrant search → Claude answer with
    sources → send or escalate.
 4. **Answer with Claude via the Anthropic API.** Haiku-class model for cost
-   ($0.80/1M input); prompt caching on your system prompt and docs index.
+   ($1.00/1M input); prompt caching on your system prompt and docs index.
    Expect ~$20/mo at a few thousand conversations.
 5. **Set the escalation rule.** No confident answer below a similarity
    threshold → create a human ticket with the draft reply attached. Never let
@@ -53,7 +53,7 @@ budget:
   hardest 5% of tickets.
 - **Qdrant — free tier / self-hosted, $0/mo.** The managed free tier or a Docker
   container on your existing server holds a small-business corpus at no cost.
-- **n8n — Cloud Starter, ~$25/mo.** The cloud starter replaces self-hosting
+- **n8n — Cloud Starter, ~$24/mo.** The cloud starter replaces self-hosting
   overhead; self-host for free if you already run a server and want to skip
   per-execution pricing.
 

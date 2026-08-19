@@ -1,0 +1,29 @@
+name: Doberman
+tagline: Runtime guard dog for AI coding agents that blocks unsafe tool calls before they execute.
+url: https://github.com/fu351/Doberman-Core
+category: agents
+pricing: free
+price_note: "Apache-2.0 open source core; enterprise platform on roadmap"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Sits on the MCP execution path and gives every tool call a PASS, AUTH, or
+  BLOCK verdict, stopping destructive commands, secret exfiltration, and
+  prompt-injection-driven actions. It fails closed and logs redacted decisions.
+  The project is early but already ships CI-proven parity matrices and a plugin
+  API for custom guardrails.
+limitations:
+  - Some host integrations are still experimental or manual to wire.
+  - Adaptive behavioral features currently run only on the MCP proxy path, not all host hooks.
+  - Static egress parsing can be evaded by runtime-constructed URLs or non-verb channels.
+receipts:
+  - https://github.com/fu351/Doberman-Core
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

@@ -3,7 +3,7 @@ tagline: Sourcegraph's agentic coding product (not Cody) — subscription orbs p
 url: https://ampcode.com
 category: coding
 pricing: paid
-price_note: "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing; education $10/mo"
+price_note: "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing"
 free_tier: false
 open_source: false
 api: true
@@ -25,5 +25,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-18"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

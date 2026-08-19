@@ -1,5 +1,5 @@
 name: Google Antigravity
-tagline: Google's agentic IDE — free individual preview, paid quota via Google AI Pro/Ultra, org via Cloud.
+tagline: Google's agentic development platform — free individual tier, paid quota via AI Pro/Ultra, orgs via Cloud.
 url: https://antigravity.google
 category: coding
 pricing: freemium
@@ -27,5 +27,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-18"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

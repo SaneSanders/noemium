@@ -3,7 +3,7 @@ tagline: Text-to-speech reader and AI voice generator for content consumption.
 url: https://speechify.com
 category: audio
 pricing: freemium
-price_note: "free tier; Premium from $139/year"
+price_note: "free tier; Premium $29/mo"
 free_tier: true
 open_source: false
 api: true
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

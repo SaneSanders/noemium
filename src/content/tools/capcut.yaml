@@ -1,0 +1,27 @@
+name: CapCut
+tagline: "ByteDance's AI-powered photo and video editor for social content, with templates, effects, and generative tools."
+url: https://www.capcut.com
+category: video
+pricing: freemium
+price_note: "Free online editor and mobile app; CapCut Pro subscription unlocks premium assets, effects, and higher-end exports (no public HTML price card found today — verify in-app at checkout)."
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  CapCut is the fastest path to polished short-form video for TikTok, Reels, and YouTube, especially on mobile.
+  The free tier covers most casual creators, while Pro adds premium templates, AI tools, and higher-quality exports.
+  It is less suited to long-form or team workflows that need frame-level precision, version control, or enterprise data governance.
+limitations:
+  - ByteDance ownership and data-handling practices are a procurement concern for some businesses and institutions.
+  - Advanced color grading, audio mixing, and collaboration lag behind desktop editors like DaVinci Resolve or Premiere.
+  - AI generative features are convenient but quality varies; exported free projects may nudge users toward paid assets.
+receipts:
+  - https://www.capcut.com
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

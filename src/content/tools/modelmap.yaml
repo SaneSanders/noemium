@@ -1,0 +1,27 @@
+name: modelmap
+tagline: Paste a Hugging Face model ID and get a living, animated architecture map without downloading weights.
+url: https://modelmap.cc/
+category: dev-infra
+pricing: free
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Instantly visualizes transformer blocks, attention, MoE routing, and shapes for
+  any public HF model. Useful for researchers and practitioners who need to
+  understand a new architecture before they commit to a download. No code or GPU
+  required.
+limitations:
+  - Only works for public Hugging Face repos; gated models need a token.
+  - Visualization fidelity depends on what the traced fake forward pass can infer.
+  - No evidence of an export or embedding API yet.
+receipts:
+  - https://modelmap.cc/
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

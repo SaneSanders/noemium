@@ -2,9 +2,9 @@ name: Cerebras
 tagline: Ultra-fast inference on wafer-scale AI accelerators with competitive API pricing.
 url: https://cerebras.ai
 category: models-api
-pricing: paid
-price_note: "usage-based; from ~$0.60/1M tokens (Llama 3.1 70B)"
-free_tier: false
+pricing: freemium
+price_note: "free trial ($5 credits); self-serve Developer from $10 deposit; Enterprise custom"
+free_tier: true
 open_source: false
 api: true
 self_host: false
@@ -19,8 +19,9 @@ limitations:
   - Long-term roadmap depends on hardware business.
 receipts:
   - https://cerebras.ai
+  - https://www.cerebras.ai/pricing
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

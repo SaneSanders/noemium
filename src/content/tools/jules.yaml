@@ -1,0 +1,30 @@
+name: Jules
+tagline: Google's asynchronous coding agent that clones your repo and works in the background.
+url: https://jules.google.com
+category: coding
+pricing: free
+price_note: "public beta is free with usage limits; paid pricing expected after beta"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Jules is the most hands-off Google coding agent: it reads your repo in a
+  cloud VM, plans multi-file changes, and returns a diff. Public beta is
+  currently free with usage limits, but pricing is coming once beta ends. It
+  only works where Gemini is available, and the async workflow means you wait
+  rather than pair live.
+limitations:
+  - Only available in regions where Gemini is supported; geo-blocked in some countries.
+  - Asynchronous execution means no real-time pair-programming feedback.
+  - Pricing is undefined beyond the free public beta.
+receipts:
+  - https://jules.google.com
+  - https://blog.google/innovation-and-ai/models-and-research/google-labs/jules/
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

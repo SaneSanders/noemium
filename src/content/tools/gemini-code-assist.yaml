@@ -1,18 +1,18 @@
 name: Gemini Code Assist
-tagline: Google's AI coding assistant for IDEs, with a free tier for individuals.
+tagline: "Google's AI coding assistant for IDEs, terminal, and Google Cloud workloads."
 url: https://codeassist.google.com
 category: coding
-pricing: freemium
-price_note: "free for individuals; paid from $19/mo (Enterprise)"
-free_tier: true
+pricing: paid
+price_note: "Standard $19/seat/mo (annual) or $22.80 monthly; Enterprise $45/seat/mo (annual) or $54 monthly"
+free_tier: false
 open_source: false
 api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Strong contextual suggestions inside VS Code and JetBrains, and the free
-  individual tier is genuinely useful. It lags Cursor and Claude Code on agentic
-  workflows, and enterprise rollout can be slow.
+  Strong contextual suggestions inside VS Code and JetBrains, with deep Google
+  Cloud integration. It lags Cursor and Claude Code on agentic workflows, and
+  enterprise rollout can be slow.
 limitations:
   - Agent capabilities are narrower than Cursor or Claude Code.
   - Enterprise billing and data handling need Google workspace alignment.
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

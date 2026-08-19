@@ -11,7 +11,7 @@ receipts:
   - https://platform.openai.com/docs
   - https://github.com/qdrant/qdrant
   - https://github.com/vercel/ai
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 0

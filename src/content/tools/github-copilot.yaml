@@ -3,7 +3,7 @@ tagline: Completions, chat, agents, and Copilot CLI — one GitHub Copilot seat,
 url: https://github.com/features/copilot
 category: coding
 pricing: freemium
-price_note: "Free $0 (2,000 completions/mo + Copilot CLI); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
+price_note: "Free $0 (2,000 completions/mo, 50 chat requests, CLI, limited agent mode); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
 free_tier: true
 open_source: false
 api: false
@@ -29,5 +29,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-18"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

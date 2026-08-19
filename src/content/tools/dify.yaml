@@ -3,7 +3,7 @@ tagline: Source-available LLM app platform with agent workflows and RAG.
 url: https://dify.ai
 category: agents
 pricing: freemium
-price_note: "self-host free under the restricted Dify license; cloud from $29/mo"
+price_note: "Cloud Sandbox free; self-host Community free under restricted license; cloud Professional/Team paid yearly"
 free_tier: true
 open_source: false
 api: true
@@ -24,5 +24,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-17"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -22,6 +22,6 @@ limitations:
 evidence:
   - kind: availability
     url: https://github.com/RightNow-AI/openfang
-    checked_at: "2026-08-17"
-last_verified: "2026-08-17"
+    checked_at: "2026-08-19"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -3,7 +3,7 @@ tagline: MiniMax consumer video generator ranked high on physics and motion real
 url: https://hailuoai.com
 category: video
 pricing: freemium
-price_note: "Consumer Standard $7.99/mo, Pro $27.99/mo, Master $63.99/mo (credit-based); API via third-party providers only, e.g. fal.ai ~$0.045/s standard, Segmind ~$0.34–$0.60/video; no first-party public price card"
+price_note: "Consumer plans from ¥105/mo (promo ¥55) to ¥1399/mo, credit-based; API via third-party resellers only; no first-party public price card"
 free_tier: true
 open_source: false
 api: true
@@ -16,7 +16,7 @@ verdict_text: >-
 limitations:
   - First-party API pricing not public; Western access usually via resellers.
   - Strict content moderation.
-  - Single-model pipeline, no model choice.
+  - Multiple model tiers (Hailuo 01/02/H3) make the credit system harder to navigate.
   - Consumer pricing and API pricing are separate, confusing buckets.
 receipts:
   - https://www.atlascloud.ai/blog/tips/hailuo-ai-pricing-cost
@@ -25,5 +25,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

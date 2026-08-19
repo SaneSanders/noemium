@@ -5,9 +5,9 @@ category: image
 pricing: paid
 price_note: "Qwen-Image 2.0 ~$0.029/image, Image Plus ~$0.0287/image, Image Edit Max similar per-image rate"
 free_tier: true
-open_source: false
+open_source: true
 api: true
-self_host: false
+self_host: true
 verdict: situational
 verdict_text: >-
   Cheap image generation and editing through the same Alibaba Cloud account as
@@ -20,11 +20,12 @@ limitations:
   - China-region compliance and data-residency rules apply.
   - Editing endpoints are priced separately and can add up.
 receipts:
+  - https://github.com/QwenLM/Qwen-Image
   - https://gate.ai/blog/qwen-image-2-0-qwen-specs-pricing-api-use-cases
   - https://gate.ai/blog/qwen-image-plus-specs-pricing-api-use-cases-2026
   - https://developer.puter.com/tutorials/qwen-api-pricing/
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -1,15 +1,15 @@
 name: Kimi K2.7 Code
 provider: Moonshot AI (Kimi)
-context_window: 256000
+context_window: 262144
 price_input_per_mtok: 0.95
 price_output_per_mtok: 4.00
 open_weights: true
 popularity: 75
 best_for:
-  - agentic coding with 256K code context
+  - agentic coding with 262K code context
   - self-hosted or BYOK coding deployments
 avoid_for:
   - cost-sensitive high token-burn workloads (thinking mode is mandatory)
   - non-coding general workloads where cheaper models suffice
-source_attribution: "Prices: Moonshot AI pricing page, 2026-08-15 (https://platform.moonshot.cn/docs/pricing); Requesty model page (https://www.requesty.ai/models/moonshot/kimi-k2.7-code); open weights (modified MIT); snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: Requesty model page (Moonshot upstream), 2026-08-19 (https://www.requesty.ai/models/moonshot/kimi-k2.7-code); open weights (modified MIT); snapshot 2026-08-19"
+last_verified: "2026-08-19"

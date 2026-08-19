@@ -1,0 +1,29 @@
+name: LanguageTool
+tagline: Open-source multilingual grammar, style, and spelling checker.
+url: https://languagetool.org
+category: writing
+pricing: freemium
+price_note: "Free browser/editor with basic checks; Premium unlocks advanced style, grammar, and higher limits"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The strongest open-source option for multilingual grammar and style
+  checking, with a solid free browser add-on. Premium unlocks deeper style
+  rules and higher limits, but the core engine is self-hostable. Best for
+  privacy-conscious users and teams that want EU-based tooling.
+limitations:
+  - Free tier has a 2,000-character limit per check and fewer style rules.
+  - Premium paraphrasing is capped even on paid plans.
+  - Self-hosted setup requires technical effort and your own infrastructure.
+receipts:
+  - https://languagetool.org
+  - https://languagetool.org/premium
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

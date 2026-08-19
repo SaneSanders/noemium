@@ -1,0 +1,30 @@
+name: Clinch
+tagline: Local-first macOS fork of Warp that keeps Claude Code and Codex sessions alive across restarts.
+url: https://clinch.sh/
+category: coding
+pricing: free
+price_note: "AGPL-3.0 open source; no account, no telemetry"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  An unofficial Warp fork tuned for AI coding agents: project tabs, durable
+  workspaces, and session capture so Claude Code and Codex conversations survive
+  app restarts. Remote Control lets you answer a waiting agent from your phone
+  over your own Tailscale network. macOS 14+ only and not notarized, so expect a
+  Gatekeeper prompt.
+limitations:
+  - macOS 14+ only; no Linux or Windows build.
+  - Public preview is ad-hoc signed, not notarized.
+  - Session recovery is best-effort; provider transcripts and process state can still be lost.
+receipts:
+  - https://clinch.sh/
+  - https://github.com/elliot-ylambda/clinch-terminal
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

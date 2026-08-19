@@ -1,0 +1,29 @@
+name: Pharos
+tagline: Package manager and registry for MCP servers, with dependency resolution and a local daemon.
+url: https://getpharos.dev/
+category: dev-infra
+pricing: free
+price_note: "MIT open source CLI; registry is free to use"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  Brings npm-like semantics to MCP servers: search across multiple registries,
+  install with dependency resolution, lock versions, and run a local daemon that
+  JIT-loads HTTP/SSE servers. The safe config writes and broad client support
+  make it the most credible attempt yet to tame the growing MCP-server zoo.
+limitations:
+  - Registry and discovery are new; package quality varies.
+  - stdio servers are not managed by the daemon; clients still handle those as child processes.
+  - Publishing requires GitHub OAuth and acceptance of a young registry's policies.
+receipts:
+  - https://getpharos.dev/
+  - https://github.com/Wpnx330/pharos-cli
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

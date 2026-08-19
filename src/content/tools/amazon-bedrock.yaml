@@ -1,0 +1,28 @@
+name: Amazon Bedrock
+tagline: "AWS-managed platform giving API access to hundreds of foundation models plus agents and guardrails."
+url: https://aws.amazon.com/bedrock/
+category: models-api
+pricing: paid
+price_note: "Pay-per-use per model/token; rate card varies by provider and modality. New AWS customers receive up to $200 in credits to try AWS AI."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Bedrock is the pragmatic choice for AWS shops that need a single API gateway to many frontier and open-weight models.
+  It adds enterprise features like Knowledge Bases, Guardrails, and AgentCore that are hard to bolt onto a raw API.
+  The convenience comes with AWS complexity; per-model pricing is not always the cheapest, and the rate card is a maze.
+limitations:
+  - Pricing spans dozens of providers and modalities; forecasting cost across a multi-model stack is non-trivial.
+  - AWS account setup, IAM, and compliance overhead make it overkill for small prototypes.
+  - Some newer models require region-specific availability and approval gates.
+receipts:
+  - https://aws.amazon.com/bedrock/
+  - https://aws.amazon.com/bedrock/pricing/
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

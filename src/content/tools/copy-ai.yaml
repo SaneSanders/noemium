@@ -3,7 +3,7 @@ tagline: Marketing copy generator with workflow automation for go-to-market team
 url: https://www.copy.ai
 category: writing
 pricing: freemium
-price_note: "free tier (2k words/mo); Pro from $49/mo"
+price_note: "free trial (2k words/mo); paid plans from $1,000/mo (Growth)"
 free_tier: true
 open_source: false
 api: true
@@ -19,8 +19,9 @@ limitations:
   - Output quality varies across content types.
 receipts:
   - https://www.copy.ai
+  - https://www.copy.ai/pricing
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

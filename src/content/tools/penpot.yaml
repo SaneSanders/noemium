@@ -1,0 +1,28 @@
+name: Penpot
+tagline: Open-source design and prototyping platform built for designers and developers.
+url: https://penpot.app
+category: design
+pricing: freemium
+price_note: "Professional free for up to 8 editors/10GB; Unlimited $7/user/mo; Enterprise from $950/mo; Private Server $50k/yr"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  A genuine open-source Figma alternative with CSS-friendly layout tools and
+  dev handoff. The free plan covers small teams generously, and you can
+  self-host. Plugin ecosystem and advanced prototyping still trail Figma.
+limitations:
+  - Plugin and template ecosystem is smaller than Figma's.
+  - Advanced prototyping and animation features are more limited.
+  - Self-hosting requires infrastructure; the managed free plan has storage caps.
+receipts:
+  - https://penpot.app
+  - https://penpot.app/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

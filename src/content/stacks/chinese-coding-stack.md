@@ -13,7 +13,7 @@ receipts:
   - https://www.aipricing.guru/z-ai-subscription-pricing/
   - https://api-docs.deepseek.com
   - https://github.com/QwenLM/qwen-code
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 18

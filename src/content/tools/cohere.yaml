@@ -1,9 +1,9 @@
 name: Cohere
 tagline: Enterprise-focused models — Command for generation, Rerank for retrieval.
-url: https://docs.cohere.com
+url: https://cohere.com
 category: models-api
 pricing: freemium
-price_note: "free trial keys; pay-as-you-go from $0.50/1M input tokens"
+price_note: "free trial keys (1,000 calls/mo); production API pay-as-you-go (Command from $1/1M input tokens)"
 free_tier: true
 open_source: false
 api: true
@@ -18,9 +18,10 @@ limitations:
   - Enterprise-sales motion makes self-serve feel second-class.
   - Pricing pages for newer models are confusing.
 receipts:
-  - https://docs.cohere.com
+  - https://cohere.com
+  - https://cohere.com/pricing
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

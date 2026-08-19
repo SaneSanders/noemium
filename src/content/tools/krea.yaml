@@ -1,9 +1,9 @@
 name: Krea
-tagline: Real-time AI image generation and editing with visual controls.
+tagline: Real-time AI creative suite for images, video, and 3D.
 url: https://www.krea.ai
 category: image
 pricing: freemium
-price_note: "free tier with daily credits; Pro from $24/mo"
+price_note: "free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business/Enterprise custom"
 free_tier: true
 open_source: false
 api: true
@@ -19,8 +19,10 @@ limitations:
   - Less suited for precise text-in-image tasks.
 receipts:
   - https://www.krea.ai
+  - https://krea.ai/pricing
+  - https://pikes.ai/blog/krea-ai-review-2026
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

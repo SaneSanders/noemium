@@ -3,11 +3,11 @@ tagline: Model serving and inference infrastructure for production ML.
 url: https://www.baseten.co
 category: dev-infra
 pricing: paid
-price_note: "usage-based; custom enterprise plans"
+price_note: "usage-based; new accounts get free credits; enterprise plans support self-host"
 free_tier: false
 open_source: false
 api: true
-self_host: false
+self_host: true
 verdict: situational
 verdict_text: >-
   Solid managed inference for custom models with scaling and observability.
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

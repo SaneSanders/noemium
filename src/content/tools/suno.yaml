@@ -3,7 +3,7 @@ tagline: Full-song generation — vocals, lyrics, arrangement — from a text pr
 url: https://suno.com
 category: audio
 pricing: freemium
-price_note: "free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo"
+price_note: "free tier (10 songs/day, non-commercial); Pro $10/mo, Premier $30/mo"
 free_tier: true
 open_source: false
 api: false
@@ -25,5 +25,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

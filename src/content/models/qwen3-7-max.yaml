@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - budget high-volume workloads
   - teams that need a first-party managed SLA
-source_attribution: "Prices: LLM Cost Calculator / Alibaba Cloud Model Studio pricing, 2026-08-03 (https://llmcostcalc.com/cloud/qwen); Qwen3 family open weights on Hugging Face; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: LLM Cost Calculator / Alibaba Cloud Model Studio pricing, 2026-08-19 (https://llmcostcalc.com/cloud/qwen); Qwen3 family open weights on Hugging Face; snapshot 2026-08-19"
+last_verified: "2026-08-19"

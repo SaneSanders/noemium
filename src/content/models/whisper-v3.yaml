@@ -13,5 +13,5 @@ best_for:
 avoid_for:
   - speaker diarization out of the box
   - sub-second real-time captioning
-source_attribution: "Non-token pricing: $0.00003083 per audio second (~$0.111 per hour) (LiteLLM model_prices_and_context_window.json (MIT, key groq/whisper-large-v3)); per-mtok fields set to 0 (no token price exists); snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Non-token pricing: $0.00003083 per audio second (~$0.111 per hour) (LiteLLM model_prices_and_context_window.json (MIT, key groq/whisper-large-v3)); per-mtok fields set to 0 (no token price exists); snapshot 2026-08-19"
+last_verified: "2026-08-19"

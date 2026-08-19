@@ -1,0 +1,28 @@
+name: Argus
+tagline: Agentic visual UI testing agent that explores your app like a real user and reports what breaks.
+url: https://github.com/argus-testing/argus
+category: automation
+pricing: freemium
+price_note: "source-available; free for individuals and small teams; enterprise license required for 100+ members"
+free_tier: true
+open_source: false
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Describe a test in plain English and Argus drives a Playwright browser through
+  it, capturing timelines, screenshots, and pass/fail reasoning. The local-first
+  build keeps data on your machine, while a hosted option removes setup. Good for
+  teams whose coding agents are producing UI faster than manual QA can keep up.
+limitations:
+  - Requires a Gemini API key for real runs in the local build.
+  - Source-available license, not OSI open source; enterprise use is paid.
+  - Multi-agent pipeline can be slower than a scripted test for simple, repetitive flows.
+receipts:
+  - https://github.com/argus-testing/argus
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

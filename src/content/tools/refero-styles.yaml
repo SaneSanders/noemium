@@ -1,6 +1,6 @@
 name: Refero Styles
 tagline: Design example library and prompts for steering AI agents toward better UI.
-url: "https://refero.io"
+url: "https://styles.refero.design"
 category: design
 pricing: freemium
 price_note: free browse; paid plans unlock full library
@@ -16,10 +16,10 @@ limitations:
   - Not a build tool; you still translate ideas into your own stack.
   - Coverage is uneven across categories.
 receipts:
-  - "https://refero.io"
-  - "https://refero.io/pricing"
+  - "https://styles.refero.design"
+  - "https://refero.design/pricing"
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -12,5 +12,5 @@ best_for:
 avoid_for:
   - "speech-to-text (this is TTS, not transcription)"
   - self-hosted voice pipelines
-source_attribution: "Unit pricing: $0.10 per 1K characters (vendor pricing page, 2026-08-15); 70+ languages; per-mtok fields set to 0 (no token price exists); snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Unit pricing: $0.10 per 1K characters (vendor pricing page / ElevenLabs API pricing guide, 2026-08-19); 70+ languages; per-mtok fields set to 0 (no token price exists); snapshot 2026-08-19"
+last_verified: "2026-08-19"

@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - teams needing open-weights or self-host fallback
   - easy access outside China (docs mostly Chinese, CNY-only rate card)
-source_attribution: "Prices: LLM Cost Calculator / Volcengine docs, 2026-08-03 (https://llmcostcalc.com/cloud/doubao); USD figures are approximate conversions from CNY; proprietary closed weights; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: Volcano Engine official pricing page (https://www.volcengine.com/product/doubao), 2026-08-19; USD figures are approximate conversions from CNY; proprietary closed weights; snapshot 2026-08-19"
+last_verified: "2026-08-19"

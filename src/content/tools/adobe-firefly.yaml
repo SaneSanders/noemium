@@ -3,7 +3,7 @@ tagline: Generative image, vector and design tools inside Adobe's creative cloud
 url: https://firefly.adobe.com
 category: image
 pricing: freemium
-price_note: "free tier with credits; Premium from $9.99/mo"
+price_note: "free daily generations; paid plans from $9.99/mo"
 free_tier: true
 open_source: false
 api: true
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -3,10 +3,10 @@ tagline: AI notepad for meetings — your rough notes enhanced, no bot in the ca
 url: https://www.granola.ai
 category: productivity
 pricing: freemium
-price_note: "free tier; Business from ~$14/user/mo"
+price_note: "free Basic tier; Business $14/user/mo; Enterprise $35/user/mo"
 free_tier: true
 open_source: false
-api: false
+api: true
 self_host: false
 verdict: ship
 verdict_text: >-
@@ -20,8 +20,9 @@ limitations:
   - Team pricing and admin controls still maturing.
 receipts:
   - https://www.granola.ai
+  - https://www.granola.ai/pricing
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

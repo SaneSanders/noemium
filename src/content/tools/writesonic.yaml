@@ -1,9 +1,9 @@
 name: Writesonic
-tagline: AI writer and SEO content platform with article generation and chatbot.
+tagline: AI search visibility and SEO agentic platform — track brand mentions, fix citations, prove ROI.
 url: https://writesonic.com
 category: writing
 pricing: freemium
-price_note: "free tier; paid from $15/mo"
+price_note: "7-day free trial; paid from $79/mo billed annually (Starter)"
 free_tier: true
 open_source: false
 api: true
@@ -22,5 +22,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

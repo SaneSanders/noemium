@@ -81,21 +81,21 @@ limitations:
 evidence:
   - kind: availability
     url: https://openclaw.ai
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: install
     url: https://docs.openclaw.ai/start/getting-started
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: requirements
     url: https://github.com/openclaw/openclaw
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: pricing
     url: https://docs.openclaw.ai/reference/token-use
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: license
     url: https://github.com/openclaw/openclaw/blob/main/LICENSE
-    checked_at: "2026-08-17"
+    checked_at: "2026-08-19"
   - kind: security
     url: https://docs.openclaw.ai/security/THREAT-MODEL-ATLAS
-    checked_at: "2026-08-17"
-last_verified: "2026-08-17"
+    checked_at: "2026-08-19"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -1,26 +1,27 @@
 name: Resemble AI
-tagline: Voice cloning and synthetic speech platform for games, media, and agents.
+tagline: Deepfake detection and synthetic-media security for audio, image, video and meetings.
 url: https://www.resemble.ai
 category: audio
 pricing: freemium
-price_note: "free trial; paid from $29/mo"
+price_note: "free Flex tier (pay-as-you-go); Team from $350/mo"
 free_tier: true
 open_source: false
 api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  Powerful voice cloning and emotional controls for production pipelines.
-  Pricing is steep for hobbyists, and the web UI is less polished than
-  ElevenLabs. Best when you need deep customization.
+  Strong detection and watermarking stack for teams worried about synthetic-media
+  fraud. The Flex tier is genuinely free to start, but production use gets
+  expensive fast. Voice generation is no longer the headline; verify it still
+  fits your pipeline.
 limitations:
   - Paid plans are expensive for casual use.
-  - Web interface feels dated compared to newer rivals.
+  - Voice and speech features are now secondary; check current capabilities.
   - Enterprise features require sales contact.
 receipts:
   - https://www.resemble.ai
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

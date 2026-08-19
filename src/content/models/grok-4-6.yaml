@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - on-prem or open-weights requirements
   - budget high-volume workloads
-source_attribution: "Prices: vendor pricing page, 2026-08-15; ≥200K input bills at 2x; snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Prices: xAI vendor pricing page, 2026-08-19; ≥200K input bills at 2x; snapshot 2026-08-19"
+last_verified: "2026-08-19"

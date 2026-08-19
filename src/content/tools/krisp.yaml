@@ -1,0 +1,29 @@
+name: Krisp
+tagline: AI noise cancellation, accent conversion, and meeting notes for voice calls.
+url: https://krisp.ai
+category: audio
+pricing: freemium
+price_note: "7-day free trial; paid Meeting AI plans; Call Center AI and Developer APIs are custom-priced"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Still the benchmark for real-time noise cancellation, now expanded with AI
+  meeting notes and accent conversion. The free trial is short; paid plans add
+  transcription, CRM sync, and admin controls. Best for remote workers and
+  call centers, not casual users.
+limitations:
+  - Full feature set requires a paid plan after a 7-day trial.
+  - Meeting assistant and call-center products are priced separately.
+  - Accent conversion and some transcription features are server-side, raising privacy considerations.
+receipts:
+  - https://krisp.ai
+  - https://krisp.ai/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

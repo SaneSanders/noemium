@@ -12,5 +12,5 @@ best_for:
 avoid_for:
   - "open-weights pipelines (use FLUX.2 Klein 4B, Apache-2.0)"
   - per-token cost accounting — priced per image
-source_attribution: "Unit pricing: from $0.03 per image (vendor pricing page, 2026-08-15); open Apache-2.0 variant FLUX.2 Klein 4B from $0.014; per-mtok fields set to 0 (no token price exists); snapshot 2026-08-15"
-last_verified: "2026-08-15"
+source_attribution: "Unit pricing: from $0.03 per image (Black Forest Labs API docs / vendor pricing page, 2026-08-19); open Apache-2.0 variant FLUX.2 Klein 4B from $0.014; per-mtok fields set to 0 (no token price exists); snapshot 2026-08-19"
+last_verified: "2026-08-19"

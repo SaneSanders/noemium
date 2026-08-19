@@ -1,0 +1,29 @@
+name: Writer
+tagline: Enterprise AI platform for on-brand marketing, writing, and agentic workflows.
+url: https://writer.com
+category: writing
+pricing: paid
+price_note: "Starter and Enterprise per-seat plans; no self-serve free tier (Enterprise includes limited Lite seats)"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Writer targets large marketing and content teams that need brand governance,
+  not casual writers. Playbooks and style guides keep outputs consistent, but
+  the platform is expensive and overkill for individuals. Enterprise seat
+  model with no real free tier.
+limitations:
+  - No self-serve free plan; paid per-seat entry with enterprise sales motion.
+  - Best fit is regulated/enterprise marketing teams, not general writing.
+  - Integrations and setup require org-level configuration before it pays off.
+receipts:
+  - https://writer.com
+  - https://writer.com/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

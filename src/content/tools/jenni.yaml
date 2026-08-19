@@ -1,0 +1,29 @@
+name: Jenni
+tagline: Academic writing assistant for drafting papers, citations, and paraphrasing.
+url: https://jenni.ai
+category: writing
+pricing: freemium
+price_note: "Free $0 with daily limits; Plus $12/mo; Pro $29/mo"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Purpose-built for students and researchers who need AI autocomplete,
+  citation management, and PDF chat in one editor. The free tier is heavily
+  capped, and the AI can still hallucinate sources or phrasing. Export and
+  formatting work best on paid plans.
+limitations:
+  - Free plan limits daily AI autocomplete, edits, chat, and PDF uploads.
+  - Citation and source suggestions still need manual verification.
+  - Less flexible than a general word processor for non-academic formats.
+receipts:
+  - https://jenni.ai
+  - https://jenni.ai/pricing
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+last_verified: "2026-08-19"
+observed_by: whysanesanders

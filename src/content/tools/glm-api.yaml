@@ -3,12 +3,13 @@ tagline: Zhipu AI's OpenAI-compatible API for GLM text, vision, image and video 
 url: https://open.bigmodel.cn/pricing
 category: models-api
 pricing: paid
-price_note: "GLM-5.2 (1M context) approx $1.11/$3.89 per 1M and temporarily free as of scan; GLM-5.1 ~$0.83/$3.33, GLM-5-Turbo ~$0.69/$3.06, GLM-4.7-Flash free"
+price_note: "GLM-5.3 (1M context) approx ¥8/¥28 per 1M and temporarily free as of scan; GLM-5.2 same; GLM-5.1 ¥6–8/¥24–28, GLM-5-Turbo ¥5–7/¥22–26, GLM-4.7-Flash free"
 free_tier: true
 open_source: false
 api: true
 self_host: false
 models_used:
+  - glm-5-3
   - glm-5-2
 verdict: situational
 verdict_text: >-
@@ -19,7 +20,7 @@ verdict_text: >-
 limitations:
   - The hosted API is proprietary; some GLM model weights are available separately for self-hosting.
   - Pricing page is CNY-only and tiered by input/output length.
-  - GLM-5.2 was temporarily free at scan time — promo pricing may end without notice.
+  - GLM-5.3 and GLM-5.2 were temporarily free at scan time — promo pricing may end without notice.
   - Western brand recognition and documentation are lower than Qwen/DeepSeek/Kimi.
   - International sign-up and billing can be less straightforward.
 receipts:
@@ -29,5 +30,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-17"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

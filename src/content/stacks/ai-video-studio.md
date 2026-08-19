@@ -1,7 +1,7 @@
 ---
 title: AI Video Studio
 use_case: Produce short marketing and social videos end-to-end — script, voiceover, footage, music.
-monthly_cost_usd: 67
+monthly_cost_usd: 65
 difficulty: intermediate
 tools:
   - runway
@@ -15,7 +15,7 @@ receipts:
   - https://elevenlabs.io/pricing
   - https://suno.com
   - https://www.heygen.com/pricing
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 16
@@ -47,10 +47,10 @@ twin:
 4. **B-roll in Kling (Standard $10/mo).** Iterate motion and framing here:
    cheapest per-clip cost of the quality tier. Expect 3-5 generations per
    usable shot.
-5. **Hero shots in Runway (Standard $15/mo).** Use Gen-4 for the 2-3 shots
+5. **Hero shots in Runway (Standard $12/mo).** Use Gen-4 for the 2-3 shots
    that carry the video, then finish in Runway's editor: inpainting, motion
    brush, upscale.
-6. **Music in Suno (Pro $10/mo).** Generate per-mood instrumentals; the Pro
+6. **Music in Suno (Pro $8/mo).** Generate per-mood instrumentals; the Pro
    tier's commercial rights are why it's in the stack.
 7. **Assemble in a free NLE.** DaVinci Resolve or CapCut: sync clips to the
    voiceover, cut on beats, captions last. No AI tool on this list replaces
@@ -64,7 +64,7 @@ twin:
   experiments; lean on the free daily credits before you commit.
 - **ElevenLabs — Starter, $6/mo.** One cloned voice and a month of short
   voiceovers fits the starter quota; upgrade to Creator only for bulk dubbing.
-- **Suno — Pro, $10/mo.** Commercial rights and enough credits for background
+- **Suno — Pro, $8/mo.** Commercial rights and enough credits for background
   instrumentals; the free tier is non-commercial and cap limited.
 - **HeyGen — Creator, $29/mo.** Pay only if the video needs a talking head;
   skip it for pure b-roll and the stack drops to ~$38/mo.

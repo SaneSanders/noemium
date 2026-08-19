@@ -1,9 +1,9 @@
 name: Gemini Nano Banana 2
 tagline: Gemini's native image model (gemini-3.1-flash-image) — generate/edit in the Gemini app and Gemini API.
-url: https://ai.google.dev/gemini-api/docs/generate-content/image-generation
+url: https://ai.google.dev/gemini-api/docs/image-generation
 category: image
 pricing: freemium
-price_note: "Gemini app: included with plan caps (Free limited; Plus/Pro expand); API billed as Gemini image tokens — confirm live rates on Google AI pricing (not Imagen 4)"
+price_note: "Gemini app: included with plan caps (Free limited; Plus/Pro/Ultra expand); API billed as Gemini image tokens — confirm live rates on Google AI pricing (not Imagen 4)"
 free_tier: true
 open_source: false
 api: true
@@ -20,10 +20,10 @@ limitations:
   - Lite is not built for multi-reference or long sequential edits.
   - Gemini API prices move; the image-generation doc is the receipt, not a screenshot of $/image.
 receipts:
-  - https://ai.google.dev/gemini-api/docs/generate-content/image-generation
+  - https://ai.google.dev/gemini-api/docs/image-generation
   - https://gemini.google/subscriptions/
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-18"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

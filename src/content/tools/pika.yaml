@@ -3,7 +3,7 @@ tagline: Fast, playful video generation with viral creative effects (Pikaffects)
 url: https://pika.art
 category: video
 pricing: freemium
-price_note: "free tier (80 credits/mo); Basic $8/mo, Standard $28/mo (yearly)"
+price_note: "Basic free (80 credits/mo); Standard $8/mo, Pro $28/mo, Fancy $76/mo billed yearly; commercial use starts at Pro"
 free_tier: true
 open_source: false
 api: false
@@ -20,8 +20,9 @@ limitations:
   - Watermark and resolution limits on lower tiers.
 receipts:
   - https://pika.art
+  - https://future-stack-reviews.com/pika-labs-review/
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-19"
 observed_by: whysanesanders

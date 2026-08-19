@@ -15,7 +15,7 @@ receipts:
   - https://aistudio.google.com
   - https://chatgpt.com
   - https://www.notion.com/product/ai
-last_verified: "2026-08-16"
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 twin:
   slug: student-coding-shoestring

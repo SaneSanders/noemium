@@ -1,6 +1,4 @@
 ---
-# Example/template for a stack entry. The body below the frontmatter is the
-# step-by-step recipe.
 title: Solo Founder SaaS — Cursor-only $20
 use_case: Ship and run a small SaaS product alone — landing, app, billing, support.
 monthly_cost_usd: 20
@@ -8,8 +6,8 @@ difficulty: intermediate
 tools:
   - cursor
 receipts:
-  - https://github.com/SaneSanders
-last_verified: "2026-08-16"
+  - https://cursor.com
+last_verified: "2026-08-19"
 observed_by: whysanesanders
 budget:
   monthly_cost_usd: 0
