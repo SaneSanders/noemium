@@ -1,298 +1,16 @@
 {
-  "generated_at": "2026-08-18T13:01:26.524Z",
+  "generated_at": "2026-08-19T07:50:15.675Z",
   "weeks": [
     {
       "id": "2026-W34",
       "from": "2026-08-17",
       "to": "2026-08-24",
       "counts": {
-        "added": 61,
+        "added": 87,
         "removed": 0,
-        "changed": 11
+        "changed": 68
       },
       "added": [
-        {
-          "collection": "tools",
-          "slug": "activepieces",
-          "name": "Activepieces",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "amp",
-          "name": "Amp",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "assemblyai",
-          "name": "AssemblyAI",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "bolt-new",
-          "name": "Bolt.new",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "browser-use",
-          "name": "Browser Use",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "chroma",
-          "name": "Chroma",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "cline",
-          "name": "Cline",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "comet",
-          "name": "Comet",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "deepseek-chat",
-          "name": "DeepSeek Chat",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "dia",
-          "name": "Dia",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "e2b",
-          "name": "E2B",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "fathom",
-          "name": "Fathom",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "figma",
-          "name": "Figma",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "fish-audio",
-          "name": "Fish Audio",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "gemini-nano-banana",
-          "name": "Gemini Nano Banana 2",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "gemini",
-          "name": "Gemini",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "google-antigravity",
-          "name": "Google Antigravity",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "goose",
-          "name": "Goose",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "gpt-image",
-          "name": "GPT Image 2",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "grok",
-          "name": "Grok",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "kilo-code",
-          "name": "Kilo Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "kimi-api",
-          "name": "Kimi API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "kiro",
-          "name": "Kiro",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "langfuse",
-          "name": "Langfuse",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "linear",
-          "name": "Linear",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "litellm",
-          "name": "LiteLLM",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "llamaparse",
-          "name": "LlamaParse",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "lovable",
-          "name": "Lovable",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "ltx-studio",
-          "name": "LTX Studio",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "mastra",
-          "name": "Mastra",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "mistral-vibe",
-          "name": "Mistral Vibe",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "ollama",
-          "name": "Ollama",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "open-webui",
-          "name": "Open WebUI",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "openai-agents-sdk",
-          "name": "OpenAI Agents SDK",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "openai-codex",
-          "name": "OpenAI Codex",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "openhands",
-          "name": "OpenHands",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "parallel",
-          "name": "Parallel",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "photoroom",
-          "name": "Photoroom",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "pi",
-          "name": "Pi",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "pipedream",
-          "name": "Pipedream",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "pydantic-ai",
-          "name": "PydanticAI",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "reve",
-          "name": "Reve",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "steel",
-          "name": "Steel",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "vllm",
-          "name": "vLLM",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "voyage-ai",
-          "name": "Voyage AI",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "wan",
-          "name": "Wan",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "warp",
-          "name": "Warp",
-          "category": "coding"
-        },
         {
           "collection": "agents",
           "slug": "deerflow",
@@ -362,10 +80,588 @@
           "collection": "agents",
           "slug": "zeroclaw",
           "name": "ZeroClaw"
+        },
+        {
+          "collection": "tools",
+          "slug": "activepieces",
+          "name": "Activepieces",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "amazon-bedrock",
+          "name": "Amazon Bedrock",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "amp",
+          "name": "Amp",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "argus",
+          "name": "Argus",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "assemblyai",
+          "name": "AssemblyAI",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "bolt-new",
+          "name": "Bolt.new",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "browser-use",
+          "name": "Browser Use",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "capcut",
+          "name": "CapCut",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "chatoss",
+          "name": "ChatOSS",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "chroma",
+          "name": "Chroma",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "clinch",
+          "name": "Clinch",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "cogni",
+          "name": "Cogni",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "descript",
+          "name": "Descript",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "dia",
+          "name": "Dia",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "doberman",
+          "name": "Doberman",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "e2b",
+          "name": "E2B",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "fathom",
+          "name": "Fathom",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "figma",
+          "name": "Figma",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "fish-audio",
+          "name": "Fish Audio",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini-nano-banana",
+          "name": "Gemini Nano Banana 2",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini",
+          "name": "Gemini",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "google-antigravity",
+          "name": "Google Antigravity",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "google-vertex-ai",
+          "name": "Google Vertex AI",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "goose",
+          "name": "Goose",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "gpt-image",
+          "name": "GPT Image 2",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "grok-imagine",
+          "name": "Grok Imagine",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "grok",
+          "name": "Grok",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "inworld-tts",
+          "name": "Inworld TTS",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "jenni",
+          "name": "Jenni",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "jules",
+          "name": "Jules",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "kilo-code",
+          "name": "Kilo Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "kimi-api",
+          "name": "Kimi API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "kiro",
+          "name": "Kiro",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "krisp",
+          "name": "Krisp",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "langfuse",
+          "name": "Langfuse",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "languagetool",
+          "name": "LanguageTool",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "linear",
+          "name": "Linear",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "litellm",
+          "name": "LiteLLM",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "llamaparse",
+          "name": "LlamaParse",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "lovable",
+          "name": "Lovable",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "ltx-studio",
+          "name": "LTX Studio",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "mastra",
+          "name": "Mastra",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "mem0",
+          "name": "Mem0",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "mistral-vibe",
+          "name": "Mistral Vibe",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "modelmap",
+          "name": "modelmap",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "ollama",
+          "name": "Ollama",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "open-webui",
+          "name": "Open WebUI",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "openai-agents-sdk",
+          "name": "OpenAI Agents SDK",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "openai-codex",
+          "name": "OpenAI Codex",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "openhands",
+          "name": "OpenHands",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "parallel",
+          "name": "Parallel",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "penpot",
+          "name": "Penpot",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "pharos",
+          "name": "Pharos",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "photoroom",
+          "name": "Photoroom",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "pi",
+          "name": "Pi",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "pipedream",
+          "name": "Pipedream",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "pydantic-ai",
+          "name": "PydanticAI",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "replit-agent",
+          "name": "Replit Agent",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "seedream",
+          "name": "Seedream",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "shoehorn",
+          "name": "Shoehorn",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "singular",
+          "name": "Singular",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "steel",
+          "name": "Steel",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "temporal",
+          "name": "Temporal",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "vllm",
+          "name": "vLLM",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "voidleap-code",
+          "name": "Voidleap Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "voyage-ai",
+          "name": "Voyage AI",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "wan",
+          "name": "Wan",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "warp",
+          "name": "Warp",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "writer",
+          "name": "Writer",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "cline",
+          "name": "Cline",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "comet",
+          "name": "Comet",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepseek-chat",
+          "name": "DeepSeek Chat",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "reve",
+          "name": "Reve",
+          "category": "image"
         }
       ],
       "removed": [],
       "changed": [
+        {
+          "collection": "models",
+          "slug": "glm-5-3",
+          "name": "GLM 5.3",
+          "field": "input $/Mtok",
+          "from": 0,
+          "to": 1.4
+        },
+        {
+          "collection": "models",
+          "slug": "glm-5-3",
+          "name": "GLM 5.3",
+          "field": "output $/Mtok",
+          "from": 0,
+          "to": 4.4
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-video-studio",
+          "name": "AI Video Studio",
+          "field": "monthly cost",
+          "from": 67,
+          "to": 65
+        },
+        {
+          "collection": "stacks",
+          "slug": "one-person-studio",
+          "name": "One-Person Studio",
+          "field": "monthly cost",
+          "from": 654,
+          "to": 617
+        },
+        {
+          "collection": "tools",
+          "slug": "activepieces",
+          "name": "Activepieces",
+          "category": "automation",
+          "field": "price note",
+          "from": "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only)",
+          "to": "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
+        },
+        {
+          "collection": "tools",
+          "slug": "adobe-firefly",
+          "name": "Adobe Firefly",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier with credits; Premium from $9.99/mo",
+          "to": "free daily generations; paid plans from $9.99/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "amp",
+          "name": "Amp",
+          "category": "coding",
+          "field": "price note",
+          "from": "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing; education $10/mo",
+          "to": "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing"
+        },
+        {
+          "collection": "tools",
+          "slug": "assistant-ui",
+          "name": "assistant-ui Elements",
+          "category": "design",
+          "field": "price note",
+          "from": "free core; paid cloud features",
+          "to": "open-source MIT core; assistant-cloud free up to 200 MAU, Pro $50/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "bardeen",
+          "name": "Bardeen",
+          "category": "automation",
+          "field": "price note",
+          "from": "free tier; paid from $10/mo",
+          "to": "free tier (100 credits/mo); paid from $10/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "baseten",
+          "name": "Baseten",
+          "category": "dev-infra",
+          "field": "price note",
+          "from": "usage-based; custom enterprise plans",
+          "to": "usage-based; new accounts get free credits; enterprise plans support self-host"
+        },
+        {
+          "collection": "tools",
+          "slug": "browser-use",
+          "name": "Browser Use",
+          "category": "agents",
+          "field": "price note",
+          "from": "OSS library free; Cloud Free $0 (10 agent tasks/mo); PAYG credits; Dev $29/mo; browser time $0.02/hour; default V4 model GPT-5.6 Luna $0.24/$1.44 per 1M",
+          "to": "OSS library free; Cloud Free $0 (10 agent tasks/mo); PAYG credits; Dev $29/mo, Business $299/mo, Scaleup $999/mo; browser time $0.02/hour; default V4 model GPT-5.6 Luna $0.24/$1.44 per 1M tokens"
+        },
+        {
+          "collection": "tools",
+          "slug": "browserbase",
+          "name": "Browserbase",
+          "category": "data",
+          "field": "price note",
+          "from": "free tier; paid from $20/mo",
+          "to": "Free; Developer $20/mo; Startup $99/mo; Scale custom"
+        },
+        {
+          "collection": "tools",
+          "slug": "cartesia",
+          "name": "Cartesia",
+          "category": "audio",
+          "field": "pricing",
+          "from": "paid",
+          "to": "freemium"
+        },
+        {
+          "collection": "tools",
+          "slug": "cartesia",
+          "name": "Cartesia",
+          "category": "audio",
+          "field": "price note",
+          "from": "usage-based; from $5/1M chars on Sonic",
+          "to": "free tier (20K credits/mo); paid plans from $5/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "cerebras",
+          "name": "Cerebras",
+          "category": "models-api",
+          "field": "pricing",
+          "from": "paid",
+          "to": "freemium"
+        },
+        {
+          "collection": "tools",
+          "slug": "cerebras",
+          "name": "Cerebras",
+          "category": "models-api",
+          "field": "price note",
+          "from": "usage-based; from ~$0.60/1M tokens (Llama 3.1 70B)",
+          "to": "free trial ($5 credits); self-serve Developer from $10 deposit; Enterprise custom"
+        },
         {
           "collection": "tools",
           "slug": "claude-code",
@@ -386,6 +682,24 @@
         },
         {
           "collection": "tools",
+          "slug": "cohere",
+          "name": "Cohere",
+          "category": "models-api",
+          "field": "price note",
+          "from": "free trial keys; pay-as-you-go from $0.50/1M input tokens",
+          "to": "free trial keys (1,000 calls/mo); production API pay-as-you-go (Command from $1/1M input tokens)"
+        },
+        {
+          "collection": "tools",
+          "slug": "copy-ai",
+          "name": "Copy.ai",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier (2k words/mo); Pro from $49/mo",
+          "to": "free trial (2k words/mo); paid plans from $1,000/mo (Growth)"
+        },
+        {
+          "collection": "tools",
           "slug": "cursor",
           "name": "Cursor",
           "category": "coding",
@@ -395,12 +709,156 @@
         },
         {
           "collection": "tools",
+          "slug": "dify",
+          "name": "Dify",
+          "category": "agents",
+          "field": "price note",
+          "from": "open source self-host free; cloud from $29/mo",
+          "to": "Cloud Sandbox free; self-host Community free under restricted license; cloud Professional/Team paid yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "exa",
+          "name": "Exa",
+          "category": "data",
+          "field": "price note",
+          "from": "free tier; paid from $50/mo",
+          "to": "free $10 credits/mo; usage-based PayGO; Enterprise custom"
+        },
+        {
+          "collection": "tools",
+          "slug": "firecrawl",
+          "name": "Firecrawl",
+          "category": "data",
+          "field": "price note",
+          "from": "open source self-host free; cloud from $16/mo",
+          "to": "open source self-host free; cloud 1,000 credits/mo free, then Hobby/Standard/Growth paid"
+        },
+        {
+          "collection": "tools",
+          "slug": "flux",
+          "name": "FLUX (Black Forest Labs)",
+          "category": "image",
+          "field": "price note",
+          "from": "open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image",
+          "to": "open weights (FLUX.2 Klein, Apache-2.0); API from ~$0.014/image"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini-code-assist",
+          "name": "Gemini Code Assist",
+          "category": "coding",
+          "field": "pricing",
+          "from": "freemium",
+          "to": "paid"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini-code-assist",
+          "name": "Gemini Code Assist",
+          "category": "coding",
+          "field": "price note",
+          "from": "free for individuals; paid from $19/mo (Enterprise)",
+          "to": "Standard $19/seat/mo (annual) or $22.80 monthly; Enterprise $45/seat/mo (annual) or $54 monthly"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini-nano-banana",
+          "name": "Gemini Nano Banana 2",
+          "category": "image",
+          "field": "price note",
+          "from": "Gemini app: included with plan caps (Free limited; Plus/Pro expand); API billed as Gemini image tokens — confirm live rates on Google AI pricing (not Imagen 4)",
+          "to": "Gemini app: included with plan caps (Free limited; Plus/Pro/Ultra expand); API billed as Gemini image tokens — confirm live rates on Google AI pricing (not Imagen 4)"
+        },
+        {
+          "collection": "tools",
           "slug": "github-copilot",
           "name": "GitHub Copilot",
           "category": "coding",
           "field": "price note",
           "from": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo",
-          "to": "Free $0 (2,000 completions/mo + Copilot CLI); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
+          "to": "Free $0 (2,000 completions/mo, 50 chat requests, CLI, limited agent mode); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
+        },
+        {
+          "collection": "tools",
+          "slug": "glm-api",
+          "name": "GLM API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "GLM-5.2 (1M context) approx $1.11/$3.89 per 1M and temporarily free as of scan; GLM-5.1 ~$0.83/$3.33, GLM-5-Turbo ~$0.69/$3.06, GLM-4.7-Flash free",
+          "to": "GLM-5.3 (1M context) approx ¥8/¥28 per 1M and temporarily free as of scan; GLM-5.2 same; GLM-5.1 ¥6–8/¥24–28, GLM-5-Turbo ¥5–7/¥22–26, GLM-4.7-Flash free"
+        },
+        {
+          "collection": "tools",
+          "slug": "google-ai-studio",
+          "name": "Google AI Studio / Gemini API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01)",
+          "to": "free tier (text models); paid from $0.75/1M input (Gemini 3.7 Flash promo till 2027-01)"
+        },
+        {
+          "collection": "tools",
+          "slug": "granola",
+          "name": "Granola",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free tier; Business from ~$14/user/mo",
+          "to": "free Basic tier; Business $14/user/mo; Enterprise $35/user/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "gumloop",
+          "name": "Gumloop",
+          "category": "automation",
+          "field": "price note",
+          "from": "free tier; paid from $19/mo",
+          "to": "Pro from $37/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "hailuo-ai",
+          "name": "Hailuo AI",
+          "category": "video",
+          "field": "price note",
+          "from": "Consumer Standard $7.99/mo, Pro $27.99/mo, Master $63.99/mo (credit-based); API via third-party providers only, e.g. fal.ai ~$0.045/s standard, Segmind ~$0.34–$0.60/video; no first-party public price card",
+          "to": "Consumer plans from ¥105/mo (promo ¥55) to ¥1399/mo, credit-based; API via third-party resellers only; no first-party public price card"
+        },
+        {
+          "collection": "tools",
+          "slug": "heroui",
+          "name": "HeroUI",
+          "category": "design",
+          "field": "pricing",
+          "from": "freemium",
+          "to": "free"
+        },
+        {
+          "collection": "tools",
+          "slug": "heroui",
+          "name": "HeroUI",
+          "category": "design",
+          "field": "price note",
+          "from": "free core; paid templates and support",
+          "to": "free and open source"
+        },
+        {
+          "collection": "tools",
+          "slug": "inngest",
+          "name": "Inngest",
+          "category": "dev-infra",
+          "field": "price note",
+          "from": "free tier; paid from $20/mo",
+          "to": "free Hobby tier; Pro $99/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "invideo",
+          "name": "InVideo",
+          "category": "video",
+          "field": "price note",
+          "from": "free tier with watermark; Plus from $20/mo",
+          "to": "Plus from $17/mo"
         },
         {
           "collection": "tools",
@@ -413,21 +871,111 @@
         },
         {
           "collection": "tools",
-          "slug": "zapier",
-          "name": "Zapier",
-          "category": "automation",
+          "slug": "junie",
+          "name": "Junie",
+          "category": "coding",
           "field": "price note",
-          "from": "free tier (100 tasks/mo); Professional from $20/mo",
-          "to": "free 100 tasks/mo; Professional from $19.99/mo billed yearly (750 tasks) or $29.99/mo monthly"
+          "from": "free preview tier; commercial pricing expected",
+          "to": "AI Free limited tier; AI Pro $10/mo, AI Ultimate $30/mo; business seats $20–$60/mo; Enterprise custom"
         },
         {
           "collection": "tools",
-          "slug": "dify",
-          "name": "Dify",
+          "slug": "kling",
+          "name": "Kling AI",
+          "category": "video",
+          "field": "price note",
+          "from": "free daily credits; paid from ~$7/mo",
+          "to": "free daily credits; paid from ~$10/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "krea",
+          "name": "Krea",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier with daily credits; Pro from $24/mo",
+          "to": "free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business/Enterprise custom"
+        },
+        {
+          "collection": "tools",
+          "slug": "lindy",
+          "name": "Lindy",
+          "category": "automation",
+          "field": "pricing",
+          "from": "freemium",
+          "to": "paid"
+        },
+        {
+          "collection": "tools",
+          "slug": "lindy",
+          "name": "Lindy",
+          "category": "automation",
+          "field": "price note",
+          "from": "free tier; paid from $49/mo",
+          "to": "7-day free trial; Plus $29.99/user/mo, Pro $99.99, Max $199.99 (credits pooled per workspace)"
+        },
+        {
+          "collection": "tools",
+          "slug": "minimax-api",
+          "name": "MiniMax API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "MiniMax-M3 ≤512K context $0.30/$1.20 per 1M (promo 50% off list $0.60/$2.40), >512K 2× rate; M2.5 $0.282/$1.128; Text-01 not listed on current API docs",
+          "to": "MiniMax-M3 ≤512K context $0.30/$1.20 per 1M (promo 50% off list $0.60/$2.40), >512K 2× rate; M2.5 $0.30/$1.20 per 1M; Text-01 not listed on current API docs"
+        },
+        {
+          "collection": "tools",
+          "slug": "mobbin",
+          "name": "Mobbin",
+          "category": "design",
+          "field": "price note",
+          "from": "free limited browse; paid from $8/mo",
+          "to": "free limited browse; Pro kr100/mo billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "modal",
+          "name": "Modal",
+          "category": "dev-infra",
+          "field": "price note",
+          "from": "free tier; pay-as-you-go for compute",
+          "to": "free tier ($30/mo compute); pay-as-you-go beyond"
+        },
+        {
+          "collection": "tools",
+          "slug": "motion",
+          "name": "Motion (usemotion)",
+          "category": "productivity",
+          "field": "price note",
+          "from": "7-day trial; Pro AI $19/seat/mo (yearly)",
+          "to": "7-day trial; Pro AI $19/seat/mo yearly (7,500 credits/seat); Business AI $29/seat/mo yearly (15,000 credits/seat)"
+        },
+        {
+          "collection": "tools",
+          "slug": "murf",
+          "name": "Murf AI",
+          "category": "audio",
+          "field": "price note",
+          "from": "free tier; Creator Lite $29/mo or $23/mo billed yearly",
+          "to": "free tier; Creator $29/mo or $19/mo billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "notebooklm",
+          "name": "NotebookLM",
+          "category": "data",
+          "field": "price note",
+          "from": "free; Plus via Google AI Pro $20/mo",
+          "to": "free; Plus via Google AI Plus $4.99/mo; Pro via Google AI Pro $19.99/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "openai-responses",
+          "name": "OpenAI Responses API",
           "category": "agents",
           "field": "price note",
-          "from": "open source self-host free; cloud from $29/mo",
-          "to": "self-host free under the restricted Dify license; cloud from $29/mo"
+          "from": "pay-per-token; e.g. GPT-5 mini $0.25/1M input",
+          "to": "pay-per-token; e.g. GPT-5.6 Luna $0.20/1M input"
         },
         {
           "collection": "tools",
@@ -449,12 +997,129 @@
         },
         {
           "collection": "tools",
+          "slug": "otter-ai",
+          "name": "Otter.ai",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free (300 min/mo); Pro from $8/mo (annual)",
+          "to": "Basic free (300 min/mo); Business $19.99/user/mo (annual)"
+        },
+        {
+          "collection": "tools",
+          "slug": "pen-dev",
+          "name": "pen.dev",
+          "category": "design",
+          "field": "pricing",
+          "from": "freemium",
+          "to": "free"
+        },
+        {
+          "collection": "tools",
+          "slug": "pen-dev",
+          "name": "pen.dev",
+          "category": "design",
+          "field": "price note",
+          "from": "free tier; paid plans for export and collaboration",
+          "to": "currently free; paid plans may be added later"
+        },
+        {
+          "collection": "tools",
+          "slug": "pika",
+          "name": "Pika",
+          "category": "video",
+          "field": "price note",
+          "from": "free tier (80 credits/mo); Basic $8/mo, Standard $28/mo (yearly)",
+          "to": "Basic free (80 credits/mo); Standard $8/mo, Pro $28/mo, Fancy $76/mo billed yearly; commercial use starts at Pro"
+        },
+        {
+          "collection": "tools",
+          "slug": "react-bits",
+          "name": "React Bits",
+          "category": "design",
+          "field": "price note",
+          "from": "MIT open source",
+          "to": "MIT + Commons Clause; source available, free for personal and commercial use"
+        },
+        {
+          "collection": "tools",
+          "slug": "reclaim",
+          "name": "Reclaim.ai",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free tier; from $8/user/mo (annual)",
+          "to": "free tier; from $10/user/mo (annual)"
+        },
+        {
+          "collection": "tools",
+          "slug": "resemble-ai",
+          "name": "Resemble AI",
+          "category": "audio",
+          "field": "price note",
+          "from": "free trial; paid from $29/mo",
+          "to": "free Flex tier (pay-as-you-go); Team from $350/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "speechify",
+          "name": "Speechify",
+          "category": "audio",
+          "field": "price note",
+          "from": "free tier; Premium from $139/year",
+          "to": "free tier; Premium $29/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "suno",
+          "name": "Suno",
+          "category": "audio",
+          "field": "price note",
+          "from": "free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo",
+          "to": "free tier (10 songs/day, non-commercial); Pro $10/mo, Premier $30/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "trigger-dev",
+          "name": "Trigger.dev",
+          "category": "dev-infra",
+          "field": "price note",
+          "from": "self-host free; cloud from $25/mo",
+          "to": "self-host free; cloud from $10/mo (Hobby)"
+        },
+        {
+          "collection": "tools",
+          "slug": "type",
+          "name": "Type",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Pro from $12/mo",
+          "to": "free tier; Pro from $8/mo"
+        },
+        {
+          "collection": "tools",
           "slug": "v0",
           "name": "v0",
           "category": "design",
           "field": "price note",
           "from": "free tier with credits; Pro for more generations",
           "to": "Free $0/mo with $5 monthly credits; Plus $30/user/mo; Business $100/user/mo; usage consumes model-priced credits"
+        },
+        {
+          "collection": "tools",
+          "slug": "writesonic",
+          "name": "Writesonic",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; paid from $15/mo",
+          "to": "7-day free trial; paid from $79/mo billed annually (Starter)"
+        },
+        {
+          "collection": "tools",
+          "slug": "zapier",
+          "name": "Zapier",
+          "category": "automation",
+          "field": "price note",
+          "from": "free tier (100 tasks/mo); Professional from $20/mo",
+          "to": "free 100 tasks/mo; Professional from $19.99/mo billed yearly (750 tasks) or $29.99/mo monthly"
         },
         {
           "collection": "tools",
@@ -477,690 +1142,6 @@
         "changed": 72
       },
       "added": [
-        {
-          "collection": "stacks",
-          "slug": "ai-content-pipeline",
-          "name": "AI Content Pipeline for X/Twitter"
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-customer-support",
-          "name": "AI Customer Support for Small Business"
-        },
-        {
-          "collection": "stacks",
-          "slug": "ai-video-studio",
-          "name": "AI Video Studio"
-        },
-        {
-          "collection": "stacks",
-          "slug": "american-coding-stack",
-          "name": "American Coding Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "chinese-coding-stack",
-          "name": "Chinese Coding Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "maxed-out-dev-stack",
-          "name": "Maxed-Out Dev Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "mixed-coding-stack",
-          "name": "Mixed US × CN Coding Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "one-person-studio",
-          "name": "One-Person Studio"
-        },
-        {
-          "collection": "stacks",
-          "slug": "rag-over-docs",
-          "name": "RAG Over Company Docs"
-        },
-        {
-          "collection": "stacks",
-          "slug": "research-max-stack",
-          "name": "Research Max Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "solo-founder-saas",
-          "name": "Solo Founder SaaS"
-        },
-        {
-          "collection": "stacks",
-          "slug": "student-coding-shoestring",
-          "name": "Student Coding Stack"
-        },
-        {
-          "collection": "stacks",
-          "slug": "student-zero-budget",
-          "name": "Student Stack: Zero Budget"
-        },
-        {
-          "collection": "stacks",
-          "slug": "vibe-coding-stack",
-          "name": "Vibe Coding Stack 2026"
-        },
-        {
-          "collection": "tools",
-          "slug": "chatgpt",
-          "name": "ChatGPT",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "claude",
-          "name": "Claude",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "kimi-code",
-          "name": "Kimi Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "windsurf",
-          "name": "Windsurf",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "zapier",
-          "name": "Zapier",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "cody",
-          "name": "Sourcegraph Cody",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "cosyvoice",
-          "name": "CosyVoice",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "dify",
-          "name": "Dify",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "ernie-api",
-          "name": "Baidu ERNIE API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "glm-api",
-          "name": "GLM API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-api",
-          "name": "Hunyuan API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "inngest",
-          "name": "Inngest",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "lambda",
-          "name": "Lambda",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "minimax-api",
-          "name": "MiniMax API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "n8n",
-          "name": "n8n",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "notebooklm",
-          "name": "NotebookLM",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "origin-ui",
-          "name": "Origin UI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "qwen-api",
-          "name": "Qwen API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "runway",
-          "name": "Runway",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "stepfun-api",
-          "name": "StepFun API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "tailwind-ui",
-          "name": "Tailwind UI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "v0",
-          "name": "v0",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "vidu",
-          "name": "Vidu",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "bytedance-seed",
-          "name": "ByteDance Seed",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "codegeex",
-          "name": "CodeGeeX",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "glm-coding-plan",
-          "name": "GLM Coding Plan",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "hailuo-ai",
-          "name": "Hailuo AI",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-video",
-          "name": "Hunyuan Video",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "qwen-code",
-          "name": "Qwen Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "qwen-image",
-          "name": "Qwen-Image",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "seedance",
-          "name": "Seedance",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "tongyi-lingma",
-          "name": "Tongyi Lingma",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "trae",
-          "name": "Trae",
-          "category": "coding"
-        },
-        {
-          "collection": "models",
-          "slug": "gemini-omni-flash",
-          "name": "Gemini Omni Flash"
-        },
-        {
-          "collection": "models",
-          "slug": "glm-5-3",
-          "name": "GLM 5.3"
-        },
-        {
-          "collection": "models",
-          "slug": "minimax-h3",
-          "name": "MiniMax H3 (Hailuo 3.0)"
-        },
-        {
-          "collection": "stacks",
-          "slug": "local-first-ai",
-          "name": "Local-First Private AI Setup"
-        },
-        {
-          "collection": "tools",
-          "slug": "21st-dev",
-          "name": "21st.dev",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "404s",
-          "name": "404s",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "aceternity-ui",
-          "name": "Aceternity UI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "adobe-firefly",
-          "name": "Adobe Firefly",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "assistant-ui",
-          "name": "assistant-ui Elements",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "autogen",
-          "name": "AutoGen",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "bardeen",
-          "name": "Bardeen",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "baseten",
-          "name": "Baseten",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "browserbase",
-          "name": "Browserbase",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "camel-ai",
-          "name": "Camel AI",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "cartesia",
-          "name": "Cartesia",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "cerebras",
-          "name": "Cerebras",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "clipdrop",
-          "name": "Clipdrop",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "copy-ai",
-          "name": "Copy.ai",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "daisyui",
-          "name": "DaisyUI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "exa",
-          "name": "Exa",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "factory",
-          "name": "Factory",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "firecrawl",
-          "name": "Firecrawl",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "footer",
-          "name": "Footer",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "framer",
-          "name": "Framer",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "gemini-code-assist",
-          "name": "Gemini Code Assist",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "gumloop",
-          "name": "Gumloop",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "heroui",
-          "name": "HeroUI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "higgsfield",
-          "name": "Higgsfield",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "horizonx",
-          "name": "HorizonX",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "invideo",
-          "name": "InVideo",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "junie",
-          "name": "Junie",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "krea",
-          "name": "Krea",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "landingfolio",
-          "name": "Landingfolio",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "lindy",
-          "name": "Lindy",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "lucide",
-          "name": "Lucide",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "magic-ui",
-          "name": "Magic UI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "mem-ai",
-          "name": "Mem",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "mobbin",
-          "name": "Mobbin",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "modal",
-          "name": "Modal",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "motion-dev",
-          "name": "Motion",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "motion",
-          "name": "Motion",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "navbar-gallery",
-          "name": "Navbar Gallery",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "nebius",
-          "name": "Nebius",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "notion-calendar",
-          "name": "Notion Calendar",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "onlook",
-          "name": "Onlook",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "opencode",
-          "name": "OpenCode",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "pen-dev",
-          "name": "pen.dev",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "radix-ui",
-          "name": "Radix UI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "react-bits",
-          "name": "React Bits",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "refero-styles",
-          "name": "Refero Styles",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "reflect",
-          "name": "Reflect",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "relume",
-          "name": "Relume",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "resemble-ai",
-          "name": "Resemble AI",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "sambanova",
-          "name": "SambaNova",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "shadcn-ui",
-          "name": "shadcn/ui",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "speechify",
-          "name": "Speechify",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "stitch",
-          "name": "Stitch",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "synthesia",
-          "name": "Synthesia",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "tailark",
-          "name": "Tailark",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "tavily",
-          "name": "Tavily",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "trigger-dev",
-          "name": "Trigger.dev",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "type",
-          "name": "Type",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "uizard",
-          "name": "Uizard",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "workato",
-          "name": "Workato",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "writesonic",
-          "name": "Writesonic",
-          "category": "writing"
-        },
         {
           "collection": "models",
           "slug": "claude-fable-5",
@@ -1228,6 +1209,11 @@
         },
         {
           "collection": "models",
+          "slug": "glm-5-3",
+          "name": "GLM 5.3"
+        },
+        {
+          "collection": "models",
           "slug": "gpt-5-6-luna",
           "name": "GPT-5.6 Luna"
         },
@@ -1292,34 +1278,103 @@
           "name": "Whisper Large v3"
         },
         {
-          "collection": "tools",
-          "slug": "make",
-          "name": "Make",
-          "category": "automation"
+          "collection": "stacks",
+          "slug": "ai-content-pipeline",
+          "name": "AI Content Pipeline for X/Twitter"
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-customer-support",
+          "name": "AI Customer Support for Small Business"
+        },
+        {
+          "collection": "stacks",
+          "slug": "ai-video-studio",
+          "name": "AI Video Studio"
+        },
+        {
+          "collection": "stacks",
+          "slug": "american-coding-stack",
+          "name": "American Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "chinese-coding-stack",
+          "name": "Chinese Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "local-first-ai",
+          "name": "Local-First Private AI Setup"
+        },
+        {
+          "collection": "stacks",
+          "slug": "maxed-out-dev-stack",
+          "name": "Maxed-Out Dev Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "mixed-coding-stack",
+          "name": "Mixed US × CN Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "one-person-studio",
+          "name": "One-Person Studio"
+        },
+        {
+          "collection": "stacks",
+          "slug": "rag-over-docs",
+          "name": "RAG Over Company Docs"
+        },
+        {
+          "collection": "stacks",
+          "slug": "research-max-stack",
+          "name": "Research Max Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "solo-founder-saas",
+          "name": "Solo Founder SaaS"
+        },
+        {
+          "collection": "stacks",
+          "slug": "student-coding-shoestring",
+          "name": "Student Coding Stack"
+        },
+        {
+          "collection": "stacks",
+          "slug": "student-zero-budget",
+          "name": "Student Stack: Zero Budget"
+        },
+        {
+          "collection": "stacks",
+          "slug": "vibe-coding-stack",
+          "name": "Vibe Coding Stack 2026"
         },
         {
           "collection": "tools",
-          "slug": "merlin",
-          "name": "Merlin",
-          "category": "productivity"
+          "slug": "21st-dev",
+          "name": "21st.dev",
+          "category": "design"
         },
         {
           "collection": "tools",
-          "slug": "voila",
-          "name": "Voila",
-          "category": "productivity"
+          "slug": "404s",
+          "name": "404s",
+          "category": "design"
         },
         {
           "collection": "tools",
-          "slug": "minimax-speech",
-          "name": "MiniMax Speech",
-          "category": "audio"
+          "slug": "aceternity-ui",
+          "name": "Aceternity UI",
+          "category": "design"
         },
         {
           "collection": "tools",
-          "slug": "deepseek-api",
-          "name": "DeepSeek API",
-          "category": "models-api"
+          "slug": "adobe-firefly",
+          "name": "Adobe Firefly",
+          "category": "image"
         },
         {
           "collection": "tools",
@@ -1335,15 +1390,99 @@
         },
         {
           "collection": "tools",
+          "slug": "assistant-ui",
+          "name": "assistant-ui Elements",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "autogen",
+          "name": "AutoGen",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "bardeen",
+          "name": "Bardeen",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "baseten",
+          "name": "Baseten",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "browserbase",
+          "name": "Browserbase",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "bytedance-seed",
+          "name": "ByteDance Seed",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "camel-ai",
+          "name": "Camel AI",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "cartesia",
+          "name": "Cartesia",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "cerebras",
+          "name": "Cerebras",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "claude",
+          "name": "Claude",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "clipdrop",
+          "name": "Clipdrop",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "cody",
+          "name": "Sourcegraph Cody",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
           "slug": "cohere",
           "name": "Cohere",
           "category": "models-api"
         },
         {
           "collection": "tools",
-          "slug": "consensus",
-          "name": "Consensus",
-          "category": "data"
+          "slug": "copy-ai",
+          "name": "Copy.ai",
+          "category": "writing"
         },
         {
           "collection": "tools",
@@ -1353,9 +1492,33 @@
         },
         {
           "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "daisyui",
+          "name": "DaisyUI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
           "slug": "deepgram",
           "name": "Deepgram",
           "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepseek-api",
+          "name": "DeepSeek API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "dify",
+          "name": "Dify",
+          "category": "agents"
         },
         {
           "collection": "tools",
@@ -1367,6 +1530,24 @@
           "collection": "tools",
           "slug": "elicit",
           "name": "Elicit",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "exa",
+          "name": "Exa",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "factory",
+          "name": "Factory",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "firecrawl",
+          "name": "Firecrawl",
           "category": "data"
         },
         {
@@ -1389,6 +1570,42 @@
         },
         {
           "collection": "tools",
+          "slug": "footer",
+          "name": "Footer",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "framer",
+          "name": "Framer",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini-code-assist",
+          "name": "Gemini Code Assist",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "glm-api",
+          "name": "GLM API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "glm-coding-plan",
+          "name": "GLM Coding Plan",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
           "slug": "google-ai-studio",
           "name": "Google AI Studio / Gemini API",
           "category": "models-api"
@@ -1407,9 +1624,21 @@
         },
         {
           "collection": "tools",
-          "slug": "groq",
-          "name": "Groq",
-          "category": "dev-infra"
+          "slug": "gumloop",
+          "name": "Gumloop",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "hailuo-ai",
+          "name": "Hailuo AI",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "heroui",
+          "name": "HeroUI",
+          "category": "design"
         },
         {
           "collection": "tools",
@@ -1419,21 +1648,69 @@
         },
         {
           "collection": "tools",
+          "slug": "horizonx",
+          "name": "HorizonX",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
           "slug": "hugging-face",
           "name": "Hugging Face",
           "category": "dev-infra"
         },
         {
           "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "category": "image"
+          "slug": "inngest",
+          "name": "Inngest",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "invideo",
+          "name": "InVideo",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "junie",
+          "name": "Junie",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "kimi-code",
+          "name": "Kimi Code",
+          "category": "coding"
         },
         {
           "collection": "tools",
           "slug": "kling",
           "name": "Kling AI",
           "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "krea",
+          "name": "Krea",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "lambda",
+          "name": "Lambda",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "landingfolio",
+          "name": "Landingfolio",
+          "category": "design"
         },
         {
           "collection": "tools",
@@ -1449,9 +1726,15 @@
         },
         {
           "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "category": "writing"
+          "slug": "lindy",
+          "name": "Lindy",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "lucide",
+          "name": "Lucide",
+          "category": "design"
         },
         {
           "collection": "tools",
@@ -1461,15 +1744,27 @@
         },
         {
           "collection": "tools",
+          "slug": "magic-ui",
+          "name": "Magic UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
           "slug": "manus",
           "name": "Manus",
           "category": "agents"
         },
         {
           "collection": "tools",
-          "slug": "midjourney",
-          "name": "Midjourney",
-          "category": "image"
+          "slug": "minimax-api",
+          "name": "MiniMax API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "minimax-speech",
+          "name": "MiniMax Speech",
+          "category": "audio"
         },
         {
           "collection": "tools",
@@ -1479,15 +1774,75 @@
         },
         {
           "collection": "tools",
+          "slug": "mobbin",
+          "name": "Mobbin",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "modal",
+          "name": "Modal",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "motion-dev",
+          "name": "Motion",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "motion",
+          "name": "Motion",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
           "slug": "murf",
           "name": "Murf AI",
           "category": "audio"
         },
         {
           "collection": "tools",
+          "slug": "n8n",
+          "name": "n8n",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "navbar-gallery",
+          "name": "Navbar Gallery",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "nebius",
+          "name": "Nebius",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "notebooklm",
+          "name": "NotebookLM",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
           "slug": "notion-ai",
           "name": "Notion AI",
           "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "notion-calendar",
+          "name": "Notion Calendar",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "onlook",
+          "name": "Onlook",
+          "category": "design"
         },
         {
           "collection": "tools",
@@ -1503,15 +1858,33 @@
         },
         {
           "collection": "tools",
+          "slug": "opencode",
+          "name": "OpenCode",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
           "slug": "openrouter",
           "name": "OpenRouter",
           "category": "dev-infra"
         },
         {
           "collection": "tools",
+          "slug": "origin-ui",
+          "name": "Origin UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
           "slug": "otter-ai",
           "name": "Otter.ai",
           "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "pen-dev",
+          "name": "pen.dev",
+          "category": "design"
         },
         {
           "collection": "tools",
@@ -1539,9 +1912,39 @@
         },
         {
           "collection": "tools",
+          "slug": "qwen-api",
+          "name": "Qwen API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "qwen-code",
+          "name": "Qwen Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "qwen-image",
+          "name": "Qwen-Image",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "radix-ui",
+          "name": "Radix UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
           "slug": "raycast",
           "name": "Raycast",
           "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "react-bits",
+          "name": "React Bits",
+          "category": "design"
         },
         {
           "collection": "tools",
@@ -1557,15 +1960,69 @@
         },
         {
           "collection": "tools",
+          "slug": "refero-styles",
+          "name": "Refero Styles",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "reflect",
+          "name": "Reflect",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
           "slug": "relevance-ai",
           "name": "Relevance AI",
           "category": "agents"
         },
         {
           "collection": "tools",
+          "slug": "relume",
+          "name": "Relume",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
           "slug": "replicate",
           "name": "Replicate",
           "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "resemble-ai",
+          "name": "Resemble AI",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "runway",
+          "name": "Runway",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "sambanova",
+          "name": "SambaNova",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "seedance",
+          "name": "Seedance",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "shadcn-ui",
+          "name": "shadcn/ui",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "speechify",
+          "name": "Speechify",
+          "category": "audio"
         },
         {
           "collection": "tools",
@@ -1587,9 +2044,27 @@
         },
         {
           "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "category": "productivity"
+          "slug": "synthesia",
+          "name": "Synthesia",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "tailark",
+          "name": "Tailark",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "tailwind-ui",
+          "name": "Tailwind UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "tavily",
+          "name": "Tavily",
+          "category": "data"
         },
         {
           "collection": "tools",
@@ -1599,21 +2074,57 @@
         },
         {
           "collection": "tools",
+          "slug": "tongyi-lingma",
+          "name": "Tongyi Lingma",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "trae",
+          "name": "Trae",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "trigger-dev",
+          "name": "Trigger.dev",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "type",
+          "name": "Type",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
           "slug": "udio",
           "name": "Udio",
           "category": "audio"
         },
         {
           "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3",
-          "category": "video"
+          "slug": "uizard",
+          "name": "Uizard",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "v0",
+          "name": "v0",
+          "category": "design"
         },
         {
           "collection": "tools",
           "slug": "vercel-ai-sdk",
           "name": "Vercel AI SDK",
           "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "voila",
+          "name": "Voila",
+          "category": "productivity"
         },
         {
           "collection": "tools",
@@ -1629,9 +2140,163 @@
         },
         {
           "collection": "tools",
+          "slug": "windsurf",
+          "name": "Windsurf",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "workato",
+          "name": "Workato",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "writesonic",
+          "name": "Writesonic",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
           "slug": "xai-api",
           "name": "xAI API",
           "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "zapier",
+          "name": "Zapier",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "ernie-api",
+          "name": "Baidu ERNIE API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "stepfun-api",
+          "name": "StepFun API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "codegeex",
+          "name": "CodeGeeX",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-video",
+          "name": "Hunyuan Video",
+          "category": "video"
+        },
+        {
+          "collection": "models",
+          "slug": "gemini-omni-flash",
+          "name": "Gemini Omni Flash"
+        },
+        {
+          "collection": "models",
+          "slug": "minimax-h3",
+          "name": "MiniMax H3 (Hailuo 3.0)"
+        },
+        {
+          "collection": "tools",
+          "slug": "higgsfield",
+          "name": "Higgsfield",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "mem-ai",
+          "name": "Mem",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "stitch",
+          "name": "Stitch",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "make",
+          "name": "Make",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "merlin",
+          "name": "Merlin",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "consensus",
+          "name": "Consensus",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "groq",
+          "name": "Groq",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "midjourney",
+          "name": "Midjourney",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3",
+          "category": "video"
         },
         {
           "collection": "tools",
@@ -1689,6 +2354,38 @@
       ],
       "changed": [
         {
+          "collection": "models",
+          "slug": "eleven-v3",
+          "name": "Eleven v3",
+          "field": "price",
+          "from": 0.00018,
+          "to": 0.0001
+        },
+        {
+          "collection": "models",
+          "slug": "gemini-3-5-flash-lite",
+          "name": "Gemini 3.5 Flash-Lite",
+          "field": "renamed",
+          "from": "gemini-2-5-flash",
+          "to": "gemini-3-5-flash-lite"
+        },
+        {
+          "collection": "models",
+          "slug": "llama-4-maverick",
+          "name": "Llama 4 Maverick",
+          "field": "renamed",
+          "from": "llama-4",
+          "to": "llama-4-maverick"
+        },
+        {
+          "collection": "models",
+          "slug": "mistral-large-2512",
+          "name": "Mistral Large 3",
+          "field": "renamed",
+          "from": "mistral-large",
+          "to": "mistral-large-2512"
+        },
+        {
           "collection": "stacks",
           "slug": "ai-content-pipeline",
           "name": "AI Content Pipeline for X/Twitter",
@@ -1722,39 +2419,21 @@
         },
         {
           "collection": "tools",
+          "slug": "anthropic-api",
+          "name": "Anthropic API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input",
+          "to": "pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
+        },
+        {
+          "collection": "tools",
           "slug": "chatgpt",
           "name": "ChatGPT",
           "category": "writing",
           "field": "price note",
           "from": "free tier; Plus $20/mo",
           "to": "free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
-        },
-        {
-          "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "category": "coding",
-          "field": "price note",
-          "from": "free tier; Pro $10/mo",
-          "to": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
-        },
-        {
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "category": "writing",
-          "field": "price note",
-          "from": "from ~$39/mo (Creator)",
-          "to": "Pro $69/seat/mo or $59/seat/mo billed yearly"
-        },
-        {
-          "collection": "tools",
-          "slug": "windsurf",
-          "name": "Devin Desktop (ex Windsurf)",
-          "category": "coding",
-          "field": "price note",
-          "from": "from $15/mo (Pro)",
-          "to": "free tier; Pro $20/mo, Max $200/mo"
         },
         {
           "collection": "tools",
@@ -1773,83 +2452,6 @@
           "field": "price note",
           "from": "free tier; Pro $9/mo",
           "to": "enterprise-only (self-serve discontinued 2025-07); contact sales"
-        },
-        {
-          "collection": "tools",
-          "slug": "n8n",
-          "name": "n8n",
-          "category": "automation",
-          "field": "price note",
-          "from": "self-host free; cloud from ~$24/mo (Starter)",
-          "to": "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "runway",
-          "name": "Runway",
-          "category": "video",
-          "field": "price note",
-          "from": "free one-time credits; from $15/mo (Standard)",
-          "to": "free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "motion",
-          "name": "Motion (usemotion)",
-          "category": "productivity",
-          "field": "price note",
-          "from": "from $19/seat/mo (annual, Pro AI)",
-          "to": "7-day trial; Pro AI $19/seat/mo (yearly)"
-        },
-        {
-          "collection": "models",
-          "slug": "eleven-v3",
-          "name": "Eleven v3",
-          "field": "price",
-          "from": 0.00018,
-          "to": 0.0001
-        },
-        {
-          "collection": "models",
-          "slug": "gemini-3-5-flash-lite",
-          "name": "Gemini 3.5 Flash-Lite",
-          "field": "renamed",
-          "from": "gemini-2-5-flash",
-          "to": "gemini-3-5-flash-lite"
-        },
-        {
-          "collection": "models",
-          "slug": "llama-4-maverick",
-          "name": "Llama 4 Maverick",
-          "field": "renamed",
-          "from": "llama-4",
-          "to": "llama-4-maverick"
-        },
-        {
-          "collection": "models",
-          "slug": "mistral-large-2512",
-          "name": "Mistral Large 3",
-          "field": "renamed",
-          "from": "mistral-large",
-          "to": "mistral-large-2512"
-        },
-        {
-          "collection": "tools",
-          "slug": "deepseek-api",
-          "name": "DeepSeek API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "deepseek-chat $0.27/1M input (cache miss), $1.10/1M output",
-          "to": "no free API tier; V4 Flash peak $0.44 input (cache miss) / $0.014 cache hit / $1.32 output per 1M, V4 Pro peak $1.32 input / $0.044 cache hit / $3.96 output per 1M; off-peak 50% off (01:00–04:00, 06:00–10:00 UTC); effective 2026-08-16 16:00 UTC"
-        },
-        {
-          "collection": "tools",
-          "slug": "anthropic-api",
-          "name": "Anthropic API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input",
-          "to": "pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
         },
         {
           "collection": "tools",
@@ -1877,6 +2479,15 @@
           "field": "price note",
           "from": "$200 free credits; then from ~$0.0043/min (Nova models)",
           "to": "$200 free credits; Nova-3 STT from $0.0048/min (promo)"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepseek-api",
+          "name": "DeepSeek API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "deepseek-chat $0.27/1M input (cache miss), $1.10/1M output",
+          "to": "no free API tier; V4 Flash peak $0.44 input (cache miss) / $0.014 cache hit / $1.32 output per 1M, V4 Pro peak $1.32 input / $0.044 cache hit / $3.96 output per 1M; off-peak 50% off (01:00–04:00, 06:00–10:00 UTC); effective 2026-08-16 16:00 UTC"
         },
         {
           "collection": "tools",
@@ -1925,6 +2536,15 @@
         },
         {
           "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "category": "coding",
+          "field": "price note",
+          "from": "free tier; Pro $10/mo",
+          "to": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
+        },
+        {
+          "collection": "tools",
           "slug": "google-ai-studio",
           "name": "Google AI Studio / Gemini API",
           "category": "models-api",
@@ -1952,12 +2572,12 @@
         },
         {
           "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "category": "image",
+          "slug": "jasper",
+          "name": "Jasper",
+          "category": "writing",
           "field": "price note",
-          "from": "free tier; from $8/mo (Plus)",
-          "to": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
+          "from": "from ~$39/mo (Creator)",
+          "to": "Pro $69/seat/mo or $59/seat/mo billed yearly"
         },
         {
           "collection": "tools",
@@ -1988,15 +2608,6 @@
         },
         {
           "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "category": "writing",
-          "field": "price note",
-          "from": "free tier; Pro from ~$18/mo",
-          "to": "free tier; Pro $25/mo or $15/mo billed yearly"
-        },
-        {
-          "collection": "tools",
           "slug": "luma-dream-machine",
           "name": "Luma Dream Machine",
           "category": "video",
@@ -2024,12 +2635,30 @@
         },
         {
           "collection": "tools",
+          "slug": "motion",
+          "name": "Motion (usemotion)",
+          "category": "productivity",
+          "field": "price note",
+          "from": "from $19/seat/mo (annual, Pro AI)",
+          "to": "7-day trial; Pro AI $19/seat/mo (yearly)"
+        },
+        {
+          "collection": "tools",
           "slug": "murf",
           "name": "Murf AI",
           "category": "audio",
           "field": "price note",
           "from": "free tier; from ~$19/mo (Creator)",
           "to": "free tier; Creator Lite $29/mo or $23/mo billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "n8n",
+          "name": "n8n",
+          "category": "automation",
+          "field": "price note",
+          "from": "self-host free; cloud from ~$24/mo (Starter)",
+          "to": "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
         },
         {
           "collection": "tools",
@@ -2096,6 +2725,15 @@
         },
         {
           "collection": "tools",
+          "slug": "runway",
+          "name": "Runway",
+          "category": "video",
+          "field": "price note",
+          "from": "free one-time credits; from $15/mo (Standard)",
+          "to": "free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
+        },
+        {
+          "collection": "tools",
           "slug": "stable-diffusion",
           "name": "Stable Diffusion (Stability AI)",
           "category": "image",
@@ -2114,30 +2752,12 @@
         },
         {
           "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "category": "productivity",
-          "field": "price note",
-          "from": "$30/mo",
-          "to": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
-        },
-        {
-          "collection": "tools",
           "slug": "udio",
           "name": "Udio",
           "category": "audio",
           "field": "price note",
           "from": "free tier; Standard $10/mo",
           "to": "free tier; Standard $10/mo, Pro $30/mo (yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "price note",
-          "from": "via Google AI Pro $20/mo (limited); API from $0.75/sec",
-          "to": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
         },
         {
           "collection": "tools",
@@ -2159,12 +2779,57 @@
         },
         {
           "collection": "tools",
+          "slug": "windsurf",
+          "name": "Devin Desktop (ex Windsurf)",
+          "category": "coding",
+          "field": "price note",
+          "from": "from $15/mo (Pro)",
+          "to": "free tier; Pro $20/mo, Max $200/mo"
+        },
+        {
+          "collection": "tools",
           "slug": "xai-api",
           "name": "xAI API",
           "category": "models-api",
           "field": "price note",
           "from": "Grok 4 $3/1M input, $15/1M output",
           "to": "pay-as-you-go; Grok 4.6 $2/$6 per 1M"
+        },
+        {
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier; from $8/mo (Plus)",
+          "to": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Pro from ~$18/mo",
+          "to": "free tier; Pro $25/mo or $15/mo billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity",
+          "field": "price note",
+          "from": "$30/mo",
+          "to": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "price note",
+          "from": "via Google AI Pro $20/mo (limited); API from $0.75/sec",
+          "to": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
         },
         {
           "collection": "tools",
