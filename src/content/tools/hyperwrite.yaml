@@ -1,0 +1,31 @@
+name: HyperWrite
+tagline: AI writing assistant with inline suggestions, research tools, and browser-based agent features.
+url: https://www.hyperwriteai.com
+category: productivity
+pricing: freemium
+price_note: "free tier with limited monthly credits on basic AI; Premium $19.99/mo ($16/mo annual); Ultra $44.99/mo ($29/mo annual)"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Solid if you want AI writing help inside your existing browser and docs
+  workflow, especially the TypeAhead inline suggestions. Premium overlaps with
+  free ChatGPT/Claude on long-form writing, and the message limits on Premium
+  make it costly for heavy users.
+limitations:
+  - Premium is capped at 250 AI messages/month; heavy writers need the pricier Ultra.
+  - The best features (TypeAhead, citations, custom personas) sit behind a paid plan.
+  - Output quality is model-dependent and still needs human fact-checking.
+  - Less compelling than a general-purpose LLM chat if you rarely write in the browser.
+  - Browser extension and agent features are experimental and may break on some sites.
+receipts:
+  - https://www.hyperwriteai.com
+  - https://www.hyperwriteai.com/pricing
+affiliate: none
+momentum: steady
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

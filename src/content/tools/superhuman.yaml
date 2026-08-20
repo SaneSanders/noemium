@@ -3,7 +3,7 @@ tagline: Premium email client with AI triage, drafts and follow-ups.
 url: https://www.superhuman.com
 category: productivity
 pricing: paid
-price_note: "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
+price_note: "no free mail tier; standalone Mail Starter $30/mo ($300/yr) or Business $40/mo ($396/yr); suite Business $33/mo annual ($40/mo) includes Mail"
 free_tier: false
 open_source: false
 api: false
@@ -11,17 +11,20 @@ self_host: false
 verdict: situational
 verdict_text: >-
   Fast email if you are keyboard-driven and live in Gmail. The drafting is
-  fine, but at $25–30/mo it is a luxury now that Gmail and others ship free
+  fine, but at $30–40/mo it is a luxury now that Gmail and others ship free
   AI. Try it for the speed, not because you need AI mail.
 limitations:
   - Expensive while free alternatives catch up.
   - Calendar features thinner than dedicated tools.
   - Muscle-memory lock-in cuts both ways.
-  - Grammarly acquired Superhuman and renamed the whole company Superhuman (2025); mail not included in Free/Pro suite tiers.
+  - Mail is bundled only in Business/Enterprise suite tiers; Free/Pro tiers get Grammarly/Docs/Go, not Mail (the company formerly known as Grammarly rebranded as Superhuman in 2025).
 receipts:
   - https://www.superhuman.com
+  - https://www.superhuman.com/plans
+  - https://help.superhuman.com/hc/en-us/articles/46005733349517-Pricing-Plans
 affiliate: none
+evidence_tier: source-verified
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-20"
 observed_by: whysanesanders

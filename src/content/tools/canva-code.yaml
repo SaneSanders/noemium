@@ -1,0 +1,31 @@
+name: Canva Code
+tagline: AI site/app builder inside Canva; prompt a front-end experience, then edit it like a design.
+url: https://www.canva.com
+category: design
+pricing: freemium
+price_note: "free tier includes limited Premium AI uses; paid Pro/Business/Enterprise plans add more AI credits; AI Pass add-on available"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Good for marketers, educators, and small teams who want a pretty interactive
+  landing page or mini app without leaving Canva. The catch: it is front-end only
+  and not meant for complex backends or high-traffic sites; free credits are tight
+  and paid AI allowances still meter usage.
+limitations:
+  - Free tier caps Premium AI uses (roughly 20/mo on the public pricing page).
+  - Complex backends, authentication, and high-traffic scaling are out of scope.
+  - Moving elements inside generated output still requires re-prompting.
+  - Outputs live in Canva's ecosystem; exporting clean code is limited.
+receipts:
+  - https://www.canva.com
+  - https://www.canva.com/pricing/
+  - https://www.canva.com/newsroom/news/Canva-Code/
+affiliate: none
+momentum: blueshift
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

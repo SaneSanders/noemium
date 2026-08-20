@@ -1,0 +1,30 @@
+name: Anyword
+tagline: Predictive AI copywriting platform that scores marketing copy before it ships.
+url: https://www.anyword.com
+category: writing
+pricing: paid
+price_note: "7-day free trial (2,500 words); Starter $49/mo ($39/mo annually); Data-Driven $99/mo ($79/mo annually); Business and Enterprise custom"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Best for performance-obsessed marketing teams who want a predicted score on
+  every ad, email, and landing line before spending media budget. The catch:
+  predictive scoring is only as good as the data you feed it, and the useful
+  tiers (Business/Enterprise) jump to custom pricing.
+limitations:
+  - Predictive scoring quality depends on connected channel data and historical performance rows.
+  - API, SSO, private LLM, and custom integrations are Enterprise-only.
+  - No permanent free tier; entry trial is 7 days / 2,500 words.
+  - Long-form drafts still need human editing and brand-voice tuning.
+receipts:
+  - https://www.anyword.com
+  - https://www.anyword.com/pricing
+affiliate: none
+momentum: steady
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

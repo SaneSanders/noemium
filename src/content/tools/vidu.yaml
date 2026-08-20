@@ -3,7 +3,7 @@ tagline: Text/image/reference-to-video generator with native audio and strong ch
 url: https://www.vidu.com
 category: video
 pricing: freemium
-price_note: "free plan includes 40 credits/mo; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
+price_note: "free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
 free_tier: true
 open_source: false
 api: true
@@ -20,10 +20,12 @@ limitations:
   - Western access and support are thinner than Runway or Kling.
 receipts:
   - https://www.vidu.com/pricing
-  - https://www.vidu.com/ai-video-generator
+  - https://www.vidu.com/blog/ai-image-animator-free
   - https://platform.vidu.com/docs/pricing
+  - https://aisotools.com/pricing/vidu-ai
 affiliate: none
+evidence_tier: source-verified
 momentum: steady
 featured: false
-last_verified: "2026-08-17"
+last_verified: "2026-08-20"
 observed_by: whysanesanders

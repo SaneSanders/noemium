@@ -1,0 +1,29 @@
+name: Julius
+tagline: Chat-based AI workspace for analyzing data, building reports, presentations, and simple web apps.
+url: https://julius.ai
+category: data
+pricing: freemium
+price_note: "Free $0/mo; Plus $20/mo ($16/mo billed yearly); Pro $45/mo ($37/mo yearly); Max $200/mo ($166/mo yearly); Business $450/mo ($375/mo yearly); all paid tiers are credit-based"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  A practical no-code analyst for business users who live in spreadsheets and slides.
+  The catch: heavy usage is credit-gated, outputs need human verification, and it
+  is not a substitute for a real data warehouse or BI governance stack.
+limitations:
+  - Free tier is limited; meaningful ongoing use requires a paid plan.
+  - Analysis quality depends on the data you upload and the prompts you write.
+  - Credit consumption can be hard to predict for large datasets or frequent reports.
+  - Database connectors and team features are Business-tier only.
+receipts:
+  - https://julius.ai
+  - https://julius.ai/pricing
+affiliate: none
+momentum: steady
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

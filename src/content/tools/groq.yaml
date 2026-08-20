@@ -8,10 +8,6 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
-models_used:
-  - llama-4-maverick
-  - qwen3-8-max
-  - deepseek-v4-pro
 verdict: ship
 verdict_text: >-
   Sub-second responses really do change what you can build — voice agents,
@@ -24,8 +20,11 @@ limitations:
   - Free-tier throughput limits are tight for production.
 receipts:
   - https://groq.com
+  - https://console.groq.com/docs/models
+  - https://console.groq.com/docs/deprecations
 affiliate: none
+evidence_tier: source-verified
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-20"
 observed_by: whysanesanders

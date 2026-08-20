@@ -3,7 +3,7 @@ tagline: Free and open-source IDE plugin and coding model family from Zhipu.
 url: https://codegeex.cn
 category: coding
 pricing: free
-price_note: "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product"
+price_note: "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product from $18/mo"
 free_tier: true
 open_source: true
 api: false
@@ -19,11 +19,13 @@ limitations:
   - Model updates and roadmap tied to Zhipu/GLM.
   - Enterprise features live in the separate paid GLM Coding Plan.
 receipts:
-  - https://www.ainspiro.com/en/news/china-ai-coding-tools-2026-lingma-comate-codegeex-trae/
-  - https://www.aipricing.guru/z-ai-subscription-pricing/
-  - https://blogs.truescho.com/en/glm-coding-plan-zai/
+  - https://codegeex.cn
+  - https://github.com/CodeGeeX
+  - https://docs.z.ai/devpack/overview
+  - https://docs.z.ai/guides/overview/pricing
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+evidence_tier: source-verified
+last_verified: "2026-08-20"
 observed_by: whysanesanders

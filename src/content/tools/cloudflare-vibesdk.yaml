@@ -1,0 +1,30 @@
+name: Cloudflare VibeSDK
+tagline: Open-source platform for self-hosting a full-stack vibe-coding environment on Cloudflare.
+url: https://github.com/cloudflare/vibesdk
+category: dev-infra
+pricing: free
+price_note: "open source (MIT); production previews require Cloudflare Workers Paid plan, Workers for Platforms, model API keys, and a custom domain/certs"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  For teams that want to own their vibe-coding stack and already run on Cloudflare.
+  The catch: production features need a paid Cloudflare plan, multiple bindings
+  (KV, D1, R2, AI Gateway), and you bring your own model keys; local setup is
+  straightforward but production ops are not trivial.
+limitations:
+  - Production app previews require Cloudflare Workers Paid plan and Workers for Platforms.
+  - You must configure AI Gateway / model provider keys yourself.
+  - Bash is disabled for safety, but agent loops can still produce incorrect or insecure code.
+  - Self-hosted means you operate DNS, certs, migrations, and quotas.
+receipts:
+  - https://github.com/cloudflare/vibesdk
+  - https://github.com/cloudflare/vibesdk/blob/main/docs/setup.md
+affiliate: none
+momentum: blueshift
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

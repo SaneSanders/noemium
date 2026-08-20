@@ -1,0 +1,16 @@
+name: Seedance 2.5
+provider: ByteDance (Seed / Volcano Engine)
+price_input_per_mtok: 0
+price_output_per_mtok: 0
+price_unit: mtok
+price_amount: 70
+open_weights: false
+popularity: 65
+best_for:
+  - long-form native-audio video clips up to 30 seconds
+  - 4K/1080p cinematic generation inside Volcano Engine
+avoid_for:
+  - flat per-second budgeting (token-based billing varies by resolution, fps, and input video)
+  - users outside China (docs, console, and rate card in CNY/Chinese)
+source_attribution: "Per-token pricing: 70 CNY per million tokens without input video at 480p/720p, 77 CNY/M tokens at 1080p (Volcano Ark pricing docs, https://www.volcengine.com/docs/82379/1544106, 2026-08-20); example 5s clips ≈ 0.67–3.74 CNY/s depending on resolution; released July 31, 2026; proprietary closed weights; snapshot 2026-08-20"
+last_verified: "2026-08-20"

@@ -1,0 +1,17 @@
+name: GPT-Realtime 2.1 mini
+provider: OpenAI
+context_window: 128000
+price_input_per_mtok: 10.00
+price_output_per_mtok: 20.00
+open_weights: false
+popularity: 75
+best_for:
+  - low-latency voice agents
+  - realtime speech-to-speech with tool use and reasoning
+  - cheaper realtime sessions than gpt-realtime 2.1
+avoid_for:
+  - text-only workloads (use a non-realtime text model)
+  - long-context document tasks
+  - open-weights requirements
+source_attribution: "Audio pricing: OpenAI platform pricing page (gpt-realtime-2.1-mini), 2026-08-20; text input $0.60/MTok, text output $2.40/MTok, image input $0.80/MTok; 128K context from OpenAI developer docs and third-party model trackers; released 2026-07-07 per OpenAI developer community and third-party reports; snapshot 2026-08-20"
+last_verified: "2026-08-20"

@@ -1,0 +1,16 @@
+name: Fish Audio S2.1 Pro
+provider: Fish Audio
+price_input_per_mtok: 0
+price_output_per_mtok: 0
+price_unit: character
+price_amount: 0.000015
+open_weights: false
+popularity: 60
+best_for:
+  - expressive multilingual TTS and voice cloning
+  - cost-sensitive ElevenLabs alternative
+avoid_for:
+  - byte-accurate budgeting for non-Latin scripts (billed per UTF-8 byte, not character)
+  - users needing guaranteed latency/SLA without their own queue management
+source_attribution: "Pricing: $15 per million UTF-8 bytes (≈ $0.000015/byte); free s2.1-pro-free tier for testing/prototyping without SLA (OpenRouter model page, https://openrouter.ai/fish-audio/s2.1-pro, 2026-08-20; Fish Audio docs confirm s2.1-pro as recommended production model, https://docs.fish.audio, 2026-08-20); released July 29, 2026; proprietary closed weights; snapshot 2026-08-20"
+last_verified: "2026-08-20"

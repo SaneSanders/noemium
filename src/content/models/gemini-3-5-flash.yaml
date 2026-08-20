@@ -1,0 +1,17 @@
+name: Gemini 3.5 Flash
+provider: Google
+context_window: 1048576
+price_input_per_mtok: 1.50
+price_output_per_mtok: 9.00
+open_weights: false
+popularity: 85
+best_for:
+  - agentic coding and tool use
+  - multimodal tasks on a budget
+  - high-throughput production workloads
+avoid_for:
+  - hardest reasoning tasks (use Gemini 3.1 Pro)
+  - open-weights requirements
+  - workloads where output cost dominates
+source_attribution: "Prices: Google Gemini API pricing page (gemini-3.5-flash Standard tier), 2026-08-20; context window 1M tokens from Google I/O 2026 coverage and third-party trackers; announced at I/O 2026 (May 2026); snapshot 2026-08-20"
+last_verified: "2026-08-20"

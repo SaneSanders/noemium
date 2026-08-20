@@ -1,0 +1,33 @@
+name: Flowglad
+tagline: YC-backed, open-source payments and billing infrastructure with a zero-webhook, source-of-truth approach.
+url: https://www.flowglad.com
+category: automation
+pricing: freemium
+price_note: "free tier; Plus $40/mo (annual billing, save $120); Max $400/mo (annual billing, save $1,200); Enterprise from $1,500/mo"
+free_tier: true
+open_source: true
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Worth evaluating if you are building an AI/SaaS app and want billing state as a
+  single source of truth without maintaining webhook handlers. The open-source
+  billing engine and SDK are promising, but the product is young, the documented
+  path is the hosted SaaS, and the pricing table is only on the homepage.
+limitations:
+  - Young launch; several billing features (seat-based billing, wallets) are still on the roadmap.
+  - Pricing details live only on the homepage, not on a standalone /pricing page.
+  - The open-source repo is available, but the documented onboarding is the hosted Flowglad service.
+  - Plan usage limits (organization credits, spaces, connections, automations) are visible but not defined in detail.
+  - You still need a payment-processor relationship; Flowglad is not itself a processor.
+receipts:
+  - https://www.flowglad.com
+  - https://github.com/flowglad/flowglad
+  - https://www.ycombinator.com/companies/flowglad
+  - https://www.flowglad.com/terms-of-service
+affiliate: none
+momentum: blueshift
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

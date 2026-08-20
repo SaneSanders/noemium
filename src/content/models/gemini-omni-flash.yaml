@@ -12,5 +12,5 @@ best_for:
 avoid_for:
   - clips longer than 10 seconds (use Veo 3.1)
   - open or self-hosted video pipelines
-source_attribution: "Unit pricing: ~$0.10/sec finished video (billed $1.50 in / $17.50 per 1M video output tokens; per-second estimate per felloai.com board analysis, 2026-08); per-mtok fields set to 0 (no token price exists); snapshot 2026-08-16"
-last_verified: "2026-08-16"
+source_attribution: "Unit pricing: ~$0.10/sec finished video (billed $1.50 in / $17.50 per 1M video output tokens; Google AI pricing page, 2026-08-20); #1 on Arena (1527.5) and Artificial Analysis (1244.8) video boards per felloai.com, 2026-08-14; per-mtok fields set to 0 (no token price exists); snapshot 2026-08-20"
+last_verified: "2026-08-20"

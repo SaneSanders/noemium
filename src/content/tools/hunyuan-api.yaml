@@ -1,31 +1,33 @@
 name: Hunyuan API
-tagline: Tencent Cloud API for Hunyuan TurboS, T1 reasoning and multimodal image, video and 3D models.
+tagline: Tencent Cloud TokenHub API for Hunyuan Hy3 reasoning, plus image, video and 3D generation models.
 url: https://cloud.tencent.com/product/hunyuan
 category: models-api
 pricing: paid
-price_note: "Hunyuan TurboS ~$0.11/$0.28 per 1M (256K context); T1 ~$0.14/$0.56 (128K); HY3 $0.18/$0.72; HY3-preview $0.063/$0.21 via OpenRouter; Hunyuan 3D from $0.02/image"
+price_note: "Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026"
 free_tier: true
 open_source: false
 api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  TurboS and T1 are among the cheapest capable LLM APIs, and Hunyuan Video is
-  a real open-weights release. Access is the pain point: Tencent Cloud assumes
-  a mainland account and some endpoints are geo-blocked in the EU, UK and
-  South Korea.
+  Hy3 is the current Hunyuan API flagship: cheap, Apache 2.0 open weights, and
+  sold through Tencent TokenHub. TurboS, T1 and the older HY2.0 line were
+  retired in June 2026. Access is still China-account-centric and partly
+  geo-blocked, so most international developers will use third-party routers.
 limitations:
-  - The hosted API is proprietary; selected Hunyuan model weights are released separately.
-  - Access outside China is difficult; Tencent Cloud console assumes mainland account.
-  - Some Hunyuan products are geo-blocked in the EU/UK/South Korea.
-  - Text reasoning quality is mid-pack, not frontier.
-  - Billing across text, image, video and 3D APIs is fragmented.
+  - The hosted API is proprietary; Hy3 weights are released under Apache 2.0 and can be run separately.
+  - New Hunyuan API capabilities are on TokenHub; the old 混元大模型 platform stops new purchases and shuts down 2026-09-30.
+  - TurboS, T1 and the older HY2.0 models were retired in June 2026; do not build new integrations on them.
+  - Access outside China is difficult; real-name verification is required and some endpoints are geo-blocked in the EU/UK/South Korea.
+  - Text, image, video and 3D billing are split across separate TokenHub model endpoints.
 receipts:
-  - https://llmcostcalc.com/cloud/hunyuan
-  - https://tokenmix.ai/blog/tencent-hunyuan-api-pricing-hy3-hy2-english-access-2026
+  - https://cloud.tencent.com/document/product/1729/97731
+  - https://cloud.tencent.com/developer/article/2674909
   - https://www.atlascloud.ai/providers/tencent
+  - https://www.apiuspro.cn/tutorial/tencent
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-17"
+evidence_tier: source-verified
+last_verified: "2026-08-20"
 observed_by: whysanesanders
