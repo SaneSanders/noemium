@@ -4,13 +4,14 @@ price_input_per_mtok: 0
 price_output_per_mtok: 0
 price_unit: video_second
 price_amount: 0.13
-open_weights: false
+open_weights: true
 popularity: 62
 best_for:
   - 2K clips (4–15s) with native stereo audio
   - motion transfer and reference-driven generation
 avoid_for:
-  - vote-proven quality bar (single-board score, one day old at snapshot)
-  - self-hosted pipelines (weights promised, not yet published as of 2026-08-16)
-source_attribution: "Unit pricing: $0.13/sec at 2K, $0.09/sec at 768p (vendor, 2026-07-31); #2 on Artificial Analysis video board (1241.5) per felloai.com; per-mtok fields set to 0 (no token price exists); snapshot 2026-08-16"
-last_verified: "2026-08-16"
+  - workflows needing cross-board vote proof (only Artificial Analysis score so far; Arena text-to-video cutoff predates H3)
+  - self-hosted 2K pipelines (open H3-Base weights are 768p; 2K requires hosted H3-Regenerate-2K pass)
+  - teams in US/EU/UK/Korea wanting local deployment (MiniMax H3 Community License excludes those territories)
+source_attribution: "Unit pricing: $0.13/sec at 2K, $0.08/sec at 768p (MiniMax pay-as-you-go pricing, 2026-08-20); #2 on Artificial Analysis video board (1241.5) per felloai.com, 2026-08-14; weights published to Hugging Face Aug 3, 2026 under MiniMax H3 Community License (territory restrictions apply); per-mtok fields set to 0 (no token price exists); snapshot 2026-08-20"
+last_verified: "2026-08-20"

@@ -3,7 +3,7 @@ tagline: Scientific search engine that answers questions with evidence from pape
 url: https://consensus.app
 category: data
 pricing: freemium
-price_note: "free tier; Premium from $10/mo"
+price_note: "free tier; Pro $20/mo ($144/yr), Deep $65/mo ($540/yr)"
 free_tier: true
 open_source: false
 api: false
@@ -20,8 +20,10 @@ limitations:
   - Limited to research-question use cases.
 receipts:
   - https://consensus.app
+  - https://help.consensus.app/en/articles/10087865-subscription-plans
 affiliate: none
+evidence_tier: source-verified
 momentum: steady
 featured: false
-last_verified: "2026-08-15"
+last_verified: "2026-08-20"
 observed_by: whysanesanders

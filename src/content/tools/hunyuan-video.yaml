@@ -3,7 +3,7 @@ tagline: Open-weights text/image-to-video generation model from Tencent.
 url: https://github.com/Tencent-Hunyuan/HunyuanVideo
 category: video
 pricing: paid
-price_note: "Open weights, self-host infrastructure cost only; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud; hosted API pricing not directly fetched"
+price_note: "Open weights, self-host infrastructure cost only; HunyuanVideo-1.5 hosted API ~$0.075/sec (480p) via fal.ai; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud"
 free_tier: true
 open_source: true
 api: true
@@ -16,13 +16,16 @@ verdict_text: >-
 limitations:
   - No native audio; visual-only output.
   - Self-hosting still requires serious GPU infrastructure.
-  - First-party hosted API pricing was not directly fetched.
+  - First-party hosted API is not advertised by Tencent; available through third-party aggregators.
   - Limited consumer app and support outside China.
 receipts:
+  - https://github.com/Tencent-Hunyuan/HunyuanVideo
   - https://vuela.ai/models/hunyuan-video/review
   - https://www.atlascloud.ai/providers/tencent
+  - https://fal.ai/models/fal-ai/hunyuan-video-v1.5/text-to-video
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+evidence_tier: source-verified
+last_verified: "2026-08-20"
 observed_by: whysanesanders

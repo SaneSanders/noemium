@@ -1,30 +1,33 @@
 name: 01.AI Yi API
-tagline: API and open-weights for bilingual Chinese-English Yi LLMs.
+tagline: Self-serve Yi API platform is shutting down; open-weight Yi models remain on HuggingFace.
 url: https://platform.lingyiwanwu.com
 category: models-api
 pricing: paid
-price_note: "Yi-Large $3.00/M input and output, 33K context; Yi-Lightning successor pricing not precisely fetched; enterprise managed cloud from ~$199/month"
-free_tier: true
+price_note: "yi-lightning ¥0.99/1M (~$0.14) and yi-vision-v2 ¥6/1M (~$0.85), 16K context; new signups/top-ups closed 2026-08-03, API calls end 2026-09-03"
+free_tier: false
 open_source: false
 api: true
 self_host: false
-verdict: situational
+verdict: skip
 verdict_text: >-
-  Strong bilingual Chinese-English performance and open-weights roots. Yi-Large
-  is pricey at $3 per million tokens, the successor Lightning was not precisely
-  priced, and the ecosystem is smaller than Qwen or DeepSeek.
+  01.AI is winding down the self-serve Yi API platform. A 2026-08-03 notice
+  stopped new signups and top-ups; API calls end 2026-09-03 and balance refunds
+  run through 2026-12-03. The open-weight Yi models remain available, but the
+  hosted API is no longer a viable choice for new projects.
 limitations:
-  - The hosted API is proprietary; older Yi weights are separate downloadable releases.
-  - Yi-Large is effectively deprecated in favor of Yi-Lightning; roadmap is unclear.
-  - Harder API access and weaker ecosystem vs Qwen or DeepSeek.
-  - Smaller model family with no image/video/audio breadth.
-  - Yi-Lightning exact pricing was not precisely fetched.
+  - "The self-serve API platform is shutting down: new signups/top-ups closed 2026-08-03; API calls stop 2026-09-03."
+  - Existing balances can be refunded through 2026-12-03; contact yi@01.ai.
+  - The current card is RMB-only and requires Chinese-platform identity verification; the international surface closed in 2024.
+  - yi-lightning and yi-vision-v2 are intelligent-routing SKUs; the actual model served may be DeepSeek or Qwen, not Yi.
+  - Open-weight Yi models are separate from the hosted API and still free on HuggingFace.
+  - The company is pivoting to sales-led enterprise platforms (TrueNorth/Wanzhi); no public pricing for those.
 receipts:
-  - https://cloudprice.net/models/01-ai-yi-large
-  - https://nolist.ai/item/yi-large
-  - https://theaitoolsbox.com/chinese-ai/01ai-yi-review/
+  - https://platform.lingyiwanwu.com
+  - https://www.usagepricing.com/blueprint/01-ai
+  - https://nolist.ai/item/yi-lightning
 affiliate: none
-momentum: steady
+momentum: redshift
 featured: false
-last_verified: "2026-08-17"
+evidence_tier: source-verified
+last_verified: "2026-08-20"
 observed_by: whysanesanders

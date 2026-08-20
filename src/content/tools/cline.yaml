@@ -3,7 +3,7 @@ tagline: Open-source autonomous coding agent for VS Code and CLI — BYOK, you p
 url: https://cline.bot
 category: coding
 pricing: freemium
-price_note: "extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA)"
+price_note: "extension/CLI free for individuals (BYOK or Cline inference at cost); optional ClinePass $9.99/mo for open-weight models; Enterprise custom (SSO, JetBrains, SLA)"
 free_tier: true
 open_source: true
 api: true
@@ -18,12 +18,15 @@ limitations:
   - Inference is usage-based; a long agent session can exceed a $20 IDE sub.
   - You operate the keys, spend caps, and model routing yourself.
   - JetBrains, SSO, RBAC, and SLA are Enterprise-only on the public pricing page.
+  - ClinePass is an optional paid subscription for curated open-weight models; the open-source editor/CLI remains free.
   - Client-side agent still needs you to review diffs; autonomy is not a guarantee.
 receipts:
   - https://cline.bot/pricing
+  - https://cline.bot/cline-pass
   - https://github.com/cline/cline
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-18"
+evidence_tier: source-verified
+last_verified: "2026-08-20"
 observed_by: whysanesanders

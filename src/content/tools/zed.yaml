@@ -3,7 +3,7 @@ tagline: Fast open-source editor (Rust) with a built-in AI panel and agent mode.
 url: https://zed.dev
 category: coding
 pricing: freemium
-price_note: "editor free; hosted AI plans from $10/mo"
+price_note: "editor free; Pro $10/mo includes $5 token credits, overage at API list price +10%; Business $30/seat/mo; BYOK free"
 free_tier: true
 open_source: true
 api: false
@@ -21,9 +21,11 @@ limitations:
   - Hosted AI features moved behind accounts and paid tiers over time.
   - Windows support historically lags macOS/Linux.
 receipts:
+  - https://zed.dev/pricing
   - https://github.com/zed-industries/zed
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-15"
+evidence_tier: source-verified
+last_verified: "2026-08-20"
 observed_by: whysanesanders

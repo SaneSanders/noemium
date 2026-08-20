@@ -1,0 +1,35 @@
+name: Tencent CodeBuddy
+tagline: Tencent's AI coding suite with IDE, VS Code/JetBrains plugin, and CLI built on Hunyuan and DeepSeek.
+url: https://www.codebuddy.ai
+category: coding
+pricing: freemium
+price_note: "Experience tier free (500 credits/mo); Standard ¥99/mo, Advanced ¥199/mo, Flagship ¥999/mo; Enterprise SaaS ¥198/seat/mo; credits shared with WorkBuddy"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - hunyuan-t1
+  - deepseek-v4-pro
+verdict: situational
+verdict_text: >-
+  A strong regional option for Chinese developers who want plugin, IDE, and CLI
+  forms under one subscription. The catch: credit-based pricing is hard to predict,
+  the .ai marketing site is barely usable outside China, and non-Chinese users face
+  language and billing barriers.
+limitations:
+  - Credit consumption depends on model and task complexity; monthly costs can surprise.
+  - The international .ai site renders poorly; the Chinese .cn site is the practical source.
+  - Enterprise SaaS requires seat minimums; private cloud starts at 100 seats.
+  - Not open source; model routing limited to Tencent and partner models.
+  - Documentation and support are Chinese-first.
+receipts:
+  - https://www.codebuddy.cn/pricing/
+  - https://cloud.tencent.com/document/product/1831/134333
+  - https://cloud.tencent.com/product/acc
+affiliate: none
+momentum: steady
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

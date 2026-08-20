@@ -3,7 +3,7 @@ tagline: Text-to-speech and voice-cloning model family from Alibaba Cloud.
 url: https://github.com/QwenAudio/CosyVoice
 category: audio
 pricing: paid
-price_note: "CosyVoice 2 from ~$0.287/M input tokens; voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
+price_note: "CosyVoice 2 from ~$0.287/M input tokens; CosyVoice 3.5 Plus from ~$0.22/M input tokens; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
 free_tier: true
 open_source: true
 api: true
@@ -22,9 +22,11 @@ receipts:
   - https://github.com/QwenAudio/CosyVoice
   - https://www.alibabacloud.com/help/en/model-studio/voice-design-user-guide
   - https://cloudprice.net/models/alibaba-cosyvoice-2
+  - https://cloudprice.net/models/alibaba-cosyvoice-3-5-plus
   - https://guijiagi.com/posts/ai-tts-2026-comparison/
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-17"
+evidence_tier: source-verified
+last_verified: "2026-08-20"
 observed_by: whysanesanders

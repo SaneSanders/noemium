@@ -1,0 +1,17 @@
+name: Mistral Medium 3.5
+provider: Mistral AI
+context_window: 262144
+price_input_per_mtok: 1.50
+price_output_per_mtok: 7.50
+open_weights: true
+popularity: 78
+best_for:
+  - agentic coding and synchronous tool calling
+  - long-horizon tasks
+  - self-hostable multimodal workloads under modified MIT license
+avoid_for:
+  - cost-sensitive simple routing (use Mistral Small 4)
+  - highest-quality reasoning (use Mistral Large 3 or a frontier model)
+  - workloads needing a 1M-token context window
+source_attribution: "Pricing: third-party trackers (Price Per Token, BenchLM, Future AGI) citing Mistral AI, 2026-08-20; official mistral.ai/pricing gives only generic per-MTok examples and does not list Medium 3.5 explicitly; context window 256K/262K and modified MIT open-weights license from Mistral models page and third-party trackers; released 2026-04-30 per third-party reports; snapshot 2026-08-20"
+last_verified: "2026-08-20"

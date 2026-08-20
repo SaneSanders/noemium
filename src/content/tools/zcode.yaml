@@ -1,0 +1,34 @@
+name: ZCode
+tagline: Agentic IDE from Z.ai/Zhipu built around GLM-5.3 for goal-driven coding with multi-agent workflows.
+url: https://zcode.z.ai
+category: coding
+pricing: freemium
+price_note: "app download free; GLM Coding plan Lite ¥94.4/mo, Pro ¥430.4/mo, Max ¥862.4/mo (discounted from ¥118/¥538/¥1078); pay-as-you-go model API also available on BigModel.cn"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+models_used:
+  - glm-5-3
+  - glm-5-2
+verdict: situational
+verdict_text: >-
+  A practical pick for developers already inside the Z.ai/GLM ecosystem who want
+  a dedicated agentic IDE with predictable monthly credits. The catch: model choice
+  is effectively GLM-only, the Linux build is still in beta, and the IDE itself is
+  not open source despite some third-party claims.
+limitations:
+  - Not open source; no public source repository could be verified.
+  - Model selection is tightly coupled to the GLM family and partner models.
+  - Pricing and billing are presented in Chinese yuan with unclear international payment support.
+  - Linux support is marked Beta on the downloads page.
+  - Requires a Z.ai/BigModel.cn account and credits; BYOK is not prominently documented.
+receipts:
+  - https://zcode.z.ai
+  - https://bigmodel.cn/pricing
+affiliate: none
+momentum: blueshift
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

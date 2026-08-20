@@ -1,0 +1,32 @@
+name: MindStudio
+tagline: No-code AI agent platform with 200+ models and 1,000+ integrations, plus Remy for building apps from specs.
+url: https://www.mindstudio.ai
+category: agents
+pricing: freemium
+price_note: "free tier: 1 agent, 1,000 runs/mo; Individual $20/mo ($16/mo annual); Business custom; AI model usage billed at cost on top"
+free_tier: true
+open_source: false
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Fastest path from idea to deployed AI agent for non-technical teams. The 200+
+  model router and 1,000+ integrations remove API-key juggling, and Remy can
+  scaffold a full app from a spec. The free tier is tiny, model costs are extra,
+  and sophisticated non-AI workflow automation is better handled by n8n or Make.
+limitations:
+  - Free tier caps you at 1 agent and 1,000 runs/month.
+  - AI model usage is charged at direct API rates on top of the subscription.
+  - Self-hosting, SSO, and custom SLAs are Enterprise-only.
+  - Less suited for pure, complex workflow automation than dedicated automation tools.
+  - "Vendor lock-in: agents, connectors, and managed DB live on the platform."
+receipts:
+  - https://www.mindstudio.ai
+  - https://www.mindstudio.ai/pricing
+  - https://github.com/mindstudio-ai/mindstudio-agent
+affiliate: none
+momentum: blueshift
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders

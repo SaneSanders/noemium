@@ -1,5 +1,5 @@
 name: Higgsfield
-tagline: Generative video model with strong physics and character consistency.
+tagline: Multi-model AI video creative suite with camera control, character consistency, and marketing presets.
 url: https://www.higgsfield.ai
 category: video
 pricing: freemium
@@ -10,17 +10,24 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Delivers some of the most coherent motion and physics in generated clips,
-  especially for character actions. Rendering is slow, prompt control is still
-  limited, and the best results need patience.
+  Higgsfield has evolved from a single video model into a multi-model creative
+  suite (Seedance, Veo, Kling, WAN, Hailuo, etc.) with Cinema Studio camera
+  control, Soul ID character consistency, and Marketing Studio presets.
+  Seedance 2.5 in 1080p is exclusive to the platform. Pricing tiers and credit
+  costs shift frequently; verify the live page before budgeting.
 limitations:
-  - Generation times are longer than competitors.
-  - Fine-grained camera and motion control is limited.
-  - Smaller community and fewer tutorials than Runway/Pika.
+  - Now a multi-model platform; quality, speed, and controls depend on the
+    underlying engine.
+  - Premium models can consume credits several times faster than cheaper ones
+    on the same tier.
+  - Standard-tier monthly credits do not roll over.
+  - Heavy single-model users may still get better value from that model's native
+    platform.
 receipts:
   - https://www.higgsfield.ai
+  - https://higgsfield.ai/blog/best-ai-video-generators-2026
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-20"
 observed_by: whysanesanders

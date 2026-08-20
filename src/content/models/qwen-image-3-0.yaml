@@ -1,0 +1,16 @@
+name: Qwen Image 3.0
+provider: Alibaba Cloud (Qwen team)
+price_input_per_mtok: 0
+price_output_per_mtok: 0
+price_unit: image
+price_amount: 0.03
+open_weights: false
+popularity: 55
+best_for:
+  - dense text-heavy layouts and infographics
+  - multilingual text rendering across 12 languages
+avoid_for:
+  - open-weights or self-hosted pipelines
+  - low-latency bulk generation (RPM 20, Pro RPM 1)
+source_attribution: "Per-image pricing: ≈ $0.03/image at prevailing USD/CNY rates; China list 0.18 CNY/image for generation, 0.02 CNY/image input; International 0.224826 CNY/image output (Alibaba Cloud Model Studio docs, https://help.aliyun.com/en/model-studio/qwen-image-3-0, 2026-08-20); Pro variant 0.25–0.50 CNY/image; released July 21, 2026; proprietary closed weights for 3.0; snapshot 2026-08-20"
+last_verified: "2026-08-20"

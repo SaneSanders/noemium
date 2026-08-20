@@ -1,5 +1,5 @@
 name: Make
-tagline: Visual automation platform — connect 2,000+ apps without writing code.
+tagline: Visual automation platform — connect 3,000+ apps without writing code.
 url: https://www.make.com
 category: automation
 pricing: freemium
@@ -10,13 +10,13 @@ api: true
 self_host: false
 verdict: ship
 verdict_text: >-
-  The most polished visual automation platform around — 2,000+ integrations
+  The most polished visual automation platform around — 3,000+ integrations
   and a scenario editor non-technical people actually ship with. The move from
   operations to credits made monthly costs harder to predict, and busy flows
   get expensive at volume. If you don't need self-hosting or agent nodes, this
   is still the default pick.
 limitations:
-  - Credits expire at the end of each month — unused quota doesn't roll over.
+  - Free-plan credits expire monthly; annual paid credits expire after 12 months.
   - No self-hosting; your automations live on Make's cloud.
   - Credit pricing adds up quickly once flows run at volume.
 receipts:
@@ -25,5 +25,6 @@ affiliate: declared
 affiliate_url: https://www.make.com/en/register?pc=noemium
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+evidence_tier: source-verified
+last_verified: "2026-08-20"
 observed_by: whysanesanders

@@ -1,0 +1,30 @@
+name: Visily
+tagline: AI wireframing and prototyping tool for non-designers — prompt, screenshot, or sketch to editable mockups.
+url: https://www.visily.ai
+category: design
+pricing: freemium
+price_note: "Starter $0 (300 AI credits/mo, limited boards/elements, watermarked exports); Pro $11/editor/mo annually ($14 monthly); Business $29/editor/mo annually; Enterprise custom"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fastest way for product managers, founders, and non-designers to turn a prompt
+  or screenshot into an editable wireframe or prototype. The catch: the free tier
+  is capped and watermarked, paid seats are per-editor, and high-fidelity polish
+  still needs a designer or Figma handoff.
+limitations:
+  - Free Starter has limited boards/elements and watermarked 1x exports.
+  - AI credits are consumed per action; heavy AI use burns through monthly allowances quickly.
+  - Per-editor pricing can outpace small-team budgets.
+  - Prototype fidelity is wireframe-to-mid-fi; production-ready visual design usually requires Figma.
+receipts:
+  - https://www.visily.ai
+  - https://www.visily.ai/pricing
+affiliate: none
+momentum: steady
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-20"
+observed_by: whysanesanders
