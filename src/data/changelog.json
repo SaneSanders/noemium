@@ -1,16 +1,135 @@
 {
-  "generated_at": "2026-08-19T07:50:15.675Z",
+  "generated_at": "2026-08-20T08:31:13.166Z",
   "weeks": [
     {
       "id": "2026-W34",
       "from": "2026-08-17",
       "to": "2026-08-24",
       "counts": {
-        "added": 87,
+        "added": 105,
         "removed": 0,
-        "changed": 68
+        "changed": 84
       },
       "added": [
+        {
+          "collection": "models",
+          "slug": "fish-audio-s2-1-pro",
+          "name": "Fish Audio S2.1 Pro"
+        },
+        {
+          "collection": "models",
+          "slug": "gemini-3-5-flash",
+          "name": "Gemini 3.5 Flash"
+        },
+        {
+          "collection": "models",
+          "slug": "gpt-realtime-2-1-mini",
+          "name": "GPT-Realtime 2.1 mini"
+        },
+        {
+          "collection": "models",
+          "slug": "mistral-medium-3-5",
+          "name": "Mistral Medium 3.5"
+        },
+        {
+          "collection": "models",
+          "slug": "qwen-image-3-0",
+          "name": "Qwen Image 3.0"
+        },
+        {
+          "collection": "models",
+          "slug": "recraft-v4-1",
+          "name": "Recraft V4.1"
+        },
+        {
+          "collection": "models",
+          "slug": "seedance-2-5",
+          "name": "Seedance 2.5"
+        },
+        {
+          "collection": "tools",
+          "slug": "anyword",
+          "name": "Anyword",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "baidu-comate",
+          "name": "Baidu Comate",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "canva-code",
+          "name": "Canva Code",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "cline",
+          "name": "Cline",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "cloudflare-vibesdk",
+          "name": "Cloudflare VibeSDK",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepseek-chat",
+          "name": "DeepSeek Chat",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "flowglad",
+          "name": "Flowglad",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "hyperwrite",
+          "name": "HyperWrite",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "julius-ai",
+          "name": "Julius",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "mindstudio",
+          "name": "MindStudio",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "reve",
+          "name": "Reve",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "tencent-codebuddy",
+          "name": "Tencent CodeBuddy",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "visily",
+          "name": "Visily",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "zcode",
+          "name": "ZCode",
+          "category": "coding"
+        },
         {
           "collection": "agents",
           "slug": "deerflow",
@@ -497,31 +616,166 @@
         },
         {
           "collection": "tools",
-          "slug": "cline",
-          "name": "Cline",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "comet",
           "name": "Comet",
           "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "deepseek-chat",
-          "name": "DeepSeek Chat",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "reve",
-          "name": "Reve",
-          "category": "image"
         }
       ],
       "removed": [],
       "changed": [
+        {
+          "collection": "tools",
+          "slug": "cline",
+          "name": "Cline",
+          "category": "coding",
+          "field": "price note",
+          "from": "extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA)",
+          "to": "extension/CLI free for individuals (BYOK or Cline inference at cost); optional ClinePass $9.99/mo for open-weight models; Enterprise custom (SSO, JetBrains, SLA)"
+        },
+        {
+          "collection": "tools",
+          "slug": "codegeex",
+          "name": "CodeGeeX",
+          "category": "coding",
+          "field": "price note",
+          "from": "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product",
+          "to": "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product from $18/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "consensus",
+          "name": "Consensus",
+          "category": "data",
+          "field": "price note",
+          "from": "free tier; Premium from $10/mo",
+          "to": "free tier; Pro $20/mo ($144/yr), Deep $65/mo ($540/yr)"
+        },
+        {
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "category": "audio",
+          "field": "price note",
+          "from": "CosyVoice 2 from ~$0.287/M input tokens; voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)",
+          "to": "CosyVoice 2 from ~$0.287/M input tokens; CosyVoice 3.5 Plus from ~$0.22/M input tokens; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
+        },
+        {
+          "collection": "tools",
+          "slug": "ernie-api",
+          "name": "Baidu ERNIE API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "ERNIE 4.5 Turbo 32K ~$0.11/$0.44 per 1M; ERNIE Lite Pro 128K ~$0.028/$0.056; ERNIE Speed Pro 128K ~$0.042/$0.083; ERNIE 5.1 flagship pricing not fetched",
+          "to": "ERNIE 5.1 ≤32k ~$0.56/$2.54 per 1M, 32k-128k ~$0.85/$3.10; ERNIE 4.5 Turbo 32K/128K ~$0.11/$0.45; ERNIE X1.1 ~$0.14/$0.56; prices in CNY, USD approximate"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Hunyuan TurboS ~$0.11/$0.28 per 1M (256K context); T1 ~$0.14/$0.56 (128K); HY3 $0.18/$0.72; HY3-preview $0.063/$0.21 via OpenRouter; Hunyuan 3D from $0.02/image",
+          "to": "Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-video",
+          "name": "Hunyuan Video",
+          "category": "video",
+          "field": "price note",
+          "from": "Open weights, self-host infrastructure cost only; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud; hosted API pricing not directly fetched",
+          "to": "Open weights, self-host infrastructure cost only; HunyuanVideo-1.5 hosted API ~$0.075/sec (480p) via fal.ai; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud"
+        },
+        {
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)",
+          "to": "free tier (weekly credits, amount may vary); Plus $15/mo (annual), Pro $42/mo (annual), Team $20/user/mo (annual)"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Pro $25/mo or $15/mo billed yearly",
+          "to": "free tier; Pro $24.99/mo or $179.88/yr billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "stepfun-api",
+          "name": "StepFun API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Step-2 ~$0.83/$2.50 per 1M; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33; Step 3.5 Flash open-source $0.10/$0.30",
+          "to": "Step 3.7 Flash ~$0.20/$1.15 per 1M; Step 3.5 Flash open-source $0.10/$0.30; Step-2 ~$0.83/$2.50; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)",
+          "to": "no free mail tier; standalone Mail Starter $30/mo ($300/yr) or Business $40/mo ($396/yr); suite Business $33/mo annual ($40/mo) includes Mail"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "pricing",
+          "from": "paid",
+          "to": "freemium"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "price note",
+          "from": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo",
+          "to": "free daily credits in Flow; Google AI Pro $19.99/mo (1000 Flow credits/mo); Ultra 5x $99.99/mo (10k Flow credits/mo) / 20x $199.99/mo (25k Flow credits/mo)"
+        },
+        {
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "category": "video",
+          "field": "price note",
+          "from": "Free plan 80 credits/mo; Standard $9.99/mo, Premium $19.99/mo, Ultimate $59.99/mo, Enterprise custom; API credit-based (~1 credit ≈ $0.005)",
+          "to": "free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Yi-Large $3.00/M input and output, 33K context; Yi-Lightning successor pricing not precisely fetched; enterprise managed cloud from ~$199/month",
+          "to": "yi-lightning ¥0.99/1M (~$0.14) and yi-vision-v2 ¥6/1M (~$0.85), 16K context; new signups/top-ups closed 2026-08-03, API calls end 2026-09-03"
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api",
+          "field": "verdict",
+          "from": "situational",
+          "to": "skip"
+        },
+        {
+          "collection": "tools",
+          "slug": "zed",
+          "name": "Zed",
+          "category": "coding",
+          "field": "price note",
+          "from": "editor free; hosted AI plans from $10/mo",
+          "to": "editor free; Pro $10/mo includes $5 token credits, overage at API list price +10%; Business $30/seat/mo; BYOK free"
+        },
         {
           "collection": "models",
           "slug": "glm-5-3",
@@ -1120,15 +1374,6 @@
           "field": "price note",
           "from": "free tier (100 tasks/mo); Professional from $20/mo",
           "to": "free 100 tasks/mo; Professional from $19.99/mo billed yearly (750 tasks) or $29.99/mo monthly"
-        },
-        {
-          "collection": "tools",
-          "slug": "vidu",
-          "name": "Vidu",
-          "category": "video",
-          "field": "price note",
-          "from": "Free plan 80 credits/mo; Standard $9.99/mo, Premium $19.99/mo, Ultimate $59.99/mo, Enterprise custom; API credit-based (~1 credit ≈ $0.005)",
-          "to": "free plan includes 40 credits/mo; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
         }
       ]
     },
@@ -1142,6 +1387,142 @@
         "changed": 72
       },
       "added": [
+        {
+          "collection": "models",
+          "slug": "gemini-omni-flash",
+          "name": "Gemini Omni Flash"
+        },
+        {
+          "collection": "models",
+          "slug": "minimax-h3",
+          "name": "MiniMax H3 (Hailuo 3.0)"
+        },
+        {
+          "collection": "tools",
+          "slug": "codegeex",
+          "name": "CodeGeeX",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "consensus",
+          "name": "Consensus",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "ernie-api",
+          "name": "Baidu ERNIE API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "groq",
+          "name": "Groq",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "higgsfield",
+          "name": "Higgsfield",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-video",
+          "name": "Hunyuan Video",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "make",
+          "name": "Make",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "merlin",
+          "name": "Merlin",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "stepfun-api",
+          "name": "StepFun API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "stitch",
+          "name": "Stitch",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "zed",
+          "name": "Zed",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "luma-dream-machine",
+          "name": "Luma Dream Machine",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "opencode",
+          "name": "OpenCode",
+          "category": "coding"
+        },
         {
           "collection": "models",
           "slug": "claude-fable-5",
@@ -1738,12 +2119,6 @@
         },
         {
           "collection": "tools",
-          "slug": "luma-dream-machine",
-          "name": "Luma Dream Machine",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
           "slug": "magic-ui",
           "name": "Magic UI",
           "category": "design"
@@ -1855,12 +2230,6 @@
           "slug": "openai-responses",
           "name": "OpenAI Responses API",
           "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "opencode",
-          "name": "OpenCode",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -2170,139 +2539,15 @@
         },
         {
           "collection": "tools",
-          "slug": "cosyvoice",
-          "name": "CosyVoice",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "ernie-api",
-          "name": "Baidu ERNIE API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-api",
-          "name": "Hunyuan API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "stepfun-api",
-          "name": "StepFun API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "vidu",
-          "name": "Vidu",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "codegeex",
-          "name": "CodeGeeX",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-video",
-          "name": "Hunyuan Video",
-          "category": "video"
-        },
-        {
-          "collection": "models",
-          "slug": "gemini-omni-flash",
-          "name": "Gemini Omni Flash"
-        },
-        {
-          "collection": "models",
-          "slug": "minimax-h3",
-          "name": "MiniMax H3 (Hailuo 3.0)"
-        },
-        {
-          "collection": "tools",
-          "slug": "higgsfield",
-          "name": "Higgsfield",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
           "slug": "mem-ai",
           "name": "Mem",
           "category": "productivity"
         },
         {
           "collection": "tools",
-          "slug": "stitch",
-          "name": "Stitch",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "make",
-          "name": "Make",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "merlin",
-          "name": "Merlin",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "consensus",
-          "name": "Consensus",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "groq",
-          "name": "Groq",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
           "slug": "midjourney",
           "name": "Midjourney",
           "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "zed",
-          "name": "Zed",
-          "category": "coding"
         },
         {
           "collection": "models",
@@ -2354,6 +2599,59 @@
       ],
       "changed": [
         {
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier; from $8/mo (Plus)",
+          "to": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Pro from ~$18/mo",
+          "to": "free tier; Pro $25/mo or $15/mo billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity",
+          "field": "price note",
+          "from": "$30/mo",
+          "to": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "price note",
+          "from": "via Google AI Pro $20/mo (limited); API from $0.75/sec",
+          "to": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
+        },
+        {
+          "collection": "models",
+          "slug": "mistral-large-2512",
+          "name": "Mistral Large 3",
+          "field": "renamed",
+          "from": "mistral-large",
+          "to": "mistral-large-2512"
+        },
+        {
+          "collection": "tools",
+          "slug": "luma-dream-machine",
+          "name": "Luma Dream Machine",
+          "category": "video",
+          "field": "price note",
+          "from": "free tier; from $10/mo (Lite)",
+          "to": "free tier (watermarked); from $30/mo (Luma Agents Plus)"
+        },
+        {
           "collection": "models",
           "slug": "eleven-v3",
           "name": "Eleven v3",
@@ -2376,14 +2674,6 @@
           "field": "renamed",
           "from": "llama-4",
           "to": "llama-4-maverick"
-        },
-        {
-          "collection": "models",
-          "slug": "mistral-large-2512",
-          "name": "Mistral Large 3",
-          "field": "renamed",
-          "from": "mistral-large",
-          "to": "mistral-large-2512"
         },
         {
           "collection": "stacks",
@@ -2608,15 +2898,6 @@
         },
         {
           "collection": "tools",
-          "slug": "luma-dream-machine",
-          "name": "Luma Dream Machine",
-          "category": "video",
-          "field": "price note",
-          "from": "free tier; from $10/mo (Lite)",
-          "to": "free tier (watermarked); from $30/mo (Luma Agents Plus)"
-        },
-        {
-          "collection": "tools",
           "slug": "manus",
           "name": "Manus",
           "category": "agents",
@@ -2794,42 +3075,6 @@
           "field": "price note",
           "from": "Grok 4 $3/1M input, $15/1M output",
           "to": "pay-as-you-go; Grok 4.6 $2/$6 per 1M"
-        },
-        {
-          "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "category": "image",
-          "field": "price note",
-          "from": "free tier; from $8/mo (Plus)",
-          "to": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "category": "writing",
-          "field": "price note",
-          "from": "free tier; Pro from ~$18/mo",
-          "to": "free tier; Pro $25/mo or $15/mo billed yearly"
-        },
-        {
-          "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "category": "productivity",
-          "field": "price note",
-          "from": "$30/mo",
-          "to": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "price note",
-          "from": "via Google AI Pro $20/mo (limited); API from $0.75/sec",
-          "to": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
         },
         {
           "collection": "tools",

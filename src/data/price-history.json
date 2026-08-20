@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T07:50:16.392Z",
+  "generated_at": "2026-08-20T08:29:49.056Z",
   "started_tracking": "2026-08-15",
   "models": [
     {
@@ -119,6 +119,19 @@
       ]
     },
     {
+      "slug": "fish-audio-s2-1-pro",
+      "name": "Fish Audio S2.1 Pro",
+      "points": [
+        {
+          "date": "2026-08-20",
+          "in": 0,
+          "out": 0,
+          "unit": "character",
+          "amount": 0.000015
+        }
+      ]
+    },
+    {
       "slug": "flux-2-pro",
       "name": "FLUX 2 Pro",
       "points": [
@@ -151,6 +164,18 @@
           "date": "2026-08-15",
           "in": 0.3,
           "out": 2.5,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "gemini-3-5-flash",
+      "name": "Gemini 3.5 Flash",
+      "points": [
+        {
+          "date": "2026-08-20",
+          "in": 1.5,
+          "out": 9,
           "unit": "mtok"
         }
       ]
@@ -254,6 +279,18 @@
           "date": "2026-08-15",
           "in": 2,
           "out": 12,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "gpt-realtime-2-1-mini",
+      "name": "GPT-Realtime 2.1 mini",
+      "points": [
+        {
+          "date": "2026-08-20",
+          "in": 10,
+          "out": 20,
           "unit": "mtok"
         }
       ]
@@ -380,6 +417,18 @@
       ]
     },
     {
+      "slug": "mistral-medium-3-5",
+      "name": "Mistral Medium 3.5",
+      "points": [
+        {
+          "date": "2026-08-20",
+          "in": 1.5,
+          "out": 7.5,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
       "slug": "muse-spark-1-2",
       "name": "Muse Spark 1.2",
       "points": [
@@ -388,6 +437,19 @@
           "in": 1.25,
           "out": 4.25,
           "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "qwen-image-3-0",
+      "name": "Qwen Image 3.0",
+      "points": [
+        {
+          "date": "2026-08-20",
+          "in": 0,
+          "out": 0,
+          "unit": "image",
+          "amount": 0.03
         }
       ]
     },
@@ -424,6 +486,32 @@
           "in": 2,
           "out": 6,
           "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "recraft-v4-1",
+      "name": "Recraft V4.1",
+      "points": [
+        {
+          "date": "2026-08-20",
+          "in": 0,
+          "out": 0,
+          "unit": "image",
+          "amount": 0.035
+        }
+      ]
+    },
+    {
+      "slug": "seedance-2-5",
+      "name": "Seedance 2.5",
+      "points": [
+        {
+          "date": "2026-08-20",
+          "in": 0,
+          "out": 0,
+          "unit": "mtok",
+          "amount": 70
         }
       ]
     },
