@@ -66,6 +66,12 @@ const hostname = (url: string) => {
   }
 };
 
+// Declared affiliates: primary Visit goes to affiliate_url. The clean
+// canonical `url` stays on the page as a secondary "without referral" link.
+const declaredAffiliate = t.affiliate === 'declared' && t.affiliate_url ? t.affiliate_url : undefined;
+const visitHref = declaredAffiliate ?? t.url;
+const visitRel = declaredAffiliate ? 'sponsored nofollow noopener' : 'noopener';
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
@@ -133,26 +139,32 @@ const shortTrail = (v: string | null) => {
     </div>
     <p class="mt-6 max-w-2xl text-xl leading-relaxed font-medium text-ink opacity-80">{t.tagline}</p>
     <p class="mt-7 flex flex-wrap items-center gap-4">
-      <a href={t.url} class="nm-btn nm-btn-solid" rel="noopener">
+      <a href={visitHref} class="nm-btn nm-btn-solid" rel={visitRel}>
         Visit {hostname(t.url)} →
+        {
+          declaredAffiliate && (
+            <span class="rounded-sm border border-current px-1.5 py-0.5 font-mono text-[10px] font-medium tracking-[0.14em] uppercase">
+              declared
+            </span>
+          )
+        }
       </a>
       <CopyButton
         label="Copy observation"
         text={observationMarkdown(t, new URL(`/tools/${tool.id}/`, Astro.site).href)}
       />
       <VerifiedStamp slug={tool.id} date={t.last_verified} />
-      {t.affiliate === 'declared' && <span class="font-mono text-xs text-ink-dim">affiliate link declared</span>}
     </p>
     {
-      t.affiliate_url && (
+      declaredAffiliate && (
         <p class="mt-4 flex flex-wrap items-center gap-3 font-mono text-xs">
           <a
-            href={t.affiliate_url}
-            rel="sponsored nofollow"
+            href={t.url}
+            rel="noopener"
             class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard-sm"
           >
-            Visit via our affiliate link
-            <span class="ml-1.5 text-[10px] tracking-[0.12em] text-ink-dim uppercase">affiliate link — declared</span>
+            Visit without referral
+            <span class="ml-1.5 text-[10px] tracking-[0.12em] text-ink-dim uppercase">{hostname(t.url)}</span>
           </a>
           <span class="text-[11px] text-ink-dim">declared — supports Noemium</span>
         </p>
