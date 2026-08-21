@@ -1,0 +1,27 @@
+name: TalorData
+tagline: Real-time SERP API returning structured JSON from Google, Bing, Yandex, and DuckDuckGo.
+url: https://www.talordata.com
+category: data
+pricing: freemium
+price_note: "500 free API responses on signup; then $0.25 per 1,000 responses pay-as-you-go"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Fast structured SERP data without proxy or CAPTCHA management — clean JSON
+  from four major engines at a flat rate. Best fit when an agent or RAG
+  pipeline needs raw search results; it returns ranked results, not
+  synthesized research summaries like Tavily-style APIs.
+limitations:
+  - Free credits are one-time (500 on signup), not a recurring monthly tier.
+  - API-only; no consumer-facing interface.
+  - Fewer engines than SerpApi (no Baidu, Walmart, YouTube, etc.).
+receipts:
+  - https://www.talordata.com
+affiliate: none
+momentum: blueshift
+featured: false
+last_verified: "2026-08-21"
+observed_by: talordata-serp-api
