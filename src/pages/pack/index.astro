@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 
 const files = [
-  { href: '/pack/inbox-desk/README.md', name: 'README.md', note: 'What the pack is, in the operator language' },
+  { href: '/pack/inbox-desk/README.md', name: 'README.md', note: 'What the pack is' },
   { href: '/pack/inbox-desk/SOP.md', name: 'SOP.md', note: 'Escalation, silence, the route between roles' },
   { href: '/pack/inbox-desk/profiles/inbox.md', name: 'profiles/inbox.md', note: 'Classify, extract, one draft or needs_human' },
   { href: '/pack/inbox-desk/profiles/qual.md', name: 'profiles/qual.md', note: '3–5 questions, then stop. No money.' },
@@ -42,14 +42,14 @@ const jsonLd = {
   url: new URL('/pack/', Astro.site).href,
   description:
     'A free-to-read prompt pack for local-service inboxes. Three agent profiles and an SOP. The agent drafts. A human sends.',
-  inLanguage: ['en', 'ru'],
+  inLanguage: 'en',
   isAccessibleForFree: true,
   hasPart: files.map((file) => ({
     '@type': 'CreativeWork',
     name: file.name,
     url: new URL(file.href, Astro.site).href,
     encodingFormat: 'text/markdown',
-    inLanguage: 'ru',
+    inLanguage: 'en',
   })),
 };
 ---
@@ -102,8 +102,7 @@ const jsonLd = {
       <p class="mt-4 text-[15px] leading-relaxed text-ink opacity-80">
         Inbox Desk is markdown you paste into a chat you already use. It is a studio
         SKU page, not a catalog tool card: no verdict, no floor slot, no hosted inbox.
-        The files themselves stay in Russian — the language the operator works in.
-        This page is English, like the rest of noemium.com.
+        The files are English, like the rest of noemium.com.
       </p>
     </section>
 
