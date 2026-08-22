@@ -31,6 +31,7 @@ test('builds Inbox Desk at /pack/ and copies the markdown', () => {
   for (const path of packFiles) {
     const body = built(path);
     assert.match(body, /Inbox Desk|Inbox|Qual|Closer-lite/);
+    assert.doesNotMatch(body, /[\u0400-\u04FF]/);
   }
 });
 
