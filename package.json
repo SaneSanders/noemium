@@ -12,7 +12,7 @@
     "astro": "astro",
     "check": "astro check",
     "test": "node --test tests/content-schemas.test.mjs tests/agent-content.test.mjs tests/shelf.test.mjs tests/catalog-surfaces.test.mjs",
-    "test:dist": "node --test tests/agent-pages.test.mjs",
+    "test:dist": "node --test tests/agent-pages.test.mjs tests/pack-page.test.mjs",
     "test:all": "node --test tests/*.test.mjs # includes untracked local tests (decide-*) — run after build",
     "validate": "node scripts/validate-content.mjs",
     "weekly-diff": "node scripts/weekly-diff.mjs",
