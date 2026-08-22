@@ -1,45 +1,45 @@
 # Inbox Desk
 
-Три профиля агента и один SOP.
+Three agent profiles and one SOP.
 
-Локальные услуги: детейлинг, клиника, кухни, студия. Заявки с формы, WhatsApp, Instagram и почты тонут в чате.
+Local services: detailing, clinic, kitchens, studio. Leads from forms, WhatsApp, Instagram, and email pile up in chat.
 
-Агент читает входящее и пишет **черновик**. Отправляешь ты.
+The agent reads the inbound and writes a **draft**. You send it.
 
-## Для кого
+## Who it's for
 
-Ты сам закрываешь заявки — или один человек в смене. Каналы смешанные. CRM нет или ею никто не живёт. Отдела продаж нет.
+You close leads yourself — or one person on shift. Channels are mixed. There is no CRM, or nobody lives in it. There is no sales team.
 
-Цифры и чужие кейсы в пакет не кладём.
+No numbers and no other people's case studies in this pack.
 
-## Что в коробке
+## What's in the box
 
-| Файл | Зачем |
+| File | Why |
 |---|---|
-| `SOP.md` | Дневной контур: заявка → теги → квалификация → черновик на предоплату/слот |
-| `profiles/inbox.md` | Разобрать входящее, вытащить факты, один короткий ответ или «нужен человек» |
-| `profiles/qual.md` | 3–5 вопросов. Стоп, когда можно ставить слот — или лид мёртвый |
-| `profiles/closer-lite.md` | Тёплый лид → черновик на предоплату / бронь слота |
+| `SOP.md` | Daily loop: inbound → tags → qualify → prepaid/slot draft |
+| `profiles/inbox.md` | Sort the inbound, extract facts, one short reply or needs_human |
+| `profiles/qual.md` | 3–5 questions. Stop when you can book a slot — or the lead is dead |
+| `profiles/closer-lite.md` | Warm lead → prepaid / slot-hold draft |
 
-Ключи во frontmatter — на английском. Тексты оператора и системные промпты — на русском.
+Frontmatter keys are English. Operator copy and system prompts are English.
 
-## Установка за 15 минут
+## 15-minute install
 
-1. Сделай три профиля в агенте, который **видит** почту или чат и умеет черновик (Grok Bot или любой другой).
-2. В каждый профиль вставь файл из `profiles/` целиком: от `Role` до конца `Output format`.
-3. `SOP.md` — памятка тебе. Агенту его можно не давать.
-4. Без чтения канала пакет не заведётся. Промпт сам почту не откроет.
-5. Возьми 3 свежих входящих. Прогони Inbox → Qual → Closer-lite. Отправь только то, что сам одобрил.
+1. Make three profiles in an agent that **sees** mail or chat and can draft (Grok Bot or any other).
+2. Paste each file from `profiles/` in full: from `Role` through `Output format`.
+3. `SOP.md` is your memo. You do not have to give it to the agent.
+4. Without a channel the pack will not run. A prompt does not open mail by itself.
+5. Take 3 fresh inbounds. Run Inbox → Qual → Closer-lite. Send only what you approved.
 
-Готово, если на трёх заявках нет выдуманных имён, цен и «перезвоним завтра в 10».
+Done if those three leads have no invented names, prices, or "we'll call tomorrow at 10".
 
-## Этого пакет не делает
+## This pack does not
 
-- Не шлёт сам. Черновик → ты жмёшь отправить.
-- Не CRM, не Salesforce, не воронка со стадиями.
-- Не Telegram-бот, не виджет, не автоответчик Instagram.
-- Не звонит, не ставит в календарь, не берёт оплату.
-- Не обещает конверсию, SLA и «лиды больше не теряются».
-- Не делает рассылку и цепочку follow-up. Один ответ на одно входящее — пока ты сам не решишь иначе.
+- Send by itself. Draft → you hit send.
+- Act as a CRM, Salesforce, or staged pipeline.
+- Act as a Telegram bot, widget, or Instagram autoresponder.
+- Call, book a calendar, or take payment.
+- Promise conversion, SLA, or "you will not lose leads".
+- Run a blast or a follow-up sequence. One reply per inbound — until you decide otherwise.
 
-Если агент не читает почту или чат — сначала подключи чтение. Иначе это просто три текстовых файла.
+If the agent cannot read mail or chat, connect reading first. Otherwise these are just three text files.

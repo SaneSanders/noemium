@@ -1,116 +1,116 @@
 # SOP — Inbox Desk
 
-Дневной контур. Агент пишет. Ты шлёшь. Рассылок нет.
+Daily loop. The agent writes. You send. No blasts.
 
-## Контур
+## Loop
 
 ```
-новое входящее
-  → Inbox: тег + факты + 1 черновик или needs_human
-  → если lead: Qual, 3–5 вопросов
-  → если Qual = ready_to_book: Closer-lite, черновик предоплата/слот
-  → ты читаешь → отправляешь / правишь / молчишь
+new inbound
+  → Inbox: tag + facts + 1 draft or needs_human
+  → if lead: Qual, 3–5 questions
+  → if Qual = ready_to_book: Closer-lite, prepaid/slot draft
+  → you read → send / edit / stay quiet
 ```
 
-Один проход на одно входящее. Не гони одно сообщение через все три роли «на всякий случай».
+One pass per inbound. Do not run one message through all three roles "just in case".
 
-## 1. Новое входящее
+## 1. New inbound
 
-Собери текст как есть: форма, письмо, WhatsApp, Instagram, голосовое (если есть расшифровка).
+Collect the text as-is: form, email, WhatsApp, Instagram, voice (if you have a transcript).
 
-Не чисти «для красоты». Опечатки и мат оставь — Inbox сам пометит.
+Do not clean it up. Keep typos and swearing — Inbox will tag them.
 
-В один прогон — одно обращение. Не скармливай пачку из 20 чатов.
+One conversation per run. Do not dump a pile of 20 chats.
 
 ## 2. Inbox
 
-Отдай сырой текст профилю Inbox.
+Give the raw text to the Inbox profile.
 
-Ждёшь:
+You want:
 
-- тег: `lead` / `existing` / `spam` / `vendor` / `personal` / `unclear`
-- поля: имя, услуга, город, бюджет, срочность — или `неизвестно`
-- один короткий черновик **или** `needs_human`
+- tag: `lead` / `existing` / `spam` / `vendor` / `personal` / `unclear`
+- fields: name, service, city, budget, urgency — or `unknown`
+- one short draft **or** `needs_human`
 
-Если Inbox написал факт, которого нет во входящем — выкинь черновик. Не отправляй.
+If Inbox invented a fact that is not in the inbound — drop the draft. Do not send.
 
-Пустой «привет» без второго сообщения: `unclear`, черновик `—`, подожди. Не кидай прайс.
+Empty "hi" with no second message: `unclear`, draft `—`, wait. Do not dump a price list.
 
-Куда дальше:
+Where next:
 
-| Тег Inbox | Что делать |
+| Inbox tag | Do this |
 |---|---|
-| `lead` | В Qual |
-| `existing` | Смотри историю сам. Qual — только новая услуга, не жалоба и не гарантия |
-| `unclear` или `needs_human` | Смотри сам. Агента дальше не корми |
-| `spam` / `vendor` / `personal` | Стоп. В Qual не гони |
+| `lead` | To Qual |
+| `existing` | You read history. Qual only for a new service, not a complaint or warranty |
+| `unclear` or `needs_human` | You look. Do not feed the agent further |
+| `spam` / `vendor` / `personal` | Stop. Do not send to Qual |
 
 ## 3. Qual
 
-Только квалификация. Не продаёт и не просит *внести* предоплату.
+Qualify only. It does not sell and does not ask anyone to *pay* a deposit.
 
-3–5 вопросов, не анкета:
+3–5 questions, not a form:
 
-1. Какая услуга / что сделать
-2. Когда (дата, окно, «на этой неделе»)
-3. Где (адрес, район, привоз)
-4. Ограничение по нише: размер авто, число людей, материал, противопоказание
-5. Готовность к слоту с предоплатой: да / нет / unknown — не «сколько оставите»
+1. Which service / what to do
+2. When (date, window, "this week")
+3. Where (address, area, drop-off)
+4. Niche constraint: car size, headcount, material, contraindication
+5. Ready for a prepaid slot: yes / no / unknown — not "how much will you leave"
 
-Стоп:
+Stop:
 
-- услуга + когда + где есть, красного флага нет → `ready_to_book` → Closer-lite (предоплата и слот — там)
-- «не надо» / «уже сделали» / молчит на второе касание → `dead`, третье не пиши
-- орёт, торгуется в ноль, просит юр. гарантии → `escalate`, не Qual
+- service + when + where exist, no red flag → `ready_to_book` → Closer-lite (prepaid and slot live there)
+- "never mind" / "already done" / silent after a second touch → `dead`, do not write a third
+- yelling, haggling to zero, asking for legal guarantees → `escalate`, not Qual
 
-Второе касание решаешь ты, не агент.
+You decide the second touch, not the agent.
 
 ## 4. Closer-lite
 
-Только тёплый лид со `status: ready_to_book` — или ты сам сказал, что тёплый.
+Only a warm lead with `status: ready_to_book` — or you said it is warm.
 
-Черновик: слот + предоплата. Язык услуги — предоплата, бронь слота, залог за дату.
+Draft: slot + prepaid. Language of the service — deposit, slot hold, date hold.
 
-Без фальш-срочности («осталось 2 места», «сегодня последняя цена»), если этого нет в фактах.
+No fake urgency ("2 spots left", "today's last price") unless that is in the facts.
 
-Сумму предоплаты и свободный слот проверяешь **ты**. Агент не видит календарь, пока ты ему его не дал.
+**You** check the prepaid sum and the free slot. The agent cannot see the calendar until you give it.
 
-## Эскалация — человеку, агента стоп
+## Escalate — human, agent stops
 
-- злость, угрозы, «подам в суд», шантаж отзывом
-- медицина / диагноз / «какую таблетку» — у клиники только запись, не совет
-- гарантия, «вы уже делали, всё отвалилось»
-- торг ниже себестоимости, «сделайте бесплатно, я блогер»
-- несовершеннолетний без взрослого
-- чужие данные, переписка, фото других клиентов
-- объём явно не ваш формат
-- Inbox поставил `needs_human` или `unclear`
+- anger, threats, "I'll sue", review blackmail
+- medicine / diagnosis / "which pill" — clinic books only, no advice
+- warranty, "you already did this, it fell apart"
+- haggling below cost, "do it free, I'm a blogger"
+- a minor without an adult
+- other people's data, chats, photos of other clients
+- volume clearly not your format
+- Inbox set `needs_human` or `unclear`
 
-Эскалация = короткий внутренний коммент. Клиенту либо ничего, либо «передам мастеру, ответим сами» — если так принято.
+Escalate = a short internal note. To the client: nothing, or "I'll pass this to the tech, we'll reply ourselves" — if that is the house rule.
 
-## Когда молчать
+## When to stay quiet
 
-- спам, «сотрудничество», лидген, SEO
-- повтор вопроса, на который ты уже ответил
-- человек путает чат / пишет сам себе
-- пустой «привет» без второго сообщения — подожди, не кидай прайс
-- после `dead` — не воскрешать
-- ночь, если нет ночной смены: черновик с утра, не «мы 24/7»
+- spam, "partnerships", lead-gen, SEO
+- a repeat of a question you already answered
+- they have the wrong chat / they are writing to themselves
+- empty "hi" with no second message — wait, do not dump a price list
+- after `dead` — do not resurrect
+- night, if there is no night shift: draft in the morning, not "we are 24/7"
 
-Молчание — нормальный исход. Не каждый чат должен получить ответ от агента.
+Silence is a valid outcome. Not every chat needs an agent reply.
 
-## Не спамить
+## Do not spam
 
-- один черновик на одно входящее
-- не серия «ну как, вы ещё с нами?»
-- не копипаст прайса во все директы
-- не писать тем, кто сам не писал
-- не тащить заявку в рассылку
-- follow-up — только если ты сам решил, и это одно короткое касание
+- one draft per inbound
+- no "still with us?" series
+- no price-list paste into every DM
+- do not write people who did not write you
+- do not drag a lead into a blast
+- follow-up only if you decided, and only one short touch
 
-## Чеклист смены
+## Shift checklist
 
-- Есть ли новые, которые Inbox ещё не видел
-- Висят ли утренние `needs_human`
-- Вчерашний Qual ушёл в `dead` или в слот
-- Не ушёл ли в чат черновик с выдуманной ценой
+- Any new ones Inbox has not seen
+- Morning `needs_human` still hanging
+- Yesterday's Qual went `dead` or to a slot
+- No draft with an invented price left the chat
