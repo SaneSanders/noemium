@@ -42,6 +42,8 @@ about 5 minutes.
   `ship`/`skip` call. No receipt, no merge.
 - **Honest limitations.** `limitations` is a required field with named,
   specific downsides. "None" is not a limitation.
+- **Optional briefing.** Flagship cards may add `strengths`, `use_for` and
+  `skip_when` together (all three, or none). Named jobs, not slogans.
 - **Affiliate links are always declared.** If your `url` or `receipts`
   contain referral or tracking parameters (`?ref=`, `?via=`, `?aff=`,
   `utm_*`), set `affiliate: declared`. The validator fails undeclared

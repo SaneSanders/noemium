@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   The foundation most modern React component libraries are built on. Primitives are accessible, unstyled, and behave correctly across browsers.
+strengths:
+  - "Accessible, unstyled React primitives that behave across browsers."
+  - The foundation most modern React kits — including shadcn — sit on.
+use_for:
+  - "Building a design system on correct behavior, then styling it yourself."
+  - "Teams that want a11y baked into the primitive, not bolted on."
+skip_when:
+  - You need a drop-in styled library for non-engineers.
+  - Styling everything from scratch is not in the budget.
+  - The primitive API learning curve would stall the sprint.
 limitations:
   - You must style everything yourself.
   - Not a drop-in component library for non-technical users.

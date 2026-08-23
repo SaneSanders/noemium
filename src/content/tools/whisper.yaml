@@ -17,6 +17,16 @@ verdict_text: >-
   on silence and noisy segments, doesn't do speaker diarization out of
   the box, and needs a decent GPU for real-time. Use it as the baseline
   for any transcription pipeline — hosted or self-hosted.
+strengths:
+  - "The reason paid transcription is optional: large-v3 is accurate across dozens of languages."
+  - Open weights that run on a laptop; hosted gpt-transcribe exists when you do not want ops.
+use_for:
+  - "A baseline STT pipeline, hosted or self-hosted."
+  - Offline or private transcription where a vendor STT is the wrong boundary.
+skip_when:
+  - Silence and noise would hallucinate text you cannot filter.
+  - You need speaker diarization without pairing pyannote.
+  - Real-time large-v3 would run without a decent GPU.
 limitations:
   - Hallucinates text on silence and noisy segments.
   - No built-in speaker diarization (pair with pyannote).

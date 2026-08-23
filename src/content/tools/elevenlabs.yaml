@@ -17,6 +17,16 @@ verdict_text: >-
   just work. The credit system is confusing, the best models burn through
   credits fast, and Creator doubled in price in 2026. Worth it if you need
   the best voice, but budget carefully.
+strengths:
+  - "Still the reference for AI voice quality, with an API you can ship on."
+  - Cloning and multilingual dubbing mostly just work.
+use_for:
+  - "Product voice, dubbing, or agents where quality is the bottleneck."
+  - A first clone before you commit a production credit budget.
+skip_when:
+  - You cannot forecast credit burn on the best models.
+  - Creator-tier repricing already broke the budget.
+  - Cloning consent flows are a deal-breaker even for legitimate use.
 limitations:
   - Credit-based pricing makes budgeting confusing.
   - Best voices and models burn credits fast.

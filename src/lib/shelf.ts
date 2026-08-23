@@ -93,5 +93,9 @@ export function githubToolBlob(slug: string): string {
   return `https://github.com/SaneSanders/noemium/blob/main/src/content/tools/${slug}.yaml`;
 }
 
+export function githubToolEdit(slug: string): string {
+  return `https://github.com/SaneSanders/noemium/edit/main/src/content/tools/${slug}.yaml`;
+}
+
 export const COMPARE_PRESET = 'cursor,claude-code';
 export const COMPARE_HREF = `/tools/compare/?tools=${COMPARE_PRESET}`;

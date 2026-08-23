@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   The closest thing to a standard React component stack right now. You own the code, theming is straightforward, and the ecosystem of blocks keeps growing.
+strengths:
+  - "Closest thing to a standard React component stack: you own the code."
+  - "Theming is straightforward, and the block ecosystem keeps growing."
+use_for:
+  - New React apps that should look consistent and stay in-repo.
+  - Teams already on Tailwind and Radix.
+skip_when:
+  - You wanted an npm package you do not have to maintain.
+  - Copy-paste ownership is a non-starter for your org.
+  - You would depend on uneven community blocks.
 limitations:
   - You maintain the components yourself after installation.
   - No packaged npm install; copy-paste only.

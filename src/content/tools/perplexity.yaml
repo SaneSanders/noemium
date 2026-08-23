@@ -17,6 +17,16 @@ verdict_text: >-
   Replaced Google for a real share of day-to-day queries: cited answers,
   follow-up context, and model choice on Pro. The receipt-link habit fits the
   catalog mindset.
+strengths:
+  - Cited answers that replaced Google for a real share of day-to-day queries.
+  - "Follow-ups and Pro model choice fit a research habit, not a chatbot toy."
+use_for:
+  - Everyday questions that should come back with sources.
+  - A first research pass before you open the primary docs.
+skip_when:
+  - Citations that do not support the claim would be dangerous.
+  - Complex queries would eat Pro search limits.
+  - Publisher-dispute risk is a blocker for how you rely on it.
 limitations:
   - Citations occasionally point at sources that do not support the claim.
   - Complex queries eat through Pro search limits.

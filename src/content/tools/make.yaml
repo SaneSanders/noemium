@@ -15,6 +15,16 @@ verdict_text: >-
   operations to credits made monthly costs harder to predict, and busy flows
   get expensive at volume. If you don't need self-hosting or agent nodes, this
   is still the default pick.
+strengths:
+  - "Most polished visual automation: 3,000+ apps and a scenario editor non-engineers ship with."
+  - Default pick when you do not need self-hosting or agent nodes.
+use_for:
+  - Ops and growth automations across SaaS tools.
+  - "Teams that will live on a visual canvas, not n8n or code."
+skip_when:
+  - You need to self-host the automations.
+  - Credit burn at volume is already unpredictable.
+  - Free-plan credits expiring monthly would strand the flow.
 limitations:
   - Free-plan credits expire monthly; annual paid credits expire after 12 months.
   - No self-hosting; your automations live on Make's cloud.

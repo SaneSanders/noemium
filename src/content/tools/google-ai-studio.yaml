@@ -17,6 +17,16 @@ verdict_text: >-
   rivals for long-context and multimodal work. Million-token context makes
   document workflows cheap here that get expensive elsewhere. Watch the
   fast-moving model names and the 2027-01 promo expiry.
+strengths:
+  - "Most useful free Gemini API tier going, plus cheap long-context paid plans."
+  - Million-token context makes document jobs cheap that get expensive elsewhere.
+use_for:
+  - Multimodal and long-document prototypes on the free tier.
+  - Production Gemini calls when Flash promo pricing still holds.
+skip_when:
+  - Free-tier prompts used for training is a non-starter.
+  - Safety filters over-trigger on your domain.
+  - You need image or video generation on the free tier.
 limitations:
   - Free-tier prompts may be used for training — read the terms.
   - Safety filters occasionally over-trigger.

@@ -13,6 +13,16 @@ verdict_text: >-
   The safest choice for commercial work thanks to Adobe's trained-on-licensed-
   assets claim. Image quality is solid, not bleeding-edge, and it shines when
   combined with Photoshop/Illustrator workflows.
+strengths:
+  - "Safest commercial-image pick thanks to Adobe's trained-on-licensed-assets claim."
+  - Sits inside Photoshop and Illustrator instead of a separate playground.
+use_for:
+  - Client work that has to survive a legal review.
+  - "Designers already living in Creative Cloud who need generative fills, not a new tool."
+skip_when:
+  - You want bleeding-edge looks closer to Midjourney or Flux.
+  - Credits burn faster than the brief can iterate.
+  - You refuse a Creative Cloud subscription for the features that matter.
 limitations:
   - Output can look more "stock" than Midjourney or Flux.
   - Credit system is easy to burn through quickly.

@@ -13,6 +13,16 @@ verdict_text: >-
   A genuinely free, open-source Copilot-style plugin with self-hosting options.
   It will not match Cursor or GitHub Copilot in ecosystem depth, but the price
   and privacy story are hard to beat.
+strengths:
+  - "Genuinely free, open-source Copilot-style plugin with a self-host path."
+  - Price and privacy story are hard to beat even if the ecosystem is thinner.
+use_for:
+  - Teams that want inline completions without a Copilot invoice.
+  - Air-gapped or self-hosted coding assistance on GLM-class models.
+skip_when:
+  - You need Cursor or Copilot ecosystem depth.
+  - Western docs and support are a requirement.
+  - Enterprise features that only exist on the paid GLM Coding Plan.
 limitations:
   - Ecosystem smaller than Cursor or GitHub Copilot.
   - Western documentation and support are thinner.

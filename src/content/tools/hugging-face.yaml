@@ -14,6 +14,16 @@ verdict_text: >-
   library, Spaces demos. You probably depend on it already even if you never
   opened huggingface.co directly. The Hub has hiccups, and sorting good models
   from noise is still work.
+strengths:
+  - "Default plumbing for open models: weights, datasets, transformers, Spaces."
+  - You probably already depend on it even if you never open the homepage.
+use_for:
+  - Publishing or pulling open weights and datasets.
+  - A first demo Space or a transformers-based prototype.
+skip_when:
+  - Hub incidents would take your whole pipeline down.
+  - Inference Endpoints would be the expensive default.
+  - "You need a curated shortlist, not a noisy Hub search."
 limitations:
   - Hub reliability incidents affect the whole ecosystem.
   - Inference Endpoints pricing not always competitive.

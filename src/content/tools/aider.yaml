@@ -14,6 +14,17 @@ verdict_text: >-
   works with almost any model — local ones and the cheap Chinese flagships
   included. Wire up a good model and this beats most paid IDEs for a fraction
   of the cost.
+strengths:
+  - "Git-native terminal agent: automatic commits, no IDE lock-in."
+  - Works with almost any model — local weights and cheap Chinese flagships included.
+  - Open source, so the bill is the model, not a seat.
+use_for:
+  - Pair-programming in the terminal on a repo you already commit to.
+  - BYOK setups where you pick the model for the job.
+skip_when:
+  - You want inline diffs inside an IDE.
+  - The model behind it is weak — Aider will not save a bad route.
+  - A very large monorepo where the repo-map misses context.
 limitations:
   - Terminal-only UI; no inline diff experience.
   - Output quality depends entirely on the model you wire up.

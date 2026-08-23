@@ -13,6 +13,16 @@ verdict_text: >-
   Purpose-built for retrieval-augmented generation: clean JSON, source
   citations, and fast response times. The default for agent search. Result
   quality drops on obscure technical queries.
+strengths:
+  - "Search API built for agents: clean JSON, citations, fast enough for RAG."
+  - "Default agent-search pick when you want structured, sourced hits."
+use_for:
+  - Retrieval for LLM agents that must return sources.
+  - Light production search on the paid plan after the free cap.
+skip_when:
+  - Free-tier rate limits would be the production path.
+  - The queries are obscure and come back thin.
+  - You need paid reranking and will not pay from $30/mo.
 limitations:
   - Free tier has tight rate limits.
   - Some obscure queries return thin results.

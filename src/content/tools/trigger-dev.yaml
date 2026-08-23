@@ -13,6 +13,16 @@ verdict_text: >-
   The best DX for long-running background jobs in TypeScript. Retries,
   scheduling, and observability are first-class. You need to be comfortable
   with TypeScript; other languages are not supported.
+strengths:
+  - "Best DX for long-running background jobs in TypeScript: retries, schedules, observability."
+  - Self-host is real; cloud is optional.
+use_for:
+  - TypeScript apps that need durable AI and background work.
+  - Teams that will self-host rather than surprise-bill at volume.
+skip_when:
+  - The stack is not TypeScript.
+  - Self-hosting ops is not in the team.
+  - Cloud task volume would surprise the bill.
 limitations:
   - TypeScript-only ecosystem.
   - Self-hosting needs infrastructure know-how.

@@ -14,6 +14,16 @@ verdict_text: >-
   your rough notes enhanced with transcript detail. Apple-only for now, and
   the team features are still young, but it solves the meeting-notes problem
   better than the bot-in-call crowd.
+strengths:
+  - "Meeting notes without a bot in the call — your rough notes, filled in."
+  - Solves the notes job better than the bot-in-the-room crowd.
+use_for:
+  - Founders and ICs who already take notes and want the transcript fused in.
+  - Apple-first teams that refuse a meeting bot.
+skip_when:
+  - The team is on Windows.
+  - System-audio capture keeps failing on your machines.
+  - You need mature team admin and pricing.
 limitations:
   - Apple-platform-centric; Windows users wait.
   - System-audio capture has setup quirks on some machines.

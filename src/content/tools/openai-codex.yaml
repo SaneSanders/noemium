@@ -19,6 +19,17 @@ verdict_text: >-
   per-message billing in Apr 2026, and cloud tasks are Plus-and-up. Not a
   second Responses API card — this is the product you run against a repo.
   No field run here, so this is not a Ship stamp.
+strengths:
+  - Lowest-friction OpenAI coding agent if you already pay for ChatGPT.
+  - Real CLI on GitHub plus IDE and cloud tasks on one bundle.
+  - Free/Go exist as a trial path; Plus is where cloud GitHub review lives.
+use_for:
+  - Repo work on an OpenAI seat you already have, not a second Responses API card.
+  - Mixed local CLI and cloud tasks inside the ChatGPT plan.
+skip_when:
+  - You need a predictable session cost — credits and a 5-hour window fight you.
+  - The repo cannot leave OpenAI's hosted agent.
+  - Multi-step agent work is the job and you can run Cursor or Claude Code instead.
 limitations:
   - Local and cloud usage share a rolling 5-hour window; weekly caps also apply.
   - Free/Go are trial-level; cloud GitHub review and plugins sit on Plus+.

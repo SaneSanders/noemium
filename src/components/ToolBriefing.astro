@@ -1,0 +1,39 @@
+---
+interface Props {
+  strengths: string[];
+  limitations: string[];
+  use_for: string[];
+  skip_when: string[];
+}
+
+const { strengths, limitations, use_for, skip_when } = Astro.props;
+---
+
+<section class="mt-10 grid gap-6 lg:grid-cols-2">
+  <div class="nm-card p-6 md:p-8">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-shift-near uppercase">Strengths</h2>
+    <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-shift-near">
+      {strengths.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <div class="nm-card p-6 md:p-8">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-verdict-skip uppercase">
+      Known limitations
+    </h2>
+    <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-verdict-skip">
+      {limitations.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <div class="nm-card p-6 md:p-8">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Use it when</h2>
+    <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-accent">
+      {use_for.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <div class="nm-card p-6 md:p-8">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Skip it when</h2>
+    <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-verdict-skip">
+      {skip_when.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</section>

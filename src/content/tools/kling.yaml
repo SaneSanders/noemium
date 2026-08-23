@@ -14,6 +14,16 @@ verdict_text: >-
   adherence rival Runway for a fraction of the cost, and free daily credits
   keep experimentation cheap. It's a Chinese service, so expect strict
   moderation, occasional queues, and possible compliance pushback.
+strengths:
+  - "Best price-performance in AI video right now: motion that rivals Runway for less."
+  - Free daily credits keep experimentation cheap.
+use_for:
+  - Short clips where motion and prompt adherence matter more than a US vendor.
+  - Iteration on video ideas without Runway credit math.
+skip_when:
+  - "A Chinese vendor's data policy fails the compliance review."
+  - Strict or arbitrary moderation would kill the brief.
+  - Lower-tier queues would miss the deadline.
 limitations:
   - Content moderation is strict and occasionally arbitrary.
   - Generation queues stretch on lower tiers.

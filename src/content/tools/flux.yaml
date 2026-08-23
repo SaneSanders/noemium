@@ -15,6 +15,16 @@ verdict_text: >-
   The strongest open-weights image model you can self-host: prompt
   adherence and text rendering are clearly ahead of SDXL, and the API is
   cheap. First choice if you need weights, fine-tunes, or privacy.
+strengths:
+  - Strongest open-weights image model you can actually self-host.
+  - "Prompt adherence and text rendering sit ahead of SDXL, and the API is cheap."
+use_for:
+  - "Image jobs that need weights, fine-tunes, or privacy."
+  - Production APIs where FLUX quality is enough and Midjourney has no API.
+skip_when:
+  - "Commercial use of FLUX.1 [dev] would violate the non-commercial license."
+  - You need the top pro tier and therefore have no weights.
+  - You do not have a 24GB GPU for comfortable local runs.
 limitations:
   - FLUX.1 [dev] weights carry a non-commercial license for production use.
   - The top pro tier is API-only, no weights.

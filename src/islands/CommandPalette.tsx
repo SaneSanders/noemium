@@ -203,13 +203,25 @@ export default function CommandPalette() {
         { kind: 'command', label: 'compare <a> <b>', hint: 'side-by-side table', href: '/tools/compare/?tools=cursor,claude-code' },
         { kind: 'command', label: 'agent <query>', hint: 'search agent guides', href: '/agents/' },
         { kind: 'command', label: 'stack <query>', hint: 'search stacks', href: '/stacks/' },
+        { kind: 'command', label: 'status', hint: 'catalog health', href: '/status/' },
+        { kind: 'command', label: 'kit', hint: 'save a set', href: '/kit/' },
+        { kind: 'command', label: 'why', hint: 'why directories lie', href: '/why/' },
         { kind: 'command', label: 'noema', hint: 'mission', href: '#noema' },
       ];
     }
 
+    const pages: Row[] = [
+      { kind: 'command', label: 'Status', hint: 'catalog health', href: '/status/' },
+      { kind: 'command', label: 'Kit', hint: 'save a set', href: '/kit/' },
+      { kind: 'command', label: 'Why directories lie', hint: 'essay', href: '/why/' },
+      { kind: 'command', label: 'Contribute', hint: 'open a PR', href: '/contribute/' },
+      { kind: 'command', label: 'Method', hint: 'how we grade', href: '/method/' },
+    ];
+
     const q = query.trim();
     if (!q) {
       return [
+        ...pages.slice(0, 3),
         ...index.tools.slice(0, 5).map((t) => ({
           kind: 'tool' as const,
           label: t.name,
@@ -297,7 +309,15 @@ export default function CommandPalette() {
       .filter((x) => x.score >= 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 3);
-    return [...tools, ...agents, ...stacks, ...models].map((x) => x.row);
+    const pageHits = pages
+      .map((page) => ({
+        row: page,
+        score: Math.max(fuzzy(q, page.label), fuzzy(q, page.hint) * 0.8),
+      }))
+      .filter((x) => x.score >= 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3);
+    return [...pageHits, ...tools, ...agents, ...stacks, ...models].map((x) => x.row);
   }, [index, query, commandMode, commandBody]);
 
   useEffect(() => setSelected(0), [rows.length, query]);

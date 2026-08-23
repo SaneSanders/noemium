@@ -14,6 +14,17 @@ verdict_text: >-
   keys. The hosted free tier is basically gone, and the paid coding plan is
   mid-priced. Best for teams that already use Qwen or want a Gemini-CLI-like
   workflow.
+strengths:
+  - CLI is free and open source — costs nothing to try with your own keys.
+  - Gemini-CLI-shaped workflow if that is already how you work.
+  - Strongest on Qwen models; BYOK keeps the hosted plan optional.
+use_for:
+  - Teams already on Qwen who want a terminal agent, not another IDE.
+  - Self-hosted / BYOK coding where a $50 plan is the fallback, not the start.
+skip_when:
+  - You expected a generous hosted free tier — that was cut in April 2026.
+  - You need the mature agent ecosystem around Claude Code or Kimi Code.
+  - You do not want to operate a larger config surface.
 limitations:
   - Free hosted inference was cut to roughly 100 requests/day in April 2026.
   - Less mature agent ecosystem than Claude Code or Kimi Code.

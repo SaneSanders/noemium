@@ -13,6 +13,16 @@ verdict_text: >-
   The pragmatic vector DB pick: single binary, low footprint, predictable
   performance, and a free cloud tier that is actually usable. Most RAG
   prototypes should start here.
+strengths:
+  - "Pragmatic vector DB: single binary, low footprint, predictable performance."
+  - Free cloud tier is actually usable; most RAG prototypes should start here.
+use_for:
+  - A first RAG store you can self-host or try managed.
+  - Teams that want a lean Rust engine more than a feature zoo.
+skip_when:
+  - You need Weaviate-style built-in retrieval and reranking.
+  - Clustering and sharding have to match incumbent maturity.
+  - "The team needs Pinecone's wider integrations."
 limitations:
   - Fewer built-in retrieval features than Weaviate; bring your own reranking.
   - Clustering and sharding maturity behind the incumbents.

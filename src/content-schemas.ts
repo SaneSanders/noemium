@@ -50,6 +50,10 @@ export const toolSchema = z.object({
   verdict: z.enum(['ship', 'situational', 'skip']),
   verdict_text: z.string().min(1),
   limitations: z.array(z.string()).min(1),
+  // Optional decision briefing. If any field is set, all three must be.
+  strengths: z.array(z.string().min(1).max(180)).min(2).max(6).optional(),
+  use_for: z.array(z.string().min(1).max(180)).min(2).max(5).optional(),
+  skip_when: z.array(z.string().min(1).max(180)).min(2).max(5).optional(),
   receipts: z.array(httpsUrl).min(1),
   affiliate: z.enum(['none', 'declared']),
   // Referral links live ONLY here — never in `url` or `receipts`.
@@ -73,6 +77,15 @@ export const toolSchema = z.object({
       code: 'custom',
       path: ['affiliate'],
       message: 'affiliate: declared requires affiliate_url',
+    });
+  }
+  const briefing = [tool.strengths, tool.use_for, tool.skip_when];
+  const filled = briefing.filter((field) => field !== undefined).length;
+  if (filled > 0 && filled < 3) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['strengths'],
+      message: 'strengths, use_for and skip_when must be set together',
     });
   }
 });

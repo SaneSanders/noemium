@@ -19,6 +19,17 @@ verdict_text: >-
   fast, and it rewrites code with a confidence it hasn't always earned. The
   Chinese tools (Kimi, Qwen Code) are catching up at a fraction of the price,
   and that's where things are heading.
+strengths:
+  - Multi-file refactors, tests, and git workflows that hold up in a real repo.
+  - Best-in-class agentic coding on Anthropic models.
+  - Lives in the repo — no forked IDE to adopt.
+use_for:
+  - Terminal-native agents on a Claude seat you already pay for.
+  - Large refactors you will still review before merge.
+skip_when:
+  - Cost-sensitive work on a big repo — the API bill climbs fast.
+  - You want a GUI diff viewer.
+  - You want the Chinese-price stack (Kimi / Qwen) instead of Anthropic.
 limitations:
   - API-billed sessions on large repos escalate in cost fast.
   - Confidently makes sweeping changes; big diffs need human review.

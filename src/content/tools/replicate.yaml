@@ -14,6 +14,16 @@ verdict_text: >-
   community models behind one API, billed per second. Good for prototypes and
   workloads that spike. Steady-state use gets expensive, and quality varies
   because it's community-published.
+strengths:
+  - "Thousands of community models behind one API, billed per second, no GPU wrangling."
+  - Good for prototypes and spiky workloads you do not want to host.
+use_for:
+  - Trying a community model this afternoon.
+  - Burst inference that should die when the job ends.
+skip_when:
+  - Steady volume would make per-second pricing the expensive path.
+  - Cold starts on obscure models would show up to users.
+  - "You need guaranteed maintenance, not a community author."
 limitations:
   - Per-second pricing gets expensive at steady volume.
   - Cold starts on less-popular models.

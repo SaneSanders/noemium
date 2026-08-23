@@ -14,6 +14,17 @@ verdict_text: >-
   agent in the editor, MCP marketplace, no seat fee for solo use. The bill is
   the model, and agent loops on Sonnet/Opus burn tokens fast. Enterprise is a
   different product (JetBrains, SSO, provider allowlists). Not field-tested here.
+strengths:
+  - "Apache-licensed agent in the editor: no seat fee for solo use if you bring keys."
+  - Honest Cursor alternative when the bill should be the model, not the IDE.
+  - MCP marketplace without a second closed runtime.
+use_for:
+  - VS Code / CLI agents on BYOK, with you watching the diff.
+  - Solo use where ClinePass and Enterprise are optional, not the product.
+skip_when:
+  - A long agent loop on Sonnet/Opus would exceed a $20 IDE sub.
+  - You do not want to operate keys, spend caps, and routing yourself.
+  - You need JetBrains, SSO, RBAC, or an SLA — that is Enterprise, not the OSS client.
 limitations:
   - Inference is usage-based; a long agent session can exceed a $20 IDE sub.
   - You operate the keys, spend caps, and model routing yourself.

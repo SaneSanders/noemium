@@ -15,6 +15,17 @@ verdict_text: >-
   A credible open-source Claude Code alternative. The CLI is free and the
   Anthropic-compatible gateway means it drops into existing toolchains. Costs
   can climb if you lean on hosted inference, so BYOK is the smart setup.
+strengths:
+  - Credible open-source Claude Code alternative with an Anthropic-compatible gateway.
+  - CLI is MIT; drops into existing toolchains without a new IDE.
+  - BYOK is the honest cheap path — hosted membership is optional.
+use_for:
+  - Terminal agents at Chinese-lab prices when you will bring your own keys.
+  - Teams that already speak Anthropic APIs and want a Moonshot route.
+skip_when:
+  - You believed "$19 flat" covers heavy hosted inference — it does not.
+  - You need Claude Code's polish and ecosystem more than the price cut.
+  - Code cannot go to Moonshot and you will not self-host.
 limitations:
   - Pricing story is complicated; "$19 flat" is misleading for heavy users.
   - Newer and less polished ecosystem than Claude Code.

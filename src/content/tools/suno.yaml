@@ -15,6 +15,16 @@ verdict_text: >-
   legal situation around training data is still messy, commercial use
   needs a paid tier, and arrangement control is shallow. If you're just
   prototyping, it's the obvious choice.
+strengths:
+  - Prompt to a full song with vocals in about a minute.
+  - "Fastest mock-up for demos, beds and rough ideas."
+use_for:
+  - Prototype tracks and placeholder music in a product or film scratch.
+  - Non-commercial sketching on the free tier while it still exists.
+skip_when:
+  - Commercial use under the training-data lawsuits is a legal no.
+  - You need mix-level control of arrangement.
+  - You depend on free-tier downloads after 2026-09-03.
 limitations:
   - Training-data lawsuits keep a legal cloud over commercial use.
   - Commercial rights require a paid tier.

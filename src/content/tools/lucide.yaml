@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   The default icon set for modern React and web projects. The icons are consistent, the packages are well maintained, and it integrates with shadcn/ui out of the box.
+strengths:
+  - "Default icon set for modern React: consistent SVGs, well-maintained packages."
+  - Drops into shadcn/ui without a second icon system.
+use_for:
+  - App chrome and marketing UI that should look like one family.
+  - React projects already on shadcn or a similar Tailwind stack.
+skip_when:
+  - "You need highly custom iconography, not a uniform stroke set."
+  - A niche category is missing versus a larger library.
+  - Icon names have to match another set you already standardized on.
 limitations:
   - Style is uniform; less useful if you need highly custom iconography.
   - Some niche categories are thinner than larger sets.

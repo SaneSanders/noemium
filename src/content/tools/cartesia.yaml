@@ -13,6 +13,16 @@ verdict_text: >-
   Sonic models are built for speed: sub-100 ms streaming makes them excellent
   for voice agents and real-time apps. Voice cloning is strong, and the free
   tier is now usable for light projects; paid plans start at $5/mo.
+strengths:
+  - "Sonic models stream under 100 ms — built for voice agents, not studio takes."
+  - "Voice cloning is strong, and the free tier is now usable for light projects."
+use_for:
+  - Real-time voice agents where latency is the product.
+  - Light prototypes before you commit to usage-based spend.
+skip_when:
+  - You need a large voice library closer to ElevenLabs.
+  - Sustained production would blow the free credit cap.
+  - You cannot forecast usage-based TTS cost.
 limitations:
   - Free tier credit cap limits sustained production use.
   - Voice library is smaller than ElevenLabs.

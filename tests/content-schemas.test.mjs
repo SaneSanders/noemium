@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { agentSchema, graveyardSchema, stackSchema } from '../src/content-schemas.ts';
+import { agentSchema, graveyardSchema, stackSchema, toolSchema } from '../src/content-schemas.ts';
 
 const strictAgent = {
   name: 'Example Agent',
@@ -72,6 +72,48 @@ test('rejects a cost range whose maximum is below its minimum', () => {
     ],
   };
   assert.equal(agentSchema.safeParse(data).success, false);
+});
+
+const toolBase = {
+  name: 'Example Tool',
+  tagline: 'A fixture for the briefing contract.',
+  url: 'https://example.com',
+  category: 'coding',
+  pricing: 'free',
+  free_tier: true,
+  open_source: true,
+  api: false,
+  self_host: true,
+  verdict: 'situational',
+  verdict_text: 'Useful with caveats.',
+  limitations: ['Needs a human in the loop.'],
+  receipts: ['https://example.com/pricing'],
+  affiliate: 'none',
+  momentum: 'steady',
+  last_verified: '2026-08-23',
+  observed_by: 'tester',
+};
+
+test('accepts a tool without a briefing', () => {
+  assert.equal(toolSchema.safeParse(toolBase).success, true);
+});
+
+test('accepts a complete tool briefing', () => {
+  const data = {
+    ...toolBase,
+    strengths: ['Fast on the happy path.', 'Cheap enough to try this afternoon.'],
+    use_for: ['Solo daily coding.', 'A repo you already know.'],
+    skip_when: ['You need an audit trail.', 'The vendor cannot see the code.'],
+  };
+  assert.equal(toolSchema.safeParse(data).success, true);
+});
+
+test('rejects a half-written tool briefing', () => {
+  const data = {
+    ...toolBase,
+    strengths: ['Fast on the happy path.', 'Cheap enough to try this afternoon.'],
+  };
+  assert.equal(toolSchema.safeParse(data).success, false);
 });
 
 const stackBase = {

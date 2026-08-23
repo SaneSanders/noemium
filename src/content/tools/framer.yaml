@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   The best choice for designers who want to ship a real site without writing much code. The editor is smooth, the animations are rich, and the hosting just works.
+strengths:
+  - Best path from a designed page to a hosted site without much code.
+  - "Editor, animation and hosting are one workflow that actually ships."
+use_for:
+  - Marketing sites and launches where the designer owns the last mile.
+  - Teams that want motion-rich pages without a custom front-end.
+skip_when:
+  - You cannot lock hosting to Framer.
+  - The site needs complex dynamic data.
+  - Traffic or CMS needs would jump the plan too fast.
 limitations:
   - Locked into Framer hosting for the easiest path.
   - Complex dynamic data still needs workarounds.

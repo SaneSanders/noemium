@@ -18,6 +18,16 @@ verdict_text: >-
   pricing make heavy workloads cheaper than they look. Quality is still
   top-tier. But the author of this catalog is moving more workloads to
   Kimi, Qwen and GLM; the price gap is getting hard to justify.
+strengths:
+  - Hard to beat for code and long-form text at the quality tier.
+  - Prompt caching and batch pricing make heavy workloads cheaper than the sticker.
+use_for:
+  - "Production Claude calls when you need the lab API, not the chat app."
+  - Long documents and coding jobs where caching actually fires.
+skip_when:
+  - Peak-hour 429s would stall the product.
+  - "You need OpenAI's wider auxiliary tooling."
+  - Opus-tier spend is the only way the job works and the budget cannot take it.
 limitations:
   - Capacity crunches at peak demand have caused 429s.
   - Fewer auxiliary tools than OpenAI's ecosystem.

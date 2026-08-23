@@ -19,6 +19,16 @@ verdict_text: >-
   not Grammarly. Reasoning, search, code execution and images in one
   place; the free tier still beats many paid rivals. Image generation is
   a separate catalog job (GPT Image 2); Codex is a separate coding card.
+strengths:
+  - "Safest default assistant: reasoning, search, code execution and images in one place."
+  - The free tier still beats many paid rivals for everyday work.
+use_for:
+  - "Daily chat when you want one app, not a writing-only grammar tool."
+  - Light research and reasoning where Plus or even free is enough.
+skip_when:
+  - Plus caps cut you off mid-task.
+  - You need the API or Codex — those are separate cards.
+  - You want a quiet app that does not keep pushing extra features.
 limitations:
   - Usage caps on Plus frustrate heavy users mid-task.
   - Memory and personalization features can go stale or wrong.

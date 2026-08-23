@@ -18,6 +18,17 @@ verdict_text: >-
   completions genuinely save hours. The model routing is a black box — you
   never quite know what you're talking to — but on Sonnet-class models the
   output is consistently good.
+strengths:
+  - Agent mode and tab completions that actually save hours on everyday edits.
+  - "Default AI editor for a reason: Sonnet-class output is consistently good."
+  - Fast to start if you already live in a VS Code layout.
+use_for:
+  - Daily product coding where you want an IDE, not a terminal ritual.
+  - Multi-file agent runs when you can sit with the diff.
+skip_when:
+  - You need to audit or self-host the editor.
+  - Heavy agent months where Pro token limits cut you off mid-sprint.
+  - You refuse black-box model routing.
 limitations:
   - Pro plan token limits throttle heavy agent sessions mid-month.
   - Closed source; no way to self-host or audit data handling.

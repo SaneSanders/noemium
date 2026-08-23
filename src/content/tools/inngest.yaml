@@ -13,6 +13,16 @@ verdict_text: >-
   Makes "sleep for a week then continue" easy in serverless functions. Great
   for AI pipelines that need human approval or multi-step state. Self-hosting
   is not the primary path, so heavy compliance needs require evaluation.
+strengths:
+  - Makes sleep-for-a-week-then-continue easy in serverless functions.
+  - Fits AI pipelines that need human approval or multi-step state.
+use_for:
+  - Event-driven TypeScript or Python jobs with durable steps.
+  - Agent pipelines that pause for a human and resume later.
+skip_when:
+  - "You need an OSI license today, not SSPL with a delayed conversion."
+  - "Self-hosting has to match Trigger.dev's story."
+  - The team is not on TypeScript or Python.
 limitations:
   - The server and CLI use SSPL with delayed Apache-2.0 conversion, not an OSI open-source license today.
   - Self-hosting story is lighter than Trigger.dev.

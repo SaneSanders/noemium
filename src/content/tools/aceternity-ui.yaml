@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   Go-to when you need a landing page that feels expensive. The animations are opinionated but high quality, and the copy-paste workflow fits modern React stacks well.
+strengths:
+  - Go-to when a landing page needs to feel expensive without a custom motion team.
+  - Opinionated animations that still copy-paste into modern React and Next.js stacks.
+use_for:
+  - Marketing pages and product sites that need high-quality motion out of a component kit.
+  - "React teams that already ship Tailwind and want copy-paste effects, not a design-system rewrite."
+skip_when:
+  - The audience is on low-end devices and the effects would tank performance.
+  - You need the Pro-gated showpieces on a free budget.
+  - You cannot spare a pass for accessibility and performance review.
 limitations:
   - Effects can be heavy on low-end devices.
   - Pro tier gates the most impressive components.

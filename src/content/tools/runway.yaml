@@ -14,6 +14,16 @@ verdict_text: >-
   and the editing tools — inpainting, motion brush, green screen — let you
   finish a shot instead of just generating a clip. Credit math gets painful
   if you iterate heavily, and the best quality modes sit behind pricier tiers.
+strengths:
+  - "Most complete AI video workflow: generate plus inpainting, motion brush, green screen."
+  - "Gen-4 quality is competitive, and you can finish a shot in the same suite."
+use_for:
+  - "Short-form video that needs edit tools, not just a clip generator."
+  - Teams that will pay to iterate inside one vendor.
+skip_when:
+  - Credit math on heavy iteration would blow the budget.
+  - Best quality modes sit behind a tier you will not buy.
+  - You need long coherent narrative without manual stitching.
 limitations:
   - Credit math gets expensive for iteration-heavy projects.
   - Best quality modes sit behind pricier tiers.

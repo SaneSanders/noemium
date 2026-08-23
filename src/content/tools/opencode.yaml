@@ -13,6 +13,16 @@ verdict_text: >-
   Spins up a full agent loop in your project, writes code, runs tests, and
   commits when it succeeds. Good for well-scoped tasks with existing test
   coverage. Still rough on large refactors and can hallucinate library APIs.
+strengths:
+  - "Full agent loop in your repo: edit, test, commit when it succeeds."
+  - Open-source path for well-scoped tasks that already have tests.
+use_for:
+  - Bounded coding jobs with existing test coverage.
+  - A terminal agent when you do not want a full AI IDE.
+skip_when:
+  - The task is an ambiguous large refactor.
+  - Token burn on a big repo would dominate the bill.
+  - You need mature editor integration like Cursor.
 limitations:
   - Agent loops can wander on ambiguous requirements.
   - Token consumption on large codebases adds up fast.

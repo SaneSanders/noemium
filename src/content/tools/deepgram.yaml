@@ -15,6 +15,16 @@ verdict_text: >-
   much latency, this is the obvious fallback. Accuracy drops on heavy
   accents and noisy audio, and diarization needs per-case tuning. It's
   another vendor in your stack, but it does the job.
+strengths:
+  - "Workhorse streaming STT: fast, cheap at volume, good enough accuracy."
+  - The obvious hosted fallback when self-hosted Whisper is too slow.
+use_for:
+  - Real-time transcription in a product voice pipeline.
+  - Batch STT where per-minute cost matters more than perfect diarization.
+skip_when:
+  - Heavy accents and noise need a tuned Whisper setup.
+  - Speaker diarization has to be right without per-case work.
+  - You refuse another vendor in the voice stack.
 limitations:
   - Accuracy on heavy accents and noise below a well-tuned Whisper setup.
   - Diarization and formatting need tuning per use case.

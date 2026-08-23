@@ -23,6 +23,16 @@ verdict_text: >-
   models, see all costs on one bill, get fallbacks when a provider flakes. You
   pay a small markup for the convenience, but it saves you from wiring a dozen
   APIs yourself.
+strengths:
+  - "One string to swap models, one bill, fallbacks when a provider flakes."
+  - Small teams avoid wiring a dozen lab APIs themselves.
+use_for:
+  - Apps that should route across labs without a custom gateway.
+  - Prototypes that will change models more than once a week.
+skip_when:
+  - The markup over direct pricing is not worth the convenience.
+  - An extra network hop would miss a latency budget.
+  - You need provider-specific features the day they ship.
 limitations:
   - Small markup over direct API pricing.
   - Adds a network hop and latency.

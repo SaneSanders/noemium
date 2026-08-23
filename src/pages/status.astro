@@ -1,0 +1,194 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { catalogHealth, ADOPT_STALE_DAYS } from '../lib/catalog-health';
+import { DUST_DAYS } from '../lib/floor';
+import { githubToolEdit, plural } from '../lib/shelf';
+import { logoSrc } from '../lib/logos';
+import LogoTile from '../components/LogoTile.astro';
+
+const tools = await getCollection('tools');
+const agents = await getCollection('agents');
+const asOf = new Date().toISOString().slice(0, 10);
+const health = catalogHealth(
+  tools.map((tool) => ({
+    id: tool.id,
+    name: tool.data.name,
+    verdict: tool.data.verdict,
+    last_verified: tool.data.last_verified,
+    featured: tool.data.featured,
+    receipts: tool.data.receipts,
+    strengths: tool.data.strengths,
+    use_for: tool.data.use_for,
+    skip_when: tool.data.skip_when,
+  })),
+  asOf,
+);
+
+const fieldTestedTools = tools.filter((tool) => tool.data.evidence_tier === 'field-tested').length;
+const fieldTestedAgents = agents.filter((agent) => agent.data.evidence_tier === 'field-tested').length;
+const radarAgents = agents.filter((agent) => agent.data.evidence_tier === 'radar').length;
+const strictAgents = agents.length - radarAgents;
+
+const stats = [
+  { value: health.total, label: 'tools' },
+  { value: `${health.shipBriefed}/${health.ship}`, label: 'ship cards briefed' },
+  { value: health.stale.length, label: `stale >${ADOPT_STALE_DAYS}d` },
+  { value: health.homepageOnly.length, label: 'homepage-only receipts' },
+  { value: 0, label: 'paid placements' },
+];
+---
+
+<Base
+  title="Status"
+  description="Build-time health of the Noemium catalog: briefing coverage, stale cards, receipt strength. Not a live vendor ticker."
+>
+  <SectionHeader
+    title="Status"
+    sub={`Snapshotted at build, as of ${asOf}. Stale means the YAML date is old — not that the vendor died. Price history lives in git, not a ticker.`}
+  />
+
+  <section class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    {
+      stats.map((stat) => (
+        <div class="nm-card p-5">
+          <p class="nm-num font-display text-3xl font-black tracking-tight text-accent">{stat.value}</p>
+          <p class="mt-2 font-mono text-[12px] tracking-[0.12em] text-ink-dim uppercase">{stat.label}</p>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="mt-12 grid gap-6 lg:grid-cols-3">
+    <div class="nm-card p-6">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Verdict mix</h2>
+      <dl class="mt-4 space-y-2 font-mono text-[13px]">
+        <div class="flex justify-between gap-4">
+          <dt class="text-verdict-ship">ship</dt>
+          <dd class="nm-num font-bold">{health.mix.ship}</dd>
+        </div>
+        <div class="flex justify-between gap-4">
+          <dt class="text-verdict-situational">situational</dt>
+          <dd class="nm-num font-bold">{health.mix.situational}</dd>
+        </div>
+        <div class="flex justify-between gap-4">
+          <dt class="text-verdict-skip">skip</dt>
+          <dd class="nm-num font-bold">{health.mix.skip}</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="nm-card p-6">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Briefing</h2>
+      <p class="mt-4 text-[15px] leading-relaxed text-ink opacity-80">
+        Flagship briefing is strengths, use_for and skip_when together — or none. Ship cards should
+        carry one so a verdict is a job, not a trophy.
+      </p>
+      <p class="nm-num mt-4 font-mono text-[13px]">
+        {health.shipBriefed} of {health.ship} ship cards
+      </p>
+    </div>
+    <div class="nm-card p-6">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Evidence</h2>
+      <p class="mt-4 text-[15px] leading-relaxed text-ink opacity-80">
+        Field-tested is a hands-on pass, not a landing page.{' '}
+        <a href="/verified/" class="text-accent hover:underline">Verified shelf</a> stays honest when
+        the count is zero.
+      </p>
+      <p class="mt-4 font-mono text-[13px] leading-relaxed">
+        tools field-tested <span class="nm-num font-bold">{fieldTestedTools}</span>
+        <span class="mx-2 text-ink-dim">·</span>
+        agents field-tested <span class="nm-num font-bold">{fieldTestedAgents}</span>
+        <span class="mx-2 text-ink-dim">·</span>
+        agents source-verified <span class="nm-num font-bold">{strictAgents}</span>
+        <span class="mx-2 text-ink-dim">·</span>
+        radar <span class="nm-num font-bold">{radarAgents}</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+      Adopt a page · {plural(health.stale.length, 'stale card')}
+    </h2>
+    <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink opacity-80">
+      last_verified older than {ADOPT_STALE_DAYS} days from this build ({asOf}). Dusty on the floor is
+      a shorter {DUST_DAYS}-day window from the newest card ({health.newest}) — {health.dusty.length} dusty,
+      listed on <a href="/contribute/" class="text-accent hover:underline">contribute</a>.
+    </p>
+    {
+      health.stale.length === 0 ? (
+        <p class="mt-6 font-mono text-[13px] text-ink-dim">No adopt-a-page stale cards this build.</p>
+      ) : (
+        <ul class="mt-6 flex flex-wrap gap-2">
+          {health.stale.slice(0, 24).map((tool) => (
+            <li>
+              <a
+                href={githubToolEdit(tool.id)}
+                class="nm-num inline-flex items-center gap-2 rounded-md border-[1.5px] border-ink px-3 py-1.5 text-[13px] font-bold transition-all duration-100 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                rel="noopener"
+              >
+                <LogoTile slug={tool.id} name={tool.name} src={logoSrc(tool.id)} size="sm" />
+                {tool.name}
+                <span class="font-mono text-[11px] font-normal text-ink-dim">{tool.last_verified}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <section class="mt-14">
+    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+      Homepage-only receipts · {health.homepageOnly.length}
+    </h2>
+    <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink opacity-80">
+      Every receipt is a homepage. That still counts as a source — it does not count as a price. Prefer
+      a pricing page. Method:{' '}
+      <a href="/method/" class="text-accent hover:underline">how we grade</a>.
+    </p>
+    {
+      health.homepageOnly.length === 0 ? (
+        <p class="mt-6 font-mono text-[13px] text-ink-dim">Every card has at least one deep receipt.</p>
+      ) : (
+        <ul class="mt-6 flex flex-wrap gap-2">
+          {health.homepageOnly.slice(0, 24).map((tool) => (
+            <li>
+              <a href={`/tools/${tool.id}/`} class="font-mono text-[13px] text-accent hover:underline">
+                {tool.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  {
+    health.shipUnbriefed.length > 0 && (
+      <section class="mt-14">
+        <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-verdict-skip uppercase">
+          Ship cards still missing a briefing · {health.shipUnbriefed.length}
+        </h2>
+        <ul class="mt-6 flex flex-wrap gap-2">
+          {health.shipUnbriefed.map((tool) => (
+            <li>
+              <a href={`/tools/${tool.id}/`} class="font-mono text-[13px] text-accent hover:underline">
+                {tool.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <p class="mt-14 max-w-2xl font-mono text-[13px] leading-relaxed text-ink-dim">
+    <a href="/why/" class="text-accent hover:underline">Why directories lie</a>
+    <span class="mx-2" aria-hidden="true">·</span>
+    <a href="/contribute/" class="text-accent hover:underline">Open a PR</a>
+    <span class="mx-2" aria-hidden="true">·</span>
+    <a href="/changelog/" class="text-accent hover:underline">Changelog</a>
+  </p>
+</Base>

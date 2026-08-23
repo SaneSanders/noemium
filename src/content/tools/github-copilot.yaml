@@ -18,6 +18,17 @@ verdict_text: >-
   Copilot CLI is on that same seat (not a separate catalog card). Agent
   mode still trails Cursor and Claude Code. Pro+ unlocks third-party
   agents (Claude Code, Codex) inside the GitHub bill.
+strengths:
+  - Zero friction if the team already lives on GitHub — one seat, IDE + CLI.
+  - A free tier that is actually usable (completions, chat, limited agent).
+  - PR integration that other agents still treat as an afterthought.
+use_for:
+  - Teams standardized on GitHub who want completions and light agent work.
+  - A first coding agent that should not be a second vendor conversation.
+skip_when:
+  - Multi-step agent work is the job — Cursor and Claude Code still lead.
+  - You need a predictable bill; chat, agent, CLI, and cloud share AI Credits.
+  - You want to self-host or keep code off GitHub's models.
 limitations:
   - Agent mode still lags Cursor and Claude Code on multi-step tasks.
   - Output quality varies noticeably between the models in its picker.

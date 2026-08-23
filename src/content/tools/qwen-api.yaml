@@ -15,6 +15,16 @@ verdict_text: >-
   The widest Chinese model menu in one API, with open weights and a real
   international region. Pricing is attractive, but the console still feels
   built for China-first users, so expect some billing and rate-card friction.
+strengths:
+  - "Widest Chinese model menu in one API, with open weights and an international region."
+  - Pricing is attractive next to US frontier labs.
+use_for:
+  - "Qwen-family text, code and omni calls with OpenAI-compatible endpoints."
+  - "Workloads that can live on Alibaba Cloud's international region."
+skip_when:
+  - China-region billing or compliance is the only path you get.
+  - OpenRouter is already cheaper for the models you need.
+  - "You needed OSI-open hosted inference, not a proprietary studio API."
 limitations:
   - The hosted Model Studio API is proprietary; many Qwen weights are open releases available separately.
   - International vs China pricing diverges; OpenRouter can be cheaper for some models.

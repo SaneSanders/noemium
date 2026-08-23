@@ -19,6 +19,16 @@ verdict_text: >-
   frontier, plus the most complete tooling — batch, structured outputs,
   agents. Rarely the cheapest, rarely the wrong choice. Just expect model
   names to shift on you.
+strengths:
+  - "Safe production default: a model for every tier plus batch, structured outputs and agents."
+  - "Rarely the cheapest, rarely the wrong choice for a first production API."
+use_for:
+  - Shipping an app on the GPT-5 family without assembling a router.
+  - "Workloads that need OpenAI's tooling more than a discount host."
+skip_when:
+  - Frontier-tier pricing is the only quality that works.
+  - You cannot absorb fast model deprecations.
+  - New-account rate limits would stall launch.
 limitations:
   - Premium pricing at the frontier tier.
   - Model deprecations move fast.

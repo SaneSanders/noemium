@@ -13,6 +13,16 @@ verdict_text: >-
   Far better than keyword search for research and agent context gathering.
   The API is clean and the results are semantically relevant. Coverage of
   fresh, niche pages is still uneven.
+strengths:
+  - Semantic search that beats keywords for research and agent context.
+  - "Clean API with results ranked by meaning, not just strings."
+use_for:
+  - "Agent retrieval that should find the page, not the keyword hit."
+  - Research jobs where semantic ranking matters more than a news index.
+skip_when:
+  - You need Google-scale freshness for breaking news.
+  - Scale would climb the bill faster than a simpler search API.
+  - The pages you need are too new or too niche for the index.
 limitations:
   - Smaller index than Google/Bing for real-time news.
   - Pricing can climb quickly at scale.

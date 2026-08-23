@@ -14,6 +14,16 @@ verdict_text: >-
   composition usually land on the first try. The web app fixed the Discord
   friction. No free tier, no real API, and images stay public unless you pay
   for stealth.
+strengths:
+  - "Easiest route to visually striking images — light, texture and composition usually land first try."
+  - The web app removed the old Discord-only friction.
+use_for:
+  - Concept art and marketing stills where aesthetics beat control.
+  - "A human-in-the-loop image desk, not an automated pipeline."
+skip_when:
+  - You need a free tier to evaluate.
+  - You need a public API.
+  - Images must stay private and you will not pay for stealth.
 limitations:
   - No free tier at all.
   - No public API; automation requires unofficial workarounds.

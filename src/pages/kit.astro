@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import KitBoard from '../islands/KitBoard';
+import { logoSrc } from '../lib/logos';
+import type { KitTool } from '../islands/KitBoard';
+
+const tools = await getCollection('tools');
+const catalog: KitTool[] = tools
+  .map((tool) => ({
+    slug: tool.id,
+    name: tool.data.name,
+    tagline: tool.data.tagline,
+    category: tool.data.category,
+    pricing: tool.data.pricing,
+    verdict: tool.data.verdict,
+    open_source: tool.data.open_source,
+    self_host: tool.data.self_host,
+    logo: logoSrc(tool.id),
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Base
+  title="Kit"
+  description="Save a set of Noemium catalog cards. Share the URL. Nothing here is a monthly budget — tools do not have a number we can sum."
+>
+  <SectionHeader
+    title="Kit"
+    sub="Pin up to eight cards. Share the link. This browser remembers the set. Compare them when you have two to four — still no fake total."
+  />
+  <KitBoard client:load catalog={catalog} />
+</Base>

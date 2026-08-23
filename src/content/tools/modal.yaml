@@ -13,6 +13,16 @@ verdict_text: >-
   The easiest way to deploy a Python function onto a GPU without touching
   Kubernetes. Excellent for fine-tuning, inference, and batch jobs. Pricing
   is usage-based, so runaway jobs can get expensive fast.
+strengths:
+  - Easiest way to put a Python function on a GPU without touching Kubernetes.
+  - "Fits fine-tunes, inference and batch jobs that should not own a cluster."
+use_for:
+  - Python ML jobs that spike and then go quiet.
+  - Teams that want serverless GPUs more than a long-lived box.
+skip_when:
+  - The runtime is not Python.
+  - Runaway GPU jobs would go unmonitored.
+  - Cold starts would show up in the user-facing path.
 limitations:
   - Python-first; other languages have limited support.
   - Usage-based GPU costs require cost monitoring.

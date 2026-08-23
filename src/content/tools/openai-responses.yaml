@@ -19,6 +19,16 @@ verdict_text: >-
   plumbing — the most batteries-included agent API. Conversation state lives on
   OpenAI's side, which keeps things simple until it doesn't. A sensible default
   if you want an agent running today instead of wiring your own graph.
+strengths:
+  - "Batteries-included agent API: hosted web search, file search and code interpreter."
+  - "Sensible default when you want an agent running today, not a graph framework."
+use_for:
+  - New OpenAI agent projects after the Assistants sunset.
+  - Prototypes that should use hosted tools instead of your own retrieval.
+skip_when:
+  - Hosted-tool storage and search pricing would sneak up.
+  - "Conversation state cannot live on OpenAI's side."
+  - You need LangGraph-level control of the graph.
 limitations:
   - Hosted-tool pricing (storage, search calls) sneaks up on you.
   - Conversation state lives on OpenAI's side.

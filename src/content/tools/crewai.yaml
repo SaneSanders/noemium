@@ -13,6 +13,16 @@ verdict_text: >-
   Roles, tasks, and processes map cleanly onto real teams, and the examples get
   a prototype running fast. Good for demos and early workflows. Production means
   debugging delegation chains and watching token costs climb.
+strengths:
+  - "Roles, tasks and processes map onto real teams without inventing a graph DSL."
+  - Examples get a multi-agent prototype running fast.
+use_for:
+  - Demos and early crew workflows in Python.
+  - A first multi-agent sketch before you pay for observability.
+skip_when:
+  - Token burn from agent loops is already a problem.
+  - You need to debug delegation chains in production.
+  - You require first-party production observability.
 limitations:
   - Multi-agent loops burn tokens fast.
   - Debugging delegation chains between agents is painful.

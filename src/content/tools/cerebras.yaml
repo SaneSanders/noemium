@@ -13,6 +13,16 @@ verdict_text: >-
   Latency is the selling point: responses feel instant on big open models.
   Pricing undercuts many cloud APIs. The model menu is narrower and you need
   to trust their hardware stack.
+strengths:
+  - "Latency is the selling point: big open models feel instant."
+  - API pricing undercuts many cloud inference hosts.
+use_for:
+  - "Autocomplete, voice, or chat UIs where wait time kills the loop."
+  - "Open models you already picked, if they are on the Cerebras menu."
+skip_when:
+  - You need the wide catalog of OpenRouter or Together.
+  - Migrating off your current endpoints is not worth the speed.
+  - You will not bet the roadmap on their hardware business.
 limitations:
   - Model catalog is smaller than OpenRouter or Together.
   - Requires migration to their API endpoints.

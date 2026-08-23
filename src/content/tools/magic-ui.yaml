@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   Excellent for landing-page sparkle without drowning in animation code. The components copy-paste cleanly into shadcn/ui projects and feel consistent.
+strengths:
+  - Landing-page sparkle without drowning in animation code.
+  - Copy-paste blocks that sit cleanly on shadcn/ui.
+use_for:
+  - "Marketing pages that need a few strong effects, not a full app kit."
+  - Design-engineer workflows already on Tailwind and shadcn.
+skip_when:
+  - The page would overuse effects without an editor to restrain them.
+  - Tailwind or Framer Motion is not already in the stack.
+  - You need a full application component library.
 limitations:
   - Effects can be overused; restraint is required.
   - Some components assume Tailwind and Framer Motion are already in place.

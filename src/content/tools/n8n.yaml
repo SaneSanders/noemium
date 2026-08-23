@@ -14,6 +14,16 @@ verdict_text: >-
   rare mix of approachable and controllable. Fair-code, not fully open source,
   and big workflows get messy to debug. Still the strongest Zapier alternative
   once AI steps enter the picture.
+strengths:
+  - "Visual workflows with real AI agent nodes, and you can self-host."
+  - Strongest Zapier-class alternative once AI steps enter the picture.
+use_for:
+  - "Self-hosted automations that need agent nodes, not just HTTP."
+  - Ops teams that outgrew Make and want the workflows on their metal.
+skip_when:
+  - Fair-code licensing blocks the way you would resell it.
+  - Big workflows are already painful to debug.
+  - Cloud per-execution pricing would sting at your volume.
 limitations:
   - Fair-code license, not true open source for resale.
   - Error handling in big workflows gets messy.

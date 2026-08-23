@@ -13,6 +13,16 @@ verdict_text: >-
   The renamed Tailwind UI remains the gold standard for Tailwind marketing and
   application UI. The components are well-designed, accessible, and updated
   with each Tailwind release.
+strengths:
+  - Gold standard for Tailwind marketing and application UI — well-designed and accessible.
+  - Updated with Tailwind releases instead of a frozen 2022 kit.
+use_for:
+  - A Tailwind product or marketing site that should not invent every block.
+  - Teams that will pay once for official templates.
+skip_when:
+  - A $299 one-time hit is too much for a hobby.
+  - You need a free tier to evaluate before buying.
+  - Verbatim templates would look like every other Tailwind Plus site.
 limitations:
   - One-time cost is significant for hobbyists.
   - No free tier to evaluate before buying.

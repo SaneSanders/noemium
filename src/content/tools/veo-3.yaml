@@ -15,6 +15,16 @@ verdict_text: >-
   The current quality leader. Physics, lip-sync and native audio are ahead
   of the pack right now. Per-second pricing is steep, so use it for final
   shots and short deliverables, not for rapid iteration.
+strengths:
+  - "Current quality leader: physics, lip-sync and native audio are ahead of the pack."
+  - "Right tool for final short shots, not for burning credits on sketches."
+use_for:
+  - Hero shots and short deliverables where native audio matters.
+  - Gemini/Flow users who already have the credits.
+skip_when:
+  - Per-second API pricing would make experimentation the expensive part.
+  - You need clips longer than ~8 seconds in one generation.
+  - "Access across Gemini, Flow and Vertex is too confusing for the deadline."
 limitations:
   - Per-second API pricing is steep for experimentation.
   - Access tiers and quotas across Gemini/Flow/Vertex are confusing.

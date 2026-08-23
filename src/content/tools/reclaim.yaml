@@ -13,6 +13,16 @@ verdict_text: >-
   Focus time, habits and tasks slot themselves around your meetings, and the
   free tier covers a lot. It works with both Google and Outlook calendars,
   though the richest integrations still lean Google.
+strengths:
+  - "Defends focus time, habits and tasks around the meetings you already have."
+  - Free tier covers a lot; works with Google and Outlook.
+use_for:
+  - Solo or small-team calendars that keep getting eaten by meetings.
+  - "Habits and tasks that should auto-schedule, not live in a separate app."
+skip_when:
+  - The deepest automations you need are Google-only and you are not on Google.
+  - Misconfiguration would over-fill the calendar.
+  - Team features need buy-in you do not have.
 limitations:
   - Calendar-centric by design; deepest automations still lean Google-side.
   - Can over-fill your calendar if misconfigured.

@@ -14,6 +14,16 @@ verdict_text: >-
   OpenAI, Anthropic, Google and many others, plus streaming primitives and
   React hooks that behave sensibly. The abstraction leaks when you need
   provider-specific features, and the docs churn with each release.
+strengths:
+  - "Standard TypeScript glue across OpenAI, Anthropic, Google and others."
+  - "Streaming primitives and React hooks that behave like product UI, not a demo."
+use_for:
+  - Next.js or React apps that should stream tokens from more than one lab.
+  - A unified provider layer before you invent your own.
+skip_when:
+  - You need advanced provider-specific features the abstraction leaks.
+  - Docs churn with each release would stall the team.
+  - The app is not TypeScript or JavaScript.
 limitations:
   - The abstraction leaks on advanced provider-specific features.
   - Docs and examples churn with fast releases.

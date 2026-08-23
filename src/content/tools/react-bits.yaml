@@ -13,6 +13,16 @@ verdict_text: >-
   A solid source of polished animated components you can copy straight into a
   React project. The motion quality is consistently good, but the license is MIT
   plus a Commons Clause, so check the terms before redistributing.
+strengths:
+  - Polished animated React components you can paste into a landing page today.
+  - Motion quality is consistently good for the copy-paste workflow.
+use_for:
+  - Landing-page interactions on an existing Tailwind React app.
+  - Pick-and-choose motion without adopting a full design system.
+skip_when:
+  - Commons Clause would block how you redistribute.
+  - The project is not on Tailwind.
+  - Components need to be accessible without a manual pass.
 limitations:
   - Tailwind-first styling assumes your project is already on that stack.
   - Some components need accessibility tweaks out of the box.

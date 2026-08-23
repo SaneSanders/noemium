@@ -14,6 +14,16 @@ verdict_text: >-
   LangGraph delivers all three. The learning curve is real, mostly because
   LangChain leaks through the abstractions. Overkill for a simple single-agent
   script; hard to beat once a workflow has to stay observable.
+strengths:
+  - "Explicit state, human checkpoints and replay — what production agents actually need."
+  - Hard to beat once a workflow has to stay observable.
+use_for:
+  - "Multi-step agents that must pause, resume and be inspected."
+  - "Teams already in the LangChain orbit who need a real graph, not a chain demo."
+skip_when:
+  - The job is a simple single-agent script.
+  - You will not climb the LangChain leak-through learning curve.
+  - Docs sprawl across the ecosystem is a non-starter.
 limitations:
   - Learning curve is real; LangChain abstractions leak through.
   - Docs sprawl across the whole LangChain ecosystem.

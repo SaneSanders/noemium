@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import { catalogHealth } from '../lib/catalog-health';
 
 // Re-check queue: the least recently verified cards, whatever their absolute
 // age — a living list, not an empty staleness filter.
@@ -10,12 +11,30 @@ const queue = [...tools]
   .sort((a, b) => a.data.last_verified.localeCompare(b.data.last_verified))
   .slice(0, 6);
 
+const asOf = new Date().toISOString().slice(0, 10);
+const health = catalogHealth(
+  tools.map((tool) => ({
+    id: tool.id,
+    name: tool.data.name,
+    verdict: tool.data.verdict,
+    last_verified: tool.data.last_verified,
+    featured: tool.data.featured,
+    receipts: tool.data.receipts,
+    strengths: tool.data.strengths,
+    use_for: tool.data.use_for,
+    skip_when: tool.data.skip_when,
+  })),
+  asOf,
+);
+const unbriefedShip = health.shipUnbriefed.slice(0, 8);
+
 const rules = [
   'Verdicts come from real use — ship, situational or skip must reflect something you actually built or ran, not marketing pages.',
   'Agent entries use evidence tiers. Radar is discovery-only and carries no verdict or hard cost; source-verified guides need typed primary evidence for availability, setup, requirements, pricing and security.',
   'At least one receipt. Link the evidence: a shipped project, a screenshot, a benchmark run. No receipt, no merge.',
   'Affiliate links are always declared. Undeclared tracking parameters fail validation.',
   'Self-promotion is allowed — with the same bar as everything else: real receipts and honest, named limitations.',
+  'Flagship cards may add a briefing — strengths, use_for, skip_when — all three together, or none. No scores, no votes, no contributor badges.',
 ];
 ---
 
@@ -77,6 +96,33 @@ const rules = [
 
   <section class="nm-card mt-10 max-w-3xl p-6 md:p-8">
     <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
+      the unit is a pull request
+    </p>
+    <p class="mt-3 text-[15px] leading-relaxed text-ink opacity-80">
+      There are no contributor badges, no stars, no votes. A merged card is a YAML file with
+      receipts and named limitations. Open PRs and adopt-a-page issues are the queue — not a
+      leaderboard.
+    </p>
+    <p class="mt-4 font-mono text-[13px] leading-relaxed text-ink-dim">
+      {health.shipBriefed}/{health.ship} ship cards carry a briefing · {health.stale.length} stale
+      on <a href="/status/" class="text-accent hover:underline">/status</a>
+      {unbriefedShip.length > 0 && (
+        <>
+          {' '}
+          · still unbriefed:{' '}
+          {unbriefedShip.map((tool, i) => (
+            <>
+              {i > 0 && ', '}
+              <a href={`/tools/${tool.id}/`} class="text-accent hover:underline">{tool.name}</a>
+            </>
+          ))}
+        </>
+      )}
+    </p>
+  </section>
+
+  <section class="nm-card mt-10 max-w-3xl p-6 md:p-8">
+    <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       adopt a page · re-check queue
     </p>
     <p class="mt-3 text-[15px] leading-relaxed text-ink opacity-80">
@@ -111,8 +157,22 @@ const rules = [
 
   <section class="mt-10 flex flex-wrap gap-4">
     <a
-      href="https://github.com/SaneSanders/noemium"
+      href="https://github.com/SaneSanders/noemium/pulls"
       class="nm-btn nm-btn-solid"
+      rel="noopener"
+    >
+      Open pull requests
+    </a>
+    <a
+      href="https://github.com/SaneSanders/noemium/issues?q=is%3Aopen+label%3Aadopt-a-page"
+      class="nm-btn nm-btn-outline"
+      rel="noopener"
+    >
+      Adopt-a-page issues
+    </a>
+    <a
+      href="https://github.com/SaneSanders/noemium"
+      class="nm-btn nm-btn-outline"
       rel="noopener"
     >
       Open the repository

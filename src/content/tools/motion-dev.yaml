@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   The default choice for React animations for good reason. The API is expressive, the performance is solid, and the new Motion One variant covers vanilla JS projects too.
+strengths:
+  - "Default React animation library: expressive API, solid performance."
+  - Motion One covers vanilla JS when the project is not React.
+use_for:
+  - Product UI motion in React.
+  - A shared animation layer across React and a little vanilla JS.
+skip_when:
+  - Importing the whole library would bloat the bundle.
+  - Layout animations hit known edge cases in your UI.
+  - You are still lost in the Framer Motion rebrand docs.
 limitations:
   - Bundle size can add up if you import everything.
   - Layout animations still have edge cases.

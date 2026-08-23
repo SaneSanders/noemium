@@ -13,6 +13,16 @@ verdict_text: >-
   The go-to tool for scraping site content into markdown for RAG. Handles
   dynamic sites well and the self-hosted option keeps costs down. Very large
   sites need rate-limiting and chunking discipline.
+strengths:
+  - "Go-to scrape-to-markdown path for RAG, including many dynamic sites."
+  - Self-host option keeps cloud page-volume pricing off the critical path.
+use_for:
+  - Turning a docs site or blog into LLM-ready markdown.
+  - "RAG pipelines that need structured extraction, not raw HTML."
+skip_when:
+  - The target is a huge site you cannot rate-limit and chunk.
+  - The app is a brittle JavaScript SPA that still breaks extraction.
+  - Cloud crawl volume is the only option and the bill would spike.
 limitations:
   - Large sites require careful rate limiting and caching.
   - Complex JavaScript apps can still break extraction.

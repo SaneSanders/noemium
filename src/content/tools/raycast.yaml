@@ -13,6 +13,16 @@ verdict_text: >-
   If you are on macOS, this is hard to beat: AI, clipboard history, snippets
   and window management in one keystroke. The free tier is generous; the AI
   quality depends on what you pay for.
+strengths:
+  - "macOS launcher that actually replaces a pile of utilities: AI, clipboard, snippets, windows."
+  - Free tier is generous; one keystroke is the product.
+use_for:
+  - Daily driver launcher on a Mac.
+  - Light AI chat from the keyboard without opening a browser.
+skip_when:
+  - The team is not on macOS.
+  - AI quality on your plan tier is not good enough.
+  - You would depend on extensions of wildly uneven quality.
 limitations:
   - macOS-only (Windows version still catching up).
   - AI model quality depends on your plan tier.

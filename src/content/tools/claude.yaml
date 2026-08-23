@@ -18,6 +18,16 @@ verdict_text: >-
   assistant; Projects and Artifacts fit real work. Compare it with
   ChatGPT and Gemini on this shelf, not with Grammarly. Claude Code is
   a separate coding card and shares the same usage pool on paid plans.
+strengths:
+  - Cleanest prose and the best long-document workflow of the chat assistants.
+  - "Projects and Artifacts fit real work, not just a demo canvas."
+use_for:
+  - "Long briefs, editing, and document-heavy thinking."
+  - "A practitioner chat seat compared with ChatGPT and Gemini, not Grammarly."
+skip_when:
+  - Pro usage plus Claude Code would share one pool and burn it.
+  - You need image generation in the same app.
+  - "You depend on ChatGPT's larger plugin surface."
 limitations:
   - Usage caps on Pro hit fast with large context; Code/Cowork draw from the same pool.
   - No image generation.

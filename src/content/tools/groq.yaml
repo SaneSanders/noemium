@@ -14,6 +14,16 @@ verdict_text: >-
   autocomplete, anything real-time. The free tier is big enough to prototype
   on. Just remember the model catalog is limited to what fits their own
   hardware.
+strengths:
+  - Sub-second tokens on their LPUs — voice agents and autocomplete actually feel live.
+  - "Free tier is big enough to prototype the latency, not just read a blog post."
+use_for:
+  - Real-time UIs that die at 2-second model latency.
+  - Open-model inference when the model already fits their hardware.
+skip_when:
+  - The model you need is not on their catalog.
+  - You need the largest hosted context windows.
+  - Free-tier throughput would be the production path.
 limitations:
   - Model catalog limited to what fits their hardware.
   - Context windows capped below the biggest hosted rivals.

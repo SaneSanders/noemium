@@ -13,6 +13,16 @@ verdict_text: >-
   The most feature-complete open vector DB: hybrid BM25+vector search,
   multi-tenancy, and solid clients. Self-hosts cleanly, and the managed cloud
   is optional rather than a trap.
+strengths:
+  - "Most feature-complete open vector DB: hybrid BM25+vector, multi-tenancy, solid clients."
+  - Self-hosts cleanly; managed cloud is optional rather than a trap.
+use_for:
+  - "RAG that needs hybrid search, not vectors alone."
+  - Multi-tenant apps that should stay on an open engine.
+skip_when:
+  - Memory at scale would dominate the box.
+  - Sharding ops would outgrow the team.
+  - Docs spanning too many versions would slow you down.
 limitations:
   - Memory-hungry at scale.
   - Operational complexity grows with sharding.

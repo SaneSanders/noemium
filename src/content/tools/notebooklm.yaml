@@ -15,6 +15,16 @@ verdict_text: >-
   The most reliable consumer RAG for grounded reading: answers stick to your
   uploaded sources and cite them, and the audio overviews are genuinely
   useful for digesting material. The free tier is generous.
+strengths:
+  - "Most reliable consumer RAG: answers stick to uploaded sources and cite them."
+  - Audio overviews are actually useful for digesting a pile of PDFs.
+use_for:
+  - Grounded reading over a known source set.
+  - A research notebook when you do not need an API.
+skip_when:
+  - You hit per-notebook source limits.
+  - You need to automate it — there is no API.
+  - Google product-graveyard risk is unacceptable.
 limitations:
   - Source count limits per notebook.
   - No API, so no automation.

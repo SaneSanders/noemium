@@ -9,6 +9,7 @@ import VerifiedStamp from '../../components/VerifiedStamp.astro';
 import CopyButton from '../../components/CopyButton.astro';
 import { logoSrc } from '../../lib/logos';
 import LogoTile from '../../components/LogoTile.astro';
+import ToolBriefing from '../../components/ToolBriefing.astro';
 import { observationMarkdown } from '../../lib/observation';
 import { relatedIds, SKIP_ALTERNATIVE } from '../../lib/shelf';
 import { COMPARE_PAIRS } from '../../data/compare-presets';
@@ -104,6 +105,11 @@ const shortTrail = (v: string | null) => {
   const s = String(v ?? '—');
   return s.length > 56 ? `${s.slice(0, 53)}…` : s;
 };
+
+const briefing =
+  t.strengths && t.use_for && t.skip_when
+    ? { strengths: t.strengths, use_for: t.use_for, skip_when: t.skip_when }
+    : null;
 ---
 
 <Base title={t.name} description={t.tagline} ogImage={`/og/tools/${tool.id}.png`}>
@@ -137,6 +143,7 @@ const shortTrail = (v: string | null) => {
         label="Copy observation"
         text={observationMarkdown(t, new URL(`/tools/${tool.id}/`, Astro.site).href)}
       />
+      <a href={`/kit/?add=${tool.id}`} class="nm-btn nm-btn-outline">Add to kit</a>
       <VerifiedStamp slug={tool.id} date={t.last_verified} />
     </p>
     {
@@ -174,14 +181,28 @@ const shortTrail = (v: string | null) => {
     </section>
 
     {
-      trail.length > 0 && (
-        <section class="mt-8">
-          <h2 class="flex items-baseline justify-between font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
-            <span>Price trail — {trail.length} revision{trail.length === 1 ? '' : 's'}</span>
-            <a href="/changelog/" class="text-accent normal-case hover:underline">
-              changelog →
-            </a>
-          </h2>
+      briefing && (
+        <ToolBriefing
+          strengths={briefing.strengths}
+          limitations={t.limitations}
+          use_for={briefing.use_for}
+          skip_when={briefing.skip_when}
+        />
+      )
+    }
+
+    <section class="mt-8">
+      <h2 class="flex items-baseline justify-between font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        <span>
+          Price trail
+          {trail.length > 0 ? ` — ${trail.length} revision${trail.length === 1 ? '' : 's'}` : ''}
+        </span>
+        <a href="/changelog/" class="text-accent normal-case hover:underline">
+          changelog →
+        </a>
+      </h2>
+      {
+        trail.length > 0 ? (
           <ul class="mt-4 space-y-2">
             {trail.slice(-3).map((e) => (
               <li class="flex flex-wrap items-baseline gap-x-4 gap-y-1 font-mono text-[13px]" title={`${e.from ?? ''} → ${e.to ?? ''}`}>
@@ -194,19 +215,28 @@ const shortTrail = (v: string | null) => {
               </li>
             ))}
           </ul>
-        </section>
-      )
-    }
+        ) : (
+          <p class="mt-4 max-w-2xl font-mono text-[13px] leading-relaxed text-ink-dim">
+            No pricing field has moved in the git changelog since tracking started. That is not a
+            live vendor ticker — it is the history of this repo.
+          </p>
+        )
+      }
+    </section>
 
     <div class="mt-10 grid gap-10 lg:grid-cols-2">
-      <section>
-        <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Known limitations</h2>
-        <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-verdict-skip">
-          {t.limitations.map((l) => <li>{l}</li>)}
-        </ul>
-      </section>
+      {
+        !briefing && (
+          <section>
+            <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Known limitations</h2>
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-verdict-skip">
+              {t.limitations.map((l) => <li>{l}</li>)}
+            </ul>
+          </section>
+        )
+      }
 
-      <section>
+      <section class:list={[briefing && 'lg:col-span-2']}>
         <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Facts</h2>
         <dl class="nm-card mt-4 grid grid-cols-2 gap-x-6 gap-y-4 p-6 sm:grid-cols-3">
           {facts.map(([k, v]) => (
@@ -293,6 +323,42 @@ const shortTrail = (v: string | null) => {
               </p>
             )
           }
+          <div class="nm-card mt-5 overflow-x-auto">
+            <table class="w-full min-w-[520px] border-collapse text-left">
+              <thead>
+                <tr class="border-b-[1.5px] border-ink">
+                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
+                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
+                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">price</th>
+                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">oss</th>
+                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">self-host</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  [tool, ...related].map((row) => (
+                    <tr class="border-b border-line-soft last:border-b-0">
+                      <th scope="row" class="p-3 text-left font-display text-[15px] font-extrabold tracking-tight">
+                        {row.id === tool.id ? (
+                          row.data.name
+                        ) : (
+                          <a href={`/tools/${row.id}/`} class="hover:text-accent">{row.data.name}</a>
+                        )}
+                      </th>
+                      <td class="p-3 font-mono text-[13px] uppercase">{row.data.verdict}</td>
+                      <td class="p-3 font-mono text-[13px]">{row.data.pricing}</td>
+                      <td class="p-3 font-mono text-[13px]">{row.data.open_source ? 'yes' : 'no'}</td>
+                      <td class="p-3 font-mono text-[13px]">{row.data.self_host ? 'yes' : 'no'}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-3 font-mono text-[12px] leading-relaxed text-ink-dim">
+            Facts from the catalog files — not scores you can buy. Quality and speed stay in the
+            briefing, not in a fake 1–5 grid.
+          </p>
           <div class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {related.map((r) => (
               <ToolCard tool={r} />

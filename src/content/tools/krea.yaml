@@ -13,6 +13,16 @@ verdict_text: >-
   The live canvas and style controls make it the fastest way to iterate on a
   look. Great for concept art, logos, and product shots. Print-ready resolution
   and exact brand fidelity still need work.
+strengths:
+  - Live canvas and style controls make iterating a look faster than batch generators.
+  - "Strong on concept art, logos and product-shot exploration."
+use_for:
+  - Concepting a visual direction in real time.
+  - Product and brand sketches before a print-ready pass elsewhere.
+skip_when:
+  - You need print resolution or commercial usage on the free plan.
+  - Exact brand fidelity has to survive across sessions.
+  - The job is precise text-in-image.
 limitations:
   - Highest resolutions and commercial usage require paid plans.
   - Style consistency across sessions can drift.

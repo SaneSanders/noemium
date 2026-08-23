@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   Essential reference when you want to see how top apps solve the same UI problem. The library is huge and the tagging makes it fast to find patterns.
+strengths:
+  - Huge tagged library of real app screens — how top products solved the same UI problem.
+  - Fast reference before you invent a flow that already exists.
+use_for:
+  - Product and design research on mobile and web patterns.
+  - "Reviews where you need screenshots, not a component kit."
+skip_when:
+  - You need downloads and full access on the free browse.
+  - "The deliverable is code, not reference."
+  - The team would copy flows instead of deciding.
 limitations:
   - Paid plans are needed for full access and downloads.
   - "Focus is on screenshots, not code."

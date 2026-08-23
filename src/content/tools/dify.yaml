@@ -13,6 +13,16 @@ verdict_text: >-
   The fastest way to build a RAG chatbot or agent workflow without writing a
   backend. Self-hosting keeps data in-house, but the UI can feel rigid for
   complex custom logic.
+strengths:
+  - Fastest path to a RAG chatbot or agent workflow without writing a backend.
+  - Self-host keeps the data in-house when the license fits.
+use_for:
+  - Internal RAG apps and agent demos that should ship this week.
+  - Teams that want a visual builder plus an optional self-host.
+skip_when:
+  - You need OSI open source or multi-tenant rebranding the license forbids.
+  - Branching logic has already outgrown a visual editor.
+  - Enterprise SSO is required and you are not on a cloud plan.
 limitations:
   - The Dify license restricts multi-tenant use and frontend rebranding, so it is not OSI open source.
   - Complex branching logic can outgrow the visual editor.

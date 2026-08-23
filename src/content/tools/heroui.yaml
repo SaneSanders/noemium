@@ -11,6 +11,16 @@ self_host: false
 verdict: ship
 verdict_text: >-
   A reliable component library with good-looking defaults and solid Tailwind integration. Components feel modern and the documentation is easy to follow.
+strengths:
+  - Modern React components with good defaults and solid Tailwind theming.
+  - "Docs are easy to follow when you just need a library, not a ritual."
+use_for:
+  - New React apps that want a complete component set with Tailwind.
+  - Teams that prefer a packaged library over copy-paste blocks.
+skip_when:
+  - You need the advanced pieces that only live in paid templates.
+  - The component count is too small versus a mature kit.
+  - Tailwind v4 theming setup is a blocker this week.
 limitations:
   - Some advanced features require paid templates.
   - Component count is smaller than mature competitors.

@@ -18,6 +18,16 @@ verdict_text: >-
   to move an open-weight prototype into production. Costs at scale push you
   toward dedicated GPUs, and the newest models sometimes land later than on
   specialist hosts.
+strengths:
+  - "Solid uptime and a broad open-model catalog, serverless or dedicated."
+  - Safe place to move an open-weight prototype into production.
+use_for:
+  - Hosted open models without picking a GPU vendor yet.
+  - Fine-tunes that can start on their inference side.
+skip_when:
+  - Scale already points at dedicated GPU contracts.
+  - You need the newest model the day a specialist hosts it.
+  - "Fine-tuning UX is the product, not an afterthought."
 limitations:
   - Costs at scale push you toward dedicated GPU contracts.
   - Newest models sometimes arrive later than at specialists.
