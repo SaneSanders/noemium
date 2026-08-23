@@ -73,3 +73,53 @@ export function YesNo({ value }: { value: boolean }) {
     </span>
   );
 }
+
+const LOGO_SIZE = {
+  sm: {
+    box: 'h-7 w-7 rounded-sm p-0.5',
+    type: 'text-base',
+    dim: 28,
+  },
+  md: {
+    box: 'h-10 w-10 rounded-sm p-0.5',
+    type: 'text-xl',
+    dim: 40,
+  },
+  lg: {
+    box: 'h-14 w-14 rounded-md p-1.5',
+    type: 'text-3xl',
+    dim: 56,
+  },
+} as const;
+
+export function LogoMark({
+  src,
+  name,
+  size = 'md',
+}: {
+  src?: string | null;
+  name: string;
+  size?: keyof typeof LOGO_SIZE;
+}) {
+  const s = LOGO_SIZE[size];
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt=""
+        width={s.dim}
+        height={s.dim}
+        loading="lazy"
+        class={`shrink-0 border-[1.5px] border-ink bg-card object-contain ${s.box}`}
+      />
+    );
+  }
+  return (
+    <span
+      aria-hidden="true"
+      class={`flex shrink-0 items-center justify-center border-[1.5px] border-ink bg-paper font-display font-black text-accent ${s.box} ${s.type}`}
+    >
+      {name.charAt(0)}
+    </span>
+  );
+}

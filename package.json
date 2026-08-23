@@ -11,13 +11,14 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "test": "node --test tests/content-schemas.test.mjs tests/agent-content.test.mjs tests/shelf.test.mjs tests/catalog-surfaces.test.mjs",
+    "test": "node --test tests/content-schemas.test.mjs tests/agent-content.test.mjs tests/shelf.test.mjs tests/catalog-surfaces.test.mjs tests/logos.test.mjs",
     "test:dist": "node --test tests/agent-pages.test.mjs tests/pack-page.test.mjs",
     "test:all": "node --test tests/*.test.mjs # includes untracked local tests (decide-*) — run after build",
     "validate": "node scripts/validate-content.mjs",
     "weekly-diff": "node scripts/weekly-diff.mjs",
     "price-history": "node scripts/price-history.mjs",
     "fetch-models": "node scripts/fetch-model-data.mjs",
+    "fetch-logos": "node scripts/fetch-logos.mjs",
     "link-check": "node scripts/link-check.mjs"
   },
   "dependencies": {

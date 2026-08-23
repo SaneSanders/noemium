@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ToolCard from '../components/ToolCard.astro';
 import HomeFloor from '../islands/HomeFloor';
-import { logoSrc } from '../lib/logos';
+import { logoSrc, providerLogoSrc } from '../lib/logos';
+import LogoTile from '../components/LogoTile.astro';
 import { dateMinusDays, floorSlice, newestVerified, DUST_DAYS, FRESH_DAYS, type FloorTool } from '../lib/floor';
 import { COMPARE_HREF, plural } from '../lib/shelf';
 import changelog from '../data/changelog.json';
@@ -100,6 +101,8 @@ const stats = [
   { value: stacks.length, label: 'stacks' },
   { value: 0, label: 'paid placements' },
 ];
+
+const toolNameById = new Map(tools.map((t) => [t.id, t.data.name]));
 
 const weekLink = (e: { collection: string; slug: string }) =>
   e.collection === 'tools'
@@ -277,7 +280,10 @@ const weekLink = (e: { collection: string; slug: string }) =>
             {
               strictAgentPreview.map((agent) => (
                 <p class="flex items-center justify-between gap-3 border-b-[1.5px] border-line-soft py-3 last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0">
-                  <span class="font-display text-lg font-extrabold tracking-tight">{agent.data.name}</span>
+                  <span class="flex min-w-0 items-center gap-2.5">
+                    <LogoTile slug={agent.id} name={agent.data.name} size="sm" />
+                    <span class="truncate font-display text-lg font-extrabold tracking-tight">{agent.data.name}</span>
+                  </span>
                   <span class="font-mono text-[11px] tracking-wide text-ink-dim uppercase">
                     {agent.data.agent_layer}
                   </span>
@@ -297,7 +303,14 @@ const weekLink = (e: { collection: string; slug: string }) =>
           {
             stackPreview.map((s) => (
               <p class="border-b-[1.5px] border-line-soft py-3.5 last:border-b-0">
-                <span class="block font-display text-lg font-extrabold tracking-tight">{s.data.title}</span>
+                <span class="flex items-center">
+                  {s.data.tools.slice(0, 4).map((slug, i) => (
+                    <span class:list={['relative', i > 0 && '-ml-1.5']}>
+                      <LogoTile slug={slug} name={toolNameById.get(slug) ?? slug} size="sm" />
+                    </span>
+                  ))}
+                </span>
+                <span class="mt-2 block font-display text-lg font-extrabold tracking-tight">{s.data.title}</span>
                 <span class="mt-1 block text-sm text-ink opacity-60">
                   {plural(s.data.tools.length, 'tool')} · ${s.data.monthly_cost_usd}/mo total
                 </span>
@@ -317,7 +330,10 @@ const weekLink = (e: { collection: string; slug: string }) =>
             modelPreview.map((m) => (
               <tr>
                 <td class="border-b-[1.5px] border-line-soft py-2.5 last:border-b-0">
-                  {m.data.name} <span class="text-xs opacity-45">in / out</span>
+                  <span class="inline-flex items-center gap-2">
+                    <LogoTile src={providerLogoSrc(m.data.provider)} name={m.data.name} size="sm" />
+                    {m.data.name} <span class="text-xs opacity-45">in / out</span>
+                  </span>
                 </td>
                 <td class="nm-num border-b-[1.5px] border-line-soft py-2.5 text-right font-bold whitespace-nowrap text-accent last:border-b-0">
                   {usd(m.data.price_input_per_mtok)} / {usd(m.data.price_output_per_mtok)}

@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import { agentLayerLabels, evidenceTierLabels, formatCostScenario } from '../../lib/agent-display';
 
 export const getStaticPaths = (async () => {
@@ -45,6 +46,7 @@ const jsonLd = {
     </p>
 
     <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
+      <LogoTile slug={agent.id} name={a.name} size="lg" />
       <h1 class="text-shadow-section font-display text-5xl leading-[0.98] font-black tracking-tight uppercase md:text-7xl">{a.name}</h1>
       {a.verdict && <VerdictBadge verdict={a.verdict} class="text-sm" />}
     </div>

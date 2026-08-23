@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
+import LogoTile from '../../components/LogoTile.astro';
 
 const tools = (await getCollection('tools')).sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
@@ -21,9 +22,12 @@ const tools = (await getCollection('tools')).sort((a, b) => a.data.name.localeCo
         <li>
           <a
             href={`/alternatives/${t.id}/`}
-            class="nm-card nm-card-hover flex items-baseline justify-between gap-3 px-4 py-3"
+            class="nm-card nm-card-hover flex items-center justify-between gap-3 px-4 py-3"
           >
-            <span class="font-display text-lg font-extrabold tracking-tight">{t.data.name}</span>
+            <span class="flex min-w-0 items-center gap-3">
+              <LogoTile slug={t.id} name={t.data.name} size="sm" />
+              <span class="truncate font-display text-lg font-extrabold tracking-tight">{t.data.name}</span>
+            </span>
             <span class="font-mono text-[10px] tracking-[0.08em] text-ink-dim uppercase">{t.data.category}</span>
           </a>
         </li>

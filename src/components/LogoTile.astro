@@ -1,0 +1,46 @@
+---
+import { logoSrc } from '../lib/logos';
+
+interface Props {
+  slug?: string;
+  src?: string | null;
+  name: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { slug, src: srcProp, name, size = 'md' } = Astro.props;
+const src = srcProp !== undefined ? srcProp : slug ? logoSrc(slug) : null;
+
+const box =
+  size === 'sm' ? 'h-7 w-7' : size === 'lg' ? 'h-14 w-14' : 'h-10 w-10';
+const type =
+  size === 'sm' ? 'text-base' : size === 'lg' ? 'text-3xl' : 'text-xl';
+const radius = size === 'lg' ? 'rounded-md' : 'rounded-sm';
+const pad = size === 'lg' ? 'p-1.5' : 'p-0.5';
+const dim = size === 'sm' ? 28 : size === 'lg' ? 56 : 40;
+---
+
+{
+  src ? (
+    <img
+      src={src}
+      alt=""
+      width={dim}
+      height={dim}
+      loading="lazy"
+      class:list={[box, radius, pad, 'shrink-0 border-[1.5px] border-ink bg-card object-contain']}
+    />
+  ) : (
+    <span
+      aria-hidden="true"
+      class:list={[
+        box,
+        radius,
+        type,
+        'flex shrink-0 items-center justify-center border-[1.5px] border-ink bg-paper font-display font-black text-accent',
+      ]}
+    >
+      {name.charAt(0)}
+    </span>
+  )
+}

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { navigate } from 'astro:transitions/client';
-import type { Verdict } from './ui';
+import { LogoMark, type Verdict } from './ui';
 
 interface ToolHit {
   slug: string;
@@ -8,16 +8,19 @@ interface ToolHit {
   tagline: string;
   category: string;
   verdict: Verdict;
+  logo?: string | null;
 }
 interface StackHit {
   slug: string;
   title: string;
   use_case: string;
+  logo?: string | null;
 }
 interface ModelHit {
   slug: string;
   name: string;
   provider: string;
+  logo?: string | null;
 }
 interface AgentHit {
   slug: string;
@@ -25,6 +28,7 @@ interface AgentHit {
   tagline: string;
   agent_layer: string;
   evidence_tier: 'field-tested' | 'source-verified' | 'radar';
+  logo?: string | null;
 }
 interface Index {
   tools: ToolHit[];
@@ -38,6 +42,7 @@ interface Row {
   label: string;
   hint: string;
   href: string;
+  logo?: string | null;
 }
 
 /** Subsequence fuzzy score: higher is better, -1 = no match. */
@@ -172,6 +177,7 @@ export default function CommandPalette() {
           label: s.title,
           hint: 'stack',
           href: `/stacks/${s.slug}/`,
+          logo: s.logo,
         }));
       }
       if (cmd === 'agent') {
@@ -190,6 +196,7 @@ export default function CommandPalette() {
           label: agent.name,
           hint: agent.evidence_tier === 'radar' ? 'agent · radar' : `agent · ${agent.agent_layer}`,
           href: `/agents/${agent.slug}/`,
+          logo: agent.logo,
         }));
       }
       return [
@@ -208,6 +215,7 @@ export default function CommandPalette() {
           label: t.name,
           hint: t.category,
           href: `/tools/${t.slug}/`,
+          logo: t.logo,
         })),
         ...index.agents
           .filter((agent) => agent.evidence_tier !== 'radar')
@@ -217,12 +225,14 @@ export default function CommandPalette() {
             label: agent.name,
             hint: `agent · ${agent.agent_layer}`,
             href: `/agents/${agent.slug}/`,
+            logo: agent.logo,
           })),
         ...index.stacks.slice(0, 3).map((s) => ({
           kind: 'stack' as const,
           label: s.title,
           hint: 'stack',
           href: `/stacks/${s.slug}/`,
+          logo: s.logo,
         })),
       ];
     }
@@ -234,6 +244,7 @@ export default function CommandPalette() {
           label: t.name,
           hint: `${t.category} · ${t.verdict}`,
           href: `/tools/${t.slug}/`,
+          logo: t.logo,
         },
         score: Math.max(fuzzy(q, t.name), fuzzy(q, t.tagline) * 0.6, fuzzy(q, t.category) * 0.5),
       }))
@@ -247,6 +258,7 @@ export default function CommandPalette() {
           label: s.title,
           hint: 'stack',
           href: `/stacks/${s.slug}/`,
+          logo: s.logo,
         },
         score: Math.max(fuzzy(q, s.title), fuzzy(q, s.use_case) * 0.6),
       }))
@@ -260,6 +272,7 @@ export default function CommandPalette() {
           label: agent.name,
           hint: agent.evidence_tier === 'radar' ? 'agent · radar' : `agent · ${agent.agent_layer}`,
           href: `/agents/${agent.slug}/`,
+          logo: agent.logo,
         },
         score: Math.max(
           fuzzy(q, agent.name),
@@ -277,6 +290,7 @@ export default function CommandPalette() {
           label: m.name,
           hint: `model · ${m.provider}`,
           href: `/models/#${m.slug}`,
+          logo: m.logo,
         },
         score: Math.max(fuzzy(q, m.name), fuzzy(q, m.provider) * 0.5),
       }))
@@ -404,7 +418,7 @@ export default function CommandPalette() {
                     type="button"
                     onClick={() => go(row)}
                     onMouseEnter={() => setSelected(i)}
-                    class={`flex w-full items-baseline gap-3 px-4 py-2 text-left transition-colors duration-100 ${
+                    class={`flex w-full items-center gap-3 px-4 py-2 text-left transition-colors duration-100 ${
                       i === selected ? 'bg-paper' : ''
                     }`}
                   >
@@ -413,7 +427,8 @@ export default function CommandPalette() {
                     >
                       {row.kind}
                     </span>
-                    <span class="text-sm text-ink">{row.label}</span>
+                    {row.kind !== 'command' && <LogoMark src={row.logo} name={row.label} size="sm" />}
+                    <span class="truncate text-sm text-ink">{row.label}</span>
                     <span class="ml-auto font-mono text-xs text-ink-dim">{row.hint}</span>
                   </button>
                 </li>

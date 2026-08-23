@@ -97,10 +97,13 @@ Signature patterns (CSS lives in `src/styles/theme.css`):
   detail pages carry a superscript reference.
 - `SectionHeader` — mono kicker + Archivo 900 uppercase title with offset
   shadow.
-- Tool logos — committed PNGs in `public/logos/` (`scripts/fetch-logos.mjs`),
-  shown in an ink-bordered tile on cards, the homepage floor table, stack
-  component lists and tool detail pages. Missing logos fall back to a
-  letter tile (Archivo 900 first letter, accent, on paper).
+- Logos — committed PNGs in `public/logos/` (`scripts/fetch-logos.mjs`).
+  Every catalog surface shows an ink-bordered tile: tool/agent cards and
+  detail pages, the homepage floor, stack recipes (tool stack as preview),
+  alternatives, compare, quiz results, graveyard, the models table
+  (provider mark), and ⌘K hits. Missing files fall back to a letter tile
+  (Archivo 900 first letter, accent, on paper). Models reuse the lab's
+  logo; they do not get a unique mark per checkpoint.
 - `KbdHint` — keyboard shortcut hint (`⌘K` etc.), mono, ink border.
 - `CommandPalette` — global search/navigation overlay.
 - Theme toggle — sun/moon button in the header; icons swap via

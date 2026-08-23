@@ -21,3 +21,30 @@ export const logoSrc = (slug: string): string | null => {
     ? `/logos/${slug}.svg`
     : `/logos/${slug}.png`;
 };
+
+/** Models don't have their own mark — the lab's logo is the avatar. */
+const PROVIDER_SLUG: Record<string, string> = {
+  OpenAI: 'openai-api',
+  Anthropic: 'anthropic-api',
+  Google: 'google-ai-studio',
+  xAI: 'xai-api',
+  DeepSeek: 'deepseek-api',
+  'Mistral AI': 'mistral-api',
+  Meta: 'meta',
+  'Alibaba (Qwen)': 'qwen-api',
+  'Alibaba Cloud (Qwen team)': 'qwen-image',
+  'Moonshot AI (Kimi)': 'kimi-code',
+  'Z.ai (GLM)': 'glm-api',
+  'Tencent (Hunyuan)': 'hunyuan-api',
+  MiniMax: 'minimax-api',
+  'ByteDance (Seed / Volcano Engine)': 'bytedance-seed',
+  ElevenLabs: 'elevenlabs',
+  'Fish Audio': 'fish-audio',
+  'Black Forest Labs': 'flux',
+  Recraft: 'recraft',
+};
+
+export const providerLogoSrc = (provider: string): string | null => {
+  const slug = PROVIDER_SLUG[provider];
+  return slug ? logoSrc(slug) : null;
+};

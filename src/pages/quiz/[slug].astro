@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
+import LogoTile from '../../components/LogoTile.astro';
 
 export const getStaticPaths = (async () => {
   const stacks = await getCollection('stacks');
@@ -53,8 +54,9 @@ const share =
         stackTools.map((t) => (
           <a
             href={`/tools/${t.id}/`}
-            class="rounded-md border-[1.5px] border-ink px-3 py-1.5 font-mono text-[13px] font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm"
+            class="inline-flex items-center gap-2 rounded-md border-[1.5px] border-ink px-3 py-1.5 font-mono text-[13px] font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm"
           >
+            <LogoTile slug={t.id} name={t.data.name} size="sm" />
             {t.data.name}
           </a>
         ))

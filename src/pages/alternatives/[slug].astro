@@ -4,6 +4,7 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
+import LogoTile from '../../components/LogoTile.astro';
 import { alternativeIds, JOB_PEERS } from '../../lib/shelf';
 
 export const getStaticPaths = (async () => {
@@ -59,8 +60,9 @@ const itemList = {
     alternatives.length > 0 ? (
       <div class="space-y-4">
         {alternatives.map((a) => (
-          <a href={`/tools/${a.id}/`} class="nm-card nm-card-hover flex flex-col gap-3 p-6 md:flex-row md:items-baseline">
-            <div class="flex items-baseline gap-4 md:w-56 md:shrink-0">
+          <a href={`/tools/${a.id}/`} class="nm-card nm-card-hover group flex flex-col gap-3 p-6 md:flex-row md:items-center">
+            <div class="flex items-center gap-3 md:w-64 md:shrink-0">
+              <LogoTile slug={a.id} name={a.data.name} size="md" />
               <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{a.data.name}</h2>
               <VerdictBadge verdict={a.data.verdict} />
             </div>

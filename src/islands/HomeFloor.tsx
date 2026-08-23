@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'preact/hooks';
 import { verdictMix, type FloorTab, type FloorTool } from '../lib/floor';
-import { MomentumArrow, VerdictStamp } from './ui';
+import { LogoMark, MomentumArrow, VerdictStamp } from './ui';
 
 const TABS: { key: FloorTab; label: string }[] = [
   { key: 'all', label: 'All' },
@@ -65,23 +65,7 @@ export default function HomeFloor({
                 >
                   <td class="p-3">
                     <a href={`/tools/${t.slug}/`} class="flex items-center gap-3">
-                      {t.logo ? (
-                        <img
-                          src={t.logo}
-                          alt=""
-                          width="28"
-                          height="28"
-                          loading="lazy"
-                          class="h-7 w-7 shrink-0 rounded-sm border-[1.5px] border-ink bg-card object-contain p-0.5"
-                        />
-                      ) : (
-                        <span
-                          aria-hidden="true"
-                          class="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm border-[1.5px] border-ink bg-paper font-display text-base font-black text-accent"
-                        >
-                          {t.name.charAt(0)}
-                        </span>
-                      )}
+                      <LogoMark src={t.logo} name={t.name} size="sm" />
                       <span class="font-body text-[15px] font-bold text-ink group-hover:text-accent">
                         {t.name}
                       </span>

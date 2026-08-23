@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'preact/hooks';
+import { LogoMark } from './ui';
 
 export interface Benchmark {
   name: string;
@@ -22,6 +23,7 @@ export interface ModelRecord {
   avoid_for: string[];
   benchmarks?: Benchmark[];
   source_attribution: string;
+  logo?: string | null;
 }
 
 type Task = 'coding' | 'writing' | 'vision' | 'audio' | 'video' | 'agents';
@@ -276,9 +278,12 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                 >
                   <th
                     scope="row"
-                    class="sticky left-0 bg-card p-3 text-left font-body text-[15px] font-bold text-ink"
+                    class="sticky left-0 min-w-56 bg-card p-3 text-left font-body text-[15px] font-bold text-ink"
                   >
-                    {m.name}
+                    <span class="flex items-center gap-2.5 whitespace-nowrap">
+                      <LogoMark src={m.logo} name={m.name} size="sm" />
+                      {m.name}
+                    </span>
                   </th>
                   <td class="p-3 text-sm text-ink-dim">{m.provider}</td>
                   <td

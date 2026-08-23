@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { ToolRecord } from './FilterBar';
-import { MomentumArrow, VerdictStamp, YesNo } from './ui';
+import { LogoMark, MomentumArrow, VerdictStamp, YesNo } from './ui';
 
 export interface CompareTool extends ToolRecord {
   self_host: boolean;
@@ -194,11 +194,14 @@ export default function CompareTable() {
                   aria-selected={i === highlighted}
                   onClick={() => add(t.slug)}
                   onMouseEnter={() => setHighlighted(i)}
-                  class={`flex w-full cursor-pointer items-baseline justify-between gap-3 px-3 py-2 text-left transition-colors duration-100 ${
+                  class={`flex w-full cursor-pointer items-center justify-between gap-3 px-3 py-2 text-left transition-colors duration-100 ${
                     i === highlighted ? 'bg-paper' : 'hover:bg-paper'
                   }`}
                 >
-                  <span class="text-sm text-ink">{t.name}</span>
+                  <span class="flex min-w-0 items-center gap-2">
+                    <LogoMark src={t.logo} name={t.name} size="sm" />
+                    <span class="truncate text-sm text-ink">{t.name}</span>
+                  </span>
                   <span class="font-mono text-xs text-ink-dim">{t.slug}</span>
                 </li>
               ))}
@@ -246,8 +249,9 @@ export default function CompareTable() {
                     <div class="flex items-start justify-between gap-2">
                       <a
                         href={`/tools/${t.slug}/`}
-                        class="font-display text-lg font-extrabold tracking-tight text-ink hover:text-accent"
+                        class="flex items-center gap-2 font-display text-lg font-extrabold tracking-tight text-ink hover:text-accent"
                       >
+                        <LogoMark src={t.logo} name={t.name} size="sm" />
                         {t.name}
                       </a>
                       <button

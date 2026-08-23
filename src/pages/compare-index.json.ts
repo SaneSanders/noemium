@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
+import { logoSrc } from '../lib/logos';
 
 /** Compare payload — fetched by the island so the HTML isn't 157 full cards. */
 export const GET: APIRoute = async () => {
@@ -21,6 +22,7 @@ export const GET: APIRoute = async () => {
       featured: t.data.featured,
       last_verified: t.data.last_verified,
       limitations: t.data.limitations,
+      logo: logoSrc(t.id),
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
 

@@ -5,6 +5,7 @@ import Base from '../../../layouts/Base.astro';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import VerdictBadge from '../../../components/VerdictBadge.astro';
 import ShiftArrow from '../../../components/ShiftArrow.astro';
+import LogoTile from '../../../components/LogoTile.astro';
 import { COMPARE_PAIRS } from '../../../data/compare-presets';
 
 export const getStaticPaths = (async () => {
@@ -111,17 +112,23 @@ const rows: { label: string; a: string | null; b: string | null }[] = [
   <div class="mt-8 grid gap-4 md:grid-cols-2">
     <a href={`/tools/${a.id}/`} class="nm-card nm-card-hover group block p-5">
       <div class="flex items-start justify-between gap-3">
-        <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{da.name}</h2>
+        <div class="flex items-center gap-3">
+          <LogoTile slug={a.id} name={da.name} size="md" />
+          <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{da.name}</h2>
+        </div>
         <VerdictBadge verdict={da.verdict} />
       </div>
-      <p class="mt-2 text-[15px] leading-relaxed text-ink opacity-80">{da.tagline}</p>
+      <p class="mt-3 line-clamp-2 text-[15px] leading-relaxed text-ink opacity-80">{da.tagline}</p>
     </a>
     <a href={`/tools/${b.id}/`} class="nm-card nm-card-hover group block p-5">
       <div class="flex items-start justify-between gap-3">
-        <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{db.name}</h2>
+        <div class="flex items-center gap-3">
+          <LogoTile slug={b.id} name={db.name} size="md" />
+          <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{db.name}</h2>
+        </div>
         <VerdictBadge verdict={db.verdict} />
       </div>
-      <p class="mt-2 text-[15px] leading-relaxed text-ink opacity-80">{db.tagline}</p>
+      <p class="mt-3 line-clamp-2 text-[15px] leading-relaxed text-ink opacity-80">{db.tagline}</p>
     </a>
   </div>
 
@@ -131,12 +138,14 @@ const rows: { label: string; a: string | null; b: string | null }[] = [
         <tr class="border-b-[1.5px] border-ink">
           <th class="w-40 p-4 font-mono text-[13px] font-medium tracking-[0.12em] text-ink-dim uppercase">field</th>
           <th class="min-w-56 p-4">
-            <a href={`/tools/${a.id}/`} class="font-display text-xl font-extrabold tracking-tight text-ink hover:text-accent">
+            <a href={`/tools/${a.id}/`} class="flex items-center gap-3 font-display text-xl font-extrabold tracking-tight text-ink hover:text-accent">
+              <LogoTile slug={a.id} name={da.name} size="sm" />
               {da.name}
             </a>
           </th>
           <th class="min-w-56 p-4">
-            <a href={`/tools/${b.id}/`} class="font-display text-xl font-extrabold tracking-tight text-ink hover:text-accent">
+            <a href={`/tools/${b.id}/`} class="flex items-center gap-3 font-display text-xl font-extrabold tracking-tight text-ink hover:text-accent">
+              <LogoTile slug={b.id} name={db.name} size="sm" />
               {db.name}
             </a>
           </th>

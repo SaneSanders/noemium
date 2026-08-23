@@ -8,6 +8,7 @@ import ToolCard from '../../components/ToolCard.astro';
 import VerifiedStamp from '../../components/VerifiedStamp.astro';
 import CopyButton from '../../components/CopyButton.astro';
 import { logoSrc } from '../../lib/logos';
+import LogoTile from '../../components/LogoTile.astro';
 import { observationMarkdown } from '../../lib/observation';
 import { relatedIds, SKIP_ALTERNATIVE } from '../../lib/shelf';
 import { COMPARE_PAIRS } from '../../data/compare-presets';
@@ -115,24 +116,7 @@ const shortTrail = (v: string | null) => {
       <a href={`/tools/?cat=${t.category}`} class="hover:underline">{t.category}</a>
     </p>
     <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
-      {
-        logo ? (
-          <img
-            src={logo}
-            alt=""
-            width="56"
-            height="56"
-            class="h-14 w-14 shrink-0 rounded-md border-[1.5px] border-ink bg-card object-contain p-1.5"
-          />
-        ) : (
-          <span
-            aria-hidden="true"
-            class="flex h-14 w-14 shrink-0 items-center justify-center rounded-md border-[1.5px] border-ink bg-paper font-display text-3xl font-black text-accent"
-          >
-            {t.name.charAt(0)}
-          </span>
-        )
-      }
+      <LogoTile slug={tool.id} name={t.name} src={logo} size="lg" />
       <h1 class="text-shadow-section font-display text-5xl leading-[0.98] font-black tracking-tight uppercase md:text-7xl">{t.name}</h1>
       <VerdictBadge verdict={t.verdict} class="text-sm" />
       <ShiftArrow momentum={t.momentum} class="h-6 w-6" />

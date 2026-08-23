@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ModelTable, { type ModelRecord } from '../islands/ModelTable';
 import priceHistory from '../data/price-history.json';
+import { providerLogoSrc } from '../lib/logos';
 
 const models = await getCollection('models');
 const data: ModelRecord[] = models.map((m) => ({
@@ -21,6 +22,7 @@ const data: ModelRecord[] = models.map((m) => ({
   avoid_for: m.data.avoid_for,
   benchmarks: m.data.benchmarks,
   source_attribution: m.data.source_attribution,
+  logo: providerLogoSrc(m.data.provider),
 }));
 
 const latestVerified = models.map((m) => m.data.last_verified).sort().at(-1);
@@ -53,6 +55,7 @@ const trackingSince = (priceHistory as { started_tracking: string | null }).star
   <p class="-mt-6 mb-6 max-w-3xl font-mono text-[13px] leading-relaxed text-ink-dim">
     Prices combine vendor pages with LiteLLM (MIT), Helicone (Apache-2.0), and clearly named
     secondary sources where primary data is inaccessible.
+    {' '}
     {latestVerified ? `Latest review ${latestVerified}.` : 'No models reviewed yet.'} Follow each
     model's attribution and recheck the vendor before billing decisions.
   </p>
