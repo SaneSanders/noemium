@@ -9,7 +9,7 @@ const tools = await getCollection('tools');
 const agents = await getCollection('agents');
 
 const testedTools = tools
-  .filter((tool) => tool.data.test_run !== undefined)
+  .filter((tool) => tool.data.evidence_tier === 'field-tested')
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
 
 const fieldTestedAgents = agents
@@ -19,12 +19,12 @@ const sourceVerifiedAgents = agents.filter((agent) => agent.data.evidence_tier =
 ---
 
 <Base
-  title="Tested shelf — published protocols"
-  description="Every card here carries a published test protocol you can dispute: scenarios, artifacts, what was not tested, and who ran it — person or swarm."
+  title="Verified shelf — field-tested only"
+  description="A short shelf on purpose. A card lands here only when we ran the thing hands-on; empty counts are shown honestly."
 >
   <SectionHeader
-    title="Tested shelf"
-    sub="Cards with a published protocol. Scenarios, artifacts, what was not tested, and who ran it — person or swarm."
+    title="Verified shelf"
+    sub="Field-tested cards only — we ran the thing hands-on. Source-verified cards are audited against primary sources but stay off this shelf."
   />
 
   <article class="max-w-5xl pb-16">
@@ -40,14 +40,14 @@ const sourceVerifiedAgents = agents.filter((agent) => agent.data.evidence_tier =
 
       {testedTools.length > 0 ? (
         <div class="mt-8 grid gap-6 md:grid-cols-2">
-          {testedTools.map((tool) => <ToolCard tool={tool} showProtocol />)}
+          {testedTools.map((tool) => <ToolCard tool={tool} />)}
         </div>
       ) : (
         <div class="mt-8 border border-dashed border-ink p-6">
           <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-accent uppercase">0 of {tools.length} tools</p>
           <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink opacity-80">
-            None yet. A tool lands here only when it ships with a published test_run protocol:
-            dated scenarios, artifacts, what was not tested, and who ran it.
+            None yet. A tool lands here only after hands-on use — not from reading the
+            vendor's pricing page.
           </p>
         </div>
       )}

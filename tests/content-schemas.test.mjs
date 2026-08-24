@@ -116,38 +116,6 @@ test('rejects a half-written tool briefing', () => {
   assert.equal(toolSchema.safeParse(data).success, false);
 });
 
-test('accepts a complete tool test_run', () => {
-  const data = {
-    ...toolBase,
-    verdict: 'ship',
-    test_run: {
-      date: '2026-08-24',
-      actor: 'person',
-      scenarios: ['Daily coding session.', 'Multi-file refactor.'],
-      artifacts: ['https://example.com/run-log'],
-      not_tested: ['Enterprise admin panel.'],
-      duration_minutes: 120,
-    },
-  };
-  assert.equal(toolSchema.safeParse(data).success, true);
-});
-
-test('rejects a test_run with only one scenario', () => {
-  const data = {
-    ...toolBase,
-    verdict: 'ship',
-    test_run: {
-      date: '2026-08-24',
-      actor: 'swarm',
-      scenarios: ['Single scenario.'],
-      artifacts: ['https://example.com/run-log'],
-      not_tested: ['Edge cases.'],
-      duration_minutes: 60,
-    },
-  };
-  assert.equal(toolSchema.safeParse(data).success, false);
-});
-
 const stackBase = {
   title: 'Content pipeline',
   use_case: 'Ship a weekly thread.',

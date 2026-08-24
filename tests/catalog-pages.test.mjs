@@ -74,10 +74,10 @@ test('tool page renders Models row with resolved names and routing badge', () =>
   assert.match(html, /bundled/);
 });
 
-test('llms.txt curates tested shelf and links to full dump', () => {
+test('llms.txt curates verified shelf and links to full dump', () => {
   const llms = built('llms.txt');
-  assert.match(llms, /Tested shelf/);
-  assert.match(llms, /Cursor/);
+  assert.match(llms, /Verified shelf/);
+  assert.match(llms, /## Jobs/);
   assert.match(llms, /llms-full\.txt/);
 });
 
@@ -101,13 +101,11 @@ test('a featured ship card renders the briefing grid', () => {
   assert.match(html, /Add to kit/);
 });
 
-test('verified page renders the tested shelf', () => {
+test('verified page renders the field-tested shelf honestly', () => {
   const html = built('verified/index.html');
-  assert.match(html, />Tested shelf</);
-  assert.match(html, /published test protocol/i);
-  assert.match(html, /cursor/i);
-  assert.match(html, />person</);
-  assert.match(html, /2026-08-24/);
+  assert.match(html, />Verified shelf</);
+  assert.match(html, /Field-tested cards only/);
+  assert.match(html, /0 of/);
 });
 
 test('models index surfaces retirement with successor link', () => {

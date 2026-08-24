@@ -35,17 +35,6 @@ export const toolCategories = [
   'models-api',
 ] as const;
 
-const testRunSchema = z
-  .object({
-    date: isoDate,
-    actor: z.enum(['person', 'swarm']),
-    scenarios: z.array(z.string().min(1)).min(2).max(5),
-    artifacts: z.array(httpsUrl).min(1),
-    not_tested: z.array(z.string().min(1)).min(1),
-    duration_minutes: z.number().positive(),
-  })
-  .strict();
-
 export const toolSchema = z.object({
   name: z.string().min(1),
   tagline: z.string().max(120),
@@ -64,8 +53,6 @@ export const toolSchema = z.object({
   verdict: z.enum(['ship', 'situational', 'skip']),
   verdict_text: z.string().min(1),
   limitations: z.array(z.string()).min(1),
-  // Optional published test protocol. Ship verdicts should carry one.
-  test_run: testRunSchema.optional(),
   // Optional decision briefing. If any field is set, all three must be.
   strengths: z.array(z.string().min(1).max(180)).min(2).max(6).optional(),
   use_for: z.array(z.string().min(1).max(180)).min(2).max(5).optional(),
@@ -439,4 +426,3 @@ export type Job = z.infer<typeof jobSchema>;
 export type Stack = z.infer<typeof stackSchema>;
 export type Model = z.infer<typeof modelSchema>;
 export type Graveyard = z.infer<typeof graveyardSchema>;
-export type TestRun = z.infer<typeof testRunSchema>;

@@ -210,59 +210,6 @@ const disputePrompt = [
     }
 
     {
-      t.test_run ? (
-        <section class="nm-card mt-10 p-6 md:p-8">
-          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
-            <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Test run</h2>
-            <span class="rounded-sm border border-ink px-1.5 py-0.5 font-mono text-[11px] font-medium tracking-[0.14em] uppercase text-ink">
-              {t.test_run.actor}
-            </span>
-          </div>
-          <p class="mt-4 font-mono text-[13px] text-ink-dim">
-            {t.test_run.date}
-            <span class="mx-2" aria-hidden="true">·</span>
-            {t.test_run.duration_minutes} min
-          </p>
-          <div class="mt-6 grid gap-6 lg:grid-cols-2">
-            <div>
-              <h3 class="font-mono text-[12px] font-bold tracking-[0.12em] text-ink-dim uppercase">Scenarios</h3>
-              <ul class="mt-3 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-accent">
-                {t.test_run.scenarios.map((s) => <li>{s}</li>)}
-              </ul>
-            </div>
-            <div>
-              <h3 class="font-mono text-[12px] font-bold tracking-[0.12em] text-ink-dim uppercase">Not tested</h3>
-              <ul class="mt-3 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-verdict-skip">
-                {t.test_run.not_tested.map((s) => <li>{s}</li>)}
-              </ul>
-            </div>
-          </div>
-          <div class="mt-6">
-            <h3 class="font-mono text-[12px] font-bold tracking-[0.12em] text-ink-dim uppercase">Artifacts</h3>
-            <ol class="mt-3 space-y-2">
-              {t.test_run.artifacts.map((r, i) => (
-                <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[13px]">
-                  <sup class="font-bold text-accent">{i + 1}</sup>
-                  <a href={r} class="text-accent hover:underline" rel="noopener">
-                    {hostname(r)}
-                    <span class="text-ink-dim">{new URL(r).pathname === '/' ? '' : new URL(r).pathname}</span>
-                  </a>
-                  <a href={archiveUrl(r)} class="text-ink-dim hover:text-accent" rel="noopener">
-                    [snapshot]
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      ) : t.verdict === 'ship' ? (
-        <p class="mt-10 font-mono text-[13px] text-ink-dim">
-          Protocol not published — this verdict predates the protocol rule.
-        </p>
-      ) : null
-    }
-
-    {
       (t.verdict === 'ship' || t.verdict === 'situational') && (
         <section class="nm-card mt-10 p-6 md:p-8">
           <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Buy-check</h2>
