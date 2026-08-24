@@ -1,18 +1,233 @@
 {
-  "generated_at": "2026-08-24T03:41:33.300Z",
+  "generated_at": "2026-08-24T06:29:45.982Z",
   "weeks": [
     {
       "id": "2026-W35",
       "from": "2026-08-24",
       "to": "2026-08-31",
       "counts": {
-        "added": 0,
+        "added": 14,
         "removed": 0,
-        "changed": 1
+        "changed": 16
       },
-      "added": [],
+      "added": [
+        {
+          "collection": "graveyard",
+          "slug": "artifact",
+          "name": "Artifact",
+          "category": "productivity"
+        },
+        {
+          "collection": "graveyard",
+          "slug": "galactica",
+          "name": "Galactica",
+          "category": "models-api"
+        },
+        {
+          "collection": "graveyard",
+          "slug": "humane-ai-pin",
+          "name": "Humane AI Pin",
+          "category": "productivity"
+        },
+        {
+          "collection": "graveyard",
+          "slug": "kite",
+          "name": "Kite",
+          "category": "coding"
+        },
+        {
+          "collection": "graveyard",
+          "slug": "microsoft-cortana",
+          "name": "Microsoft Cortana",
+          "category": "productivity"
+        },
+        {
+          "collection": "graveyard",
+          "slug": "skiff",
+          "name": "Skiff",
+          "category": "productivity"
+        },
+        {
+          "collection": "graveyard",
+          "slug": "supermaven",
+          "name": "Supermaven",
+          "category": "coding"
+        },
+        {
+          "collection": "graveyard",
+          "slug": "tome",
+          "name": "Tome",
+          "category": "productivity"
+        },
+        {
+          "collection": "graveyard",
+          "slug": "woebot",
+          "name": "Woebot",
+          "category": "agents"
+        },
+        {
+          "collection": "jobs",
+          "slug": "code-assist",
+          "name": "Code assist"
+        },
+        {
+          "collection": "jobs",
+          "slug": "founder-solo-writing",
+          "name": "Founder solo writing"
+        },
+        {
+          "collection": "jobs",
+          "slug": "image-gen",
+          "name": "Image generation"
+        },
+        {
+          "collection": "jobs",
+          "slug": "inbox-triage",
+          "name": "Inbox triage"
+        },
+        {
+          "collection": "jobs",
+          "slug": "meeting-notes",
+          "name": "Meeting notes"
+        }
+      ],
       "removed": [],
       "changed": [
+        {
+          "collection": "tools",
+          "slug": "comet",
+          "name": "Comet",
+          "category": "productivity",
+          "field": "price note",
+          "from": "browser free worldwide; Comet Plus $5/mo standalone, included with Perplexity Pro/Max; Comet Agent quotas follow Pro/Max on the hub pricing table",
+          "to": "browser free worldwide; Comet Plus $5/mo standalone (included with Perplexity Pro $20/mo or Max $200/mo); Comet Agent quotas follow Pro/Max on the hub pricing table"
+        },
+        {
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "category": "audio",
+          "field": "price note",
+          "from": "CosyVoice 2 from ~$0.287/M input tokens; CosyVoice 3.5 Plus from ~$0.22/M input tokens; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)",
+          "to": "CosyVoice 2 from ~$0.287/10,000 characters; CosyVoice 3.5 Plus from ~$0.22/10,000 characters; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepseek-chat",
+          "name": "DeepSeek Chat",
+          "category": "productivity",
+          "field": "pricing",
+          "from": "freemium",
+          "to": "free"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepseek-chat",
+          "name": "DeepSeek Chat",
+          "category": "productivity",
+          "field": "price note",
+          "from": "web/app chat is free-to-start; API is a different product (see DeepSeek API) with peak/off-peak token rates",
+          "to": "web/app chat is free; API is a different product (see DeepSeek API) with peak/off-peak token rates"
+        },
+        {
+          "collection": "tools",
+          "slug": "groq",
+          "name": "Groq",
+          "category": "dev-infra",
+          "field": "price note",
+          "from": "free tier; from $0.05/1M tokens (small models)",
+          "to": "free tier; from $0.075/1M tokens (small models)"
+        },
+        {
+          "collection": "tools",
+          "slug": "higgsfield",
+          "name": "Higgsfield",
+          "category": "video",
+          "field": "price note",
+          "from": "free tier; paid from $12/mo",
+          "to": "free tier with limited/daily credits; paid from ~$15-19/mo (Starter), $47-59/mo (Plus), $99-129/mo (Ultra)"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026",
+          "to": "Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from ~1.8 yuan (~$0.27)/generation on TokenHub; older TurboS/T1 and HY2.0 lines retired June 2026"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Pro $24.99/mo or $179.88/yr billed yearly",
+          "to": "free tier; Pro from ~$16/mo (sources differ $16-18/mo, $96-145/yr — confirm on the Stripe pricing table)"
+        },
+        {
+          "collection": "tools",
+          "slug": "mem-ai",
+          "name": "Mem",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free tier; paid from $8/mo",
+          "to": "free tier; paid from $9/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "merlin",
+          "name": "Merlin",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free 102 queries/day; Pro $19/mo; Teams $15/seat/mo (2-seat min, $180/yr per seat)",
+          "to": "free 102 queries/day; Pro $19/mo; Teams $15/seat/mo (5-seat min, $180/yr per seat)"
+        },
+        {
+          "collection": "tools",
+          "slug": "reve",
+          "name": "Reve",
+          "category": "image",
+          "field": "price note",
+          "from": "Free with daily energy; Lite $7.99/mo (5× energy); Pro $19.99/mo (100× energy, video energy); API credits sold separately in console",
+          "to": "Free with daily energy; Lite $7.99/mo (5× energy); Pro $19.99/mo (100× energy, video energy); API from $10 = 7,500 credits"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity",
+          "field": "pricing",
+          "from": "paid",
+          "to": "freemium"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity",
+          "field": "price note",
+          "from": "no free mail tier; standalone Mail Starter $30/mo ($300/yr) or Business $40/mo ($396/yr); suite Business $33/mo annual ($40/mo) includes Mail",
+          "to": "freemium suite; Free/Pro tiers cover Grammarly/Docs/Go but not Mail; Mail requires the Business suite: $40 per member/mo monthly or $33/mo billed annually ($396/yr)"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity",
+          "field": "free tier",
+          "from": false,
+          "to": true
+        },
+        {
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "category": "video",
+          "field": "price note",
+          "from": "free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each",
+          "to": "free plan includes 80 credits/mo plus unlimited off-peak generation; paid plans credit-based; API credits $0.005 each but generations priced per operation by model/resolution/duration (Q2-turbo 540P from $0.03, Q2-Pro 1080P from $0.425)"
+        },
         {
           "collection": "models",
           "slug": "mistral-large-2512",
@@ -31,11 +246,158 @@
       ],
       "risk": [
         {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "comet",
+          "name": "Comet",
+          "detail": "price note: browser free worldwide; Comet Plus $5/mo standalone, included with Perplexity Pro/Max; Comet Agent quotas follow Pro/Max on the hub pricing table → browser free worldwide; Comet Plus $5/mo standalone (included with Perplexity Pro $20/mo or Max $200/mo); Comet Agent quotas follow Pro/Max on the hub pricing table"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "detail": "price note: CosyVoice 2 from ~$0.287/M input tokens; CosyVoice 3.5 Plus from ~$0.22/M input tokens; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region) → CosyVoice 2 from ~$0.287/10,000 characters; CosyVoice 3.5 Plus from ~$0.22/10,000 characters; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "deepseek-chat",
+          "name": "DeepSeek Chat",
+          "detail": "pricing: freemium → free"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "groq",
+          "name": "Groq",
+          "detail": "price note: free tier; from $0.05/1M tokens (small models) → free tier; from $0.075/1M tokens (small models)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "higgsfield",
+          "name": "Higgsfield",
+          "detail": "price note: free tier; paid from $12/mo → free tier with limited/daily credits; paid from ~$15-19/mo (Starter), $47-59/mo (Plus), $99-129/mo (Ultra)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "detail": "price note: Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026 → Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from ~1.8 yuan (~$0.27)/generation on TokenHub; older TurboS/T1 and HY2.0 lines retired June 2026"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "detail": "price note: free tier; Pro $24.99/mo or $179.88/yr billed yearly → free tier; Pro from ~$16/mo (sources differ $16-18/mo, $96-145/yr — confirm on the Stripe pricing table)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "mem-ai",
+          "name": "Mem",
+          "detail": "price note: free tier; paid from $8/mo → free tier; paid from $9/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "merlin",
+          "name": "Merlin",
+          "detail": "price note: free 102 queries/day; Pro $19/mo; Teams $15/seat/mo (2-seat min, $180/yr per seat) → free 102 queries/day; Pro $19/mo; Teams $15/seat/mo (5-seat min, $180/yr per seat)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "reve",
+          "name": "Reve",
+          "detail": "price note: Free with daily energy; Lite $7.99/mo (5× energy); Pro $19.99/mo (100× energy, video energy); API credits sold separately in console → Free with daily energy; Lite $7.99/mo (5× energy); Pro $19.99/mo (100× energy, video energy); API from $10 = 7,500 credits"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "detail": "pricing: paid → freemium"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "detail": "price note: free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each → free plan includes 80 credits/mo plus unlimited off-peak generation; paid plans credit-based; API credits $0.005 each but generations priced per operation by model/resolution/duration (Q2-turbo 540P from $0.03, Q2-Pro 1080P from $0.425)"
+        },
+        {
           "class": "retirement",
           "collection": "models",
           "slug": "mistral-large-2512",
           "name": "Mistral Large 3",
           "detail": "retiring 2026-08-31 → mistral-medium-3-5"
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "artifact",
+          "name": "Artifact",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "galactica",
+          "name": "Galactica",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "humane-ai-pin",
+          "name": "Humane AI Pin",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "kite",
+          "name": "Kite",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "microsoft-cortana",
+          "name": "Microsoft Cortana",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "skiff",
+          "name": "Skiff",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "supermaven",
+          "name": "Supermaven",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "tome",
+          "name": "Tome",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
+          "slug": "woebot",
+          "name": "Woebot",
+          "detail": ""
         }
       ]
     },
@@ -51,8 +413,44 @@
       "added": [
         {
           "collection": "tools",
+          "slug": "comet",
+          "name": "Comet",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepseek-chat",
+          "name": "DeepSeek Chat",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "reve",
+          "name": "Reve",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "amp",
+          "name": "Amp",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
           "slug": "cline",
           "name": "Cline",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "goose",
+          "name": "Goose",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "kilo-code",
+          "name": "Kilo Code",
           "category": "coding"
         },
         {
@@ -60,6 +458,24 @@
           "slug": "openai-codex",
           "name": "OpenAI Codex",
           "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "figma",
+          "name": "Figma",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "gemini",
+          "name": "Gemini",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "linear",
+          "name": "Linear",
+          "category": "productivity"
         },
         {
           "collection": "models",
@@ -122,12 +538,6 @@
         },
         {
           "collection": "tools",
-          "slug": "deepseek-chat",
-          "name": "DeepSeek Chat",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
           "slug": "flowglad",
           "name": "Flowglad",
           "category": "automation"
@@ -149,12 +559,6 @@
           "slug": "mindstudio",
           "name": "MindStudio",
           "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "reve",
-          "name": "Reve",
-          "category": "image"
         },
         {
           "collection": "tools",
@@ -258,12 +662,6 @@
         },
         {
           "collection": "tools",
-          "slug": "amp",
-          "name": "Amp",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "argus",
           "name": "Argus",
           "category": "automation"
@@ -348,12 +746,6 @@
         },
         {
           "collection": "tools",
-          "slug": "figma",
-          "name": "Figma",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
           "slug": "fish-audio",
           "name": "Fish Audio",
           "category": "audio"
@@ -366,12 +758,6 @@
         },
         {
           "collection": "tools",
-          "slug": "gemini",
-          "name": "Gemini",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
           "slug": "google-antigravity",
           "name": "Google Antigravity",
           "category": "coding"
@@ -381,12 +767,6 @@
           "slug": "google-vertex-ai",
           "name": "Google Vertex AI",
           "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "goose",
-          "name": "Goose",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -426,12 +806,6 @@
         },
         {
           "collection": "tools",
-          "slug": "kilo-code",
-          "name": "Kilo Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "kimi-api",
           "name": "Kimi API",
           "category": "models-api"
@@ -459,12 +833,6 @@
           "slug": "languagetool",
           "name": "LanguageTool",
           "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "linear",
-          "name": "Linear",
-          "category": "productivity"
         },
         {
           "collection": "tools",
@@ -651,16 +1019,190 @@
           "slug": "writer",
           "name": "Writer",
           "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "comet",
-          "name": "Comet",
-          "category": "productivity"
         }
       ],
       "removed": [],
       "changed": [
+        {
+          "collection": "tools",
+          "slug": "codegeex",
+          "name": "CodeGeeX",
+          "category": "coding",
+          "field": "price note",
+          "from": "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product",
+          "to": "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product from $18/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "consensus",
+          "name": "Consensus",
+          "category": "data",
+          "field": "price note",
+          "from": "free tier; Premium from $10/mo",
+          "to": "free tier; Pro $20/mo ($144/yr), Deep $65/mo ($540/yr)"
+        },
+        {
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "category": "audio",
+          "field": "price note",
+          "from": "CosyVoice 2 from ~$0.287/M input tokens; voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)",
+          "to": "CosyVoice 2 from ~$0.287/M input tokens; CosyVoice 3.5 Plus from ~$0.22/M input tokens; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
+        },
+        {
+          "collection": "tools",
+          "slug": "ernie-api",
+          "name": "Baidu ERNIE API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "ERNIE 4.5 Turbo 32K ~$0.11/$0.44 per 1M; ERNIE Lite Pro 128K ~$0.028/$0.056; ERNIE Speed Pro 128K ~$0.042/$0.083; ERNIE 5.1 flagship pricing not fetched",
+          "to": "ERNIE 5.1 ≤32k ~$0.56/$2.54 per 1M, 32k-128k ~$0.85/$3.10; ERNIE 4.5 Turbo 32K/128K ~$0.11/$0.45; ERNIE X1.1 ~$0.14/$0.56; prices in CNY, USD approximate"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Hunyuan TurboS ~$0.11/$0.28 per 1M (256K context); T1 ~$0.14/$0.56 (128K); HY3 $0.18/$0.72; HY3-preview $0.063/$0.21 via OpenRouter; Hunyuan 3D from $0.02/image",
+          "to": "Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-video",
+          "name": "Hunyuan Video",
+          "category": "video",
+          "field": "price note",
+          "from": "Open weights, self-host infrastructure cost only; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud; hosted API pricing not directly fetched",
+          "to": "Open weights, self-host infrastructure cost only; HunyuanVideo-1.5 hosted API ~$0.075/sec (480p) via fal.ai; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud"
+        },
+        {
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)",
+          "to": "free tier (weekly credits, amount may vary); Plus $15/mo (annual), Pro $42/mo (annual), Team $20/user/mo (annual)"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Pro $25/mo or $15/mo billed yearly",
+          "to": "free tier; Pro $24.99/mo or $179.88/yr billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "stepfun-api",
+          "name": "StepFun API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Step-2 ~$0.83/$2.50 per 1M; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33; Step 3.5 Flash open-source $0.10/$0.30",
+          "to": "Step 3.7 Flash ~$0.20/$1.15 per 1M; Step 3.5 Flash open-source $0.10/$0.30; Step-2 ~$0.83/$2.50; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)",
+          "to": "no free mail tier; standalone Mail Starter $30/mo ($300/yr) or Business $40/mo ($396/yr); suite Business $33/mo annual ($40/mo) includes Mail"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "pricing",
+          "from": "paid",
+          "to": "freemium"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "price note",
+          "from": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo",
+          "to": "free daily credits in Flow; Google AI Pro $19.99/mo (1000 Flow credits/mo); Ultra 5x $99.99/mo (10k Flow credits/mo) / 20x $199.99/mo (25k Flow credits/mo)"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "free tier",
+          "from": false,
+          "to": true
+        },
+        {
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "category": "video",
+          "field": "price note",
+          "from": "Free plan 80 credits/mo; Standard $9.99/mo, Premium $19.99/mo, Ultimate $59.99/mo, Enterprise custom; API credit-based (~1 credit ≈ $0.005)",
+          "to": "free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Yi-Large $3.00/M input and output, 33K context; Yi-Lightning successor pricing not precisely fetched; enterprise managed cloud from ~$199/month",
+          "to": "yi-lightning ¥0.99/1M (~$0.14) and yi-vision-v2 ¥6/1M (~$0.85), 16K context; new signups/top-ups closed 2026-08-03, API calls end 2026-09-03"
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api",
+          "field": "free tier",
+          "from": true,
+          "to": false
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api",
+          "field": "verdict",
+          "from": "situational",
+          "to": "skip"
+        },
+        {
+          "collection": "tools",
+          "slug": "amp",
+          "name": "Amp",
+          "category": "coding",
+          "field": "price note",
+          "from": "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing; education $10/mo",
+          "to": "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing"
+        },
+        {
+          "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "category": "coding",
+          "field": "price note",
+          "from": "included in Claude Pro from $20/mo; API pay-per-token",
+          "to": "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
+        },
+        {
+          "collection": "tools",
+          "slug": "cline",
+          "name": "Cline",
+          "category": "coding",
+          "field": "price note",
+          "from": "extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA)",
+          "to": "extension/CLI free for individuals (BYOK or Cline inference at cost); optional ClinePass $9.99/mo for open-weight models; Enterprise custom (SSO, JetBrains, SLA)"
+        },
         {
           "collection": "tools",
           "slug": "cursor",
@@ -669,6 +1211,33 @@
           "field": "price note",
           "from": "from $20/mo (Pro)",
           "to": "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
+        },
+        {
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "category": "coding",
+          "field": "price note",
+          "from": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo",
+          "to": "Free $0 (2,000 completions/mo, 50 chat requests, CLI, limited agent mode); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
+        },
+        {
+          "collection": "tools",
+          "slug": "zed",
+          "name": "Zed",
+          "category": "coding",
+          "field": "price note",
+          "from": "editor free; hosted AI plans from $10/mo",
+          "to": "editor free; Pro $10/mo includes $5 token credits, overage at API list price +10%; Business $30/seat/mo; BYOK free"
+        },
+        {
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "category": "writing",
+          "field": "price note",
+          "from": "Pro $69/seat/mo or $59/seat/mo billed yearly",
+          "to": "$69/seat/mo"
         },
         {
           "collection": "tools",
@@ -735,39 +1304,12 @@
         },
         {
           "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "category": "coding",
-          "field": "price note",
-          "from": "included in Claude Pro from $20/mo; API pay-per-token",
-          "to": "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
-        },
-        {
-          "collection": "tools",
           "slug": "claude",
           "name": "Claude",
           "category": "productivity",
           "field": "price note",
           "from": "free tier; Pro $20/mo",
           "to": "free tier; Pro $20/mo ($17/mo billed yearly, $200 up front); Max from $100/mo"
-        },
-        {
-          "collection": "tools",
-          "slug": "cline",
-          "name": "Cline",
-          "category": "coding",
-          "field": "price note",
-          "from": "extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA)",
-          "to": "extension/CLI free for individuals (BYOK or Cline inference at cost); optional ClinePass $9.99/mo for open-weight models; Enterprise custom (SSO, JetBrains, SLA)"
-        },
-        {
-          "collection": "tools",
-          "slug": "codegeex",
-          "name": "CodeGeeX",
-          "category": "coding",
-          "field": "price note",
-          "from": "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product",
-          "to": "CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product from $18/mo"
         },
         {
           "collection": "tools",
@@ -804,15 +1346,6 @@
           "field": "price note",
           "from": "open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image",
           "to": "open weights (FLUX.2 Klein, Apache-2.0); API from ~$0.014/image"
-        },
-        {
-          "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "category": "coding",
-          "field": "price note",
-          "from": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo",
-          "to": "Free $0 (2,000 completions/mo, 50 chat requests, CLI, limited agent mode); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
         },
         {
           "collection": "tools",
@@ -950,159 +1483,6 @@
           "to": "self-host free; cloud from $10/mo (Hobby)"
         },
         {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "pricing",
-          "from": "paid",
-          "to": "freemium"
-        },
-        {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "price note",
-          "from": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo",
-          "to": "free daily credits in Flow; Google AI Pro $19.99/mo (1000 Flow credits/mo); Ultra 5x $99.99/mo (10k Flow credits/mo) / 20x $199.99/mo (25k Flow credits/mo)"
-        },
-        {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "free tier",
-          "from": false,
-          "to": true
-        },
-        {
-          "collection": "tools",
-          "slug": "consensus",
-          "name": "Consensus",
-          "category": "data",
-          "field": "price note",
-          "from": "free tier; Premium from $10/mo",
-          "to": "free tier; Pro $20/mo ($144/yr), Deep $65/mo ($540/yr)"
-        },
-        {
-          "collection": "tools",
-          "slug": "cosyvoice",
-          "name": "CosyVoice",
-          "category": "audio",
-          "field": "price note",
-          "from": "CosyVoice 2 from ~$0.287/M input tokens; voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)",
-          "to": "CosyVoice 2 from ~$0.287/M input tokens; CosyVoice 3.5 Plus from ~$0.22/M input tokens; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
-        },
-        {
-          "collection": "tools",
-          "slug": "ernie-api",
-          "name": "Baidu ERNIE API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "ERNIE 4.5 Turbo 32K ~$0.11/$0.44 per 1M; ERNIE Lite Pro 128K ~$0.028/$0.056; ERNIE Speed Pro 128K ~$0.042/$0.083; ERNIE 5.1 flagship pricing not fetched",
-          "to": "ERNIE 5.1 ≤32k ~$0.56/$2.54 per 1M, 32k-128k ~$0.85/$3.10; ERNIE 4.5 Turbo 32K/128K ~$0.11/$0.45; ERNIE X1.1 ~$0.14/$0.56; prices in CNY, USD approximate"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-api",
-          "name": "Hunyuan API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "Hunyuan TurboS ~$0.11/$0.28 per 1M (256K context); T1 ~$0.14/$0.56 (128K); HY3 $0.18/$0.72; HY3-preview $0.063/$0.21 via OpenRouter; Hunyuan 3D from $0.02/image",
-          "to": "Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-video",
-          "name": "Hunyuan Video",
-          "category": "video",
-          "field": "price note",
-          "from": "Open weights, self-host infrastructure cost only; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud; hosted API pricing not directly fetched",
-          "to": "Open weights, self-host infrastructure cost only; HunyuanVideo-1.5 hosted API ~$0.075/sec (480p) via fal.ai; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud"
-        },
-        {
-          "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "category": "image",
-          "field": "price note",
-          "from": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)",
-          "to": "free tier (weekly credits, amount may vary); Plus $15/mo (annual), Pro $42/mo (annual), Team $20/user/mo (annual)"
-        },
-        {
-          "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "category": "writing",
-          "field": "price note",
-          "from": "free tier; Pro $25/mo or $15/mo billed yearly",
-          "to": "free tier; Pro $24.99/mo or $179.88/yr billed yearly"
-        },
-        {
-          "collection": "tools",
-          "slug": "stepfun-api",
-          "name": "StepFun API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "Step-2 ~$0.83/$2.50 per 1M; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33; Step 3.5 Flash open-source $0.10/$0.30",
-          "to": "Step 3.7 Flash ~$0.20/$1.15 per 1M; Step 3.5 Flash open-source $0.10/$0.30; Step-2 ~$0.83/$2.50; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33"
-        },
-        {
-          "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "category": "productivity",
-          "field": "price note",
-          "from": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)",
-          "to": "no free mail tier; standalone Mail Starter $30/mo ($300/yr) or Business $40/mo ($396/yr); suite Business $33/mo annual ($40/mo) includes Mail"
-        },
-        {
-          "collection": "tools",
-          "slug": "vidu",
-          "name": "Vidu",
-          "category": "video",
-          "field": "price note",
-          "from": "Free plan 80 credits/mo; Standard $9.99/mo, Premium $19.99/mo, Ultimate $59.99/mo, Enterprise custom; API credit-based (~1 credit ≈ $0.005)",
-          "to": "free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
-        },
-        {
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "Yi-Large $3.00/M input and output, 33K context; Yi-Lightning successor pricing not precisely fetched; enterprise managed cloud from ~$199/month",
-          "to": "yi-lightning ¥0.99/1M (~$0.14) and yi-vision-v2 ¥6/1M (~$0.85), 16K context; new signups/top-ups closed 2026-08-03, API calls end 2026-09-03"
-        },
-        {
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "category": "models-api",
-          "field": "free tier",
-          "from": true,
-          "to": false
-        },
-        {
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "category": "models-api",
-          "field": "verdict",
-          "from": "situational",
-          "to": "skip"
-        },
-        {
-          "collection": "tools",
-          "slug": "zed",
-          "name": "Zed",
-          "category": "coding",
-          "field": "price note",
-          "from": "editor free; hosted AI plans from $10/mo",
-          "to": "editor free; Pro $10/mo includes $5 token credits, overage at API list price +10%; Business $30/seat/mo; BYOK free"
-        },
-        {
           "collection": "models",
           "slug": "glm-5-3",
           "name": "GLM 5.3",
@@ -1142,15 +1522,6 @@
           "field": "price note",
           "from": "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only)",
           "to": "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
-        },
-        {
-          "collection": "tools",
-          "slug": "amp",
-          "name": "Amp",
-          "category": "coding",
-          "field": "price note",
-          "from": "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing; education $10/mo",
-          "to": "Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing"
         },
         {
           "collection": "tools",
@@ -1286,15 +1657,6 @@
           "field": "price note",
           "from": "free tier with watermark; Plus from $20/mo",
           "to": "Plus from $17/mo"
-        },
-        {
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "category": "writing",
-          "field": "price note",
-          "from": "Pro $69/seat/mo or $59/seat/mo billed yearly",
-          "to": "$69/seat/mo"
         },
         {
           "collection": "tools",
@@ -1472,9 +1834,149 @@
         {
           "class": "price_change",
           "collection": "tools",
+          "slug": "codegeex",
+          "name": "CodeGeeX",
+          "detail": "price note: CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product → CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product from $18/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "consensus",
+          "name": "Consensus",
+          "detail": "price note: free tier; Premium from $10/mo → free tier; Pro $20/mo ($144/yr), Deep $65/mo ($540/yr)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "detail": "price note: CosyVoice 2 from ~$0.287/M input tokens; voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region) → CosyVoice 2 from ~$0.287/M input tokens; CosyVoice 3.5 Plus from ~$0.22/M input tokens; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "ernie-api",
+          "name": "Baidu ERNIE API",
+          "detail": "price note: ERNIE 4.5 Turbo 32K ~$0.11/$0.44 per 1M; ERNIE Lite Pro 128K ~$0.028/$0.056; ERNIE Speed Pro 128K ~$0.042/$0.083; ERNIE 5.1 flagship pricing not fetched → ERNIE 5.1 ≤32k ~$0.56/$2.54 per 1M, 32k-128k ~$0.85/$3.10; ERNIE 4.5 Turbo 32K/128K ~$0.11/$0.45; ERNIE X1.1 ~$0.14/$0.56; prices in CNY, USD approximate"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "detail": "price note: Hunyuan TurboS ~$0.11/$0.28 per 1M (256K context); T1 ~$0.14/$0.56 (128K); HY3 $0.18/$0.72; HY3-preview $0.063/$0.21 via OpenRouter; Hunyuan 3D from $0.02/image → Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "hunyuan-video",
+          "name": "Hunyuan Video",
+          "detail": "price note: Open weights, self-host infrastructure cost only; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud; hosted API pricing not directly fetched → Open weights, self-host infrastructure cost only; HunyuanVideo-1.5 hosted API ~$0.075/sec (480p) via fal.ai; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "detail": "price note: free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly) → free tier (weekly credits, amount may vary); Plus $15/mo (annual), Pro $42/mo (annual), Team $20/user/mo (annual)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "detail": "price note: free tier; Pro $25/mo or $15/mo billed yearly → free tier; Pro $24.99/mo or $179.88/yr billed yearly"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "stepfun-api",
+          "name": "StepFun API",
+          "detail": "price note: Step-2 ~$0.83/$2.50 per 1M; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33; Step 3.5 Flash open-source $0.10/$0.30 → Step 3.7 Flash ~$0.20/$1.15 per 1M; Step 3.5 Flash open-source $0.10/$0.30; Step-2 ~$0.83/$2.50; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "detail": "price note: free suite tier (no mail); Mail from $25/mo (Starter, yearly) → no free mail tier; standalone Mail Starter $30/mo ($300/yr) or Business $40/mo ($396/yr); suite Business $33/mo annual ($40/mo) includes Mail"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "detail": "pricing: paid → freemium"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "detail": "price note: Free plan 80 credits/mo; Standard $9.99/mo, Premium $19.99/mo, Ultimate $59.99/mo, Enterprise custom; API credit-based (~1 credit ≈ $0.005) → free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "detail": "price note: Yi-Large $3.00/M input and output, 33K context; Yi-Lightning successor pricing not precisely fetched; enterprise managed cloud from ~$199/month → yi-lightning ¥0.99/1M (~$0.14) and yi-vision-v2 ¥6/1M (~$0.85), 16K context; new signups/top-ups closed 2026-08-03, API calls end 2026-09-03"
+        },
+        {
+          "class": "verdict_change",
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "detail": "verdict: situational → skip"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "amp",
+          "name": "Amp",
+          "detail": "price note: Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing; education $10/mo → Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "detail": "price note: included in Claude Pro from $20/mo; API pay-per-token → included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "cline",
+          "name": "Cline",
+          "detail": "price note: extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA) → extension/CLI free for individuals (BYOK or Cline inference at cost); optional ClinePass $9.99/mo for open-weight models; Enterprise custom (SSO, JetBrains, SLA)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
           "slug": "cursor",
           "name": "Cursor",
           "detail": "price note: from $20/mo (Pro) → Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "detail": "price note: free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo → Free $0 (2,000 completions/mo, 50 chat requests, CLI, limited agent mode); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "zed",
+          "name": "Zed",
+          "detail": "price note: editor free; hosted AI plans from $10/mo → editor free; Pro $10/mo includes $5 token credits, overage at API list price +10%; Business $30/seat/mo; BYOK free"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "detail": "price note: Pro $69/seat/mo or $59/seat/mo billed yearly → $69/seat/mo"
         },
         {
           "class": "price_change",
@@ -1500,30 +2002,9 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "detail": "price note: included in Claude Pro from $20/mo; API pay-per-token → included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "claude",
           "name": "Claude",
           "detail": "price note: free tier; Pro $20/mo → free tier; Pro $20/mo ($17/mo billed yearly, $200 up front); Max from $100/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "cline",
-          "name": "Cline",
-          "detail": "price note: extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA) → extension/CLI free for individuals (BYOK or Cline inference at cost); optional ClinePass $9.99/mo for open-weight models; Enterprise custom (SSO, JetBrains, SLA)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "codegeex",
-          "name": "CodeGeeX",
-          "detail": "price note: CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product → CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product from $18/mo"
         },
         {
           "class": "price_change",
@@ -1552,13 +2033,6 @@
           "slug": "flux",
           "name": "FLUX (Black Forest Labs)",
           "detail": "price note: open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image → open weights (FLUX.2 Klein, Apache-2.0); API from ~$0.014/image"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "detail": "price note: free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo → Free $0 (2,000 completions/mo, 50 chat requests, CLI, limited agent mode); Pro $10/mo ($15 credits); Pro+ $39/mo ($70 credits); Max $100/mo ($200 credits)"
         },
         {
           "class": "price_change",
@@ -1660,104 +2134,6 @@
         },
         {
           "class": "price_change",
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "detail": "pricing: paid → freemium"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "consensus",
-          "name": "Consensus",
-          "detail": "price note: free tier; Premium from $10/mo → free tier; Pro $20/mo ($144/yr), Deep $65/mo ($540/yr)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "cosyvoice",
-          "name": "CosyVoice",
-          "detail": "price note: CosyVoice 2 from ~$0.287/M input tokens; voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region) → CosyVoice 2 from ~$0.287/M input tokens; CosyVoice 3.5 Plus from ~$0.22/M input tokens; CosyVoice voice creation free; Qwen-TTS voice creation $0.20/voice; free quota: 10 voice creations in first 90 days (Singapore region)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "ernie-api",
-          "name": "Baidu ERNIE API",
-          "detail": "price note: ERNIE 4.5 Turbo 32K ~$0.11/$0.44 per 1M; ERNIE Lite Pro 128K ~$0.028/$0.056; ERNIE Speed Pro 128K ~$0.042/$0.083; ERNIE 5.1 flagship pricing not fetched → ERNIE 5.1 ≤32k ~$0.56/$2.54 per 1M, 32k-128k ~$0.85/$3.10; ERNIE 4.5 Turbo 32K/128K ~$0.11/$0.45; ERNIE X1.1 ~$0.14/$0.56; prices in CNY, USD approximate"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "hunyuan-api",
-          "name": "Hunyuan API",
-          "detail": "price note: Hunyuan TurboS ~$0.11/$0.28 per 1M (256K context); T1 ~$0.14/$0.56 (128K); HY3 $0.18/$0.72; HY3-preview $0.063/$0.21 via OpenRouter; Hunyuan 3D from $0.02/image → Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "hunyuan-video",
-          "name": "Hunyuan Video",
-          "detail": "price note: Open weights, self-host infrastructure cost only; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud; hosted API pricing not directly fetched → Open weights, self-host infrastructure cost only; HunyuanVideo-1.5 hosted API ~$0.075/sec (480p) via fal.ai; Hunyuan 3D Rapid ~$0.02/image via Atlas Cloud"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "detail": "price note: free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly) → free tier (weekly credits, amount may vary); Plus $15/mo (annual), Pro $42/mo (annual), Team $20/user/mo (annual)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "detail": "price note: free tier; Pro $25/mo or $15/mo billed yearly → free tier; Pro $24.99/mo or $179.88/yr billed yearly"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "stepfun-api",
-          "name": "StepFun API",
-          "detail": "price note: Step-2 ~$0.83/$2.50 per 1M; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33; Step 3.5 Flash open-source $0.10/$0.30 → Step 3.7 Flash ~$0.20/$1.15 per 1M; Step 3.5 Flash open-source $0.10/$0.30; Step-2 ~$0.83/$2.50; Step-2-mini ~$0.14/$0.42; Step-1.5V ~$0.42/$1.25; Step-R ~$1.11/$3.33"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "detail": "price note: free suite tier (no mail); Mail from $25/mo (Starter, yearly) → no free mail tier; standalone Mail Starter $30/mo ($300/yr) or Business $40/mo ($396/yr); suite Business $33/mo annual ($40/mo) includes Mail"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "vidu",
-          "name": "Vidu",
-          "detail": "price note: Free plan 80 credits/mo; Standard $9.99/mo, Premium $19.99/mo, Ultimate $59.99/mo, Enterprise custom; API credit-based (~1 credit ≈ $0.005) → free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "detail": "price note: Yi-Large $3.00/M input and output, 33K context; Yi-Lightning successor pricing not precisely fetched; enterprise managed cloud from ~$199/month → yi-lightning ¥0.99/1M (~$0.14) and yi-vision-v2 ¥6/1M (~$0.85), 16K context; new signups/top-ups closed 2026-08-03, API calls end 2026-09-03"
-        },
-        {
-          "class": "verdict_change",
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "detail": "verdict: situational → skip"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "zed",
-          "name": "Zed",
-          "detail": "price note: editor free; hosted AI plans from $10/mo → editor free; Pro $10/mo includes $5 token credits, overage at API list price +10%; Business $30/seat/mo; BYOK free"
-        },
-        {
-          "class": "price_change",
           "collection": "models",
           "slug": "glm-5-3",
           "name": "GLM 5.3",
@@ -1769,13 +2145,6 @@
           "slug": "activepieces",
           "name": "Activepieces",
           "detail": "price note: Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only) → Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "amp",
-          "name": "Amp",
-          "detail": "price note: Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing; education $10/mo → Megawatt $20/mo (750 orb-hours, $20 included agent usage); Gigawatt $200/mo; unconstrained usage billing"
         },
         {
           "class": "price_change",
@@ -1867,13 +2236,6 @@
           "slug": "invideo",
           "name": "InVideo",
           "detail": "price note: free tier with watermark; Plus from $20/mo → Plus from $17/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "detail": "price note: Pro $69/seat/mo or $59/seat/mo billed yearly → $69/seat/mo"
         },
         {
           "class": "price_change",
@@ -1994,9 +2356,207 @@
       "added": [
         {
           "collection": "tools",
+          "slug": "codegeex",
+          "name": "CodeGeeX",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "consensus",
+          "name": "Consensus",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "cosyvoice",
+          "name": "CosyVoice",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "ernie-api",
+          "name": "Baidu ERNIE API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "groq",
+          "name": "Groq",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "higgsfield",
+          "name": "Higgsfield",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-api",
+          "name": "Hunyuan API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "hunyuan-video",
+          "name": "Hunyuan Video",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "make",
+          "name": "Make",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "mem-ai",
+          "name": "Mem",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "merlin",
+          "name": "Merlin",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "stepfun-api",
+          "name": "StepFun API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "stitch",
+          "name": "Stitch",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "vidu",
+          "name": "Vidu",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "yi-api",
+          "name": "01.AI Yi API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "aider",
+          "name": "Aider",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
           "slug": "cursor",
           "name": "Cursor",
           "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "kimi-code",
+          "name": "Kimi Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "qwen-code",
+          "name": "Qwen Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "windsurf",
+          "name": "Windsurf",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "zed",
+          "name": "Zed",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "elevenlabs",
+          "name": "ElevenLabs",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "grammarly",
+          "name": "Grammarly",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "midjourney",
+          "name": "Midjourney",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "notion-ai",
+          "name": "Notion AI",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "perplexity",
+          "name": "Perplexity",
+          "category": "data"
         },
         {
           "collection": "tools",
@@ -2009,12 +2569,6 @@
           "slug": "adobe-firefly",
           "name": "Adobe Firefly",
           "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "aider",
-          "name": "Aider",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -2036,27 +2590,9 @@
         },
         {
           "collection": "tools",
-          "slug": "chatgpt",
-          "name": "ChatGPT",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "claude",
           "name": "Claude",
           "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "codegeex",
-          "name": "CodeGeeX",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -2075,12 +2611,6 @@
           "slug": "dify",
           "name": "Dify",
           "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "elevenlabs",
-          "name": "ElevenLabs",
-          "category": "audio"
         },
         {
           "collection": "tools",
@@ -2108,12 +2638,6 @@
         },
         {
           "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "google-ai-studio",
           "name": "Google AI Studio / Gemini API",
           "category": "models-api"
@@ -2123,12 +2647,6 @@
           "slug": "granola",
           "name": "Granola",
           "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "groq",
-          "name": "Groq",
-          "category": "dev-infra"
         },
         {
           "collection": "tools",
@@ -2147,12 +2665,6 @@
           "slug": "inngest",
           "name": "Inngest",
           "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "kimi-code",
-          "name": "Kimi Code",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -2183,18 +2695,6 @@
           "slug": "magic-ui",
           "name": "Magic UI",
           "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "make",
-          "name": "Make",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "midjourney",
-          "name": "Midjourney",
-          "category": "image"
         },
         {
           "collection": "tools",
@@ -2252,12 +2752,6 @@
         },
         {
           "collection": "tools",
-          "slug": "perplexity",
-          "name": "Perplexity",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
           "slug": "qdrant",
           "name": "Qdrant",
           "category": "data"
@@ -2267,12 +2761,6 @@
           "slug": "qwen-api",
           "name": "Qwen API",
           "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "qwen-code",
-          "name": "Qwen Code",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -2354,12 +2842,6 @@
         },
         {
           "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
           "slug": "vercel-ai-sdk",
           "name": "Vercel AI SDK",
           "category": "dev-infra"
@@ -2385,96 +2867,6 @@
           "collection": "models",
           "slug": "minimax-h3",
           "name": "MiniMax H3 (Hailuo 3.0)"
-        },
-        {
-          "collection": "tools",
-          "slug": "consensus",
-          "name": "Consensus",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "cosyvoice",
-          "name": "CosyVoice",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "ernie-api",
-          "name": "Baidu ERNIE API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "higgsfield",
-          "name": "Higgsfield",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-api",
-          "name": "Hunyuan API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "hunyuan-video",
-          "name": "Hunyuan Video",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "merlin",
-          "name": "Merlin",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "stepfun-api",
-          "name": "StepFun API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "stitch",
-          "name": "Stitch",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "vidu",
-          "name": "Vidu",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "yi-api",
-          "name": "01.AI Yi API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "zed",
-          "name": "Zed",
-          "category": "coding"
         },
         {
           "collection": "tools",
@@ -2832,12 +3224,6 @@
         },
         {
           "collection": "tools",
-          "slug": "grammarly",
-          "name": "Grammarly",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
           "slug": "gumloop",
           "name": "Gumloop",
           "category": "automation"
@@ -2865,12 +3251,6 @@
           "slug": "invideo",
           "name": "InVideo",
           "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "category": "writing"
         },
         {
           "collection": "tools",
@@ -2949,12 +3329,6 @@
           "slug": "nebius",
           "name": "Nebius",
           "category": "models-api"
-        },
-        {
-          "collection": "tools",
-          "slug": "notion-ai",
-          "name": "Notion AI",
-          "category": "writing"
         },
         {
           "collection": "tools",
@@ -3120,12 +3494,6 @@
         },
         {
           "collection": "tools",
-          "slug": "windsurf",
-          "name": "Windsurf",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "workato",
           "name": "Workato",
           "category": "automation"
@@ -3153,12 +3521,6 @@
           "slug": "play-ht",
           "name": "Play.ht",
           "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "mem-ai",
-          "name": "Mem",
-          "category": "productivity"
         },
         {
           "collection": "models",
@@ -3210,6 +3572,114 @@
       ],
       "changed": [
         {
+          "collection": "tools",
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier; from $8/mo (Plus)",
+          "to": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Pro from ~$18/mo",
+          "to": "free tier; Pro $25/mo or $15/mo billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "category": "productivity",
+          "field": "price note",
+          "from": "$30/mo",
+          "to": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "price note",
+          "from": "via Google AI Pro $20/mo (limited); API from $0.75/sec",
+          "to": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "category": "coding",
+          "field": "price note",
+          "from": "free tier; Pro $10/mo",
+          "to": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "windsurf",
+          "name": "Devin Desktop (ex Windsurf)",
+          "category": "coding",
+          "field": "price note",
+          "from": "from $15/mo (Pro)",
+          "to": "free tier; Pro $20/mo, Max $200/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Plus $20/mo",
+          "to": "free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "elevenlabs",
+          "name": "ElevenLabs",
+          "category": "audio",
+          "field": "price note",
+          "from": "free tier (10k credits/mo); Starter $6/mo",
+          "to": "free tier (10k credits/mo, non-commercial); Starter $6/mo, Creator $22/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "grammarly",
+          "name": "Grammarly",
+          "category": "writing",
+          "field": "price note",
+          "from": "free tier; Premium $12/mo (annual)",
+          "to": "free tier (100 AI prompts/mo); Pro $12/mo (yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "category": "writing",
+          "field": "price note",
+          "from": "from ~$39/mo (Creator)",
+          "to": "Pro $69/seat/mo or $59/seat/mo billed yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "notion-ai",
+          "name": "Notion AI",
+          "category": "writing",
+          "field": "price note",
+          "from": "add-on from $8/user/mo (annual billing)",
+          "to": "limited AI trial on free/Plus; full AI in Business $20/member/mo (yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "perplexity",
+          "name": "Perplexity",
+          "category": "data",
+          "field": "price note",
+          "from": "free tier; Pro $20/mo",
+          "to": "free tier; Pro $20/mo, Max $200/mo"
+        },
+        {
           "collection": "models",
           "slug": "mistral-large-2512",
           "name": "Mistral Large 3",
@@ -3225,15 +3695,6 @@
           "field": "price note",
           "from": "Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input",
           "to": "pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
-        },
-        {
-          "collection": "tools",
-          "slug": "chatgpt",
-          "name": "ChatGPT",
-          "category": "writing",
-          "field": "price note",
-          "from": "free tier; Plus $20/mo",
-          "to": "free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
         },
         {
           "collection": "tools",
@@ -3255,30 +3716,12 @@
         },
         {
           "collection": "tools",
-          "slug": "elevenlabs",
-          "name": "ElevenLabs",
-          "category": "audio",
-          "field": "price note",
-          "from": "free tier (10k credits/mo); Starter $6/mo",
-          "to": "free tier (10k credits/mo, non-commercial); Starter $6/mo, Creator $22/mo"
-        },
-        {
-          "collection": "tools",
           "slug": "flux",
           "name": "FLUX (Black Forest Labs)",
           "category": "image",
           "field": "price note",
           "from": "API from $0.04/image (FLUX1.1 pro); dev/schnell weights free",
           "to": "open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image"
-        },
-        {
-          "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "category": "coding",
-          "field": "price note",
-          "from": "free tier; Pro $10/mo",
-          "to": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
         },
         {
           "collection": "tools",
@@ -3327,15 +3770,6 @@
         },
         {
           "collection": "tools",
-          "slug": "perplexity",
-          "name": "Perplexity",
-          "category": "data",
-          "field": "price note",
-          "from": "free tier; Pro $20/mo",
-          "to": "free tier; Pro $20/mo, Max $200/mo"
-        },
-        {
-          "collection": "tools",
           "slug": "qdrant",
           "name": "Qdrant",
           "category": "data",
@@ -3372,15 +3806,6 @@
         },
         {
           "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "price note",
-          "from": "via Google AI Pro $20/mo (limited); API from $0.75/sec",
-          "to": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
-        },
-        {
-          "collection": "tools",
           "slug": "weaviate",
           "name": "Weaviate",
           "category": "data",
@@ -3396,33 +3821,6 @@
           "field": "price note",
           "from": "free (open weights); hosted API $0.006/min",
           "to": "open source (MIT), self-host free; hosted: gpt-4o-transcribe $0.006/min"
-        },
-        {
-          "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "category": "image",
-          "field": "price note",
-          "from": "free tier; from $8/mo (Plus)",
-          "to": "free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "category": "writing",
-          "field": "price note",
-          "from": "free tier; Pro from ~$18/mo",
-          "to": "free tier; Pro $25/mo or $15/mo billed yearly"
-        },
-        {
-          "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "category": "productivity",
-          "field": "price note",
-          "from": "$30/mo",
-          "to": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
         },
         {
           "collection": "tools",
@@ -3563,30 +3961,12 @@
         },
         {
           "collection": "tools",
-          "slug": "grammarly",
-          "name": "Grammarly",
-          "category": "writing",
-          "field": "price note",
-          "from": "free tier; Premium $12/mo (annual)",
-          "to": "free tier (100 AI prompts/mo); Pro $12/mo (yearly)"
-        },
-        {
-          "collection": "tools",
           "slug": "heygen",
           "name": "HeyGen",
           "category": "video",
           "field": "price note",
           "from": "free (3 videos/mo); Creator $29/mo",
           "to": "free tier (3 videos/mo); Creator $29/mo, Pro from $49/mo"
-        },
-        {
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "category": "writing",
-          "field": "price note",
-          "from": "from ~$39/mo (Creator)",
-          "to": "Pro $69/seat/mo or $59/seat/mo billed yearly"
         },
         {
           "collection": "tools",
@@ -3635,15 +4015,6 @@
         },
         {
           "collection": "tools",
-          "slug": "notion-ai",
-          "name": "Notion AI",
-          "category": "writing",
-          "field": "price note",
-          "from": "add-on from $8/user/mo (annual billing)",
-          "to": "limited AI trial on free/Plus; full AI in Business $20/member/mo (yearly)"
-        },
-        {
-          "collection": "tools",
           "slug": "pika",
           "name": "Pika",
           "category": "video",
@@ -3677,15 +4048,6 @@
           "field": "price note",
           "from": "free tier; Standard $10/mo",
           "to": "free tier; Standard $10/mo, Pro $30/mo (yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "windsurf",
-          "name": "Devin Desktop (ex Windsurf)",
-          "category": "coding",
-          "field": "price note",
-          "from": "from $15/mo (Pro)",
-          "to": "free tier; Pro $20/mo, Max $200/mo"
         },
         {
           "collection": "tools",
@@ -3849,9 +4211,44 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "anthropic-api",
-          "name": "Anthropic API",
-          "detail": "price note: Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input → pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
+          "slug": "ideogram",
+          "name": "Ideogram",
+          "detail": "price note: free tier; from $8/mo (Plus) → free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "lex",
+          "name": "Lex",
+          "detail": "price note: free tier; Pro from ~$18/mo → free tier; Pro $25/mo or $15/mo billed yearly"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "superhuman",
+          "name": "Superhuman",
+          "detail": "price note: $30/mo → free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "detail": "price note: via Google AI Pro $20/mo (limited); API from $0.75/sec → free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "github-copilot",
+          "name": "GitHub Copilot",
+          "detail": "price note: free tier; Pro $10/mo → free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "windsurf",
+          "name": "Devin Desktop (ex Windsurf)",
+          "detail": "price note: from $15/mo (Pro) → free tier; Pro $20/mo, Max $200/mo"
         },
         {
           "class": "price_change",
@@ -3859,6 +4256,48 @@
           "slug": "chatgpt",
           "name": "ChatGPT",
           "detail": "price note: free tier; Plus $20/mo → free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "elevenlabs",
+          "name": "ElevenLabs",
+          "detail": "price note: free tier (10k credits/mo); Starter $6/mo → free tier (10k credits/mo, non-commercial); Starter $6/mo, Creator $22/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "grammarly",
+          "name": "Grammarly",
+          "detail": "price note: free tier; Premium $12/mo (annual) → free tier (100 AI prompts/mo); Pro $12/mo (yearly)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "jasper",
+          "name": "Jasper",
+          "detail": "price note: from ~$39/mo (Creator) → Pro $69/seat/mo or $59/seat/mo billed yearly"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "notion-ai",
+          "name": "Notion AI",
+          "detail": "price note: add-on from $8/user/mo (annual billing) → limited AI trial on free/Plus; full AI in Business $20/member/mo (yearly)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "perplexity",
+          "name": "Perplexity",
+          "detail": "price note: free tier; Pro $20/mo → free tier; Pro $20/mo, Max $200/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "anthropic-api",
+          "name": "Anthropic API",
+          "detail": "price note: Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input → pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
         },
         {
           "class": "price_change",
@@ -3877,23 +4316,9 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "elevenlabs",
-          "name": "ElevenLabs",
-          "detail": "price note: free tier (10k credits/mo); Starter $6/mo → free tier (10k credits/mo, non-commercial); Starter $6/mo, Creator $22/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "flux",
           "name": "FLUX (Black Forest Labs)",
           "detail": "price note: API from $0.04/image (FLUX1.1 pro); dev/schnell weights free → open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "github-copilot",
-          "name": "GitHub Copilot",
-          "detail": "price note: free tier; Pro $10/mo → free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
         },
         {
           "class": "price_change",
@@ -3933,13 +4358,6 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "perplexity",
-          "name": "Perplexity",
-          "detail": "price note: free tier; Pro $20/mo → free tier; Pro $20/mo, Max $200/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "qdrant",
           "name": "Qdrant",
           "detail": "price note: self-host free; managed cloud has a free tier, paid from ~$25/mo → self-host free; managed cloud free tier, paid usage-based"
@@ -3968,13 +4386,6 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "detail": "price note: via Google AI Pro $20/mo (limited); API from $0.75/sec → free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "weaviate",
           "name": "Weaviate",
           "detail": "price note: self-host free; managed cloud from ~$25/mo → self-host free; cloud free tier, Flex from $45/mo"
@@ -3985,27 +4396,6 @@
           "slug": "whisper",
           "name": "Whisper",
           "detail": "price note: free (open weights); hosted API $0.006/min → open source (MIT), self-host free; hosted: gpt-4o-transcribe $0.006/min"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "ideogram",
-          "name": "Ideogram",
-          "detail": "price note: free tier; from $8/mo (Plus) → free tier (10 credits/wk); Basic $8/mo, Plus $15/mo (yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "lex",
-          "name": "Lex",
-          "detail": "price note: free tier; Pro from ~$18/mo → free tier; Pro $25/mo or $15/mo billed yearly"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "superhuman",
-          "name": "Superhuman",
-          "detail": "price note: $30/mo → free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
         },
         {
           "class": "price_change",
@@ -4066,23 +4456,9 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "grammarly",
-          "name": "Grammarly",
-          "detail": "price note: free tier; Premium $12/mo (annual) → free tier (100 AI prompts/mo); Pro $12/mo (yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "heygen",
           "name": "HeyGen",
           "detail": "price note: free (3 videos/mo); Creator $29/mo → free tier (3 videos/mo); Creator $29/mo, Pro from $49/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "jasper",
-          "name": "Jasper",
-          "detail": "price note: from ~$39/mo (Creator) → Pro $69/seat/mo or $59/seat/mo billed yearly"
         },
         {
           "class": "price_change",
@@ -4122,13 +4498,6 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "notion-ai",
-          "name": "Notion AI",
-          "detail": "price note: add-on from $8/user/mo (annual billing) → limited AI trial on free/Plus; full AI in Business $20/member/mo (yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "pika",
           "name": "Pika",
           "detail": "price note: free tier; from $10/mo (Standard) → free tier (80 credits/mo); Basic $8/mo, Standard $28/mo (yearly)"
@@ -4153,13 +4522,6 @@
           "slug": "udio",
           "name": "Udio",
           "detail": "price note: free tier; Standard $10/mo → free tier; Standard $10/mo, Pro $30/mo (yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "windsurf",
-          "name": "Devin Desktop (ex Windsurf)",
-          "detail": "price note: from $15/mo (Pro) → free tier; Pro $20/mo, Max $200/mo"
         },
         {
           "class": "price_change",
