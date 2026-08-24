@@ -112,6 +112,19 @@ const briefing =
   t.strengths && t.use_for && t.skip_when
     ? { strengths: t.strengths, use_for: t.use_for, skip_when: t.skip_when }
     : null;
+
+const disputePrompt = [
+  `Fact-check this catalog entry for ${t.name} (${t.category}).`,
+  `Verdict: ${t.verdict}`,
+  `Verdict text: ${t.verdict_text}`,
+  `Limitations:`,
+  ...t.limitations.map((l) => `- ${l}`),
+  `Receipts:`,
+  ...t.receipts,
+  `Last verified: ${t.last_verified}`,
+  '',
+  'Find outdated prices, wrong claims, or missing limitations. Cite primary sources (docs, pricing pages, benchmarks, model cards). Do not use marketing pages.',
+].join('\n');
 ---
 
 <Base title={t.name} description={t.tagline} ogImage={`/og/tools/${tool.id}.png`}>
@@ -146,6 +159,7 @@ const briefing =
         text={observationMarkdown(t, new URL(`/tools/${tool.id}/`, Astro.site).href)}
       />
       <a href={`/kit/?add=${tool.id}`} class="nm-btn nm-btn-outline">Add to kit</a>
+      <CopyButton label="Dispute this verdict" text={disputePrompt} />
       <VerifiedStamp slug={tool.id} date={t.last_verified} />
     </p>
     {

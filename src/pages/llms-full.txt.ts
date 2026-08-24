@@ -40,6 +40,8 @@ export const GET: APIRoute = async () => {
     `Source: https://github.com/SaneSanders/noemium`,
     `License: CC BY 4.0 (code MIT).`,
     '',
+    '> This dump mixes protocol-tested cards with desk-audit cards. Cards with a test_run carry a published protocol; treat the rest as desk research, not field evidence.',
+    '',
     '## Tools',
     '',
     ...sortedTools.flatMap((t) => [

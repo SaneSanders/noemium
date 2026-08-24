@@ -37,18 +37,32 @@ test('contribute stays a PR vitrine', () => {
   assert.match(html, /unit is a pull request/i);
   assert.match(html, /no contributor badges/i);
   assert.match(html, /not a\s+leaderboard/i);
+  assert.match(html, /Start by disputing/i);
   assert.doesNotMatch(html, /upvote|karma points|contributor rank/i);
 });
 
-test('footer and llms expose the new surfaces', () => {
+test('tool page exposes Dispute this verdict copy prompt', () => {
+  const html = built('tools/cursor/index.html');
+  assert.match(html, /Dispute this verdict/);
+});
+
+test('llms.txt curates tested shelf and links to full dump', () => {
+  const llms = built('llms.txt');
+  assert.match(llms, /Tested shelf/);
+  assert.match(llms, /Cursor/);
+  assert.match(llms, /llms-full\.txt/);
+});
+
+test('llms-full.txt carries desk-research disclaimer', () => {
+  const full = built('llms-full.txt');
+  assert.match(full, /desk research, not field evidence/);
+});
+
+test('footer exposes status, kit and why surfaces', () => {
   const home = built('index.html');
   assert.match(home, /href="\/status\/"/);
   assert.match(home, /href="\/kit\/"/);
   assert.match(home, /href="\/why\/"/);
-  const llms = built('llms.txt');
-  assert.match(llms, /noemium.com\/status\//);
-  assert.match(llms, /noemium.com\/kit\//);
-  assert.match(llms, /noemium.com\/why\//);
 });
 
 test('a featured ship card renders the briefing grid', () => {

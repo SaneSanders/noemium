@@ -54,10 +54,6 @@ test('publishes agents through search and machine-readable discovery surfaces', 
   const index = JSON.parse(built('search-index.json'));
   assert.equal(index.agents.some((agent) => agent.slug === 'grok-bot'), true);
   assert.equal(index.agents.some((agent) => agent.slug === 'openclaw'), true);
-
-  const llms = built('llms.txt');
-  assert.match(llms, /\[Agents\]\(https:\/\/noemium\.com\/agents\/\)/);
-  assert.match(llms, /14 agent field-guide entries/);
 });
 
 test('links the Agent Field Guide from the homepage and emits agent OG art', () => {

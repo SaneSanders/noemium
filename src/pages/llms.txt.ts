@@ -1,15 +1,15 @@
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
 
-/** llms.txt — machine-facing project summary in the llmstxt.org format. */
+/** llms.txt — curated machine-facing summary: tested shelf + jobs + link to full dump. */
 export const GET: APIRoute = async () => {
-  const [tools, stacks, models, agents] = await Promise.all([
+  const [tools, jobs] = await Promise.all([
     getCollection('tools'),
-    getCollection('stacks'),
-    getCollection('models'),
-    getCollection('agents'),
+    getCollection('jobs'),
   ]);
-  const strictAgents = agents.filter((agent) => agent.data.evidence_tier !== 'radar');
+  const testedTools = tools
+    .filter((tool) => tool.data.test_run)
+    .sort((a, b) => a.id.localeCompare(b.id));
 
   const lines = [
     '# Noemium',
@@ -18,52 +18,26 @@ export const GET: APIRoute = async () => {
     '> No paid listings, ever. Every verdict is a pull request anyone can audit,',
     '> with receipts linked and limitations named next to the praise.',
     '',
-    `The catalog currently tracks ${tools.length} tools, ${stacks.length} stacks, ${models.length} models,`,
-    `and ${agents.length} agent field-guide entries. ${strictAgents.length} agent guides meet the current source-verification bar;`,
-    `the rest are clearly labeled Radar entries without editorial verdicts or hard cost claims.`,
+    'This is a curated view: the tested shelf (tools with a published test protocol) plus the job guides.',
+    'For the complete catalog dump, see [llms-full.txt](https://noemium.com/llms-full.txt).',
     '',
-    '## Catalog',
+    '## Tested shelf',
     '',
-    '- [Tools](https://noemium.com/tools/): the full tool catalog with verdicts, pricing and limitations',
-    '- [Agents](https://noemium.com/agents/): operational field guides with installation, requirements, cost scenarios, security boundaries and evidence tiers',
-    '- [Compare tools](https://noemium.com/tools/compare/): side-by-side tables, e.g. /tools/compare/?tools=cursor,aider',
-    '- [Stacks](https://noemium.com/stacks/): copy-pasteable tool stacks with monthly cost and difficulty',
-    '- [Models](https://noemium.com/models/): model data — context windows, token prices, benchmarks',
-    '- [Quiz](https://noemium.com/quiz/): pick a stack by answering a few questions',
-    '- [About](https://noemium.com/about/): who runs this and the one rule',
-    '- [Method](https://noemium.com/method/): verdicts, receipts, why there are no stars',
-    '- [Status](https://noemium.com/status/): build-time catalog health — briefing coverage, stale dates, receipt strength',
-    '- [Kit](https://noemium.com/kit/): shareable set of catalog cards (URL + localStorage; not a budget)',
-    '- [Why directories lie](https://noemium.com/why/): on-site essay — no stars, no paid slots, no live ticker',
-    '',
-    '## Machine-readable surfaces',
-    '',
-    '- [llms-full.txt](https://noemium.com/llms-full.txt): complete catalog dump — tools, models and stacks',
-    '- per-tool JSON: `https://noemium.com/tools/{slug}.json` (e.g. [/tools/cursor.json](https://noemium.com/tools/cursor.json))',
-    '- [tools.json](https://noemium.com/api/tools.json): raw tool catalog',
-    '- [stacks.json](https://noemium.com/api/stacks.json): stack recipes and budget twins',
-    '- [models.json](https://noemium.com/api/models.json): model prices',
-    '',
-    '## Source-verified agent guides',
-    '',
-    ...strictAgents.map(
-      (agent) => `- [${agent.data.name}](https://noemium.com/agents/${agent.id}/): ${agent.data.tagline}`,
+    ...testedTools.map(
+      (tool) =>
+        `- [${tool.data.name}](https://noemium.com/tools/${tool.id}/): ${tool.data.tagline} — ${tool.data.verdict}`,
     ),
     '',
-    '## Stacks',
+    '## Jobs',
     '',
-    ...stacks.map(
-      (s) => `- [${s.data.title}](https://noemium.com/stacks/${s.id}/): ${s.data.use_case}`,
+    ...jobs.map(
+      (job) =>
+        `- [${job.data.title}](https://noemium.com/jobs/${job.id}/): ${job.data.use_case}`,
     ),
     '',
-    '## Project',
+    '## Complete dump',
     '',
-    '- [Contribute](https://noemium.com/contribute/): how to add or correct an entry via pull request',
-    '- [RSS feed](https://noemium.com/rss.xml): weekly catalog diff (git history of the repo, not the market)',
-    '- [tools.json](https://noemium.com/api/tools.json): raw tool catalog',
-    '- [stacks.json](https://noemium.com/api/stacks.json): stack recipes and budget twins',
-    '- [models.json](https://noemium.com/api/models.json): model prices',
-    '- [Source code](https://github.com/SaneSanders/noemium): the catalog is the repository',
+    '- [llms-full.txt](https://noemium.com/llms-full.txt): full catalog dump — tools, models and stacks',
     '',
   ];
 

@@ -54,6 +54,10 @@ about 5 minutes.
   tracking links.
 - **Self-promotion is allowed** — with the same bar as everything else:
   real receipts and honest limitations.
+- **Vendors can challenge a verdict.** Open a
+  [Vendor challenge](https://github.com/SaneSanders/noemium/issues/new?template=vendor-challenge.md)
+  issue with primary evidence — docs, pricing pages, benchmarks, model cards,
+  not marketing copy. The resolution is also a public PR; everything is auditable.
 - **`last_verified`** is the date you last confirmed the entry is accurate
   (YYYY-MM-DD). Entries older than 90 days get flagged for re-verification.
 - **`observed_by`** is your GitHub handle. You sign your observation.
