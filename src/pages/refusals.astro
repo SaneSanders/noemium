@@ -1,17 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
-
-interface Refusal {
-  date: string;
-  amount: string;
-  type: string;
-  counterparty: string;
-  answer: string;
-}
-
-/** Public ledger of declined paid-influence offers. Starts at zero. */
-const entries: Refusal[] = [];
+import { refusals as entries } from '../data/refusals';
 ---
 
 <Base

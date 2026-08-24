@@ -1,6 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import { refusals } from '../data/refusals';
+
+const ledgerLine =
+  refusals.length === 0
+    ? 'Today that ledger is zero.'
+    : `Today it lists ${refusals.length} declined offer${refusals.length === 1 ? '' : 's'}.`;
 ---
 
 <Base
@@ -34,8 +40,8 @@ import SectionHeader from '../components/SectionHeader.astro';
         are an editorial mix so the shelf is not only famous names — not a slot. Affiliate links
         exist, are declared in the file, and fail CI if they sneak into <span class="font-mono text-[13px]">url</span> or
         receipts undeclared. Every declined paid-influence offer is logged in the{' '}
-        <a href="/refusals/" class="text-accent hover:underline">Open Refusal Ledger</a>. Today that
-        ledger is zero. That is the honest count, not a branding flex.
+        <a href="/refusals/" class="text-accent hover:underline">Open Refusal Ledger</a>. {ledgerLine}{' '}
+        That is the honest count, not a branding flex.
       </p>
     </section>
 

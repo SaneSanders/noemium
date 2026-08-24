@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/SaneSanders/noemium/actions/workflows/ci.yml/badge.svg)](https://github.com/SaneSanders/noemium/actions/workflows/ci.yml)
 
-![Noemium — the AI landscape, observed](.github/hero.png)
+![Noemium — pick AI tools without getting played](.github/hero.png)
 
 **Pick AI tools without getting played.**
 
@@ -13,7 +13,8 @@ print a number.
 Noemium is a hub for AI practitioners:
 
 - **Tools** — honest verdicts (`ship` / `situational` / `skip`) with named
-  limitations and evidence links.
+  limitations, evidence links, and a decision briefing
+  (`strengths` / `use_for` / `skip_when`) on flagship cards.
 - **Agents** — operational field guides with install paths, requirements, cost
   scenarios, security boundaries, and explicit evidence tiers. Grok Bot and
   Grok Build are treated as separate products.
@@ -22,8 +23,38 @@ Noemium is a hub for AI practitioners:
 - **Models** — context windows, per-MTok pricing, strengths and anti-use
   cases, with attributed sources.
 
-Every entry carries `last_verified`, an `observed_by` GitHub handle, and at
-least one receipt. Affiliate links, when they exist, are always declared.
+Every entry carries `last_verified` and an `observed_by` GitHub handle. Tool
+and stack entries require at least one receipt; agents declare typed evidence
+tiers (`field-tested` / `source-verified` / `radar`). Affiliate links, when
+they exist, are always declared.
+
+## The site
+
+Beyond the catalog indexes, [noemium.com](https://noemium.com) ships:
+
+- [`/status`](https://noemium.com/status/) — build-time catalog health:
+  briefing and receipt coverage, no vanity counters.
+- [`/verified`](https://noemium.com/verified/) — the field-tested shelf.
+  Empty until earned.
+- [`/refusals`](https://noemium.com/refusals/) — a public ledger of declined
+  paid placements. Zero so far, and that zero is the point.
+- [`/kit`](https://noemium.com/kit/) — save and share tool sets via URL.
+  No account, no fake totals.
+- [`/changelog`](https://noemium.com/changelog/) — a weekly diff of what
+  changed in the catalog.
+- [`/graveyard`](https://noemium.com/graveyard/) — dead tools, with
+  obituaries.
+- [`/why`](https://noemium.com/why/) and
+  [`/method`](https://noemium.com/method/) — the essay and the verification
+  method.
+- 45 static `X vs Y` comparison pages, a Pagefind search, and a five-question
+  quiz that ends in a stack.
+
+## Open data
+
+- `/api/tools.json`, `/api/stacks.json`, `/api/models.json` — full dumps.
+- `/tools/<slug>.json` — every tool as its own JSON endpoint.
+- `/llms.txt` and `/llms-full.txt` — the catalog, LLM-ready.
 
 ## Stack
 
@@ -45,6 +76,8 @@ Other commands:
 npm run build      # static build to dist/
 npm run check      # astro check (types)
 npm run validate   # validate all content entries (CI-friendly)
+npm test           # unit tests (schemas, surfaces, kit, logos)
+npm run test:dist  # dist assertions (run after build)
 ```
 
 ## Content structure
@@ -54,7 +87,8 @@ src/content/
 ├── tools/    # *.yaml — one file per tool (see cursor.yaml as template)
 ├── agents/   # *.yaml — strict field guides and verdict-free Radar entries
 ├── stacks/   # *.md   — frontmatter + recipe body (see solo-founder-saas.md)
-└── models/   # *.yaml — one file per model (see gpt-5-6-sol.yaml)
+├── models/   # *.yaml — one file per model (see gpt-5-6-sol.yaml)
+└── graveyard/ # *.yaml — dead tools, with obituaries
 ```
 
 Schemas live in `src/content-schemas.ts` and are enforced both at build

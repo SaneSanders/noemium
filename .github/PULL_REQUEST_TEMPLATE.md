@@ -10,4 +10,4 @@
 - [ ] Affiliate links are declared (`affiliate: declared` if any tracking params)
 - [ ] `last_verified` is today (YYYY-MM-DD)
 - [ ] `npm run validate` passes locally
-- [ ] For UI changes: read DESIGN.md; `npm run check && npm run build` pass
+- [ ] For UI changes: read DESIGN.md; `npm run check && npm run build && npm test && npm run test:dist` pass

@@ -11,7 +11,7 @@ about 5 minutes.
    - `src/content/tools/cursor.yaml`
    - `src/content/agents/grok-bot.yaml`
    - `src/content/stacks/solo-founder-saas.md`
-   - `src/content/models/claude-sonnet-4-5.yaml`
+   - `src/content/models/claude-sonnet-5.yaml`
 3. **Rename** it to a kebab-case slug (`my-tool.yaml`).
 4. **Fill it in** from your own experience (see the rules below).
 5. **Validate locally:**
@@ -67,5 +67,5 @@ law of the project (tokens only, no gradients, no emoji in UI). Before
 opening a PR, run:
 
 ```sh
-npm run validate && npm run check && npm run build
+npm run validate && npm run check && npm run build && npm test && npm run test:dist
 ```

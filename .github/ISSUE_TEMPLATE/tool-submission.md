@@ -7,7 +7,7 @@ labels: content, tool
 
 **Tool name:**
 
-**Category:** coding / image / video / audio / writing / agents / data / productivity / dev-infra / models-api
+**Category:** coding / design / image / video / audio / writing / agents / automation / data / productivity / dev-infra / models-api
 
 **Your experience with it:**
 <!-- What did you actually build or run with it? -->
