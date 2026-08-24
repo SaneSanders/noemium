@@ -184,15 +184,15 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
         </div>
       ) : (
         <div class="nm-card mt-10 overflow-x-auto">
-          <table class="w-full min-w-[640px] border-collapse text-left">
+          <table class="w-full border-collapse text-left">
             <thead>
               <tr class="border-b-[1.5px] border-ink">
-                <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
-                <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
-                <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">price</th>
-                <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">oss</th>
-                <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">self-host</th>
-                <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">
+                <th class="p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
+                <th class="p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
+                <th class="p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">price</th>
+                <th class="hidden sm:table-cell p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">oss</th>
+                <th class="hidden sm:table-cell p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">self-host</th>
+                <th class="p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">
                   <span class="sr-only">remove</span>
                 </th>
               </tr>
@@ -200,29 +200,29 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
             <tbody>
               {selected.map((tool) => (
                 <tr class="border-b border-line-soft last:border-b-0" key={tool.slug}>
-                  <th scope="row" class="p-3">
-                    <a href={`/tools/${tool.slug}/`} class="flex items-center gap-3 hover:text-accent">
+                  <th scope="row" class="p-1.5 sm:p-3 min-w-0">
+                    <a href={`/tools/${tool.slug}/`} class="flex items-center gap-2 sm:gap-3 hover:text-accent min-w-0">
                       <LogoMark src={tool.logo} name={tool.name} size="sm" />
-                      <span>
+                      <span class="min-w-0">
                         <span class="block font-display text-[15px] font-extrabold tracking-tight">{tool.name}</span>
                         <span class="block font-mono text-[11px] font-normal text-ink-dim">{tool.category}</span>
                       </span>
                     </a>
                   </th>
-                  <td class="p-3">
+                  <td class="p-1.5 sm:p-3">
                     <VerdictStamp verdict={tool.verdict} />
                   </td>
-                  <td class="p-3 font-mono text-[13px]">{tool.pricing}</td>
-                  <td class="p-3">
+                  <td class="p-1.5 sm:p-3 font-mono text-[12px] sm:text-[13px] whitespace-nowrap">{tool.pricing}</td>
+                  <td class="hidden sm:table-cell p-1.5 sm:p-3">
                     <YesNo value={tool.open_source} />
                   </td>
-                  <td class="p-3">
+                  <td class="hidden sm:table-cell p-1.5 sm:p-3">
                     <YesNo value={tool.self_host} />
                   </td>
-                  <td class="p-3 text-right">
+                  <td class="p-1.5 sm:p-3 text-right">
                     <button
                       type="button"
-                      class="font-mono text-[12px] text-ink-dim hover:text-verdict-skip"
+                      class="font-mono text-[11px] sm:text-[12px] text-ink-dim hover:text-verdict-skip whitespace-nowrap"
                       onClick={() => remove(tool.slug)}
                     >
                       remove

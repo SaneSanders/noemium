@@ -60,6 +60,9 @@ interface QuizProps {
   kind: 'quiz';
   stackCount: number;
 }
+interface KitProps {
+  kind: 'kit';
+}
 interface QuizResultProps {
   kind: 'quiz-result';
   title: string;
@@ -92,7 +95,7 @@ interface StackProps {
   difficulty: string;
   lastVerified: string;
 }
-type OgProps = GenericProps | ToolProps | AgentProps | StackProps | QuizProps | QuizResultProps;
+type OgProps = GenericProps | ToolProps | AgentProps | StackProps | QuizProps | KitProps | QuizResultProps;
 
 export const getStaticPaths = (async () => {
   const [tools, agents, stacks, models] = await Promise.all([
@@ -131,6 +134,10 @@ export const getStaticPaths = (async () => {
     {
       params: { slug: 'quiz' },
       props: { kind: 'quiz', stackCount: stacks.length } satisfies OgProps,
+    },
+    {
+      params: { slug: 'kit' },
+      props: { kind: 'kit' } satisfies OgProps,
     },
     ...stacks.map((s) => ({
       params: { slug: `quiz/${s.id}` },
@@ -300,6 +307,20 @@ export const GET: APIRoute = async ({ props }) => {
       footer(
         `TOOLS: ${p.counts.tools} · AGENTS: ${p.counts.agents} · STACKS: ${p.counts.stacks} · MODELS: ${p.counts.models} · PAID: 0`,
       ),
+    ]);
+  } else if (p.kind === 'kit') {
+    tree = frame([
+      header('Kit'),
+      h(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column' } },
+        headline('Save a set. Share the URL. No account.', 76),
+        mono('A shareable set of catalog cards. URL plus this browser. Not a budget.', {
+          fontSize: 20,
+          marginTop: 28,
+        }),
+      ),
+      footer('kit · url-shared · no fake monthly total'),
     ]);
   } else if (p.kind === 'quiz') {
     tree = frame([

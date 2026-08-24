@@ -30,6 +30,12 @@ test('status, kit and why ship without stars, votes or live tickers', () => {
   assert.doesNotMatch(why, /vote for us|leave a star/i);
 });
 
+test('kit page links to its OG image and the image is emitted', () => {
+  const kit = built('kit/index.html');
+  assert.match(kit, /og\/kit\.png/);
+  assert.equal(existsSync(new URL('dist/og/kit.png', root)), true);
+});
+
 test('contribute stays a PR vitrine', () => {
   const html = built('contribute/index.html');
   assert.match(html, /Open pull requests/);
