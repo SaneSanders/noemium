@@ -131,7 +131,7 @@ function formatZodIssues(error) {
   return error.issues.map((i) => `${i.path.join('.') || '(root)'}: ${i.message}`).join('; ');
 }
 
-const { toolSchema, stackSchema, modelSchema, graveyardSchema, agentSchema } = await loadSchemas();
+const { toolSchema, stackSchema, modelSchema, graveyardSchema, agentSchema, jobSchema } = await loadSchemas();
 
 const collections = [
   { name: 'tools', dir: path.join(CONTENT_DIR, 'tools'), exts: ['.yaml', '.yml'], schema: toolSchema },
@@ -139,6 +139,7 @@ const collections = [
   { name: 'models', dir: path.join(CONTENT_DIR, 'models'), exts: ['.yaml', '.yml'], schema: modelSchema },
   { name: 'graveyard', dir: path.join(CONTENT_DIR, 'graveyard'), exts: ['.yaml', '.yml'], schema: graveyardSchema },
   { name: 'agents', dir: path.join(CONTENT_DIR, 'agents'), exts: ['.yaml', '.yml'], schema: agentSchema },
+  { name: 'jobs', dir: path.join(CONTENT_DIR, 'jobs'), exts: ['.yaml', '.yml'], schema: jobSchema },
 ];
 
 // URL fields that must stay referral-free per collection.
@@ -335,6 +336,18 @@ for (const [slug, model] of entries.models) {
       `src/content/models/${slug}.yaml`,
       `retiring.successor references unknown model "${model.retiring.successor}"`,
     );
+  }
+}
+
+for (const [slug, job] of entries.jobs) {
+  const recommended = job.picks.filter((p) => p.role === 'recommended');
+  if (recommended.length !== 1) {
+    fail(`src/content/jobs/${slug}.yaml`, `expected exactly one recommended pick, found ${recommended.length}`);
+  }
+  for (const pick of job.picks) {
+    if (!entries.tools.has(pick.tool)) {
+      fail(`src/content/jobs/${slug}.yaml`, `picks references unknown tool "${pick.tool}"`);
+    }
   }
 }
 

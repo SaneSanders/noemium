@@ -126,10 +126,23 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
   const [answers, setAnswers] = useState<Answers>({});
 
   const done = step >= QUESTIONS.length;
-  const winner = useMemo(() => {
+  const result = useMemo(() => {
     if (!done) return null;
-    return [...stacks].sort((a, b) => score(b, answers) - score(a, answers))[0] ?? null;
+    const ranked = [...stacks].sort((a, b) => score(b, answers) - score(a, answers));
+    const winner = ranked[0] ?? null;
+    const runnerUp = ranked[1] ?? null;
+    let runnerUpLabel: string | null = null;
+    if (winner && runnerUp) {
+      const winnerScore = score(winner, answers);
+      const runnerScore = score(runnerUp, answers);
+      const gap = winnerScore > 0 ? (winnerScore - runnerScore) / winnerScore : 0;
+      runnerUpLabel = gap <= 0.2 ? 'Close call' : 'Runner-up';
+    }
+    return { winner, runnerUp, runnerUpLabel };
   }, [done, stacks, answers]);
+  const winner = result?.winner ?? null;
+  const runnerUp = result?.runnerUp ?? null;
+  const runnerUpLabel = result?.runnerUpLabel ?? null;
 
   const restart = () => {
     setAnswers({});
@@ -137,8 +150,16 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
   };
 
   useEffect(() => {
-    if (done && winner) void navigate(`/quiz/${winner.slug}/?from=quiz`);
-  }, [done, winner]);
+    if (done && winner) {
+      const params = new URLSearchParams({ from: 'quiz' });
+      if (runnerUp && runnerUpLabel) {
+        params.set('runner_up', runnerUp.slug);
+        params.set('runner_up_name', runnerUp.title);
+        params.set('runner_up_label', runnerUpLabel);
+      }
+      void navigate(`/quiz/${winner.slug}/?${params.toString()}`);
+    }
+  }, [done, winner, runnerUp, runnerUpLabel]);
 
   if (done && winner) {
     return (

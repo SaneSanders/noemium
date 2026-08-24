@@ -1,0 +1,22 @@
+title: Inbox triage
+use_case: Get through email faster without missing what matters.
+picks:
+  - tool: superhuman
+    role: recommended
+    why: Keyboard-first, split inbox, and AI summaries make triage feel fast. Expensive, but if you live in email it pays back.
+  - tool: mem-ai
+    role: alternative
+    why: Not a classic inbox tool, but good at resurfacing relevant emails alongside notes when you search. Different paradigm.
+  - tool: notion-calendar
+    role: alternative
+    why: Tight calendar and email integration if you already live in Notion. Less of a pure triage tool, more of a command center.
+  - tool: chatgpt
+    role: skip
+    why: You can paste emails, but it has no inbox context, no send capability, and no priority signal. Not a workflow.
+check_manually:
+  - Does it support all your email accounts, including work and personal?
+  - Check calendar integration quality.
+  - Test AI summary accuracy on your actual email style.
+  - Confirm the price holds up against your volume.
+last_verified: "2026-08-24"
+observed_by: SaneSanders

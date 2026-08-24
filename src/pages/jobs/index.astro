@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import LogoTile from '../../components/LogoTile.astro';
+
+const jobs = (await getCollection('jobs')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const toolsById = new Map((await getCollection('tools')).map((t) => [t.id, t]));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Noemium Jobs',
+  itemListElement: jobs.map((job, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: job.data.title,
+    url: new URL(`/jobs/${job.id}/`, Astro.site).href,
+  })),
+};
+---
+
+<Base
+  title="Jobs"
+  description="One job, one recommendation, honest skips. Pick AI tools by the work you need done, not by feature checklist."
+>
+  <SectionHeader
+    title="Jobs"
+    sub="One job, one recommendation, honest skips. Not a tag cloud."
+  />
+
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {
+      jobs.map((job) => {
+        const recommended = job.data.picks.find((p) => p.role === 'recommended');
+        const recommendedTool = recommended ? toolsById.get(recommended.tool) : undefined;
+        const skipCount = job.data.picks.filter((p) => p.role === 'skip').length;
+
+        return (
+          <a
+            href={`/jobs/${job.id}/`}
+            class="nm-card nm-card-hover group flex flex-col p-6"
+          >
+            <div class="flex items-start justify-between gap-3">
+              <span class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-medium tracking-[0.12em] text-ink uppercase">
+                {job.data.picks.length} picks
+              </span>
+              {skipCount > 0 && (
+                <span class="rounded-sm border-[1.5px] border-verdict-skip px-2 py-1 font-mono text-[11px] font-bold tracking-[0.12em] text-verdict-skip uppercase">
+                  {skipCount} skip{skipCount === 1 ? '' : 's'}
+                </span>
+              )}
+            </div>
+            <h3 class="mt-4 font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">
+              {job.data.title}
+            </h3>
+            <p class="mt-3 line-clamp-2 min-h-[2.9em] flex-1 text-[15px] leading-relaxed text-ink opacity-75">
+              {job.data.use_case}
+            </p>
+            {recommendedTool && (
+              <p class="mt-5 flex items-center gap-3 border-t-[1.5px] border-line-soft pt-4">
+                <LogoTile slug={recommendedTool.id} name={recommendedTool.data.name} size="sm" />
+                <span class="font-mono text-[13px] font-medium text-ink-dim">Pick:</span>
+                <span class="font-display text-lg font-extrabold tracking-tight">{recommendedTool.data.name}</span>
+              </p>
+            )}
+            {job.data.monthly_cost_usd !== undefined && (
+              <p class="mt-4">
+                <span class="nm-num text-2xl font-bold text-accent">${job.data.monthly_cost_usd}</span>
+                <span class="nm-num ml-1 text-sm text-ink-dim">/mo</span>
+              </p>
+            )}
+          </a>
+        );
+      })
+    }
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} is:inline />
+</Base>

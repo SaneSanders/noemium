@@ -23,6 +23,7 @@ const CONTENT_DIRS = [
   'src/content/models',
   'src/content/stacks',
   'src/content/graveyard',
+  'src/content/jobs',
 ];
 const OUT = join(root, 'src/data/changelog.json');
 
@@ -39,6 +40,7 @@ const TRACKED = {
   },
   stacks: { monthly_cost_usd: 'monthly cost', difficulty: 'difficulty' },
   graveyard: {},
+  jobs: { monthly_cost_usd: 'monthly cost' },
 };
 
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trimEnd();

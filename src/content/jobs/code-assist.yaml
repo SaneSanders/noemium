@@ -1,0 +1,22 @@
+title: Code assist
+use_case: Write, refactor, and debug code inside your editor with an AI pair programmer.
+picks:
+  - tool: cursor
+    role: recommended
+    why: Best-in-class agent mode, composer, and context awareness. It actually edits multiple files and runs tests. The current default.
+  - tool: claude-code
+    role: alternative
+    why: Extremely capable in a terminal. Great for ops-heavy or large-refactor workflows, but you have to like the command line.
+  - tool: github-copilot
+    role: alternative
+    why: Reliable inline completions and broad IDE support. Less agentic than Cursor, but rarely surprising.
+  - tool: aider
+    role: skip
+    why: Powerful for terminal-driven developers, but the UX is niche. If you want an editor-integrated flow, skip it.
+check_manually:
+  - Does it support your language and framework well?
+  - Check code privacy rules. Some tools train on enterprise code only with a paid plan.
+  - Try the agent on a real bug, not just hello-world.
+  - Confirm it can run your test suite or linter.
+last_verified: "2026-08-24"
+observed_by: SaneSanders

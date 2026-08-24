@@ -1,0 +1,152 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import LogoTile from '../../components/LogoTile.astro';
+
+export const getStaticPaths = (async () => {
+  const jobs = await getCollection('jobs');
+  return jobs.map((job) => ({ params: { slug: job.id }, props: { job } }));
+}) satisfies GetStaticPaths;
+
+const { job } = Astro.props;
+const j = job.data;
+
+const toolsById = new Map((await getCollection('tools')).map((t) => [t.id, t]));
+const resolveTool = (slug: string) => toolsById.get(slug);
+
+const recommended = j.picks.find((p) => p.role === 'recommended');
+const alternatives = j.picks.filter((p) => p.role === 'alternative');
+const skips = j.picks.filter((p) => p.role === 'skip');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: j.title,
+  description: j.use_case,
+  step: j.picks.map((pick, index) => ({
+    '@type': 'HowToStep',
+    position: index + 1,
+    name: pick.role,
+    text: pick.why,
+  })),
+};
+---
+
+<Base title={j.title} description={j.use_case}>
+  <article class="py-14 md:py-20">
+    <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
+      <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
+      <a href="/jobs/" class="hover:underline">Jobs</a>
+      <span class="text-ink-dim">/ {job.id}</span>
+    </p>
+
+    <h1 class="text-shadow-section mt-6 max-w-4xl font-display text-5xl leading-[0.98] font-black tracking-tight uppercase md:text-7xl">
+      {j.title}
+    </h1>
+    <p class="mt-6 max-w-2xl text-xl leading-relaxed font-medium text-ink opacity-80">{j.use_case}</p>
+
+    <p class="mt-5 flex flex-wrap items-center gap-3 font-mono text-[13px] text-ink-dim">
+      <span>observed by @{j.observed_by}</span>
+      <span class="nm-verified">Verified {j.last_verified}</span>
+    </p>
+
+    {recommended && (
+      <section class="nm-card mt-10 p-6 md:p-8">
+        <p class="font-mono text-[12px] font-bold tracking-[0.12em] text-accent uppercase">Recommended</p>
+        <div class="mt-4 flex flex-wrap items-center gap-4">
+          {(() => {
+            const t = resolveTool(recommended.tool);
+            return t ? (
+              <a href={`/tools/${t.id}/`} class="flex items-center gap-3 font-display text-3xl font-black tracking-tight hover:text-accent">
+                <LogoTile slug={t.id} name={t.data.name} size="lg" />
+                {t.data.name}
+              </a>
+            ) : (
+              <span class="font-display text-3xl font-black tracking-tight">{recommended.tool}</span>
+            );
+          })()}
+        </div>
+        <p class="mt-4 max-w-3xl text-[17px] leading-relaxed">{recommended.why}</p>
+      </section>
+    )}
+
+    {alternatives.length > 0 && (
+      <section class="mt-10">
+        <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Alternatives</h2>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          {alternatives.map((pick) => {
+            const t = resolveTool(pick.tool);
+            return (
+              <div class="nm-card p-5">
+                <div class="flex items-center gap-3">
+                  {t ? (
+                    <a href={`/tools/${t.id}/`} class="flex items-center gap-3 font-display text-xl font-extrabold tracking-tight hover:text-accent">
+                      <LogoTile slug={t.id} name={t.data.name} size="sm" />
+                      {t.data.name}
+                    </a>
+                  ) : (
+                    <span class="font-display text-xl font-extrabold tracking-tight">{pick.tool}</span>
+                  )}
+                </div>
+                <p class="mt-3 text-[15px] leading-relaxed text-ink opacity-80">{pick.why}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    {skips.length > 0 && (
+      <section class="mt-10">
+        <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Honest skips</h2>
+        <ul class="mt-4 space-y-3">
+          {skips.map((pick) => {
+            const t = resolveTool(pick.tool);
+            return (
+              <li class="nm-card border-dashed p-5">
+                <div class="flex flex-wrap items-center gap-3">
+                  {t ? (
+                    <a href={`/tools/${t.id}/`} class="flex items-center gap-3 font-display text-lg font-extrabold tracking-tight hover:text-accent">
+                      <LogoTile slug={t.id} name={t.data.name} size="sm" />
+                      {t.data.name}
+                    </a>
+                  ) : (
+                    <span class="font-display text-lg font-extrabold tracking-tight">{pick.tool}</span>
+                  )}
+                  <span class="rounded-sm border-[1.5px] border-verdict-skip px-2 py-1 font-mono text-[11px] font-bold tracking-[0.12em] text-verdict-skip uppercase">
+                    skip
+                  </span>
+                </div>
+                <p class="mt-3 text-[15px] leading-relaxed text-ink opacity-80">{pick.why}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )}
+
+    <section class="mt-10">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Check manually</h2>
+      <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-accent">
+        {j.check_manually.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    {j.monthly_cost_usd !== undefined && (
+      <section class="nm-card mt-10 inline-block p-6">
+        <p class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Typical monthly cost</p>
+        <p class="mt-2">
+          <span class="nm-num text-5xl font-bold text-accent">${j.monthly_cost_usd}</span>
+          <span class="nm-num ml-2 text-lg text-ink-dim">/mo</span>
+        </p>
+      </section>
+    )}
+
+    <p class="mt-10">
+      <a href="/jobs/" class="nm-btn nm-btn-outline">All jobs</a>
+    </p>
+  </article>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} is:inline />
+</Base>

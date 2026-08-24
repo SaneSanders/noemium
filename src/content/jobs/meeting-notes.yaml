@@ -1,0 +1,22 @@
+title: Meeting notes
+use_case: Capture what actually happened in calls without writing everything yourself.
+picks:
+  - tool: fathom
+    role: recommended
+    why: Joins Zoom/Meet automatically, labels speakers, and the AI summary is accurate enough to skip rewatching. Best for back-to-back calls.
+  - tool: granola
+    role: alternative
+    why: Hybrid approach. You jot short bullets during the call, it expands them into clean notes later. Good if you don't trust pure AI summaries.
+  - tool: otter-ai
+    role: alternative
+    why: Reliable transcription and search, but summaries feel older-generation. Solid when you need a verbatim archive.
+  - tool: fireflies
+    role: skip
+    why: Transcription works, but summaries are bloated and the dashboard buries the actual takeaways. More noise than signal.
+check_manually:
+  - Does it support your video platform (Zoom, Meet, Teams)?
+  - Check who can access recordings — some tools store audio by default.
+  - Test speaker identification on your accent/language.
+  - Verify admin or IT approval if you join client calls.
+last_verified: "2026-08-24"
+observed_by: SaneSanders

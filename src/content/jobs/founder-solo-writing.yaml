@@ -1,0 +1,22 @@
+title: Founder solo writing
+use_case: Draft blog posts, investor updates, and landing copy without a marketing team.
+picks:
+  - tool: lex
+    role: recommended
+    why: Clean writing environment with subtle AI assistance that doesn't write for you. Best for founders who still want their own voice.
+  - tool: jasper
+    role: alternative
+    why: Good templates and brand-voice features if you produce a high volume of marketing copy. Can feel heavy for occasional posts.
+  - tool: writesonic
+    role: alternative
+    why: Cheap and fast for SEO briefs and first drafts. Expect to rewrite heavily.
+  - tool: cursor
+    role: skip
+    why: It can write markdown, but the workflow is built for code. You'll fight the editor for long-form writing.
+check_manually:
+  - Does the tone match your voice or does it sound generic?
+  - Check factual claims. AI writing loves confident falsehoods.
+  - Test the export and publishing flow.
+  - Confirm who owns the generated content.
+last_verified: "2026-08-24"
+observed_by: SaneSanders

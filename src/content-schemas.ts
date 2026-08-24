@@ -280,6 +280,36 @@ export const agentSchema = z
     }
   });
 
+const jobPickSchema = z
+  .object({
+    tool: z.string().min(1),
+    role: z.enum(['recommended', 'alternative', 'skip']),
+    why: z.string().min(1).max(280),
+  })
+  .strict();
+
+export const jobSchema = z
+  .object({
+    title: z.string().min(1),
+    use_case: z.string().min(1),
+    picks: z.array(jobPickSchema).min(3),
+    check_manually: z.array(z.string().min(1)).min(2),
+    monthly_cost_usd: z.number().nonnegative().optional(),
+    last_verified: isoDate,
+    observed_by: z.string().min(1),
+  })
+  .strict()
+  .superRefine((job, ctx) => {
+    const recommended = job.picks.filter((p) => p.role === 'recommended');
+    if (recommended.length !== 1) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['picks'],
+        message: `expected exactly one recommended pick, found ${recommended.length}`,
+      });
+    }
+  });
+
 const budgetTwinSchema = z.object({
   monthly_cost_usd: z.number().nonnegative(),
   tools: z.array(z.string()).min(1),
@@ -393,6 +423,7 @@ export const graveyardSchema = z.object({
 
 export type Tool = z.infer<typeof toolSchema>;
 export type Agent = z.infer<typeof agentSchema>;
+export type Job = z.infer<typeof jobSchema>;
 export type Stack = z.infer<typeof stackSchema>;
 export type Model = z.infer<typeof modelSchema>;
 export type Graveyard = z.infer<typeof graveyardSchema>;

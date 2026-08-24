@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { agentSchema, graveyardSchema, modelSchema, stackSchema, toolSchema } from '../src/content-schemas.ts';
+import { agentSchema, graveyardSchema, jobSchema, modelSchema, stackSchema, toolSchema } from '../src/content-schemas.ts';
 
 const strictAgent = {
   name: 'Example Agent',
@@ -216,6 +216,55 @@ test('rejects a retiring block without a successor', () => {
     },
   };
   assert.equal(modelSchema.safeParse(data).success, false);
+});
+
+const jobBase = {
+  title: 'Meeting notes',
+  use_case: 'Capture calls.',
+  picks: [
+    { tool: 'fathom', role: 'recommended', why: 'Best summary.' },
+    { tool: 'granola', role: 'alternative', why: 'Hybrid notes.' },
+    { tool: 'fireflies', role: 'skip', why: 'Too noisy.' },
+  ],
+  check_manually: ['Check platform support.', 'Verify privacy policy.'],
+  last_verified: '2026-08-24',
+  observed_by: 'tester',
+};
+
+test('accepts a valid job with one recommended pick', () => {
+  assert.equal(jobSchema.safeParse(jobBase).success, true);
+});
+
+test('rejects a job without a recommended pick', () => {
+  const data = {
+    ...jobBase,
+    picks: [
+      { tool: 'fathom', role: 'alternative', why: 'Best summary.' },
+      { tool: 'granola', role: 'alternative', why: 'Hybrid notes.' },
+      { tool: 'fireflies', role: 'skip', why: 'Too noisy.' },
+    ],
+  };
+  assert.equal(jobSchema.safeParse(data).success, false);
+});
+
+test('rejects a job with more than one recommended pick', () => {
+  const data = {
+    ...jobBase,
+    picks: [
+      { tool: 'fathom', role: 'recommended', why: 'Best summary.' },
+      { tool: 'granola', role: 'recommended', why: 'Also good.' },
+      { tool: 'fireflies', role: 'skip', why: 'Too noisy.' },
+    ],
+  };
+  assert.equal(jobSchema.safeParse(data).success, false);
+});
+
+test('rejects a job pick with why over 280 characters', () => {
+  const data = {
+    ...jobBase,
+    picks: [{ ...jobBase.picks[0], why: 'x'.repeat(281) }],
+  };
+  assert.equal(jobSchema.safeParse(data).success, false);
 });
 
 test('requires a graveyard successor or an explicit none', () => {

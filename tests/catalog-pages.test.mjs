@@ -83,6 +83,24 @@ test('price tape renders with disclaimer and honest empty state if no movers', (
   assert.match(html, /No moves recorded yet|per 1M in\/out/);
 });
 
+test('jobs index and detail pages render with recommended pick and skips', () => {
+  const index = built('jobs/index.html');
+  assert.match(index, /One job, one recommendation, honest skips/);
+  assert.match(index, /Meeting notes/);
+  assert.match(index, /Code assist/);
+  assert.match(index, /Image generation/);
+  assert.match(index, /Founder solo writing/);
+  assert.match(index, /href="\/jobs\/code-assist\/"/);
+
+  const detail = built('jobs/code-assist/index.html');
+  assert.match(detail, /Code assist/);
+  assert.match(detail, /Recommended/);
+  assert.match(detail, /Cursor/);
+  assert.match(detail, /Honest skips/);
+  assert.match(detail, /Check manually/);
+  assert.match(detail, /href="\/jobs\/"/);
+});
+
 test('rss feed only contains weeks with risk events', () => {
   const rss = built('rss.xml');
   const changelog = JSON.parse(readFileSync(new URL('../src/data/changelog.json', import.meta.url), 'utf8'));

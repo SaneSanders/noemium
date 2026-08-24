@@ -1,0 +1,22 @@
+title: Image generation
+use_case: Create marketing images, mockups, and illustrations from text prompts.
+picks:
+  - tool: midjourney
+    role: recommended
+    why: Still the best visual taste out of the box. Great for hero images, concept art, and anything where aesthetics matter.
+  - tool: gpt-image
+    role: alternative
+    why: Fast, integrated with ChatGPT, and fine for simple edits. Good when you don't want another subscription.
+  - tool: seedream
+    role: alternative
+    why: Strong for East Asian aesthetics and certain character styles. Worth trying if Midjourney's look feels too western.
+  - tool: ideogram
+    role: skip
+    why: Text-in-image is impressive, but overall consistency and fine control lag behind the top tier for most production work.
+check_manually:
+  - Can you get a consistent style across a campaign?
+  - Check commercial usage rights for your tier.
+  - Test text rendering if you need typography.
+  - Confirm export resolution and format match your use.
+last_verified: "2026-08-24"
+observed_by: SaneSanders
