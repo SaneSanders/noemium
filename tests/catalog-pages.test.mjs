@@ -44,6 +44,13 @@ test('graveyard renders at least ten exhibits including Kite, Galactica and Huma
   assert.match(html, /1[0-9] tools confirmed dead/);
 });
 
+test('/money/ renders the affiliate ledger', () => {
+  const html = built('money/index.html');
+  assert.match(html, /Money/);
+  assert.match(html, /Make/);
+  assert.match(html, /cards carry an affiliate link/);
+});
+
 test('contribute stays a PR vitrine', () => {
   const html = built('contribute/index.html');
   assert.match(html, /Open pull requests/);

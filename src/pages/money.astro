@@ -1,0 +1,144 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+
+const tools = await getCollection('tools');
+const totalTools = tools.length;
+const affiliateTools = tools
+  .filter((t) => t.data.affiliate === 'declared')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const featuredTools = tools
+  .filter((t) => t.data.featured)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const featuredAffiliateCount = featuredTools.filter((t) => t.data.affiliate === 'declared').length;
+
+const hostname = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+};
+---
+
+<Base
+  title="Money"
+  description="How Noemium makes money, and how it does not. The whole conflict, on one page."
+>
+  <SectionHeader
+    title="Money"
+    sub="How this site makes money, and how it does not. The whole conflict, on one page."
+  />
+
+  <div class="max-w-3xl space-y-10 pb-16">
+    <section>
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        What we don't sell
+      </h2>
+      <div class="nm-card mt-4 p-6">
+        <p class="text-[15px] leading-relaxed text-ink opacity-80">
+          Listings, verdicts, placement, and sponsored content are not for sale. Every declined
+          paid-influence offer is logged in the
+          <a href="/refusals/" class="text-accent hover:underline">Open Refusal Ledger</a>.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        Affiliate, in the open
+      </h2>
+      <div class="nm-card mt-4 overflow-x-auto">
+        <table class="w-full border-collapse text-left">
+          <thead>
+            <tr class="border-b-[1.5px] border-ink">
+              <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
+              <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
+              <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">money link</th>
+              <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">featured</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              affiliateTools.map((tool) => (
+                <tr class="border-b border-line-soft last:border-b-0">
+                  <td class="p-3">
+                    <a
+                      href={`/tools/${tool.id}/`}
+                      class="font-display text-[15px] font-extrabold tracking-tight hover:text-accent"
+                    >
+                      {tool.data.name}
+                    </a>
+                  </td>
+                  <td class="p-3 font-mono text-[13px]">{tool.data.verdict}</td>
+                  <td class="p-3 font-mono text-[13px]">
+                    <a
+                      href={tool.data.affiliate_url}
+                      class="text-accent hover:underline"
+                      rel="noopener"
+                    >
+                      {hostname(tool.data.affiliate_url ?? '')}
+                    </a>
+                  </td>
+                  <td class="p-3 font-mono text-[13px]">{tool.data.featured ? 'yes' : 'no'}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-3 font-mono text-[12px] leading-relaxed text-ink-dim">
+        {affiliateTools.length} of {totalTools} cards carry an affiliate link. Verdicts are PRs; CI fails undeclared tracking parameters.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        The counterfactual
+      </h2>
+      <div class="nm-card mt-4 p-6">
+        <p class="text-[15px] leading-relaxed text-ink opacity-80">
+          {featuredAffiliateCount} of {featuredTools.length} featured cards carry an affiliate link.
+          Featured is an editorial mix, not a slot.
+        </p>
+        <ul class="mt-4 space-y-2">
+          {
+            featuredTools.map((tool) => (
+              <li class="flex items-center justify-between gap-4 border-b border-line-soft py-2 last:border-b-0">
+                <a
+                  href={`/tools/${tool.id}/`}
+                  class="font-display text-[15px] font-extrabold tracking-tight hover:text-accent"
+                >
+                  {tool.data.name}
+                </a>
+                <span class="font-mono text-[12px] text-ink-dim">
+                  {tool.data.affiliate === 'declared' ? 'affiliate' : 'no affiliate'}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        The rule
+      </h2>
+      <div class="nm-card mt-4 p-6">
+        <ul class="space-y-3 text-[15px] leading-relaxed text-ink opacity-80">
+          <li>Affiliate links are always declared in the YAML and marked on the card.</li>
+          <li>Affiliate status never influences verdict, featured selection, or sort order.</li>
+          <li>An affiliate link is never the only receipt for a printed fact.</li>
+          <li>Undeclared tracking parameters fail CI.</li>
+        </ul>
+        <p class="mt-4 text-[15px] leading-relaxed text-ink opacity-80">
+          The rule is enforced in code:{' '}
+          <a href="/CONTRIBUTING.md" class="text-accent hover:underline">CONTRIBUTING.md</a> and the
+          validation script are the source of truth.
+        </p>
+      </div>
+    </section>
+  </div>
+</Base>
