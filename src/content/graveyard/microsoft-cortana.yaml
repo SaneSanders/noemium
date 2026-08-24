@@ -1,0 +1,21 @@
+name: Microsoft Cortana
+url: https://www.microsoft.com/en-us/windows/cortana
+category: productivity
+died: "2023-08-01"
+cause: >-
+  Microsoft sunset the standalone assistant to replace it with Windows Copilot
+  and the broader Copilot stack.
+obituary: >-
+  Microsoft's digital assistant since 2014, spanning Windows Phone, Windows 10
+  and 11, Xbox and Microsoft 365 apps. The standalone Windows app was disabled
+  in early August 2023 with a deprecation notice. Support in Teams, Outlook and
+  M365 ended through fall 2023, and the last Outlook mobile voice features were
+  retired in June 2024.
+receipt: https://www.theverge.com/2023/8/11/23828311/microsoft-shuts-down-cortana-windows-11
+last_verified: "2026-08-24"
+succeeded_by:
+  name: Microsoft Copilot
+  url: https://www.microsoft.com/en-us/microsoft-copilot
+  note: >-
+    Microsoft points users to Windows Copilot and Copilot in M365. The date
+    marks the start of the August 2023 shutdown rollout.

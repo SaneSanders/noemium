@@ -36,6 +36,14 @@ test('kit page links to its OG image and the image is emitted', () => {
   assert.equal(existsSync(new URL('dist/og/kit.png', root)), true);
 });
 
+test('graveyard renders at least ten exhibits including Kite, Galactica and Humane', () => {
+  const html = built('graveyard/index.html');
+  assert.match(html, /Kite/);
+  assert.match(html, /Galactica/);
+  assert.match(html, /Humane/);
+  assert.match(html, /1[0-9] tools confirmed dead/);
+});
+
 test('contribute stays a PR vitrine', () => {
   const html = built('contribute/index.html');
   assert.match(html, /Open pull requests/);

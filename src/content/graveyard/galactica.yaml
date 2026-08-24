@@ -1,0 +1,18 @@
+name: Galactica
+url: https://galactica.org/
+category: models-api
+died: "2022-11-17"
+cause: >-
+  Meta paused the public demo after researchers showed it generated plausible but
+  false scientific text and fabricated citations.
+obituary: >-
+  Meta AI / Papers with Code science LLM, launched November 15, 2022. Within
+  hours users found fake citations and fictional papers delivered with high
+  confidence. Meta paused the public demo on November 17, 2022 and never
+  restored it. The weights and code remained available to researchers.
+receipt: https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science/
+last_verified: "2026-08-24"
+succeeded_by:
+  none: true
+  note: >-
+    No successor — Meta moved to LLaMA and never touched the brand again.

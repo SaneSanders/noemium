@@ -1,0 +1,22 @@
+name: Supermaven
+url: https://supermaven.com/
+category: coding
+died: "2025-11-21"
+cause: >-
+  Sunset by Anysphere one year after acquisition to consolidate users and
+  technology into Cursor Tab.
+obituary: >-
+  Speed-focused code completion by Jacob Jackson (Tabnine creator), built around
+  the Babble model with large context and plugins for VS Code, JetBrains and
+  Neovim. Anysphere acquired Supermaven on November 12, 2024, initially promising
+  the plugins would stay. The product was officially sunset on November 21,
+  2025: prorated refunds were issued, agent conversations were turned off, VS
+  Code users were pushed to Cursor, and only legacy free autocomplete remained
+  for existing Neovim and JetBrains users.
+receipt: https://supermaven.com/blog/sunsetting-supermaven
+last_verified: "2026-08-24"
+succeeded_by:
+  name: Cursor
+  slug: cursor
+  note: >-
+    Cursor absorbed the team and the speed work into Cursor Tab. In the catalog.

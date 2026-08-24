@@ -1,0 +1,20 @@
+name: Woebot
+url: https://woebothealth.com/
+category: agents
+died: "2025-06-30"
+cause: >-
+  Woebot Health retired the consumer app — FDA marketing-authorization costs and
+  LLM-in-therapy uncertainty made the direct-to-consumer model unsustainable.
+obituary: >-
+  CBT-based mental-health chatbot since 2017, reaching roughly 1.5M users. The
+  consumer app was retired on June 30, 2025: sign-ups and account access were
+  disabled, transcripts were available only until July 15, and data was
+  anonymized by July 31. The company continues licensing the technology to
+  enterprises, but the public bot is dead.
+receipt: https://www.mobihealthnews.com/news/woebot-health-shutting-down-its-app
+last_verified: "2026-08-24"
+succeeded_by:
+  none: true
+  note: >-
+    The company licenses the tech to employers and health systems; the consumer
+    bot you could talk to is gone.

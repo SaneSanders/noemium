@@ -1,0 +1,22 @@
+name: Kite
+url: https://kite.com/
+category: coding
+died: "2022-11-16"
+cause: >-
+  Acquihired by Affirm in June 2021, then sunset in November 2022 after failing
+  to monetize 500k monthly developers.
+obituary: >-
+  Local AI code completion for Python and JavaScript inside VS Code and PyCharm,
+  reaching roughly 500k monthly active users but generating little revenue —
+  developers would not pay. Affirm bought the technology, IP and part of the
+  team for about $25M in June 2021. On November 16, 2022 founder Adam Smith
+  announced the end of work and support. The codebase was open-sourced; the
+  commercial product died.
+receipt: https://kite.com/blog/product/kite-is-saying-farewell/
+last_verified: "2026-08-24"
+succeeded_by:
+  none: true
+  note: >-
+    The code went open source; the business went nowhere. Its lesson —
+    developers don't pay for autocomplete — was later disproven at scale by
+    Copilot and Cursor.

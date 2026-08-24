@@ -1,0 +1,20 @@
+name: Skiff
+url: https://skiff.com/
+category: productivity
+died: "2024-08-09"
+cause: >-
+  Acquired by Notion in February 2024 and sunset as a standalone product.
+obituary: >-
+  Privacy-first, end-to-end-encrypted email, documents and calendar. Notion
+  acquired Skiff on February 9, 2024. All services shut down on August 9, 2024
+  (email forwarding continued until February 9, 2025). Accounts did not convert;
+  users had to export data manually or lose it. The team's technology later fed
+  Notion Mail.
+receipt: https://www.notion.com/blog/meet-skiff-the-newest-member-of-the-notion-family
+last_verified: "2026-08-24"
+succeeded_by:
+  name: Notion Mail
+  url: https://www.notion.so/product/mail
+  note: >-
+    The team's work became Notion Mail — which is itself announced to close
+    2026-09-22. The graveyard may see it again.

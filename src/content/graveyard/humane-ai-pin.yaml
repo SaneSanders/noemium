@@ -1,0 +1,19 @@
+name: Humane AI Pin
+url: https://humane.com
+category: productivity
+died: "2025-02-28"
+cause: >-
+  HP acquihired the company for its Cosmos AI platform, patents and talent, then
+  sunset the AI Pin hardware and services.
+obituary: >-
+  $699 wearable AI device launched April 2024 to replace smartphones. HP acquired
+  the Cosmos platform plus roughly 300 patents for $116M, announced February 18,
+  2025. Services shut down February 28, 2025, all user data in Humane Center was
+  deleted, and remaining devices were left with only offline battery checks.
+receipt: https://www.theverge.com/news/614883/humane-ai-hp-acquisition-pin-shutdown
+last_verified: "2026-08-24"
+succeeded_by:
+  none: true
+  note: >-
+    The team and IP went inside HP as the HP IQ lab. No consumer successor — the
+    buyers wanted the platform, not the pin.

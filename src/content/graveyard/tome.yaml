@@ -1,0 +1,20 @@
+name: Tome
+url: https://tome.app
+category: productivity
+died: "2025-04-30"
+cause: >-
+  The team shut down Tome Slides after failing to make AI presentations a
+  business, pivoting to an AI-native CRM.
+obituary: >-
+  AI-native presentation tool that reached roughly 20M users at its peak. In
+  2024 the company pivoted toward sales use cases. Tome Slides shut down on
+  April 30, 2025 — sign-in was disabled and unexported decks were permanently
+  deleted. The founders subsequently launched Lightfield, an AI-native CRM.
+receipt: https://tome.app/help/en/articles/10744234-tome-slides-is-sunsetting-on-april-30th-2025
+last_verified: "2026-08-24"
+succeeded_by:
+  none: true
+  note: >-
+    No presentation successor — the team left the category entirely for CRM
+    (Lightfield). A different company named Tome (legal AI) was bought by
+    AngelList; do not confuse them.

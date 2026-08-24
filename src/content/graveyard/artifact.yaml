@@ -1,0 +1,20 @@
+name: Artifact
+url: https://artifact.news
+category: productivity
+died: "2024-04-02"
+cause: >-
+  Acquired by Yahoo, which shut down the standalone app and absorbed the
+  personalization tech into Yahoo News.
+obituary: >-
+  AI-personalized news app from Instagram co-founders Kevin Systrom and Mike
+  Krieger, launched in 2023. The market was deemed too small by January 2024.
+  Yahoo acquired the company and the standalone app ceased operation on April 2,
+  2024; posts and comments were already disabled and the product was folded into
+  Yahoo properties.
+receipt: https://www.yahooinc.com/press/yahoo-announces-the-acquisition-of-artifact-the-news-discovery-platform-created-by-instagram-cofounders-kevin-systrom-and-mike-krieger
+last_verified: "2026-08-24"
+succeeded_by:
+  name: Yahoo News
+  url: https://news.yahoo.com
+  note: >-
+    The personalization engine lives on inside Yahoo News. Not a Noemium card.
