@@ -8,6 +8,13 @@ import { formatWeekThread } from '../lib/week-thread';
 
 type Entry = { collection: string; slug: string; name: string; category?: string };
 type Change = Entry & { field: string; from: string | number | null; to: string | number | null };
+type RiskEvent = {
+  class: 'price_change' | 'verdict_change' | 'retirement' | 'death';
+  collection: string;
+  slug: string;
+  name: string;
+  detail: string;
+};
 type Week = {
   id: string;
   from: string;
@@ -16,6 +23,7 @@ type Week = {
   added: Entry[];
   removed: Entry[];
   changed: Change[];
+  risk?: RiskEvent[];
 };
 
 const weeks = changelog.weeks as Week[];
@@ -75,6 +83,30 @@ const short = (v: string | number | null) => {
             <p class="mb-6">
               <CopyButton label="Copy as X thread" text={formatWeekThread(w)} />
             </p>
+
+            {(w.risk ?? []).length > 0 && (
+              <section class="mb-6">
+                <h3 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Risk</h3>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {Array.from(
+                    new Set((w.risk ?? []).map((r) => r.class)),
+                  ).map((cls) => (
+                    <span class="rounded-sm border border-ink px-2 py-1 font-mono text-[11px] font-medium tracking-[0.14em] uppercase text-ink">
+                      {cls.replace('_', ' ')}
+                    </span>
+                  ))}
+                </div>
+                <ul class="mt-3 space-y-1">
+                  {(w.risk ?? []).map((r) => (
+                    <li class="font-mono text-[13px] text-ink-dim">
+                      <span class="text-ink">{r.name}</span>
+                      {r.detail && <span class="ml-2">· {r.detail}</span>}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {w.added.length > 0 && (
               <section>
                 <h3 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Added</h3>
@@ -163,6 +195,10 @@ const short = (v: string | number | null) => {
       ))
     }
   </div>
+
+  <p class="mt-10 font-mono text-[13px] text-ink-dim">
+    <a href="/prices/" class="text-accent hover:underline">Price tape →</a>
+  </p>
 
   <p class="mt-12 font-mono text-[13px] leading-relaxed text-ink-dim">
     Rebuilt weekly from git history (npm run weekly-diff). Copy edits and last_verified bumps don't

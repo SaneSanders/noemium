@@ -74,3 +74,21 @@ test('models index surfaces retirement with successor link', () => {
   assert.match(html, /mistral-medium-3-5/);
   assert.match(html, /Mistral Medium 3\.5/);
 });
+
+test('price tape renders with disclaimer and honest empty state if no movers', () => {
+  const html = built('prices/index.html');
+  assert.match(html, />Price tape</);
+  assert.match(html, /not a live vendor ticker/i);
+  // Current fixture has movers; if it ever empties, the honest "No moves recorded yet" block renders.
+  assert.match(html, /No moves recorded yet|per 1M in\/out/);
+});
+
+test('rss feed only contains weeks with risk events', () => {
+  const rss = built('rss.xml');
+  const changelog = JSON.parse(readFileSync(new URL('../src/data/changelog.json', import.meta.url), 'utf8'));
+  const riskWeeks = changelog.weeks.filter((w) => (w.risk ?? []).length > 0);
+  const itemCount = (rss.match(/<item>/g) ?? []).length;
+  assert.equal(itemCount, riskWeeks.length, 'RSS item count should match weeks with risk');
+  // The feed should not contain the old full-diff title format.
+  assert.doesNotMatch(rss, /catalog diff: \+\d+ \/ −\d+ \/ ~\d+/);
+});

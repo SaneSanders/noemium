@@ -1,25 +1,22 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import changelog from '../data/changelog.json';
-import {
-  formatWeekRssDescription,
-  formatWeekRssTitle,
-  type CatalogWeek,
-} from '../lib/week-thread';
+import { formatRiskDescription, formatRiskTitle, type RiskWeek } from '../lib/risk';
 
-/** Weekly catalog diff from git history — not last_verified, not a market feed. */
+/** Weekly risk feed: only weeks with decision-relevant events. */
 export async function GET(context: APIContext) {
   const site = context.site ?? new URL('https://noemium.com');
-  const weeks = (changelog.weeks ?? []) as CatalogWeek[];
+  const weeks = (changelog.weeks ?? []) as RiskWeek[];
+  const riskWeeks = weeks.filter((week) => (week.risk ?? []).length > 0);
 
   return rss({
-    title: 'Noemium — weekly catalog diff',
+    title: 'Noemium — weekly risk feed',
     description:
-      'Git history of the Noemium repo: tools, stacks, models and agents added, removed or repriced. Not a market index. Weekly, not daily.',
+      'Decision-relevant changes from the Noemium repo: price moves, verdict flips, model retirements and deaths. Not a market index. Weekly, not daily.',
     site,
-    items: weeks.map((week) => ({
-      title: formatWeekRssTitle(week),
-      description: formatWeekRssDescription(week),
+    items: riskWeeks.map((week) => ({
+      title: formatRiskTitle(week),
+      description: formatRiskDescription(week),
       link: '/changelog/',
       pubDate: new Date(`${week.to}T00:00:00Z`),
     })),

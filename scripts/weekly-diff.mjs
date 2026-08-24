@@ -14,6 +14,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as yaml from 'js-yaml';
+import { buildWeekRisk } from '../src/lib/risk.ts';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_DIRS = [
@@ -21,20 +22,23 @@ const CONTENT_DIRS = [
   'src/content/agents',
   'src/content/models',
   'src/content/stacks',
+  'src/content/graveyard',
 ];
 const OUT = join(root, 'src/data/changelog.json');
 
 // Fields whose changes are worth printing; keys are collection names.
 const TRACKED = {
-  tools: { pricing: 'pricing', price_note: 'price note', verdict: 'verdict' },
+  tools: { pricing: 'pricing', price_note: 'price note', free_tier: 'free tier', verdict: 'verdict' },
   agents: { evidence_tier: 'evidence tier', maturity: 'maturity', verdict: 'verdict' },
   models: {
     price_input_per_mtok: 'input $/Mtok',
     price_output_per_mtok: 'output $/Mtok',
     price_amount: 'price',
     price_unit: 'price unit',
+    retiring: 'retiring',
   },
   stacks: { monthly_cost_usd: 'monthly cost', difficulty: 'difficulty' },
+  graveyard: {},
 };
 
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trimEnd();
@@ -134,6 +138,7 @@ const meta = (path, data) => ({
   slug: slugOf(path),
   name: data?.name ?? data?.title ?? slugOf(path),
   category: data?.category,
+  ...(collectionOf(path) === 'models' && data?.retiring ? { retiring: data.retiring } : {}),
 });
 
 for (const [path, events] of eventsByPath) {
@@ -177,11 +182,19 @@ for (const [path, events] of eventsByPath) {
     if (baseline.status === 'D') continue; // deleted earlier, resurrected — nothing to diff
     const before = parseEntry(blobAt(baseline.sha, path) ?? '', path);
     const after = parseEntry(blobAt(last.sha, path) ?? '', path);
+    function valuesDiffer(a, b) {
+      if (a === undefined && b === undefined) return false;
+      if (typeof a === 'object' || typeof b === 'object') {
+        return JSON.stringify(a ?? null) !== JSON.stringify(b ?? null);
+      }
+      return String(a ?? '') !== String(b ?? '');
+    }
+
     for (const [field, label] of Object.entries(TRACKED[col] ?? {})) {
       const a = before?.[field];
       const b = after?.[field];
       if (a === undefined && b === undefined) continue;
-      if (String(a ?? '') !== String(b ?? '')) {
+      if (valuesDiffer(a, b)) {
         wk.changed.push({ ...meta(path, after), field: label, from: a ?? null, to: b ?? null });
       }
     }
@@ -234,7 +247,7 @@ const weeksOut = [...result.entries()]
   .map(([key, v]) => {
     pairReplacements(v);
     const { start, end } = weeks.get(key);
-    return {
+    const week = {
       id: key,
       from: start.toISOString().slice(0, 10),
       to: end.toISOString().slice(0, 10),
@@ -245,6 +258,8 @@ const weeksOut = [...result.entries()]
       },
       ...v,
     };
+    week.risk = buildWeekRisk(week);
+    return week;
   })
   .sort((a, b) => b.from.localeCompare(a.from));
 
