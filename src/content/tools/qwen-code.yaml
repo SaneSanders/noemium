@@ -8,6 +8,7 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   The CLI is free and open source, so it costs nothing to try with your own
@@ -38,5 +39,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-19"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

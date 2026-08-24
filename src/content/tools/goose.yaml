@@ -8,6 +8,7 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   A local agent you can actually read: recipes, extensions, MCP, runs on your
@@ -24,5 +25,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-19"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

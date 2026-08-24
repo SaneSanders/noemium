@@ -12,6 +12,7 @@ models_used:
   - gpt-5-6-sol
   - gpt-5-6-terra
   - gpt-5-6-luna
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   The CLI on GitHub is real and the ChatGPT bundle makes it the lowest-friction
@@ -42,5 +43,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-19"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

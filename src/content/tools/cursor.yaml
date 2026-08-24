@@ -12,6 +12,7 @@ api: false
 self_host: false
 models_used:
   - claude-sonnet-5
+model_routing: bundled
 verdict: ship
 verdict_text: >-
   Still the default AI editor, and for a reason: agent mode and tab

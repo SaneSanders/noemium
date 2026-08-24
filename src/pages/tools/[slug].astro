@@ -25,6 +25,8 @@ const t = tool.data;
 const logo = logoSrc(tool.id);
 
 const catalog = await getCollection('tools');
+const models = await getCollection('models');
+const modelNames = new Map(models.map((m) => [m.id, m.data.name]));
 const relatedIdList = relatedIds(
   tool.id,
   catalog.map((x) => ({
@@ -376,6 +378,36 @@ const disputePrompt = [
               </dd>
             </div>
           ))}
+          {
+            (t.models_used?.length || t.model_routing) && (
+              <div>
+                <dt class="font-mono text-xs tracking-[0.12em] text-ink-dim uppercase">Models</dt>
+                <dd class="mt-1 text-[15px] font-medium">
+                  {t.models_used && t.models_used.length > 0 && (
+                    <span class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                      {t.models_used.map((slug) => (
+                        <a href={`/models/#${slug}`} class="text-accent hover:underline">
+                          {modelNames.get(slug) ?? slug}
+                        </a>
+                      ))}
+                    </span>
+                  )}
+                  {t.model_routing && (
+                    <span
+                      class:list={[
+                        'inline-block rounded-sm border-[1.5px] px-1.5 py-0.5 font-mono text-[11px] font-medium tracking-[0.08em] uppercase',
+                        t.model_routing === 'byok'
+                          ? 'border-accent text-accent'
+                          : 'border-ink text-ink-dim',
+                      ]}
+                    >
+                      {t.model_routing === 'byok' ? 'BYOK' : t.model_routing}
+                    </span>
+                  )}
+                </dd>
+              </div>
+            )
+          }
         </dl>
         {
           t.data_sensitivity && (
@@ -388,23 +420,6 @@ const disputePrompt = [
                 <span> · local processing {t.data_sensitivity.local_processing ? 'yes' : 'no'}</span>
               )}
             </p>
-          )
-        }
-        {
-          t.models_used && t.models_used.length > 0 && (
-            <div class="mt-6">
-              <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Models used</h2>
-              <p class="mt-3 flex flex-wrap gap-1.5">
-                {t.models_used.map((m) => (
-                  <a
-                    href={`/models/#${m}`}
-                    class="rounded-sm border-[1.5px] border-ink px-2.5 py-1.5 font-mono text-[13px] text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard-sm"
-                  >
-                    {m}
-                  </a>
-                ))}
-              </p>
-            </div>
           )
         }
       </section>

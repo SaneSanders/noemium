@@ -8,6 +8,7 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Open-source agent with a zero-markup gateway is the pitch, and the public
@@ -26,5 +27,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-19"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

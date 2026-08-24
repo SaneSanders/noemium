@@ -8,6 +8,7 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   The honest Cursor alternative if you already have API keys: Apache-licensed
@@ -39,5 +40,5 @@ affiliate: none
 momentum: blueshift
 featured: false
 evidence_tier: source-verified
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

@@ -58,6 +58,9 @@ export const toolSchema = z.object({
   api: z.boolean(),
   self_host: z.boolean(),
   models_used: z.array(z.string()).optional(),
+  // How the tool routes models: bundled (vendor mix you can't pick), locked
+  // (one provider), byok (bring your own key/model).
+  model_routing: z.enum(['bundled', 'locked', 'byok']).optional(),
   verdict: z.enum(['ship', 'situational', 'skip']),
   verdict_text: z.string().min(1),
   limitations: z.array(z.string()).min(1),

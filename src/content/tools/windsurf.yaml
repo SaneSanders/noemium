@@ -11,6 +11,7 @@ self_host: false
 models_used:
   - claude-sonnet-5
   - gpt-5-6-terra
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   A credible Cursor alternative with a cleaner agent UX. But it's on its
@@ -27,5 +28,5 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-19"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

@@ -10,6 +10,7 @@ api: false
 self_host: true
 models_used:
   - claude-sonnet-5
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Probably the fastest editor around, and the agent panel is honest
@@ -27,5 +28,5 @@ affiliate: none
 momentum: blueshift
 featured: false
 evidence_tier: source-verified
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

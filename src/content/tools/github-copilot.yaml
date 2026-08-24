@@ -11,6 +11,7 @@ self_host: false
 models_used:
   - gpt-5-6-terra
   - claude-sonnet-5
+model_routing: bundled
 verdict: ship
 verdict_text: >-
   The zero-friction option if your team already lives on GitHub. Fast

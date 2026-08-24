@@ -12,6 +12,7 @@ models_used:
   - claude-opus-5
   - claude-sonnet-5
   - claude-haiku-4-5
+model_routing: locked
 verdict: ship
 verdict_text: >-
   Strong agentic coding, nobody argues with that — multi-file refactors,

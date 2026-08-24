@@ -46,6 +46,13 @@ test('tool page exposes Dispute this verdict copy prompt', () => {
   assert.match(html, /Dispute this verdict/);
 });
 
+test('tool page renders Models row with resolved names and routing badge', () => {
+  const html = built('tools/cursor/index.html');
+  assert.match(html, /Models/);
+  assert.match(html, /Claude Sonnet 5/);
+  assert.match(html, /bundled/);
+});
+
 test('llms.txt curates tested shelf and links to full dump', () => {
   const llms = built('llms.txt');
   assert.match(llms, /Tested shelf/);

@@ -289,6 +289,15 @@ test('rejects garbage data_sensitivity values', () => {
   assert.equal(toolSchema.safeParse(data).success, false);
 });
 
+test('accepts model_routing on a tool', () => {
+  const data = {
+    ...toolBase,
+    models_used: ['claude-sonnet-5'],
+    model_routing: 'byok',
+  };
+  assert.equal(toolSchema.safeParse(data).success, true);
+});
+
 test('requires a graveyard successor or an explicit none', () => {
   const grave = {
     name: 'Dead Tool',
