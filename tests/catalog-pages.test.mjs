@@ -58,3 +58,12 @@ test('a featured ship card renders the briefing grid', () => {
   assert.match(html, />Skip it when</);
   assert.match(html, /Add to kit/);
 });
+
+test('verified page renders the tested shelf', () => {
+  const html = built('verified/index.html');
+  assert.match(html, />Tested shelf</);
+  assert.match(html, /published test protocol/i);
+  assert.match(html, /cursor/i);
+  assert.match(html, />person</);
+  assert.match(html, /2026-08-24/);
+});

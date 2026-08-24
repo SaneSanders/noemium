@@ -254,6 +254,10 @@ for (const { name, dir, exts, schema } of collections) {
     checked += 1;
     checkDate(rel, result.data.last_verified);
 
+    if (name === 'tools' && result.data.verdict === 'ship' && !result.data.test_run) {
+      warn(rel, 'ship verdict without a published test_run protocol');
+    }
+
     const urlFields = cleanUrlFields[name];
     if (urlFields) {
       for (const u of urlFields(result.data)) {

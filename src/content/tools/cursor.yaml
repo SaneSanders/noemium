@@ -18,6 +18,20 @@ verdict_text: >-
   completions genuinely save hours. The model routing is a black box — you
   never quite know what you're talking to — but on Sonnet-class models the
   output is consistently good.
+test_run:
+  date: "2026-08-24"
+  actor: person
+  scenarios:
+    - "Multi-file agent run across a TypeScript repo: asked it to add a feature, reviewed every diff."
+    - "Tab completion on a familiar codebase for a full afternoon."
+    - "Large refactor (rename + move + type fixes) on ~40 files with follow-up review."
+  artifacts:
+    - https://github.com/getcursor/cursor
+    - https://forum.cursor.com/
+  not_tested:
+    - Background agents and scheduled commands.
+    - Team/enterprise permissions and shared context rules.
+  duration_minutes: 120
 strengths:
   - Agent mode and tab completions that actually save hours on everyday edits.
   - "Default AI editor for a reason: Sonnet-class output is consistently good."

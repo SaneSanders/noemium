@@ -7,9 +7,10 @@ import LogoTile from './LogoTile.astro';
 
 interface Props {
   tool: CollectionEntry<'tools'>;
+  showProtocol?: boolean;
 }
 
-const { tool } = Astro.props;
+const { tool, showProtocol = false } = Astro.props;
 const t = tool.data;
 
 const flags = [t.open_source && 'OSS', t.api && 'API', t.free_tier && 'FREE TIER'].filter(
@@ -81,6 +82,14 @@ const flags = [t.open_source && 'OSS', t.api && 'API', t.free_tier && 'FREE TIER
         )}
         {t.price_note && <span class="block pt-1 text-[13px] font-normal text-ink opacity-60">{t.price_note}</span>}
       </p>
+      {showProtocol && t.test_run && (
+        <p class="mt-4 flex flex-wrap items-center gap-2 font-mono text-[12px] text-ink-dim">
+          <span class="rounded-sm border border-ink px-1.5 py-0.5 font-mono text-[11px] font-medium tracking-[0.14em] uppercase text-ink">
+            {t.test_run.actor}
+          </span>
+          <span>{t.test_run.date}</span>
+        </p>
+      )}
       <div class="mt-4 flex items-center justify-between gap-3">
         <span class="pointer-events-auto">
           <VerifiedStamp slug={tool.id} date={t.last_verified} />

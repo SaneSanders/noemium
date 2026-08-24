@@ -44,6 +44,10 @@ about 5 minutes.
   specific downsides. "None" is not a limitation.
 - **Optional briefing.** Flagship cards may add `strengths`, `use_for` and
   `skip_when` together (all three, or none). Named jobs, not slogans.
+- **Ship needs a published protocol.** New `ship` verdicts must carry a
+  `test_run`: dated scenarios, artifacts, what was not tested, and who ran it
+  (`person` or `swarm`). Existing ship cards without one are grandfathered with
+  validator warnings.
 - **Affiliate links are always declared.** If your `url` or `receipts`
   contain referral or tracking parameters (`?ref=`, `?via=`, `?aff=`,
   `utm_*`), set `affiliate: declared`. The validator fails undeclared
