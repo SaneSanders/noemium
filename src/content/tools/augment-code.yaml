@@ -1,0 +1,31 @@
+name: Augment Code
+tagline: Enterprise AI coding platform with a semantic Context Engine for very large codebases and multi-agent orchestration.
+url: https://www.augmentcode.com
+category: coding
+pricing: paid
+price_note: "Business $100/mo flat (up to 50 seats, $100 usage included); Enterprise custom. Overage: provider LLM pricing + 40% service fee + Cosmos compute $0.19/hr. Trial: 30,000 credits with a card on file; no perpetual free tier."
+free_tier: false
+open_source: false
+api: false
+self_host: false
+verdict: situational
+verdict_text: >-
+  Enterprise platform for huge codebases with a Context Engine that indexes
+  400K+ files across repos and Cosmos/Intent multi-agent orchestration.
+  Supports Claude, GPT-5.x, Gemini and Kimi with Prism routing. Fits teams with
+  monorepos and hard security bars (SOC 2 Type II, ISO 42001, CMEK). Main catch
+  is the $100/mo minimum after individual plans were retired, plus
+  usage-based overage that makes the bill unpredictable with active agents.
+limitations:
+  - Minimum plan is $100/mo — individual plans (~$20-60) retired, out of reach for solo devs.
+  - Usage-based billing (LLM + 40% fee + $0.19/hr compute) scales unpredictably.
+  - Heavy onboarding — initial indexing of large codebases takes tens of minutes before the Context Engine pays off.
+receipts:
+  - https://www.augmentcode.com/pricing
+  - https://docs.augmentcode.com/models/token-based-pricing
+affiliate: none
+momentum: steady
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-24"
+observed_by: whysanesanders

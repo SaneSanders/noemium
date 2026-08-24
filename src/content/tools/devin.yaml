@@ -1,0 +1,32 @@
+name: Devin
+tagline: Autonomous cloud AI software engineer that plans, codes, tests, and opens PRs; now bundled with the Devin Desktop IDE.
+url: https://devin.ai
+category: coding
+pricing: freemium
+price_note: "Free $0/mo (limited agent quota, unlimited inline edits); Pro $20/mo adds Devin Cloud and frontier models; Max $200/mo; Teams from $80/mo + $40/full dev seat; the old $500/mo Team entry was retired in April 2026."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Cloud agent that takes tickets from prompt to tested PR in its own VM
+  (browser, terminal, git), working async. Fits teams with well-scoped,
+  verifiable tickets and a strong review culture; not a fit for unstructured
+  vibe coding. Main friction is metered usage that can spike on large tasks,
+  plus the permission and security overhead of keeping an autonomous agent away
+  from production secrets.
+limitations:
+  - Free tier excludes autonomous Devin Cloud sessions and frontier models.
+  - Quota/ACU-based usage can incur extra charges at API pricing on complex tasks.
+  - No self-serve self-host (Enterprise custom only); autonomous runs still need human review and RBAC guardrails.
+receipts:
+  - https://devin.ai/pricing
+  - https://docs.devin.ai/api-reference/overview
+  - https://cognition.com/blog/new-self-serve-plans-for-devin
+affiliate: none
+momentum: blueshift
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-24"
+observed_by: whysanesanders

@@ -1,0 +1,21 @@
+name: Sora
+url: https://sora.com
+category: video
+died: "2026-04-26"
+cause: >-
+  OpenAI discontinued the Sora web app and API — the generative video product
+  that made text-to-video mainstream.
+obituary: >-
+  OpenAI's text-to-video model launched publicly in December 2024, followed by
+  Sora 2 and a social app in 2025. On April 26, 2026 the web app and mobile
+  app were discontinued with data export offered to users. The API lived on as
+  a legacy service for existing accounts (sora-2 $0.10/sec at 720p, sora-2-pro
+  up to $0.70/sec at 1080p) until September 24, 2026. No successor was
+  announced.
+receipt: https://help.openai.com/en/articles/20001152-what-to-know-about-the-sora-discontinuation
+last_verified: "2026-08-24"
+succeeded_by:
+  none: true
+  note: >-
+    OpenAI announced no successor. The API itself dies 2026-09-24; video buyers
+    moved to Veo, Runway, Kling and Seedance.

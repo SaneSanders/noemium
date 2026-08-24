@@ -1,0 +1,30 @@
+name: v0
+tagline: AI generator of full Next.js/React apps from a prompt, screenshot, or Figma frame, with one-click Vercel deploy.
+url: https://v0.app
+category: coding
+pricing: freemium
+price_note: "Free $0/mo ($5 credits/mo, 7 messages/day); Plus $30/user/mo; Business $100/user/mo; Premium $20 retired for new users. Generations billed by tokens (v0 Pro ~$2/1M input, $10/1M output)."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: situational
+verdict_text: >-
+  Turns a prompt, screenshot or Figma frame into a working Next.js/React/Tailwind/shadcn
+  app — from landing pages to full-stack with API routes, DB and auth. Preview in the
+  Vercel Sandbox and one-click deploy. Good for prototypes and MVPs inside the Vercel
+  ecosystem; main catch is tight stack lock-in and unpredictable token-credit burn on
+  large generations.
+limitations:
+  - Free tier is demo-grade (7 messages/day, $5 credits).
+  - Output is Next.js/React/Tailwind/shadcn-first — other stacks need rework.
+  - Agent iterations can burn credits on failed attempts; production code still needs review.
+receipts:
+  - https://v0.app/pricing
+  - https://v0.app/docs/faqs
+affiliate: none
+momentum: blueshift
+featured: false
+evidence_tier: source-verified
+last_verified: "2026-08-24"
+observed_by: whysanesanders

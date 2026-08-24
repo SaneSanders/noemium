@@ -3,7 +3,7 @@ tagline: Component marketplace and registry for React and modern stacks.
 url: "https://21st.dev"
 category: design
 pricing: freemium
-price_note: free registry; paid pro features
+price_note: free tier (browse + 2 component copies/day); Builder $6/mo yearly, Builder + AI $15/mo yearly, Team $7.50/seat/mo yearly
 free_tier: true
 open_source: true
 api: false
