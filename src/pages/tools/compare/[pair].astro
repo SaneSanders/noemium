@@ -7,6 +7,7 @@ import VerdictBadge from '../../../components/VerdictBadge.astro';
 import ShiftArrow from '../../../components/ShiftArrow.astro';
 import LogoTile from '../../../components/LogoTile.astro';
 import { COMPARE_PAIRS } from '../../../data/compare-presets';
+import type { Tool } from '../../../content-schemas';
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection('tools');
@@ -45,6 +46,46 @@ const hostname = (url: string) => {
 };
 
 const yesNo = (v: boolean) => (v ? 'yes' : 'no');
+
+const verdictRank = { ship: 3, situational: 2, skip: 1 } as const;
+const rankOf = (v: Tool['verdict']) => verdictRank[v];
+
+const truncate = (s: string, n: number) =>
+  s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
+
+const pickSentence = (tool: Tool, other: Tool): string => {
+  if (rankOf(tool.verdict) > rankOf(other.verdict)) {
+    return `Pick ${tool.name} — we ${tool.verdict} it; ${other.name} is ${other.verdict} for us.`;
+  }
+  if (tool.free_tier && !other.free_tier) {
+    return `Pick ${tool.name} if you need a free tier first.`;
+  }
+  if (tool.open_source && !other.open_source) {
+    return `Pick ${tool.name} if open source matters.`;
+  }
+  if (
+    tool.pricing !== other.pricing &&
+    (tool.pricing === 'free' || tool.pricing === 'freemium') &&
+    other.pricing === 'paid'
+  ) {
+    return `Pick ${tool.name} if you want a ${tool.pricing} option instead of paid.`;
+  }
+  if (tool.use_for?.[0]) {
+    const job = truncate(tool.use_for[0], 60);
+    return `Pick ${tool.name} for ${job.charAt(0).toLowerCase()}${job.slice(1)}`;
+  }
+  if (tool.skip_when?.[0]) {
+    return `Pick ${tool.name} if ${truncate(tool.skip_when[0], 60)} is not a concern.`;
+  }
+  if (
+    tool.free_tier === other.free_tier &&
+    tool.open_source === other.open_source &&
+    tool.pricing === other.pricing
+  ) {
+    return `Same verdict, same shape — decide on the receipt dates and your stack, not on this page.`;
+  }
+  return `Pick ${tool.name} if ${tool.verdict} is the right verdict for your stack.`;
+};
 
 const flags = (t: typeof da) =>
   [
@@ -195,6 +236,19 @@ const rows: { label: string; a: string | null; b: string | null }[] = [
       </tbody>
     </table>
   </div>
+
+  <section class="nm-card mt-8 p-6" aria-labelledby="the-call-heading">
+    <h2
+      id="the-call-heading"
+      class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase"
+    >
+      The call
+    </h2>
+    <div class="mt-3 grid gap-3 md:grid-cols-2">
+      <p class="text-[15px] leading-relaxed text-ink opacity-90">{pickSentence(da, db)}</p>
+      <p class="text-[15px] leading-relaxed text-ink opacity-90">{pickSentence(db, da)}</p>
+    </div>
+  </section>
 
   <div class="mt-8 grid gap-6 md:grid-cols-2">
     <section>

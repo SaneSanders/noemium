@@ -111,6 +111,19 @@ test('jobs index and detail pages render with recommended pick and skips', () =>
   assert.match(detail, /href="\/jobs\/"/);
 });
 
+test('compare pair page renders The call from card data', () => {
+  const html = built('tools/compare/cursor-vs-claude-code/index.html');
+  assert.match(html, /The call/);
+  assert.match(html, /Pick Cursor if/);
+  assert.match(html, /Pick Claude Code for terminal-native agents/);
+});
+
+test('compare index surfaces Real conflicts', () => {
+  const html = built('tools/compare/index.html');
+  assert.match(html, /Real conflicts/);
+  assert.match(html, /href="\/tools\/compare\/cursor-vs-claude-code\/"/);
+});
+
 test('rss feed only contains weeks with risk events', () => {
   const rss = built('rss.xml');
   const changelog = JSON.parse(readFileSync(new URL('../src/data/changelog.json', import.meta.url), 'utf8'));

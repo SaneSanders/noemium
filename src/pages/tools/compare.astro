@@ -13,6 +13,18 @@ const presets = COMPARE_PAIRS.map(({ a, b }) => ({
   a: byId.get(a)?.data,
   b: byId.get(b)?.data,
 })).filter((p) => p.a && p.b);
+
+const conflictSlugs = new Set([
+  'cursor-vs-claude-code',
+  'cursor-vs-github-copilot',
+  'chatgpt-vs-claude',
+  'midjourney-vs-flux',
+  'elevenlabs-vs-inworld-tts',
+  'openai-api-vs-amazon-bedrock',
+  'bolt-new-vs-replit-agent',
+  'runway-vs-descript',
+]);
+const conflicts = presets.filter((p) => conflictSlugs.has(`${p.aSlug}-vs-${p.bSlug}`));
 ---
 
 <Base
@@ -23,6 +35,34 @@ const presets = COMPARE_PAIRS.map(({ a, b }) => ({
     title="Compare"
     sub="Two to four tools, side by side. Same fields, same honesty — verdicts and limitations included."
   />
+
+  {
+    conflicts.length > 0 && (
+      <section class="mb-10" aria-labelledby="real-conflicts-heading">
+        <h2
+          id="real-conflicts-heading"
+          class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase"
+        >
+          Real conflicts
+        </h2>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {conflicts.map(({ aSlug, bSlug, a, b }) => (
+            <a
+              href={`/tools/compare/${aSlug}-vs-${bSlug}/`}
+              class="nm-card nm-card-hover flex items-baseline justify-between gap-3 px-4 py-3"
+            >
+              <span class="font-display text-lg font-extrabold tracking-tight">
+                {a!.name}
+                <span class="mx-1.5 font-mono text-[11px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
+                {b!.name}
+              </span>
+              <span class="font-mono text-[10px] tracking-[0.08em] text-ink-dim uppercase">{a!.category}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
 
   {
     presets.length > 0 && (
