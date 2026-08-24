@@ -3,7 +3,7 @@ tagline: Text/image/reference-to-video generator with native audio and strong ch
 url: https://www.vidu.com
 category: video
 pricing: freemium
-price_note: "free plan includes 80 credits/mo plus unlimited off-peak generation; paid creator plans and API usage are credit-based; API credits cost $0.005 each"
+price_note: "free plan includes 80 credits/mo plus unlimited off-peak generation; paid plans credit-based; API credits $0.005 each but generations priced per operation by model/resolution/duration (Q2-turbo 540P from $0.03, Q2-Pro 1080P from $0.425)"
 free_tier: true
 open_source: false
 api: true
@@ -27,5 +27,5 @@ affiliate: none
 evidence_tier: source-verified
 momentum: steady
 featured: false
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

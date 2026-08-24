@@ -2,17 +2,18 @@ name: Superhuman
 tagline: Premium email client with AI triage, drafts and follow-ups.
 url: https://www.superhuman.com
 category: productivity
-pricing: paid
-price_note: "no free mail tier; standalone Mail Starter $30/mo ($300/yr) or Business $40/mo ($396/yr); suite Business $33/mo annual ($40/mo) includes Mail"
-free_tier: false
+pricing: freemium
+price_note: "freemium suite; Free/Pro tiers cover Grammarly/Docs/Go but not Mail; Mail requires the Business suite: $40 per member/mo monthly or $33/mo billed annually ($396/yr)"
+free_tier: true
 open_source: false
 api: false
 self_host: false
 verdict: situational
 verdict_text: >-
   Fast email if you are keyboard-driven and live in Gmail. The drafting is
-  fine, but at $30–40/mo it is a luxury now that Gmail and others ship free
-  AI. Try it for the speed, not because you need AI mail.
+  fine, but at $33–40/mo (Business tier, required for Mail) it is a luxury now
+  that Gmail and others ship free AI. Try it for the speed, not because you
+  need AI mail.
 limitations:
   - Expensive while free alternatives catch up.
   - Calendar features thinner than dedicated tools.

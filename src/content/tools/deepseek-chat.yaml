@@ -2,8 +2,8 @@ name: DeepSeek Chat
 tagline: DeepSeek's consumer chat app — not the developer API (that's a separate card).
 url: https://chat.deepseek.com
 category: productivity
-pricing: freemium
-price_note: "web/app chat is free-to-start; API is a different product (see DeepSeek API) with peak/off-peak token rates"
+pricing: free
+price_note: "web/app chat is free; API is a different product (see DeepSeek API) with peak/off-peak token rates"
 free_tier: true
 open_source: false
 api: false

@@ -3,7 +3,7 @@ tagline: Ultra-fast inference on custom LPU hardware — open models at 500+ tok
 url: https://groq.com
 category: dev-infra
 pricing: freemium
-price_note: "free tier; from $0.05/1M tokens (small models)"
+price_note: "free tier; from $0.075/1M tokens (small models)"
 free_tier: true
 open_source: false
 api: true
@@ -36,5 +36,5 @@ affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

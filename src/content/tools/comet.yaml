@@ -3,7 +3,7 @@ tagline: Perplexity's agentic browser — free download; Comet Plus is a $5 jour
 url: https://www.perplexity.ai/comet
 category: productivity
 pricing: freemium
-price_note: "browser free worldwide; Comet Plus $5/mo standalone, included with Perplexity Pro/Max; Comet Agent quotas follow Pro/Max on the hub pricing table"
+price_note: "browser free worldwide; Comet Plus $5/mo standalone (included with Perplexity Pro $20/mo or Max $200/mo); Comet Agent quotas follow Pro/Max on the hub pricing table"
 free_tier: true
 open_source: false
 api: false
@@ -27,5 +27,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-18"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

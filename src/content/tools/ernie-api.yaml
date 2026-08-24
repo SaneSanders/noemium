@@ -1,6 +1,6 @@
 name: Baidu ERNIE API
 tagline: Enterprise AI platform with ERNIE LLMs, image models, and OpenAI-compatible v2 API.
-url: https://cloud.baidu.com/product/wenxinworkshop
+url: https://cloud.baidu.com/product-s/qianfan_home
 category: models-api
 pricing: paid
 price_note: "ERNIE 5.1 ≤32k ~$0.56/$2.54 per 1M, 32k-128k ~$0.85/$3.10; ERNIE 4.5 Turbo 32K/128K ~$0.11/$0.45; ERNIE X1.1 ~$0.14/$0.56; prices in CNY, USD approximate"
@@ -15,16 +15,19 @@ verdict_text: >-
   onboarding is harder and pricing is quoted in CNY.
 limitations:
   - Best access path is mainland-China Baidu Cloud; international onboarding is harder.
-  - ERNIE 5.1 is closed/API-only, reducing flexibility vs Qwen or DeepSeek.
+  - ERNIE 5.1 and X1.1 are API-only; ERNIE 4.5 weights were released under Apache 2.0 in June 2025, though the hosted Qianfan API remains the practical path for most users.
   - ERNIE 5.1 pricing is tiered by input length (≤32k vs 32k-128k).
   - Pure-text reasoning value is weaker than DeepSeek or Qwen on some benchmarks.
   - ERNIE Lite Pro / Speed Pro are not shown on the current official pricing page.
 receipts:
+  - https://cloud.baidu.com/product-s/qianfan_home
+  - https://github.com/PaddlePaddle/ERNIE
+  - https://ernie.baidu.com/blog/posts/ernie4.5/
   - https://cloud.baidu.com/doc/qianfan/s/wmh4sv6ya
   - https://intl.cloud.baidu.com/en/doc/qianfan/s/Jm8r1826a-intl-en
 affiliate: none
 evidence_tier: source-verified
 momentum: steady
 featured: false
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

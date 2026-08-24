@@ -1,9 +1,9 @@
 name: Hunyuan API
-tagline: Tencent Cloud TokenHub API for Hunyuan Hy3 reasoning, plus image, video and 3D generation models.
+tagline: Tencent Cloud TokenHub API for Hunyuan Hy3, image, video and 3D models (now Tencent Hy).
 url: https://cloud.tencent.com/product/hunyuan
 category: models-api
 pricing: paid
-price_note: "Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from $0.02/image; older TurboS/T1 and HY2.0 lines retired June 2026"
+price_note: "Hy3 ~$0.14/$0.56 per 1M tokens (256K context) on TokenHub; Hunyuan 3D from ~1.8 yuan (~$0.27)/generation on TokenHub; older TurboS/T1 and HY2.0 lines retired June 2026"
 free_tier: true
 open_source: false
 api: true
@@ -12,8 +12,9 @@ verdict: situational
 verdict_text: >-
   Hy3 is the current Hunyuan API flagship: cheap, Apache 2.0 open weights, and
   sold through Tencent TokenHub. TurboS, T1 and the older HY2.0 line were
-  retired in June 2026. Access is still China-account-centric and partly
-  geo-blocked, so most international developers will use third-party routers.
+  retired in June 2026. Access expanded globally in August 2026 (WorkBuddy,
+  Miora, TokenHub), though real-name verification is still required and some
+  legacy endpoints remain geo-blocked; third-party routers remain common.
 limitations:
   - The hosted API is proprietary; Hy3 weights are released under Apache 2.0 and can be run separately.
   - New Hunyuan API capabilities are on TokenHub; the old 混元大模型 platform stops new purchases and shuts down 2026-09-30.
@@ -29,5 +30,5 @@ affiliate: none
 momentum: blueshift
 featured: false
 evidence_tier: source-verified
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

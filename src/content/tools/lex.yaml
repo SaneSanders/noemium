@@ -3,10 +3,10 @@ tagline: Minimal AI-native writing app — Google Docs with a co-writer built in
 url: https://lex.page
 category: writing
 pricing: freemium
-price_note: "free tier; Pro $24.99/mo or $179.88/yr billed yearly"
+price_note: "free tier; Pro from ~$16/mo (sources differ $16-18/mo, $96-145/yr — confirm on the Stripe pricing table)"
 free_tier: true
 open_source: false
-api: false
+api: true
 self_host: false
 verdict: situational
 verdict_text: >-
@@ -24,5 +24,5 @@ affiliate: none
 evidence_tier: source-verified
 momentum: steady
 featured: false
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

@@ -21,6 +21,7 @@ limitations:
   - yi-lightning and yi-vision-v2 are intelligent-routing SKUs; the actual model served may be DeepSeek or Qwen, not Yi.
   - Open-weight Yi models are separate from the hosted API and still free on HuggingFace.
   - The company is pivoting to sales-led enterprise platforms (TrueNorth/Wanzhi); no public pricing for those.
+  - "Self-serve API closes 2026-09-03 (announced 2026-08-03): registrations and top-ups stopped, existing calls work until then — enterprise sales only after."
 receipts:
   - https://platform.lingyiwanwu.com
   - https://www.usagepricing.com/blueprint/01-ai
@@ -29,5 +30,5 @@ affiliate: none
 momentum: redshift
 featured: false
 evidence_tier: source-verified
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

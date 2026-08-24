@@ -3,7 +3,7 @@ tagline: Multi-model AI video creative suite with camera control, character cons
 url: https://www.higgsfield.ai
 category: video
 pricing: freemium
-price_note: "free tier; paid from $12/mo"
+price_note: "free tier with limited/daily credits; paid from ~$15-19/mo (Starter), $47-59/mo (Plus), $99-129/mo (Ultra)"
 free_tier: true
 open_source: false
 api: false
@@ -13,8 +13,9 @@ verdict_text: >-
   Higgsfield has evolved from a single video model into a multi-model creative
   suite (Seedance, Veo, Kling, WAN, Hailuo, etc.) with Cinema Studio camera
   control, Soul ID character consistency, and Marketing Studio presets.
-  Seedance 2.5 in 1080p is exclusive to the platform. Pricing tiers and credit
-  costs shift frequently; verify the live page before budgeting.
+  Some models are also available through their native platforms or APIs.
+  Pricing tiers and credit costs shift frequently; verify the live page before
+  budgeting.
 limitations:
   - Now a multi-model platform; quality, speed, and controls depend on the
     underlying engine.
@@ -29,5 +30,5 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

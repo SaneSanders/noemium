@@ -1,12 +1,12 @@
 name: Mem
 tagline: AI notes and knowledge base that organizes itself from your captures.
-url: https://mem.ai
+url: https://get.mem.ai
 category: productivity
 pricing: freemium
-price_note: "free tier; paid from $8/mo"
+price_note: "free tier; paid from $9/mo"
 free_tier: true
 open_source: false
-api: false
+api: true
 self_host: false
 verdict: situational
 verdict_text: >-
@@ -18,9 +18,10 @@ limitations:
   - The AI tagging can miscategorize messy notes.
   - Less flexible for structured project management.
 receipts:
-  - https://mem.ai
+  - https://get.mem.ai/pricing
+  - https://docs.mem.ai/
 affiliate: none
 momentum: steady
 featured: false
-last_verified: "2026-08-16"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

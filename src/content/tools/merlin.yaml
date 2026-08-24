@@ -3,7 +3,7 @@ tagline: Browser AI assistant — 70+ tools and top models in one extension, on 
 url: https://www.getmerlin.in
 category: productivity
 pricing: freemium
-price_note: free 102 queries/day; Pro $19/mo; Teams $15/seat/mo (2-seat min, $180/yr per seat)
+price_note: free 102 queries/day; Pro $19/mo; Teams $15/seat/mo (5-seat min, $180/yr per seat)
 free_tier: true
 open_source: false
 api: false
@@ -18,7 +18,7 @@ verdict_text: >-
 limitations:
   - '"Unlimited" Pro queries are subject to a fair-use policy.'
   - Free tier is capped at 102 queries per day.
-  - Teams plan requires a 2-seat minimum.
+  - Teams plan requires a 5-seat minimum.
 receipts:
   - https://www.getmerlin.in/pricing
 affiliate: declared
@@ -26,5 +26,5 @@ affiliate_url: https://www.getmerlin.in/chat?ref=zjfhyzh
 momentum: steady
 featured: false
 evidence_tier: source-verified
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders

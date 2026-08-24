@@ -6,7 +6,7 @@ pricing: freemium
 price_note: "free tier; Pro $20/mo ($144/yr), Deep $65/mo ($540/yr)"
 free_tier: true
 open_source: false
-api: false
+api: true
 self_host: false
 verdict: situational
 verdict_text: >-
@@ -25,5 +25,5 @@ affiliate: none
 evidence_tier: source-verified
 momentum: steady
 featured: false
-last_verified: "2026-08-20"
+last_verified: "2026-08-24"
 observed_by: whysanesanders
