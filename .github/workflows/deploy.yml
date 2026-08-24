@@ -23,6 +23,8 @@ jobs:
       - run: npm ci
       - run: npm run validate
       - run: npm run build
+        env:
+          PUBLIC_CF_BEACON_TOKEN: ${{ secrets.PUBLIC_CF_BEACON_TOKEN }}
       - name: rsync to Vultr VPS
         # Generate VPS_HOST_KEY once via `ssh-keyscan -H <vps-host>`, store the
         # output as the VPS_HOST_KEY repository secret, and rotate on host changes.
