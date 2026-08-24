@@ -68,6 +68,8 @@ const hostname = (url: string) => {
   }
 };
 
+const archiveUrl = (url: string) => `https://web.archive.org/web/2026/${url}`;
+
 // Declared affiliates: primary Visit goes to affiliate_url. The clean
 // canonical `url` stays on the page as a secondary "without referral" link.
 const declaredAffiliate = t.affiliate === 'declared' && t.affiliate_url ? t.affiliate_url : undefined;
@@ -223,11 +225,14 @@ const briefing =
             <h3 class="font-mono text-[12px] font-bold tracking-[0.12em] text-ink-dim uppercase">Artifacts</h3>
             <ol class="mt-3 space-y-2">
               {t.test_run.artifacts.map((r, i) => (
-                <li class="flex items-baseline gap-2 font-mono text-[13px]">
+                <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[13px]">
                   <sup class="font-bold text-accent">{i + 1}</sup>
                   <a href={r} class="text-accent hover:underline" rel="noopener">
                     {hostname(r)}
                     <span class="text-ink-dim">{new URL(r).pathname === '/' ? '' : new URL(r).pathname}</span>
+                  </a>
+                  <a href={archiveUrl(r)} class="text-ink-dim hover:text-accent" rel="noopener">
+                    [snapshot]
                   </a>
                 </li>
               ))}
@@ -239,6 +244,63 @@ const briefing =
           Protocol not published — this verdict predates the protocol rule.
         </p>
       ) : null
+    }
+
+    {
+      (t.verdict === 'ship' || t.verdict === 'situational') && (
+        <section class="nm-card mt-10 p-6 md:p-8">
+          <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Buy-check</h2>
+          <p class="mt-2 max-w-2xl font-mono text-[12px] leading-relaxed text-ink-dim">
+            90-second checklist before checkout.
+          </p>
+          <ul class="mt-5 space-y-3 text-[15px] leading-relaxed">
+            <li class="flex gap-3">
+              <span class="font-mono text-accent">·</span>
+              <span>
+                <span class="font-semibold">Price</span> — {t.pricing}
+                {t.price_note && <span>, {t.price_note}</span>} as of {t.last_verified}. Open the pricing page, not a screenshot.
+              </span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-mono text-accent">·</span>
+              <span>
+                <span class="font-semibold">Free tier</span> —{' '}
+                {t.free_tier
+                  ? 'Free tier exists — burn it first.'
+                  : 'No free tier — the trial clock starts at checkout.'}
+              </span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-mono text-accent">·</span>
+              <span>
+                <span class="font-semibold">Cancel fallout</span> — What happens to your data/projects on cancel — check the ToS, not the FAQ.
+              </span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-mono text-accent">·</span>
+              <span>
+                <span class="font-semibold">Seat math</span> — Per-seat pricing multiplies quietly. Count seats before the annual plan.
+              </span>
+            </li>
+            {briefing && briefing.skip_when.length > 0 && (
+              <li class="flex gap-3">
+                <span class="font-mono text-accent">·</span>
+                <span>
+                  <span class="font-semibold">Who skips it</span> — Also skipped when: {briefing.skip_when.slice(0, 2).join('; ')}.
+                </span>
+              </li>
+            )}
+            {t.affiliate === 'declared' && (
+              <li class="flex gap-3">
+                <span class="font-mono text-accent">·</span>
+                <span>
+                  <span class="font-semibold">Money link</span> — Our Visit link is affiliate — declared, verdict unaffected.
+                </span>
+              </li>
+            )}
+          </ul>
+        </section>
+      )
     }
 
     <section class="mt-8">
@@ -302,6 +364,19 @@ const briefing =
           ))}
         </dl>
         {
+          t.data_sensitivity && (
+            <p class="mt-5 font-mono text-[13px] text-ink-dim">
+              Data: trains on inputs {t.data_sensitivity.trains_on_inputs}
+              {t.data_sensitivity.eu_region !== undefined && (
+                <span> · EU region {t.data_sensitivity.eu_region}</span>
+              )}
+              {t.data_sensitivity.local_processing !== undefined && (
+                <span> · local processing {t.data_sensitivity.local_processing ? 'yes' : 'no'}</span>
+              )}
+            </p>
+          )
+        }
+        {
           t.models_used && t.models_used.length > 0 && (
             <div class="mt-6">
               <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Models used</h2>
@@ -325,11 +400,14 @@ const briefing =
       <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Sources</h2>
       <ol class="mt-4 space-y-2">
         {t.receipts.map((r, i) => (
-          <li class="flex items-baseline gap-2 font-mono text-[13px]">
+          <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[13px]">
             <sup class="font-bold text-accent">{i + 1}</sup>
             <a href={r} class="text-accent hover:underline" rel="noopener">
               {hostname(r)}
               <span class="text-ink-dim">{new URL(r).pathname === '/' ? '' : new URL(r).pathname}</span>
+            </a>
+            <a href={archiveUrl(r)} class="text-ink-dim hover:text-accent" rel="noopener">
+              [snapshot]
             </a>
           </li>
         ))}

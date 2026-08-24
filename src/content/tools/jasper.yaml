@@ -22,5 +22,8 @@ receipts:
 affiliate: none
 momentum: redshift
 featured: false
-last_verified: "2026-08-19"
+data_sensitivity:
+  trains_on_inputs: yes
+  local_processing: false
+last_verified: "2026-08-24"
 observed_by: whysanesanders

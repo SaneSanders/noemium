@@ -83,6 +83,16 @@ test('price tape renders with disclaimer and honest empty state if no movers', (
   assert.match(html, /No moves recorded yet|per 1M in\/out/);
 });
 
+test('ship tool page renders buy-check, data sensitivity, and archive snapshots', () => {
+  const html = built('tools/cursor/index.html');
+  assert.match(html, />Buy-check</);
+  assert.match(html, /Price<\/span>\s*—/);
+  assert.match(html, /Free tier exists/);
+  assert.match(html, /trains on inputs/);
+  assert.match(html, /web\.archive\.org\/web\/2026\//);
+  assert.match(html, /\[snapshot\]/);
+});
+
 test('jobs index and detail pages render with recommended pick and skips', () => {
   const index = built('jobs/index.html');
   assert.match(index, /One job, one recommendation, honest skips/);

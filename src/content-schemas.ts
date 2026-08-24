@@ -74,6 +74,15 @@ export const toolSchema = z.object({
   evidence_tier: z.enum(['field-tested', 'source-verified', 'radar']).optional(),
   momentum: z.enum(['blueshift', 'steady', 'redshift']),
   featured: z.boolean().default(false),
+  // Data handling facts. unknown is an honest value, not a gap.
+  data_sensitivity: z
+    .object({
+      trains_on_inputs: z.enum(['yes', 'no', 'unknown']),
+      eu_region: z.enum(['yes', 'no', 'unknown']).optional(),
+      local_processing: z.boolean().optional(),
+    })
+    .strict()
+    .optional(),
   last_verified: isoDate,
   observed_by: z.string().min(1),
 }).strict().superRefine((tool, ctx) => {

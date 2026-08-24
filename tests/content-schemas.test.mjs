@@ -267,6 +267,28 @@ test('rejects a job pick with why over 280 characters', () => {
   assert.equal(jobSchema.safeParse(data).success, false);
 });
 
+test('accepts data_sensitivity with unknown values', () => {
+  const data = {
+    ...toolBase,
+    data_sensitivity: {
+      trains_on_inputs: 'unknown',
+      eu_region: 'unknown',
+      local_processing: false,
+    },
+  };
+  assert.equal(toolSchema.safeParse(data).success, true);
+});
+
+test('rejects garbage data_sensitivity values', () => {
+  const data = {
+    ...toolBase,
+    data_sensitivity: {
+      trains_on_inputs: 'maybe',
+    },
+  };
+  assert.equal(toolSchema.safeParse(data).success, false);
+});
+
 test('requires a graveyard successor or an explicit none', () => {
   const grave = {
     name: 'Dead Tool',
