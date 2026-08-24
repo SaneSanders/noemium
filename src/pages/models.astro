@@ -7,6 +7,7 @@ import priceHistory from '../data/price-history.json';
 import { providerLogoSrc } from '../lib/logos';
 
 const models = await getCollection('models');
+const modelNames = new Map(models.map((m) => [m.id, m.data.name]));
 const data: ModelRecord[] = models.map((m) => ({
   slug: m.id,
   name: m.data.name,
@@ -20,6 +21,13 @@ const data: ModelRecord[] = models.map((m) => ({
   popularity: m.data.popularity,
   best_for: m.data.best_for,
   avoid_for: m.data.avoid_for,
+  retiring: m.data.retiring
+    ? {
+        date: m.data.retiring.date,
+        successor: m.data.retiring.successor,
+        successorName: modelNames.get(m.data.retiring.successor) ?? m.data.retiring.successor,
+      }
+    : undefined,
   benchmarks: m.data.benchmarks,
   source_attribution: m.data.source_attribution,
   logo: providerLogoSrc(m.data.provider),

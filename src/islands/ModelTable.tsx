@@ -21,6 +21,7 @@ export interface ModelRecord {
   popularity: number;
   best_for: string[];
   avoid_for: string[];
+  retiring?: { date: string; successor: string; successorName: string };
   benchmarks?: Benchmark[];
   source_attribution: string;
   logo?: string | null;
@@ -242,6 +243,9 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
           <thead>
             <tr class="border-b-[1.5px] border-ink">
               {header('name', 'model', 'sticky left-0 bg-card')}
+              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+                status
+              </th>
               {header('provider', 'provider')}
               {header('pop', 'heat')}
               {header('ctx', 'ctx')}
@@ -285,6 +289,21 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                       {m.name}
                     </span>
                   </th>
+                  <td class="max-w-48 p-3 align-top">
+                    {m.retiring && (
+                      <div class="space-y-1">
+                        <p class="font-mono text-[12px] font-bold tracking-[0.08em] text-verdict-skip uppercase">
+                          Retiring {m.retiring.date}
+                        </p>
+                        <a
+                          href={`#${m.retiring.successor}`}
+                          class="block font-mono text-[12px] text-accent hover:underline"
+                        >
+                          Successor: {m.retiring.successorName}
+                        </a>
+                      </div>
+                    )}
+                  </td>
                   <td class="p-3 text-sm text-ink-dim">{m.provider}</td>
                   <td
                     class={`nm-num p-3 text-[13px] font-bold ${

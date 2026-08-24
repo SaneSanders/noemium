@@ -67,3 +67,10 @@ test('verified page renders the tested shelf', () => {
   assert.match(html, />person</);
   assert.match(html, /2026-08-24/);
 });
+
+test('models index surfaces retirement with successor link', () => {
+  const html = built('models/index.html');
+  assert.match(html, /Retiring 2026-08-31/);
+  assert.match(html, /mistral-medium-3-5/);
+  assert.match(html, /Mistral Medium 3\.5/);
+});

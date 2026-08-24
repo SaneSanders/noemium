@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { agentSchema, graveyardSchema, stackSchema, toolSchema } from '../src/content-schemas.ts';
+import { agentSchema, graveyardSchema, modelSchema, stackSchema, toolSchema } from '../src/content-schemas.ts';
 
 const strictAgent = {
   name: 'Example Agent',
@@ -181,6 +181,41 @@ test('rejects a budget twin that is not cheaper', () => {
     },
   };
   assert.equal(stackSchema.safeParse(data).success, false);
+});
+
+const modelBase = {
+  name: 'Test Model',
+  provider: 'Test Lab',
+  context_window: 128000,
+  price_input_per_mtok: 0.5,
+  price_output_per_mtok: 1.5,
+  open_weights: false,
+  popularity: 50,
+  best_for: ['General reasoning.'],
+  avoid_for: ['Cost-sensitive routing.'],
+  source_attribution: 'Test attribution.',
+  last_verified: '2026-08-24',
+};
+
+test('accepts a model with a retiring successor', () => {
+  const data = {
+    ...modelBase,
+    retiring: {
+      date: '2026-08-31',
+      successor: 'mistral-medium-3-5',
+    },
+  };
+  assert.equal(modelSchema.safeParse(data).success, true);
+});
+
+test('rejects a retiring block without a successor', () => {
+  const data = {
+    ...modelBase,
+    retiring: {
+      date: '2026-08-31',
+    },
+  };
+  assert.equal(modelSchema.safeParse(data).success, false);
 });
 
 test('requires a graveyard successor or an explicit none', () => {

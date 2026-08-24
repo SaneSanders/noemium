@@ -329,6 +329,15 @@ for (const [slug, grave] of entries.graveyard) {
   }
 }
 
+for (const [slug, model] of entries.models) {
+  if (model.retiring?.successor && !entries.models.has(model.retiring.successor)) {
+    fail(
+      `src/content/models/${slug}.yaml`,
+      `retiring.successor references unknown model "${model.retiring.successor}"`,
+    );
+  }
+}
+
 // Report.
 for (const w of warnings) console.warn(`WARN  ${w}`);
 if (errors.length > 0) {

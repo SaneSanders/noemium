@@ -347,6 +347,14 @@ export const modelSchema = z.object({
   popularity: z.number().int().min(0).max(100),
   best_for: z.array(z.string()).min(1),
   avoid_for: z.array(z.string()).min(1),
+  // Set when the vendor announces retirement; successor is a catalog slug.
+  retiring: z
+    .object({
+      date: isoDate,
+      successor: z.string().min(1),
+    })
+    .strict()
+    .optional(),
   benchmarks: z.array(benchmarkSchema).optional(),
   source_attribution: z.string().min(1),
   last_verified: isoDate,
