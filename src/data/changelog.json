@@ -1,16 +1,40 @@
 {
-  "generated_at": "2026-08-24T06:29:45.982Z",
+  "generated_at": "2026-08-24T08:07:08.918Z",
   "weeks": [
     {
       "id": "2026-W35",
       "from": "2026-08-24",
       "to": "2026-08-31",
       "counts": {
-        "added": 14,
+        "added": 18,
         "removed": 0,
-        "changed": 16
+        "changed": 18
       },
       "added": [
+        {
+          "collection": "graveyard",
+          "slug": "sora",
+          "name": "Sora",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "augment-code",
+          "name": "Augment Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "devin",
+          "name": "Devin",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "v0-dev",
+          "name": "v0",
+          "category": "coding"
+        },
         {
           "collection": "graveyard",
           "slug": "artifact",
@@ -93,6 +117,24 @@
       ],
       "removed": [],
       "changed": [
+        {
+          "collection": "tools",
+          "slug": "21st-dev",
+          "name": "21st.dev",
+          "category": "design",
+          "field": "price note",
+          "from": "free registry; paid pro features",
+          "to": "free tier (browse + 2 component copies/day); Builder $6/mo yearly, Builder + AI $15/mo yearly, Team $7.50/seat/mo yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "aceternity-ui",
+          "name": "Aceternity UI",
+          "category": "design",
+          "field": "price note",
+          "from": "free components; Pro subscription for full access",
+          "to": "free components; All-Access Pass (annual $169 or lifetime $199) for premium blocks and templates"
+        },
         {
           "collection": "tools",
           "slug": "comet",
@@ -248,6 +290,20 @@
         {
           "class": "price_change",
           "collection": "tools",
+          "slug": "21st-dev",
+          "name": "21st.dev",
+          "detail": "price note: free registry; paid pro features → free tier (browse + 2 component copies/day); Builder $6/mo yearly, Builder + AI $15/mo yearly, Team $7.50/seat/mo yearly"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "aceternity-ui",
+          "name": "Aceternity UI",
+          "detail": "price note: free components; Pro subscription for full access → free components; All-Access Pass (annual $169 or lifetime $199) for premium blocks and templates"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
           "slug": "comet",
           "name": "Comet",
           "detail": "price note: browser free worldwide; Comet Plus $5/mo standalone, included with Perplexity Pro/Max; Comet Agent quotas follow Pro/Max on the hub pricing table → browser free worldwide; Comet Plus $5/mo standalone (included with Perplexity Pro $20/mo or Max $200/mo); Comet Agent quotas follow Pro/Max on the hub pricing table"
@@ -339,6 +395,13 @@
         {
           "class": "death",
           "collection": "graveyard",
+          "slug": "sora",
+          "name": "Sora",
+          "detail": ""
+        },
+        {
+          "class": "death",
+          "collection": "graveyard",
           "slug": "artifact",
           "name": "Artifact",
           "detail": ""
@@ -411,6 +474,18 @@
         "changed": 90
       },
       "added": [
+        {
+          "collection": "tools",
+          "slug": "activepieces",
+          "name": "Activepieces",
+          "category": "automation"
+        },
+        {
+          "collection": "tools",
+          "slug": "assemblyai",
+          "name": "AssemblyAI",
+          "category": "audio"
+        },
         {
           "collection": "tools",
           "slug": "comet",
@@ -650,12 +725,6 @@
         },
         {
           "collection": "tools",
-          "slug": "activepieces",
-          "name": "Activepieces",
-          "category": "automation"
-        },
-        {
-          "collection": "tools",
           "slug": "amazon-bedrock",
           "name": "Amazon Bedrock",
           "category": "models-api"
@@ -665,12 +734,6 @@
           "slug": "argus",
           "name": "Argus",
           "category": "automation"
-        },
-        {
-          "collection": "tools",
-          "slug": "assemblyai",
-          "name": "AssemblyAI",
-          "category": "audio"
         },
         {
           "collection": "tools",
@@ -1025,6 +1088,24 @@
       "changed": [
         {
           "collection": "tools",
+          "slug": "activepieces",
+          "name": "Activepieces",
+          "category": "automation",
+          "field": "price note",
+          "from": "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only)",
+          "to": "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
+        },
+        {
+          "collection": "tools",
+          "slug": "adobe-firefly",
+          "name": "Adobe Firefly",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier with credits; Premium from $9.99/mo",
+          "to": "free daily generations; paid plans from $9.99/mo"
+        },
+        {
+          "collection": "tools",
           "slug": "codegeex",
           "name": "CodeGeeX",
           "category": "coding",
@@ -1238,15 +1319,6 @@
           "field": "price note",
           "from": "Pro $69/seat/mo or $59/seat/mo billed yearly",
           "to": "$69/seat/mo"
-        },
-        {
-          "collection": "tools",
-          "slug": "adobe-firefly",
-          "name": "Adobe Firefly",
-          "category": "image",
-          "field": "price note",
-          "from": "free tier with credits; Premium from $9.99/mo",
-          "to": "free daily generations; paid plans from $9.99/mo"
         },
         {
           "collection": "tools",
@@ -1513,15 +1585,6 @@
           "field": "monthly cost",
           "from": 654,
           "to": 617
-        },
-        {
-          "collection": "tools",
-          "slug": "activepieces",
-          "name": "Activepieces",
-          "category": "automation",
-          "field": "price note",
-          "from": "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only)",
-          "to": "Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
         },
         {
           "collection": "tools",
@@ -1834,6 +1897,20 @@
         {
           "class": "price_change",
           "collection": "tools",
+          "slug": "activepieces",
+          "name": "Activepieces",
+          "detail": "price note: Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only) → Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "adobe-firefly",
+          "name": "Adobe Firefly",
+          "detail": "price note: free tier with credits; Premium from $9.99/mo → free daily generations; paid plans from $9.99/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
           "slug": "codegeex",
           "name": "CodeGeeX",
           "detail": "price note: CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product → CodeGeeX plugin and model family are free and open source; GLM Coding Plan paid subscription is a separate product from $18/mo"
@@ -1977,13 +2054,6 @@
           "slug": "jasper",
           "name": "Jasper",
           "detail": "price note: Pro $69/seat/mo or $59/seat/mo billed yearly → $69/seat/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "adobe-firefly",
-          "name": "Adobe Firefly",
-          "detail": "price note: free tier with credits; Premium from $9.99/mo → free daily generations; paid plans from $9.99/mo"
         },
         {
           "class": "price_change",
@@ -2138,13 +2208,6 @@
           "slug": "glm-5-3",
           "name": "GLM 5.3",
           "detail": "input $/Mtok: 0 → 1.4"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "activepieces",
-          "name": "Activepieces",
-          "detail": "price note: Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only) → Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
         },
         {
           "class": "price_change",
@@ -2356,6 +2419,30 @@
       "added": [
         {
           "collection": "tools",
+          "slug": "21st-dev",
+          "name": "21st.dev",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "aceternity-ui",
+          "name": "Aceternity UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "adobe-firefly",
+          "name": "Adobe Firefly",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "autogen",
+          "name": "AutoGen",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
           "slug": "codegeex",
           "name": "CodeGeeX",
           "category": "coding"
@@ -2557,18 +2644,6 @@
           "slug": "perplexity",
           "name": "Perplexity",
           "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "aceternity-ui",
-          "name": "Aceternity UI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "adobe-firefly",
-          "name": "Adobe Firefly",
-          "category": "image"
         },
         {
           "collection": "tools",
@@ -3086,12 +3161,6 @@
         },
         {
           "collection": "tools",
-          "slug": "21st-dev",
-          "name": "21st.dev",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
           "slug": "404s",
           "name": "404s",
           "category": "design"
@@ -3101,12 +3170,6 @@
           "slug": "assistant-ui",
           "name": "assistant-ui Elements",
           "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "autogen",
-          "name": "AutoGen",
-          "category": "agents"
         },
         {
           "collection": "tools",
