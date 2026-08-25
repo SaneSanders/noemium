@@ -46,17 +46,11 @@ const board = worldStatusBoard(world);
 >
   <div class="cover-doc">
     <section class="cover-lede">
-      <h1>What is <em>happening</em>.</h1>
-      <p>
-        Vendor status from public status pages, snapshotted at deploy. Sunsets
-        only when the catalogue already has an ISO date. Not a probe of your
-        stack.
-      </p>
+      <h1>Signals</h1>
+      <p>Who is down, and what is ending in the next 90 days.</p>
     </section>
 
-    <p class="cover-lede" style="padding-top:0">
-      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Right now</strong>
-    </p>
+    <p class="cover-kicker">Right now</p>
     {
       board.down.length === 0 ? (
         <p>
@@ -79,14 +73,14 @@ const board = worldStatusBoard(world);
     }
     {
       board.up.length > 0 && (
-        <p style="margin-top:14px;font-size:12px;line-height:1.6;color:color-mix(in srgb, var(--nm-cream) 50%, transparent)">
+        <p class="cover-note" style="margin-top:14px">
           Quiet: {board.up.map((page) => page.name).join(' · ')}
         </p>
       )
     }
     {
       board.failed.length > 0 && (
-        <p style="margin-top:10px;font-size:12px;line-height:1.6;color:color-mix(in srgb, var(--nm-cream) 50%, transparent)">
+        <p class="cover-note" style="margin-top:10px">
           Unreachable: {board.failed.map((page) => page.name).join(' · ')}
         </p>
       )
@@ -94,15 +88,9 @@ const board = worldStatusBoard(world);
 
     <section class="cover-lede">
       <h2>What is <em>ending</em>.</h2>
-      <p>
-        Only ISO dates already in the catalogue, next to a sunset verb. No
-        invented sunsets. Horizon 90 days. As of {asOf}.
-      </p>
     </section>
 
-    <p class="cover-lede" style="padding-top:0">
-      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Next 90 days</strong>
-    </p>
+    <p class="cover-kicker">Next 90 days · {asOf}</p>
     {
       upcoming.length === 0 ? (
         <p>No dated sunsets inside 90 days.</p>
@@ -124,14 +112,12 @@ const board = worldStatusBoard(world);
     {
       ended.length > 0 && (
         <>
-          <p class="cover-lede">
-            <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Already passed</strong>
-          </p>
+          <p class="cover-kicker">Already passed</p>
           <div class="cover-doors">
             {ended.map((e) => (
               <a class="cover-door" href={e.href}>
                 <b>{e.name}</b>
-                <span>{e.date} — {e.quote}</span>
+                <span>{e.date}</span>
               </a>
             ))}
           </div>
@@ -139,15 +125,13 @@ const board = worldStatusBoard(world);
       )
     }
 
-    <p class="cover-lede">
-      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Buried</strong>
-    </p>
+    <p class="cover-kicker">Buried</p>
     <div class="cover-doors">
       {
         graves.map((g) => (
           <a class="cover-door" href="/graveyard/">
             <b>{g.name}</b>
-            <span>died {g.date} — {g.quote}</span>
+            <span>died {g.date}</span>
           </a>
         ))
       }

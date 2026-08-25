@@ -47,10 +47,7 @@ const short = (v: string | number | null) => {
   title="Weekly changelog"
   description="Weekly git diff of the Noemium repo — cards added, removed or repriced. Not a market index, not a daily feed."
 >
-  <SectionHeader
-    title="Changelog"
-    sub="Git of this repo — not the market. Cards logged, fields changed, files unlisted. A name here means we wrote the file, not that the product launched. Latest week is open."
-  />
+  <SectionHeader title="Changelog" sub="Git of this repo, not the market." />
 
   <div class="space-y-6">
     {
@@ -91,7 +88,7 @@ const short = (v: string | number | null) => {
                   {Array.from(
                     new Set((w.risk ?? []).map((r) => r.class)),
                   ).map((cls) => (
-                    <span class="rounded-sm border border-ink px-2 py-1 font-mono text-[11px] font-medium tracking-[0.14em] uppercase text-ink">
+                    <span class="rounded-sm border border-ink px-2 py-1 font-mono text-[13px] font-medium tracking-[0.14em] uppercase text-ink">
                       {cls.replace('_', ' ')}
                     </span>
                   ))}
@@ -116,7 +113,7 @@ const short = (v: string | number | null) => {
                     const item = (
                       <span class="nm-num border-[1.5px] border-ink px-2.5 py-1 text-[13px] font-bold">
                         {e.name}
-                        {e.category && <span class="ml-2 font-mono text-[11px] font-normal tracking-wide text-ink-dim">{e.category}</span>}
+                        {e.category && <span class="ml-2 font-mono text-[13px] font-normal tracking-wide text-ink-dim">{e.category}</span>}
                       </span>
                     );
                     return (

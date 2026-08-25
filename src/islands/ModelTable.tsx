@@ -292,12 +292,12 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                   <td class="max-w-48 p-3 align-top">
                     {m.retiring && (
                       <div class="space-y-1">
-                        <p class="font-mono text-[12px] font-bold tracking-[0.08em] text-verdict-skip uppercase">
+                        <p class="font-mono text-[14px] font-bold tracking-[0.08em] text-verdict-skip uppercase">
                           Retiring {m.retiring.date}
                         </p>
                         <a
                           href={`#${m.retiring.successor}`}
-                          class="block font-mono text-[12px] text-accent hover:underline"
+                          class="block font-mono text-[14px] text-accent hover:underline"
                         >
                           Successor: {m.retiring.successorName}
                         </a>
@@ -314,7 +314,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                   </td>
                   <td class="nm-num p-3 text-[13px]">{formatCtx(m.context_window)}</td>
                   {unpublished ? (
-                    <td class="p-3 font-mono text-[12px] text-ink-dim" colSpan={2}>
+                    <td class="p-3 font-mono text-[14px] text-ink-dim" colSpan={2}>
                       no public rate — Coding Plan only
                     </td>
                   ) : unit ? (
@@ -347,7 +347,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                     {m.benchmarks && m.benchmarks.length > 0 ? (
                       <ul class="space-y-1">
                         {m.benchmarks.map((b, i) => (
-                          <li key={`${b.name}-${i}`} class="font-mono text-[12px]">
+                          <li key={`${b.name}-${i}`} class="font-mono text-[14px]">
                             <span class="text-ink">
                               {b.name}: {b.score}
                             </span>
@@ -356,7 +356,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
                         ))}
                       </ul>
                     ) : (
-                      <span class="font-mono text-[12px] text-ink-dim">—</span>
+                      <span class="font-mono text-[14px] text-ink-dim">—</span>
                     )}
                   </td>
                   <td class="max-w-56 p-3 text-[13px] text-ink-dim">{m.source_attribution}</td>

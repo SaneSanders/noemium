@@ -8,41 +8,9 @@ import Cover from '../layouts/Cover.astro';
   page="home"
 >
   <section class="hero">
-    <div class="rays"></div>
     <div class="moon"></div>
-    <div class="dust" id="dust"></div>
     <div class="ground"></div>
     <p class="punch">Bring<br />the frontier<br /><i>in.</i></p>
     <img class="nema" src="/nema-color.png" alt="Nema" />
-    <div class="acts">
-      <a class="go" href="/map/">Open the map</a>
-      <a class="go ghost" href="/autopsy/">Cut your stack open</a>
-    </div>
-    <div class="grain"></div>
   </section>
-  <script>
-    const dust = document.getElementById('dust');
-    if (dust) {
-      const bits: [string, string, string][] = [
-        ['Cursor', '16%', '22%'],
-        ['Claude', '20%', '68%'],
-        ['Codex', '8%', '38%'],
-        ['Grok', '9%', '58%'],
-        ['Qwen', '24%', '88%'],
-        ['Kimi', '22%', '12%'],
-        ['n8n', '14%', '82%'],
-        ['v0', '28%', '42%'],
-      ];
-      for (const [t, top, left] of bits) {
-        const b = document.createElement('b');
-        b.textContent = t;
-        b.style.top = top;
-        b.style.left = left;
-        dust.appendChild(b);
-      }
-    }
-    addEventListener('pointermove', (e) => {
-      document.documentElement.style.setProperty('--mx', String(e.clientX / innerWidth));
-    });
-  </script>
 </Cover>

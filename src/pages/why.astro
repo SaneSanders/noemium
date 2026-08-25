@@ -5,94 +5,53 @@ import { refusals } from '../data/refusals';
 
 const ledgerLine =
   refusals.length === 0
-    ? 'Today that ledger is zero.'
-    : `Today it lists ${refusals.length} declined offer${refusals.length === 1 ? '' : 's'}.`;
+    ? 'The refusal ledger is zero.'
+    : `The refusal ledger lists ${refusals.length} declined offer${refusals.length === 1 ? '' : 's'}.`;
 ---
 
 <Base
   title="Why directories lie"
   description="Star averages, paid slots, and undated prices are costumes. A catalog is a git log or it is marketing."
 >
-  <SectionHeader
-    title="Why directories lie"
-    sub="Not a launch thread. The on-site case for a catalog you can audit — and against the ones you cannot."
-  />
+  <SectionHeader title="Why directories lie" />
 
-  <article class="max-w-2xl space-y-10 pb-16 text-[15px] leading-relaxed">
+  <article class="max-w-2xl space-y-8 pb-16 text-[17px] leading-relaxed">
     <section>
-      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">The costume</h2>
-      <p class="mt-4 text-ink opacity-80">
-        A 4.8 from eleven reviews is not a measurement. It is an invoice with a star on it. The
-        sample is whoever clicked, the prompt is whoever paid for placement, and the number moves
-        when the vendor does. Directories print it because a decimal looks like work.
-      </p>
-      <p class="mt-3 text-ink opacity-80">
-        Noemium does not average vibes. The unit is a pull request: one YAML file, one named
-        observer, one date, limitations printed next to the praise. Wrong? Edit the page. The
-        history is public.
+      <h2 class="font-mono text-[14px] font-medium tracking-[0.08em] text-ink uppercase">Stars</h2>
+      <p class="mt-3">
+        A 4.8 from eleven reviews is not a measurement. The unit is a pull request: one file, one
+        observer, one date.
       </p>
     </section>
 
     <section>
-      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Paid slots</h2>
-      <p class="mt-4 text-ink opacity-80">
-        “Featured” that you can buy is advertising with the lights off. Anchor cards on our floor
-        are an editorial mix so the shelf is not only famous names — not a slot. Affiliate links
-        exist, are declared in the file, and fail CI if they sneak into <span class="font-mono text-[13px]">url</span> or
-        receipts undeclared. Every declined paid-influence offer is logged in the{' '}
-        <a href="/refusals/" class="text-accent hover:underline">Open Refusal Ledger</a>. {ledgerLine}{' '}
-        That is the honest count, not a branding flex.
+      <h2 class="font-mono text-[14px] font-medium tracking-[0.08em] text-ink uppercase">Paid slots</h2>
+      <p class="mt-3">
+        Featured that you can buy is advertising. Ours is editorial.
+        Affiliates are declared.
+        {' '}
+        <a href="/refusals/" class="text-accent hover:underline">Refusal ledger</a>. {ledgerLine}
       </p>
     </section>
 
     <section>
-      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
-        Prices without a date
-      </h2>
-      <p class="mt-4 text-ink opacity-80">
-        An undated “from $19/mo” is a screenshot of a marketing page from whenever the intern last
-        cared. We print a price only with a receipt, prefer the pricing page, and stamp
-        last_verified. The trail on a tool page is git history of this repo — field changes we
-        committed — not a live vendor ticker. If the number did not move in the changelog, we say
-        so.
+      <h2 class="font-mono text-[14px] font-medium tracking-[0.08em] text-ink uppercase">Undated prices</h2>
+      <p class="mt-3">
+        We print a price only with a receipt and a date. The trail is git of this repo, not a live ticker.
       </p>
     </section>
 
     <section>
-      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
-        No named skip
-      </h2>
-      <p class="mt-4 text-ink opacity-80">
-        A directory that will not tell you when to walk away is selling the click-out. Limitations
-        are required. Ship cards also carry a briefing — strengths, when to use, when to skip —
-        all three or none. Ship is not a trophy. Status of that coverage is on{' '}
-        <a href="/status/" class="text-accent hover:underline">/status</a>, rebuilt with the site,
-        not scraped from vendors.
+      <h2 class="font-mono text-[14px] font-medium tracking-[0.08em] text-ink uppercase">No skip</h2>
+      <p class="mt-3">
+        Limitations are required. Ship is not a trophy.
       </p>
     </section>
 
-    <section>
-      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
-        What we print instead
-      </h2>
-      <ul class="mt-4 list-disc space-y-2 pl-5 marker:font-mono marker:text-accent">
-        <li>ship / situational / skip, with the job on the card</li>
-        <li>receipts as footnotes, homepages marked as weak</li>
-        <li>a date and a GitHub handle on every observation</li>
-        <li>the file, the PR, the changelog — not a badge, not a vote, not a leaderboard</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Catch us</h2>
-      <p class="mt-4 text-ink opacity-80">
-        Fork it. Break a number. Send the receipt.{' '}
-        <a href="/contribute/" class="text-accent hover:underline">Contribute</a> is a PR queue, not
-        a points program.{' '}
-        <a href="/method/" class="text-accent hover:underline">Method</a> is how a card earns a
-        verdict. If this page ever starts selling stars, paid slots, or a live price ticker, treat
-        it as a regression and open the pull request.
-      </p>
-    </section>
+    <p>
+      <a href="/contribute/" class="text-accent hover:underline">Contribute</a>
+      {' · '}
+      <a href="/method/" class="text-accent hover:underline">Method</a>
+    </p>
   </article>
 </Base>

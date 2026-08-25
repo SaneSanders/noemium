@@ -156,11 +156,11 @@ const mastPage = (
           <button
             type="button"
             onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
-            class="inline-flex items-center gap-2.5 border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent px-3 py-2 font-mono text-[11px] tracking-[0.14em] text-[var(--nm-cream)] uppercase"
+            class="inline-flex items-center gap-2.5 border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent px-3 py-2 font-mono text-[14px] tracking-wide text-[var(--nm-cream)]"
             aria-label="Open command palette (⌘K)"
           >
             <span>Search</span>
-            <span class="hidden text-[11px] opacity-55 sm:inline">⌘K</span>
+            <span class="hidden text-[13px] opacity-55 sm:inline">⌘K</span>
           </button>
           <button
             id="nm-nav-open"
@@ -168,7 +168,7 @@ const mastPage = (
             aria-expanded="false"
             aria-controls="nm-mobile-nav"
             aria-label="Open menu"
-            class="border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent p-2 text-ink lg:hidden"
+            class="border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent p-2 text-[var(--nm-cream)] lg:hidden"
           >
             <svg
               width="16"
@@ -221,7 +221,7 @@ const mastPage = (
         <a href="/map/" aria-current={path.startsWith('/map') ? 'page' : undefined}>Map</a>
         <a href="/autopsy/" aria-current={path.startsWith('/autopsy') ? 'page' : undefined}>Autopsy</a>
         <a href="/signals/" aria-current={path.startsWith('/signals') ? 'page' : undefined}>Signals</a>
-        <a href="/reference/" aria-current={path.startsWith('/reference') ? 'page' : undefined}>Reference</a>
+        <a href="/reference/" aria-current={path.startsWith('/reference') ? 'page' : undefined}>Catalog</a>
         <a href="/method/" aria-current={path.startsWith('/method') ? 'page' : undefined}>Method</a>
         <p class="kicker">Catalogue</p>
         {
@@ -241,13 +241,13 @@ const mastPage = (
 
     <footer class="mt-20 border-t border-[color-mix(in_srgb,var(--nm-ink)_12%,transparent)]">
       <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-4 px-6 py-10">
-        <p class="font-mono text-[12px] tracking-wide text-ink">
-          Code <span class="text-accent">MIT</span> · Content <span class="text-accent">CC BY 4.0</span> · Every recommendation is a PR
+        <p class="font-mono text-[14px] tracking-wide text-ink">
+          Code <span class="text-accent">MIT</span> · Content <span class="text-accent">CC BY 4.0</span>
         </p>
-        <p class="w-full font-mono text-[11px] text-ink-dim">
-          Some outbound links are affiliate links — always declared, never affecting verdicts.
+        <p class="w-full font-mono text-[13px] text-ink-dim">
+          Affiliate links are declared. They never move a verdict.
         </p>
-        <p class="flex flex-wrap items-center gap-5 font-mono text-xs text-ink-dim">
+        <p class="flex flex-wrap items-center gap-5 font-mono text-[14px] text-ink-dim">
           <a href="https://github.com/SaneSanders/noemium" class="hover:text-ink" rel="noopener">GitHub</a>
           <a href="/about/" class="hover:text-ink">About</a>
           <a href="/quiz/" class="hover:text-ink">Quiz</a>
@@ -267,7 +267,7 @@ const mastPage = (
           <a href="/api/tools.json" class="hover:text-ink">tools.json</a>
           <a href="https://x.com/whysanesanders" class="hover:text-ink" rel="noopener">@whysanesanders</a>
         </p>
-        <span class="font-mono text-[12px] tracking-[0.24em] uppercase">Noemium</span>
+        <span class="font-display text-[16px] tracking-tight">Noemium</span>
       </div>
     </footer>
 

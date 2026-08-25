@@ -46,7 +46,7 @@ const stats = [
 >
   <SectionHeader
     title="Status"
-    sub={`Snapshotted at build, as of ${asOf}. Stale means the YAML date is old — not that the vendor died. Price history lives in git, not a ticker.`}
+    sub={`Snapshotted at build, ${asOf}. Not a live vendor ticker.`}
   />
 
   <section class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -54,7 +54,7 @@ const stats = [
       stats.map((stat) => (
         <div class="nm-card p-5">
           <p class="nm-num font-display text-3xl font-medium tracking-tight text-accent">{stat.value}</p>
-          <p class="mt-2 font-mono text-[12px] tracking-[0.12em] text-ink-dim uppercase">{stat.label}</p>
+          <p class="mt-2 font-mono text-[14px] tracking-[0.12em] text-ink-dim uppercase">{stat.label}</p>
         </div>
       ))
     }
@@ -130,7 +130,7 @@ const stats = [
               >
                 <LogoTile slug={tool.id} name={tool.name} src={logoSrc(tool.id)} size="sm" />
                 {tool.name}
-                <span class="font-mono text-[11px] font-normal text-ink-dim">{tool.last_verified}</span>
+                <span class="font-mono text-[13px] font-normal text-ink-dim">{tool.last_verified}</span>
               </a>
             </li>
           ))}

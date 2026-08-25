@@ -31,10 +31,7 @@ const conflicts = presets.filter((p) => conflictSlugs.has(`${p.aSlug}-vs-${p.bSl
   title="Compare tools"
   description="Put two to four AI tools side by side — price, free tier, OSS, API, self-host, verdict, limitations, momentum."
 >
-  <SectionHeader
-    title="Compare"
-    sub="Two to four tools, side by side. Same fields, same honesty — verdicts and limitations included."
-  />
+  <SectionHeader title="Compare" sub="Two to four tools." />
 
   {
     conflicts.length > 0 && (
@@ -53,10 +50,10 @@ const conflicts = presets.filter((p) => conflictSlugs.has(`${p.aSlug}-vs-${p.bSl
             >
               <span class="font-display text-lg font-medium tracking-tight">
                 {a!.name}
-                <span class="mx-1.5 font-mono text-[11px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
+                <span class="mx-1.5 font-mono text-[13px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
                 {b!.name}
               </span>
-              <span class="font-mono text-[10px] tracking-[0.08em] text-ink-dim uppercase">{a!.category}</span>
+              <span class="font-mono text-[13px] tracking-[0.08em] text-ink-dim uppercase">{a!.category}</span>
             </a>
           ))}
         </div>
@@ -81,10 +78,10 @@ const conflicts = presets.filter((p) => conflictSlugs.has(`${p.aSlug}-vs-${p.bSl
             >
               <span class="font-display text-lg font-medium tracking-tight">
                 {a!.name}
-                <span class="mx-1.5 font-mono text-[11px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
+                <span class="mx-1.5 font-mono text-[13px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
                 {b!.name}
               </span>
-              <span class="font-mono text-[10px] tracking-[0.08em] text-ink-dim uppercase">{a!.category}</span>
+              <span class="font-mono text-[13px] tracking-[0.08em] text-ink-dim uppercase">{a!.category}</span>
             </a>
           ))}
         </div>

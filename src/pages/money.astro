@@ -26,10 +26,7 @@ const hostname = (url: string) => {
   title="Money"
   description="How Noemium makes money, and how it does not. The whole conflict, on one page."
 >
-  <SectionHeader
-    title="Money"
-    sub="How this site makes money, and how it does not. The whole conflict, on one page."
-  />
+  <SectionHeader title="Money" sub="What we sell. What we don't." />
 
   <div class="max-w-3xl space-y-10 pb-16">
     <section>
@@ -37,10 +34,9 @@ const hostname = (url: string) => {
         What we don't sell
       </h2>
       <div class="nm-card mt-4 p-6">
-        <p class="text-[15px] leading-relaxed text-ink opacity-80">
-          Listings, verdicts, placement, and sponsored content are not for sale. Every declined
-          paid-influence offer is logged in the
-          <a href="/refusals/" class="text-accent hover:underline">Open Refusal Ledger</a>.
+        <p class="text-[17px] leading-relaxed">
+          Listings, verdicts, and placement are not for sale.
+          <a href="/refusals/" class="text-accent hover:underline"> Refusal ledger</a>.
         </p>
       </div>
     </section>
@@ -53,10 +49,10 @@ const hostname = (url: string) => {
         <table class="w-full border-collapse text-left">
           <thead>
             <tr class="border-b-[1.5px] border-ink">
-              <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
-              <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
-              <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">money link</th>
-              <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">featured</th>
+              <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
+              <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
+              <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">money link</th>
+              <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">featured</th>
             </tr>
           </thead>
           <tbody>
@@ -88,7 +84,7 @@ const hostname = (url: string) => {
           </tbody>
         </table>
       </div>
-      <p class="mt-3 font-mono text-[12px] leading-relaxed text-ink-dim">
+      <p class="mt-3 font-mono text-[14px] leading-relaxed text-ink-dim">
         {affiliateTools.length} of {totalTools} cards carry an affiliate link. Verdicts are PRs; CI fails undeclared tracking parameters.
       </p>
     </section>
@@ -112,7 +108,7 @@ const hostname = (url: string) => {
                 >
                   {tool.data.name}
                 </a>
-                <span class="font-mono text-[12px] text-ink-dim">
+                <span class="font-mono text-[14px] text-ink-dim">
                   {tool.data.affiliate === 'declared' ? 'affiliate' : 'no affiliate'}
                 </span>
               </li>
@@ -127,17 +123,12 @@ const hostname = (url: string) => {
         The rule
       </h2>
       <div class="nm-card mt-4 p-6">
-        <ul class="space-y-3 text-[15px] leading-relaxed text-ink opacity-80">
-          <li>Affiliate links are always declared in the YAML and marked on the card.</li>
-          <li>Affiliate status never influences verdict, featured selection, or sort order.</li>
-          <li>An affiliate link is never the only receipt for a printed fact.</li>
+        <ul class="space-y-3 text-[17px] leading-relaxed">
+          <li>Affiliate links are declared in the YAML and marked on the card.</li>
+          <li>They never move a verdict or a featured slot.</li>
+          <li>An affiliate link is never the only receipt.</li>
           <li>Undeclared tracking parameters fail CI.</li>
         </ul>
-        <p class="mt-4 text-[15px] leading-relaxed text-ink opacity-80">
-          The rule is enforced in code:{' '}
-          <a href="/CONTRIBUTING.md" class="text-accent hover:underline">CONTRIBUTING.md</a> and the
-          validation script are the source of truth.
-        </p>
       </div>
     </section>
   </div>

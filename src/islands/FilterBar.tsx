@@ -155,7 +155,7 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      class={`cursor-pointer border px-3.5 py-2 font-mono text-[11px] tracking-[0.12em] uppercase ${
+      class={`cursor-pointer border px-3.5 py-2 font-mono text-[13px] tracking-[0.06em] uppercase ${
         active
           ? 'border-accent bg-accent text-on-accent'
           : 'border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] bg-transparent text-ink hover:border-accent'
@@ -256,7 +256,7 @@ export default function FilterBar() {
                     : 'border-[color-mix(in_srgb,var(--nm-ink)_16%,transparent)] bg-transparent text-ink hover:border-accent'
                 }`}
               >
-                <span class="block font-mono text-[11px] tracking-[0.14em] uppercase">
+                <span class="block font-mono text-[13px] tracking-[0.14em] uppercase">
                   {c}
                 </span>
                 <span

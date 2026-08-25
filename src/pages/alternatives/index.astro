@@ -11,10 +11,7 @@ const tools = (await getCollection('tools')).sort((a, b) => a.data.name.localeCo
   title="Alternatives"
   description="Every tool in the catalog with its alternatives shelf — honest order: verdict, then freshness. No paid placement."
 >
-  <SectionHeader
-    title="Alternatives"
-    sub="Pick a tool, see its shelf. Same category, honest order — verdict first, then freshness. No sponsored spots."
-  />
+  <SectionHeader title="Alternatives" sub="Same category. Verdict first." />
 
   <ul class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
     {
@@ -28,7 +25,7 @@ const tools = (await getCollection('tools')).sort((a, b) => a.data.name.localeCo
               <LogoTile slug={t.id} name={t.data.name} size="sm" />
               <span class="truncate font-display text-lg font-medium tracking-tight">{t.data.name}</span>
             </span>
-            <span class="font-mono text-[10px] tracking-[0.08em] text-ink-dim uppercase">{t.data.category}</span>
+            <span class="font-mono text-[13px] tracking-[0.08em] text-ink-dim uppercase">{t.data.category}</span>
           </a>
         </li>
       ))

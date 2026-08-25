@@ -58,22 +58,14 @@ const trackingSince = (priceHistory as { started_tracking: string | null }).star
 >
   <SectionHeader
     title="Models"
-    sub="The models people actually use, first. Sorted by heat — our editorial score of real-world usage and buzz. Click any column header to re-sort; unit-priced media models stay in their own group at the bottom."
+    sub={latestVerified ? `Reviewed ${latestVerified}. Click a column to sort.` : 'Click a column to sort.'}
   />
-  <p class="-mt-6 mb-6 max-w-3xl font-mono text-[13px] leading-relaxed text-ink-dim">
-    Prices combine vendor pages with LiteLLM (MIT), Helicone (Apache-2.0), and clearly named
-    secondary sources where primary data is inaccessible.
-    {' '}
-    {latestVerified ? `Latest review ${latestVerified}.` : 'No models reviewed yet.'} Follow each
-    model's attribution and recheck the vendor before billing decisions.
-  </p>
   <ModelTable client:load models={data} />
 
   <section class="mt-14">
-    <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Price audit</h2>
-    <p class="mt-3 max-w-3xl font-mono text-[13px] leading-relaxed text-ink-dim">
-      Rebuilt from git history — every price move is a commit. Tracking since
-      {trackingSince ?? '—'}; the timeline lengthens as vendors reprice.
+    <h2 class="font-mono text-[14px] font-medium tracking-[0.08em] text-ink uppercase">Price audit</h2>
+    <p class="mt-3 max-w-3xl font-mono text-[14px] leading-relaxed text-ink-dim">
+      Git history since {trackingSince ?? '—'}.
     </p>
     {
       movers.length > 0 ? (
@@ -82,7 +74,7 @@ const trackingSince = (priceHistory as { started_tracking: string | null }).star
             <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 p-4 text-sm">
               <span class="font-bold">
                 {m.name}
-                <span class="ml-2 font-mono text-[11px] font-normal tracking-wide text-ink-dim">{m.date}</span>
+                <span class="ml-2 font-mono text-[13px] font-normal tracking-wide text-ink-dim">{m.date}</span>
               </span>
               <span class="nm-num">
                 <span class="text-ink-dim line-through">{price(m.from)}</span>

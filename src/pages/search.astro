@@ -9,10 +9,7 @@ const initial = Astro.url.searchParams.get('q') ?? '';
   title="Search"
   description="Full-text search across the Noemium catalog — tools, agents, stacks, models and pages."
 >
-  <SectionHeader
-    title="Search"
-    sub="Full-text search across the catalog. For quick navigation, the command palette is usually faster."
-  />
+  <SectionHeader title="Search" />
 
   <div class="nm-card p-5 md:p-6">
     <form id="nm-search-form" class="flex gap-3" role="search" action="/search/" method="get">
@@ -84,7 +81,7 @@ const initial = Astro.url.searchParams.get('q') ?? '';
           excerpt.className = 'mt-2 text-[15px] text-ink-dim';
           excerpt.innerHTML = item.excerpt ?? '';
           const url = document.createElement('p');
-          url.className = 'mt-2 font-mono text-[12px] text-accent';
+          url.className = 'mt-2 font-mono text-[14px] text-accent';
           url.textContent = item.url;
           article.appendChild(a);
           article.appendChild(excerpt);

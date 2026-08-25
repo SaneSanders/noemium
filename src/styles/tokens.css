@@ -9,25 +9,29 @@
 :root {
   color-scheme: dark;
 
-  /* Surfaces — 2.0 night. Paper is the sky; cream is the land. */
-  --nm-bg-paper: #121212;
-  --nm-bg-card: #121212;
+  /* Surfaces — catalog sits on the same ink field as the cover sky. */
+  --nm-bg-paper: #0d1f4b;
+  --nm-bg-card: #0d1f4b;
   --nm-line-soft: color-mix(in srgb, var(--nm-ink) 14%, transparent);
 
   /* Text */
   --nm-ink: #f3efe4;
-  --nm-ink-dim: color-mix(in srgb, #f3efe4 55%, transparent);
+  --nm-ink-dim: color-mix(in srgb, #f3efe4 68%, transparent);
 
-  /* Accent — cover cobalt. The only interactive accent. */
+  /* Accent — cobalt. The only interactive accent. */
   --nm-accent: #2438ff;
 
-  /* Cover / 2.0 night (hero, map, mast). Do not use on catalog cards. */
+  /* Cover / 2.0 (hero, map, mast). Do not use on catalog cards. */
   --nm-field: #2438ff;
   --nm-cream: #f3efe4;
-  --nm-deep: #121212;
+  /* Poster field — ink night, not Hermes' blue and not void black. */
+  --nm-deep: #0d1f4b;
   --nm-warn: #ff6b3d;
-  --nm-mast-h: 52px;
+  --nm-mast-h: 88px;
   --nm-page-x: 28px;
+  --nm-text: 17px;
+  --nm-text-sm: 14px;
+  --nm-text-xs: 13px;
   --nm-font-cover: 'Fraunces', 'Times New Roman', serif;
   --nm-font-cover-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --nm-font-punch: 'Syne', var(--nm-font-display);
@@ -80,7 +84,7 @@
   /* Cover night tokens stay put — the 2.0 sky does not invert. */
 
   --nm-ink: #121212;
-  --nm-ink-dim: color-mix(in srgb, #121212 55%, transparent);
+  --nm-ink-dim: color-mix(in srgb, #121212 68%, transparent);
 
   --nm-accent: #2438ff;
 

@@ -47,6 +47,7 @@
     background-color: var(--nm-bg-paper);
     color: var(--nm-ink);
     font-family: var(--nm-font-body);
+    font-size: var(--nm-text);
   }
 
   ::selection {
@@ -106,10 +107,10 @@
     border-radius: 0;
     padding: 12px 18px;
     font-family: var(--nm-font-mono);
-    font-size: 11px;
+    font-size: var(--nm-text-sm);
     font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-transform: none;
     text-decoration: none;
     cursor: pointer;
   }
@@ -139,9 +140,9 @@
     border-radius: 0;
     background-color: transparent;
     color: var(--nm-ink);
-    padding: 10px 12px;
+    padding: 12px 14px;
     font-family: var(--nm-font-body);
-    font-size: 14px;
+    font-size: var(--nm-text);
     line-height: 1.45;
   }
 
@@ -151,12 +152,12 @@
 
   .nm-sticker {
     display: inline-block;
-    padding: 3px 8px;
+    padding: 4px 8px;
     border: 1px solid currentColor;
     font-family: var(--nm-font-mono);
     font-weight: 500;
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    font-size: var(--nm-text-xs);
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     white-space: nowrap;
   }
@@ -178,13 +179,13 @@
 
   .nm-verified {
     display: inline-block;
-    padding: 3px 8px;
+    padding: 4px 8px;
     border: 1px solid var(--nm-accent);
     font-family: var(--nm-font-mono);
-    font-size: 10px;
+    font-size: var(--nm-text-xs);
     font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-transform: none;
     color: var(--nm-accent);
   }
 

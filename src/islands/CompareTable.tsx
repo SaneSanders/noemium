@@ -227,7 +227,7 @@ export default function CompareTable() {
                   class="nm-num cursor-pointer rounded-md border-[1.5px] border-ink px-3 py-1.5 text-[13px] font-bold text-ink transition-all duration-100 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                 >
                   {bySlug.get(a)!.name}
-                  <span class="mx-1.5 font-mono text-[11px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
+                  <span class="mx-1.5 font-mono text-[13px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
                   {bySlug.get(b)!.name}
                 </button>
               ))}

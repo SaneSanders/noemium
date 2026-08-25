@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
-import KbdHint from '../../components/KbdHint.astro';
 import ToolCard from '../../components/ToolCard.astro';
 import FilterBar from '../../islands/FilterBar';
 import { plural } from '../../lib/shelf';
@@ -33,12 +32,9 @@ const jsonLd = {
   description={`${plural(data.length, 'tool')} with signed verdicts and named limitations. No pay-to-list — every entry is a pull request you can audit.`}
 >
   <SectionHeader
-    title="Catalog"
-    sub={`${plural(data.length, 'tool')} with signed verdicts and named limitations. No pay-to-list — every entry is a pull request you can audit.`}
+    title="Tools"
+    sub={`${plural(data.length, 'tool')}. / filters this shelf.`}
   />
-  <p class="-mt-4 mb-8 font-mono text-xs text-ink-dim">
-    Press <KbdHint keys="/" /> to filter this shelf. Cmd+K searches the whole catalog.
-  </p>
   <FilterBar client:load />
   <div id="nm-tool-grid" class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     {tools.sort((a, b) => a.data.name.localeCompare(b.data.name)).map((tool) => <ToolCard tool={tool} />)}

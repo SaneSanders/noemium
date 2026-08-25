@@ -30,9 +30,6 @@ const data: QuizStack[] = stacks.map((stack) => ({
   description="Five questions, one stack. Answer what you build, your budget and your level — get a recipe with a real monthly cost."
   ogImage="/og/quiz.png"
 >
-  <SectionHeader
-    title="Find your stack"
-    sub="Five questions, one stack. We match your answers against recipes we have actually run — no sponsored placements."
-  />
+  <SectionHeader title="Find your stack" sub="Five questions, one recipe." />
   <Quiz client:load stacks={data} />
 </Base>

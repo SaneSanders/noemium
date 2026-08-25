@@ -86,7 +86,7 @@ export default function ProofDrawer() {
       <div class="max-h-[88vh] w-full max-w-lg overflow-y-auto border border-[color-mix(in_srgb,var(--nm-ink)_16%,transparent)] bg-paper">
         <div class="flex items-start justify-between gap-4 border-b border-[color-mix(in_srgb,var(--nm-ink)_12%,transparent)] px-5 py-4">
           <div>
-            <p class="font-mono text-[11px] font-bold tracking-[0.14em] text-accent uppercase">
+            <p class="font-mono text-[13px] font-bold tracking-[0.14em] text-accent uppercase">
               proof drawer
             </p>
             <h2 class="mt-1 font-display text-2xl font-medium tracking-tight">
@@ -132,7 +132,7 @@ export default function ProofDrawer() {
                       <span class="text-ink-dim">{pathname(url)}</span>
                     </a>
                     {isHomepageReceipt(url) && (
-                      <span class="mt-0.5 block text-[11px] text-ink-dim">
+                      <span class="mt-0.5 block text-[13px] text-ink-dim">
                         homepage — not a pricing page
                       </span>
                     )}
@@ -151,7 +151,7 @@ export default function ProofDrawer() {
                 {entry.commit ? <span class="text-ink-dim"> · {entry.commit}</span> : null}
               </a>
             </p>
-            <p class="border-t-[1.5px] border-line-soft pt-4 font-mono text-[12px] leading-relaxed text-ink-dim">
+            <p class="border-t-[1.5px] border-line-soft pt-4 font-mono text-[14px] leading-relaxed text-ink-dim">
               A homepage receipt still counts as a source — it just isn't a price. How we grade
               claims:{' '}
               <a href="/method/" class="text-accent hover:underline">

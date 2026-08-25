@@ -68,9 +68,8 @@ const jsonLd = {
         <h1 class="mt-6 font-display text-5xl leading-[0.98] font-medium tracking-tight md:text-7xl">
           Inbox Desk
         </h1>
-        <p class="mt-6 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-75">
-          Three operator profiles and an SOP for local-service inboxes. The agent
-          drafts. A human sends. Nothing here sends itself.
+        <p class="mt-6 max-w-xl text-lg leading-relaxed font-medium">
+          Three profiles and an SOP. The agent drafts. A human sends.
         </p>
         <p class="mt-8">
           <a href="#pack-files" class="nm-btn nm-btn-outline">Read the markdown</a>
@@ -78,7 +77,7 @@ const jsonLd = {
       </div>
 
       <aside class="nm-card p-5 md:p-6" aria-label="Routing slip">
-        <p class="font-mono text-[11px] font-bold tracking-[0.14em] text-ink-dim uppercase">
+        <p class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink-dim uppercase">
           Routing slip · draft only
         </p>
         <ul class="mt-4 list-none space-y-3">
@@ -91,7 +90,7 @@ const jsonLd = {
             ))
           }
         </ul>
-        <p class="mt-5 border-t-[1.5px] border-ink pt-4 font-mono text-[12px] tracking-[0.08em] text-accent uppercase">
+        <p class="mt-5 border-t-[1.5px] border-ink pt-4 font-mono text-[14px] tracking-[0.08em] text-accent uppercase">
           Human sends
         </p>
       </aside>
@@ -99,10 +98,8 @@ const jsonLd = {
 
     <section class="max-w-2xl">
       <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">What it is</h2>
-      <p class="mt-4 text-[15px] leading-relaxed text-ink opacity-80">
-        Inbox Desk is markdown you paste into a chat you already use. It is a studio
-        SKU page, not a catalog tool card: no verdict, no floor slot, no hosted inbox.
-        The files are English, like the rest of noemium.com.
+      <p class="mt-4 text-[17px] leading-relaxed">
+        Markdown you paste into a chat you already use. No verdict, no hosted inbox.
       </p>
     </section>
 
@@ -127,10 +124,10 @@ const jsonLd = {
         {
           roles.map((role) => (
             <a href={role.file} class="nm-card nm-card-hover flex h-full flex-col p-6">
-              <p class="font-mono text-[11px] font-bold tracking-[0.12em] text-accent uppercase">Profile</p>
+              <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-accent uppercase">Profile</p>
               <h3 class="mt-3 font-display text-2xl font-medium tracking-tight">{role.name}</h3>
               <p class="mt-3 flex-1 text-[15px] leading-relaxed text-ink opacity-75">{role.job}</p>
-              <p class="mt-6 font-mono text-[12px] text-accent">{role.file.replace('/pack/inbox-desk/', '')} →</p>
+              <p class="mt-6 font-mono text-[14px] text-accent">{role.file.replace('/pack/inbox-desk/', '')} →</p>
             </a>
           ))
         }

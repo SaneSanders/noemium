@@ -35,20 +35,15 @@ const restTier = buckets['usable-tier'].length - shipTier.length;
     <section class="cover-lede">
       <h1>What is <em>actually</em> free.</h1>
       <p>
-        {runIt.length + hosted.length} tools are priced free in the catalogue.
-        {bait.length} have a free-looking door that the card itself calls a
-        trial, expiring credits, or a temporary promo. The rest sell a taste.
-        Derived from <code>pricing</code>, <code>free_tier</code>, and quotes
-        already on the card — not a new scrape.
+        {runIt.length + hosted.length} priced free.
+        {bait.length} bait — trial, expiring credits, or a promo. From the cards, not a scrape.
       </p>
     </section>
 
     {
       bait.length > 0 && (
         <>
-          <p class="cover-lede" style="padding-top:0">
-            <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Bait</strong>
-          </p>
+          <p class="cover-kicker">Bait</p>
           <div class="cover-doors">
             {bait.map((t) => (
               <a class="cover-door" href={`/tools/${t.slug}/`}>
@@ -61,12 +56,8 @@ const restTier = buckets['usable-tier'].length - shipTier.length;
       )
     }
 
-    <p class="cover-lede">
-      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Run it</strong>
-    </p>
-    <p style="margin:0 0 12px;font-size:12px;line-height:1.6;color:color-mix(in srgb, var(--nm-cream) 50%, transparent);max-width:64ch">
-      Priced free, open source, self-host. You still pay the model and the machine.
-    </p>
+    <p class="cover-kicker">Run it</p>
+    <p class="cover-note">Open source, self-host. You still pay the model and the machine.</p>
     <div class="cover-doors">
       {
         runIt.map((t) => (
@@ -78,9 +69,7 @@ const restTier = buckets['usable-tier'].length - shipTier.length;
       }
     </div>
 
-    <p class="cover-lede">
-      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Hosted free</strong>
-    </p>
+    <p class="cover-kicker">Hosted free</p>
     <div class="cover-doors">
       {
         hosted.map((t) => (
@@ -92,13 +81,9 @@ const restTier = buckets['usable-tier'].length - shipTier.length;
       }
     </div>
 
-    <p class="cover-lede">
-      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Ship, with a free tier</strong>
-    </p>
-    <p style="margin:0 0 12px;font-size:12px;line-height:1.6;color:color-mix(in srgb, var(--nm-cream) 50%, transparent);max-width:64ch">
-      We still say ship, and the card still has a free tier. Not the full
-      {buckets['usable-tier'].length} freemium shelf — {restTier} more live in
-      the <a href="/tools/" style="color:var(--nm-field)">catalogue</a>.
+    <p class="cover-kicker">Ship, with a free tier</p>
+    <p class="cover-note">
+      {restTier} more freemium cards live in the <a href="/tools/">catalogue</a>.
     </p>
     <div class="cover-doors">
       {

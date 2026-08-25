@@ -29,7 +29,7 @@ function successorHref(d: (typeof dead)[number]['data']['succeeded_by']): string
 >
   <SectionHeader
     title="Graveyard"
-    sub={`${dead.length} tools confirmed dead. Every grave has a cause, a receipt, and either a successor or an honest "none".`}
+    sub={`${dead.length} tools confirmed dead.`}
   />
 
   <div class="grid gap-6 md:grid-cols-2">
@@ -43,7 +43,7 @@ function successorHref(d: (typeof dead)[number]['data']['succeeded_by']): string
               <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink-dim uppercase">
                 {d.data.category}
               </span>
-              <span class="inline-block border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] px-2 py-1 font-mono text-[11px] font-semibold tracking-[0.12em] text-ink uppercase">
+              <span class="inline-block border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] px-2 py-1 font-mono text-[13px] font-semibold tracking-[0.12em] text-ink uppercase">
                 died {d.data.died}
               </span>
             </div>

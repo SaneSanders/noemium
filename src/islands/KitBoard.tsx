@@ -101,9 +101,8 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
 
   return (
     <div>
-      <p class="max-w-2xl text-[15px] leading-relaxed text-ink opacity-80">
-        A kit is a shareable set of catalog cards — URL plus this browser. It is not a budget. We
-        do not sum monthly prices because most cards do not have a number we can add.
+      <p class="max-w-2xl text-[17px] leading-relaxed">
+        A set of cards in a URL. It is not a budget. We do not sum monthly prices.
       </p>
 
       {!ready ? <p class="mt-8 font-mono text-[13px] text-ink-dim">Loading kit…</p> : null}
@@ -155,14 +154,14 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
                   <LogoMark src={tool.logo} name={tool.name} size="sm" />
                   <span class="min-w-0">
                     <span class="block font-display text-[15px] font-medium tracking-tight">{tool.name}</span>
-                    <span class="block truncate font-mono text-[11px] text-ink-dim">{tool.category}</span>
+                    <span class="block truncate font-mono text-[13px] text-ink-dim">{tool.category}</span>
                   </span>
                 </button>
               </li>
             ))}
           </ul>
         )}
-        <p class="mt-2 font-mono text-[12px] text-ink-dim">
+        <p class="mt-2 font-mono text-[14px] text-ink-dim">
           {slugs.length}/{KIT_MAX} cards
         </p>
       </div>
@@ -187,12 +186,12 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
           <table class="w-full border-collapse text-left">
             <thead>
               <tr class="border-b-[1.5px] border-ink">
-                <th class="p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
-                <th class="p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
-                <th class="p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">price</th>
-                <th class="hidden sm:table-cell p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">oss</th>
-                <th class="hidden sm:table-cell p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">self-host</th>
-                <th class="p-1.5 sm:p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">
+                <th class="p-1.5 sm:p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
+                <th class="p-1.5 sm:p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
+                <th class="p-1.5 sm:p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">price</th>
+                <th class="hidden sm:table-cell p-1.5 sm:p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">oss</th>
+                <th class="hidden sm:table-cell p-1.5 sm:p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">self-host</th>
+                <th class="p-1.5 sm:p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">
                   <span class="sr-only">remove</span>
                 </th>
               </tr>
@@ -205,14 +204,14 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
                       <LogoMark src={tool.logo} name={tool.name} size="sm" />
                       <span class="min-w-0">
                         <span class="block font-display text-[15px] font-medium tracking-tight">{tool.name}</span>
-                        <span class="block font-mono text-[11px] font-normal text-ink-dim">{tool.category}</span>
+                        <span class="block font-mono text-[13px] font-normal text-ink-dim">{tool.category}</span>
                       </span>
                     </a>
                   </th>
                   <td class="p-1.5 sm:p-3">
                     <VerdictStamp verdict={tool.verdict} />
                   </td>
-                  <td class="p-1.5 sm:p-3 font-mono text-[12px] sm:text-[13px] whitespace-nowrap">{tool.pricing}</td>
+                  <td class="p-1.5 sm:p-3 font-mono text-[14px] sm:text-[13px] whitespace-nowrap">{tool.pricing}</td>
                   <td class="hidden sm:table-cell p-1.5 sm:p-3">
                     <YesNo value={tool.open_source} />
                   </td>
@@ -222,7 +221,7 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
                   <td class="p-1.5 sm:p-3 text-right">
                     <button
                       type="button"
-                      class="font-mono text-[11px] sm:text-[12px] text-ink-dim hover:text-verdict-skip whitespace-nowrap"
+                      class="font-mono text-[13px] sm:text-[14px] text-ink-dim hover:text-verdict-skip whitespace-nowrap"
                       onClick={() => remove(tool.slug)}
                     >
                       remove
@@ -235,7 +234,7 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
         </div>
       )}
 
-      <p class="mt-4 max-w-2xl font-mono text-[12px] leading-relaxed text-ink-dim">
+      <p class="mt-4 max-w-2xl font-mono text-[14px] leading-relaxed text-ink-dim">
         Pricing is the catalog enum — free, freemium, paid — not a fake monthly total.
       </p>
 

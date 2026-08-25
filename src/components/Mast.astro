@@ -4,29 +4,38 @@ interface Props {
 }
 
 const { page = '' } = Astro.props;
+const hasEnd = Astro.slots.has('end');
 
-const doors = [
+const items = [
   { id: 'map', href: '/map/', label: 'Map' },
   { id: 'autopsy', href: '/autopsy/', label: 'Autopsy' },
-  { id: 'signals', href: '/signals/', label: 'Signals' },
-  { id: 'reference', href: '/reference/', label: 'Reference' },
+  { id: 'home', href: '/', label: 'Noemium', brand: true },
+  { id: 'reference', href: '/reference/', label: 'Catalog' },
   { id: 'method', href: '/method/', label: 'Method' },
 ] as const;
 ---
 
-<header class="mast" data-shell="1">
-  <a class="brand" href="/">
-    <img src="/nema-mast.png" alt="" width="22" height="22" />
-    Noemium
-  </a>
-  <nav aria-label="Primary">
+<header class:list={['mast', hasEnd && 'mast-has-end']} data-shell="1">
+  <nav class="mast-nav" aria-label="Primary">
     {
-      doors.map((d) => (
-        <a href={d.href} aria-current={d.id === page ? 'page' : undefined}>
-          {d.label}
-        </a>
-      ))
+      items.map((d) =>
+        d.brand ? (
+          <a class="brand" href={d.href}>
+            {d.label}
+          </a>
+        ) : (
+          <a href={d.href} aria-current={d.id === page ? 'page' : undefined}>
+            {d.label}
+          </a>
+        ),
+      )
     }
   </nav>
-  <slot name="end" />
+  {
+    hasEnd ? (
+      <div class="mast-end">
+        <slot name="end" />
+      </div>
+    ) : null
+  }
 </header>

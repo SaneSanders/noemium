@@ -4,9 +4,9 @@ This document is the design law of the project. It is a contract for both
 human contributors and AI agents: if it is written here, it overrides
 personal taste, framework defaults, and library examples.
 
-**Concept.** Cover 2.0: night sky, cream land, cobalt field. Fraunces for
-display, IBM Plex Mono for everything else, Syne only on the hero punch.
-Hairline borders, no offset shadows, no slab uppercase. The catalog is the
+**Concept.** Cover 2.0: ink-night field (`#0D1F4B`), cream land, cobalt
+spark. Fraunces for display, IBM Plex Mono for everything else, Syne only
+on the hero punch. Hairline borders, no offset shadows. The catalog is the
 same world as the map — not a second skin. Honesty layer stays: VERIFIED
 stamps and sources next to prices. The analytic axis is *momentum*:
 
@@ -28,15 +28,15 @@ never hardcode a one-theme assumption into a component.
 
 | Token | Dark (default) | Light | Use |
 | --- | --- | --- | --- |
-| `--nm-bg-paper` | `#121212` | `#F3EFE4` | Page background. Night sky / cream land. |
-| `--nm-bg-card` | `#121212` | `#F3EFE4` | Cards sit on paper — no lifted panel. |
+| `--nm-bg-paper` | `#0D1F4B` | `#F3EFE4` | Catalog page background — same ink as the cover sky. |
+| `--nm-bg-card` | `#0D1F4B` | `#F3EFE4` | Cards sit on paper — no lifted panel. |
 | `--nm-line-soft` | ink @ 14% | ink @ 12% | Hairline dividers inside cards. |
 | `--nm-ink` | `#F3EFE4` | `#121212` | Primary text. |
-| `--nm-ink-dim` | cream @ 55% | deep @ 55% | Secondary text, captions, metadata. |
+| `--nm-ink-dim` | cream @ 68% | deep @ 68% | Secondary text, captions, metadata. |
 | `--nm-accent` | `#2438FF` | `#2438FF` | Cobalt. The only interactive accent. |
-| `--nm-field` | `#2438FF` | same | Cover cobalt. Hero, map, mast current door. Does not invert. |
-| `--nm-cream` | `#F3EFE4` | same | Cover land and mast text. |
-| `--nm-deep` | `#121212` | same | Cover night sky. |
+| `--nm-field` | `#2438FF` | same | Cobalt spark. Hero punch, map rings, mast current. Does not invert. |
+| `--nm-cream` | `#F3EFE4` | same | Cover land and type on the field. |
+| `--nm-deep` | `#0D1F4B` | same | Cover sky — poster ink night. |
 | `--nm-on-accent` | `#F3EFE4` | `#F3EFE4` | Text/icons on accent or verdict fills. |
 | `--nm-shift-near` | accent | accent | Blueshift: positive momentum. |
 | `--nm-shift-steady` | ink-dim | ink-dim | Steady momentum. |
@@ -73,9 +73,9 @@ Rules:
   `font-mono tabular-nums`.
 - Archivo is never used. Display is Fraunces; everything else is IBM Plex Mono.
 - Kickers (section eyebrows) are mono, uppercase, field/accent. No slab titles.
-- **Readability floor.** Body copy is 15px+ (`text-[15px]` and up). Meta
-  labels and stamps bottom out at 11px; nothing in the UI renders below
-  11px. Primary content is never dimmed below `opacity-65`.
+- **Readability floor.** Body copy is 17px+ (`--nm-text`). Meta labels and
+  stamps bottom out at 13px; nothing in the UI renders below 13px. Primary
+  content is never dimmed below `opacity-70`. Kickers stay 13px, not 10px.
 
 ## Components
 

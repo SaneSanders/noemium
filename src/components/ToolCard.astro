@@ -51,7 +51,7 @@ const flags = [t.open_source && 'OSS', t.api && 'API', t.free_tier && 'FREE TIER
         {t.name}
         {t.featured && (
           <span
-            class="ml-2 align-middle font-mono text-[11px] font-medium tracking-[0.14em] text-accent uppercase"
+            class="ml-2 align-middle font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase"
             title="Editorial mix on the floor — not a paid placement"
           >
             anchor
@@ -59,12 +59,12 @@ const flags = [t.open_source && 'OSS', t.api && 'API', t.free_tier && 'FREE TIER
         )}
       </h3>
     </div>
-    <p class="mt-3 line-clamp-2 min-h-[2.9em] flex-1 text-[15px] leading-relaxed text-ink opacity-80">{t.tagline}</p>
+    <p class="mt-3 line-clamp-2 min-h-[2.9em] flex-1 text-[17px] leading-relaxed">{t.tagline}</p>
     {
       flags.length > 0 && (
         <p class="mt-4 flex flex-wrap gap-1.5">
           {flags.map((flag) => (
-            <span class="border border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] px-2 py-1 font-mono text-[10px] tracking-[0.12em] text-ink uppercase">
+            <span class="border border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] px-2 py-1 font-mono text-[13px] tracking-[0.08em] text-ink uppercase">
               {flag}
             </span>
           ))}

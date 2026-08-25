@@ -150,7 +150,7 @@ const disputePrompt = [
         Visit {hostname(t.url)} →
         {
           declaredAffiliate && (
-            <span class="rounded-sm border border-current px-1.5 py-0.5 font-mono text-[10px] font-medium tracking-[0.14em] uppercase">
+            <span class="rounded-sm border border-current px-1.5 py-0.5 font-mono text-[13px] font-medium tracking-[0.14em] uppercase">
               declared
             </span>
           )
@@ -173,9 +173,9 @@ const disputePrompt = [
             class="border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] px-2 py-1 font-medium text-ink hover:border-accent"
           >
             Visit without referral
-            <span class="ml-1.5 text-[10px] tracking-[0.12em] text-ink-dim uppercase">{hostname(t.url)}</span>
+            <span class="ml-1.5 text-[13px] tracking-[0.12em] text-ink-dim uppercase">{hostname(t.url)}</span>
           </a>
-          <span class="text-[11px] text-ink-dim">declared — supports Noemium</span>
+          <span class="text-[13px] text-ink-dim">declared — supports Noemium</span>
         </p>
       )
     }
@@ -212,10 +212,7 @@ const disputePrompt = [
     {
       (t.verdict === 'ship' || t.verdict === 'situational') && (
         <section class="nm-card mt-10 p-6 md:p-8">
-          <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Buy-check</h2>
-          <p class="mt-2 max-w-2xl font-mono text-[12px] leading-relaxed text-ink-dim">
-            90-second checklist before checkout.
-          </p>
+          <h2 class="font-mono text-[14px] font-medium tracking-[0.08em] text-ink uppercase">Buy-check</h2>
           <ul class="mt-5 space-y-3 text-[15px] leading-relaxed">
             <li class="flex gap-3">
               <span class="font-mono text-accent">·</span>
@@ -291,9 +288,8 @@ const disputePrompt = [
             ))}
           </ul>
         ) : (
-          <p class="mt-4 max-w-2xl font-mono text-[13px] leading-relaxed text-ink-dim">
-            No pricing field has moved in the git changelog since tracking started. That is not a
-            live vendor ticker — it is the history of this repo.
+          <p class="mt-4 max-w-2xl font-mono text-[14px] leading-relaxed text-ink-dim">
+            No price move in this repo yet.
           </p>
         )
       }
@@ -320,7 +316,7 @@ const disputePrompt = [
               <dd class="nm-num mt-1 text-[15px] font-medium">
                 {v}
                 {k === 'pricing' && t.receipts.length > 0 && (
-                  <sup class="ml-0.5 font-mono text-[11px] text-accent">1</sup>
+                  <sup class="ml-0.5 font-mono text-[13px] text-accent">1</sup>
                 )}
               </dd>
             </div>
@@ -342,7 +338,7 @@ const disputePrompt = [
                   {t.model_routing && (
                     <span
                       class:list={[
-                        'inline-block rounded-sm border-[1.5px] px-1.5 py-0.5 font-mono text-[11px] font-medium tracking-[0.08em] uppercase',
+                        'inline-block rounded-sm border-[1.5px] px-1.5 py-0.5 font-mono text-[13px] font-medium tracking-[0.08em] uppercase',
                         t.model_routing === 'byok'
                           ? 'border-accent text-accent'
                           : 'border-ink text-ink-dim',
@@ -388,8 +384,8 @@ const disputePrompt = [
           </li>
         ))}
       </ol>
-      <p class="mt-3 font-mono text-[11px] leading-relaxed text-ink-dim">
-        If we can't show the source, we don't print the number.
+      <p class="mt-3 font-mono text-[14px] leading-relaxed text-ink-dim">
+        No source, no number.
       </p>
     </section>
 
@@ -431,11 +427,11 @@ const disputePrompt = [
             <table class="w-full min-w-[520px] border-collapse text-left">
               <thead>
                 <tr class="border-b-[1.5px] border-ink">
-                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
-                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
-                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">price</th>
-                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">oss</th>
-                  <th class="p-3 font-mono text-[12px] font-medium tracking-[0.12em] text-ink-dim uppercase">self-host</th>
+                  <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">tool</th>
+                  <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">verdict</th>
+                  <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">price</th>
+                  <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">oss</th>
+                  <th class="p-3 font-mono text-[14px] font-medium tracking-[0.12em] text-ink-dim uppercase">self-host</th>
                 </tr>
               </thead>
               <tbody>
@@ -459,7 +455,7 @@ const disputePrompt = [
               </tbody>
             </table>
           </div>
-          <p class="mt-3 font-mono text-[12px] leading-relaxed text-ink-dim">
+          <p class="mt-3 font-mono text-[14px] leading-relaxed text-ink-dim">
             Facts from the catalog files — not scores you can buy. Quality and speed stay in the
             briefing, not in a fake 1–5 grid.
           </p>

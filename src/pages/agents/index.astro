@@ -46,22 +46,18 @@ const jsonLd = {
   description={`${strict.length} operational agent guides and ${radar.length} Radar entries, with install, requirements, cost, security boundaries, and typed evidence.`}
 >
   <SectionHeader
-    title="Agent Field Guide"
-    sub="Operational agents and coding harnesses, separated by what they actually do. Strict guides show install, requirements, real cost scenarios, and the security boundary. Radar keeps the obscure discoveries visible without inventing a verdict."
+    title="Agents"
+    sub={`${strict.length} guides. ${radar.length} radar.`}
   />
 
   <section class="-mt-2 grid gap-4 md:grid-cols-2">
     <div class="nm-card p-5">
-      <p class="font-mono text-[12px] font-bold tracking-[0.12em] text-accent uppercase">Field tested / source verified</p>
-      <p class="mt-2 text-[15px] leading-relaxed text-ink opacity-75">
-        Operational claims carry typed primary receipts. These entries may receive a verdict; source-verified does not pretend Noemium performed the install.
-      </p>
+      <p class="font-mono text-[14px] font-bold tracking-[0.12em] text-accent uppercase">Field tested / source verified</p>
+      <p class="mt-2 text-[17px] leading-relaxed">Typed receipts. May carry a verdict.</p>
     </div>
     <div class="nm-card border-dashed p-5">
-      <p class="font-mono text-[12px] font-bold tracking-[0.12em] text-ink-dim uppercase">Radar</p>
-      <p class="mt-2 text-[15px] leading-relaxed text-ink opacity-75">
-        A real project worth tracking, but no reproduced install, hard price claim, or Ship verdict yet. Discovery is not experience.
-      </p>
+      <p class="font-mono text-[14px] font-bold tracking-[0.12em] text-ink-dim uppercase">Radar</p>
+      <p class="mt-2 text-[17px] leading-relaxed">Discovery, not a verdict.</p>
     </div>
   </section>
 

@@ -16,12 +16,12 @@ const strict = a.evidence_tier !== 'radar';
 
 <a href={`/agents/${agent.id}/`} class="nm-card nm-card-hover group flex h-full flex-col p-6">
   <div class="flex flex-wrap items-center justify-between gap-2">
-    <span class="border border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] px-2 py-1 font-mono text-[10px] tracking-[0.12em] text-ink uppercase">
+    <span class="border border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] px-2 py-1 font-mono text-[13px] tracking-[0.08em] text-ink uppercase">
       {agentLayerLabels[a.agent_layer]}
     </span>
     <span
       class:list={[
-        'rounded-sm px-2 py-1 font-mono text-[11px] font-bold tracking-[0.1em] uppercase',
+        'rounded-sm px-2 py-1 font-mono text-[13px] font-bold tracking-[0.1em] uppercase',
         strict ? 'border-[1.5px] border-accent text-accent' : 'border-[1.5px] border-dashed border-ink-dim text-ink-dim',
       ]}
     >
@@ -29,7 +29,7 @@ const strict = a.evidence_tier !== 'radar';
     </span>
   </div>
 
-  <p class="mt-5 font-mono text-[11px] tracking-[0.12em] text-ink-dim uppercase">
+  <p class="mt-5 font-mono text-[13px] tracking-[0.12em] text-ink-dim uppercase">
     {a.vendor} · {a.maturity}
   </p>
   <div class="mt-2 flex items-center gap-3">
@@ -41,7 +41,7 @@ const strict = a.evidence_tier !== 'radar';
   <p class="mt-2 line-clamp-2 min-h-[2.9em] flex-1 text-[15px] leading-relaxed text-ink opacity-75">{a.tagline}</p>
 
   <div class="mt-6 flex flex-wrap items-end justify-between gap-3 border-t-[1.5px] border-line-soft pt-4">
-    <p class="font-mono text-[12px] text-ink-dim">
+    <p class="font-mono text-[14px] text-ink-dim">
       {a.deployment.join(' · ')}
     </p>
     {cost && <span class="nm-num text-sm font-bold text-accent">from {cost}</span>}

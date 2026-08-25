@@ -13,7 +13,6 @@ function built(path) {
 function mastDoors(html) {
   assert.match(html, /href="\/map\/"/);
   assert.match(html, /href="\/autopsy\/"/);
-  assert.match(html, /href="\/signals\/"/);
   assert.match(html, /href="\/reference\/"/);
   assert.match(html, /href="\/method\/"/);
 }
@@ -23,8 +22,11 @@ test('cover home is the night hero, not the old floor', () => {
   assert.match(html, /Bring/);
   assert.match(html, /the frontier/i);
   assert.match(html, /nema-color\.png/);
-  assert.match(html, /Open the map/);
-  assert.match(html, /Cut your stack open/);
+  assert.match(html, />Map</);
+  assert.match(html, />Autopsy</);
+  assert.match(html, />Catalog</);
+  assert.match(html, />Signals</);
+  assert.match(html, />Method</);
   assert.doesNotMatch(html, /Agent Field Guide/);
   mastDoors(html);
 });
@@ -70,6 +72,7 @@ test('signals lists dated sunsets from the catalogue, not invented ones', () => 
   assert.match(html, /What is/);
   assert.match(html, /ending/);
   assert.match(html, /90 days/);
+  assert.match(html, /Signals/);
   assert.match(html, /Assistants API|Mistral Large|Suno free-tier|Yi API|Sora API/);
   assert.doesNotMatch(html, /MCP spec deprecation/);
   mastDoors(html);
@@ -79,14 +82,14 @@ test('signals shows the world-status snapshot', () => {
   const html = built('signals/index.html');
   assert.match(html, /Right now/);
   assert.match(html, /OpenAI|Cloudflare|Anthropic/);
-  assert.match(html, /happening/);
+  assert.match(html, /Signals/);
 });
 
 test('method door is a cover document', () => {
   const html = built('method/index.html');
   assert.match(html, /cover-night/);
-  assert.match(html, /The ledger/);
-  assert.match(html, /not the vibe/i);
+  assert.match(html, /Method/);
+  assert.match(html, /pull request is the unit of truth/);
   mastDoors(html);
 });
 

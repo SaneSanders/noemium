@@ -42,29 +42,25 @@ const rules = [
   title="Contribute"
   description="Every entry in this catalog is a pull request. Add your observation in about five minutes."
 >
-  <SectionHeader
-    title="Contribute"
-    sub="This catalog runs on signed field notes and typed primary evidence. Every entry is a PR anyone can audit."
-  />
+  <SectionHeader title="Contribute" sub="Every entry is a PR." />
 
   <section class="nm-card mb-10 max-w-3xl p-6 md:p-8">
-    <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
-      start by disputing
+    <p class="font-mono text-[14px] font-medium tracking-[0.08em] text-accent uppercase">
+      Start by disputing
     </p>
-    <p class="mt-3 text-[15px] leading-relaxed text-ink opacity-80">
-      The fastest path into the catalog is to correct what is already here. Dispute a receipt, a price,
-      or a verdict on any card — the fix becomes a public PR and builds trust. Vendors should open a{' '}
+    <p class="mt-3 text-[17px] leading-relaxed">
+      Correct a receipt, a price, or a verdict. Vendors: open a{' '}
       <a
         href="https://github.com/SaneSanders/noemium/issues/new?template=vendor-challenge.md"
         class="text-accent hover:underline"
         rel="noopener"
-      >Vendor challenge</a>{' '}
-      issue with primary evidence, or{' '}
+      >Vendor challenge</a>
+      {' '}or{' '}
       <a
         href="https://github.com/SaneSanders/noemium/tree/main/src/content/tools"
         class="text-accent hover:underline"
         rel="noopener"
-      >edit the file directly</a>.
+      >edit the file</a>.
     </p>
   </section>
 
@@ -119,9 +115,8 @@ const rules = [
     <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       the unit is a pull request
     </p>
-    <p class="mt-3 text-[15px] leading-relaxed text-ink opacity-80">
-      There are no contributor badges, no stars, no votes. A merged card is a YAML file with
-      receipts and named limitations. Open PRs and adopt-a-page issues are the queue — not a
+    <p class="mt-3 text-[17px] leading-relaxed">
+      There are no contributor badges, no stars, no votes. Open PRs and adopt-a-page issues are the queue — not a
       leaderboard.
     </p>
     <p class="mt-4 font-mono text-[13px] leading-relaxed text-ink-dim">
@@ -146,10 +141,8 @@ const rules = [
     <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
       adopt a page · re-check queue
     </p>
-    <p class="mt-3 text-[15px] leading-relaxed text-ink opacity-80">
-      The least recently verified cards. Adopt one: open its file, re-check the price and the
-      verdict against the vendor's own pages, update <span class="font-mono text-[13px] text-ink-dim">last_verified</span>
-      and open a PR. Small, boring, exactly what keeps this catalog trustworthy.
+    <p class="mt-3 text-[17px] leading-relaxed">
+      Least recently verified. Recheck the file, update last_verified, open a PR.
     </p>
     <ul class="mt-4 flex flex-wrap gap-2">
       {
@@ -161,7 +154,7 @@ const rules = [
               rel="noopener"
             >
               {t.data.name}
-              <span class="ml-2 font-mono text-[11px] font-normal tracking-wide text-ink-dim">{t.data.last_verified}</span>
+              <span class="ml-2 font-mono text-[13px] font-normal tracking-wide text-ink-dim">{t.data.last_verified}</span>
             </a>
           </li>
         ))

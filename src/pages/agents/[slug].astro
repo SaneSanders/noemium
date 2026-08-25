@@ -50,14 +50,14 @@ const jsonLd = {
       <h1 class="font-display text-5xl leading-[0.98] font-medium tracking-tight md:text-7xl">{a.name}</h1>
       {a.verdict && <VerdictBadge verdict={a.verdict} class="text-sm" />}
     </div>
-    <p class="mt-3 font-mono text-[12px] tracking-[0.12em] text-ink-dim uppercase">
+    <p class="mt-3 font-mono text-[14px] tracking-[0.12em] text-ink-dim uppercase">
       {a.vendor} · {a.maturity} · {a.license_kind}
     </p>
     <p class="mt-6 max-w-3xl text-xl leading-relaxed font-medium text-ink opacity-80">{a.tagline}</p>
 
     <p class="mt-7 flex flex-wrap items-center gap-4">
       <a href={a.url} class="nm-btn nm-btn-solid" rel="noopener">Visit {hostname(a.url)} →</a>
-      <span class={strict ? 'nm-verified' : 'rounded-sm border-[1.5px] border-dashed border-ink-dim px-2 py-1 font-mono text-[11px] font-bold tracking-[0.12em] text-ink-dim uppercase'}>
+      <span class={strict ? 'nm-verified' : 'rounded-sm border-[1.5px] border-dashed border-ink-dim px-2 py-1 font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase'}>
         {evidenceTierLabels[a.evidence_tier]} {a.last_verified}
       </span>
     </p>
@@ -71,7 +71,7 @@ const jsonLd = {
 
     {!strict && (
       <section class="mt-6 rounded-lg border-[1.5px] border-dashed border-ink p-6">
-        <p class="font-mono text-[12px] font-bold tracking-[0.12em] text-ink uppercase">Radar · no verdict</p>
+        <p class="font-mono text-[14px] font-bold tracking-[0.12em] text-ink uppercase">Radar · no verdict</p>
         <p class="mt-2 max-w-3xl text-[15px] leading-relaxed text-ink opacity-75">
           Noemium has confirmed the project exists, but has not reproduced its install, security boundary, or operating cost. This page intentionally omits a verdict and hard price.
         </p>
@@ -86,7 +86,7 @@ const jsonLd = {
         ['evidence', evidenceTierLabels[a.evidence_tier]],
       ].map(([label, value]) => (
         <div class="nm-card p-5">
-          <p class="font-mono text-[11px] tracking-[0.12em] text-ink-dim uppercase">{label}</p>
+          <p class="font-mono text-[13px] tracking-[0.12em] text-ink-dim uppercase">{label}</p>
           <p class="mt-2 text-[15px] font-semibold">{value}</p>
         </div>
       ))}
@@ -98,7 +98,7 @@ const jsonLd = {
         <div class="mt-4 grid min-w-0 gap-4 lg:grid-cols-2">
           {a.install.map((method) => (
             <div class="nm-card min-w-0 p-5">
-              <p class="break-words font-mono text-[11px] font-bold tracking-[0.12em] text-accent uppercase">{method.method} · {method.platform}</p>
+              <p class="break-words font-mono text-[13px] font-bold tracking-[0.12em] text-accent uppercase">{method.method} · {method.platform}</p>
               {method.command && (
                 <pre class="mt-4 max-w-full overflow-x-auto rounded-md border-[1.5px] border-ink bg-paper p-4 font-mono text-[13px] leading-relaxed"><code>{method.command}</code></pre>
               )}
@@ -147,7 +147,7 @@ const jsonLd = {
           <div>
             <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Models and providers</h2>
             <p class="mt-4 flex flex-wrap gap-2">
-              {a.providers.map((provider) => <span class="rounded-sm border-[1.5px] border-ink px-2.5 py-1.5 font-mono text-[12px]">{provider}</span>)}
+              {a.providers.map((provider) => <span class="rounded-sm border-[1.5px] border-ink px-2.5 py-1.5 font-mono text-[14px]">{provider}</span>)}
             </p>
           </div>
         )}
@@ -155,7 +155,7 @@ const jsonLd = {
           <div>
             <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Channels and surfaces</h2>
             <p class="mt-4 flex flex-wrap gap-2">
-              {a.channels.map((channel) => <span class="rounded-sm border-[1.5px] border-ink px-2.5 py-1.5 font-mono text-[12px]">{channel}</span>)}
+              {a.channels.map((channel) => <span class="rounded-sm border-[1.5px] border-ink px-2.5 py-1.5 font-mono text-[14px]">{channel}</span>)}
             </p>
           </div>
         )}
@@ -166,7 +166,7 @@ const jsonLd = {
       <section class="nm-card mt-12 p-6 md:p-8">
         <div class="flex flex-wrap items-baseline justify-between gap-3">
           <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Security boundary</h2>
-          <span class="rounded-sm border-[1.5px] border-verdict-skip px-2 py-1 font-mono text-[11px] font-bold tracking-[0.12em] text-verdict-skip uppercase">{a.security.privilege} privilege</span>
+          <span class="rounded-sm border-[1.5px] border-verdict-skip px-2 py-1 font-mono text-[13px] font-bold tracking-[0.12em] text-verdict-skip uppercase">{a.security.privilege} privilege</span>
         </div>
         <p class="mt-4 max-w-4xl text-[15px] leading-relaxed">{a.security.data_boundary}</p>
         <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-verdict-skip">
@@ -192,7 +192,7 @@ const jsonLd = {
             <a href={source.url} class="min-w-0 break-all text-accent hover:underline" rel="noopener">
               {hostname(source.url)}<span class="text-ink-dim">{new URL(source.url).pathname === '/' ? '' : new URL(source.url).pathname}</span>
             </a>
-            <span class="nm-num text-[11px] text-ink-dim">checked {source.checked_at}</span>
+            <span class="nm-num text-[13px] text-ink-dim">checked {source.checked_at}</span>
           </li>
         ))}
       </ol>

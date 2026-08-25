@@ -16,10 +16,7 @@ const toolNames = new Map(
   title="Stacks"
   description="Copy-pasteable AI stacks with real monthly costs. Every recipe names its tools, its cost and its receipts."
 >
-  <SectionHeader
-    title="Stacks"
-    sub="Whole recipes, not ingredients: each stack lists its tools, its real monthly cost and the receipts behind it. Copy one, adapt it, ship."
-  />
+  <SectionHeader title="Stacks" sub="Recipes. Cost included." />
   <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     {
       stacks.map((stack) => (
@@ -28,7 +25,7 @@ const toolNames = new Map(
           class="nm-card nm-card-hover group flex flex-col p-6"
         >
           <div class="flex items-start justify-between gap-3">
-            <span class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-medium tracking-[0.12em] text-ink uppercase">
+            <span class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-[13px] font-medium tracking-[0.12em] text-ink uppercase">
               {stack.data.difficulty}
             </span>
             <span class="nm-verified">Verified {stack.data.last_verified}</span>
@@ -43,7 +40,7 @@ const toolNames = new Map(
               </span>
             ))}
             {stack.data.tools.length > 5 && (
-              <span class="relative -ml-1 flex h-7 min-w-7 items-center justify-center rounded-sm border-[1.5px] border-ink bg-paper px-1 font-mono text-[11px] font-bold text-ink-dim">
+              <span class="relative -ml-1 flex h-7 min-w-7 items-center justify-center rounded-sm border-[1.5px] border-ink bg-paper px-1 font-mono text-[13px] font-bold text-ink-dim">
                 +{stack.data.tools.length - 5}
               </span>
             )}
@@ -54,14 +51,14 @@ const toolNames = new Map(
               <span class="nm-num text-3xl font-bold text-accent">${stack.data.monthly_cost_usd}</span>
               <span class="nm-num ml-1 text-sm text-ink-dim">/mo</span>
               {stack.data.budget && (
-                <span class="mt-1 block font-mono text-[11px] font-medium tracking-wide text-ink-dim uppercase">
+                <span class="mt-1 block font-mono text-[13px] font-medium tracking-wide text-ink-dim uppercase">
                   shoestring ${stack.data.budget.monthly_cost_usd}
                 </span>
               )}
               {stack.data.twin &&
                 byId.get(stack.data.twin.slug) &&
                 byId.get(stack.data.twin.slug)!.data.monthly_cost_usd !== stack.data.budget?.monthly_cost_usd && (
-                <span class="mt-1 block font-mono text-[11px] font-medium tracking-wide text-ink-dim uppercase">
+                <span class="mt-1 block font-mono text-[13px] font-medium tracking-wide text-ink-dim uppercase">
                   {stack.data.twin.kind} ${byId.get(stack.data.twin.slug)!.data.monthly_cost_usd}
                 </span>
               )}
