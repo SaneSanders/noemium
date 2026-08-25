@@ -207,6 +207,44 @@ export function deriveGithubTargets(entries, sources) {
   return [...bySlug.values()].sort((a, b) => a.slug.localeCompare(b.slug));
 }
 
+function statusHome(url) {
+  return String(url).replace(/\/api\/v2\/(?:status|summary)\.json$/, '/');
+}
+
+export function snapshotStatusPage(json, page, extra = {}) {
+  const error = extra.error ?? null;
+  const indicator = error ? 'unknown' : (json?.status?.indicator ?? 'unknown');
+  const description = error ?? json?.status?.description ?? '';
+  const incidents = Array.isArray(json?.incidents) ? json.incidents : [];
+  const names = incidents.map((item) => item.name).filter(Boolean);
+  const components = [
+    ...new Set(incidents.flatMap((item) => (item.components ?? []).map((c) => c.name).filter(Boolean))),
+  ];
+  return {
+    id: page.id,
+    name: page.name,
+    url: statusHome(page.url),
+    indicator,
+    description,
+    incidents: names,
+    components,
+    error,
+  };
+}
+
+export function buildWorldStatus(generatedAt, pages) {
+  const list = [...pages].sort((a, b) => a.name.localeCompare(b.name));
+  return {
+    generated_at: generatedAt,
+    counts: {
+      pages: list.length,
+      down: list.filter((p) => p.indicator && p.indicator !== 'none' && p.indicator !== 'unknown' && !p.error).length,
+      errors: list.filter((p) => p.error).length,
+    },
+    pages: list,
+  };
+}
+
 export function interpretStatus(json, page) {
   const indicator = json?.status?.indicator;
   const description = json?.status?.description ?? '';
@@ -228,7 +266,7 @@ export function interpretStatus(json, page) {
     slugs: page.related ?? [],
     message: `${page.name} status: ${detail}${where}`,
     observed: { indicator, description, incidents: names, components },
-    url: String(page.url).replace(/\/api\/v2\/(?:status|summary)\.json$/, '/'),
+    url: statusHome(page.url),
   };
 }
 
@@ -551,15 +589,15 @@ export async function runHarvest(opts) {
 
   const headers = { 'User-Agent': UA, Accept: 'application/json, text/xml, */*' };
 
+  const worldStatus = [];
   if (kindsRan.includes('status')) {
     stats.status_pages = sources.status_pages.length;
-    let incidents = 0;
-    await mapPool(sources.status_pages, POOL, async (page) => {
+    const rows = await mapPool(sources.status_pages, POOL, async (page) => {
       try {
         const res = await fetchWithRetry(fetchImpl, page.url, { headers });
         if (!res.ok) {
           errors.push({ kind: 'status', message: `${page.id} HTTP ${res.status}` });
-          return;
+          return snapshotStatusPage(null, page, { error: `HTTP ${res.status}` });
         }
         const json = await res.json();
         if (json?.status?.indicator && json.status.indicator !== 'none' && !Array.isArray(json.incidents)) {
@@ -577,15 +615,15 @@ export async function runHarvest(opts) {
           }
         }
         const finding = interpretStatus(json, page);
-        if (finding) {
-          incidents += 1;
-          findings.push(finding);
-        }
+        if (finding) findings.push(finding);
+        return snapshotStatusPage(json, page);
       } catch (err) {
         errors.push({ kind: 'status', message: `${page.id}: ${err.message}` });
+        return snapshotStatusPage(null, page, { error: err.message });
       }
     });
-    stats.status_incidents = incidents;
+    worldStatus.push(...rows);
+    stats.status_incidents = findings.filter((f) => f.kind === 'status').length;
   }
 
   if (kindsRan.includes('rss')) {
@@ -685,5 +723,6 @@ export async function runHarvest(opts) {
     stats,
     findings,
     errors,
+    world_status: worldStatus,
   };
 }

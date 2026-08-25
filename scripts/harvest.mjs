@@ -12,7 +12,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { formatBrief, loadCatalog, loadSources, runHarvest } from './lib/harvest.mjs';
+import { buildWorldStatus, formatBrief, loadCatalog, loadSources, runHarvest } from './lib/harvest.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MARKER = '<!-- harvest:watch -->';
@@ -25,6 +25,8 @@ function parseArgs(argv) {
     outDir: join(root, 'reports/harvest'),
     from: join(root, 'reports/harvest/latest.json'),
     since: null,
+    snapshot: null,
+    noIssue: false,
   };
   const rest = out.cmd === argv[0] ? argv.slice(1) : argv;
   for (let i = 0; i < rest.length; i++) {
@@ -33,6 +35,12 @@ function parseArgs(argv) {
     else if (a === '--out') out.outDir = rest[++i];
     else if (a === '--from') out.from = rest[++i];
     else if (a === '--since') out.since = rest[++i];
+    else if (a === '--no-issue') out.noIssue = true;
+    else if (a === '--snapshot') {
+      const next = rest[i + 1];
+      if (next && !next.startsWith('-')) out.snapshot = rest[++i];
+      else out.snapshot = join(root, 'src/data/world-status.json');
+    }
   }
   return out;
 }
@@ -138,5 +146,10 @@ console.log(
 if (report.errors.length) {
   for (const e of report.errors) console.log(`  error ${e.kind}${e.slug ? ` ${e.slug}` : ''}: ${e.message}`);
 }
-await syncIssue(md);
+if (args.snapshot) {
+  const snap = buildWorldStatus(report.generated_at, report.world_status ?? []);
+  writeFileSync(args.snapshot, `${JSON.stringify(snap, null, 2)}\n`);
+  console.log(`✓ world-status ${snap.counts.down} down / ${snap.counts.pages} pages → ${args.snapshot}`);
+}
+if (!args.noIssue) await syncIssue(md);
 process.stdout.write(md.endsWith('\n') ? md : `${md}\n`);

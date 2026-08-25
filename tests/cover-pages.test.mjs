@@ -64,6 +64,13 @@ test('signals lists dated sunsets from the catalogue, not invented ones', () => 
   mastDoors(html);
 });
 
+test('signals shows the world-status snapshot', () => {
+  const html = built('signals/index.html');
+  assert.match(html, /Right now/);
+  assert.match(html, /OpenAI|Cloudflare|Anthropic/);
+  assert.match(html, /happening/);
+});
+
 test('method door is a cover document', () => {
   const html = built('method/index.html');
   assert.match(html, /cover-night/);

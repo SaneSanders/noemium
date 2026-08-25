@@ -9,6 +9,7 @@ You are judging observations, not applying them.
 - Never change a verdict from a harvest finding. Verdicts need real use.
 - Facts that may become a patch after the vendor page confirms them: price, context window, dead URL, archived repo, retiring date, graveyard candidate.
 - Status findings are vendor-level (CDN outage ≠ VibeSDK). GitHub info is minor/major only — patch trains are not catalog events.
+- `src/data/world-status.json` is a derived snapshot, not a judgement. Deploy refreshes it before build. Do not hand-edit incidents.
 - RSS case studies and tutorials are already dropped. Remaining RSS is still not a patch until the vendor page confirms a field.
 - Do not run judgement in GitHub Actions. No paid API keys. Budget is zero.
 - Result is a content PR against `main`. Merge is Vladimir's. Merge publishes.

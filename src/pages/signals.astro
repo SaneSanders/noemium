@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Cover from '../layouts/Cover.astro';
 import { collectDeaths } from '../lib/deaths';
+import { formatCheckedAt, worldStatusBoard } from '../lib/world-status';
+import world from '../data/world-status.json';
 
 const asOf = new Date().toISOString().slice(0, 10);
 const models = await getCollection('models');
@@ -34,16 +36,64 @@ const { upcoming, past } = collectDeaths({
 
 const graves = past.filter((e) => e.kind === 'grave');
 const ended = past.filter((e) => e.kind !== 'grave');
+const board = worldStatusBoard(world);
 ---
 
 <Cover
   title="Signals"
-  description="What is dying in the next 90 days, and what already died — only ISO dates that already live in the catalogue."
+  description="Who is down right now, and what is dying in the next 90 days — public status pages plus ISO dates already in the catalogue."
   page="signals"
 >
   <div class="cover-doc">
     <section class="cover-lede">
-      <h1>What is <em>ending</em>.</h1>
+      <h1>What is <em>happening</em>.</h1>
+      <p>
+        Vendor status from public status pages, snapshotted at deploy. Sunsets
+        only when the catalogue already has an ISO date. Not a probe of your
+        stack.
+      </p>
+    </section>
+
+    <p class="cover-lede" style="padding-top:0">
+      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Right now</strong>
+    </p>
+    {
+      board.down.length === 0 ? (
+        <p>
+          All {board.counts.pages} watched vendors are operational.
+          Checked {formatCheckedAt(board.generated_at)}.
+        </p>
+      ) : (
+        <div class="cover-doors">
+          {board.down.map((page) => (
+            <a class="cover-door" href={page.url} rel="noopener">
+              <b>{page.name}</b>
+              <span>
+                {page.incidents.length ? page.incidents.join('; ') : page.description}
+                {page.components.length ? ` [${page.components.join(', ')}]` : ''}
+              </span>
+            </a>
+          ))}
+        </div>
+      )
+    }
+    {
+      board.up.length > 0 && (
+        <p style="margin-top:14px;font-size:12px;line-height:1.6;color:color-mix(in srgb, var(--nm-cream) 50%, transparent)">
+          Quiet: {board.up.map((page) => page.name).join(' · ')}
+        </p>
+      )
+    }
+    {
+      board.failed.length > 0 && (
+        <p style="margin-top:10px;font-size:12px;line-height:1.6;color:color-mix(in srgb, var(--nm-cream) 50%, transparent)">
+          Unreachable: {board.failed.map((page) => page.name).join(' · ')}
+        </p>
+      )
+    }
+
+    <section class="cover-lede">
+      <h2>What is <em>ending</em>.</h2>
       <p>
         Only ISO dates already in the catalogue, next to a sunset verb. No
         invented sunsets. Horizon 90 days. As of {asOf}.

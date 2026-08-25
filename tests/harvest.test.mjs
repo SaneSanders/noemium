@@ -19,6 +19,8 @@ import {
   parseGithubRepo,
   pickProductRelease,
   runHarvest,
+  snapshotStatusPage,
+  buildWorldStatus,
   summarize,
 } from '../scripts/lib/harvest.mjs';
 
@@ -46,6 +48,29 @@ test('interpretStatus is silent when operational and alerts on major', () => {
   const major = interpretStatus({ status: { indicator: 'major', description: 'Outage' } }, page);
   assert.equal(major.severity, 'alert');
   assert.match(major.message, /Outage/);
+});
+
+test('snapshotStatusPage records operational pages and errors', () => {
+  const page = { id: 'openai', name: 'OpenAI', url: 'https://status.openai.com/api/v2/status.json' };
+  const ok = snapshotStatusPage({ status: { indicator: 'none', description: 'All Systems Operational' } }, page);
+  assert.equal(ok.indicator, 'none');
+  assert.equal(ok.url, 'https://status.openai.com/');
+  assert.equal(ok.error, null);
+  const bad = snapshotStatusPage(null, page, { error: 'HTTP 500' });
+  assert.equal(bad.indicator, 'unknown');
+  assert.equal(bad.error, 'HTTP 500');
+});
+
+test('buildWorldStatus counts down pages, not fetch errors', () => {
+  const snap = buildWorldStatus('2026-08-25T10:00:00.000Z', [
+    { id: 'cf', name: 'Cloudflare', url: 'https://www.cloudflarestatus.com/', indicator: 'minor', description: 'Blip', incidents: ['Latency'], components: ['CDN'], error: null },
+    { id: 'openai', name: 'OpenAI', url: 'https://status.openai.com/', indicator: 'none', description: 'All Systems Operational', incidents: [], components: [], error: null },
+    { id: 'x', name: 'xAI', url: 'https://status.x.ai/', indicator: 'unknown', description: 'HTTP 403', incidents: [], components: [], error: 'HTTP 403' },
+  ]);
+  assert.equal(snap.counts.pages, 3);
+  assert.equal(snap.counts.down, 1);
+  assert.equal(snap.counts.errors, 1);
+  assert.equal(snap.pages[0].name, 'Cloudflare');
 });
 
 test('interpretStatus names the incident and components, not a catalog slug', () => {
@@ -367,6 +392,8 @@ status_pages:
   });
   assert.equal(report.findings.some((f) => f.kind === 'status' && !f.slug), true);
   assert.equal(report.findings.some((f) => f.kind === 'stale' && f.slug === 'old'), true);
+  assert.equal(report.world_status.length, 1);
+  assert.equal(report.world_status[0].indicator, 'minor');
   assert.equal(fetches.length, 2);
   assert.equal(report.patches, undefined);
 });

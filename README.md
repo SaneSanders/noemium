@@ -87,7 +87,8 @@ The catalog stays honest only if something watches the world. Harvest is
 that watcher. It does **not** patch YAML.
 
 - **Registry:** `src/data/harvest-sources.yaml` — what we fetch, how often, how we match it.
-- **Actions (Mondays 08:00 UTC):** deterministic collectors. Statuspage JSON, RSS, GitHub API, LiteLLM/Helicone prices, stale `last_verified`. Writes an artifact and a single rolling issue, `harvest: world watch`. No content commit. No paid keys.
+- **Actions (Mondays 08:00 UTC):** deterministic collectors. Statuspage JSON, RSS, GitHub API, LiteLLM/Helicone prices, stale `last_verified`. Writes an artifact and a single rolling issue, `harvest: world watch`. No catalog YAML commit. No paid keys.
+- **World status:** `npm run world-status` writes `src/data/world-status.json`. Deploy fetches a fresh snapshot before each build (daily 06:00 UTC plus every push) and `/signals/` renders it. CI builds the committed file, so tests stay offline.
 - **Judgement (local):** read `reports/harvest/latest.md`, follow `scripts/harvest-judge.md`, open a content PR. Merge publishes.
 
 Existing jobs stay: `stale-check` (adopt-a-page issues), `link-check` (dead receipts), `content-data-refresh` (git-derived changelog / price-history). Harvest watches **outside** the repo.
