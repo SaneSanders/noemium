@@ -42,10 +42,11 @@ test('map page ships the scene and the data dump', () => {
   assert.ok(data.stars.length > 10);
 });
 
-test('autopsy door is honest about the missing engine', () => {
+test('autopsy ships the stack autopsy engine', () => {
   const html = built('autopsy/index.html');
-  assert.match(html, /not on this build/i);
-  assert.doesNotMatch(html, /Paid, with a free shelf/);
+  assert.match(html, /Your stack,.*opened up/i);
+  assert.match(html, /Cut it open/);
+  assert.match(html, /application\/json/);
   mastDoors(html);
 });
 

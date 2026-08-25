@@ -1,17 +1,624 @@
 ---
+import { getCollection } from 'astro:content';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
 import Cover from '../layouts/Cover.astro';
+
+const toolsRaw = await getCollection('tools');
+const graveyardRaw = await getCollection('graveyard');
+const stacksRaw = await getCollection('stacks');
+
+const changelogPath = path.resolve(process.cwd(), 'src', 'data', 'changelog.json');
+const changelog: any = JSON.parse(await import('node:fs').then((fs) => fs.readFileSync(changelogPath, 'utf8')));
+
+const logosDir = path.resolve(process.cwd(), 'public', 'logos');
+const hasLogo = (slug: string) => existsSync(path.join(logosDir, `${slug}.png`));
+
+const tools = toolsRaw.map((t) => ({
+  slug: t.id,
+  name: t.data.name,
+  tagline: t.data.tagline,
+  category: t.data.category,
+  url: t.data.url,
+  verdict: t.data.verdict,
+  verdict_text: t.data.verdict_text,
+  limitations: (t.data.limitations ?? []).slice(0, 2),
+  receipt: (t.data.receipts ?? [])[0] ?? null,
+  pricing: t.data.pricing,
+  price_note: t.data.price_note ?? null,
+  free_tier: t.data.free_tier,
+  open_source: t.data.open_source,
+  self_host: t.data.self_host,
+  model_routing: t.data.model_routing ?? null,
+  models_used: t.data.models_used ?? null,
+  momentum: t.data.momentum,
+  featured: t.data.featured,
+  last_verified: t.data.last_verified,
+  logo: hasLogo(t.id),
+}));
+
+const dead = graveyardRaw.map((g) => {
+  const sb = g.data.succeeded_by;
+  const hasSuccessor = sb && 'name' in sb && !('none' in sb);
+  return {
+    slug: g.id,
+    name: g.data.name,
+    category: g.data.category,
+    died: g.data.died,
+    cause: g.data.cause,
+    successor: hasSuccessor ? sb.name : null,
+    successor_slug: hasSuccessor ? (sb.slug ?? null) : null,
+    no_successor: sb && 'none' in sb ? sb.none === true : false,
+  };
+});
+
+const stacks = stacksRaw.map((s) => ({
+  slug: s.id,
+  title: s.data.title,
+  use_case: s.data.use_case,
+  tools: s.data.tools,
+  monthly_cost_usd: s.data.monthly_cost_usd,
+  budget: s.data.budget ? { cost: s.data.budget.monthly_cost_usd, tools: s.data.budget.tools } : null,
+}));
+
+const weeks: any[] = changelog.weeks ?? [];
+
+const priceMoves: any[] = [];
+for (const week of weeks) {
+  for (const c of week.changed ?? []) {
+    if (c.collection !== 'tools' || !/price/i.test(c.field ?? '')) continue;
+    priceMoves.push({
+      slug: c.slug,
+      week: week.id,
+      date: week.from,
+      field: c.field,
+      from: c.from,
+      to: c.to,
+    });
+  }
+}
+
+const latest: any = weeks[0];
+const freshSlugs = (latest?.added ?? [])
+  .filter((a: any) => a.collection === 'tools')
+  .map((a: any) => a.slug);
+
+const timeline = weeks.map((w: any) => ({
+  id: w.id,
+  from: w.from,
+  to: w.to,
+  added: (w.added ?? []).filter((a: any) => a.collection === 'tools').map((a: any) => a.slug),
+  buried: (w.added ?? []).filter((a: any) => a.collection === 'graveyard').map((a: any) => a.slug),
+  changed: (w.changed ?? [])
+    .filter((c: any) => c.collection === 'tools')
+    .map((c: any) => ({ slug: c.slug, field: c.field })),
+}));
+
+const autopsyData = {
+  generated_at: new Date().toISOString(),
+  fresh_week: latest?.id ?? null,
+  tools,
+  dead,
+  stacks,
+  price_moves: priceMoves,
+  fresh: freshSlugs,
+  timeline,
+};
+
+const dataJson = JSON.stringify(autopsyData).replace(/</g, '\\u003c');
 ---
 
 <Cover
   title="Stack Autopsy"
-  description="A verdict on the stack you already run. The hook is in the lab; this door is here so the mast is honest."
+  description="A verdict on the stack you already run. Pick the tools you use and get an honest report: what died, what changed price, what doubled up, and what shipped in your categories this week."
   page="autopsy"
 >
-  <div class="cover-doc">
-    <section class="cover-lede">
-      <h1>Autopsy</h1>
-      <p>Mark what you already run. The engine is not on this build.</p>
-      <p><a href="/map/">Map →</a></p>
+  <div class="autopsy-page">
+    <section id="stepPick">
+      <div class="cover-lede" id="lede">
+        <h1>Your stack, <em>opened up</em>.</h1>
+        <p>
+          Click what you actually use. You get a verdict on the tools already in
+          your stack — what died, what we rejected, what quietly changed its price,
+          and what shipped since you last looked. No score, no stars. Nothing leaves
+          your browser.
+        </p>
+      </div>
+
+      <div class="autopsy-bar">
+        <div class="autopsy-search">
+          <span>FIND</span>
+          <input
+            id="q"
+            type="text"
+            placeholder="cursor, midjourney, whisper…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+        <div class="autopsy-chips" id="cats"></div>
+      </div>
+
+      <div class="autopsy-grid" id="grid"></div>
+      <button class="autopsy-more autopsy-hidden" id="more"></button>
     </section>
+
+    <button class="autopsy-more autopsy-hidden" id="reopen">edit my stack</button>
+
+    <section id="stepReport" class="autopsy-report autopsy-hidden"></section>
   </div>
+
+  <div class="autopsy-tray" id="tray">
+    <div class="autopsy-picked">
+      <span class="autopsy-count" id="count">0 picked</span>
+      <span id="picks" class="autopsy-picks"></span>
+    </div>
+    <button class="autopsy-clear" id="clearAll">clear</button>
+    <button class="autopsy-cut" id="cut">Cut it open</button>
+  </div>
+
+  <canvas id="cardCanvas" width="1200" height="630" style="display:none"></canvas>
+
+  <script id="autopsy-data" type="application/json" set:html={dataJson} is:inline></script>
+  <script>
+    import '../scripts/autopsy.js';
+  </script>
+
+  <style is:global>
+    .autopsy-page {
+      padding: 0 var(--nm-page-x) 80px;
+    }
+    body.autopsy-has-tray .autopsy-page {
+      padding-bottom: 200px;
+    }
+
+    /* picker */
+    .autopsy-bar {
+      position: sticky;
+      top: var(--nm-mast-h);
+      z-index: 50;
+      background: var(--nm-deep);
+      margin: 0 calc(-1 * var(--nm-page-x));
+      padding: 12px var(--nm-page-x) 10px;
+      border-bottom: 1px solid color-mix(in srgb, var(--nm-cream) 12%, transparent);
+    }
+    .autopsy-search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid color-mix(in srgb, var(--nm-cream) 22%, transparent);
+      padding: 9px 13px;
+    }
+    .autopsy-search span {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      opacity: 0.4;
+    }
+    .autopsy-search input {
+      flex: 1 1 auto;
+      min-width: 0;
+      background: none;
+      border: 0;
+      outline: none;
+      color: var(--nm-cream);
+      font: inherit;
+      font-size: 13px;
+    }
+    .autopsy-search input::placeholder {
+      color: color-mix(in srgb, var(--nm-cream) 36%, transparent);
+    }
+    .autopsy-chips {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .autopsy-chip {
+      font: inherit;
+      font-size: var(--nm-text-xs);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--nm-cream) 72%, transparent);
+      background: none;
+      border: 1px solid color-mix(in srgb, var(--nm-cream) 18%, transparent);
+      padding: 7px 12px;
+      cursor: pointer;
+    }
+    .autopsy-chip:hover {
+      color: var(--nm-cream);
+      border-color: color-mix(in srgb, var(--nm-cream) 45%, transparent);
+    }
+    .autopsy-chip.on {
+      color: var(--nm-deep);
+      background: var(--nm-cream);
+      border-color: var(--nm-cream);
+    }
+
+    .autopsy-grid {
+      margin-top: 20px;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: repeat(auto-fill, minmax(174px, 1fr));
+    }
+    .autopsy-tile {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 10px;
+      cursor: pointer;
+      text-align: left;
+      background: none;
+      font: inherit;
+      color: var(--nm-cream);
+      border: 1px solid color-mix(in srgb, var(--nm-cream) 13%, transparent);
+    }
+    .autopsy-tile:hover {
+      border-color: color-mix(in srgb, var(--nm-cream) 42%, transparent);
+    }
+    .autopsy-tile.on {
+      border-color: var(--nm-field);
+      background: color-mix(in srgb, var(--nm-field) 16%, transparent);
+    }
+    .autopsy-tile img,
+    .autopsy-tile .autopsy-noimg {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      object-fit: contain;
+      background: color-mix(in srgb, var(--nm-cream) 10%, transparent);
+    }
+    .autopsy-tile .autopsy-noimg {
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      font-weight: 600;
+      color: color-mix(in srgb, var(--nm-cream) 60%, transparent);
+    }
+    .autopsy-tile b {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 1.2;
+    }
+    .autopsy-tile small {
+      display: block;
+      margin-top: 2px;
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      color: color-mix(in srgb, var(--nm-cream) 38%, transparent);
+      text-transform: uppercase;
+    }
+    .autopsy-tile.is-dead b {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    .autopsy-more {
+      margin-top: 14px;
+      font: inherit;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: none;
+      cursor: pointer;
+      color: color-mix(in srgb, var(--nm-cream) 60%, transparent);
+      border: 1px solid color-mix(in srgb, var(--nm-cream) 20%, transparent);
+      padding: 8px 14px;
+    }
+    .autopsy-more:hover {
+      color: var(--nm-cream);
+      border-color: var(--nm-cream);
+    }
+
+    /* tray */
+    .autopsy-tray {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 70;
+      background: var(--nm-cream);
+      color: var(--nm-deep);
+      padding: 12px var(--nm-page-x);
+      display: none;
+      align-items: center;
+      gap: 16px;
+    }
+    .autopsy-tray.on {
+      display: flex;
+    }
+    .autopsy-picked {
+      flex: 1 1 auto;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .autopsy-count {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .autopsy-picks {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .autopsy-pick {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid color-mix(in srgb, var(--nm-deep) 22%, transparent);
+      padding: 3px 7px;
+      font-size: 11px;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      font-family: inherit;
+    }
+    .autopsy-pick:hover {
+      border-color: var(--nm-deep);
+    }
+    .autopsy-pick img {
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+    }
+    .autopsy-cut {
+      flex: 0 0 auto;
+      font: inherit;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--nm-field);
+      color: var(--nm-cream);
+      border: 0;
+      padding: 12px 22px;
+    }
+    .autopsy-cut:hover {
+      background: var(--nm-deep);
+    }
+    .autopsy-clear {
+      background: none;
+      border: 0;
+      font: inherit;
+      font-size: 10px;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      color: inherit;
+    }
+    .autopsy-clear:hover {
+      opacity: 1;
+    }
+
+    /* report */
+    .autopsy-report {
+      padding-top: 26px;
+    }
+    .autopsy-score {
+      border-top: 1px solid color-mix(in srgb, var(--nm-cream) 20%, transparent);
+      padding-top: 20px;
+    }
+    .autopsy-score h2 {
+      font-family: var(--nm-font-cover);
+      font-weight: 500;
+      font-size: clamp(28px, 4.4vw, 46px);
+      line-height: 1.04;
+      letter-spacing: -0.01em;
+    }
+    .autopsy-nums {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 26px;
+      margin-top: 20px;
+    }
+    .autopsy-num strong {
+      display: block;
+      font-size: 30px;
+      font-weight: 500;
+      font-family: var(--nm-font-cover);
+    }
+    .autopsy-num span {
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--nm-cream) 46%, transparent);
+    }
+    .autopsy-num.acc strong {
+      color: var(--nm-field);
+    }
+
+    .autopsy-find {
+      border-top: 1px solid color-mix(in srgb, var(--nm-cream) 12%, transparent);
+      padding: 22px 0;
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      gap: 26px;
+    }
+    .autopsy-find-tag {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--nm-field);
+    }
+    .autopsy-find.warn .autopsy-find-tag {
+      color: var(--nm-warn);
+    }
+    .autopsy-find h3 {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .autopsy-find p {
+      margin-top: 9px;
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--nm-cream) 74%, transparent);
+    }
+    .autopsy-find ul {
+      margin: 10px 0 0 0;
+      padding-left: 16px;
+    }
+    .autopsy-find li {
+      font-size: 12px;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--nm-cream) 70%, transparent);
+    }
+    .autopsy-quote {
+      margin-top: 10px;
+      padding-left: 12px;
+      border-left: 2px solid color-mix(in srgb, var(--nm-cream) 26%, transparent);
+      font-size: 12px;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--nm-cream) 62%, transparent);
+    }
+    .autopsy-src {
+      margin-top: 10px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+    .autopsy-src a {
+      color: var(--nm-field);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+    .autopsy-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .autopsy-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11.5px;
+      border: 1px solid color-mix(in srgb, var(--nm-cream) 16%, transparent);
+      padding: 5px 9px;
+      color: var(--nm-cream);
+    }
+    .autopsy-item img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+    .autopsy-item.strike {
+      text-decoration: line-through;
+      opacity: 0.66;
+    }
+
+    .autopsy-clean {
+      border-top: 1px solid color-mix(in srgb, var(--nm-cream) 12%, transparent);
+      padding: 22px 0;
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      gap: 26px;
+    }
+    .autopsy-clean-tag {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.44;
+    }
+    .autopsy-clean li {
+      list-style: none;
+      font-size: 12px;
+      line-height: 1.9;
+      color: color-mix(in srgb, var(--nm-cream) 58%, transparent);
+    }
+    .autopsy-clean li::before {
+      content: '— ';
+      opacity: 0.5;
+    }
+
+    .autopsy-after {
+      border-top: 1px solid color-mix(in srgb, var(--nm-cream) 20%, transparent);
+      margin-top: 8px;
+      padding-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .autopsy-btn {
+      font: inherit;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 11px 18px;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid var(--nm-cream);
+      color: var(--nm-cream);
+      background: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .autopsy-btn:hover {
+      background: var(--nm-cream);
+      color: var(--nm-deep);
+    }
+    .autopsy-btn.pri {
+      background: var(--nm-field);
+      border-color: var(--nm-field);
+    }
+    .autopsy-btn.pri:hover {
+      background: var(--nm-cream);
+      color: var(--nm-deep);
+      border-color: var(--nm-cream);
+    }
+    .autopsy-note {
+      font-size: 11px;
+      color: color-mix(in srgb, var(--nm-cream) 44%, transparent);
+    }
+
+    .autopsy-since {
+      margin: 22px 0 0;
+      padding: 16px 18px;
+      border: 1px solid var(--nm-field);
+      background: color-mix(in srgb, var(--nm-field) 12%, transparent);
+    }
+    .autopsy-since h4 {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--nm-field);
+    }
+    .autopsy-since p {
+      margin-top: 8px;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    .autopsy-hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 720px) {
+      .autopsy-find,
+      .autopsy-clean {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .autopsy-tray {
+        padding: 10px var(--nm-page-x);
+        flex-wrap: wrap;
+      }
+      .autopsy-cut {
+        width: 100%;
+      }
+      .autopsy-after {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .autopsy-after .autopsy-btn {
+        justify-content: center;
+      }
+    }
+  </style>
 </Cover>
