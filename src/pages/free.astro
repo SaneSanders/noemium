@@ -1,0 +1,114 @@
+---
+import { getCollection } from 'astro:content';
+import Cover from '../layouts/Cover.astro';
+import { collectFree } from '../lib/free';
+
+const tools = await getCollection('tools');
+const buckets = collectFree(
+  tools.map((t) => ({
+    slug: t.id,
+    name: t.data.name,
+    pricing: t.data.pricing,
+    free_tier: t.data.free_tier,
+    open_source: t.data.open_source,
+    self_host: t.data.self_host,
+    verdict: t.data.verdict,
+    price_note: t.data.price_note,
+    limitations: t.data.limitations,
+    skip_when: t.data.skip_when,
+  })),
+);
+
+const runIt = buckets['run-it'];
+const hosted = buckets['hosted-free'];
+const bait = buckets.bait;
+const shipTier = buckets['usable-tier'].filter((t) => t.verdict === 'ship');
+const restTier = buckets['usable-tier'].length - shipTier.length;
+---
+
+<Cover
+  title="Actually free"
+  description="What the catalogue says you can use at $0 — and which free tiers are a trial, expiring credits, or a temporary promo. No invented prices."
+  page="reference"
+>
+  <div class="cover-doc">
+    <section class="cover-lede">
+      <h1>What is <em>actually</em> free.</h1>
+      <p>
+        {runIt.length + hosted.length} tools are priced free in the catalogue.
+        {bait.length} have a free-looking door that the card itself calls a
+        trial, expiring credits, or a temporary promo. The rest sell a taste.
+        Derived from <code>pricing</code>, <code>free_tier</code>, and quotes
+        already on the card — not a new scrape.
+      </p>
+    </section>
+
+    {
+      bait.length > 0 && (
+        <>
+          <p class="cover-lede" style="padding-top:0">
+            <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Bait</strong>
+          </p>
+          <div class="cover-doors">
+            {bait.map((t) => (
+              <a class="cover-door" href={`/tools/${t.slug}/`}>
+                <b>{t.name}</b>
+                <span>{t.evidence}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    <p class="cover-lede">
+      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Run it</strong>
+    </p>
+    <p style="margin:0 0 12px;font-size:12px;line-height:1.6;color:color-mix(in srgb, var(--nm-cream) 50%, transparent);max-width:64ch">
+      Priced free, open source, self-host. You still pay the model and the machine.
+    </p>
+    <div class="cover-doors">
+      {
+        runIt.map((t) => (
+          <a class="cover-door" href={`/tools/${t.slug}/`}>
+            <b>{t.name}</b>
+            <span>{t.evidence ?? 'open source, self-host'}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="cover-lede">
+      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Hosted free</strong>
+    </p>
+    <div class="cover-doors">
+      {
+        hosted.map((t) => (
+          <a class="cover-door" href={`/tools/${t.slug}/`}>
+            <b>{t.name}</b>
+            <span>{t.evidence ?? 'priced free in the catalogue'}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="cover-lede">
+      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Ship, with a free tier</strong>
+    </p>
+    <p style="margin:0 0 12px;font-size:12px;line-height:1.6;color:color-mix(in srgb, var(--nm-cream) 50%, transparent);max-width:64ch">
+      We still say ship, and the card still has a free tier. Not the full
+      {buckets['usable-tier'].length} freemium shelf — {restTier} more live in
+      the <a href="/tools/" style="color:var(--nm-field)">catalogue</a>.
+    </p>
+    <div class="cover-doors">
+      {
+        shipTier.map((t) => (
+          <a class="cover-door" href={`/tools/${t.slug}/`}>
+            <b>{t.name}</b>
+            <span>{t.evidence ?? 'free tier'}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Cover>

@@ -28,6 +28,9 @@ test('status, kit and why ship without stars, votes or live tickers', () => {
   assert.match(why, /Why directories lie/);
   assert.match(why, /unit is a pull request/);
   assert.doesNotMatch(why, /vote for us|leave a star/i);
+
+  const footer = built('tools/index.html');
+  assert.match(footer, /href="\/free\/"/);
 });
 
 test('kit page links to its OG image and the image is emitted', () => {

@@ -51,6 +51,17 @@ test('reference is the catalogue facade', () => {
   const html = built('reference/index.html');
   assert.match(html, /href="\/tools\/"/);
   assert.match(html, /href="\/graveyard\/"/);
+  assert.match(html, /href="\/free\/"/);
+  mastDoors(html);
+});
+
+test('free page splits bait from actually free, from catalog quotes', () => {
+  const html = built('free/index.html');
+  assert.match(html, /actually/i);
+  assert.match(html, /Bait/);
+  assert.match(html, /Run it/);
+  assert.match(html, /href="\/tools\/aider\//);
+  assert.doesNotMatch(html, /MCP spec deprecation/);
   mastDoors(html);
 });
 
