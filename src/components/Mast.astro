@@ -9,7 +9,6 @@ const hasEnd = Astro.slots.has('end');
 const items = [
   { id: 'map', href: '/map/', label: 'Map' },
   { id: 'autopsy', href: '/autopsy/', label: 'Autopsy' },
-  { id: 'home', href: '/', label: 'Noemium', brand: true },
   { id: 'reference', href: '/reference/', label: 'Catalog' },
   { id: 'method', href: '/method/', label: 'Method' },
 ] as const;
@@ -17,19 +16,25 @@ const items = [
 
 <header class:list={['mast', hasEnd && 'mast-has-end']} data-shell="1">
   <nav class="mast-nav" aria-label="Primary">
-    {
-      items.map((d) =>
-        'brand' in d ? (
-          <a class="brand" href={d.href}>
-            {d.label}
-          </a>
-        ) : (
+    <span class="mast-pair">
+      {
+        items.slice(0, 2).map((d) => (
           <a href={d.href} aria-current={d.id === page ? 'page' : undefined}>
             {d.label}
           </a>
-        ),
-      )
-    }
+        ))
+      }
+    </span>
+    <a class="brand" href="/">Noemium</a>
+    <span class="mast-pair">
+      {
+        items.slice(2).map((d) => (
+          <a href={d.href} aria-current={d.id === page ? 'page' : undefined}>
+            {d.label}
+          </a>
+        ))
+      }
+    </span>
   </nav>
   {
     hasEnd ? (

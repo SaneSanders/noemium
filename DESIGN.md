@@ -5,8 +5,8 @@ human contributors and AI agents: if it is written here, it overrides
 personal taste, framework defaults, and library examples.
 
 **Concept.** Cover 2.0: ink-night field (`#0D1F4B`), cream land, cobalt
-spark. Fraunces for display, IBM Plex Mono for everything else, Syne only
-on the hero punch. Hairline borders, no offset shadows. The catalog is the
+spark. Fraunces for display — mast, headlines, the hero punch — IBM Plex
+Mono for everything else. Hairline borders, no offset shadows. The catalog is the
 same world as the map — not a second skin. Honesty layer stays: VERIFIED
 stamps and sources next to prices. The analytic axis is *momentum*:
 

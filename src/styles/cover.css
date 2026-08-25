@@ -21,6 +21,7 @@
 .cover-night.page-home {
   overflow: hidden;
   height: 100vh;
+  height: 100dvh;
 }
 
 .mast {
@@ -53,6 +54,9 @@
   height: 100%;
   min-width: 0;
 }
+/* Pair wrappers exist only so mobile can group the links around the brand;
+   on desktop they vanish from the box tree and the 5-slot grid is unchanged. */
+.mast-pair { display: contents; }
 .mast-end {
   position: absolute;
   right: clamp(16px, 3vw, 40px);
@@ -242,6 +246,7 @@
 .cover-night .chip.on { color: var(--nm-deep); background: var(--nm-cream); border-color: var(--nm-cream); }
 
 @media (max-width: 1023px) {
+  .mast:has(#nm-nav-open) { padding: 0 var(--nm-page-x); }
   .mast:has(#nm-nav-open) .mast-nav a:not(.brand) { display: none; }
   .mast:has(#nm-nav-open) .mast-nav {
     grid-template-columns: 1fr;
@@ -254,16 +259,21 @@
 
 @media (max-width: 800px) {
   :root { --nm-page-x: 16px; --nm-mast-h: 60px; }
-  .mast:not(:has(#nm-nav-open)) {
-    height: var(--nm-mast-h);
+  .mast {
     padding: 0 var(--nm-page-x);
   }
   .mast:not(:has(#nm-nav-open)) .mast-nav {
-    grid-template-columns: repeat(5, auto);
-    justify-content: space-between;
-    column-gap: 8px;
+    grid-template-columns: 1fr auto 1fr;
   }
-  .mast:not(:has(#nm-nav-open)) .brand {
+  .mast:not(:has(#nm-nav-open)) .mast-pair {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .mast:not(:has(#nm-nav-open)) .mast-pair:last-child {
+    justify-content: flex-end;
+  }
+  .mast .brand {
     font-size: 13px;
     letter-spacing: 0.16em;
     margin-right: -0.16em;
@@ -273,7 +283,7 @@
 }
 
 @media (max-width: 360px) {
-  .mast:not(:has(#nm-nav-open)) .brand { font-size: 12px; }
+  .mast .brand { font-size: 12px; }
   .mast-nav a { font-size: 9px; letter-spacing: 0.04em; }
 }
 
@@ -281,6 +291,7 @@
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--nm-deep);
   overflow: hidden;
 }
@@ -314,6 +325,7 @@
   top: calc(var(--nm-mast-h) + 150px);
   bottom: auto;
   height: calc(100vh - var(--nm-mast-h) - 150px - 4vh);
+  height: calc(100dvh - var(--nm-mast-h) - 150px - 4vh);
   object-fit: contain;
   pointer-events: none;
   /* The source art slices her arm at the left canvas edge — dissolve it into
@@ -339,8 +351,8 @@
   transform: translateX(-50%);
   z-index: 6;
   color: var(--nm-cream);
-  font-family: var(--nm-font-punch);
-  font-weight: 800;
+  font-family: var(--nm-font-cover);
+  font-weight: 500;
   font-size: clamp(28px, 4.4vw, 48px);
   line-height: 0.82;
   letter-spacing: -0.06em;
@@ -357,7 +369,7 @@
   position: absolute;
   left: var(--nm-page-x);
   right: var(--nm-page-x);
-  bottom: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
   z-index: 5;
   display: flex;
   justify-content: space-between;
@@ -382,6 +394,7 @@
   .hero .nema {
     top: calc(var(--nm-mast-h) + 108px);
     height: calc(100vh - var(--nm-mast-h) - 108px - 6vh);
+    height: calc(100dvh - var(--nm-mast-h) - 108px - 6vh);
   }
   .hero .punch { font-size: clamp(24px, 7vw, 34px); max-width: 94vw; }
   .hero .foot {
@@ -469,7 +482,7 @@
   position: fixed;
   z-index: 55;
   right: 24px;
-  bottom: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   text-align: right;
   font-size: var(--nm-text-xs);
   line-height: 1.7;
@@ -482,7 +495,7 @@
   z-index: 55;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   white-space: nowrap;
   font-size: var(--nm-text-xs);
   letter-spacing: 0.04em;
@@ -501,7 +514,7 @@
   opacity: 0.5;
   text-align: right;
 }
-#scene { display: block; width: 100vw; height: 100vh; cursor: grab; }
+#scene { display: block; width: 100vw; height: 100vh; height: 100dvh; cursor: grab; }
 #scene.dragging { cursor: grabbing; }
 .ray { stroke: color-mix(in srgb, var(--nm-cream) 5%, transparent); stroke-width: 1; }
 .land { fill: var(--nm-cream); }

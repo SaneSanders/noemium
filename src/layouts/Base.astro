@@ -122,7 +122,7 @@ const mastPage = (
             type="button"
             aria-label="Switch to light theme"
             aria-pressed="false"
-            class="border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent p-2 text-[var(--nm-cream)]"
+            class="inline-flex h-9 w-9 items-center justify-center border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent text-[var(--nm-cream)]"
           >
             <svg
               class="nm-icon-sun"
@@ -156,7 +156,7 @@ const mastPage = (
           <button
             type="button"
             onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
-            class="inline-flex items-center gap-2.5 border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent px-3 py-2 font-mono text-[14px] tracking-wide text-[var(--nm-cream)]"
+            class="inline-flex h-9 items-center gap-2.5 border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent px-3 font-mono text-[14px] tracking-wide text-[var(--nm-cream)]"
             aria-label="Open command palette (⌘K)"
           >
             <span>Search</span>
@@ -168,7 +168,7 @@ const mastPage = (
             aria-expanded="false"
             aria-controls="nm-mobile-nav"
             aria-label="Open menu"
-            class="border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent p-2 text-[var(--nm-cream)] lg:hidden"
+            class="inline-flex h-9 w-9 items-center justify-center border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent text-[var(--nm-cream)] lg:hidden"
           >
             <svg
               width="16"

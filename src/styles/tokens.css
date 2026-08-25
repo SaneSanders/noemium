@@ -36,7 +36,6 @@
   --nm-text-xs: 13px;
   --nm-font-cover: 'Fraunces', 'Times New Roman', serif;
   --nm-font-cover-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --nm-font-punch: 'Syne', var(--nm-font-display);
 
   /* Text/icons sitting on accent or verdict fills (both themes). */
   --nm-on-accent: #f3efe4;
