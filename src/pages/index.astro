@@ -1,423 +1,48 @@
 ---
-import { getCollection } from 'astro:content';
-import Base from '../layouts/Base.astro';
-import ToolCard from '../components/ToolCard.astro';
-import HomeFloor from '../islands/HomeFloor';
-import { logoSrc, providerLogoSrc } from '../lib/logos';
-import LogoTile from '../components/LogoTile.astro';
-import { dateMinusDays, floorSlice, newestVerified, DUST_DAYS, FRESH_DAYS, type FloorTool } from '../lib/floor';
-import { COMPARE_HREF, plural } from '../lib/shelf';
-import changelog from '../data/changelog.json';
-
-type Week = {
-  id: string;
-  counts: { added: number; removed: number; changed: number };
-  added: { slug: string; name: string; collection: string }[];
-  removed: { slug: string; name: string; collection: string }[];
-  changed: { slug: string; name: string; collection: string; field: string }[];
-};
-const latestWeek = (changelog.weeks as Week[])[0];
-
-const tools = await getCollection('tools');
-const agents = await getCollection('agents');
-const stacks = await getCollection('stacks');
-const models = await getCollection('models');
-const dead = await getCollection('graveyard');
-
-const floorTools: FloorTool[] = tools.map((t) => ({
-  slug: t.id,
-  name: t.data.name,
-  category: t.data.category,
-  pricing: t.data.pricing,
-  verdict: t.data.verdict,
-  momentum: t.data.momentum,
-  featured: t.data.featured,
-  last_verified: t.data.last_verified,
-  logo: logoSrc(t.id),
-}));
-
-const newest = newestVerified(floorTools);
-const freshAfter = dateMinusDays(newest, FRESH_DAYS);
-const staleBefore = dateMinusDays(newest, DUST_DAYS);
-const floorTabs = {
-  all: floorSlice(floorTools, 'all', freshAfter),
-  ship: floorSlice(floorTools, 'ship', freshAfter),
-  blueshift: floorSlice(floorTools, 'blueshift', freshAfter),
-  fresh: floorSlice(floorTools, 'fresh', freshAfter),
-};
-
-// Under the radar — computed, not editorial: tools gaining momentum that
-// were never anchors. The discovery shelf; zero famous names by construction.
-const underTheRadar = tools
-  .filter((t) => t.data.momentum === 'blueshift' && !t.data.featured)
-  .sort(
-    (a, b) =>
-      b.data.last_verified.localeCompare(a.data.last_verified) ||
-      a.data.name.localeCompare(b.data.name),
-  )
-  .slice(0, 6);
-
-const CATEGORY_META: { slug: string; blurb: string }[] = [
-  { slug: 'coding', blurb: 'Code assistants, IDEs, coding agents' },
-  { slug: 'design', blurb: 'UI kits, visual builders, design-to-code' },
-  { slug: 'image', blurb: 'Image generation and editing' },
-  { slug: 'video', blurb: 'Video generation and editing' },
-  { slug: 'audio', blurb: 'Voice, speech, music' },
-  { slug: 'writing', blurb: 'Writing and editing assistants' },
-  { slug: 'agents', blurb: 'Autonomous agents and frameworks' },
-  { slug: 'automation', blurb: 'Workflow and no-code automation' },
-  { slug: 'data', blurb: 'Search, RAG, vector databases' },
-  { slug: 'productivity', blurb: 'Notes, email, calendars, focus' },
-  { slug: 'dev-infra', blurb: 'Infra and tooling for AI builders' },
-  { slug: 'models-api', blurb: 'Raw model APIs, pay per token' },
-];
-const categories = CATEGORY_META.map((c) => ({
-  ...c,
-  count: tools.filter((t) => t.data.category === c.slug).length,
-})).filter((c) => c.count > 0);
-
-const stackPreview = [...stacks]
-  .sort((a, b) => a.data.title.localeCompare(b.data.title))
-  .slice(0, 3);
-
-const strictAgentPreview = agents
-  .filter((agent) => agent.data.evidence_tier !== 'radar')
-  .sort((a, b) => a.data.name.localeCompare(b.data.name))
-  .slice(0, 4);
-const radarAgentCount = agents.filter((agent) => agent.data.evidence_tier === 'radar').length;
-
-const modelPreview = models
-  .filter((m) => (m.data.price_unit ?? 'mtok') === 'mtok')
-  .filter((m) => !(m.data.price_input_per_mtok === 0 && m.data.price_output_per_mtok === 0))
-  .sort((a, b) => b.data.popularity - a.data.popularity)
-  .slice(0, 3);
-
-const usd = (v: number) => `$${v.toFixed(2)}`;
-
-const stats = [
-  { value: tools.length, label: 'tools' },
-  { value: agents.length, label: 'agent guides' },
-  { value: models.length, label: 'models' },
-  { value: stacks.length, label: 'stacks' },
-  { value: 0, label: 'paid placements' },
-];
-
-const toolNameById = new Map(tools.map((t) => [t.id, t.data.name]));
-
-const weekLink = (e: { collection: string; slug: string }) =>
-  e.collection === 'tools'
-    ? `/tools/${e.slug}/`
-    : e.collection === 'agents'
-      ? `/agents/${e.slug}/`
-      : e.collection === 'stacks'
-        ? `/stacks/${e.slug}/`
-        : undefined;
+import Cover from '../layouts/Cover.astro';
 ---
 
-<Base title="Pick AI tools without getting played">
-  {/* ------------------------------------------------------------- MASTHEAD */}
-  <section class="pt-12 pb-10 md:pt-16 md:pb-12">
-    <p class="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
-      <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
-      The open AI tools catalog · 0 paid placements
-    </p>
-    <h1 class="text-shadow-display mt-5 max-w-4xl font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-6xl">
-      Pick AI tools without getting played.
-    </h1>
-    <p class="mt-5 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-80">
-      {tools.length} tools plus {agents.length} operational agent guides — honest verdicts where
-      the evidence earns them, verified prices, and a receipt wherever we print a number. Pricing
-      pages preferred; a homepage is a source, not an invoice.
-    </p>
-    <p class="mt-8 flex flex-wrap gap-3">
-      <a href="/tools/" class="nm-btn nm-btn-solid">Catalog</a>
-      <a href="/quiz/" class="nm-btn nm-btn-outline">Quiz (30s)</a>
-    </p>
-    <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      <a href="/quiz/" class="nm-card nm-card-hover p-4">
-        <p class="font-mono text-[11px] font-bold tracking-[0.12em] text-accent uppercase">I have a job</p>
-        <p class="mt-2 font-display text-lg font-extrabold tracking-tight">Match a stack</p>
-      </a>
-      <a href="/stacks/vibe-coding-stack/" class="nm-card nm-card-hover p-4">
-        <p class="font-mono text-[11px] font-bold tracking-[0.12em] text-accent uppercase">Build</p>
-        <p class="mt-2 font-display text-lg font-extrabold tracking-tight">Vibe-code an app</p>
-      </a>
-      <a href="/stacks/solo-founder-saas/" class="nm-card nm-card-hover p-4">
-        <p class="font-mono text-[11px] font-bold tracking-[0.12em] text-accent uppercase">Ship</p>
-        <p class="mt-2 font-display text-lg font-extrabold tracking-tight">Solo SaaS, $20</p>
-      </a>
-      <a href="/tools/compare/?tools=cursor,claude-code" class="nm-card nm-card-hover p-4">
-        <p class="font-mono text-[11px] font-bold tracking-[0.12em] text-accent uppercase">Decide</p>
-        <p class="mt-2 font-display text-lg font-extrabold tracking-tight">Cursor vs Claude Code</p>
-      </a>
+<Cover
+  title="the map of the AI world"
+  description="Bring the frontier in. The map of the AI world, and a verdict on the stack you already run."
+  page="home"
+>
+  <section class="hero">
+    <div class="rays"></div>
+    <div class="moon"></div>
+    <div class="dust" id="dust"></div>
+    <div class="ground"></div>
+    <p class="punch">Bring<br />the frontier<br /><i>in.</i></p>
+    <img class="nema" src="/nema-color.png" alt="Nema" />
+    <div class="acts">
+      <a class="go" href="/map/">Open the map</a>
+      <a class="go ghost" href="/autopsy/">Cut your stack open</a>
     </div>
-    <p class="mt-5 font-mono text-[13px] text-ink-dim">
-      <a href="/kit/" class="text-accent hover:underline">Save a kit</a>
-      <span class="mx-2" aria-hidden="true">·</span>
-      <a href="/status/" class="text-accent hover:underline">Catalog status</a>
-      <span class="mx-2" aria-hidden="true">·</span>
-      <a href="/why/" class="text-accent hover:underline">Why directories lie</a>
-    </p>
+    <div class="grain"></div>
   </section>
-
-  {/* --------------------------------------------------------- CATEGORY HUB */}
-  <section data-reveal class="pb-14 md:pb-16">
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {
-        categories.map((c) => (
-          <a href={`/tools/?cat=${c.slug}`} class="nm-card nm-card-hover group p-5">
-            <div class="flex items-baseline justify-between gap-3">
-              <h3 class="font-display text-xl font-extrabold tracking-tight uppercase group-hover:text-accent">
-                {c.slug}
-              </h3>
-              <span class="nm-num shrink-0 font-mono text-sm font-bold text-accent">{c.count}</span>
-            </div>
-            <p class="mt-1.5 text-sm text-ink opacity-65">{c.blurb}</p>
-          </a>
-        ))
-      }
-    </div>
-  </section>
-
-  {/* ---------------------------------------------------------------- FLOOR */}
-  <section data-reveal class="pb-16 md:pb-20">
-    <h2 class="text-shadow-section mb-3 font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
-      The floor
-    </h2>
-    <p class="mb-8 max-w-2xl font-mono text-[13px] leading-relaxed text-ink-dim">
-      Twelve cards, mixed: half anchors (famous names, editorial — not paid), half finds.
-      <span class="text-shift-near"> Blueshift</span> = gaining momentum;
-      <span class="text-shift-far"> redshift</span> = fading;
-      steady holds course. Dusty dates are stale, not condemned.
-    </p>
-    <HomeFloor client:load tabs={floorTabs} staleBefore={staleBefore} />
-  </section>
-
-  {/* ----------------------------------------------------- WEEKLY SHIFT DIFF */}
-  {
-    latestWeek && (
-      <section data-reveal class="pb-16 md:pb-20">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-          <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
-            This week's catalog diff
-          </h2>
-          <a href="/changelog/" class="font-mono text-sm font-medium text-accent hover:underline">
-            full changelog →
-          </a>
-        </div>
-        <p class="mt-3 max-w-2xl font-mono text-[13px] leading-relaxed text-ink-dim">
-          Git of this repo — not the market. A name here means we logged the card, not that the
-          product launched. Model file replacements aren't deaths.
-        </p>
-        <div class="mt-8 grid gap-6 md:grid-cols-3">
-          <div class="nm-card p-6">
-            <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-verdict-ship uppercase">
-              +{latestWeek.counts.added} logged
-            </p>
-            <ul class="mt-4 space-y-2">
-              {latestWeek.added.slice(0, 8).map((e) => (
-                <li class="text-[15px] font-semibold">
-                  {weekLink(e) ? <a href={weekLink(e)} class="hover:text-accent">{e.name}</a> : e.name}
-                </li>
-              ))}
-            </ul>
-            {latestWeek.added.length > 8 && (
-              <p class="mt-3 font-mono text-[12px] text-ink-dim">
-                +{latestWeek.added.length - 8} more in the changelog
-              </p>
-            )}
-          </div>
-          <div class="nm-card p-6">
-            <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-verdict-skip uppercase">
-              −{latestWeek.counts.removed} unlisted
-            </p>
-            <ul class="mt-4 space-y-2">
-              {latestWeek.removed.slice(0, 8).map((e) => (
-                <li class="text-[15px] font-semibold text-ink-dim line-through">{e.name}</li>
-              ))}
-            </ul>
-            {dead.length > 0 && (
-              <p class="mt-4 border-t-[1.5px] border-line-soft pt-3 font-mono text-[13px] text-ink-dim">
-                <a href="/graveyard/" class="hover:text-accent hover:underline">
-                  graveyard: {dead.length} confirmed dead →
-                </a>
-              </p>
-            )}
-          </div>
-          <div class="nm-card p-6">
-            <p class="font-mono text-[13px] font-bold tracking-[0.12em] text-accent uppercase">
-              ~{latestWeek.counts.changed} fields
-            </p>
-            <ul class="mt-4 space-y-2">
-              {latestWeek.changed.slice(0, 8).map((e) => (
-                <li class="text-[15px]">
-                  {weekLink(e) ? (
-                    <a href={weekLink(e)} class="font-semibold hover:text-accent">{e.name}</a>
-                  ) : (
-                    <span class="font-semibold">{e.name}</span>
-                  )}
-                  <span class="ml-2 font-mono text-xs text-ink-dim uppercase">{e.field}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  {/* -------------------------------------------------------- UNDER THE RADAR */}
-  <section data-reveal class="pb-16 md:pb-20">
-    <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-      <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
-        Under the radar
-      </h2>
-      <p class="max-w-md font-mono text-[13px] leading-relaxed text-ink-dim">
-        Gaining momentum, never an anchor. The shelf with zero famous names — computed, not
-        editorial.
-      </p>
-    </div>
-    <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {underTheRadar.map((tool) => <ToolCard tool={tool} />)}
-    </div>
-  </section>
-
-  {/* ------------------------------------------------- STACKS / MODELS / MORE */}
-  <section data-reveal class="pb-16 md:pb-20">
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-      {/* Operational agent field guides */}
-      <a href="/agents/" class="nm-card nm-card-hover p-7 md:col-span-2">
-        <div class="grid gap-7 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-          <div>
-            <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
-              Agent Field Guide
-            </p>
-            <h3 class="mt-4 max-w-xl font-display text-3xl font-extrabold tracking-tight md:text-4xl">
-              Install it. Price it. Bound it.
-            </h3>
-            <p class="mt-3 max-w-2xl text-[15px] leading-relaxed text-ink opacity-65">
-              Operational guides for Grok Bot, Grok Build, OpenClaw and Hermes: exact setup paths,
-              requirements, real cost scenarios, security boundaries, and primary-source receipts.
-              Another {radarAgentCount} niche agents stay in Radar until the evidence bar is met.
-            </p>
-          </div>
-          <div class="grid gap-2 sm:grid-cols-2">
-            {
-              strictAgentPreview.map((agent) => (
-                <p class="flex items-center justify-between gap-3 border-b-[1.5px] border-line-soft py-3 last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0">
-                  <span class="flex min-w-0 items-center gap-2.5">
-                    <LogoTile slug={agent.id} name={agent.data.name} size="sm" />
-                    <span class="truncate font-display text-lg font-extrabold tracking-tight">{agent.data.name}</span>
-                  </span>
-                  <span class="font-mono text-[11px] tracking-wide text-ink-dim uppercase">
-                    {agent.data.agent_layer}
-                  </span>
-                </p>
-              ))
-            }
-          </div>
-        </div>
-      </a>
-
-      {/* Stacks */}
-      <a href="/stacks/" class="nm-card nm-card-hover p-7">
-        <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">Stacks</p>
-        <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">Ready-made combos</h3>
-        <p class="mt-2 text-[15px] text-ink opacity-65">Whole recipes with the monthly cost attached.</p>
-        <div class="mt-4">
-          {
-            stackPreview.map((s) => (
-              <p class="border-b-[1.5px] border-line-soft py-3.5 last:border-b-0">
-                <span class="flex items-center">
-                  {s.data.tools.slice(0, 4).map((slug, i) => (
-                    <span class:list={['relative', i > 0 && '-ml-1.5']}>
-                      <LogoTile slug={slug} name={toolNameById.get(slug) ?? slug} size="sm" />
-                    </span>
-                  ))}
-                </span>
-                <span class="mt-2 block font-display text-lg font-extrabold tracking-tight">{s.data.title}</span>
-                <span class="mt-1 block text-sm text-ink opacity-60">
-                  {plural(s.data.tools.length, 'tool')} · ${s.data.monthly_cost_usd}/mo total
-                </span>
-              </p>
-            ))
-          }
-        </div>
-      </a>
-
-      {/* Model prices */}
-      <a href="/models/" class="nm-card nm-card-hover p-7">
-        <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">Model prices</p>
-        <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">API costs</h3>
-        <p class="mt-2 text-[15px] text-ink opacity-65">Per million tokens, no marketing math. Not a live ticker.</p>
-        <table class="nm-num mt-4 w-full border-collapse text-sm">
-          {
-            modelPreview.map((m) => (
-              <tr>
-                <td class="border-b-[1.5px] border-line-soft py-2.5 last:border-b-0">
-                  <span class="inline-flex items-center gap-2">
-                    <LogoTile src={providerLogoSrc(m.data.provider)} name={m.data.name} size="sm" />
-                    {m.data.name} <span class="text-xs opacity-45">in / out</span>
-                  </span>
-                </td>
-                <td class="nm-num border-b-[1.5px] border-line-soft py-2.5 text-right font-bold whitespace-nowrap text-accent last:border-b-0">
-                  {usd(m.data.price_input_per_mtok)} / {usd(m.data.price_output_per_mtok)}
-                </td>
-              </tr>
-            ))
-          }
-        </table>
-      </a>
-
-      {/* Quiz */}
-      <a href="/quiz/" class="nm-card nm-card-hover flex flex-col justify-between bg-accent p-7 text-on-accent">
-        <div>
-          <p class="font-mono text-[13px] font-medium tracking-[0.14em] uppercase opacity-70">Quiz</p>
-          <h3 class="mt-4 font-display text-3xl font-extrabold tracking-tight">Find your stack in 30 seconds</h3>
-          <p class="mt-2 text-[15px] opacity-80">Five questions, one recipe with a price tag.</p>
-        </div>
-        <p class="mt-5 font-display text-4xl leading-none font-extrabold" aria-hidden="true">→</p>
-      </a>
-
-      {/* Compare */}
-      <a href={COMPARE_HREF} class="nm-card nm-card-hover flex flex-col justify-between gap-6 p-7">
-        <div>
-          <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">Compare</p>
-          <p class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 font-display text-2xl font-extrabold tracking-tight md:text-3xl">
-            Cursor
-            <span class="rounded-md bg-ink px-2.5 py-1 font-mono text-xs font-bold tracking-wider text-card">VS</span>
-            Claude Code
-          </p>
-          <p class="mt-2 text-[15px] text-ink opacity-65">Or any 2–4 tools, side by side.</p>
-        </div>
-        <span class="shrink-0 font-display text-3xl font-extrabold text-accent" aria-hidden="true">→</span>
-      </a>
-    </div>
-  </section>
-
-  {/* ---------------------------------------------------------------- STATS */}
-  <section data-reveal class="border-y-[1.5px] border-ink py-14">
-    <div class="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-6">
-      {
-        stats.map((s, i) => (
-          <>
-            {i > 0 && <span aria-hidden="true" class="font-display text-4xl font-black text-accent">·</span>}
-            <p class="flex items-baseline gap-3.5">
-              <span class:list={['font-display text-6xl font-black tracking-tight md:text-7xl', i % 2 === 0 && 'text-shadow-section']}>
-                {s.value}
-              </span>
-              <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink uppercase opacity-60">
-                {s.label}
-              </span>
-            </p>
-          </>
-        ))
-      }
-    </div>
-  </section>
-
   <script>
-    import { initReveals } from '../fx/reveal';
-    document.addEventListener('astro:page-load', initReveals);
+    const dust = document.getElementById('dust');
+    if (dust) {
+      const bits: [string, string, string][] = [
+        ['Cursor', '16%', '22%'],
+        ['Claude', '20%', '68%'],
+        ['Codex', '8%', '38%'],
+        ['Grok', '9%', '58%'],
+        ['Qwen', '24%', '88%'],
+        ['Kimi', '22%', '12%'],
+        ['n8n', '14%', '82%'],
+        ['v0', '28%', '42%'],
+      ];
+      for (const [t, top, left] of bits) {
+        const b = document.createElement('b');
+        b.textContent = t;
+        b.style.top = top;
+        b.style.left = left;
+        dust.appendChild(b);
+      }
+    }
+    addEventListener('pointermove', (e) => {
+      document.documentElement.style.setProperty('--mx', String(e.clientX / innerWidth));
+    });
   </script>
-</Base>
+</Cover>

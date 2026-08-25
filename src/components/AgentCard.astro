@@ -16,7 +16,7 @@ const strict = a.evidence_tier !== 'radar';
 
 <a href={`/agents/${agent.id}/`} class="nm-card nm-card-hover group flex h-full flex-col p-6">
   <div class="flex flex-wrap items-center justify-between gap-2">
-    <span class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-bold tracking-[0.1em] text-ink uppercase">
+    <span class="border border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] px-2 py-1 font-mono text-[10px] tracking-[0.12em] text-ink uppercase">
       {agentLayerLabels[a.agent_layer]}
     </span>
     <span
@@ -34,7 +34,7 @@ const strict = a.evidence_tier !== 'radar';
   </p>
   <div class="mt-2 flex items-center gap-3">
     <LogoTile slug={agent.id} name={a.name} size="md" />
-    <h3 class="min-w-0 font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">
+    <h3 class="min-w-0 font-display text-2xl font-medium tracking-tight group-hover:text-accent">
       {a.name}
     </h3>
   </div>

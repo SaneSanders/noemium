@@ -155,10 +155,10 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      class={`cursor-pointer rounded-md border-[1.5px] px-3.5 py-2 font-mono text-sm font-medium transition-all duration-100 ${
+      class={`cursor-pointer border px-3.5 py-2 font-mono text-[11px] tracking-[0.12em] uppercase ${
         active
           ? 'border-accent bg-accent text-on-accent'
-          : 'border-ink bg-paper text-ink hover:-translate-0.5 hover:border-accent hover:text-accent hover:shadow-hard-sm'
+          : 'border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] bg-transparent text-ink hover:border-accent'
       }`}
     >
       {children}
@@ -238,7 +238,7 @@ export default function FilterBar() {
           value={filters.q}
           onInput={(e) => update({ ...filters, q: (e.target as HTMLInputElement).value })}
           placeholder="Search the catalog…  ( / )"
-          class="w-full rounded-md border-[1.5px] border-ink bg-paper px-4 py-3 font-mono text-base text-ink placeholder:text-ink-dim focus:border-accent focus:outline-none"
+          class="w-full border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] bg-transparent px-4 py-3 font-mono text-sm text-ink placeholder:text-ink-dim focus:border-accent focus:outline-none"
         />
 
         <div class="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
@@ -250,13 +250,13 @@ export default function FilterBar() {
                 type="button"
                 aria-pressed={active}
                 onClick={() => update({ ...filters, categories: toggle(filters.categories, c) })}
-                class={`cursor-pointer rounded-md border-[1.5px] px-4 py-3 text-left transition-all duration-100 ${
+                class={`cursor-pointer border px-4 py-3 text-left ${
                   active
                     ? 'border-accent bg-accent text-on-accent'
-                    : 'border-ink bg-paper text-ink hover:-translate-0.5 hover:border-accent hover:shadow-hard-sm'
+                    : 'border-[color-mix(in_srgb,var(--nm-ink)_16%,transparent)] bg-transparent text-ink hover:border-accent'
                 }`}
               >
-                <span class="block font-display text-base font-extrabold tracking-tight uppercase">
+                <span class="block font-mono text-[11px] tracking-[0.14em] uppercase">
                   {c}
                 </span>
                 <span
@@ -374,7 +374,7 @@ export default function FilterBar() {
 
       {mounted && visibleCount === 0 && (
         <div class="nm-card mt-6 p-12 text-center">
-          <p class="font-display text-3xl font-extrabold tracking-tight uppercase">
+          <p class="font-display text-3xl font-medium tracking-tight">
             Nothing on this shelf.
           </p>
           <p class="mt-3 text-[15px] text-ink-dim">

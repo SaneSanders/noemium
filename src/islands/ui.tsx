@@ -110,14 +110,14 @@ export function LogoMark({
         width={s.dim}
         height={s.dim}
         loading="lazy"
-        class={`shrink-0 border-[1.5px] border-ink bg-card object-contain ${s.box}`}
+        class={`shrink-0 border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] bg-card object-contain ${s.box}`}
       />
     );
   }
   return (
     <span
       aria-hidden="true"
-      class={`flex shrink-0 items-center justify-center border-[1.5px] border-ink bg-paper font-display font-black text-accent ${s.box} ${s.type}`}
+      class={`flex shrink-0 items-center justify-center border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] bg-paper font-display font-medium text-accent ${s.box} ${s.type}`}
     >
       {name.charAt(0)}
     </span>

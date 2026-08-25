@@ -65,7 +65,7 @@ const jsonLd = {
           <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
           Studio pack · free to read
         </p>
-        <h1 class="text-shadow-section mt-6 font-display text-5xl leading-[0.98] font-black tracking-tight uppercase md:text-7xl">
+        <h1 class="mt-6 font-display text-5xl leading-[0.98] font-medium tracking-tight md:text-7xl">
           Inbox Desk
         </h1>
         <p class="mt-6 max-w-xl text-lg leading-relaxed font-medium text-ink opacity-75">
@@ -85,7 +85,7 @@ const jsonLd = {
           {
             roles.map((role) => (
               <li class="border-t-[1.5px] border-line-soft pt-3 first:border-t-0 first:pt-0">
-                <p class="font-display text-xl font-extrabold tracking-tight uppercase">{role.name}</p>
+                <p class="font-display text-xl font-medium tracking-tight">{role.name}</p>
                 <p class="mt-1 text-[14px] leading-relaxed text-ink opacity-70">{role.job}</p>
               </li>
             ))
@@ -116,7 +116,7 @@ const jsonLd = {
     </section>
 
     <section class="mt-14">
-      <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+      <h2 class="font-display text-4xl leading-[0.98] font-medium tracking-tight md:text-5xl">
         What’s in the box
       </h2>
       <p class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink opacity-75">
@@ -128,7 +128,7 @@ const jsonLd = {
           roles.map((role) => (
             <a href={role.file} class="nm-card nm-card-hover flex h-full flex-col p-6">
               <p class="font-mono text-[11px] font-bold tracking-[0.12em] text-accent uppercase">Profile</p>
-              <h3 class="mt-3 font-display text-2xl font-extrabold tracking-tight uppercase">{role.name}</h3>
+              <h3 class="mt-3 font-display text-2xl font-medium tracking-tight">{role.name}</h3>
               <p class="mt-3 flex-1 text-[15px] leading-relaxed text-ink opacity-75">{role.job}</p>
               <p class="mt-6 font-mono text-[12px] text-accent">{role.file.replace('/pack/inbox-desk/', '')} →</p>
             </a>
@@ -141,7 +141,7 @@ const jsonLd = {
       <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
         <span class="nm-num">15</span> min · then a human
       </p>
-      <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight uppercase">Set it up</h2>
+      <h2 class="mt-3 font-display text-3xl font-medium tracking-tight">Set it up</h2>
       <ol class="mt-5 list-decimal space-y-3 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-accent">
         <li>Open any chat that will take a system prompt or a pasted brief.</li>
         <li>
@@ -160,7 +160,7 @@ const jsonLd = {
     </section>
 
     <section id="pack-files" class="mt-16">
-      <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+      <h2 class="font-display text-4xl leading-[0.98] font-medium tracking-tight md:text-5xl">
         The files
       </h2>
       <p class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink opacity-75">

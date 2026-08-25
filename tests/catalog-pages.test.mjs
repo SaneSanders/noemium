@@ -87,10 +87,10 @@ test('llms-full.txt carries desk-research disclaimer', () => {
 });
 
 test('footer exposes status, kit and why surfaces', () => {
-  const home = built('index.html');
-  assert.match(home, /href="\/status\/"/);
-  assert.match(home, /href="\/kit\/"/);
-  assert.match(home, /href="\/why\/"/);
+  const tools = built('tools/index.html');
+  assert.match(tools, /href="\/status\/"/);
+  assert.match(tools, /href="\/kit\/"/);
+  assert.match(tools, /href="\/why\/"/);
 });
 
 test('a featured ship card renders the briefing grid', () => {

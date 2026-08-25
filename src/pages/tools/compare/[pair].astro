@@ -155,7 +155,7 @@ const rows: { label: string; a: string | null; b: string | null }[] = [
       <div class="flex items-start justify-between gap-3">
         <div class="flex items-center gap-3">
           <LogoTile slug={a.id} name={da.name} size="md" />
-          <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{da.name}</h2>
+          <h2 class="font-display text-2xl font-medium tracking-tight group-hover:text-accent">{da.name}</h2>
         </div>
         <VerdictBadge verdict={da.verdict} />
       </div>
@@ -165,7 +165,7 @@ const rows: { label: string; a: string | null; b: string | null }[] = [
       <div class="flex items-start justify-between gap-3">
         <div class="flex items-center gap-3">
           <LogoTile slug={b.id} name={db.name} size="md" />
-          <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{db.name}</h2>
+          <h2 class="font-display text-2xl font-medium tracking-tight group-hover:text-accent">{db.name}</h2>
         </div>
         <VerdictBadge verdict={db.verdict} />
       </div>
@@ -179,13 +179,13 @@ const rows: { label: string; a: string | null; b: string | null }[] = [
         <tr class="border-b-[1.5px] border-ink">
           <th class="w-40 p-4 font-mono text-[13px] font-medium tracking-[0.12em] text-ink-dim uppercase">field</th>
           <th class="min-w-56 p-4">
-            <a href={`/tools/${a.id}/`} class="flex items-center gap-3 font-display text-xl font-extrabold tracking-tight text-ink hover:text-accent">
+            <a href={`/tools/${a.id}/`} class="flex items-center gap-3 font-display text-xl font-medium tracking-tight text-ink hover:text-accent">
               <LogoTile slug={a.id} name={da.name} size="sm" />
               {da.name}
             </a>
           </th>
           <th class="min-w-56 p-4">
-            <a href={`/tools/${b.id}/`} class="flex items-center gap-3 font-display text-xl font-extrabold tracking-tight text-ink hover:text-accent">
+            <a href={`/tools/${b.id}/`} class="flex items-center gap-3 font-display text-xl font-medium tracking-tight text-ink hover:text-accent">
               <LogoTile slug={b.id} name={db.name} size="sm" />
               {db.name}
             </a>

@@ -1,15 +1,13 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/theme.css';
-import '@fontsource/archivo/800.css';
-import '@fontsource/archivo/900.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/inter/700.css';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/500.css';
-import '@fontsource/jetbrains-mono/700.css';
+import '../styles/cover.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import Mast from '../components/Mast.astro';
+import '@fontsource/fraunces/400.css';
+import '@fontsource/fraunces/500.css';
+import '@fontsource/ibm-plex-mono/600.css';
 import CommandPalette from '../islands/CommandPalette';
 import ProofDrawer from '../islands/ProofDrawer';
 import { COMPARE_HREF } from '../lib/shelf';
@@ -51,6 +49,15 @@ function navCurrent(href: string): boolean {
   if (clean === '/jobs') return path === '/jobs' || path.startsWith('/jobs/');
   return path === clean || path.startsWith(`${clean}/`);
 }
+
+const mastPage = (
+  path.startsWith('/map') ? 'map'
+  : path.startsWith('/autopsy') ? 'autopsy'
+  : path.startsWith('/signals') ? 'signals'
+  : path.startsWith('/reference') ? 'reference'
+  : path.startsWith('/method') ? 'method'
+  : ''
+) as 'map' | 'autopsy' | 'signals' | 'reference' | 'method' | '';
 ---
 
 <!doctype html>
@@ -108,31 +115,14 @@ function navCurrent(href: string): boolean {
     >
       Skip to content
     </a>
-    <header class="pt-6">
-      <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6">
-        <a href="/" class="font-display text-2xl font-extrabold tracking-tight text-ink">
-          noemium<sup class="ml-1.5 align-super font-mono text-[10px] font-medium tracking-wider text-accent uppercase">open beta</sup>
-        </a>
-        <nav class="hidden items-center gap-5 lg:flex xl:gap-7" aria-label="Primary">
-          {
-            navItems.map((item) => (
-              <a
-                href={item.href}
-                class="text-sm font-semibold tracking-tight text-ink opacity-70 transition-opacity duration-100 hover:opacity-100"
-                aria-current={navCurrent(item.href) ? 'page' : undefined}
-              >
-                {item.name}
-              </a>
-            ))
-          }
-        </nav>
-        <div class="flex items-center gap-3">
+    <Mast page={mastPage}>
+      <div slot="end" class="flex items-center gap-3">
           <button
             id="nm-theme-toggle"
             type="button"
             aria-label="Switch to light theme"
             aria-pressed="false"
-            class="rounded-md border-[1.5px] border-ink bg-card p-2 text-ink shadow-hard-sm transition-all duration-100 hover:-translate-0.5 hover:shadow-hard"
+            class="border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent p-2 text-[var(--nm-cream)]"
           >
             <svg
               class="nm-icon-sun"
@@ -166,7 +156,7 @@ function navCurrent(href: string): boolean {
           <button
             type="button"
             onclick="window.dispatchEvent(new CustomEvent('nm:palette:open'))"
-            class="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-ink bg-card px-4 py-2 font-mono text-[13px] font-medium text-ink shadow-hard-sm transition-all duration-100 hover:-translate-0.5 hover:shadow-hard"
+            class="inline-flex items-center gap-2.5 border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent px-3 py-2 font-mono text-[11px] tracking-[0.14em] text-[var(--nm-cream)] uppercase"
             aria-label="Open command palette (⌘K)"
           >
             <span>Search</span>
@@ -178,7 +168,7 @@ function navCurrent(href: string): boolean {
             aria-expanded="false"
             aria-controls="nm-mobile-nav"
             aria-label="Open menu"
-            class="rounded-md border-[1.5px] border-ink bg-card p-2 text-ink shadow-hard-sm lg:hidden"
+            class="border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent p-2 text-ink lg:hidden"
           >
             <svg
               width="16"
@@ -194,24 +184,23 @@ function navCurrent(href: string): boolean {
             </svg>
           </button>
         </div>
-      </div>
-    </header>
+    </Mast>
 
-    {/* Mobile navigation overlay — same links, display type. */}
     <div
       id="nm-mobile-nav"
-      class="fixed inset-0 z-50 hidden flex-col bg-paper"
+      class="fixed inset-0 z-[100] hidden flex-col"
+      style="background: var(--nm-deep); color: var(--nm-cream)"
       role="dialog"
       aria-modal="true"
       aria-label="Site navigation"
     >
-      <div class="flex items-center justify-between border-b-[1.5px] border-ink px-6 py-5">
-        <span class="font-display text-2xl font-extrabold tracking-tight">noemium</span>
+      <div class="mast">
+        <a class="brand" href="/">Noemium</a>
         <button
           id="nm-nav-close"
           type="button"
           aria-label="Close menu"
-          class="rounded-md border-[1.5px] border-ink bg-card p-2 text-ink shadow-hard-sm"
+          class="border border-[color-mix(in_srgb,var(--nm-cream)_22%,transparent)] bg-transparent p-2"
         >
           <svg
             width="16"
@@ -227,40 +216,33 @@ function navCurrent(href: string): boolean {
           </svg>
         </button>
       </div>
-      <nav class="flex flex-1 flex-col justify-center px-6">
-        <button
-          type="button"
-          data-nm-palette
-          class="group flex items-baseline gap-4 border-b border-line-soft py-4 text-left"
-        >
-          <span class="font-display text-4xl font-extrabold tracking-tight text-ink uppercase transition-colors group-hover:text-accent">
-            Search
-          </span>
-        </button>
+      <nav class="drawer-nav flex-1 overflow-y-auto px-[var(--nm-page-x)] py-6">
+        <p class="kicker">Doors</p>
+        <a href="/map/" aria-current={path.startsWith('/map') ? 'page' : undefined}>Map</a>
+        <a href="/autopsy/" aria-current={path.startsWith('/autopsy') ? 'page' : undefined}>Autopsy</a>
+        <a href="/signals/" aria-current={path.startsWith('/signals') ? 'page' : undefined}>Signals</a>
+        <a href="/reference/" aria-current={path.startsWith('/reference') ? 'page' : undefined}>Reference</a>
+        <a href="/method/" aria-current={path.startsWith('/method') ? 'page' : undefined}>Method</a>
+        <p class="kicker">Catalogue</p>
         {
           navItems.map((item) => (
-            <a
-              href={item.href}
-              class="group flex items-baseline gap-4 border-b border-line-soft py-4 last:border-b-0"
-              aria-current={navCurrent(item.href) ? 'page' : undefined}
-            >
-              <span class="font-display text-4xl font-extrabold tracking-tight text-ink uppercase transition-colors group-hover:text-accent">
-                {item.name}
-              </span>
+            <a href={item.href} aria-current={navCurrent(item.href) ? 'page' : undefined}>
+              {item.name}
             </a>
           ))
         }
+        <button type="button" data-nm-palette>Search</button>
       </nav>
     </div>
 
-    <main id="nm-main" class="mx-auto w-full max-w-7xl flex-1 px-6">
+    <main id="nm-main" class="mx-auto w-full max-w-7xl flex-1 px-[var(--nm-page-x)] pb-20">
       <slot />
     </main>
 
-    <footer class="mt-20 border-t-[1.5px] border-ink">
+    <footer class="mt-20 border-t border-[color-mix(in_srgb,var(--nm-ink)_12%,transparent)]">
       <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-4 px-6 py-10">
-        <p class="font-mono text-[13px] font-medium tracking-wide text-ink">
-          Code <span class="font-bold text-accent">MIT</span> · Content <span class="font-bold text-accent">CC BY 4.0</span> · Every recommendation is a PR
+        <p class="font-mono text-[12px] tracking-wide text-ink">
+          Code <span class="text-accent">MIT</span> · Content <span class="text-accent">CC BY 4.0</span> · Every recommendation is a PR
         </p>
         <p class="w-full font-mono text-[11px] text-ink-dim">
           Some outbound links are affiliate links — always declared, never affecting verdicts.
@@ -284,7 +266,7 @@ function navCurrent(href: string): boolean {
           <a href="/api/tools.json" class="hover:text-ink">tools.json</a>
           <a href="https://x.com/whysanesanders" class="hover:text-ink" rel="noopener">@whysanesanders</a>
         </p>
-        <span class="font-display text-lg font-extrabold tracking-tight">noemium</span>
+        <span class="font-mono text-[12px] tracking-[0.24em] uppercase">Noemium</span>
       </div>
     </footer>
 

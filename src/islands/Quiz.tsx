@@ -174,7 +174,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
     return (
       <div class="nm-card p-6 md:p-10">
         <p class="font-mono text-[13px] font-medium tracking-[0.14em] text-ink-dim uppercase">no match</p>
-        <h2 class="mt-3 font-display text-2xl font-extrabold tracking-tight uppercase md:text-4xl">No stacks in the catalog yet</h2>
+        <h2 class="mt-3 font-display text-2xl font-medium tracking-tight md:text-4xl">No stacks in the catalog yet</h2>
         <p class="mt-3 max-w-xl text-ink-dim">
           There is nothing to match your answers against. Browse the tool catalog instead — or
           contribute the first stack.
@@ -205,7 +205,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
         Q{step + 1} / {QUESTIONS.length}
       </p>
       <div key={step} class="nm-step">
-        <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight md:text-4xl">{q.title}</h2>
+        <h2 class="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl">{q.title}</h2>
         <div class="mt-6 grid gap-3">
           {q.options.map((opt) => (
             <button

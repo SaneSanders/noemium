@@ -392,7 +392,7 @@ export default function CommandPalette() {
       aria-modal="true"
       aria-label="Command palette"
     >
-      <div class="w-full max-w-xl rounded-lg border-[1.5px] border-ink bg-card shadow-hard-lg">
+      <div class="w-full max-w-xl border border-[color-mix(in_srgb,var(--nm-ink)_16%,transparent)] bg-paper">
         {easterEgg ? (
           <div class="p-6">
             <p class="font-mono text-xs font-bold text-accent">&gt; noema</p>
@@ -402,14 +402,14 @@ export default function CommandPalette() {
             <button
               type="button"
               onClick={() => setEasterEgg(false)}
-              class="mt-6 rounded-sm border-[1.5px] border-ink px-3 py-1 font-mono text-xs text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard-sm"
+              class="mt-6 border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] px-3 py-1 font-mono text-xs text-ink hover:border-accent"
             >
               back to search
             </button>
           </div>
         ) : (
           <>
-            <div class="flex items-center gap-2 border-b-[1.5px] border-ink px-4">
+            <div class="flex items-center gap-2 border-b border-[color-mix(in_srgb,var(--nm-ink)_12%,transparent)] px-4">
               <span class="font-mono text-xs font-bold text-accent">{commandMode ? '>' : '⌘K'}</span>
               <input
                 ref={inputRef}
@@ -421,7 +421,7 @@ export default function CommandPalette() {
                 class="w-full bg-transparent py-3 font-mono text-sm text-ink caret-accent placeholder:text-ink-dim focus:outline-none"
                 aria-label="Search the catalog"
               />
-              <kbd class="rounded-sm border-[1.5px] border-ink px-1.5 py-0.5 font-mono text-xs text-ink-dim">
+              <kbd class="border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] px-1.5 py-0.5 font-mono text-xs text-ink-dim">
                 esc
               </kbd>
             </div>
@@ -454,7 +454,7 @@ export default function CommandPalette() {
                 </li>
               ))}
             </ul>
-            <p class="flex items-center justify-between border-t-[1.5px] border-ink px-4 py-2 font-mono text-xs text-ink-dim">
+            <p class="flex items-center justify-between border-t border-[color-mix(in_srgb,var(--nm-ink)_12%,transparent)] px-4 py-2 font-mono text-xs text-ink-dim">
               <span>↑↓ navigate · enter open · esc close</span>
               <a href="/search/" class="font-medium text-accent hover:underline" onClick={close}>
                 full-text search →

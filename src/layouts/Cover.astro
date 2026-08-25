@@ -1,0 +1,64 @@
+---
+import '../styles/theme.css';
+import '../styles/cover.css';
+import '@fontsource/syne/800.css';
+import '@fontsource/fraunces/400.css';
+import '@fontsource/fraunces/500.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource/ibm-plex-mono/600.css';
+import Mast from '../components/Mast.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  page: 'home' | 'map' | 'autopsy' | 'signals' | 'reference' | 'method';
+}
+
+const {
+  title,
+  description = 'Noemium — the map of the AI world. An open catalog of AI tools, stacks and models. No pay-to-list.',
+  page,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL('/og/noemium.png', Astro.site);
+const night = page === 'home' || page === 'map';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Noemium — {title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Noemium weekly catalog diff" href="/rss.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`Noemium — ${title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Noemium" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`Noemium — ${title}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:site" content="@noemiumai" />
+  </head>
+  <body class:list={['cover-night', night && `page-${page}`]}>
+    <a
+      href="#nm-main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-[var(--nm-field)] focus:px-3 focus:py-2"
+    >
+      Skip to content
+    </a>
+    <Mast page={page === 'home' ? '' : page} />
+    <main id="nm-main">
+      <slot />
+    </main>
+  </body>
+</html>

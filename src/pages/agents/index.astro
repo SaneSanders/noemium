@@ -67,7 +67,7 @@ const jsonLd = {
 
   <section class="mt-14">
     <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-      <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+      <h2 class="font-display text-4xl leading-[0.98] font-medium tracking-tight md:text-5xl">
         Field guides
       </h2>
       <p class="font-mono text-[13px] text-ink-dim">{strict.length} strict entries</p>
@@ -79,7 +79,7 @@ const jsonLd = {
 
   <section class="mt-16">
     <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-      <h2 class="text-shadow-section font-display text-4xl leading-[0.98] font-black tracking-tight uppercase md:text-5xl">
+      <h2 class="font-display text-4xl leading-[0.98] font-medium tracking-tight md:text-5xl">
         Radar
       </h2>
       <p class="max-w-lg font-mono text-[13px] leading-relaxed text-ink-dim">
@@ -96,7 +96,7 @@ const jsonLd = {
     <div class="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {representedLayers.map((layer) => (
         <div class="border-l-[3px] border-accent pl-4">
-          <h3 class="font-display text-lg font-extrabold tracking-tight uppercase">{agentLayerLabels[layer]}</h3>
+          <h3 class="font-display text-lg font-medium tracking-tight">{agentLayerLabels[layer]}</h3>
           <p class="mt-1 text-[14px] leading-relaxed text-ink opacity-70">{layerDescriptions[layer]}</p>
         </div>
       ))}

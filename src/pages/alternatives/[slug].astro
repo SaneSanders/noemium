@@ -63,7 +63,7 @@ const itemList = {
           <a href={`/tools/${a.id}/`} class="nm-card nm-card-hover group flex flex-col gap-3 p-6 md:flex-row md:items-center">
             <div class="flex items-center gap-3 md:w-64 md:shrink-0">
               <LogoTile slug={a.id} name={a.data.name} size="md" />
-              <h2 class="font-display text-2xl font-extrabold tracking-tight group-hover:text-accent">{a.data.name}</h2>
+              <h2 class="font-display text-2xl font-medium tracking-tight group-hover:text-accent">{a.data.name}</h2>
               <VerdictBadge verdict={a.data.verdict} />
             </div>
             <div class="flex-1">

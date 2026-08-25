@@ -154,7 +154,7 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
                 >
                   <LogoMark src={tool.logo} name={tool.name} size="sm" />
                   <span class="min-w-0">
-                    <span class="block font-display text-[15px] font-extrabold tracking-tight">{tool.name}</span>
+                    <span class="block font-display text-[15px] font-medium tracking-tight">{tool.name}</span>
                     <span class="block truncate font-mono text-[11px] text-ink-dim">{tool.category}</span>
                   </span>
                 </button>
@@ -204,7 +204,7 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
                     <a href={`/tools/${tool.slug}/`} class="flex items-center gap-2 sm:gap-3 hover:text-accent min-w-0">
                       <LogoMark src={tool.logo} name={tool.name} size="sm" />
                       <span class="min-w-0">
-                        <span class="block font-display text-[15px] font-extrabold tracking-tight">{tool.name}</span>
+                        <span class="block font-display text-[15px] font-medium tracking-tight">{tool.name}</span>
                         <span class="block font-mono text-[11px] font-normal text-ink-dim">{tool.category}</span>
                       </span>
                     </a>

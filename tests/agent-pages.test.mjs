@@ -56,9 +56,9 @@ test('publishes agents through search and machine-readable discovery surfaces', 
   assert.equal(index.agents.some((agent) => agent.slug === 'openclaw'), true);
 });
 
-test('links the Agent Field Guide from the homepage and emits agent OG art', () => {
-  const home = built('index.html');
-  assert.match(home, /href="\/agents\/"/);
-  assert.match(home, /Agent Field Guide/i);
+test('links the Agent Field Guide from reference and emits agent OG art', () => {
+  const reference = built('reference/index.html');
+  assert.match(reference, /href="\/agents\/"/);
+  assert.match(reference, /Field guide/i);
   assert.equal(existsSync(new URL('dist/og/agents/grok-bot.png', root)), true);
 });

@@ -28,7 +28,7 @@ const dim = size === 'sm' ? 28 : size === 'lg' ? 56 : 40;
       width={dim}
       height={dim}
       loading="lazy"
-      class:list={[box, radius, pad, 'shrink-0 border-[1.5px] border-ink bg-card object-contain']}
+      class:list={[box, radius, pad, 'shrink-0 border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] bg-card object-contain']}
     />
   ) : (
     <span
@@ -37,7 +37,7 @@ const dim = size === 'sm' ? 28 : size === 'lg' ? 56 : 40;
         box,
         radius,
         type,
-        'flex shrink-0 items-center justify-center border-[1.5px] border-ink bg-paper font-display font-black text-accent',
+        'flex shrink-0 items-center justify-center border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] bg-paper font-display font-medium text-accent',
       ]}
     >
       {name.charAt(0)}

@@ -36,8 +36,8 @@ const jsonLd = {
     title="Catalog"
     sub={`${plural(data.length, 'tool')} with signed verdicts and named limitations. No pay-to-list — every entry is a pull request you can audit.`}
   />
-  <p class="-mt-6 mb-6 font-mono text-xs text-ink-dim">
-    Press <KbdHint keys="/" /> to filter this shelf. ⌘K searches the whole catalog.
+  <p class="-mt-4 mb-8 font-mono text-xs text-ink-dim">
+    Press <KbdHint keys="/" /> to filter this shelf. Cmd+K searches the whole catalog.
   </p>
   <FilterBar client:load />
   <div id="nm-tool-grid" class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

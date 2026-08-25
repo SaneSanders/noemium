@@ -36,20 +36,20 @@ const C = {
   } as Record<string, string>,
 };
 
-const DISPLAY = 'Archivo';
-const MONO = 'JetBrains Mono';
+const DISPLAY = 'Fraunces';
+const MONO = 'IBM Plex Mono';
 
 const fonts = [
-  { name: DISPLAY, data: fontFile('archivo/files/archivo-latin-800-normal.woff'), weight: 800 as const, style: 'normal' as const },
-  { name: DISPLAY, data: fontFile('archivo/files/archivo-latin-900-normal.woff'), weight: 900 as const, style: 'normal' as const },
-  { name: MONO, data: fontFile('jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff'), weight: 400 as const, style: 'normal' as const },
-  { name: MONO, data: fontFile('jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff'), weight: 700 as const, style: 'normal' as const },
+  { name: DISPLAY, data: fontFile('fraunces/files/fraunces-latin-400-normal.woff'), weight: 400 as const, style: 'normal' as const },
+  { name: DISPLAY, data: fontFile('fraunces/files/fraunces-latin-500-normal.woff'), weight: 500 as const, style: 'normal' as const },
+  { name: MONO, data: fontFile('ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff'), weight: 400 as const, style: 'normal' as const },
+  { name: MONO, data: fontFile('ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff'), weight: 500 as const, style: 'normal' as const },
 ];
 const fontFiles = [
-  'archivo/files/archivo-latin-800-normal.woff',
-  'archivo/files/archivo-latin-900-normal.woff',
-  'jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff',
-  'jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff',
+  'fraunces/files/fraunces-latin-400-normal.woff',
+  'fraunces/files/fraunces-latin-500-normal.woff',
+  'ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff',
+  'ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff',
 ].map((p) => `${root}node_modules/@fontsource/${p}`);
 
 interface GenericProps {
@@ -215,10 +215,9 @@ function frame(children: unknown) {
           flexDirection: 'column',
           justifyContent: 'space-between',
           flex: 1,
-          border: `3px solid ${C.ink}`,
-          borderRadius: 14, // DESIGN.md caps radii at 14px
+          border: `1px solid ${C.ink}`,
+          borderRadius: 0,
           backgroundColor: C.card,
-          boxShadow: `10px 10px 0 0 ${C.accent}`,
           padding: '44px 52px',
         },
       },
@@ -233,8 +232,8 @@ function header(right: string) {
     { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' } },
     h(
       'span',
-      { style: { fontFamily: DISPLAY, fontWeight: 800, fontSize: 34, color: C.ink, letterSpacing: -1 } },
-      'noemium',
+      { style: { fontFamily: MONO, fontWeight: 500, fontSize: 22, color: C.ink, letterSpacing: 6, textTransform: 'uppercase' as const } },
+      'Noemium',
     ),
     mono(right, { fontSize: 16, color: C.accent, fontWeight: 700, letterSpacing: 2, textTransform: 'uppercase' as const }),
   );
@@ -254,16 +253,16 @@ function verdictSticker(verdict: string) {
     'span',
     {
       style: {
-        fontFamily: DISPLAY,
-        fontWeight: 800,
-        fontSize: 22,
+        fontFamily: MONO,
+        fontWeight: 500,
+        fontSize: 16,
         letterSpacing: 3,
         textTransform: 'uppercase' as const,
-        color: C.card,
-        backgroundColor: C.verdict[verdict] ?? C.ink,
-        borderRadius: 6,
-        padding: '8px 18px',
-        transform: 'rotate(-2deg)',
+        color: C.verdict[verdict] ?? C.ink,
+        backgroundColor: 'transparent',
+        border: `1px solid ${C.verdict[verdict] ?? C.ink}`,
+        borderRadius: 0,
+        padding: '8px 14px',
       },
     },
     verdict,
@@ -276,13 +275,11 @@ const headline = (text: string, size: number) =>
     {
       style: {
         fontFamily: DISPLAY,
-        fontWeight: 900,
+        fontWeight: 500,
         fontSize: size,
         lineHeight: 0.96,
-        letterSpacing: -2,
-        textTransform: 'uppercase' as const,
+        letterSpacing: -1,
         color: C.ink,
-        textShadow: `5px 5px 0 ${C.accent}`,
       },
     },
     text,

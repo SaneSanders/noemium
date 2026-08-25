@@ -1,0 +1,30 @@
+---
+import Cover from '../layouts/Cover.astro';
+---
+
+<Cover
+  title="the map of the AI world"
+  description="One surface: sky is unsettled, land is what you can ship, underground is dead. Height is how settled a thing is, not how good it is."
+  page="map"
+>
+  <div class="controls">
+    <div class="find">
+      <span>FIND</span>
+      <input id="q" type="text" placeholder="cursor, veo, whisper…" autocomplete="off" spellcheck="false" />
+    </div>
+    <div class="chips" id="regionChips"></div>
+    <div class="mineband hidden" id="mineband"></div>
+  </div>
+
+  <div class="zoomhint">scroll to zoom · drag to pan · esc to reset</div>
+  <svg id="scene"></svg>
+  <div class="counts" id="counts"></div>
+  <div class="legend">
+    <div><b>Height = how settled it is</b></div>
+    <div style="opacity:.66">Stars are models · cobalt ring = new this week</div>
+  </div>
+  <div class="card" id="card"></div>
+  <script>
+    import '../scripts/world-map.js';
+  </script>
+</Cover>

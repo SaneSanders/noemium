@@ -29,19 +29,17 @@
   --radius-md: var(--nm-radius-md);
   --radius-lg: var(--nm-radius-lg);
 
-  /* Hard offset shadows — the Bold Grid signature. */
-  --shadow-hard-sm: 3px 3px 0 0 var(--nm-ink);
-  --shadow-hard: 4px 4px 0 0 var(--nm-ink);
-  --shadow-hard-lg: 6px 6px 0 0 var(--nm-ink);
+  --shadow-hard-sm: none;
+  --shadow-hard: none;
+  --shadow-hard-lg: none;
 }
 
-/* Offset display shadows (Archivo headlines). */
 @utility text-shadow-display {
-  text-shadow: 6px 6px 0 var(--nm-accent);
+  text-shadow: none;
 }
 
 @utility text-shadow-section {
-  text-shadow: 4px 4px 0 var(--nm-accent);
+  text-shadow: none;
 }
 
 @layer base {
@@ -59,6 +57,14 @@
   :focus-visible {
     outline: 2px solid var(--nm-accent);
     outline-offset: 2px;
+  }
+
+  h1.font-display,
+  h2.font-display {
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    line-height: 0.96;
   }
 
   /* All numbers in data are mono with tabular figures. */
@@ -82,71 +88,60 @@
 }
 
 @layer components {
-  /* White card with ink border; on hover it lifts and throws a hard shadow. */
   .nm-card {
-    background-color: var(--nm-bg-card);
-    border: 1.5px solid var(--nm-ink);
-    border-radius: var(--nm-radius-lg);
-    transition:
-      transform var(--nm-dur-2) var(--nm-ease-out-expo),
-      box-shadow var(--nm-dur-2) var(--nm-ease-out-expo);
+    background-color: transparent;
+    border: 1px solid color-mix(in srgb, var(--nm-ink) 16%, transparent);
+    border-radius: 0;
   }
 
   .nm-card-hover:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 4px 4px 0 0 var(--nm-ink);
+    border-color: var(--nm-accent);
   }
 
-  /* Slab buttons. */
   .nm-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    border: 1.5px solid var(--nm-ink);
-    border-radius: var(--nm-radius-md);
-    padding: 14px 26px;
-    font-family: var(--nm-font-body);
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    border: 0;
+    border-radius: 0;
+    padding: 12px 18px;
+    font-family: var(--nm-font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
-    transition:
-      transform var(--nm-dur-1) ease,
-      box-shadow var(--nm-dur-1) ease;
   }
 
   .nm-btn:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 0 var(--nm-ink);
+    background-color: var(--nm-bg-paper);
   }
 
   .nm-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 0 0 0 0 var(--nm-ink);
+    opacity: 0.85;
   }
 
   .nm-btn-solid {
     background-color: var(--nm-accent);
     color: var(--nm-on-accent);
-    box-shadow: 4px 4px 0 0 var(--nm-ink);
   }
 
   .nm-btn-outline {
     background-color: transparent;
     color: var(--nm-ink);
-    box-shadow: 4px 4px 0 0 var(--nm-line-soft);
+    border: 1px solid color-mix(in srgb, var(--nm-ink) 40%, transparent);
   }
 
   .nm-field {
     width: 100%;
-    border: 1.5px solid var(--nm-ink);
-    border-radius: var(--nm-radius-md);
-    background-color: var(--nm-bg-paper);
+    border: 1px solid color-mix(in srgb, var(--nm-ink) 22%, transparent);
+    border-radius: 0;
+    background-color: transparent;
     color: var(--nm-ink);
     padding: 10px 12px;
     font-family: var(--nm-font-body);
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.45;
   }
 
@@ -154,48 +149,43 @@
     opacity: 0.55;
   }
 
-  /* Verdict sticker — solid verdict color, white uppercase display text,
-     slight rotation. Semantic: never recolor for non-verdict UI. */
   .nm-sticker {
     display: inline-block;
-    padding: 7px 13px;
-    border-radius: var(--nm-radius-sm);
-    font-family: var(--nm-font-display);
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border: 1px solid currentColor;
+    font-family: var(--nm-font-mono);
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--nm-on-accent);
     white-space: nowrap;
-    transform: rotate(-2deg);
   }
 
   .nm-sticker-ship {
-    background-color: var(--nm-verdict-ship);
+    color: var(--nm-verdict-ship);
+    background: transparent;
   }
 
   .nm-sticker-situational {
-    background-color: var(--nm-verdict-situational);
-    transform: rotate(1.5deg);
+    color: var(--nm-verdict-situational);
+    background: transparent;
   }
 
   .nm-sticker-skip {
-    background-color: var(--nm-verdict-skip);
+    color: var(--nm-verdict-skip);
+    background: transparent;
   }
 
-  /* Ledger "VERIFIED <date>" stamp — mono, framed, slight rotation. */
   .nm-verified {
     display: inline-block;
-    padding: 4px 8px;
-    border: 1.5px solid var(--nm-accent);
-    border-radius: var(--nm-radius-sm);
+    padding: 3px 8px;
+    border: 1px solid var(--nm-accent);
     font-family: var(--nm-font-mono);
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--nm-accent);
-    transform: rotate(-1.5deg);
   }
 
   /* Stale floor rows — dust, not mourning. */
@@ -267,11 +257,10 @@
     margin-top: var(--nm-space-12);
     margin-bottom: var(--nm-space-4);
     font-family: var(--nm-font-display);
-    font-weight: 800;
+    font-weight: 500;
     font-size: 1.75rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
   }
 
   .nm-prose p,
@@ -329,5 +318,15 @@
     .nm-btn:active {
       transform: none;
     }
+  }
+}
+
+/* 2.0 display: same layer as Tailwind utilities, later — beats uppercase/black. */
+@layer utilities {
+  .font-display {
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    text-shadow: none;
   }
 }

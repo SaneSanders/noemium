@@ -140,7 +140,7 @@ const disputePrompt = [
     </p>
     <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
       <LogoTile slug={tool.id} name={t.name} src={logo} size="lg" />
-      <h1 class="text-shadow-section font-display text-5xl leading-[0.98] font-black tracking-tight uppercase md:text-7xl">{t.name}</h1>
+      <h1 class="font-display text-5xl leading-[0.98] font-medium tracking-tight md:text-7xl">{t.name}</h1>
       <VerdictBadge verdict={t.verdict} class="text-sm" />
       <ShiftArrow momentum={t.momentum} class="h-6 w-6" />
     </div>
@@ -170,7 +170,7 @@ const disputePrompt = [
           <a
             href={t.url}
             rel="noopener"
-            class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-medium text-ink transition-all duration-100 hover:-translate-0.5 hover:shadow-hard-sm"
+            class="border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] px-2 py-1 font-medium text-ink hover:border-accent"
           >
             Visit without referral
             <span class="ml-1.5 text-[10px] tracking-[0.12em] text-ink-dim uppercase">{hostname(t.url)}</span>
@@ -442,7 +442,7 @@ const disputePrompt = [
                 {
                   [tool, ...related].map((row) => (
                     <tr class="border-b border-line-soft last:border-b-0">
-                      <th scope="row" class="p-3 text-left font-display text-[15px] font-extrabold tracking-tight">
+                      <th scope="row" class="p-3 text-left font-display text-[15px] font-medium tracking-tight">
                         {row.id === tool.id ? (
                           row.data.name
                         ) : (

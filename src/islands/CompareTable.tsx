@@ -249,7 +249,7 @@ export default function CompareTable() {
                     <div class="flex items-start justify-between gap-2">
                       <a
                         href={`/tools/${t.slug}/`}
-                        class="flex items-center gap-2 font-display text-lg font-extrabold tracking-tight text-ink hover:text-accent"
+                        class="flex items-center gap-2 font-display text-lg font-medium tracking-tight text-ink hover:text-accent"
                       >
                         <LogoMark src={t.logo} name={t.name} size="sm" />
                         {t.name}

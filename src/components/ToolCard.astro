@@ -47,7 +47,7 @@ const flags = [t.open_source && 'OSS', t.api && 'API', t.free_tier && 'FREE TIER
     </div>
     <div class="mt-4 flex items-center gap-3">
       <LogoTile slug={tool.id} name={t.name} size="md" />
-      <h3 class="min-w-0 font-display text-2xl font-extrabold tracking-tight text-ink group-hover:text-accent">
+      <h3 class="min-w-0 font-display text-2xl font-medium tracking-tight text-ink group-hover:text-accent">
         {t.name}
         {t.featured && (
           <span
@@ -64,7 +64,7 @@ const flags = [t.open_source && 'OSS', t.api && 'API', t.free_tier && 'FREE TIER
       flags.length > 0 && (
         <p class="mt-4 flex flex-wrap gap-1.5">
           {flags.map((flag) => (
-            <span class="rounded-sm border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-medium tracking-wider text-ink">
+            <span class="border border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] px-2 py-1 font-mono text-[10px] tracking-[0.12em] text-ink uppercase">
               {flag}
             </span>
           ))}

@@ -83,20 +83,20 @@ export default function ProofDrawer() {
       aria-modal="true"
       aria-label="Verification proof"
     >
-      <div class="max-h-[88vh] w-full max-w-lg overflow-y-auto rounded-t-lg border-[1.5px] border-ink bg-card shadow-hard-lg sm:rounded-lg">
-        <div class="flex items-start justify-between gap-4 border-b-[1.5px] border-ink px-5 py-4">
+      <div class="max-h-[88vh] w-full max-w-lg overflow-y-auto border border-[color-mix(in_srgb,var(--nm-ink)_16%,transparent)] bg-paper">
+        <div class="flex items-start justify-between gap-4 border-b border-[color-mix(in_srgb,var(--nm-ink)_12%,transparent)] px-5 py-4">
           <div>
             <p class="font-mono text-[11px] font-bold tracking-[0.14em] text-accent uppercase">
               proof drawer
             </p>
-            <h2 class="mt-1 font-display text-2xl font-extrabold tracking-tight">
+            <h2 class="mt-1 font-display text-2xl font-medium tracking-tight">
               {entry?.name ?? slug}
             </h2>
           </div>
           <button
             type="button"
             onClick={() => setSlug(null)}
-            class="rounded-md border-[1.5px] border-ink px-2 py-1 font-mono text-xs text-ink hover:border-accent hover:text-accent"
+            class="border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] px-2 py-1 font-mono text-xs text-ink hover:border-accent hover:text-accent"
             aria-label="Close proof drawer"
           >
             esc

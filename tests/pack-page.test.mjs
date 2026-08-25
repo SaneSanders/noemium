@@ -41,5 +41,5 @@ test('Inbox Desk page stays a free-to-read studio SKU', () => {
   assert.doesNotMatch(html, /buy now|add to cart|checkout/i);
   assert.doesNotMatch(html, /offers|priceCurrency|unit_price/i);
   assert.match(html, /isAccessibleForFree/);
-  assert.match(built('index.html'), /href="\/pack\/"/);
+  assert.match(built('reference/index.html'), /href="\/pack\/"/);
 });

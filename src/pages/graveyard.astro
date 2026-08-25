@@ -43,13 +43,13 @@ function successorHref(d: (typeof dead)[number]['data']['succeeded_by']): string
               <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink-dim uppercase">
                 {d.data.category}
               </span>
-              <span class="inline-block -rotate-1 border-[1.5px] border-ink px-2 py-1 font-mono text-[11px] font-semibold tracking-[0.12em] text-ink uppercase">
+              <span class="inline-block border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] px-2 py-1 font-mono text-[11px] font-semibold tracking-[0.12em] text-ink uppercase">
                 died {d.data.died}
               </span>
             </div>
             <div class="flex items-center gap-3">
               <LogoTile slug={d.id} name={d.data.name} size="md" />
-              <h2 class="font-display text-3xl font-extrabold tracking-tight uppercase">{d.data.name}</h2>
+              <h2 class="font-display text-3xl font-medium tracking-tight">{d.data.name}</h2>
             </div>
             <p class="text-[15px] leading-relaxed text-ink opacity-85">{d.data.obituary}</p>
             <div class="mt-auto border-t-[1.5px] border-line-soft pt-4">

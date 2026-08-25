@@ -1,0 +1,32 @@
+---
+interface Props {
+  page?: 'home' | 'map' | 'autopsy' | 'signals' | 'reference' | 'method' | '';
+}
+
+const { page = '' } = Astro.props;
+
+const doors = [
+  { id: 'map', href: '/map/', label: 'Map' },
+  { id: 'autopsy', href: '/autopsy/', label: 'Autopsy' },
+  { id: 'signals', href: '/signals/', label: 'Signals' },
+  { id: 'reference', href: '/reference/', label: 'Reference' },
+  { id: 'method', href: '/method/', label: 'Method' },
+] as const;
+---
+
+<header class="mast" data-shell="1">
+  <a class="brand" href="/">
+    <img src="/nema-mast.png" alt="" width="22" height="22" />
+    Noemium
+  </a>
+  <nav aria-label="Primary">
+    {
+      doors.map((d) => (
+        <a href={d.href} aria-current={d.id === page ? 'page' : undefined}>
+          {d.label}
+        </a>
+      ))
+    }
+  </nav>
+  <slot name="end" />
+</header>
