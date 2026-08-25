@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T08:07:08.918Z",
+  "generated_at": "2026-08-25T09:05:41.731Z",
   "weeks": [
     {
       "id": "2026-W35",
@@ -8,7 +8,7 @@
       "counts": {
         "added": 18,
         "removed": 0,
-        "changed": 18
+        "changed": 21
       },
       "added": [
         {
@@ -117,6 +117,31 @@
       ],
       "removed": [],
       "changed": [
+        {
+          "collection": "models",
+          "slug": "gpt-5-6-sol",
+          "name": "GPT-5.6 Sol",
+          "field": "input $/Mtok",
+          "from": 5,
+          "to": 4
+        },
+        {
+          "collection": "models",
+          "slug": "gpt-5-6-sol",
+          "name": "GPT-5.6 Sol",
+          "field": "output $/Mtok",
+          "from": 30,
+          "to": 20
+        },
+        {
+          "collection": "tools",
+          "slug": "openai-api",
+          "name": "OpenAI API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); no free tier",
+          "to": "pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); GPT-5.6 Sol promotional $4/$20 at least through 2026-11-21 (list $5/$30); no free tier"
+        },
         {
           "collection": "tools",
           "slug": "21st-dev",
@@ -287,6 +312,20 @@
         }
       ],
       "risk": [
+        {
+          "class": "price_change",
+          "collection": "models",
+          "slug": "gpt-5-6-sol",
+          "name": "GPT-5.6 Sol",
+          "detail": "input $/Mtok: 5 → 4"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "openai-api",
+          "name": "OpenAI API",
+          "detail": "price note: pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); no free tier → pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); GPT-5.6 Sol promotional $4/$20 at least through 2026-11-21 (list $5/$30); no free tier"
+        },
         {
           "class": "price_change",
           "collection": "tools",
@@ -1088,6 +1127,15 @@
       "changed": [
         {
           "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding",
+          "field": "price note",
+          "from": "from $20/mo (Pro)",
+          "to": "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
+        },
+        {
+          "collection": "tools",
           "slug": "activepieces",
           "name": "Activepieces",
           "category": "automation",
@@ -1283,15 +1331,6 @@
           "field": "price note",
           "from": "extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA)",
           "to": "extension/CLI free for individuals (BYOK or Cline inference at cost); optional ClinePass $9.99/mo for open-weight models; Enterprise custom (SSO, JetBrains, SLA)"
-        },
-        {
-          "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "category": "coding",
-          "field": "price note",
-          "from": "from $20/mo (Pro)",
-          "to": "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
         },
         {
           "collection": "tools",
@@ -1897,6 +1936,13 @@
         {
           "class": "price_change",
           "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "detail": "price note: from $20/mo (Pro) → Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
           "slug": "activepieces",
           "name": "Activepieces",
           "detail": "price note: Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Community Edition self-host free (core flows only) → Free $0 (daily credits, 1 user); Plus $16/mo billed yearly; Team $166/mo billed yearly; Ultimate custom; Community Edition self-host free (core flows only)"
@@ -2026,13 +2072,6 @@
           "slug": "cline",
           "name": "Cline",
           "detail": "price note: extension/CLI free for individuals (BYOK or Cline inference at cost); Enterprise custom (SSO, JetBrains, SLA) → extension/CLI free for individuals (BYOK or Cline inference at cost); optional ClinePass $9.99/mo for open-weight models; Enterprise custom (SSO, JetBrains, SLA)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "detail": "price note: from $20/mo (Pro) → Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
         },
         {
           "class": "price_change",
@@ -2419,6 +2458,18 @@
       "added": [
         {
           "collection": "tools",
+          "slug": "openai-api",
+          "name": "OpenAI API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
           "slug": "21st-dev",
           "name": "21st.dev",
           "category": "design"
@@ -2565,12 +2616,6 @@
           "collection": "tools",
           "slug": "claude-code",
           "name": "Claude Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
           "category": "coding"
         },
         {
@@ -2803,12 +2848,6 @@
         },
         {
           "collection": "tools",
-          "slug": "openai-api",
-          "name": "OpenAI API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
           "slug": "openai-responses",
           "name": "OpenAI Responses API",
           "category": "agents"
@@ -3021,13 +3060,13 @@
         },
         {
           "collection": "models",
-          "slug": "gpt-5-6-luna",
-          "name": "GPT-5.6 Luna"
+          "slug": "gpt-5-4-mini",
+          "name": "GPT-5.4 mini"
         },
         {
           "collection": "models",
-          "slug": "gpt-5-6-sol",
-          "name": "GPT-5.6 Sol"
+          "slug": "gpt-5-6-luna",
+          "name": "GPT-5.6 Luna"
         },
         {
           "collection": "models",
@@ -3636,6 +3675,15 @@
       "changed": [
         {
           "collection": "tools",
+          "slug": "openai-api",
+          "name": "OpenAI API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "GPT-5 $1.25/1M input, $10/1M output; mini from $0.25/1M input",
+          "to": "pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); no free tier"
+        },
+        {
+          "collection": "tools",
           "slug": "ideogram",
           "name": "Ideogram",
           "category": "image",
@@ -3821,15 +3869,6 @@
           "field": "price note",
           "from": "self-host free; cloud from ~$24/mo (Starter)",
           "to": "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "openai-api",
-          "name": "OpenAI API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "GPT-5 $1.25/1M input, $10/1M output; mini from $0.25/1M input",
-          "to": "pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); no free tier"
         },
         {
           "collection": "tools",
@@ -4214,11 +4253,11 @@
         },
         {
           "collection": "models",
-          "slug": "gpt-5-4-mini",
-          "name": "GPT-5.4 mini",
+          "slug": "gpt-5-6-sol",
+          "name": "GPT-5.6 Sol",
           "field": "replaced",
           "from": "GPT-5",
-          "to": "GPT-5.4 mini"
+          "to": "GPT-5.6 Sol"
         },
         {
           "collection": "models",
@@ -4271,6 +4310,13 @@
         }
       ],
       "risk": [
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "openai-api",
+          "name": "OpenAI API",
+          "detail": "price note: GPT-5 $1.25/1M input, $10/1M output; mini from $0.25/1M input → pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); no free tier"
+        },
         {
           "class": "price_change",
           "collection": "tools",
@@ -4410,13 +4456,6 @@
           "slug": "n8n",
           "name": "n8n",
           "detail": "price note: self-host free; cloud from ~$24/mo (Starter) → self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "openai-api",
-          "name": "OpenAI API",
-          "detail": "price note: GPT-5 $1.25/1M input, $10/1M output; mini from $0.25/1M input → pay-as-you-go, from $0.20/1M input (GPT-5.6 Luna); no free tier"
         },
         {
           "class": "price_change",

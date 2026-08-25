@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T08:07:09.671Z",
+  "generated_at": "2026-08-25T09:05:42.491Z",
   "started_tracking": "2026-08-15",
   "models": [
     {
@@ -267,6 +267,12 @@
           "date": "2026-08-15",
           "in": 5,
           "out": 30,
+          "unit": "mtok"
+        },
+        {
+          "date": "2026-08-25",
+          "in": 4,
+          "out": 20,
           "unit": "mtok"
         }
       ]
