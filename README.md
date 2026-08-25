@@ -76,9 +76,21 @@ Other commands:
 npm run build      # static build to dist/
 npm run check      # astro check (types)
 npm run validate   # validate all content entries (CI-friendly)
-npm test           # unit tests (schemas, surfaces, kit, logos)
+npm test           # unit tests (schemas, surfaces, kit, logos, harvest)
 npm run test:dist  # dist assertions (run after build)
+npm run harvest    # observe the world (status/RSS/GitHub/prices/freshness) → reports/harvest/
 ```
+
+## Harvest
+
+The catalog stays honest only if something watches the world. Harvest is
+that watcher. It does **not** patch YAML.
+
+- **Registry:** `src/data/harvest-sources.yaml` — what we fetch, how often, how we match it.
+- **Actions (Mondays 08:00 UTC):** deterministic collectors. Statuspage JSON, RSS, GitHub API, LiteLLM/Helicone prices, stale `last_verified`. Writes an artifact and a single rolling issue, `harvest: world watch`. No content commit. No paid keys.
+- **Judgement (local):** read `reports/harvest/latest.md`, follow `scripts/harvest-judge.md`, open a content PR. Merge publishes.
+
+Existing jobs stay: `stale-check` (adopt-a-page issues), `link-check` (dead receipts), `content-data-refresh` (git-derived changelog / price-history). Harvest watches **outside** the repo.
 
 ## Content structure
 

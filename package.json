@@ -11,7 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "test": "node --test tests/content-schemas.test.mjs tests/agent-content.test.mjs tests/shelf.test.mjs tests/catalog-surfaces.test.mjs tests/logos.test.mjs tests/kit.test.mjs tests/briefing-coverage.test.mjs tests/risk.test.mjs",
+    "test": "node --test tests/content-schemas.test.mjs tests/agent-content.test.mjs tests/shelf.test.mjs tests/catalog-surfaces.test.mjs tests/logos.test.mjs tests/kit.test.mjs tests/briefing-coverage.test.mjs tests/risk.test.mjs tests/harvest.test.mjs",
     "test:dist": "node --test tests/agent-pages.test.mjs tests/pack-page.test.mjs tests/catalog-pages.test.mjs tests/cover-pages.test.mjs",
     "test:all": "node --test tests/*.test.mjs",
     "validate": "node scripts/validate-content.mjs",
@@ -19,7 +19,9 @@
     "price-history": "node scripts/price-history.mjs",
     "fetch-models": "node scripts/fetch-model-data.mjs",
     "fetch-logos": "node scripts/fetch-logos.mjs",
-    "link-check": "node scripts/link-check.mjs"
+    "link-check": "node scripts/link-check.mjs",
+    "harvest": "node scripts/harvest.mjs run",
+    "harvest:brief": "node scripts/harvest.mjs brief"
   },
   "dependencies": {
     "@astrojs/preact": "^6.0.2",

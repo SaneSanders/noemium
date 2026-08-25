@@ -1,0 +1,143 @@
+# Harvest source registry — what we watch, how often, from where.
+# Collectors observe. They never write verdicts or last_verified.
+# HTML changelog scrapers are out of v1: layout changes are not deterministic.
+# GitHub releases + RSS cover the same job for now.
+version: 1
+stale_days: 60
+rss_lookback_days: 7
+kinds:
+  github: true
+  status: true
+  rss: true
+  models: true
+  freshness: true
+
+github:
+  derive_from_catalog: true
+  overrides: []
+
+status_pages:
+  - id: openai
+    name: OpenAI
+    url: https://status.openai.com/api/v2/status.json
+    related: [chatgpt, openai-api, openai-codex, openai-agents-sdk, openai-responses]
+  - id: anthropic
+    name: Anthropic
+    url: https://status.anthropic.com/api/v2/status.json
+    related: [claude, claude-code]
+  - id: github
+    name: GitHub
+    url: https://www.githubstatus.com/api/v2/status.json
+    related: [github-copilot]
+  - id: cursor
+    name: Cursor
+    url: https://status.cursor.com/api/v2/status.json
+    related: [cursor]
+  - id: vercel
+    name: Vercel
+    url: https://www.vercel-status.com/api/v2/status.json
+    related: [v0, v0-dev]
+  - id: groq
+    name: Groq
+    url: https://groqstatus.com/api/v2/status.json
+    related: [groq]
+  - id: replicate
+    name: Replicate
+    url: https://www.replicatestatus.com/api/v2/status.json
+    related: [replicate]
+  - id: cloudflare
+    name: Cloudflare
+    url: https://www.cloudflarestatus.com/api/v2/status.json
+    related: [cloudflare-vibesdk]
+  - id: elevenlabs
+    name: ElevenLabs
+    url: https://status.elevenlabs.io/api/v2/status.json
+    related: [elevenlabs]
+  - id: notion
+    name: Notion
+    url: https://www.notion-status.com/api/v2/status.json
+    related: [notion-ai, notion-calendar]
+
+rss:
+  - id: openai-news
+    name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    related: [chatgpt, openai-api, openai-codex]
+  - id: huggingface-blog
+    name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+    related: [hugging-face]
+  - id: github-ai
+    name: GitHub Blog (AI)
+    url: https://github.blog/ai-and-ml/feed/
+    related: [github-copilot]
+  - id: google-ai
+    name: Google AI Blog
+    url: https://blog.google/innovation-and-ai/technology/ai/rss/
+    related: []
+
+models:
+  sources:
+    helicone: https://www.helicone.ai/api/llm-costs
+    litellm: https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json
+  # LiteLLM / Helicone keys — same matching as scripts/fetch-model-data.mjs.
+  # Empty litellm means "do not compare; reseller listings lie".
+  match:
+    - slug: gpt-5-6-sol
+      litellm: [gpt-5.6-sol]
+      context_override: 1050000
+    - slug: gpt-5-6-terra
+      litellm: [gpt-5.6-terra]
+      context_override: 1050000
+    - slug: gpt-5-6-luna
+      litellm: [gpt-5.6-luna]
+      context_override: 1050000
+    - slug: gpt-5-4-mini
+      litellm: [gpt-5.4-mini]
+      context_override: 400000
+    - slug: claude-fable-5
+      litellm: [claude-fable-5]
+    - slug: claude-opus-5
+      litellm: [claude-opus-5]
+    - slug: claude-sonnet-5
+      litellm: [claude-sonnet-5]
+    - slug: claude-haiku-4-5
+      litellm: [claude-haiku-4-5]
+    - slug: gemini-3-1-pro-preview
+      litellm: [gemini-3.1-pro-preview]
+    - slug: gemini-3-7-flash
+      litellm: [gemini-3.7-flash]
+    - slug: gemini-3-5-flash-lite
+      litellm: [gemini-3.5-flash-lite]
+    - slug: deepseek-v4-pro
+      litellm: []
+    - slug: deepseek-v4-flash
+      litellm: []
+    - slug: kimi-k3
+      litellm: []
+    - slug: grok-4-6
+      litellm: []
+    - slug: grok-build-0-1
+      litellm: [xai/grok-build-0.1]
+    - slug: muse-spark-1-2
+      litellm: []
+    - slug: qwen3-8-max
+      litellm: [dashscope/qwen3.8-max]
+      context_override: 1000000
+    - slug: glm-5-2
+      litellm: [dashscope/glm-5.2]
+    - slug: minimax-m3
+      litellm: [minimax/MiniMax-M3]
+    - slug: mistral-large-2512
+      litellm: [mistral/mistral-large-2512]
+    - slug: llama-4-maverick
+      litellm: [groq/meta-llama/llama-4-maverick-17b-128e-instruct]
+      context_override: 1000000
+    - slug: veo-3-1-generate
+      litellm: []
+    - slug: eleven-v3
+      litellm: []
+    - slug: flux-2-pro
+      litellm: []
+    - slug: whisper-v3
+      litellm: [groq/whisper-large-v3]
