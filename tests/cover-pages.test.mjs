@@ -25,8 +25,8 @@ test('cover home is the night hero, not the old floor', () => {
   assert.match(html, />Map</);
   assert.match(html, />Autopsy</);
   assert.match(html, />Catalog</);
-  assert.match(html, />Signals</);
   assert.match(html, />Method</);
+  assert.doesNotMatch(html, />Signals</);
   assert.doesNotMatch(html, /Agent Field Guide/);
   mastDoors(html);
 });

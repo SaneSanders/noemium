@@ -19,7 +19,7 @@ const items = [
   <nav class="mast-nav" aria-label="Primary">
     {
       items.map((d) =>
-        d.brand ? (
+        'brand' in d ? (
           <a class="brand" href={d.href}>
             {d.label}
           </a>
