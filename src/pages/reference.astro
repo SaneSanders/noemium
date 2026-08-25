@@ -1,5 +1,25 @@
 ---
+import { getCollection } from 'astro:content';
 import Cover from '../layouts/Cover.astro';
+import { plural } from '../lib/shelf';
+
+const [tools, models, stacks, agents, jobs, graveyard] = await Promise.all([
+  getCollection('tools'),
+  getCollection('models'),
+  getCollection('stacks'),
+  getCollection('agents'),
+  getCollection('jobs'),
+  getCollection('graveyard'),
+]);
+
+const counts = {
+  tools: tools.length,
+  models: models.length,
+  stacks: stacks.length,
+  agents: agents.length,
+  jobs: jobs.length,
+  graveyard: graveyard.length,
+};
 ---
 
 <Cover
@@ -12,17 +32,18 @@ import Cover from '../layouts/Cover.astro';
       <h1>Catalog</h1>
     </section>
     <div class="cover-doors">
-      <a class="cover-door" href="/tools/"><b>Tools</b><span>Verdicts and prices</span></a>
-      <a class="cover-door" href="/models/"><b>Models</b><span>Prices and sunsets</span></a>
-      <a class="cover-door" href="/stacks/"><b>Stacks</b><span>Recipes with a cheaper cut</span></a>
-      <a class="cover-door" href="/agents/"><b>Agents</b><span>Field guide</span></a>
-      <a class="cover-door" href="/jobs/"><b>Jobs</b><span>One job, one pick</span></a>
-      <a class="cover-door" href="/graveyard/"><b>Graveyard</b><span>Dead, with a receipt</span></a>
+      <a class="cover-door" href="/tools/"><b>Tools</b><span>{plural(counts.tools, 'tool')} · verdicts and prices</span></a>
+      <a class="cover-door" href="/models/"><b>Models</b><span>{plural(counts.models, 'model')} · prices and sunsets</span></a>
+      <a class="cover-door" href="/stacks/"><b>Stacks</b><span>{plural(counts.stacks, 'stack')} · recipes with a cheaper cut</span></a>
+      <a class="cover-door" href="/agents/"><b>Agents</b><span>{plural(counts.agents, 'agent')} · field guide</span></a>
+      <a class="cover-door" href="/jobs/"><b>Jobs</b><span>{plural(counts.jobs, 'job')} · one job, one pick</span></a>
+      <a class="cover-door" href="/graveyard/"><b>Graveyard</b><span>{plural(counts.graveyard, 'grave')} · dead, with a receipt</span></a>
       <a class="cover-door" href="/changelog/"><b>Changelog</b><span>What we wrote this week</span></a>
       <a class="cover-door" href="/prices/"><b>Prices</b><span>Git, not a ticker</span></a>
       <a class="cover-door" href="/free/"><b>Free</b><span>Free, self-host, bait</span></a>
       <a class="cover-door" href="/kit/"><b>Kit</b><span>A set in a URL. Not a budget.</span></a>
       <a class="cover-door" href="/pack/"><b>Inbox Desk</b><span>Prompt pack</span></a>
+      <a class="cover-door" href="/alternatives/"><b>Alternatives</b><span>Same job, different pick</span></a>
     </div>
   </div>
 </Cover>

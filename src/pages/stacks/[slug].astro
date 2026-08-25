@@ -6,6 +6,7 @@ import Base from '../../layouts/Base.astro';
 import CopyButton from '../../components/CopyButton.astro';
 import { logoSrc } from '../../lib/logos';
 import LogoTile from '../../components/LogoTile.astro';
+import { hostname } from '../../lib/shelf';
 
 export const getStaticPaths = (async () => {
   const stacks = await getCollection('stacks');
@@ -52,13 +53,6 @@ const markdown = [
   `via ${pageUrl}`,
 ].join('\n');
 
-const hostname = (url: string) => {
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return url;
-  }
-};
 ---
 
 <Base title={s.title} description={s.use_case} ogImage={`/og/stacks/${stack.id}.png`}>

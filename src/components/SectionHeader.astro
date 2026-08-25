@@ -11,5 +11,10 @@ const { title, sub } = Astro.props;
   <h1>
     <slot>{title}</slot>
   </h1>
-  {sub && <p>{sub}</p>}
+  {sub && (
+    <p>
+      {sub}
+      <slot name="sub" />
+    </p>
+  )}
 </header>

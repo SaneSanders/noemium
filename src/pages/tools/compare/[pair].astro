@@ -8,6 +8,7 @@ import ShiftArrow from '../../../components/ShiftArrow.astro';
 import LogoTile from '../../../components/LogoTile.astro';
 import { COMPARE_PAIRS } from '../../../data/compare-presets';
 import type { Tool } from '../../../content-schemas';
+import { hostname } from '../../../lib/shelf';
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection('tools');
@@ -36,14 +37,6 @@ const { a, b } = Astro.props;
 const da = a.data;
 const db = b.data;
 const liveHref = `/tools/compare/?tools=${a.id},${b.id}`;
-
-const hostname = (url: string) => {
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return url;
-  }
-};
 
 const yesNo = (v: boolean) => (v ? 'yes' : 'no');
 

@@ -241,11 +241,11 @@ export default function CompareTable() {
           <table class="w-full min-w-[640px] border-collapse bg-card text-left">
             <thead>
               <tr class="border-b-[1.5px] border-ink">
-                <th class="sticky left-0 w-36 bg-card p-3 font-mono text-[13px] font-medium tracking-[0.12em] text-ink-dim uppercase">
+                <th scope="col" class="sticky left-0 w-36 bg-card p-3 font-mono text-[13px] font-medium tracking-[0.12em] text-ink-dim uppercase">
                   field
                 </th>
                 {selected.map((t) => (
-                  <th key={t.slug} class="min-w-48 p-3 align-top">
+                  <th scope="col" key={t.slug} class="min-w-48 p-3 align-top">
                     <div class="flex items-start justify-between gap-2">
                       <a
                         href={`/tools/${t.slug}/`}

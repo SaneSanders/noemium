@@ -237,7 +237,8 @@ export default function FilterBar() {
           type="search"
           value={filters.q}
           onInput={(e) => update({ ...filters, q: (e.target as HTMLInputElement).value })}
-          placeholder="Search the catalog…  ( / )"
+          placeholder="Search the catalog…"
+          aria-keyshortcuts="/"
           class="w-full border border-[color-mix(in_srgb,var(--nm-ink)_22%,transparent)] bg-transparent px-4 py-3 font-mono text-sm text-ink placeholder:text-ink-dim focus:border-accent focus:outline-none"
         />
 

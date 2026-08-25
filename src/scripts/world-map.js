@@ -366,6 +366,9 @@ function draw() {
       class: `node n-${n.band}` + (n.fresh ? ' fresh' : '')
         + (myStack.has(n.slug) ? ' mine' : ''),
       'data-slug': n.slug,
+      tabindex: '0',
+      role: 'link',
+      'aria-label': n.name,
     });
     g.appendChild(el('circle', { cx: n.x, cy: n.y, r: 11, class: 'hit' }));
 
@@ -398,6 +401,15 @@ function draw() {
 
     g.addEventListener('mouseenter', (e) => showNode(n, e));
     g.addEventListener('mouseleave', hideCard);
+    g.addEventListener('focusin', () => { showNode(n, null); placeNear(g); });
+    g.addEventListener('focusout', hideCard);
+    g.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const path = n.kind === 'dead' ? 'graveyard' : `tools/${n.slug}`;
+        location.href = `/${path}/`;
+      }
+    });
     g.addEventListener('click', () => {
       const path = n.kind === 'dead' ? 'graveyard' : `tools/${n.slug}`;
       location.href = `/${path}/`;
@@ -567,13 +579,18 @@ function applyFilter() {
 
 // ---------------------------------------------------------------- card
 const card = document.getElementById('card');
-function place(e) {
+function placeAt(x, y) {
   const w = 300, pad = 14;
-  let x = e.clientX + 18, y = e.clientY + 14;
-  if (x + w + pad > innerWidth) x = e.clientX - w - 18;
-  if (y + 200 > innerHeight) y = innerHeight - 210;
-  card.style.left = x + 'px';
-  card.style.top = y + 'px';
+  let left = x + 18, top = y + 14;
+  if (left + w + pad > innerWidth) left = x - w - 18;
+  if (top + 200 > innerHeight) top = innerHeight - 210;
+  card.style.left = left + 'px';
+  card.style.top = top + 'px';
+}
+function place(e) { placeAt(e.clientX, e.clientY); }
+function placeNear(el) {
+  const rect = el.getBoundingClientRect();
+  placeAt(rect.right, rect.top);
 }
 function showNode(n, e) {
   const band = { sky: 'unsettled', land: 'solid ground', crust: 'we looked, no', under: 'buried' }[n.band];
@@ -589,7 +606,7 @@ function showNode(n, e) {
       ${n.fresh ? '<span class="tag">new this week</span>' : ''}
       ${n.last_verified ? `<span class="tag">verified ${n.last_verified}</span>` : ''}
     </div>`;
-  place(e);
+  if (e) place(e);
   card.classList.add('on');
 }
 function showStar(s, e) {

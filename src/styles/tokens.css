@@ -26,6 +26,8 @@
   --nm-cream: #f3efe4;
   /* Poster field — ink night, not Hermes' blue and not void black. */
   --nm-deep: #0d1f4b;
+  /* Deepened ink-night for the map tooltip's hard offset shadow. */
+  --nm-shadow: #081635;
   --nm-warn: #ff6b3d;
   --nm-mast-h: 88px;
   --nm-page-x: 28px;

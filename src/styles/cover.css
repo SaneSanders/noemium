@@ -60,6 +60,12 @@
   transform: translateY(-50%);
   z-index: 3;
 }
+
+@media (min-width: 1024px) {
+  .mast.mast-has-end .mast-nav {
+    padding-right: calc(clamp(16px, 3vw, 40px) + 176px);
+  }
+}
 .mast-nav a {
   text-align: center;
   text-decoration: none;
@@ -254,7 +260,7 @@
     padding: 16px var(--nm-page-x) 14px;
   }
   .mast:not(:has(#nm-nav-open)) .mast-nav {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     row-gap: 10px;
   }
   .mast:not(:has(#nm-nav-open)) .brand {
@@ -338,6 +344,29 @@
   color: var(--nm-field);
   display: block;
 }
+.hero .foot {
+  position: absolute;
+  left: var(--nm-page-x);
+  right: var(--nm-page-x);
+  bottom: 22px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--nm-deep) 78%, transparent);
+}
+.hero .foot p { margin: 0; max-width: 56ch; }
+.hero .foot-doors { display: flex; gap: 20px; flex: 0 0 auto; }
+.hero .foot-doors a {
+  color: var(--nm-deep);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.hero .foot-doors a:hover { color: var(--nm-field); }
 
 @media (max-width: 800px) {
   .hero .moon { display: none; }
@@ -346,6 +375,22 @@
     height: calc(100vh - var(--nm-mast-h) - 108px - 6vh);
   }
   .hero .punch { font-size: clamp(24px, 7vw, 34px); max-width: 94vw; }
+  .hero .foot {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .hero .foot p {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
 }
 
 /* ---- map ---- */
@@ -358,6 +403,11 @@
   flex-direction: column;
   gap: 10px;
   max-width: 460px;
+}
+@media (min-width: 1024px) {
+  .cover-night .controls {
+    left: 156px;
+  }
 }
 .cover-night .find {
   display: flex;
@@ -474,7 +524,7 @@
 .node.hit-match .mk { stroke: var(--nm-field); }
 .node.mine .mk { fill: var(--nm-field); stroke: var(--nm-field); }
 .node.mine .halo { fill: none; stroke: var(--nm-field); stroke-width: 1.2; opacity: 0.55; }
-.node.mine .lbl { fill: var(--nm-field) !important; font-weight: 600; }
+.cover-night .node.mine .lbl { fill: var(--nm-field); font-weight: 600; }
 .node.mine.dim { opacity: 0.5; }
 .lbl { font-size: 17px; letter-spacing: 0.02em; pointer-events: none; }
 .n-sky .lbl { fill: color-mix(in srgb, var(--nm-cream) 74%, transparent); }
@@ -501,7 +551,7 @@
   padding: 12px 14px;
   background: var(--nm-deep);
   border: 1px solid color-mix(in srgb, var(--nm-cream) 26%, transparent);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--nm-shadow) 45%, transparent);
   pointer-events: none;
   opacity: 0;
   transition: opacity 90ms linear;
@@ -536,7 +586,7 @@
 }
 .cover-night .card .tag.ship { border-color: var(--nm-field); color: var(--nm-field); }
 .cover-night .card .tag.dead { border-color: color-mix(in srgb, var(--nm-cream) 30%, transparent); text-decoration: line-through; }
-.cover-night .hidden { display: none !important; }
+.cover-night .hidden { display: none; }
 
 @media (max-width: 760px) {
   .cover-night .controls {

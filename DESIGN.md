@@ -134,3 +134,16 @@ sticker animation.
 - **WebGL / Three.js / GSAP.** Removed with the Observatory theme; do not
   reintroduce.
 - **Autoplaying audio.** Ever.
+
+### Cover exceptions
+
+The cover world (home, map, autopsy, signals, reference, method) is always the
+ink-night field in both themes by design. Base catalog pages carry the theme
+toggle; Cover pages intentionally do not flip. Three visual exceptions are
+whitelisted for the cover world only:
+
+- Circular `border-radius` on the hero moon and ground (poster art, not UI
+  chrome).
+- The hard offset shadow on the map tooltip card, tokenized as `--nm-shadow`.
+- The light `backdrop-filter: blur` on the map find-bar, already permitted for
+  map search.

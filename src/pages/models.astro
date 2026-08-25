@@ -35,6 +35,18 @@ const data: ModelRecord[] = models.map((m) => ({
 
 const latestVerified = models.map((m) => m.data.last_verified).sort().at(-1);
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Noemium AI models catalog',
+  itemListElement: data.map((m, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: m.name,
+    url: new URL(`/models/#${m.slug}`, Astro.site).href,
+  })),
+};
+
 // Price audit — models whose prices actually moved since tracking began.
 type Point = { date: string; in: number; out: number; unit: string; amount: number | null };
 const price = (p: Point) =>
@@ -106,4 +118,10 @@ const trackingSince = (priceHistory as { started_tracking: string | null }).star
       Edit the data on GitHub
     </a>
   </p>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')}
+    is:inline
+  />
 </Base>

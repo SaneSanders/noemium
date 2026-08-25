@@ -31,10 +31,15 @@ const jsonLd = {
   title="Tools"
   description={`${plural(data.length, 'tool')} with signed verdicts and named limitations. No pay-to-list — every entry is a pull request you can audit.`}
 >
-  <SectionHeader
-    title="Tools"
-    sub={`${plural(data.length, 'tool')}. / filters this shelf.`}
-  />
+  <SectionHeader title="Tools" sub={`${plural(data.length, 'tool')}. `}>
+    <kbd
+      slot="sub"
+      aria-label="Press / to filter this shelf"
+      class="rounded-sm border-[1.5px] border-ink bg-card px-1.5 py-0.5 font-mono text-xs text-ink"
+    >
+      /
+    </kbd>
+  </SectionHeader>
   <FilterBar client:load />
   <div id="nm-tool-grid" class="mt-5 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     {tools.sort((a, b) => a.data.name.localeCompare(b.data.name)).map((tool) => <ToolCard tool={tool} />)}

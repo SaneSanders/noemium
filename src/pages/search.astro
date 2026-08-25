@@ -90,7 +90,7 @@ const initial = Astro.url.searchParams.get('q') ?? '';
         }
       } catch {
         status.textContent =
-          'Search index is not available until after a production build. Use the command palette (⌘K / Ctrl K) for now.';
+          'Search is unavailable right now — try the command palette (⌘K / Ctrl K).';
       }
     })();
   </script>

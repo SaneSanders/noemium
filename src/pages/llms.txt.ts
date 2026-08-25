@@ -2,7 +2,8 @@ import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
 
 /** llms.txt — curated machine-facing summary: field-tested shelf + jobs + link to full dump. */
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async (context) => {
+  const site = context.site ?? new URL('https://noemium.com');
   const [tools, jobs] = await Promise.all([
     getCollection('tools'),
     getCollection('jobs'),
@@ -19,25 +20,25 @@ export const GET: APIRoute = async () => {
     '> with receipts linked and limitations named next to the praise.',
     '',
     'This is a curated view: the verified shelf (tools we ran hands-on) plus the job guides.',
-    'For the complete catalog dump, see [llms-full.txt](https://noemium.com/llms-full.txt).',
+    `For the complete catalog dump, see [llms-full.txt](${new URL('/llms-full.txt', site).href}).`,
     '',
     '## Verified shelf',
     '',
     ...testedTools.map(
       (tool) =>
-        `- [${tool.data.name}](https://noemium.com/tools/${tool.id}/): ${tool.data.tagline} — ${tool.data.verdict}`,
+        `- [${tool.data.name}](${new URL(`/tools/${tool.id}/`, site).href}): ${tool.data.tagline} — ${tool.data.verdict}`,
     ),
     '',
     '## Jobs',
     '',
     ...jobs.map(
       (job) =>
-        `- [${job.data.title}](https://noemium.com/jobs/${job.id}/): ${job.data.use_case}`,
+        `- [${job.data.title}](${new URL(`/jobs/${job.id}/`, site).href}): ${job.data.use_case}`,
     ),
     '',
     '## Complete dump',
     '',
-    '- [llms-full.txt](https://noemium.com/llms-full.txt): full catalog dump — tools, models and stacks',
+    `- [llms-full.txt](${new URL('/llms-full.txt', site).href}): full catalog dump — tools, models and stacks`,
     '',
   ];
 

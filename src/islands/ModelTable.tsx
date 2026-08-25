@@ -185,6 +185,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
 
   const header = (key: SortKey, label: string, className = '') => (
     <th
+      scope="col"
       class={`p-0 font-mono text-[13px] font-normal tracking-widest uppercase ${className}`}
       aria-sort={sortKey === key ? (sortDir === 1 ? 'ascending' : 'descending') : undefined}
     >
@@ -243,7 +244,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
           <thead>
             <tr class="border-b-[1.5px] border-ink">
               {header('name', 'model', 'sticky left-0 bg-card')}
-              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+              <th scope="col" class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 status
               </th>
               {header('provider', 'provider')}
@@ -252,19 +253,19 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
               {header('in', '$in /1M')}
               {header('out', '$out /1M')}
               {header('task', preset.label)}
-              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+              <th scope="col" class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 open
               </th>
-              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+              <th scope="col" class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 best for
               </th>
-              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+              <th scope="col" class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 avoid for
               </th>
-              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+              <th scope="col" class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 benchmarks
               </th>
-              <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
+              <th scope="col" class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">
                 source
               </th>
             </tr>

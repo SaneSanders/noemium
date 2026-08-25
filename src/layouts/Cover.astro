@@ -37,6 +37,7 @@ const night = page === 'home' || page === 'map';
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Noemium weekly catalog diff" href="/rss.xml" />
+    <slot name="head" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={`Noemium — ${title}`} />
     <meta property="og:description" content={description} />

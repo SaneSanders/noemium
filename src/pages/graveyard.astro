@@ -3,18 +3,12 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import LogoTile from '../components/LogoTile.astro';
+import { hostname } from '../lib/shelf';
 
 const dead = (await getCollection('graveyard')).sort((a, b) =>
   b.data.died.localeCompare(a.data.died),
 );
 const toolsById = new Map((await getCollection('tools')).map((t) => [t.id, t]));
-const hostname = (url: string) => {
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return url;
-  }
-};
 
 function successorHref(d: (typeof dead)[number]['data']['succeeded_by']): string | undefined {
   if ('none' in d) return undefined;

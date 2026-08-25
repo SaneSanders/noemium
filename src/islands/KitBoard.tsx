@@ -119,6 +119,13 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
           placeholder={slugs.length >= KIT_MAX ? `Kit is full (${KIT_MAX})` : 'Name or slug'}
           disabled={slugs.length >= KIT_MAX}
           autocomplete="off"
+          role="combobox"
+          aria-expanded={suggestions.length > 0}
+          aria-autocomplete="list"
+          aria-controls="nm-kit-suggestions"
+          aria-activedescendant={
+            suggestions.length > 0 ? `kit-suggestion-${suggestions[highlighted].slug}` : undefined
+          }
           onInput={(e) => {
             setQuery((e.currentTarget as HTMLInputElement).value);
             setHighlighted(0);
@@ -142,21 +149,28 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
           }}
         />
         {suggestions.length > 0 && (
-          <ul class="nm-card absolute z-20 mt-2 w-full overflow-hidden py-1" role="listbox">
+          <ul
+            id="nm-kit-suggestions"
+            class="nm-card absolute z-20 mt-2 w-full overflow-hidden py-1"
+            role="listbox"
+          >
             {suggestions.map((tool, i) => (
-              <li key={tool.slug}>
-                <button
-                  type="button"
-                  class={`flex w-full items-center gap-3 px-3 py-2 text-left ${i === highlighted ? 'bg-paper' : ''}`}
-                  onMouseEnter={() => setHighlighted(i)}
-                  onClick={() => add(tool.slug)}
-                >
-                  <LogoMark src={tool.logo} name={tool.name} size="sm" />
-                  <span class="min-w-0">
-                    <span class="block font-display text-[15px] font-medium tracking-tight">{tool.name}</span>
-                    <span class="block truncate font-mono text-[13px] text-ink-dim">{tool.category}</span>
-                  </span>
-                </button>
+              <li
+                key={tool.slug}
+                id={`kit-suggestion-${tool.slug}`}
+                role="option"
+                aria-selected={i === highlighted}
+                class={`flex cursor-pointer items-center gap-3 px-3 py-2 text-left ${
+                  i === highlighted ? 'bg-paper' : ''
+                }`}
+                onMouseEnter={() => setHighlighted(i)}
+                onClick={() => add(tool.slug)}
+              >
+                <LogoMark src={tool.logo} name={tool.name} size="sm" />
+                <span class="min-w-0">
+                  <span class="block font-display text-[15px] font-medium tracking-tight">{tool.name}</span>
+                  <span class="block truncate font-mono text-[13px] text-ink-dim">{tool.category}</span>
+                </span>
               </li>
             ))}
           </ul>

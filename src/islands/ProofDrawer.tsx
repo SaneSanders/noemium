@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'preact/hooks';
-import { githubToolBlob, isHomepageReceipt } from '../lib/shelf';
+import { githubToolBlob, hostname, isHomepageReceipt } from '../lib/shelf';
 
 export interface ProofEntry {
   name: string;
@@ -8,14 +8,6 @@ export interface ProofEntry {
   receipts: string[];
   path: string;
   commit?: string | null;
-}
-
-function hostname(url: string): string {
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return url;
-  }
 }
 
 function pathname(url: string): string {

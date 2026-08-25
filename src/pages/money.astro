@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import { hostname } from '../lib/shelf';
 
 const tools = await getCollection('tools');
 const totalTools = tools.length;
@@ -12,14 +13,6 @@ const featuredTools = tools
   .filter((t) => t.data.featured)
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
 const featuredAffiliateCount = featuredTools.filter((t) => t.data.affiliate === 'declared').length;
-
-const hostname = (url: string) => {
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return url;
-  }
-};
 ---
 
 <Base

@@ -11,7 +11,7 @@ import { logoSrc } from '../../lib/logos';
 import LogoTile from '../../components/LogoTile.astro';
 import ToolBriefing from '../../components/ToolBriefing.astro';
 import { observationMarkdown } from '../../lib/observation';
-import { relatedIds, SKIP_ALTERNATIVE } from '../../lib/shelf';
+import { hostname, relatedIds, SKIP_ALTERNATIVE } from '../../lib/shelf';
 import { COMPARE_PAIRS } from '../../data/compare-presets';
 import changelog from '../../data/changelog.json';
 
@@ -61,14 +61,6 @@ const facts: [string, string][] = [
   ['self-host', t.self_host ? 'yes' : 'no'],
   ['category', t.category],
 ];
-
-const hostname = (url: string) => {
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return url;
-  }
-};
 
 const archiveUrl = (url: string) => `https://web.archive.org/web/2026/${url}`;
 
@@ -141,8 +133,10 @@ const disputePrompt = [
     <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
       <LogoTile slug={tool.id} name={t.name} src={logo} size="lg" />
       <h1 class="font-display text-5xl leading-[0.98] font-medium tracking-tight md:text-7xl">{t.name}</h1>
-      <VerdictBadge verdict={t.verdict} class="text-sm" />
-      <ShiftArrow momentum={t.momentum} class="h-6 w-6" />
+      <span class="inline-flex items-center gap-x-5 whitespace-nowrap">
+        <VerdictBadge verdict={t.verdict} class="text-sm" />
+        <ShiftArrow momentum={t.momentum} class="h-6 w-6" />
+      </span>
     </div>
     <p class="mt-6 max-w-2xl text-xl leading-relaxed font-medium text-ink opacity-80">{t.tagline}</p>
     <p class="mt-7 flex flex-wrap items-center gap-4">

@@ -1,5 +1,22 @@
 ---
+import { getCollection } from 'astro:content';
 import Cover from '../layouts/Cover.astro';
+
+const [tools, models, stacks] = await Promise.all([
+  getCollection('tools'),
+  getCollection('models'),
+  getCollection('stacks'),
+]);
+const countsLine = `${tools.length} tools · ${models.length} models · ${stacks.length} stacks`;
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Noemium',
+  url: 'https://noemium.com/',
+  description:
+    'An open, auditable catalog of AI tools, stacks and models. Verdicts with receipts, prices with dates.',
+};
 ---
 
 <Cover
@@ -7,10 +24,31 @@ import Cover from '../layouts/Cover.astro';
   description="Bring the frontier in. The map of the AI world, and a verdict on the stack you already run."
   page="home"
 >
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+  </Fragment>
   <section class="hero">
     <div class="moon"></div>
     <div class="ground"></div>
-    <p class="punch">Bring<br />the frontier<br /><i>in.</i></p>
-    <img class="nema" src="/nema-color.png" alt="Nema" />
+    <h1 class="punch">Bring<br />the frontier<br /><i>in.</i></h1>
+    <picture>
+      <source srcset="/nema-color.webp" type="image/webp" />
+      <img
+        class="nema"
+        src="/nema-color.png"
+        alt="Nema"
+        width="1152"
+        height="1728"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
+    <div class="foot">
+      <p>The map of the AI world — {countsLine}. Verdicts with receipts, prices with dates.</p>
+      <nav class="foot-doors" aria-label="Start here">
+        <a href="/map/">Enter the map →</a>
+        <a href="/reference/">Catalog →</a>
+      </nav>
+    </div>
   </section>
 </Cover>

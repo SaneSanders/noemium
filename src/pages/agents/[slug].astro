@@ -5,6 +5,7 @@ import Base from '../../layouts/Base.astro';
 import VerdictBadge from '../../components/VerdictBadge.astro';
 import LogoTile from '../../components/LogoTile.astro';
 import { agentLayerLabels, evidenceTierLabels, formatCostScenario } from '../../lib/agent-display';
+import { hostname } from '../../lib/shelf';
 
 export const getStaticPaths = (async () => {
   const agents = await getCollection('agents');
@@ -14,14 +15,6 @@ export const getStaticPaths = (async () => {
 const { agent } = Astro.props;
 const a = agent.data;
 const strict = a.evidence_tier !== 'radar';
-
-const hostname = (url: string) => {
-  try {
-    return new URL(url).hostname.replace(/^www\./, '');
-  } catch {
-    return url;
-  }
-};
 
 const sourceLabel = (kind: string) =>
   kind === 'security' ? 'Security / threat model' : `${kind.charAt(0).toUpperCase()}${kind.slice(1)}`;

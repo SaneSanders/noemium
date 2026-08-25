@@ -2,7 +2,8 @@ import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
 
 /** llms-full.txt — complete machine-readable dump of the Noemium catalog. */
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async (context) => {
+  const site = context.site ?? new URL('https://noemium.com');
   const [tools, models, stacks] = await Promise.all([
     getCollection('tools'),
     getCollection('models'),
@@ -36,7 +37,7 @@ export const GET: APIRoute = async () => {
     '> with receipts linked and limitations named next to the praise.',
     '',
     `This file contains the complete ${sortedTools.length}-tool catalog, the ${sortedModels.length}-model price/context table, and the ${sortedStacks.length}-stack recipe list in plain text.`,
-    `Canonical site: https://noemium.com/`,
+    `Canonical site: ${site.origin}`,
     `Source: https://github.com/SaneSanders/noemium`,
     `License: CC BY 4.0 (code MIT).`,
     '',
@@ -47,8 +48,8 @@ export const GET: APIRoute = async () => {
     ...sortedTools.flatMap((t) => [
       `### ${t.data.name}`,
       `- slug: ${t.id}`,
-      `- page: https://noemium.com/tools/${t.id}/`,
-      `- per-tool JSON: https://noemium.com/tools/${t.id}.json`,
+      `- page: ${new URL(`/tools/${t.id}/`, site).href}`,
+      `- per-tool JSON: ${new URL(`/tools/${t.id}.json`, site).href}`,
       `- category: ${t.data.category}`,
       `- verdict: ${t.data.verdict}`,
       `- pricing: ${t.data.pricing}${t.data.price_note ? ` — ${t.data.price_note}` : ''}`,
@@ -80,7 +81,7 @@ export const GET: APIRoute = async () => {
       `- monthly cost: $${s.data.monthly_cost_usd}`,
       `- difficulty: ${s.data.difficulty}`,
       `- tools: ${s.data.tools.join(', ')}`,
-      `- page: https://noemium.com/stacks/${s.id}/`,
+      `- page: ${new URL(`/stacks/${s.id}/`, site).href}`,
       '',
     ]),
   ];

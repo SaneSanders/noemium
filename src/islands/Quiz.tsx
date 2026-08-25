@@ -202,7 +202,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
   return (
     <div class="nm-card p-6 md:p-10">
       <p class="nm-num text-[13px] text-ink-dim" aria-live="polite">
-        Q{step + 1} / {QUESTIONS.length}
+        Question {step + 1} of {QUESTIONS.length}
       </p>
       <div key={step} class="nm-step">
         <h2 class="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl">{q.title}</h2>
@@ -211,6 +211,7 @@ export default function Quiz({ stacks }: { stacks: QuizStack[] }) {
             <button
               key={opt.value}
               type="button"
+              aria-pressed={answers[q.key] === opt.value}
               onClick={() => {
                 setAnswers({ ...answers, [q.key]: opt.value });
                 setStep(step + 1);

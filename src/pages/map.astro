@@ -7,10 +7,11 @@ import Cover from '../layouts/Cover.astro';
   description="One surface: sky is unsettled, land is what you can ship, underground is dead. Height is how settled a thing is, not how good it is."
   page="map"
 >
+  <h1 class="sr-only">Map of the AI world</h1>
   <div class="controls">
     <div class="find">
       <span>FIND</span>
-      <input id="q" type="text" placeholder="cursor, veo, whisper…" autocomplete="off" spellcheck="false" />
+      <input id="q" type="text" placeholder="cursor, veo, whisper…" autocomplete="off" spellcheck="false" aria-label="Find a tool on the map" />
     </div>
     <div class="chips" id="regionChips"></div>
     <div class="mineband hidden" id="mineband"></div>
