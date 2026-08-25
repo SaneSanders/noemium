@@ -1,47 +1,91 @@
 ---
 import { getCollection } from 'astro:content';
 import Cover from '../layouts/Cover.astro';
+import { collectDeaths } from '../lib/deaths';
 
+const asOf = new Date().toISOString().slice(0, 10);
 const models = await getCollection('models');
+const tools = await getCollection('tools');
 const dead = await getCollection('graveyard');
 
-const retiring = [...models]
-  .filter((m) => m.data.retiring)
-  .sort((a, b) => a.data.retiring!.date.localeCompare(b.data.retiring!.date));
+const { upcoming, past } = collectDeaths({
+  asOf,
+  models: models.map((m) => ({
+    slug: m.id,
+    name: m.data.name,
+    retiring: m.data.retiring,
+  })),
+  tools: tools.map((t) => ({
+    slug: t.id,
+    name: t.data.name,
+    limitations: t.data.limitations,
+    skip_when: t.data.skip_when,
+    verdict_text: t.data.verdict_text,
+    price_note: t.data.price_note,
+  })),
+  graveyard: dead.map((g) => ({
+    slug: g.id,
+    name: g.data.name,
+    died: g.data.died,
+    cause: g.data.cause,
+    succeeded_by: g.data.succeeded_by,
+  })),
+});
 
-const graves = [...dead].sort((a, b) => a.data.died.localeCompare(b.data.died));
+const graves = past.filter((e) => e.kind === 'grave');
+const ended = past.filter((e) => e.kind !== 'grave');
 ---
 
 <Cover
   title="Signals"
-  description="What is dying, and what already died — only dates that already live in the catalogue."
+  description="What is dying in the next 90 days, and what already died — only ISO dates that already live in the catalogue."
   page="signals"
 >
   <div class="cover-doc">
     <section class="cover-lede">
       <h1>What is <em>ending</em>.</h1>
       <p>
-        Only ISO dates already in the catalogue. No invented sunsets. The full
-        death calendar from the lab is the same idea; this door ships the dated
-        facts we already have.
+        Only ISO dates already in the catalogue, next to a sunset verb. No
+        invented sunsets. Horizon 90 days. As of {asOf}.
       </p>
     </section>
 
     <p class="cover-lede" style="padding-top:0">
-      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Retiring</strong>
+      <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Next 90 days</strong>
     </p>
     {
-      retiring.length === 0 ? (
-        <p>No retirement dates in the catalogue right now.</p>
+      upcoming.length === 0 ? (
+        <p>No dated sunsets inside 90 days.</p>
       ) : (
         <div class="cover-doors">
-          {retiring.map((m) => (
-            <a class="cover-door" href="/models/">
-              <b>{m.data.name}</b>
-              <span>retires {m.data.retiring!.date} → {m.data.retiring!.successor}</span>
+          {upcoming.map((e) => (
+            <a class="cover-door" href={e.href}>
+              <b>{e.name}</b>
+              <span>
+                {e.date} · {e.days === 0 ? 'today' : e.days === 1 ? '1 day' : `${e.days} days`}
+                {e.migrate ? ` → ${e.migrate.name}` : ''}
+              </span>
             </a>
           ))}
         </div>
+      )
+    }
+
+    {
+      ended.length > 0 && (
+        <>
+          <p class="cover-lede">
+            <strong style="letter-spacing:0.14em;text-transform:uppercase;font-size:10px;color:var(--nm-field)">Already passed</strong>
+          </p>
+          <div class="cover-doors">
+            {ended.map((e) => (
+              <a class="cover-door" href={e.href}>
+                <b>{e.name}</b>
+                <span>{e.date} — {e.quote}</span>
+              </a>
+            ))}
+          </div>
+        </>
       )
     }
 
@@ -52,8 +96,8 @@ const graves = [...dead].sort((a, b) => a.data.died.localeCompare(b.data.died));
       {
         graves.map((g) => (
           <a class="cover-door" href="/graveyard/">
-            <b>{g.data.name}</b>
-            <span>died {g.data.died} — {g.data.cause}</span>
+            <b>{g.name}</b>
+            <span>died {g.date} — {g.quote}</span>
           </a>
         ))
       }

@@ -54,6 +54,16 @@ test('reference is the catalogue facade', () => {
   mastDoors(html);
 });
 
+test('signals lists dated sunsets from the catalogue, not invented ones', () => {
+  const html = built('signals/index.html');
+  assert.match(html, /What is/);
+  assert.match(html, /ending/);
+  assert.match(html, /90 days/);
+  assert.match(html, /Assistants API|Mistral Large|Suno free-tier|Yi API|Sora API/);
+  assert.doesNotMatch(html, /MCP spec deprecation/);
+  mastDoors(html);
+});
+
 test('method door is a cover document', () => {
   const html = built('method/index.html');
   assert.match(html, /cover-night/);
