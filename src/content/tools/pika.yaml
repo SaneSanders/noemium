@@ -14,6 +14,17 @@ verdict_text: >-
   Pikaffects gimmicks work for engagement. For cinematic or realistic
   footage it lags Runway, Kling and Veo, and lower tiers carry watermarks
   and resolution limits.
+strengths:
+  - Fast video generation with viral creative effects (Pikaffects).
+  - Strong for social-native meme and short-form content.
+  - Cheap entry point with $8/mo Standard tier.
+use_for:
+  - Quick social clips and meme content that leans on effects.
+  - Experiments where engagement matters more than realism.
+skip_when:
+  - You need cinematic or realistic live-action footage.
+  - Watermarks and resolution limits on lower tiers are unacceptable.
+  - Clip length per generation is too short for the story.
 limitations:
   - Realism below Runway, Kling and Veo for live-action-style footage.
   - Short clip lengths per generation.

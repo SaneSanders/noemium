@@ -8,11 +8,23 @@ free_tier: false
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Vertex AI / Agent Platform is a full-stack shop for teams already on Google Cloud, combining Model Garden, tuning, MLOps, and agent tooling.
   It supports a wide range of Google, third-party, and open models with deep BigQuery and Cloud integrations.
   The platform is powerful but sprawling; pricing has many moving parts, and the recent rebranding creates navigation friction.
+strengths:
+  - Full-stack Google Cloud ML and generative AI platform.
+  - Supports a wide range of Google, third-party, and open models.
+  - Deep BigQuery and Cloud integrations for GCP-centric teams.
+use_for:
+  - Teams already committed to Google Cloud infrastructure.
+  - Workflows that need model garden, tuning, MLOps, and agent tooling together.
+skip_when:
+  - You are a multi-cloud or simple API-only user who wants a lightweight option.
+  - Fragmented pricing across inference, compute, storage, and fees is a blocker.
+  - The Vertex-to-Agent-Platform rebrand creates navigation friction you cannot afford.
 limitations:
   - Pricing is fragmented across model inference, compute, storage, pipelines, and management fees.
   - The shift from "Vertex AI" to "Gemini Enterprise Agent Platform" means docs, SKUs, and URLs are in transition.

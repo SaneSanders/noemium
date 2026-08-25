@@ -17,6 +17,17 @@ limitations:
   - Only works for public Hugging Face repos; gated models need a token.
   - Visualization fidelity depends on what the traced fake forward pass can infer.
   - No evidence of an export or embedding API yet.
+strengths:
+  - Instantly visualizes transformer blocks, attention, MoE routing, and shapes.
+  - No code or GPU needed to inspect a model architecture.
+  - Works for any public Hugging Face model.
+use_for:
+  - Researchers understanding a new architecture before downloading weights.
+  - Practitioners who need a quick visual map of a model's structure.
+skip_when:
+  - You need to inspect gated models without a Hugging Face token.
+  - You need an export or embedding API for the visualization.
+  - The traced fake forward pass cannot infer the details you care about.
 receipts:
   - https://modelmap.cc/
 affiliate: none

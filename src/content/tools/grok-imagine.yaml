@@ -13,6 +13,18 @@ verdict_text: >-
   Grok Imagine is the easiest way for existing Grok users to generate images and short videos without leaving the chat thread.
   Quality is competitive for quick social assets and memes, but it is tied to Grok's subscription tiers and usage quotas rather than a standalone creative studio.
   For production pipelines that need API access, batch rendering, or fine-grained control, the xAI API or dedicated media generators are a better fit.
+strengths:
+  - Integrated image and video generation inside the Grok chat thread.
+  - Free tier on grok.com for existing Grok users.
+  - Competitive quality for quick social assets and memes.
+  - Supports up to 2K images and 15-second 1080p videos at the top tier.
+use_for:
+  - Existing Grok users who want quick images and videos without switching apps.
+  - Social assets and memes where speed matters more than pixel-level control.
+skip_when:
+  - You need an API, batch rendering, or fine-grained production control.
+  - Sensitive or enterprise work cannot accept X/ByteDance-style moderation.
+  - You are outside Grok's subscription tiers and quota limits.
 limitations:
   - No direct API or self-hosted option for Imagine; everything routes through the Grok consumer app.
   - Video output is limited to 15-second clips and 1080p at the top tier, with quotas that can throttle heavy use.

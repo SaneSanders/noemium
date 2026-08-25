@@ -13,6 +13,18 @@ verdict_text: >-
   A genuinely free Copilot-style plugin with solid Chinese-language support.
   The catch is Alibaba ecosystem lock-in, limited English documentation, and
   weaker agentic depth than Cursor or Claude Code.
+strengths:
+  - Genuinely free Copilot-style plugin for individual developers.
+  - Solid Chinese-language support and a standalone AI IDE option.
+  - Backed by Alibaba Cloud for China-account users.
+use_for:
+  - Individual developers who want free completion and chat inside their IDE.
+  - Chinese-speaking teams or projects already on Alibaba Cloud.
+skip_when:
+  - You need agentic depth comparable to Cursor or Claude Code.
+  - English documentation and Western support are required.
+  - You cannot accept Alibaba ecosystem lock-in.
+  - Transparent enterprise pricing outside China is essential.
 limitations:
   - Less powerful than Cursor or Claude Code for agentic tasks.
   - Heavy Alibaba ecosystem lock-in.

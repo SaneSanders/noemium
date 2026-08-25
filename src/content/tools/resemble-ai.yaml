@@ -14,12 +14,24 @@ verdict_text: >-
   fraud. The Flex tier is genuinely free to start, but production use gets
   expensive fast. Voice generation is no longer the headline; verify it still
   fits your pipeline.
+strengths:
+  - Strong detection and watermarking stack for synthetic-media fraud.
+  - Flex tier is genuinely free to start for experimentation.
+  - Covers audio, image, video and meeting deepfake scenarios.
+use_for:
+  - Teams worried about synthetic-media fraud across audio, image and video.
+  - Security workflows that need watermarking and detection tooling.
+skip_when:
+  - You are looking for a casual, low-cost production tool.
+  - Voice generation is still your primary need.
+  - You need enterprise features without a sales contact.
 limitations:
   - Paid plans are expensive for casual use.
   - Voice and speech features are now secondary; check current capabilities.
   - Enterprise features require sales contact.
 receipts:
   - https://www.resemble.ai
+  - https://www.resemble.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

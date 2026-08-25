@@ -13,12 +13,24 @@ verdict_text: >-
   The best-known reading assistant; natural voices make long articles and PDFs
   listenable. The AI voice-over studio is usable but not as expressive as
   ElevenLabs or Cartesia for character work.
+strengths:
+  - Natural voices make long articles and PDFs listenable.
+  - Well-known reading assistant with broad platform availability.
+  - AI voice-over studio handles basic content-conversion jobs.
+use_for:
+  - Consuming long articles and PDFs as audio on the go.
+  - Basic voice-over projects where expressiveness is not critical.
+skip_when:
+  - Character work or expressive narration is required.
+  - You need the best voices without paying for the yearly plan.
+  - Privacy of uploaded documents is a core concern.
 limitations:
   - Best voices and features sit behind the yearly plan.
   - Voice-over output can sound like a single speaker regardless of content.
   - Privacy of uploaded documents needs review.
 receipts:
   - https://speechify.com
+  - https://speechify.com/pricing
 affiliate: none
 momentum: steady
 featured: false

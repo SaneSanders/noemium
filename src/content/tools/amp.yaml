@@ -15,6 +15,18 @@ verdict_text: >-
   Megawatt includes agent usage and a pile of "orbs," and you can attach a
   ChatGPT or SuperGrok sub for extra tokens at no Amp markup. Closed, hosted,
   and still a second IDE habit. Cody remains a separate, enterprise-only card.
+strengths:
+  - Sourcegraph's current agentic coding push, with Cody kept as a separate enterprise card.
+  - $20 Megawatt bundles agent usage and orb-hours for a low entry price.
+  - Attach an existing ChatGPT or SuperGrok subscription at no Amp markup.
+use_for:
+  - Developers who want agentic coding inside a second IDE and already tolerate Sourcegraph.
+  - Teams that already pay for ChatGPT or SuperGrok and want to reuse that spend.
+  - Small teams that can live with manual workspace billing.
+skip_when:
+  - You need a free tier to evaluate before buying.
+  - You expect orbs to act as a shared resale compute pool across the org.
+  - You need auto-seat provisioning for a growing team.
 limitations:
   - No public free tier on the Amp pricing page.
   - Orb hours and included agent dollars are two different meters.

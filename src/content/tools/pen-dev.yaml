@@ -11,6 +11,16 @@ self_host: false
 verdict: situational
 verdict_text: >-
   The canvas-to-code pitch is appealing for quick mocks, but the generated code still needs engineering review. Best for prototypes and early design exploration.
+strengths:
+  - Canvas-based design tool that exports clean production-oriented code.
+  - Quick mocks and early design exploration without leaving the canvas.
+use_for:
+  - Prototypes and early design exploration before engineering handoff.
+  - Designers who want to generate starter code from a canvas layout.
+skip_when:
+  - You expect generated code to ship to production without cleanup.
+  - Team collaboration workflows depend on Figma-level features.
+  - You need a large community and plugin ecosystem.
 limitations:
   - Generated code rarely lands in production without cleanup.
   - Smaller community than established design tools.

@@ -14,6 +14,17 @@ verdict_text: >-
   per-tensor mixed-precision assignment from your real memory budget instead of
   forcing a preset quantization, squeezing out quality other presets waste. Free,
   local, and genuinely useful for anyone running LLMs on consumer hardware.
+strengths:
+  - Quantizes any language model to fit your machine's actual VRAM budget.
+  - Per-tensor mixed-precision assignment squeezes out quality other presets waste.
+  - Free and local for running LLMs on consumer hardware.
+use_for:
+  - Local LLM inference on consumer GPUs with tight VRAM constraints.
+  - Scenarios where preset quantization throws away usable quality.
+skip_when:
+  - You are not comfortable with llama.cpp and command-line workflows.
+  - You run Windows and need auto-generated imatrices for every model.
+  - A one-click web GUI is a hard requirement.
 limitations:
   - Requires a working llama.cpp setup and some CLI comfort; the web UI still shells the same pipeline.
   - Windows support is compile-tested but not yet field-tested.
@@ -24,5 +35,8 @@ affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

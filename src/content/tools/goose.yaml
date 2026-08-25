@@ -15,6 +15,16 @@ verdict_text: >-
   machine against whatever provider you wire. Quality is the model, not a
   hosted IDE. Docs URLs have moved with the AAIF donation, so start from the
   GitHub repo. Not field-run in this pass.
+strengths:
+  - "Open-source local agent with recipes, extensions, and MCP support."
+  - "Runs on your machine against whichever provider you wire."
+use_for:
+  - "Developers who want a transparent, self-hosted agent and do not mind assembly."
+  - "Teams that need BYOK control over models and secrets."
+skip_when:
+  - "You want a polished, bundled IDE experience like Cursor or Claude Code."
+  - "You expect vendor-hosted inference rather than paying your own model bill."
+  - "You cannot manage local secrets, tool allowlists, and execution risk."
 limitations:
   - No bundled inference; a frontier model bill is still a frontier model bill.
   - Desktop/docs hosting moved off some Block GitHub Pages paths (404s happen).
@@ -22,8 +32,12 @@ limitations:
   - Smaller packaged UX than Cursor/Claude Code; more assembly required.
 receipts:
   - https://github.com/aaif-goose/goose
+  - https://goose-docs.ai/
 affiliate: none
 momentum: steady
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-24"
 observed_by: whysanesanders

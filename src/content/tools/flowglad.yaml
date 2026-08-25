@@ -14,6 +14,17 @@ verdict_text: >-
   single source of truth without maintaining webhook handlers. The open-source
   billing engine and SDK are promising, but the product is young, the documented
   path is the hosted SaaS, and the pricing table is only on the homepage.
+strengths:
+  - "Open-source billing engine and SDK with a source-of-truth data model."
+  - "Zero-webhook approach reduces the integration surface."
+  - "YC-backed with transparent, if homepage-only, pricing tiers."
+use_for:
+  - "AI/SaaS apps that want billing state managed without custom webhook handlers."
+  - "Teams evaluating an open, auditable billing engine alongside a hosted option."
+skip_when:
+  - "You need mature seat-based billing or wallet features today."
+  - "You want a standalone /pricing page rather than a homepage table."
+  - "You need Flowglad itself to be the payment processor."
 limitations:
   - Young launch; several billing features (seat-based billing, wallets) are still on the roadmap.
   - Pricing details live only on the homepage, not on a standalone /pricing page.

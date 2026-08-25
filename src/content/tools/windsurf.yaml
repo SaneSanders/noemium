@@ -17,6 +17,16 @@ verdict_text: >-
   A credible Cursor alternative with a cleaner agent UX. But it's on its
   second owner in a year — the OpenAI deal collapsed, Cognition bought it,
   Cascade got retired. Worth a look when Cursor's limits bite, not before.
+strengths:
+  - "Cleaner agent UX than Cursor in some workflows."
+  - "Credible fallback when Cursor's token limits or pricing bite."
+use_for:
+  - "Teams hitting Cursor limits who want an alternative agent IDE."
+  - "Users curious about a different agent experience in a VS Code fork."
+skip_when:
+  - "You need a stable long-term roadmap from a settled owner."
+  - "Large, unfamiliar repos are common and agent looping would hurt."
+  - "A smaller extension ecosystem would stall your workflow."
 limitations:
   - Rebranded to Devin Desktop after the Cognition acquisition; Cascade retired 2026-07-01.
   - Smaller extension and community ecosystem than Cursor.

@@ -8,6 +8,7 @@ free_tier: false
 open_source: false
 api: false
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Enterprise platform for huge codebases with a Context Engine that indexes
@@ -16,6 +17,17 @@ verdict_text: >-
   monorepos and hard security bars (SOC 2 Type II, ISO 42001, CMEK). Main catch
   is the $100/mo minimum after individual plans were retired, plus
   usage-based overage that makes the bill unpredictable with active agents.
+strengths:
+  - "Context Engine indexes 400K+ files across repos for huge codebases."
+  - "Cosmos/Intent multi-agent orchestration with Prism routing across several models."
+  - "Enterprise security bars: SOC 2 Type II, ISO 42001, CMEK."
+use_for:
+  - "Large monorepos where context span is the bottleneck."
+  - "Teams with strict security and compliance requirements for AI coding tools."
+skip_when:
+  - "Solo developers or small teams hit by the $100/mo minimum."
+  - "Unpredictable usage-based overage would break the budget."
+  - "You need fast onboarding without tens of minutes of initial indexing."
 limitations:
   - Minimum plan is $100/mo — individual plans (~$20-60) retired, out of reach for solo devs.
   - Usage-based billing (LLM + 40% fee + $0.19/hr compute) scales unpredictably.

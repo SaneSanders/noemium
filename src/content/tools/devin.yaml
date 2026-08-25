@@ -8,6 +8,7 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Cloud agent that takes tickets from prompt to tested PR in its own VM
@@ -16,6 +17,16 @@ verdict_text: >-
   vibe coding. Main friction is metered usage that can spike on large tasks,
   plus the permission and security overhead of keeping an autonomous agent away
   from production secrets.
+strengths:
+  - "Cloud agent takes tickets from prompt to tested PR in its own VM."
+  - "Async workflow with browser, terminal, and git access fits remote tasks."
+use_for:
+  - "Teams with well-scoped, verifiable tickets and a strong review culture."
+  - "Tasks where an autonomous agent can work while humans are offline."
+skip_when:
+  - "You need a free autonomous Cloud session or frontier models on the free tier."
+  - "Usage quotas or ACU charges would spike on large, complex tasks."
+  - "You cannot accept the security overhead of an autonomous agent near production secrets."
 limitations:
   - Free tier excludes autonomous Devin Cloud sessions and frontier models.
   - Quota/ACU-based usage can incur extra charges at API pricing on complex tasks.

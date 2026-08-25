@@ -30,6 +30,7 @@ limitations:
   - No self-hosting; your automations live on Make's cloud.
   - Credit pricing adds up quickly once flows run at volume.
 receipts:
+  - https://www.make.com
   - https://www.make.com/en/pricing
 affiliate: declared
 affiliate_url: https://www.make.com/en/register?pc=noemium

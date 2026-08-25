@@ -8,12 +8,26 @@ free_tier: true
 open_source: false
 api: true
 self_host: true
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Fastest path from idea to deployed AI agent for non-technical teams. The 200+
   model router and 1,000+ integrations remove API-key juggling, and Remy can
   scaffold a full app from a spec. The free tier is tiny, model costs are extra,
   and sophisticated non-AI workflow automation is better handled by n8n or Make.
+strengths:
+  - Fastest path from idea to deployed AI agent for non-technical teams.
+  - 200+ model router and 1,000+ integrations remove API-key juggling.
+  - Remy can scaffold a full app from a spec.
+  - Free tier lets you prototype before committing.
+use_for:
+  - Non-technical teams that need a deployed AI agent quickly.
+  - Projects that benefit from broad model choice and pre-built integrations.
+skip_when:
+  - The free tier's 1 agent and 1,000 runs/month would throttle you.
+  - You want model costs bundled into the subscription rather than billed at cost.
+  - Sophisticated non-AI workflow automation is the real need.
+  - You require self-hosting, SSO, or custom SLAs without an Enterprise contract.
 limitations:
   - Free tier caps you at 1 agent and 1,000 runs/month.
   - AI model usage is charged at direct API rates on top of the subscription.
@@ -28,5 +42,8 @@ affiliate: none
 momentum: blueshift
 featured: false
 evidence_tier: source-verified
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-20"
 observed_by: whysanesanders

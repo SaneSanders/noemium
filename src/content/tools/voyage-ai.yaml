@@ -19,6 +19,18 @@ limitations:
   - Domain models (finance/law/code-2) only include 50M free tokens.
   - Multimodal is token + pixel billed; tiny images still hit a 50k-pixel floor.
   - Fine-tuned dedicated instances are sales-only.
+strengths:
+  - Generous 200M free-token grant on the voyage-4 family.
+  - Cheap per-million rates after the free grant.
+  - Strong name recognition in retrieval and rerank stacks.
+use_for:
+  - RAG pipelines that need embeddings and reranking from one vendor.
+  - Teams building retrieval stacks with Chroma, Qdrant, or Pinecone.
+  - Workloads that can use batch mode to burn no free grant and save cost.
+skip_when:
+  - You planned to use the free-token grant for Batch API calls.
+  - You need domain-specific models beyond the 50M free allocation.
+  - You want self-serve fine-tuned dedicated instances rather than sales-only.
 receipts:
   - https://docs.voyageai.com/docs/pricing
 affiliate: none

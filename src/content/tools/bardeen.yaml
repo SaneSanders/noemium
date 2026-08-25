@@ -13,12 +13,23 @@ verdict_text: >-
   Excellent for browser-heavy tasks — scraping, LinkedIn outreach, meeting
   prep. The cloud scheduler removes the need to keep a machine awake, but
   advanced workflows can be brittle when sites change.
+strengths:
+  - "Strong at browser-heavy tasks like scraping, LinkedIn outreach, and meeting prep."
+  - "Cloud scheduler removes the need to keep a machine awake for automations."
+use_for:
+  - "Browser-first repetitive work that can be expressed as a playbook."
+  - "Quick lead enrichment and CRM data entry without backend access."
+skip_when:
+  - "The workflow is backend/API-heavy rather than browser-driven."
+  - "Target websites redesign often and would break selectors frequently."
+  - "You need advanced AI features without paying for a higher tier."
 limitations:
   - Relies on browser selectors that break when websites redesign.
   - Advanced AI features require paid plans.
   - Less suited for backend/API-heavy automations.
 receipts:
   - https://www.bardeen.ai
+  - https://www.bardeen.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

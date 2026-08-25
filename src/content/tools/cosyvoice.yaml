@@ -8,11 +8,23 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Best-in-class Chinese TTS naturalness, plus open-source weights you can
   self-host. Pricing is token-based and can be confusing compared with
   per-minute audio APIs; English quality is good but not market-leading.
+strengths:
+  - "Top-tier naturalness for Chinese text-to-speech."
+  - "Open-source weights that can be self-hosted."
+  - "API and voice-creation options on Alibaba Cloud."
+use_for:
+  - "Chinese-language applications that need natural-sounding TTS."
+  - "Teams that can self-host to keep voice data off shared cloud endpoints."
+skip_when:
+  - "You need simple per-minute pricing and predictable audio costs."
+  - "English or non-Chinese output must be market-leading."
+  - "Alibaba Cloud region and compliance requirements are a blocker."
 limitations:
   - Token/character pricing can be confusing vs per-minute audio APIs.
   - Commercial rights and voice-cloning ethics need review.
@@ -28,5 +40,8 @@ affiliate: none
 momentum: blueshift
 featured: false
 evidence_tier: source-verified
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-24"
 observed_by: whysanesanders

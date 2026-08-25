@@ -14,6 +14,16 @@ verdict_text: >-
   every ad, email, and landing line before spending media budget. The catch:
   predictive scoring is only as good as the data you feed it, and the useful
   tiers (Business/Enterprise) jump to custom pricing.
+strengths:
+  - Predictive scoring on ad, email, and landing copy before media budget is spent.
+  - Purpose-built for performance-obsessed marketing teams.
+use_for:
+  - Marketing teams that want a predicted score on every piece of copy.
+  - Paid-media workflows where copy performance data feeds the model.
+skip_when:
+  - You do not have enough historical performance data for scoring to be useful.
+  - You need API, SSO, private LLM, or custom integrations without an Enterprise deal.
+  - You want a permanent free tier beyond the 7-day / 2,500-word trial.
 limitations:
   - Predictive scoring quality depends on connected channel data and historical performance rows.
   - API, SSO, private LLM, and custom integrations are Enterprise-only.

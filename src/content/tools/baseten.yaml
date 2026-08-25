@@ -8,19 +8,36 @@ free_tier: false
 open_source: false
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Solid managed inference for custom models with scaling and observability.
   Strong for teams that outgrow Replicate but don't want to build their own
   serving stack. Pricing is opaque and requires sales for big deployments.
+strengths:
+  - "Managed inference with scaling and observability for custom models."
+  - "Strong fit for teams that have outgrown Replicate."
+  - "Enterprise plans offer a self-host option."
+use_for:
+  - "Production ML models that need managed serving without building the stack."
+  - "Teams outgrowing Replicate but not ready to build their own serving."
+  - "Enterprises that need self-hosted inference for compliance."
+skip_when:
+  - "You need transparent self-serve pricing before talking to sales."
+  - "A smaller ecosystem than hyperscalers is a blocker."
+  - "You need a free tier for production workloads."
 limitations:
   - No free tier for production use.
   - Pricing requires talking to sales for accurate estimates.
   - Smaller ecosystem than hyperscaler options.
 receipts:
   - https://www.baseten.co
+  - https://www.baseten.co/pricing
 affiliate: none
 momentum: steady
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

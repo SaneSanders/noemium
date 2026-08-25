@@ -14,6 +14,18 @@ verdict_text: >-
   3.1 Flash Image workhorse (4K, references, text in image); Lite is the
   cheap/fast sibling. App access follows Google AI Plus/Pro/Ultra. API is
   token-priced per resolution. No studio run in this pass.
+strengths:
+  - Native 4K image generation and editing inside the Gemini app and API.
+  - Supports references and rendered text in images via Nano Banana 2.
+  - Lite variant offers a cheaper, faster sibling for less demanding work.
+  - API bills as Gemini image tokens tied to output resolution.
+use_for:
+  - Gemini app users on Plus/Pro/Ultra who want native image generation.
+  - Developers already calling the Gemini API for image edits and creation.
+skip_when:
+  - You need Imagen 4 capabilities or pricing — this is a different model family.
+  - You want a fixed per-image rate card instead of token-priced API billing.
+  - Lite must handle multi-reference images or long sequential edits.
 limitations:
   - Not Imagen 4 — different model family, different console, different bill.
   - App image caps are plan- and region-gated (Nano Banana Pro in Search is a separate note).

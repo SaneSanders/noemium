@@ -13,12 +13,24 @@ verdict_text: >-
   Solid transcription and decent search across meeting history — the safe
   pick for teams that already use it. Newer rivals write smarter summaries;
   Otter still feels like transcription with AI layered on top.
+strengths:
+  - Solid transcription and searchable meeting history.
+  - Deep calendar integration.
+  - Safe pick for teams already using it.
+use_for:
+  - Teams that need transcription with calendar integration.
+  - Meeting archives you need to search later.
+skip_when:
+  - You have heavy crosstalk or accented speakers.
+  - External guests resist a bot joining meetings.
+  - You need smart, contextual summaries, not generic ones.
 limitations:
   - Accuracy dips with crosstalk and accents.
   - Bot-in-meeting creates friction with external guests.
   - AI summaries are generic.
 receipts:
   - https://otter.ai
+  - https://otter.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

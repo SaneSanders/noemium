@@ -8,18 +8,31 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Best for teams already living in JetBrains IDEs; it understands project
   structure and can run, test, and iterate. Outside the JetBrains ecosystem it
   doesn't exist, and credit-based pricing burns faster than the headline tier
   suggests.
+strengths:
+  - Deep integration with JetBrains project structure, tests and run configs.
+  - Works inside the IDE where Java/Kotlin/Python teams already live.
+  - CLI option extends reach to BYOK or subscription setups.
+use_for:
+  - Teams already committed to JetBrains IDEs for product work.
+  - Codebases where the agent can use existing run and test workflows.
+skip_when:
+  - Your team does not use JetBrains IDEs.
+  - Heavy agent months would push you past the AI Ultimate tier.
+  - Deeply nested enterprise codebases where Junie slows down.
 limitations:
   - IDE plugin requires a paid JetBrains IDE; CLI works anywhere with BYOK or subscription.
   - Credit-based pricing burns faster than the tier suggests; heavy use needs AI Ultimate or BYOK CLI.
   - Can be slow on deeply nested enterprise codebases.
 receipts:
   - https://www.jetbrains.com/junie/
+  - https://junie.jetbrains.com/
 affiliate: none
 momentum: blueshift
 featured: false

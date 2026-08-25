@@ -10,13 +10,27 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Useful for browsing landing-page patterns before you design. The free directory is solid; templates are decent if you want a faster start.
+  Use it as a mood board before you design a landing page — the free directory
+  is solid, and the paid templates are a faster start when you want a finished
+  layout. Don't expect copy-paste components or consistent quality across
+  every template.
+strengths:
+  - "Free directory of landing-page patterns and inspiration."
+  - "Paid templates can speed up a design start."
+use_for:
+  - "Browsing landing-page patterns before committing to a design."
+  - "Teams that want a template head start rather than a blank canvas."
+skip_when:
+  - "You need a copy-paste component library."
+  - "Template quality consistency is critical."
+  - "The free browse-only tier does not give you usable assets."
 limitations:
   - Free tier is browse-only.
   - Template quality is mixed.
   - Not a component library for copy-paste.
 receipts:
   - "https://landingfolio.com"
+  - "https://landingfolio.com/pricing"
 affiliate: none
 momentum: steady
 featured: false

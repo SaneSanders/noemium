@@ -14,6 +14,17 @@ verdict_text: >-
   workflow, especially the TypeAhead inline suggestions. Premium overlaps with
   free ChatGPT/Claude on long-form writing, and the message limits on Premium
   make it costly for heavy users.
+strengths:
+  - TypeAhead inline suggestions fit browser and docs workflows.
+  - Browser-based AI writing help without leaving your tab.
+  - Solid for short-form copy and inline completion.
+use_for:
+  - Writing in web apps where inline suggestions save time.
+  - Short-form copy that benefits from TypeAhead completion.
+skip_when:
+  - Long-form work exceeds Premium's 250 messages/month.
+  - Free ChatGPT/Claude already covers your writing needs.
+  - You rely on experimental browser agent features.
 limitations:
   - Premium is capped at 250 AI messages/month; heavy writers need the pricier Ultra.
   - The best features (TypeAhead, citations, custom personas) sit behind a paid plan.

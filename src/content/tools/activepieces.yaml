@@ -14,11 +14,27 @@ verdict_text: >-
   split between Community Edition (flows) and paid (agents/chat, SSO, Git
   sync). Plus at $16/yr-billed is the BYOK on-ramp. Credit math is 1 per flow
   run, more for hosted models. Not Zapier-scale connectors.
+strengths:
+  - Open-source automation with unlimited flows and an honest split between free Community Edition and paid features.
+  - MIT license plus self-hosted Community Edition for teams that need data on-prem.
+  - AI steps, MCP support, and a BYOK option to cut hosted model credit costs.
+use_for:
+  - Teams that want n8n-style automation under an MIT license with self-hosting.
+  - Workflows that mix SaaS plumbing with occasional AI steps.
+  - Budget-conscious shops that can run Community Edition and bring their own model keys.
+skip_when:
+  - You need Zapier-scale connector breadth out of the box.
+  - Community Edition covers your flows but you also need Agents, Chat, SSO, or Git Sync.
+  - You cannot manage self-hosting or BYOK model keys.
+model_routing: byok
 limitations:
   - Community Edition drops Agents/Chat, API access, SSO, and Git Sync.
   - Free cloud is daily credits with a hard cap; overage does not PAYG.
   - Hosted AI steps cost 2–20 credits unless you BYOK (then 1 credit).
   - Connector coverage is thinner than Zapier/Make; HTTP piece is the escape hatch.
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 receipts:
   - https://www.activepieces.com/pricing
   - https://github.com/activepieces/activepieces

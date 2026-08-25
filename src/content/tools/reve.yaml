@@ -20,9 +20,23 @@ limitations:
   - API pricing lives in the console, not a public HTML table.
   - Training opt-out is Lite/Pro; Free is default opt-in.
   - Video is not a Pro-exclusive feature; energy limits differ by plan.
+strengths:
+  - Layout-native image creation and editing with annotations and live layers.
+  - Clear consumer plans at $7.99/$19.99 with published energy multiples.
+  - A credit API for developers who want programmatic access.
+use_for:
+  - Designers and creators who want layout-aware image editing, not prompt roulette.
+  - Consumers comfortable with energy-based plans for image and video work.
+  - Developers who need a credit API alongside the consumer editor.
+skip_when:
+  - You need a transparent per-image rate card instead of "energy".
+  - You want public API pricing outside the console.
+  - You object to default opt-in model training on the free plan.
+  - Video output matters and the energy limits don't fit your volume.
 receipts:
   - https://help.reve.com/hc/en-us/articles/46732445465108-Subscription-plans-overview
   - https://help.reve.com/hc/en-us/articles/46837930295316-Reve-API
+  - https://help.reve.com/hc/en-us/articles/46731721501972-Model-training
 affiliate: none
 evidence_tier: source-verified
 momentum: blueshift

@@ -8,6 +8,7 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: ship
 verdict_text: >-
   The standard glue for AI features in TypeScript apps. One interface across

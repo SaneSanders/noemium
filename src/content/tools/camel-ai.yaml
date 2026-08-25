@@ -8,19 +8,34 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Strong research-oriented framework with role-playing agents and memory.
   Useful for academic and prototype work. Smaller ecosystem and less tooling
   than AutoGen or CrewAI.
+strengths:
+  - "Research-oriented framework with role-playing agents and memory built in."
+  - "Modular primitives for agents, societies, RAG, and synthetic data."
+use_for:
+  - "Academic experiments and agent prototype work."
+  - "Multi-agent sketches where role-playing is central to the design."
+skip_when:
+  - "You need the integrations and community size of CrewAI or AutoGen."
+  - "You want a clear production deployment path out of the box."
+  - "Verbose role-playing setup would slow your iteration."
 limitations:
   - Smaller community and fewer integrations than CrewAI.
   - Production deployment path is less mature.
   - Role-playing setup can be verbose.
 receipts:
   - https://www.camel-ai.org
+  - https://docs.camel-ai.org
 affiliate: none
 momentum: steady
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

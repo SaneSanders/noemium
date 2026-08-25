@@ -8,12 +8,25 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   The default homelab ChatGPT skin: Ollama, OpenAI, Anthropic, RAG, voice,
   a huge community library. The product is the interface, not the model.
   Enterprise exists for SSO and air-gap. Ops (auth, updates, disk) are on
   you. Not a cloud assistant.
+strengths:
+  - "Self-hosted chat UI that works with Ollama and OpenAI-compatible APIs."
+  - "Huge community library of models, tools and prompts."
+  - "RAG and voice features out of the box."
+use_for:
+  - "Homelabs that want a ChatGPT-like skin on local models."
+  - "Teams that need an air-gapped or self-hosted chat interface."
+  - "Users who already run Ollama and want a richer web UI."
+skip_when:
+  - "You want a fully managed cloud assistant with zero ops."
+  - "You cannot maintain Docker, GPU, backups and auth yourself."
+  - "You are self-hosting to avoid cloud APIs but will still plug them in."
 limitations:
   - You operate Docker/GPU/backups; this is not a hosted chat product.
   - Feature surface is huge; upgrades can reshuffle the UI (see v0.11 notes).
@@ -25,5 +38,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

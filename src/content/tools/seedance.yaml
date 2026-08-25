@@ -13,6 +13,17 @@ verdict_text: >-
   Seedance 2.0 is dirt-cheap for capable video, with good motion and prompt
   adherence. For Western users the path in is through resellers: ByteDance
   doesn't publish clean USD API pricing or a global self-serve console.
+strengths:
+  - Seedance 2.0 delivers capable video at very low cost per second.
+  - Good motion quality and prompt adherence for the price.
+  - Accessible via API for users who can navigate reseller channels.
+use_for:
+  - Budget-conscious video generation where cost per clip matters most.
+  - Teams that can source access through third-party API providers.
+skip_when:
+  - You need transparent USD pricing from ByteDance directly.
+  - Closed weights with no self-host fallback are a dealbreaker.
+  - Western documentation and support channels are required.
 limitations:
   - Pricing is CNY-first; USD rates are reseller conversions.
   - Closed weights; no self-host fallback.

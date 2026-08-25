@@ -11,10 +11,22 @@ self_host: false
 models_used:
   - claude-sonnet-5
 verdict: situational
+model_routing: bundled
 verdict_text: >-
   The cheapest way into a full AI IDE, and Lite at $3/mo undercuts everyone.
   The trade-off is ByteDance hosting your code with no BYOK option; fine for
   side projects, risky for proprietary work.
+strengths:
+  - "Cheapest way into a full AI IDE: free plan plus Lite at $3/mo undercuts rivals."
+  - Inline completion, chat, and autonomous SOLO agent mode in one editor.
+  - Fast start for developers already used to VS Code-like layouts.
+use_for:
+  - Side projects and budget-conscious developers who want an AI-native IDE.
+  - Developers comfortable with ByteDance hosting for non-proprietary code.
+skip_when:
+  - You are working on proprietary code and cannot accept ByteDance data handling.
+  - You need BYOK, a standalone API, or audited closed-source tooling.
+  - Western documentation and support quality are critical.
 limitations:
   - ByteDance product — data and privacy concerns for proprietary code.
   - Token allowances can run out quickly on heavy agent sessions.

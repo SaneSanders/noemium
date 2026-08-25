@@ -9,13 +9,24 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  A fun source of error-page ideas when you want a 404 that does not look like an afterthought. Pure inspiration; you build it yourself.
+  Browse this when you need a 404 that does not look like a dead end. It is a
+  mood board, not a component library: copy the idea, then rebuild it yourself.
+strengths:
+  - Free gallery of 404 designs for projects that need a better error page.
+  - Useful starting point when you want inspiration before building it yourself.
+use_for:
+  - Finding a visual direction for a 404 before writing any code.
+  - Quick inspiration when the default error page feels like an afterthought.
+skip_when:
+  - You need a drop-in component or exported code for the 404 page.
+  - The project needs design assets beyond a single error page.
 limitations:
   - No code export.
   - Niche scope; only useful once per project.
   - Curation quality varies.
 receipts:
   - "https://404s.design"
+  - "https://404s.design/about"
 affiliate: none
 momentum: steady
 featured: false

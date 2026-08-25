@@ -13,12 +13,24 @@ verdict_text: >-
   The smoothest managed vector DB to operate, and the free tier covers
   prototypes. But self-hosted Qdrant or pgvector now handle most workloads
   for a fraction of the cost — pay only if ops time is your bottleneck.
+strengths:
+  - Smoothest managed vector database to operate at scale.
+  - Free Starter tier covers most prototypes without upfront cost.
+  - Serverless architecture removes cluster provisioning overhead.
+use_for:
+  - Prototypes and production apps where ops time is the bottleneck.
+  - Teams that would rather not run Qdrant or pgvector themselves.
+skip_when:
+  - Cost matters more than the managed-vector-DB convenience.
+  - You may need to migrate off a proprietary API later.
+  - Past pricing changes have already burned your budget.
 limitations:
   - Costs scale poorly versus self-hosted alternatives.
   - Proprietary; migrating away is a rewrite.
   - Pricing-model changes have burned users before.
 receipts:
   - https://www.pinecone.io
+  - https://www.pinecone.io/pricing
 affiliate: none
 momentum: steady
 featured: false

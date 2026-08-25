@@ -29,8 +29,12 @@ limitations:
   - Cloud pricing can surprise at high task volume.
 receipts:
   - https://trigger.dev
+  - https://github.com/triggerdotdev/trigger.dev
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

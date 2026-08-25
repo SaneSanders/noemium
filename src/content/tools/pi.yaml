@@ -8,12 +8,24 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Mario Zechner's harness: small prompt, tree-structured sessions, 15+
   providers, and a bias toward "build the feature as an extension" instead of
   shipping MCP/subagents/plan mode. Powerful if you like assembling; empty
   if you wanted Cursor. Not a Ship without using it on a repo.
+strengths:
+  - Minimal open-source harness with TUI, SDK, and RPC in one repo.
+  - Supports 15+ providers and is built for extension over feature-bloat.
+  - Free CLI/SDK; you only pay the model provider you authenticate.
+use_for:
+  - Developers who want to assemble and customize their own coding agent.
+  - Terminal-first workflows comfortable with git/npm and BYOK setup.
+skip_when:
+  - You want bundled MCP, sub-agents, or permission UI out of the box.
+  - You need polished GUI docs and a guided onboarding experience.
+  - You are not willing to bring and manage your own model keys.
 limitations:
   - No bundled MCP, sub-agents, or permission UI — by design, you add them.
   - Quality is 100% the model you authenticate.
@@ -25,5 +37,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -13,6 +13,16 @@ verdict_text: >-
   Fast capture with AI search and automatic tagging. Good for people who want
   a second brain without manual organization. The graph view and exports are
   weaker than Obsidian or Notion.
+strengths:
+  - "Fast capture with AI search and automatic tagging."
+  - "Low-friction second brain for people who avoid manual organization."
+use_for:
+  - "Personal note capture when search and auto-tags matter more than structure."
+  - "Quick retrieval from a messy stream of ideas and clips."
+skip_when:
+  - "You need robust export options or a graph view like Obsidian."
+  - "AI tagging miscategorizing messy notes would be costly to fix."
+  - "Structured project management is the main job."
 limitations:
   - Export options are limited.
   - The AI tagging can miscategorize messy notes.

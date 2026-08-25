@@ -11,6 +11,17 @@ self_host: false
 verdict: situational
 verdict_text: >-
   Handy when you need concrete examples to show an AI what "good" looks like. The curation is decent, but it is still a reference gallery with prompts — not components you drop into a repo.
+strengths:
+  - Curated design examples that help steer AI agents toward better UI.
+  - "Prompts and reference gallery for showing what 'good' looks like."
+  - Useful when you need concrete references before writing components.
+use_for:
+  - Teams that want visual references before building components.
+  - Early design exploration where examples matter more than a component library.
+skip_when:
+  - You need drop-in components that ship straight into a repo.
+  - The category you care about has thin coverage.
+  - The most useful examples sit behind the paywall.
 limitations:
   - Most useful examples sit behind a paywall.
   - Not a build tool; you still translate ideas into your own stack.

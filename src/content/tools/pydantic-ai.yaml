@@ -8,12 +8,24 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   How Python people actually want to write agents: Pydantic models in,
   Pydantic models out, graph/durable exec if you need it. Tiny compared with
   LangGraph's sprawl. You still own the loop, keys, and evals. Not a
   replacement for a hosted agent platform.
+strengths:
+  - Pydantic-native types in and out, matching how Python teams already validate data.
+  - Graph and durable execution options without LangGraph's ecosystem sprawl.
+  - You keep control of the loop, model keys, and evals.
+use_for:
+  - Python teams building typed agents where validation is non-negotiable.
+  - Projects that need self-hosted execution rather than a managed platform.
+skip_when:
+  - You want bundled hosting and a managed agent studio.
+  - You need LangChain's larger recipe ecosystem today.
+  - You expect type safety to prevent all model tool-calling mistakes.
 limitations:
   - No bundled hosting; production is your process + your tracing backend.
   - Logfire is optional and billed separately if you use it.
@@ -25,5 +37,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

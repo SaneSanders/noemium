@@ -10,6 +10,7 @@ api: true
 self_host: false
 models_used:
   - qwen3-8-max
+model_routing: locked
 verdict: ship
 verdict_text: >-
   The widest Chinese model menu in one API, with open weights and a real

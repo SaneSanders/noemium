@@ -8,12 +8,24 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   The default way to serve open weights if you already have NVIDIA (or a
   growing list of other accelerators). OpenAI-compatible HTTP, continuous
   batching, quantization zoo. The bill is hardware and the on-call, not a
   SaaS SKU. Not a hosted model API. Not field-run in this pass.
+strengths:
+  - Default open-source engine for serving open weights at high throughput.
+  - OpenAI-compatible HTTP server with continuous batching and quantization.
+  - No SaaS seat fee; the bill is your hardware and on-call time.
+use_for:
+  - Self-hosted open-weight inference on NVIDIA or supported accelerators.
+  - Teams that need quantization and batching control under their own stack.
+skip_when:
+  - You want serverless inference without operating GPUs and drivers.
+  - Day-0 model support or multi-node parallelism would block you.
+  - You cannot staff the on-call needed for a self-hosted inference layer.
 limitations:
   - You operate CUDA/ROCm, drivers, and capacity; this is not serverless inference.
   - Day-0 support for a brand-new architecture can lag the lab's own stack.
@@ -25,5 +37,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

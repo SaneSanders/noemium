@@ -10,11 +10,24 @@ api: true
 self_host: false
 models_used:
   - mistral-large-2512
+model_routing: locked
 verdict: situational
 verdict_text: >-
   The pick when EU data residency or open weights are non-negotiable. The
   small models are excellent value. For raw frontier quality, Claude and GPT
   still lead, and the product naming keeps changing.
+strengths:
+  - EU data residency option.
+  - Open-weights options available.
+  - Small models are excellent value.
+use_for:
+  - Projects where EU data residency is required.
+  - Teams wanting open-weights options from a frontier lab.
+  - Cost-sensitive inference on Mistral's small models.
+skip_when:
+  - Raw frontier quality must beat Claude/GPT.
+  - You need a mature ecosystem and docs.
+  - Confusing product renames would break internal documentation.
 limitations:
   - Frontier quality a half-step behind OpenAI/Anthropic.
   - Thinner ecosystem and docs.
@@ -22,6 +35,7 @@ limitations:
   - Le Chat renamed to Vibe, console is now Mistral Studio (2026 rebrand).
 receipts:
   - https://docs.mistral.ai
+  - https://docs.mistral.ai/getting-started/models/models_overview
 affiliate: none
 momentum: steady
 featured: false

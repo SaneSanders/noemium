@@ -17,8 +17,19 @@ limitations:
   - Feature set is narrower than Notion/Obsidian.
   - Offline support is limited.
   - Collaboration features lag Google Docs.
+strengths:
+  - Clean, fast writing surface with inline AI that stays out of the way.
+  - Good for drafting and rewriting without tool overload.
+use_for:
+  - Writers who want a minimal AI drafting surface, not a full workspace.
+  - Quick rewriting and note-taking when database features don't matter.
+skip_when:
+  - You need Notion-style databases or deep workspace features.
+  - Offline availability or Google Docs-grade collaboration is required.
+  - Publishing features are part of your workflow.
 receipts:
   - https://type.ai
+  - https://type.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

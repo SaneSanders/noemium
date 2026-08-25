@@ -11,12 +11,24 @@ self_host: false
 models_used:
   - glm-5-3
   - glm-5-2
+model_routing: locked
 verdict: situational
 verdict_text: >-
   A flat-rate coding-agent subscription is a rare alternative to per-token
   billing, and the OpenAI-compatible API plugs into Claude Code, Cline or
   Cursor. The value depends on whether you hit the plan's rate caps; the entry
   price also jumped from $3 to $18, so watch for further moves.
+strengths:
+  - "Flat-rate monthly pricing avoids per-token surprise bills."
+  - "OpenAI-compatible API fits existing agent tools like Claude Code or Cline."
+  - "Tiered plans from Lite to Max for different coding volumes."
+use_for:
+  - "Developers who want predictable monthly costs for a coding agent API."
+  - "Teams already using OpenAI-compatible agent tools and need a GLM option."
+skip_when:
+  - "You need a standalone IDE rather than an API to plug into one."
+  - "Your usage will burst through the published rate or allowance caps."
+  - "You want the largest ecosystem of integrations and support."
 limitations:
   - Price rose from introductory $3/mo to $18/mo; may rise again.
   - Rate and allowance caps apply within flat-rate plans.

@@ -14,12 +14,24 @@ verdict_text: >-
   consistency and brand palettes are things Midjourney does not handle.
   Skip it for photorealism or open-ended art; the credit math is also
   annoying to budget.
+strengths:
+  - Vector SVG output for product and marketing design.
+  - Style consistency and brand palette controls.
+  - Free tier exists; paid starts at $10/mo.
+use_for:
+  - Product design and marketing assets that need editable vector output.
+  - Brand work where palette and style consistency matter more than photorealism.
+skip_when:
+  - Photorealism or open-ended art is the main output.
+  - You need predictable credit budgeting; the system is confusing.
+  - You want a large fine-tune or community ecosystem.
 limitations:
   - Photorealism trails the category leaders.
   - Credit system is confusing to budget.
   - Smaller community and fine-tune ecosystem.
 receipts:
   - https://www.recraft.ai
+  - https://www.recraft.ai/pricing
 affiliate: none
 momentum: blueshift
 featured: false

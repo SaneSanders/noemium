@@ -14,6 +14,16 @@ verdict_text: >-
   consensus meter and study-quality flags keep the answer grounded. It is
   narrower than Elicit — it answers questions, it does not run a full
   literature review.
+strengths:
+  - "Consensus meter and study-quality flags keep answers grounded in papers."
+  - "Quick read on what the research actually says about a question."
+use_for:
+  - "Getting a fast, evidence-backed answer to a research question."
+  - "Checking the balance of evidence before diving into primary sources."
+skip_when:
+  - "You need a full literature review rather than a focused answer."
+  - "The nuance and caveats of a study matter more than the headline."
+  - "Your topic sits outside the indexed paper coverage."
 limitations:
   - Only as good as its paper index.
   - Summaries flatten nuance and caveats.

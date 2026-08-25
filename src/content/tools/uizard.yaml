@@ -11,6 +11,16 @@ self_host: false
 verdict: situational
 verdict_text: >-
   Handy for non-designers who need quick wireframes from sketches or prompts. The output is good enough for early ideation, not final design handoff.
+strengths:
+  - "Turns sketches or prompts into wireframes without design expertise."
+  - "Fast early ideation for non-designers and product generalists."
+use_for:
+  - "Rapid wireframing in discovery before a designer gets involved."
+  - "Non-designers who need a visual artifact to communicate an idea."
+skip_when:
+  - "You need production-polish fit for final design handoff."
+  - "Free-tier project and export limits would block the workflow."
+  - "Team collaboration needs exceed basic Figma-level workflows."
 limitations:
   - Generated designs lack polish for production use.
   - Free tier is limited in projects and exports.

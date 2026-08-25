@@ -10,7 +10,19 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  A useful registry when you want to discover and install community components with one command. Quality control is community-driven, so vet before you ship.
+  A registry for installing community React components with one command. The
+  open-source collection is handy for discovery, but quality and maintenance
+  vary, so treat any block as vet-before-ship.
+strengths:
+  - "Open-source registry with one-command install for community React components."
+  - "Useful for discovering pre-built blocks and accelerating early prototypes."
+use_for:
+  - "Teams that want to browse and install community components quickly."
+  - "Prototyping when you can accept community-driven quality."
+skip_when:
+  - "You need production-ready components without manual vetting."
+  - "Discovery noise outweighs the time saved."
+  - "The blocks you want sit behind the paid Builder/AI tiers."
 limitations:
   - Component quality and maintenance vary widely.
   - Discovery can feel noisy as the catalog grows.
@@ -21,5 +33,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

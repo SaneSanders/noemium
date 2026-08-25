@@ -11,11 +11,23 @@ self_host: false
 models_used:
   - llama-4-maverick
   - qwen3-8-max
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Fast inference, and the tooling around it — function calling, multimodal —
   is solid. The catch is you're shopping the same open models across Fireworks,
   Together and Groq. Price-check them each quarter and pick whoever's cheaper.
+strengths:
+  - Fast inference with solid function-calling and multimodal tooling.
+  - Serverless and on-demand GPU options for different workloads.
+  - Useful open-model catalog if you already know the model you want.
+use_for:
+  - Open-model inference when you want a serverless endpoint.
+  - Workloads that need dedicated GPU hours instead of per-token billing.
+skip_when:
+  - You need transparent enterprise pricing before signing.
+  - The free tier is too small for your evaluation.
+  - A rival host is cheaper for the same open model this quarter.
 limitations:
   - Differentiation vs Together/Groq unclear for standard inference.
   - Enterprise pricing opaque.
@@ -23,6 +35,7 @@ limitations:
   - GPU on-demand prices rise 2026-09-01 (H100 $7 to $8/hr).
 receipts:
   - https://fireworks.ai
+  - https://fireworks.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

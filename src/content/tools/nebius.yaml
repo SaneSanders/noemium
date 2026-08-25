@@ -8,17 +8,30 @@ free_tier: false
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Aggressively priced inference and GPU cloud, useful for cost-sensitive
   workloads. The platform is newer, so documentation and ecosystem are still
   catching up to bigger providers.
+strengths:
+  - Aggressively priced inference and GPU cloud for cost-sensitive workloads.
+  - API access to open models without running your own GPUs.
+  - Unified AI cloud platform with compute and inference in one account.
+use_for:
+  - Cost-sensitive inference that wants open models without self-hosting.
+  - GPU cloud jobs where you rent by the hour instead of owning hardware.
+skip_when:
+  - You need mature documentation and support from a bigger provider.
+  - Enterprise features and ecosystem breadth are critical now.
+  - You cannot accept a newer platform still catching up.
 limitations:
   - Newer platform with a smaller ecosystem.
   - Documentation and support are less mature.
   - Enterprise features still expanding.
 receipts:
   - https://nebius.com
+  - https://docs.nebius.com/studio/inference/models/
 affiliate: none
 momentum: blueshift
 featured: false

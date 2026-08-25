@@ -14,6 +14,16 @@ verdict_text: >-
   fine, but at $33–40/mo (Business tier, required for Mail) it is a luxury now
   that Gmail and others ship free AI. Try it for the speed, not because you
   need AI mail.
+strengths:
+  - Keyboard-driven email speed for Gmail power users.
+  - Fast drafting and follow-ups.
+use_for:
+  - Gmail users who live on keyboard shortcuts.
+  - Professionals prioritizing email speed over AI novelty.
+skip_when:
+  - $33–40/mo Business tier for Mail is too expensive.
+  - You rely on strong calendar features.
+  - Free AI in Gmail meets your drafting needs.
 limitations:
   - Expensive while free alternatives catch up.
   - Calendar features thinner than dedicated tools.

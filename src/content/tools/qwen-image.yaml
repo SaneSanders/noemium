@@ -14,6 +14,17 @@ verdict_text: >-
   Qwen text. It's not Midjourney or top-tier Flux, but the price and
   text-in-image accuracy make it a practical choice for apps and bulk
   workflows.
+strengths:
+  - Cheap per-image generation and editing through an existing Alibaba Cloud account.
+  - Text-in-image accuracy is a practical edge over some cheaper rivals.
+  - Useful for apps and bulk workflows that prioritize cost over absolute quality.
+use_for:
+  - Bulk image generation or editing pipelines that need low unit cost.
+  - Apps already using Qwen text models and Alibaba Cloud services.
+skip_when:
+  - You need top-tier image quality comparable to Midjourney or best Flux.
+  - China-region compliance and data-residency rules are a hard no.
+  - Editing volume would make the separate editing endpoint costs add up.
 limitations:
   - Quality tier below top closed image models.
   - Western awareness and community resources are lower than Midjourney/Flux.

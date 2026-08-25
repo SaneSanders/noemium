@@ -13,6 +13,17 @@ verdict_text: >-
   Strong reference-to-video consistency and a cheap entry point for creators.
   The aesthetic leans cinematic/anime, the API pricing matrix is complex, and
   the vendor is smaller and China-based.
+strengths:
+  - Strong reference-to-video consistency for characters.
+  - Cheap entry point with free credits plus unlimited off-peak generation.
+  - Native audio generation baked into the video output.
+use_for:
+  - Cinematic or anime-style narrative videos.
+  - Projects that lean on reference images for consistent characters.
+skip_when:
+  - You need UGC or e-commerce ad aesthetics.
+  - The complex API pricing matrix is a procurement barrier.
+  - You need strong Western vendor support and access.
 limitations:
   - Aesthetic leans cinematic/anime/narrative, less suited for UGC or e-commerce ads.
   - API pricing matrix is complex.

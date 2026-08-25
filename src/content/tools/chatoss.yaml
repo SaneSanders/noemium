@@ -14,6 +14,18 @@ verdict_text: >-
   code, manage a Kanban board, and review PRs. The free tier is genuinely usable
   with local Ollama, and paid tiers add concurrent cloud models. Worth a look if
   you want an agentic IDE that does not default to OpenAI.
+model_routing: byok
+strengths:
+  - Native desktop workspace built around open-weight models.
+  - Free tier is genuinely usable with local Ollama.
+  - Agents handle coding, Kanban, and PR review in one place.
+use_for:
+  - Teams that want an agentic IDE defaulting to open weights, not OpenAI.
+  - Coding with local Ollama and optional cloud model fallback.
+skip_when:
+  - You need a mature plugin ecosystem and proven stability.
+  - Your machine cannot run local models comfortably.
+  - Full source transparency is required because the app is proprietary.
 limitations:
   - Proprietary app; no public source repository yet.
   - Cloud plans require an account and ongoing payment; local-only mode needs a capable machine.

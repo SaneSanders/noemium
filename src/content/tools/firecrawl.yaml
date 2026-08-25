@@ -29,8 +29,12 @@ limitations:
   - Cloud pricing climbs with page volume.
 receipts:
   - https://www.firecrawl.dev
+  - https://github.com/mendableai/firecrawl
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

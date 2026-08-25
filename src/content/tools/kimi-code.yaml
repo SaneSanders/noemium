@@ -36,6 +36,9 @@ receipts:
   - https://www.kimi.com/code
   - https://github.com/MoonshotAI/kimi-code
   - https://moonshotai.github.io/kimi-code/en/
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 affiliate: none
 momentum: blueshift
 featured: false

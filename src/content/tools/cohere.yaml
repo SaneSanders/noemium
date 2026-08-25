@@ -8,11 +8,22 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Rerank is the real product — it quietly improves almost any RAG pipeline,
   no matter which LLM you use. Command is fine, but it isn't why you sign up.
   Enterprise sales and confusing pricing don't help.
+strengths:
+  - "Rerank quietly improves almost any RAG pipeline regardless of the LLM."
+  - "Free trial keys give 1,000 calls/mo to test before paying."
+use_for:
+  - "Boosting retrieval quality in RAG without switching your generator."
+  - "Enterprise search where reranking is the primary need."
+skip_when:
+  - "You need frontier chat-model quality from the same API."
+  - "Self-serve pricing and clear model pages are non-negotiable."
+  - "Enterprise sales motion would slow your procurement."
 limitations:
   - Chat models trail frontier quality.
   - Enterprise-sales motion makes self-serve feel second-class.

@@ -8,11 +8,22 @@ free_tier: false
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Turns plain-English descriptions into agent workflows across email, calendar,
   and apps. Useful for non-technical operators, but the magic fades when edge
   cases need explicit handling.
+strengths:
+  - "Builds automations from plain-English descriptions."
+  - "Accessible to non-technical operators for email, calendar and app workflows."
+use_for:
+  - "Non-technical teams automating routine email and calendar tasks."
+  - "Quick workflows where edge cases are rare and tolerance for approximation is high."
+skip_when:
+  - "You need precise step-by-step control over the automation logic."
+  - "Active agents and tasks would push pricing up quickly."
+  - "You need the integration breadth of Zapier or Make."
 limitations:
   - Limited control over precise step-by-step logic.
   - Pricing escalates with active agents and tasks.

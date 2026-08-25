@@ -11,12 +11,24 @@ self_host: false
 models_used:
   - hunyuan-t1
   - deepseek-v4-pro
+model_routing: locked
 verdict: situational
 verdict_text: >-
   A strong regional option for Chinese developers who want plugin, IDE, and CLI
   forms under one subscription. The catch: credit-based pricing is hard to predict,
   the .ai marketing site is barely usable outside China, and non-Chinese users face
   language and billing barriers.
+strengths:
+  - IDE, VS Code/JetBrains plugin, and CLI forms under one subscription.
+  - Built on Hunyuan and DeepSeek models for a regional Chinese audience.
+  - Credit-based pricing can fit lighter usage if you watch consumption.
+use_for:
+  - Chinese developers who want plugin, IDE, and CLI tools from one vendor.
+  - Teams already in Tencent Cloud and comfortable with Chinese-first support.
+skip_when:
+  - You need predictable credit pricing or tight cost controls.
+  - You are outside China and rely on the .ai marketing site.
+  - You need open-source tooling or broader model choice.
 limitations:
   - Credit consumption depends on model and task complexity; monthly costs can surprise.
   - The international .ai site renders poorly; the Chinese .cn site is the practical source.

@@ -10,10 +10,22 @@ api: true
 self_host: true
 verdict: situational
 verdict_text: >-
-  Flexible agent orchestration with human-in-the-loop, code execution, and
-  group chat patterns. Great for research prototypes and complex reasoning
-  chains. The learning curve is steep and debugging multi-agent conversations
-  is hard.
+  Multi-agent orchestration with human-in-the-loop, code execution, and group
+  chat patterns. Still useful for research prototypes and complex reasoning
+  chains, but now in maintenance mode and the debugging experience for agent
+  conversations is rough.
+model_routing: byok
+strengths:
+  - Open-source Microsoft framework with human-in-the-loop and code execution.
+  - Supports group chat patterns for complex reasoning chains.
+  - Free under the MIT license.
+use_for:
+  - Research prototypes that need multi-agent conversation patterns.
+  - Complex reasoning chains before committing to a managed platform.
+skip_when:
+  - You want active development rather than a maintenance-mode project.
+  - Production observability and debugging are required out of the box.
+  - The learning curve of a fast-moving codebase is a blocker.
 limitations:
   - Now in maintenance mode; new users are directed to Microsoft Agent Framework.
   - Steep learning curve compared to CrewAI.
@@ -21,7 +33,11 @@ limitations:
   - Production observability requires extra tooling.
 receipts:
   - https://github.com/microsoft/autogen
+  - https://microsoft.github.io/autogen/
 affiliate: none
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 momentum: redshift
 featured: false
 last_verified: "2026-08-24"

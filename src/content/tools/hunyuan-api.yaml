@@ -8,6 +8,7 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Hy3 is the current Hunyuan API flagship: cheap, Apache 2.0 open weights, and
@@ -15,6 +16,17 @@ verdict_text: >-
   retired in June 2026. Access expanded globally in August 2026 (WorkBuddy,
   Miora, TokenHub), though real-name verification is still required and some
   legacy endpoints remain geo-blocked; third-party routers remain common.
+strengths:
+  - "Hy3 is cheap on TokenHub with a 256K context window."
+  - "Apache 2.0 open weights let you run Hy3 outside the hosted API."
+  - "Text, image, video and 3D models are available through one provider."
+use_for:
+  - "Cost-sensitive Chinese API access for text and multimodal generation."
+  - "Bulk asset generation when you accept ByteDance's trust boundary on BytePlus."
+skip_when:
+  - "You need clean USD rate cards or straightforward Western signup."
+  - "EU/UK/South Korea geo-blocking is a blocker for your users."
+  - "You want to keep building on the retired TurboS/T1/HY2.0 lines."
 limitations:
   - The hosted API is proprietary; Hy3 weights are released under Apache 2.0 and can be run separately.
   - New Hunyuan API capabilities are on TokenHub; the old 混元大模型 platform stops new purchases and shuts down 2026-09-30.

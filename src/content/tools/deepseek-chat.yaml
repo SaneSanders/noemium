@@ -17,6 +17,16 @@ verdict_text: >-
   403; the app is still the canonical URL. This is not the API rate card.
   China hosting and topic filters apply. Compare with ChatGPT/Claude on this
   shelf. No logged-in session in this pass.
+strengths:
+  - Free consumer chat for DeepSeek's own models.
+  - Direct alternative shelf to ChatGPT/Claude.
+use_for:
+  - Personal chat when you want DeepSeek's models without API setup.
+  - Comparing DeepSeek output against ChatGPT/Claude.
+skip_when:
+  - Data residency or China hosting is a compliance blocker.
+  - You need uncensored responses.
+  - You actually need the API rate card and peak/off-peak pricing.
 limitations:
   - chat.deepseek.com is aggressive toward bots (403); humans still use the app.
   - Data residency is a compliance blocker for many orgs (same as the API card).

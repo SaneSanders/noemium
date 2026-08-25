@@ -14,6 +14,17 @@ verdict_text: >-
   landing page or mini app without leaving Canva. The catch: it is front-end only
   and not meant for complex backends or high-traffic sites; free credits are tight
   and paid AI allowances still meter usage.
+strengths:
+  - "Builds interactive landing pages and mini apps inside Canva's familiar canvas."
+  - "Useful for marketers, educators, and small teams without a frontend engineer."
+  - "Free tier exists, though Premium AI uses are capped."
+use_for:
+  - "Quick marketing landing pages or simple interactive content."
+  - "Teams already paying for Canva Pro/Business and want AI-generated front-ends."
+skip_when:
+  - "You need a real backend, authentication, or high-traffic scaling."
+  - "You want clean exported code outside Canva's ecosystem."
+  - "Free credits are too tight for your expected volume."
 limitations:
   - Free tier caps Premium AI uses (roughly 20/mo on the public pricing page).
   - Complex backends, authentication, and high-traffic scaling are out of scope.

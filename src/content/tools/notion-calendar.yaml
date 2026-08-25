@@ -13,12 +13,24 @@ verdict_text: >-
   Clean, minimalist calendar tightly linked to Notion pages and tasks. Great
   for Notion power users; a thin standalone calendar if you don't use Notion
   for project management.
+strengths:
+  - Clean, minimalist calendar tightly linked to Notion pages and tasks.
+  - Free for anyone with a Notion account.
+  - Syncs meetings, tasks and docs in one connected workspace.
+use_for:
+  - Notion power users who already manage projects and docs in Notion.
+  - Teams that want a calendar integrated with their existing Notion workspace.
+skip_when:
+  - You do not use Notion for project management or task tracking.
+  - You need advanced scheduling features like Calendly or Reclaim offer.
+  - A full-featured mobile calendar experience is required.
 limitations:
   - Deeply tied to the Notion ecosystem.
   - Limited advanced scheduling features compared to Calendly or Reclaim.
   - Mobile experience is simpler than desktop.
 receipts:
   - https://www.notion.so/product/calendar
+  - https://www.notion.so/help/notion-calendar-apps
 affiliate: none
 momentum: steady
 featured: false

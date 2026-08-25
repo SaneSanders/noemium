@@ -10,6 +10,16 @@ self_host: false
 verdict: situational
 verdict_text: >-
   Interesting if you want to see what a Google-backed AI design tool can generate, but it is still experimental. Output tends to need cleanup before it is production-ready.
+strengths:
+  - Google-backed experimental AI design tool for generating UI layouts and components.
+  - Free to use while in Labs.
+use_for:
+  - Quick explorations of AI-generated UI layouts and components.
+  - Teams already inside Google's ecosystem and release schedule.
+skip_when:
+  - You need production-ready designs without significant cleanup.
+  - Availability and feature set must be stable.
+  - You are not willing to wait on Google's release schedule.
 limitations:
   - Experimental; availability and feature set change without warning.
   - Generated designs often need significant refinement.

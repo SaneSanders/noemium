@@ -11,6 +11,17 @@ self_host: true
 verdict: situational
 verdict_text: >-
   Saves a lot of time when you need a chat UI that looks professional without building it from scratch. The React integration is clean, though the cloud extras are not necessary for most projects.
+strengths:
+  - "Open-source React chat components that look professional without building from scratch."
+  - "Clean React integration for dropping an AI chat interface into an existing frontend."
+  - "MIT core can be self-hosted if you want the conversation UI on your own infrastructure."
+use_for:
+  - "Teams that need a polished chat UI inside a React app without writing it from zero."
+  - "Projects where the open-source core is enough and cloud extras are unnecessary."
+skip_when:
+  - "You need a packaged chat widget with zero frontend customization."
+  - "Cloud-only features are required, since they blur the open-core boundary."
+  - "You rely on a large ecosystem of general-purpose component libraries."
 limitations:
   - Cloud features can blur the open-core boundary.
   - Custom thread UI still requires effort.
@@ -21,5 +32,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

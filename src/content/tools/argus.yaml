@@ -8,21 +8,37 @@ free_tier: true
 open_source: false
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Describe a test in plain English and Argus drives a Playwright browser through
   it, capturing timelines, screenshots, and pass/fail reasoning. The local-first
   build keeps data on your machine, while a hosted option removes setup. Good for
   teams whose coding agents are producing UI faster than manual QA can keep up.
+strengths:
+  - "Turns a plain-English test description into a Playwright browser run with screenshots and reasoning."
+  - "Local-first build keeps runs, screenshots, and reports on your machine."
+  - "Hosted option removes setup for teams that do not want to self-host."
+use_for:
+  - "Teams whose coding agents ship UI faster than manual QA can review."
+  - "Smoke-testing a web app without writing and maintaining selectors."
+skip_when:
+  - "You need an OSI open-source license today; the source-available license is not OSI."
+  - "Simple, repetitive flows where a scripted test would be faster than the agent pipeline."
+  - "You do not have a Gemini, OpenAI, or Kimi API key for real local runs."
 limitations:
   - Requires a Gemini API key for real runs in the local build.
   - Source-available license, not OSI open source; enterprise use is paid.
   - Multi-agent pipeline can be slower than a scripted test for simple, repetitive flows.
 receipts:
   - https://github.com/argus-testing/argus
+  - https://github.com/argus-testing/argus/blob/main/LICENSE
 affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -8,6 +8,9 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 verdict: ship
 verdict_text: >-
   The most feature-complete open vector DB: hybrid BM25+vector search,

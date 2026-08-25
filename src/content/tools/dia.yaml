@@ -15,6 +15,17 @@ verdict_text: >-
   sync). $20 is page-chat; $100 is Morning Brief / decks / meeting prep.
   /pricing 404s — /plans is the receipt. Windows is still a waitlist
   question. Not Comet, not ChatGPT in Chrome.
+strengths:
+  - Free tier is a real browser with profiles, split view, ad/tracker block and sync.
+  - Clear three-rung pricing table for page-chat and premium AI features.
+  - Top tier adds Morning Brief, decks and meeting prep inside the browser.
+use_for:
+  - macOS 14+ Apple Silicon users who want an AI-native browser replacement.
+  - Teams that need page-chat and meeting-prep features inside the browser.
+skip_when:
+  - You are on Windows or Intel Macs and need a general-availability download today.
+  - You need published chat quotas for paid tiers before buying.
+  - Default content-sharing toggles must stay off and manual opt-out is not acceptable.
 limitations:
   - Public download is macOS 14+ Apple Silicon; Windows is not a general GA claim on the homepage.
   - Usage limits apply on paid tiers; the table does not publish chat quotas as numbers.

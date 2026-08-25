@@ -33,7 +33,9 @@ limitations:
   - Cloning consent flows add friction even for legitimate use cases.
   - 2026 repricing — Creator went from $11 to $22 with a bigger quota.
 receipts:
+  - https://elevenlabs.io
   - https://elevenlabs.io/pricing
+  - https://elevenlabs.io/docs
 affiliate: none
 momentum: blueshift
 featured: true

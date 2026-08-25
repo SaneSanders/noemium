@@ -10,15 +10,32 @@ api: true
 self_host: false
 verdict: situational
 verdict_text: >-
-  One of the best video generators on physics and motion, usually cheaper than
-  Runway. The catch for developers: MiniMax does not publish a first-party
-  video API price, so most Western users buy it through resellers.
+  Top-tier physics and motion realism for the price, usually undercutting
+  Runway. The free tier is a solid way to test Hailuo 01/02/H3 before committing
+  to the ¥105–¥1399 credit plans. For developers, the absence of a public
+  first-party video API price means Western access typically routes through
+  resellers.
+strengths:
+  - Strong physics and motion realism in generated video.
+  - Usually cheaper than Runway for comparable output quality.
+  - Free tier lets you test the Hailuo 01/02/H3 model stack before paying.
+  - Credit-based plans from ¥105/mo up to ¥1399/mo for heavy use.
+use_for:
+  - Short video clips where realistic physics and motion matter most.
+  - Budget-conscious creators comparing against Runway pricing.
+  - Quick experiments on the free tier before buying credits.
+skip_when:
+  - You need a published first-party video API price card.
+  - Strict content moderation would block your subject matter.
+  - You want a single simple credit system across multiple model tiers.
 limitations:
   - First-party API pricing not public; Western access usually via resellers.
   - Strict content moderation.
   - Multiple model tiers (Hailuo 01/02/H3) make the credit system harder to navigate.
   - Consumer pricing and API pricing are separate, confusing buckets.
 receipts:
+  - https://hailuoai.com
+  - https://hailuoai.com/pricing
   - https://www.atlascloud.ai/blog/tips/hailuo-ai-pricing-cost
   - https://awesomeagents.ai/models/hailuo-02/
   - https://compareaitools.org/best-ai-video-generator/

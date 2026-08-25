@@ -11,6 +11,17 @@ self_host: false
 verdict: situational
 verdict_text: >-
   Strong for agencies building Webflow sites at speed. The component library is large, but the value drops if you are not in the Webflow ecosystem.
+strengths:
+  - Large component library purpose-built for Webflow marketing sites.
+  - Free library browse lets you inspect components before paying.
+  - Speeds up agency builds when the stack is already Webflow.
+use_for:
+  - Agencies building Webflow marketing sites at speed.
+  - Teams already committed to the Webflow ecosystem.
+skip_when:
+  - You are not using Webflow; export to other stacks is limited.
+  - You need real site-building features without a paid plan.
+  - You cannot invest in custom work to avoid samey templates.
 limitations:
   - Best inside Webflow; export to other stacks is limited.
   - Paid plans are required for real site building.

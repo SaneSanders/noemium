@@ -13,6 +13,16 @@ verdict_text: >-
   Use this when the image needs readable text — posters, logo drafts,
   thumbnails, memes. It beats Midjourney and FLUX there. For pure
   photorealism or art direction, pick one of those instead.
+strengths:
+  - Strongest text-in-image rendering in the category.
+  - Beats Midjourney and FLUX on readable text tasks.
+use_for:
+  - Posters, logo drafts, thumbnails, and memes with readable text.
+  - Any image where text legibility is the hard requirement.
+skip_when:
+  - You need broad style range or photorealism.
+  - Free-queue slowdowns break your workflow.
+  - Public generations on the free plan are a privacy issue.
 limitations:
   - Style range narrower than Midjourney.
   - Free queue can be slow at peak times.

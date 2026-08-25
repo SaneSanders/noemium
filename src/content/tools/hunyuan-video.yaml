@@ -13,6 +13,17 @@ verdict_text: >-
   A surprise open-weights release that can run locally and competes with closed
   video models. The self-hosting cost is real, and the first-party hosted API
   price was not confirmed at scan time.
+strengths:
+  - Open-weights text/image-to-video model from Tencent.
+  - Can run locally and competes with closed video models.
+  - Available through third-party hosted APIs when self-hosting is too expensive.
+use_for:
+  - Local video generation when you control the hardware and data.
+  - Experiments where open weights matter more than polish.
+skip_when:
+  - You need native audio in the generated video.
+  - You lack the GPU infrastructure for local inference.
+  - You want first-party support and documentation outside China.
 limitations:
   - No native audio; visual-only output.
   - Self-hosting still requires serious GPU infrastructure.
@@ -27,5 +38,8 @@ affiliate: none
 momentum: blueshift
 featured: false
 evidence_tier: source-verified
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-24"
 observed_by: whysanesanders

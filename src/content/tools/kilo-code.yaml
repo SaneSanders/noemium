@@ -9,12 +9,26 @@ open_source: true
 api: true
 self_host: true
 model_routing: byok
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 verdict: situational
 verdict_text: >-
   Open-source agent with a zero-markup gateway is the pitch, and the public
   price page actually separates platform / inference / cloud compute. Solo with
   BYOK or local models is free; Teams and Pass are optional. Auto-routing and
   a 5% credit fee still need watching. Not a Ship without a repo run.
+strengths:
+  - "Open-source agent with a zero-markup gateway at provider rates."
+  - "Public pricing separates platform, inference and cloud compute meters."
+  - "Solo use with BYOK or local models is free."
+use_for:
+  - "Solo developers who want a free coding agent with their own API keys."
+  - "Teams that prefer an open, self-hostable agent over a black-box editor."
+skip_when:
+  - "Three separate meters make your bill unpredictable."
+  - "A 5% credit top-up fee and Auto-routing uncertainty bother you."
+  - "You are not willing to run and verify the open-source repo yourself."
 limitations:
   - Three meters (platform, inference, cloud compute) make a real bill three line items.
   - Credit top-ups carry a 5% processing fee on the published card.

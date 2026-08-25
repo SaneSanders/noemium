@@ -18,6 +18,17 @@ limitations:
   - Less language coverage than ElevenLabs or Azure.
   - Western access is reseller-dependent.
   - Documentation and brand recognition outside China are limited.
+strengths:
+  - Strong Chinese voice quality and expressive speech.
+  - Budget character-based pricing.
+  - Voice cloning available via fal.ai.
+use_for:
+  - Chinese TTS and voice-clone projects.
+  - Budget speech generation where character pricing fits.
+skip_when:
+  - You need broad Western language coverage.
+  - Token-based pricing is cheaper at your scale.
+  - Direct Western access without resellers is required.
 receipts:
   - https://platform.minimax.io/docs/guides/pricing-paygo
   - https://knowara.com/ai-tools/voice/minimax-speech-review/

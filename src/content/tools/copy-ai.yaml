@@ -13,6 +13,16 @@ verdict_text: >-
   Strong for short-form marketing copy and sales emails. The workflow builder
   is useful for repetitive GTM tasks, but long-form content still needs heavy
   editing and brand voice tuning.
+strengths:
+  - Strong short-form marketing copy and sales email generation.
+  - Workflow builder automates repetitive GTM tasks.
+use_for:
+  - Short marketing copy and sales emails at scale.
+  - Repetitive go-to-market workflows that need templated output.
+skip_when:
+  - You need long-form drafts without heavy editing.
+  - Brand voice customization is required on a tight budget.
+  - Output consistency across every content type is critical.
 limitations:
   - Long-form drafts often feel formulaic.
   - Brand voice customization requires paid plans.

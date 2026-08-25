@@ -8,6 +8,7 @@ free_tier: false
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: skip
 verdict_text: >-
   01.AI is winding down the self-serve Yi API platform. A 2026-08-03 notice
@@ -22,6 +23,17 @@ limitations:
   - Open-weight Yi models are separate from the hosted API and still free on HuggingFace.
   - The company is pivoting to sales-led enterprise platforms (TrueNorth/Wanzhi); no public pricing for those.
   - "Self-serve API closes 2026-09-03 (announced 2026-08-03): registrations and top-ups stopped, existing calls work until then — enterprise sales only after."
+strengths:
+  - yi-lightning is cheap on a per-token basis.
+  - Open-weight Yi models remain free on HuggingFace.
+  - Shutdown timeline is clearly published.
+use_for:
+  - Existing users winding down before 2026-09-03.
+  - Experimenting with open-weight Yi models on HuggingFace.
+skip_when:
+  - You need a hosted API for a new project.
+  - Chinese-platform identity verification is a blocker.
+  - You want stable SKU identity rather than intelligent routing.
 receipts:
   - https://platform.lingyiwanwu.com
   - https://www.usagepricing.com/blueprint/01-ai

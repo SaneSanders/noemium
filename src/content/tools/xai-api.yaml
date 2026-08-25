@@ -10,17 +10,31 @@ api: true
 self_host: false
 models_used:
   - grok-4-6
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Grok 4 keeps up on benchmarks and the API is straightforward. The ecosystem
   is young, though, and the X association is a real procurement risk for some
   teams. Pricing isn't disruptive compared with Claude or GPT.
+strengths:
+  - "Grok 4 keeps up on benchmarks with a straightforward API."
+  - "Big context window and strong reasoning on paper."
+  - "Tight X integration for teams already on that platform."
+use_for:
+  - "Projects that want Grok models through a simple API."
+  - "Teams comfortable with the X ecosystem tie-in."
+  - "Use cases where benchmark-reported reasoning matters."
+skip_when:
+  - "The X association is a procurement risk your org will not accept."
+  - "You need a mature ecosystem with many SDKs and integrations."
+  - "Pricing must undercut Claude or GPT to justify the switch."
 limitations:
   - "Young platform: fewer SDKs, tools and battle-testing."
   - Pricing is not disruptive versus Claude or GPT.
   - Reputation risk some orgs will not accept.
 receipts:
   - https://platform.x.ai
+  - https://docs.x.ai/docs
 affiliate: none
 momentum: blueshift
 featured: false

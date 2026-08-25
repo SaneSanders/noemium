@@ -14,6 +14,17 @@ verdict_text: >-
   one-time $100 credit pile; Pro is $150 plus the same per-second meters.
   You still write the agent. Not Browser Use (that's a browser); this is a
   VM. No production agent parked here.
+strengths:
+  - Isolated Firecracker VM sandboxes billed per second of CPU/RAM.
+  - Generous Hobby tier with $100 one-time credits and 20 concurrent sessions.
+  - The runtime several agent products quietly rely on.
+use_for:
+  - Running untrusted agent code in isolated cloud VMs.
+  - Prototyping agents that need a real Linux environment, not a browser.
+skip_when:
+  - You need sessions longer than the 1-hour Hobby cap without paying Pro.
+  - The budget cannot cover both seat fee and per-second usage.
+  - You want to self-host the commercial control plane.
 limitations:
   - Seat fee and usage are separate; idle sandboxes still tick CPU/RAM.
   - Hobby session cap is 1 hour; long jobs need Pro.

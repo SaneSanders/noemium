@@ -14,6 +14,18 @@ verdict_text: >-
   are cheap and sync; Task/Ultra processors get into dollars per request.
   Not Tavily and not Exa — those are other cards. SOC2 on the public table.
   Untested against a live agent loop here.
+strengths:
+  - Search and Extract are cheap, synchronous APIs with predictable per-request pricing.
+  - Task API covers deeper agent work when you can accept higher per-call cost.
+  - SOC2 compliance is listed publicly.
+use_for:
+  - Agent workflows that need structured web search or extraction.
+  - Cost-sensitive projects using the 5k free monthly request cap.
+skip_when:
+  - You expected deep research at the cheap Search price point.
+  - Workflows use Find All where per-match billing can surprise.
+  - You need a general-purpose search engine UI rather than an API.
+
 limitations:
   - Ultra8x Task is $2.40/request; "deep research" is not the $0.001 Search line.
   - Find All bills per match plus a processor fixed fee — easy to surprise.

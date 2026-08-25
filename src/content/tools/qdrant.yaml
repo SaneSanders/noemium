@@ -27,6 +27,9 @@ limitations:
   - Fewer built-in retrieval features than Weaviate; bring your own reranking.
   - Clustering and sharding maturity behind the incumbents.
   - Smaller ecosystem and fewer integrations than Pinecone.
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 receipts:
   - https://github.com/qdrant/qdrant
 affiliate: none

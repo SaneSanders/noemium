@@ -8,12 +8,25 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: byok
 verdict: situational
 verdict_text: >-
   The terminal people already wanted, now with an agent meter. Free stays a
   real terminal plus BYOK; Build is $20 for 1,500 credits at API-shaped rates.
   Factories (cloud agent fleets) are a second SKU with a 20% PAYG markup.
   Closed client. No hands-on run in this catalog pass.
+strengths:
+  - Modern terminal UX plus AI agent in one tool.
+  - Free tier keeps a real terminal and BYOK.
+  - "Public credit math: $20 for 1,500 credits."
+use_for:
+  - Developers who want terminal modernization plus AI in one app.
+  - Free-tier users happy with BYOK for agent tasks.
+  - Teams needing cloud agent fleets via Factories.
+skip_when:
+  - Heavy agent use would force expensive Build/Max tiers.
+  - You need an auditable open-source terminal.
+  - Team SSO/BYOLLM requirements rule out Build.
 limitations:
   - Agent credits and terminal UX are sold together; heavy agent use is not the Free plan.
   - Cloud agents and Factories are extra surface area with their own markup.

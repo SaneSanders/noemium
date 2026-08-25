@@ -16,6 +16,17 @@ verdict_text: >-
   and Agentic Plus much more. VPC exists for enterprises, not a docker OSS
   story. Confirm Starter/Pro seat dollars in the console — they were not in
   this HTML extract.
+strengths:
+  - Hosted PDF parser tightly integrated with the LlamaIndex ecosystem.
+  - Per-page credit pricing is transparent enough to model costs.
+  - Enterprise VPC option exists for stricter data boundaries.
+use_for:
+  - RAG pipelines parsing PDFs and documents inside LlamaIndex workflows.
+  - Teams that prefer a managed parser over self-hosting an OSS alternative.
+skip_when:
+  - You need an open-source parser you can self-host for free.
+  - Free 10K credits/month would cap before your volume finishes.
+  - Budget requires confirmed seat dollars not shown in public pricing.
 limitations:
   - "Official FAQ: LlamaParse itself is not OSS; don't confuse the Python client with the parser."
   - Free plan has no PAYG — extra usage returns 402 until you upgrade.

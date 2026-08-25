@@ -13,12 +13,23 @@ verdict_text: >-
   Reliable managed browsers for agents that need to click, fill forms, and
   capture pages. Pricing is straightforward, but you still write the agent
   logic yourself.
+strengths:
+  - "Reliable managed browsers for agents that click, fill forms and capture pages."
+  - "Straightforward tiered pricing with a free start."
+use_for:
+  - "AI agents and scrapers that need real browser interaction."
+  - "Teams that do not want to run their own browser fleet."
+skip_when:
+  - "You are not willing to write the agent/scraper logic yourself."
+  - "Session time would scale costs beyond what headless alternatives cost."
+  - "Anti-bot protections on your target sites are a hard blocker."
 limitations:
   - Requires coding the agent/scraper on top.
   - Costs scale with browser session time.
   - Anti-bot protections on some sites still trigger blocks.
 receipts:
   - https://www.browserbase.com
+  - https://www.browserbase.com/pricing
 affiliate: none
 momentum: blueshift
 featured: false

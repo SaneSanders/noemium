@@ -8,11 +8,23 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Still unbeatable for connecting standard SaaS apps reliably. But AI workflows
   eat tasks fast — every LLM call costs you — and n8n or Make handle AI-native
   automation for less. Keep it for plain plumbing, not agent loops.
+strengths:
+  - 7000+ app integrations and reliable SaaS plumbing.
+  - AI steps extend classic automations without leaving the platform.
+  - Still the default for connecting standard SaaS apps reliably.
+use_for:
+  - Plain SaaS-to-SaaS automations where reliability beats AI-native cost.
+  - Teams already invested in Zapier's integration catalog.
+skip_when:
+  - Your workflow is an AI agent loop that would burn through task pricing.
+  - You need AI-native automation at lower cost than per-task LLM calls.
+  - Complex branching would become unmaintainable in the visual UI.
 limitations:
   - Per-task pricing explodes once AI loops enter workflows.
   - AI features feel bolted on vs AI-native rivals.

@@ -17,6 +17,17 @@ verdict_text: >-
   real but x.ai/grok returned 403 here, so this catalog will not invent a
   dollar figure from blogs. Personality and X-data are the draw; procurement
   and moderation are the drag.
+strengths:
+  - Standalone chat product separate from X and the xAI API.
+  - Free tier exists on grok.com.
+  - Personality and X-data integration are the main draw.
+use_for:
+  - Users who want xAI models without building against the API.
+  - People whose workflow already centers on X and wants the same voice.
+skip_when:
+  - You need a stable public price table before purchasing SuperGrok.
+  - xAI API rate card or procurement independence from X is required.
+  - You want Imagine/video as a primary studio rather than a quota-gated chat feature.
 limitations:
   - No stable public HTML price table fetched (x.ai/grok 403); treat in-app SuperGrok as authoritative.
   - Not a substitute for the xAI API rate card (see the xAI API entry).

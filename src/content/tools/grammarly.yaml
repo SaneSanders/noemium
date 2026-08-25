@@ -13,6 +13,16 @@ verdict_text: >-
   Still the best at catching typos and smoothing tone inside every app.
   The free tier covers most people. Premium rewrite features are harder
   to justify now that ChatGPT and Claude do the same job.
+strengths:
+  - Best-in-class typo and tone smoothing across apps.
+  - Free tier covers most casual writing needs.
+use_for:
+  - Daily writing where typos and tone slips matter.
+  - Users who want grammar help inside every app, not one chat window.
+skip_when:
+  - You need to preserve a strong personal voice.
+  - Paid rewrite features duplicate free LLM chats you already use.
+  - You cannot tolerate confidently-wrong grammar corrections.
 limitations:
   - Suggestions can flatten personal voice into corporate beige.
   - Premium overlaps with what free LLM chats now do.
@@ -20,6 +30,7 @@ limitations:
   - Business plan retired; parent company renamed Superhuman (2025-10).
 receipts:
   - https://www.grammarly.com
+  - https://www.grammarly.com/plans
 affiliate: none
 momentum: steady
 featured: false

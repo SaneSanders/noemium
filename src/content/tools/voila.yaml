@@ -16,6 +16,17 @@ verdict_text: >-
   to the Auto model with a request cap, and model choice only arrives with
   Ultimate. Solid as one convenient assistant; power users will hit the
   ceiling.
+strengths:
+  - Cross-platform assistant running in browser, desktop, and mobile.
+  - Premium at $8/mo yearly is a cheap honest entry point.
+  - Ultimate tier unlocks model choice.
+use_for:
+  - Users who want one convenient assistant across every device.
+  - Budget buyers who can live with the Auto model and 3k request cap.
+skip_when:
+  - You need model choice below the Ultimate tier.
+  - 3,000 requests per month would cap a Premium workflow.
+  - You are a power user who wants full control over the underlying model.
 limitations:
   - Premium is limited to the Auto model — no model choice on that tier.
   - Premium caps at 3,000 requests per month.

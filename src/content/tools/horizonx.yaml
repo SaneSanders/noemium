@@ -11,6 +11,18 @@ self_host: false
 verdict: situational
 verdict_text: >-
   High-quality assets if you are building slick landing pages and want production-ready Figma and code together. The subscription model only pays off if you ship multiple sites per month.
+strengths:
+  - Premium Figma templates and code components bundled for landing pages.
+  - Production-ready assets aimed at vibecoding workflows.
+  - Subscription model suits agencies or prolific builders.
+use_for:
+  - Agencies shipping multiple marketing sites per month.
+  - Landing-page builds where matching Figma and code speeds handoff.
+skip_when:
+  - You are building app UI rather than marketing sites.
+  - It is a one-off project and the subscription cost does not amortize.
+  - You need a free tier to evaluate quality first.
+
 limitations:
   - No free tier; everything useful is gated.
   - Subscription can be expensive for one-off projects.

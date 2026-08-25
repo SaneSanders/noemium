@@ -8,6 +8,7 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: byok
 verdict: ship
 verdict_text: >-
   The default plumbing for open models — weights, datasets, the transformers
@@ -30,6 +31,7 @@ limitations:
   - Discovering quality models among the noise takes effort.
 receipts:
   - https://huggingface.co
+  - https://huggingface.co/pricing
 affiliate: none
 momentum: steady
 featured: false

@@ -12,6 +12,7 @@ models_used:
   - deepseek-v4-flash
   - deepseek-v4-pro
 verdict: situational
+model_routing: locked
 verdict_text: >-
   The best price-performance around for reasoning workloads — R1-class output
   at a fraction of frontier cost. The catch is China hosting: plenty of
@@ -22,8 +23,21 @@ limitations:
   - API capacity and reliability have wobbled under demand.
   - Censorship baked in on some topics.
   - Complex peak/off-peak rate card with 50% discount outside 01:00–04:00 and 06:00–10:00 UTC from 2026-08-16; cache-hit discounts matter but add opacity.
+strengths:
+  - Best price-performance around for reasoning workloads.
+  - R1-class output at a fraction of frontier API cost.
+  - Off-peak rates are half price, so shifting workloads saves real money.
+use_for:
+  - Reasoning workloads where China-hosted data is compliance-acceptable.
+  - Teams that want frontier-class output without frontier token bills.
+  - Workloads that can run during off-peak windows to cut cost.
+skip_when:
+  - Data residency rules forbid sending workloads to China.
+  - You need predictable capacity and uptime under demand spikes.
+  - Topic censorship or a complex peak/off-peak rate card is a hard no.
 receipts:
   - https://api-docs.deepseek.com
+  - https://api-docs.deepseek.com/quick_start/pricing
 affiliate: none
 momentum: blueshift
 featured: false

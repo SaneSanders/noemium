@@ -13,6 +13,16 @@ verdict_text: >-
   Makes sense only if your team already lives in Notion. Searching across
   your own workspace docs is the real feature; the writing assistant
   itself is fine, not special. Don't buy Notion just for the AI.
+strengths:
+  - "Searching across your own workspace docs is the real feature."
+  - "Embedded where your notes, wikis and projects already live."
+use_for:
+  - "Teams already living in Notion who need workspace-wide AI search."
+  - "Summarizing and drafting pages that are already in Notion."
+skip_when:
+  - "You do not already pay for Notion as a workspace."
+  - "Transparent model routing and choice are required."
+  - "Per-seat AI pricing would stack too high on top of the base plan."
 limitations:
   - Only makes sense if you already pay for Notion.
   - Per-seat pricing stacks on top of the base plan.
@@ -20,6 +30,7 @@ limitations:
   - Standalone $10 AI add-on discontinued.
 receipts:
   - https://www.notion.com/product/ai
+  - https://www.notion.com/pricing
 affiliate: none
 momentum: steady
 featured: false

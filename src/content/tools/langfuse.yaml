@@ -14,6 +14,17 @@ verdict_text: >-
   (traces + observations + scores); Hobby is a real free POC; Core at $29 is
   the production on-ramp. Self-host OSS is full core features, Enterprise is
   the RBAC/audit layer plus ClickHouse commercial. Not a field install here.
+strengths:
+  - MIT-licensed self-host option with full core observability features.
+  - Cloud Hobby is a real free POC for small teams.
+  - Covers traces, prompts, evals, and unit-metered usage in one tool.
+use_for:
+  - Teams that need LLM observability and can self-host for compliance.
+  - Small POCs that fit inside Hobby's 50k units and 2 users.
+skip_when:
+  - Verbose agents would blow through the per-unit meter quickly.
+  - You need SSO/RBAC without paying Pro, Teams add-on, or Enterprise.
+  - You expect overage on the free Hobby tier.
 limitations:
   - A "unit" is every trace, span, generation, and score — verbose agents get expensive.
   - Hobby hard-caps at 50k units and 2 users; no overage.
@@ -26,5 +37,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

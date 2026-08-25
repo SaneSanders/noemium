@@ -18,6 +18,18 @@ limitations:
   - Free tier has a 2,000-character limit per check and fewer style rules.
   - Premium paraphrasing is capped even on paid plans.
   - Self-hosted setup requires technical effort and your own infrastructure.
+strengths:
+  - Strongest open-source option for multilingual grammar and style checking.
+  - Solid free browser add-on for quick checks.
+  - Core engine is self-hostable for privacy-conscious teams.
+use_for:
+  - Multilingual writers who need an open-source grammar/style checker.
+  - Privacy-conscious users and teams wanting EU-based tooling.
+  - Teams with the ops capacity to self-host the core engine.
+skip_when:
+  - You need unlimited style checks without the Premium cap.
+  - The free 2,000-character limit per check breaks your workflow.
+  - You cannot invest the technical effort to self-host.
 receipts:
   - https://languagetool.org
   - https://languagetool.org/premium
@@ -25,5 +37,8 @@ affiliate: none
 evidence_tier: source-verified
 momentum: steady
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -8,12 +8,24 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   The local-model default: one CLI, an OpenAI-shaped API, desktop apps, and
   you keep weights on disk. Cloud Pro is a separate $20 meter with 5-hour and
   weekly caps; Max is capacity-paused for new buyers. Local is the product;
   cloud is overflow. Not a quality claim about any one model.
+strengths:
+  - Local-model default with one CLI, an OpenAI-shaped API, and desktop apps.
+  - You keep model weights on disk and run inference on your own hardware.
+  - Free local runtime with no usage caps beyond what your machine can handle.
+use_for:
+  - Offline or private inference where data never leaves the machine.
+  - Prototyping with open weights before deciding on cloud spend.
+skip_when:
+  - Your GPU cannot deliver the quality or speed the use case demands.
+  - You need guaranteed data residency from a cloud region.
+  - You were planning to sign up for Max while new subscriptions are paused.
 limitations:
   - Local quality and speed are your GPU; Ollama is the runner, not the weights.
   - Cloud usage is token-and-model-weighted, not a flat token bucket.
@@ -25,5 +37,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

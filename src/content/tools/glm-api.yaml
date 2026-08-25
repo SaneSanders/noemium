@@ -11,12 +11,24 @@ self_host: false
 models_used:
   - glm-5-3
   - glm-5-2
+model_routing: locked
 verdict: situational
 verdict_text: >-
   GLM-5.2 is a serious open-weights flagship with a huge context window, and
   the flat-rate Coding Plan is genuinely different. The catch is Zhipu's
   international surface is thinner than Qwen's, with CNY pricing, lower brand
   recognition and a promo price that may not last.
+strengths:
+  - GLM-5.2 is a serious open-weights flagship with a huge context window.
+  - Flat-rate Coding Plan is a genuinely different pricing option.
+  - OpenAI-compatible API covers text, vision, image and video models.
+use_for:
+  - Chinese-lab pricing with a flat-rate coding subscription.
+  - GLM-family multimodal calls through an OpenAI-compatible endpoint.
+skip_when:
+  - You need English-first docs and support comparable to Qwen.
+  - CNY-only pricing and tiered rate cards are a compliance headache.
+  - The temporary free promo ending would break your cost model.
 limitations:
   - The hosted API is proprietary; some GLM model weights are available separately for self-hosting.
   - Pricing page is CNY-only and tiered by input/output length.

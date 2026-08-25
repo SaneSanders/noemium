@@ -8,12 +8,24 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   A sensible choice for Chinese-speaking teams already using Baidu's cloud stack
   and ERNIE models. The catch: the most useful agentic features sit behind Pro or
   Enterprise tiers, and non-Chinese users will hit language, payment, and support
   friction.
+strengths:
+  - "Tight fit for Chinese-speaking teams already on Baidu Cloud and ERNIE models."
+  - "Standard tier is free for individuals."
+  - "Includes Zulu agent mode for users on Pro or Enterprise tiers."
+use_for:
+  - "Developers working in Chinese who want an IDE assistant inside Baidu's stack."
+  - "Teams already paying for Baidu Cloud and ERNIE services."
+skip_when:
+  - "Your team needs English-first documentation and support."
+  - "You want agentic features without paying for Pro or Enterprise."
+  - "You need BYOK or an open model ecosystem."
 limitations:
   - Documentation and support are Chinese-first.
   - Agentic and advanced generation features require Pro or Enterprise.

@@ -8,12 +8,23 @@ free_tier: false
 open_source: false
 api: false
 self_host: false
+model_routing: bundled
 verdict: skip
 verdict_text: >-
   Code-search context was a real edge once. Then Sourcegraph's attention
   moved to Amp, self-serve plans got killed, and Cody's release cadence shows
   where it sits in the priority list. Pick a tool its maker actually cares
   about.
+strengths:
+  - Deep code-search context from Sourcegraph's codebase graph.
+  - Enterprise-grade admin and security controls for large codebases.
+use_for:
+  - Organizations already on Sourcegraph Enterprise that want bundled AI assistance.
+  - Teams that need code-search context tied to an existing Sourcegraph deployment.
+skip_when:
+  - You are an individual developer looking for self-serve plans.
+  - You want a vendor whose current roadmap prioritizes the AI assistant.
+  - Agentic features are a priority over legacy code search.
 limitations:
   - Self-serve Free/Pro discontinued; individuals are pointed to Amp instead.
   - Development focus shifted to Amp; Cody feels maintenance-mode.

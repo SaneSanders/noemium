@@ -14,6 +14,16 @@ verdict_text: >-
   citation management, and PDF chat in one editor. The free tier is heavily
   capped, and the AI can still hallucinate sources or phrasing. Export and
   formatting work best on paid plans.
+strengths:
+  - Purpose-built academic editor with autocomplete, citations, and PDF chat.
+  - One tool for drafting papers, citations, and paraphrasing.
+use_for:
+  - Students and researchers writing papers with citation needs.
+  - PDF chat and paraphrasing inside an academic workflow.
+skip_when:
+  - You need a flexible general word processor.
+  - Free-tier daily limits would stall your writing.
+  - You cannot manually verify AI-generated citations.
 limitations:
   - Free plan limits daily AI autocomplete, edits, chat, and PDF uploads.
   - Citation and source suggestions still need manual verification.

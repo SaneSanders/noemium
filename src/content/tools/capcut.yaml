@@ -13,12 +13,24 @@ verdict_text: >-
   CapCut is the fastest path to polished short-form video for TikTok, Reels, and YouTube, especially on mobile.
   The free tier covers most casual creators, while Pro adds premium templates, AI tools, and higher-quality exports.
   It is less suited to long-form or team workflows that need frame-level precision, version control, or enterprise data governance.
+strengths:
+  - Fastest path to polished short-form video for TikTok, Reels, and YouTube.
+  - Free tier covers most casual creators.
+  - Mobile-first workflow with templates, effects, and generative tools.
+use_for:
+  - Casual creators making short-form social content on phone or web.
+  - Quick edits where templates and auto-effects beat manual timeline work.
+skip_when:
+  - You need long-form editing, frame-level precision, or team version control.
+  - ByteDance data handling is a procurement blocker for your business.
+  - Advanced color grading, audio mixing, or desktop-editor control is required.
 limitations:
   - ByteDance ownership and data-handling practices are a procurement concern for some businesses and institutions.
   - Advanced color grading, audio mixing, and collaboration lag behind desktop editors like DaVinci Resolve or Premiere.
   - AI generative features are convenient but quality varies; exported free projects may nudge users toward paid assets.
 receipts:
   - https://www.capcut.com
+  - https://www.capcut.com/tools/ai-video-editor
 affiliate: none
 evidence_tier: source-verified
 momentum: steady

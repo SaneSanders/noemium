@@ -8,17 +8,29 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: bundled
 verdict: skip
 verdict_text: >-
   Impressive demo reel, flaky day-to-day. Long-horizon tasks still fall apart,
   and failed runs burn credits anyway. Wait until autonomous execution is
   actually reliable.
+strengths:
+  - Demo reel shows impressive autonomous multi-step web task execution.
+  - Free daily credits let you try the agent before paying.
+use_for:
+  - Benchmarking how well current autonomous agents handle long-horizon web tasks.
+  - Quick experiments where a failed run costs only free daily credits.
+skip_when:
+  - You need reliable execution on unscripted, real-world tasks.
+  - Failed runs would waste paid credits or miss a deadline.
+  - You require transparency about what the agent is doing mid-run.
 limitations:
   - High failure rate on unscripted, real-world tasks.
   - Credits are consumed even on failed attempts.
   - Opaque about what it is doing mid-run.
 receipts:
   - https://manus.im
+  - https://manus.im/pricing
 affiliate: none
 momentum: redshift
 featured: false

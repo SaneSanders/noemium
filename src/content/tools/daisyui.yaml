@@ -15,10 +15,24 @@ limitations:
   - Visual style is generic out of the box.
   - Less flexible than utility-first Tailwind for bespoke designs.
   - Theming requires understanding of the plugin system.
+strengths:
+  - Ready-made component classes like btn and card speed up prototyping.
+  - Semantic class names that are easy to remember.
+  - MIT open source.
+use_for:
+  - Quick admin tools and MVPs built with Tailwind.
+  - Teams that want pre-built components without leaving Tailwind.
+skip_when:
+  - Your design is bespoke and needs utility-first flexibility.
+  - The generic out-of-the-box look is unacceptable.
+  - The team does not understand the plugin theming system.
 receipts:
   - "https://daisyui.com"
   - "https://github.com/saadeghi/daisyui"
 affiliate: none
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 momentum: steady
 featured: false
 last_verified: "2026-08-19"

@@ -10,7 +10,20 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Good for scaffolding UI blocks from a text prompt. The generated code is a decent starting point, but you still need to refactor for real projects.
+  Turns a prompt into a React/Tailwind component you can copy and tweak. Handy
+  for a quick landing section or dashboard shell, but generated code usually
+  needs cleanup for accessibility, responsive edge cases, and production
+  conventions.
+strengths:
+  - "Generates React/Tailwind components from a text prompt."
+  - "Faster than starting from scratch for simple UI blocks."
+use_for:
+  - "Scaffolding a landing section or dashboard shell to iterate on."
+  - "Teams already using Next.js and Vercel conventions."
+skip_when:
+  - "You need accessible, production-ready code out of the box."
+  - "Free-tier credit limits would interrupt your flow."
+  - "Your stack is not Next.js/Vercel-friendly."
 limitations:
   - Generated code often ignores accessibility and edge cases.
   - Credit limits can interrupt flow on the free tier.

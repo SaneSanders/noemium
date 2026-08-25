@@ -10,11 +10,23 @@ api: true
 self_host: false
 models_used:
   - minimax-m3
+model_routing: locked
 verdict: situational
 verdict_text: >-
   M3 is cheap for high-volume text, and the same platform runs Hailuo video,
   speech and music. Just watch the pricing: list vs promo rates are unclear,
   and the open-weight flagship Text-01 has vanished from the main API docs.
+strengths:
+  - Cheap high-volume text pricing on M3.
+  - Same platform exposes video, speech, and music models (Hailuo).
+  - Free tier exists for experimentation.
+use_for:
+  - High-volume text generation where M3 pricing beats alternatives.
+  - Projects that want video, speech, and music from one API vendor.
+skip_when:
+  - You need clear, stable pricing without promo/standard confusion.
+  - The open-weight Text-01 flagship is required for your stack.
+  - Western documentation and support are non-negotiable.
 limitations:
   - The hosted API is proprietary; any open-weight MiniMax models are separate releases.
   - Pricing page lists promo vs standard rates; promo expiration unclear.

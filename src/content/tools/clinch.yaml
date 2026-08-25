@@ -15,6 +15,17 @@ verdict_text: >-
   app restarts. Remote Control lets you answer a waiting agent from your phone
   over your own Tailscale network. macOS 14+ only and not notarized, so expect a
   Gatekeeper prompt.
+strengths:
+  - Unofficial Warp fork built to keep Claude Code and Codex sessions alive across restarts.
+  - Project tabs, durable workspaces, and session capture for agent workflows.
+  - Remote Control answers a waiting agent from your phone over your own Tailscale network.
+use_for:
+  - macOS developers running Claude Code or Codex who keep losing session state.
+  - Teams that want agent sessions on a self-hosted, AGPL terminal without telemetry.
+skip_when:
+  - You are on Linux or Windows; macOS 14+ is the only supported platform.
+  - You cannot accept an ad-hoc signed, non-notarized Gatekeeper prompt.
+  - Session recovery must be guaranteed rather than best-effort.
 limitations:
   - macOS 14+ only; no Linux or Windows build.
   - Public preview is ad-hoc signed, not notarized.
@@ -26,5 +37,8 @@ affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -8,12 +8,24 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Fastest zero-setup path from prompt to deployed app, now with Agent 4 and a
   design canvas. The effort-based credit model is fairer than flat
   checkpoints, but costs scale with task complexity. Browser IDE still lags
   behind local tools for serious engineering.
+strengths:
+  - Fastest zero-setup path from prompt to a deployed app in a browser IDE.
+  - Agent 4 and a design canvas speed up end-to-end app building.
+  - Effort-based credits are fairer than flat checkpoint pricing.
+use_for:
+  - Beginners and prototypers who want deployment without local setup.
+  - Small apps and MVPs where a browser editor is good enough.
+skip_when:
+  - Serious engineering needs the debugger and extensions of VS Code or JetBrains.
+  - You expect to export and run production workloads outside Replit's hosting.
+  - Agent tasks with heavy complexity would burn through credit allowances.
 limitations:
   - Agent tasks burn credits that scale with complexity; bills can surprise heavy users.
   - Browser editor and debugger are less capable than VS Code or JetBrains.

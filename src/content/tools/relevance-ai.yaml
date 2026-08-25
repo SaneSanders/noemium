@@ -8,18 +8,31 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Useful when ops or sales needs research and outreach agents without calling a
   developer. Engineers hit the abstraction ceiling fast and will want something
   like CrewAI or LangGraph. Pricing also jumps quickly once the free tier is
   gone.
+strengths:
+  - No-code platform for building research and outreach agent workforces.
+  - Useful for ops and sales teams that need agents without calling a developer.
+  - Bundled API access for running agent tools and workflows.
+use_for:
+  - Ops or sales teams automating research and outreach without engineering help.
+  - Non-technical builders who want a visual agent workforce platform.
+skip_when:
+  - Engineers need transparent, debuggable agent runs beyond the abstraction ceiling.
+  - Pricing past the free tier jumps quickly for ongoing production usage.
+  - Vendor lock-in is unacceptable for long-lived workflows.
 limitations:
   - Pricing jumps steeply past the free tier.
   - Black-box agent runs are hard to debug.
   - Workflows built on it are locked into the vendor.
 receipts:
   - https://relevanceai.com
+  - https://relevanceai.com/docs/get-started/pricing
 affiliate: none
 momentum: steady
 featured: false

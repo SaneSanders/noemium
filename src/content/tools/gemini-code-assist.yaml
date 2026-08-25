@@ -8,17 +8,30 @@ free_tier: false
 open_source: false
 api: false
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Strong contextual suggestions inside VS Code and JetBrains, with deep Google
   Cloud integration. It lags Cursor and Claude Code on agentic workflows, and
   enterprise rollout can be slow.
+strengths:
+  - Strong contextual suggestions inside VS Code and JetBrains.
+  - Deep Google Cloud integration for cloud-first teams.
+  - Standard seat is cheaper than Cursor/Claude Code-style per-seat tools.
+use_for:
+  - Teams already committed to Google Cloud and Google Workspace.
+  - Developers wanting IDE-native suggestions without switching editors.
+skip_when:
+  - Multi-step agentic workflows are the main job.
+  - Enterprise procurement cannot wait for Google workspace alignment.
+  - You need consistent model updates across every IDE plugin immediately.
 limitations:
   - Agent capabilities are narrower than Cursor or Claude Code.
   - Enterprise billing and data handling need Google workspace alignment.
   - Model updates roll out unevenly across IDE plugins.
 receipts:
   - https://codeassist.google.com
+  - https://codeassist.google/products/business
 affiliate: none
 momentum: blueshift
 featured: false

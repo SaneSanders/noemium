@@ -15,15 +15,30 @@ verdict_text: >-
   autonomous coding agents working on the same repo without stepping on each
   other. Setup is nontrivial and the documentation assumes you already run
   Claude Code or Codex.
+strengths:
+  - Git-worktree isolation, durable leases and a three-tier scheduler for agent workflows.
+  - Lets multiple autonomous coding agents work the same repo without collisions.
+  - GPL-3.0 open source and self-hostable on your own runner.
+use_for:
+  - Teams running multiple long-lived coding agents against one repository.
+  - Shops already using Claude Code or Codex and wanting isolation and scheduling.
+skip_when:
+  - You cannot install from source or configure a supported runner CLI.
+  - Your workflows need a polished default promoter out of the box.
+  - You lack the engineering time for nontrivial setup and custom gate scripts.
 limitations:
   - Requires bash 4+, Python, git, and a supported runner CLI already configured.
   - Engine must be installed from a checkout; there is no download mechanism for the pinned engine.
   - The default promoter is minimal, so real workflows need custom gate and promoter scripts.
 receipts:
   - https://github.com/alex-reysa/singular-lite
+  - https://github.com/alex-reysa/singular-lite/blob/main/LICENSE
 affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -13,6 +13,17 @@ verdict_text: >-
   A practical no-code analyst for business users who live in spreadsheets and slides.
   The catch: heavy usage is credit-gated, outputs need human verification, and it
   is not a substitute for a real data warehouse or BI governance stack.
+strengths:
+  - Chat-based no-code workspace for spreadsheets, reports, and simple web apps.
+  - Free tier exists; paid tiers start at $16/mo yearly.
+  - Business tier adds database connectors and team features.
+use_for:
+  - Business users who live in spreadsheets and need quick reports or presentations.
+  - Small teams that want a low-code analyst without a BI governance stack.
+skip_when:
+  - You need a real data warehouse or BI governance.
+  - Heavy recurring analysis would blow through unpredictable credits.
+  - Database connectors or team features are required below Business tier.
 limitations:
   - Free tier is limited; meaningful ongoing use requires a paid plan.
   - Analysis quality depends on the data you upload and the prompts you write.

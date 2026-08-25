@@ -14,6 +14,18 @@ verdict_text: >-
   install with dependency resolution, lock versions, and run a local daemon that
   JIT-loads HTTP/SSE servers. The safe config writes and broad client support
   make it the most credible attempt yet to tame the growing MCP-server zoo.
+strengths:
+  - npm-like package management for MCP servers with dependency resolution and version locking.
+  - Local daemon JIT-loads HTTP/SSE MCP servers and keeps client configs clean.
+  - Broad client support makes it practical across different MCP consumers.
+use_for:
+  - Teams managing many MCP servers and wanting install/lock semantics.
+  - Setups that rely on HTTP/SSE MCP servers served locally.
+skip_when:
+  - You mostly use stdio MCP servers the daemon cannot manage.
+  - You are not comfortable trusting a young registry's policies.
+  - You cannot accept OAuth-based publishing requirements.
+
 limitations:
   - Registry and discovery are new; package quality varies.
   - stdio servers are not managed by the daemon; clients still handle those as child processes.
@@ -25,5 +37,8 @@ affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

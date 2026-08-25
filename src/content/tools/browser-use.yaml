@@ -10,12 +10,25 @@ api: true
 self_host: true
 models_used:
   - gpt-5-6-luna
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Two products, one brand: pip-install the agent locally, or buy managed
   browsers at $0.02/hour. Cloud Free is 10 agent tasks/month. Stealth
   benchmarks are vendor-published — treat as a receipt, not a guarantee.
   Adjacent to Browserbase, not a duplicate of it.
+strengths:
+  - Open-source agent library with a local pip-install path and managed cloud option.
+  - "Two products, one brand covers both self-hosted and browser-as-a-service."
+  - CDP/raw browser control is available.
+use_for:
+  - Browser automation where you want open-source code you can audit.
+  - Tasks that need managed browsers without building the infra yourself.
+  - Stealth/scraping workflows where proxy costs are budgeted.
+skip_when:
+  - Cloud Free's 10 tasks/month is too small for your volume.
+  - You need BYOK or custom proxies but will not pay the Dev tier.
+  - You treat vendor-published stealth benchmarks as guarantees.
 limitations:
   - Cloud Free is 10 agent tasks/month; PAYG starts after a credit top-up.
   - BYOK and custom proxies start at Dev ($29), not Free.
@@ -28,5 +41,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

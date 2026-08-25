@@ -8,11 +8,24 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   ERNIE 5.1 ranks high on Chinese leaderboards and the 4.5 Turbo / X1.1 tiers
   are cheap. The practical path is still mainland Baidu Cloud; international
   onboarding is harder and pricing is quoted in CNY.
+strengths:
+  - ERNIE 5.1 ranks high on Chinese leaderboards.
+  - 4.5 Turbo and X1.1 tiers are cheap.
+  - OpenAI-compatible v2 API.
+use_for:
+  - Chinese-market applications needing ERNIE models.
+  - Cost-sensitive workloads where 4.5 Turbo/X1.1 pricing wins.
+  - Teams already on Baidu Cloud.
+skip_when:
+  - You need easy international onboarding.
+  - Pure-text reasoning must beat DeepSeek/Qwen.
+  - You need transparent CNY pricing or the omitted Lite Pro/Speed Pro tiers.
 limitations:
   - Best access path is mainland-China Baidu Cloud; international onboarding is harder.
   - ERNIE 5.1 and X1.1 are API-only; ERNIE 4.5 weights were released under Apache 2.0 in June 2025, though the hosted Qianfan API remains the practical path for most users.

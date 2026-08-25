@@ -18,6 +18,7 @@ models_used:
   - mistral-large-2512
   - grok-4-6
 verdict: ship
+model_routing: locked
 verdict_text: >-
   Small teams get a lot of mileage out of this. Change one string to swap
   models, see all costs on one bill, get fallbacks when a provider flakes. You
@@ -39,6 +40,7 @@ limitations:
   - Provider-specific features arrive later than direct APIs.
 receipts:
   - https://openrouter.ai
+  - https://openrouter.ai/docs
 affiliate: none
 momentum: blueshift
 featured: true

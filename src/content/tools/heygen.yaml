@@ -13,6 +13,16 @@ verdict_text: >-
   The obvious pick for avatar and presenter video — training content,
   explainers, multilingual dubs. If you need talking heads at scale, nothing
   else is close. If you don't, it's basically useless.
+strengths:
+  - The obvious pick for avatar and presenter video at scale.
+  - Strong for training content, explainers, and multilingual dubs.
+use_for:
+  - Training videos and explainers that need a talking presenter.
+  - Multilingual dubbing and lip-sync at scale.
+skip_when:
+  - You do not need talking heads; the tool is basically useless without them.
+  - Close inspection will reveal synthetic avatars or uncanny emotional delivery.
+  - Credit-based pricing up to 20 credits/min would blow the budget.
 limitations:
   - Avatars still read as synthetic on close inspection.
   - Credit-based pricing (up to 20 credits/min on newer avatars) adds up fast.

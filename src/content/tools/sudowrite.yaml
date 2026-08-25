@@ -17,8 +17,19 @@ limitations:
   - Niche by design — useless for business writing.
   - Credit system is confusing.
   - Output still reads as AI fiction without heavy human revision.
+strengths:
+  - Built by and for fiction writers, not a repurposed general writing tool.
+  - Story Engine, character bibles, and scene expansion match how novels are written.
+use_for:
+  - Fiction writers drafting novels, scenes, and character work.
+  - Authors who want story-specific tools rather than generic prompts.
+skip_when:
+  - You write business, marketing, or non-fiction content.
+  - You cannot budget around an opaque credit system.
+  - You are not prepared to heavily revise AI-sounding fiction output.
 receipts:
   - https://www.sudowrite.com
+  - https://sudowrite.com/pricing
 affiliate: none
 momentum: steady
 featured: false

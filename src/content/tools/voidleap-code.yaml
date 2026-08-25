@@ -8,6 +8,7 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Positions itself as a harness rather than a wrapper: you see system prompts,
@@ -15,6 +16,17 @@ verdict_text: >-
   model support is broad, including Anthropic, OpenAI, Gemini, Ollama,
   OpenRouter, and Bedrock. The free plan is real but small; most solo developers
   will outgrow the project limits quickly.
+strengths:
+  - Full observability with system prompts, context entries, and cost/latency charts.
+  - Broad bring-your-own-key support across Anthropic, OpenAI, Gemini, Ollama, OpenRouter and Bedrock.
+  - Local-first IDE that keeps the runtime on your machine.
+use_for:
+  - Developers who want per-turn model switching and cost visibility.
+  - Teams that need to use their own API keys instead of a bundled vendor pool.
+skip_when:
+  - You need shipped Pro or Team tiers today.
+  - Linux or non-desktop workflows are required.
+  - Periodic online license validation conflicts with fully offline use.
 limitations:
   - Pro and Team tiers are still in development; only the Free plan ships today.
   - macOS and Windows desktop only.

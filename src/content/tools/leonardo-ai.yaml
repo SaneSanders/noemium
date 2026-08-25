@@ -13,12 +13,25 @@ verdict_text: >-
   A practical all-in-one for game assets and marketing teams that want
   fine-tuned styles without managing GPUs. Quality is decent, not class-
   leading; you are mostly paying for the workflow and canvas tools.
+strengths:
+  - All-in-one image suite with fine-tuning, canvas editing, and team features.
+  - Practical for game assets and marketing teams that want style consistency without GPU ops.
+  - Workflow and canvas tools are the main value over raw model quality.
+use_for:
+  - Game asset pipelines that need quick style iteration and team sharing.
+  - Marketing teams generating campaign visuals without managing model infrastructure.
+skip_when:
+  - Raw image quality must match Midjourney or FLUX.
+  - Opaque token math across features would frustrate budgeting.
+  - You are worried about roadmap changes after the Canva acquisition.
+
 limitations:
   - Raw model quality a notch below Midjourney and FLUX.
   - Token math across features is opaque.
   - Acquired by Canva; roadmap now tied to that orbit.
 receipts:
   - https://leonardo.ai
+  - https://leonardo.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

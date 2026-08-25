@@ -8,11 +8,23 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Inworld TTS-2 is built for low-latency, expressive voice agents and ranks well on TTS benchmarks.
   The realtime steering and character-friendly voices make it a strong choice for games, companions, and call agents.
   It is still a narrower ecosystem than ElevenLabs, and the bundled LLM/STT credits can obscure true per-project cost.
+strengths:
+  - Low-latency expressive TTS-2 built for voice agents and characters.
+  - Ranks well on TTS benchmarks for realtime use cases.
+  - On-Demand free tier includes up to 70 minutes of TTS.
+use_for:
+  - Games, companions, and call agents that need expressive realtime speech.
+  - Projects where character-friendly voices matter more than ElevenLabs' ecosystem breadth.
+skip_when:
+  - You need transparent per-project cost across mixed TTS/STT/LLM credits.
+  - Your stack depends on the largest third-party integration library.
+  - Voice cloning is required but the budget only reaches the On-Demand tier.
 limitations:
   - Pricing is credit-based across TTS, STT, and LLM routing; estimating bills for mixed workloads takes work.
   - Smaller community and third-party integration library compared to the established audio leaders.

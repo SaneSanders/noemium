@@ -8,13 +8,25 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Turns a prompt, screenshot or Figma frame into a working Next.js/React/Tailwind/shadcn
   app — from landing pages to full-stack with API routes, DB and auth. Preview in the
-  Vercel Sandbox and one-click deploy. Good for prototypes and MVPs inside the Vercel
-  ecosystem; main catch is tight stack lock-in and unpredictable token-credit burn on
-  large generations.
+  Vercel Sandbox and one-click deploy. Best for a Vercel-hosted MVP or internal tool
+  inside the React stack; outside that stack you are paying to rewrite everything, and
+  agent iterations can burn credits on failed attempts before the code is production-ready.
+strengths:
+  - Generates full Next.js/React/Tailwind/shadcn apps from prompts, screenshots, or Figma frames.
+  - One-click deploy to Vercel and preview in the Vercel Sandbox.
+  - Covers landing pages through full-stack with API routes, DB, and auth.
+use_for:
+  - Vercel-hosted MVPs and internal tools inside the React stack.
+  - Rapid prototypes from a Figma frame or screenshot.
+skip_when:
+  - Your stack is not Next.js/React/Tailwind/shadcn-first.
+  - You cannot tolerate unpredictable token-credit burn on failed agent iterations.
+  - Free tier limits (7 messages/day, $5 credits) are too demo-grade for the task.
 limitations:
   - Free tier is demo-grade (7 messages/day, $5 credits).
   - Output is Next.js/React/Tailwind/shadcn-first — other stacks need rework.

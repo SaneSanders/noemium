@@ -18,6 +18,17 @@ limitations:
   - No self-serve free plan; paid per-seat entry with enterprise sales motion.
   - Best fit is regulated/enterprise marketing teams, not general writing.
   - Integrations and setup require org-level configuration before it pays off.
+strengths:
+  - Strong brand governance through playbooks and style guides.
+  - Built for large marketing and content teams, not casual writers.
+  - Keeps outputs on-brand across enterprise workflows.
+use_for:
+  - Regulated/enterprise marketing teams that need consistent brand voice.
+  - Organizations with the ops capacity to configure integrations and setup.
+skip_when:
+  - You are an individual or small team without enterprise budget.
+  - You need a self-serve free tier to evaluate first.
+  - You lack the org-level configuration bandwidth to make it pay off.
 receipts:
   - https://writer.com
   - https://writer.com/pricing

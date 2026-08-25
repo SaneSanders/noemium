@@ -14,6 +14,18 @@ verdict_text: >-
   unlimited recordings, not a three-call tease. Paid is for action items,
   Ask Fathom, CRM sync, coaching. Bot vs bot-free capture is a preference
   and a security review. Not a Gong replacement on Free.
+strengths:
+  - Free individual tier has unlimited recordings, not a teaser limit.
+  - "Clean split: free for capture, paid for action items/CRM/coaching."
+  - Bot-free capture option on Mac beta.
+use_for:
+  - Individual users who want unlimited meeting recordings.
+  - Small teams upgrading for CRM sync or coaching scorecards.
+  - Mac users who prefer bot-free capture.
+skip_when:
+  - You need action items or team search on the free tier.
+  - Your team is smaller than the 2-user Business minimum.
+  - You expect a full Gong replacement on Free.
 limitations:
   - Free individual omits advanced summaries, action items, and team search.
   - Team/Business have a 2-user minimum.

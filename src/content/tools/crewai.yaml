@@ -8,6 +8,7 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: ship
 verdict_text: >-
   Roles, tasks, and processes map cleanly onto real teams, and the examples get
@@ -33,5 +34,8 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

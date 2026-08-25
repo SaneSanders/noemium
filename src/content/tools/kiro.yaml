@@ -8,12 +8,25 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Amazon's IDE bet after Q: you approve a spec, then the agent implements.
   Credit math is public ($20 → 1k credits, $0.04 overage). Unused credits do
   not roll over on the FAQ. Not Amazon Q, not Bedrock console. Untested here
   on a real spec cycle.
+strengths:
+  - "Spec-first workflow: approve requirements before the agent writes code."
+  - Public credit math ($20 = 1,000 credits, $0.04 overage).
+  - AWS-aligned IDE with deep cloud integration potential.
+use_for:
+  - Teams that want explicit spec approval before agentic implementation.
+  - AWS shops already using Amazon Q/Bedrock adjacent tooling.
+  - Developers who prefer structured planning over tab-complete.
+skip_when:
+  - You just want fast tab completion without spec overhead.
+  - Geo-restrictions block the premium models you need.
+  - Non-rolling monthly credits would waste your budget.
 limitations:
   - Monthly credits do not roll over (stated on the pricing FAQ).
   - Free-tier model mix (Sonnet 4.5 + open weights) is narrower than paid Auto/Opus.

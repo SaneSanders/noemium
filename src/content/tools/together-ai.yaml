@@ -12,6 +12,7 @@ models_used:
   - llama-4-maverick
   - qwen3-8-max
   - deepseek-v4-flash
+model_routing: locked
 verdict: ship
 verdict_text: >-
   Solid uptime, broad catalog, serverless or dedicated endpoints. A safe place
@@ -34,6 +35,7 @@ limitations:
   - Fine-tuning UX less polished than the inference side.
 receipts:
   - https://www.together.ai
+  - https://www.together.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

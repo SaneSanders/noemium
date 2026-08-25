@@ -15,6 +15,17 @@ verdict_text: >-
   October 2025 because of label deals, the product direction is unclear,
   and full-song structure is less consistent. Try it, but don't buy a
   year up front.
+strengths:
+  - Strong vocal and mix quality on generated music in supported genres.
+  - Extend/remix workflow fits musicians iterating on ideas, not just one-shot prompts.
+use_for:
+  - Quick musical sketches and loops when you do not need a downloadable file.
+  - Genres where Udio's vocal and mix quality sounds better than alternatives.
+skip_when:
+  - You need downloadable tracks for release, distribution, or offline use.
+  - Full-song structure and consistency are required.
+  - You want a stable, predictable product direction after the label deals.
+
 limitations:
   - Downloads disabled since 2025-10 (UMG/Warner licensing deals) — you can't export your tracks.
   - Product direction uncertain after lawsuit settlements.
@@ -22,6 +33,7 @@ limitations:
   - Generation limits tight on lower tiers.
 receipts:
   - https://www.udio.com
+  - https://www.udio.com/pricing
 affiliate: none
 momentum: redshift
 featured: false

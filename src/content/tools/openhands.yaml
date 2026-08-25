@@ -8,12 +8,23 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   The open Devin-shaped stack: Agent Canvas in the browser, a Python SDK,
   CLI, and sandboxes you can run yourself. Cloud is a hosted SKU, not the
   license. Repos split MIT vs commercial enterprise directories — read the
   LICENSE in the repo you actually deploy. Not field-run here.
+strengths:
+  - "Open-source Devin-shaped stack with browser Canvas, Python SDK, CLI, and sandboxes."
+  - "Self-hostable sandboxes keep the agent under your control."
+use_for:
+  - "Teams that want an open, auditable coding agent they can run themselves."
+  - "Building on the Canvas browser client rather than the deprecated Local GUI."
+skip_when:
+  - "You need public Cloud pricing before you can evaluate cost."
+  - "You are not prepared to bring your own model and pay for sandbox compute."
+  - "You cannot navigate the split between MIT community and commercial enterprise repos."
 limitations:
   - Cloud pricing is in-product; this card will not invent a $20 figure from blogs.
   - Multiple repos (Canvas, SDK, sandbox, automation) — "OpenHands" is a family.
@@ -26,5 +37,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

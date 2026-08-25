@@ -13,12 +13,23 @@ verdict_text: >-
   Saves real time on literature reviews: it pulls methods and results into
   tables so you do not have to skim dozens of PDFs. Pay for it only if
   academic papers are a real input to your work.
+strengths:
+  - Extracts methods and results from academic papers into structured tables.
+  - Saves time on literature reviews by reducing PDF skimming.
+use_for:
+  - Researchers building evidence tables from indexed academic papers.
+  - Literature reviews where manual extraction would mean skimming dozens of PDFs.
+skip_when:
+  - Your sources are preprints, paywalled papers, or work outside indexed coverage.
+  - You cannot manually verify extractions before citing them.
+  - Pricing tier churn makes budget planning impossible.
 limitations:
   - Coverage limited to indexed papers; misses preprints and paywalled work.
   - Extractions need manual verification.
   - Pricing tiers have changed repeatedly.
 receipts:
   - https://elicit.com
+  - https://elicit.com/pricing
 affiliate: none
 momentum: steady
 featured: false

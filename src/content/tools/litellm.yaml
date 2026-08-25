@@ -8,6 +8,7 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   The self-host cousin of OpenRouter: one OpenAI-shaped interface, virtual
@@ -15,6 +16,18 @@ verdict_text: >-
   audit, multi-region, and a license key — docs say pricing is usage-based
   and sales-quoted, so this card will not copy third-party $250/$30k blogs.
   You still pay every upstream model bill.
+strengths:
+  - "One OpenAI-shaped interface to more than a hundred providers."
+  - "Virtual keys, budgets and fallbacks in the OSS gateway."
+  - "Self-hostable proxy and SDK without a seat license."
+use_for:
+  - "Teams routing multiple model providers through one API shape."
+  - "Self-hosted deployments that need spend controls and virtual keys."
+  - "Evaluation setups that want to swap providers without code changes."
+skip_when:
+  - "You need a public, fixed Enterprise price list."
+  - "You want a zero-ops managed service without running Postgres/Redis."
+  - "SSO beyond five users is required without the commercial license."
 limitations:
   - docs.litellm.ai/docs/pricing 404s; Enterprise dollars are not on a public SKU page.
   - SSO beyond 5 users requires the commercial license.
@@ -26,5 +39,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

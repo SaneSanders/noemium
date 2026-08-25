@@ -14,6 +14,17 @@ verdict_text: >-
   generation make it a useful sketchpad, not a final renderer. Realism and
   motion sit below Veo, Runway and Kling, and the paid lineup still straddles
   legacy Dream Machine and Luma Agents since 2026-03.
+strengths:
+  - Fast generation and start/end keyframe control for storyboard iteration.
+  - Free tier gives watermarked previews without upfront spend.
+  - Quick sketchpad for visual ideas before committing to a final renderer.
+use_for:
+  - Fast storyboard iteration where speed matters more than final realism.
+  - Creatives who want keyframe-controlled video prototypes.
+skip_when:
+  - You need final-render realism and fine motion matching Veo or Runway.
+  - Post-generation editing tools are a core part of your workflow.
+  - The coexistence of legacy Dream Machine and Luma Agents plans is confusing.
 limitations:
   - Realism and fine motion below Veo and Runway.
   - Limited clip duration per generation.
@@ -21,6 +32,7 @@ limitations:
   - Two plan ladders coexist (legacy Dream Machine and Luma Agents since 2026-03); clean export from paid only.
 receipts:
   - https://lumalabs.ai
+  - https://lumalabs.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

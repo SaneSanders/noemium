@@ -17,10 +17,24 @@ limitations:
   - "There is a learning curve: workers, workflows, activities, and event history are new concepts for many teams."
   - Self-hosted operation requires running the Temporal Server, persistence, and observability stack.
   - Cloud pricing scales with Actions and storage; high-throughput workloads need careful capacity planning.
+strengths:
+  - Durable workflow orchestration that survives crashes and retries.
+  - Mature MIT-licensed open-source server.
+  - Observable long-running workflows out of the box.
+use_for:
+  - Reliable AI agent pipelines that must survive failures.
+  - Teams willing to model workflows in code for durability.
+skip_when:
+  - You need a low-code automation tool.
+  - The team is not willing to learn workers, workflows, and activities.
+  - Cloud pricing for Actions and storage is unpredictable.
 receipts:
   - https://temporal.io
   - https://temporal.io/pricing
 affiliate: none
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 evidence_tier: source-verified
 momentum: blueshift
 featured: false

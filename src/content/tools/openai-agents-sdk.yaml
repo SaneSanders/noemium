@@ -8,12 +8,24 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: locked
 verdict: situational
 verdict_text: >-
   The runtime on top of Responses, not a second Responses card. Tiny
   primitives (agent, handoff, guardrail, session) plus sandbox and realtime
   paths. You own orchestration less than with raw Responses, more than with
   a visual builder. Tokens still land on the API bill.
+strengths:
+  - Official Python agents runtime with tiny, composable primitives.
+  - Agent, handoff, guardrail, and session abstractions out of the box.
+  - Includes sandbox and realtime paths beyond basic chat loops.
+use_for:
+  - Python developers building agents on top of the OpenAI Responses API.
+  - Teams wanting more orchestration than a no-code builder but less than raw API code.
+skip_when:
+  - You need a visual no-code interface for building agents.
+  - First-class non-OpenAI providers are a hard requirement.
+  - Built-in tracing sending data to OpenAI is a data-boundary problem.
 limitations:
   - Default loop talks to OpenAI; other providers are possible but second-class.
   - Built-in tracing is convenient and also a data-boundary choice.

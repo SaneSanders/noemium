@@ -8,12 +8,24 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Step 3.7 Flash is cheap, open weights, and scores well on coding and math
   benchmarks. Step-2 is a capable closed model at mid-tier prices. Brand
   recognition and docs outside China are weak, and access often runs through
   resellers.
+strengths:
+  - Step 3.7 Flash is cheap, open weights, and strong on coding and math.
+  - Step-2 is a capable closed model at mid-tier prices.
+  - The family covers text, vision, and reasoning variants.
+use_for:
+  - Cost-sensitive coding and math workloads that fit the Flash SKUs.
+  - Teams that want Step-2's closed-model quality without premium pricing.
+skip_when:
+  - You need strong Western brand recognition and English-first docs.
+  - You want one API key that works across China and global platforms.
+  - You need a model family as broad as Qwen or Tencent.
 limitations:
   - The hosted API is proprietary; Step 3.5 Flash and Step 3.7 Flash weights are separate open-weight releases.
   - StepFun runs separate China (platform.stepfun.com) and global (platform.stepfun.ai) platforms with non-interchangeable API keys.

@@ -8,17 +8,29 @@ free_tier: false
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   The enterprise-safe choice for connecting SaaS and on-prem systems. Security
   and governance are strong, but pricing is opaque and the product is overkill
   for small teams.
+strengths:
+  - Enterprise-grade security and governance for SaaS and on-prem integrations.
+  - Strong connector coverage for large, regulated environments.
+use_for:
+  - Enterprises that need governed integrations across SaaS and on-prem systems.
+  - Teams with implementation budget for complex, multi-system workflows.
+skip_when:
+  - You need transparent self-serve pricing before evaluating.
+  - The automation is simple and would be buried by a heavy UI.
+  - Implementation timelines must be short and predictable.
 limitations:
   - No transparent self-serve pricing.
   - Heavy UI for simple automations.
   - Implementation timelines can stretch for complex integrations.
 receipts:
   - https://www.workato.com
+  - https://docs.workato.com
 affiliate: none
 momentum: steady
 featured: false

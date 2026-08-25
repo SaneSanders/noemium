@@ -8,11 +8,23 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+model_routing: byok
 verdict: situational
 verdict_text: >-
   Mem0 gives agents persistent, queryable memory without rebuilding retrieval pipelines from scratch.
   The open-source Python/JS SDK and Docker-based self-hosted server make it easy to prototype, and the managed platform adds analytics and graph memory.
   It is still a young layer; production teams need to think hard about memory accuracy, privacy, and the cost of retrieval at scale.
+strengths:
+  - Drop-in long-term memory layer for agents and apps.
+  - Open-source Python/JS SDK plus a Docker-based self-hosted server.
+  - Managed platform adds analytics and graph memory on top of the core.
+use_for:
+  - Agents and apps that need persistent, queryable memory without custom RAG.
+  - Teams that want a self-hosted memory layer under their own infrastructure.
+skip_when:
+  - Memory accuracy, privacy, and retrieval cost at scale are unproven concerns.
+  - You cannot manage vector storage and auth for a self-hosted deployment.
+  - Tight request limits on low tiers would break your production workload.
 limitations:
   - Memory quality depends on the underlying LLM and embedding model; bad extractions compound over time.
   - Free and Starter plans have tight request limits; production scale quickly lands on the $249/mo Pro tier or Enterprise.
@@ -25,5 +37,8 @@ affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

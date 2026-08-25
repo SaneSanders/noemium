@@ -17,8 +17,20 @@ limitations:
   - No free tier.
   - Integration ecosystem is small.
   - Mobile app is less mature than desktop.
+strengths:
+  - Fast, keyboard-driven daily notes workflow.
+  - Built-in AI summarization.
+  - End-to-end encryption for your notes.
+use_for:
+  - Writers and thinkers who want a daily notes habit.
+  - Users who prioritize privacy in note-taking.
+skip_when:
+  - You need a free tier beyond the 14-day trial.
+  - Rich third-party integrations are essential.
+  - Your workflow is mobile-first.
 receipts:
   - https://reflect.app
+  - https://reflect.app/privacy
 affiliate: none
 momentum: steady
 featured: false

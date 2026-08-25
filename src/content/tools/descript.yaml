@@ -13,6 +13,19 @@ verdict_text: >-
   Descript shines for podcasters, marketers, and solo creators who want to edit audio and video by editing text.
   Overdub, Studio Sound, and AI clip generation save hours on repetitive post-production.
   The trade-off is a proprietary cloud project format and usage quotas; heavy teams will outgrow the cheaper tiers quickly.
+strengths:
+  - AI audio/video editing through transcript edits, aimed at podcasters and marketers.
+  - Overdub, Studio Sound, and AI clip generation save hours on repetitive post-production.
+  - Doc-style timeline is friendlier than a traditional NLE for non-editors.
+use_for:
+  - Podcast and solo-creator edits where cutting by transcript is faster than a timeline.
+  - Repurposing long recordings into clips, overdub fixes, and marketing assets.
+  - Marketing teams producing lots of short-form content from one source recording.
+skip_when:
+  - Complex multicam work needs frame-accurate timeline control.
+  - Heavy production teams will blow through quota and AI credits quickly.
+  - You need a non-proprietary, offline project format.
+
 limitations:
   - Free plan is capped at 60 minutes of imported/recorded media, 5 GB storage, 720p export, and one-time AI credits.
   - AI features consume credits that can run out mid-project, and overage costs add up for high-volume creators.
@@ -20,6 +33,7 @@ limitations:
 receipts:
   - https://www.descript.com
   - https://www.descript.com/pricing
+  - https://help.descript.com/hc/en-us/articles/27653385141517-Understanding-Your-Legacy-and-Sunset-Plan
 affiliate: none
 evidence_tier: source-verified
 momentum: steady

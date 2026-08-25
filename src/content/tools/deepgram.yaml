@@ -31,6 +31,7 @@ limitations:
   - Another vendor dependency in your voice pipeline.
 receipts:
   - https://deepgram.com
+  - https://deepgram.com/pricing
 affiliate: none
 momentum: steady
 featured: false

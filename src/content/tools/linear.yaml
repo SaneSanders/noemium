@@ -19,6 +19,17 @@ limitations:
   - Coding sessions and some agent features consume AI credits on top of the seat.
   - Business/Enterprise features (Asks, Insights, SAML) are not on Basic.
   - Not a substitute for GitHub Issues if the team already lives in PRs only.
+strengths:
+  - Issue tracker teams actually keep using.
+  - First-party agent platform and Linear Agent ship on the free plan.
+  - Coding sessions connect tickets to actual coding work.
+use_for:
+  - Teams that need issue tracking plus a built-in coding agent.
+  - Workflows that combine cycles, issues, and coding sessions.
+skip_when:
+  - You need more than 250 issues or 2 teams on the free plan.
+  - You want coding sessions without buying AI credits on top of the seat.
+  - Your team already lives entirely inside GitHub Issues/PRs.
 receipts:
   - https://linear.app/pricing
 affiliate: none

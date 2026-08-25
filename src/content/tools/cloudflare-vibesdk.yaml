@@ -19,10 +19,25 @@ limitations:
   - You must configure AI Gateway / model provider keys yourself.
   - Bash is disabled for safety, but agent loops can still produce incorrect or insecure code.
   - Self-hosted means you operate DNS, certs, migrations, and quotas.
+model_routing: byok
+strengths:
+  - Open-source full-stack vibe-coding environment.
+  - Self-hosted on your own Cloudflare account.
+  - Local setup is straightforward.
+use_for:
+  - Teams already running on Cloudflare who want a self-hosted vibe stack.
+  - Developers who need to own their coding-assistant infrastructure.
+skip_when:
+  - You do not want a paid Cloudflare plan for production previews.
+  - You cannot manage KV, D1, R2, AI Gateway bindings and keys.
+  - Bash in the agent loop is a hard requirement.
 receipts:
   - https://github.com/cloudflare/vibesdk
   - https://github.com/cloudflare/vibesdk/blob/main/docs/setup.md
 affiliate: none
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 momentum: blueshift
 featured: false
 evidence_tier: source-verified

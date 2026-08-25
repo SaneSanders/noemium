@@ -17,6 +17,18 @@ verdict_text: >-
   engineering, not a skin. Bring your own key, point it at any provider —
   including the cheap Chinese ones — and it gets interesting. Still rougher
   than Cursor for heavy agent sessions.
+strengths:
+  - "Probably the fastest editor around, built in Rust."
+  - "Honest engineering in the AI panel, not a thin skin."
+  - "Bring your own key to any provider, including cheaper Chinese APIs."
+use_for:
+  - "Developers who want speed and a native-feeling editor."
+  - "Users who prefer BYOK and transparent model choice."
+  - "Teams comfortable with a smaller but growing plugin ecosystem."
+skip_when:
+  - "You depend on the full VS Code extension marketplace."
+  - "You need the most polished heavy-agent experience today."
+  - "Windows parity is a hard requirement right now."
 limitations:
   - Plugin ecosystem far smaller than any VS Code fork.
   - Hosted AI features moved behind accounts and paid tiers over time.
@@ -28,5 +40,8 @@ affiliate: none
 momentum: blueshift
 featured: false
 evidence_tier: source-verified
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-24"
 observed_by: whysanesanders

@@ -8,6 +8,7 @@ free_tier: false
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: ship
 verdict_text: >-
   A quick way to run models you don't want to host yourself — thousands of
@@ -31,6 +32,7 @@ limitations:
   - Acquired by Cloudflare (2025-11); API and pricing unchanged so far.
 receipts:
   - https://replicate.com
+  - https://replicate.com/docs
 affiliate: none
 momentum: steady
 featured: false

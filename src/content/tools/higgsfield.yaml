@@ -16,6 +16,17 @@ verdict_text: >-
   Some models are also available through their native platforms or APIs.
   Pricing tiers and credit costs shift frequently; verify the live page before
   budgeting.
+strengths:
+  - "Aggregates multiple video models (Seedance, Veo, Kling, WAN, Hailuo) in one suite."
+  - "Cinema Studio camera control and Soul ID character consistency for creative direction."
+  - "Marketing Studio presets speed up campaign-style video generation."
+use_for:
+  - "Creators who want one dashboard instead of juggling separate video-model platforms."
+  - "Marketing teams that lean on presets and character-consistent outputs."
+skip_when:
+  - "You primarily use one model and can buy credits cheaper on its native platform."
+  - "You need predictable pricing that does not shift month to month."
+  - "You want credits to roll over instead of expiring each billing period."
 limitations:
   - Now a multi-model platform; quality, speed, and controls depend on the
     underlying engine.

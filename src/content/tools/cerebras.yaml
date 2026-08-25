@@ -8,6 +8,7 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: ship
 verdict_text: >-
   Latency is the selling point: responses feel instant on big open models.

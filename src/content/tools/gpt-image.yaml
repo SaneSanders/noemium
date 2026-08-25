@@ -14,6 +14,16 @@ verdict_text: >-
   ChatGPT plan caps; on the API it is token-priced (image out is the expensive
   line). Free API tier does not include it. Quality/size settings change the
   token count — use OpenAI's calculator, not a flat $/image folklore.
+strengths:
+  - "Native image generation/editing inside the ChatGPT app and API."
+  - "Token pricing is published, though the per-image cost depends on settings."
+use_for:
+  - "Image generation inside a ChatGPT plan you already use."
+  - "API image jobs where token-based billing fits your existing OpenAI workflow."
+skip_when:
+  - "You rely on the OpenAI API Free tier — GPT Image 2 is not supported there."
+  - "You need a flat per-image rate rather than a token calculator."
+  - "Video is the job; that is a different OpenAI SKU."
 limitations:
   - API is token-priced; a "per image" number depends on quality, size, and edits.
   - "Not available on the OpenAI API Free tier (TPM table: Not supported)."

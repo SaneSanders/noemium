@@ -14,6 +14,18 @@ verdict_text: >-
   $0.10/hour after a $30 credit. Scale drops the hour rate and raises
   session length. CAPTCHA/proxies on Launch need a $10 paid deposit.
   Adjacent to Browser Use, not a duplicate.
+strengths:
+  - "Open-source browser with a public Docker self-host path."
+  - "Sessions API with CAPTCHA solving and proxy support."
+  - "Launch tier starts at $0 plus usage-based browser hours."
+use_for:
+  - "Agent workflows that need real browser sessions instead of HTTP scraping."
+  - "Teams that want to self-host browser infra on their own hardware."
+  - "Prototypes that can fit within 15-minute Launch sessions."
+skip_when:
+  - "You need free CAPTCHA or proxy access without a $10 paid balance."
+  - "24-hour sessions or stealth browser are hard requirements."
+  - "You want fully predictable costs on heavy browser-hour volume."
 limitations:
   - Launch sessions cap at 15 minutes; 24h sessions are Enterprise.
   - Proxies and CAPTCHA on Launch require a $10 paid balance, not free credits.
@@ -25,5 +37,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

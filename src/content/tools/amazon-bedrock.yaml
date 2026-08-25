@@ -13,6 +13,18 @@ verdict_text: >-
   Bedrock is the pragmatic choice for AWS shops that need a single API gateway to many frontier and open-weight models.
   It adds enterprise features like Knowledge Bases, Guardrails, and AgentCore that are hard to bolt onto a raw API.
   The convenience comes with AWS complexity; per-model pricing is not always the cheapest, and the rate card is a maze.
+strengths:
+  - Single AWS API gateway to hundreds of foundation models plus agents and guardrails.
+  - Knowledge Bases, Guardrails, and AgentCore are enterprise features baked in.
+  - Fits AWS shops that already own IAM, compliance, and billing workflows.
+use_for:
+  - AWS-native teams that need one contract and one API for many models.
+  - Workloads that need guardrails, knowledge bases, or agent orchestration alongside inference.
+skip_when:
+  - You are a small prototype that does not need AWS account, IAM, and compliance overhead.
+  - Per-model cost forecasting across a multi-model stack is non-negotiable.
+  - Newer models you need are locked behind region-specific availability or approval gates.
+model_routing: locked
 limitations:
   - Pricing spans dozens of providers and modalities; forecasting cost across a multi-model stack is non-trivial.
   - AWS account setup, IAM, and compliance overhead make it overkill for small prototypes.

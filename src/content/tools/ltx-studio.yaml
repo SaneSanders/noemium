@@ -19,6 +19,18 @@ limitations:
   - Third-party models (Veo, Kling, Seedance, GPT Image) are gated to Standard/Pro, not Lite.
   - Promo/Cyber Monday strikethroughs on the page — budget the non-promo monthly/yearly numbers.
   - Collaboration beyond three people per project is Enterprise.
+strengths:
+  - Full film-studio timeline and storyboard workflow, not a single-clip model.
+  - LTX-2.5 video is available on every plan.
+  - Clear credit-metered plans with ~20% annual discount.
+use_for:
+  - Video projects that need storyboards, shots, and a timeline.
+  - Creators ready to start at Standard for commercial use.
+  - Teams that want access to Veo/Kling on higher SKUs.
+skip_when:
+  - You need free credits for commercial or ongoing monthly work.
+  - You want third-party models on the Lite plan.
+  - Collaboration beyond three people per project is required without Enterprise.
 receipts:
   - https://ltx.studio/pricing
 affiliate: none

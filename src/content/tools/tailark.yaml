@@ -11,6 +11,18 @@ self_host: false
 verdict: situational
 verdict_text: >-
   A strong choice for assembling marketing pages quickly. The free kits cover common sections, while the paid tier adds more polished page-level templates.
+strengths:
+  - Free open-source marketing blocks and page kits for quick assembly.
+  - Built on shadcn/ui and Tailwind CSS, fitting that stack well.
+  - Paid Quartz tier adds more polished page-level templates.
+use_for:
+  - React/Tailwind marketing sites that need common sections fast.
+  - Teams already using shadcn/ui who want prebuilt block libraries.
+skip_when:
+  - You need premium blocks but cannot pay for the Quartz tier.
+  - The project is outside React or Tailwind.
+  - You want fully unique designs rather than shared block patterns.
+
 limitations:
   - The best blocks are paywalled.
   - Strongly tied to the shadcn/ui workflow.

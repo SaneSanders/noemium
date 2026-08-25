@@ -14,6 +14,16 @@ verdict_text: >-
   It is opinionated, the setup takes time, and the price adds up fast. Try it
   if your calendar is the problem; skip it if you just want a simple to-do
   list.
+strengths:
+  - "Auto-schedules deadline-driven tasks directly into your calendar."
+  - "Yearly plans include a predictable AI-credit pool per seat."
+use_for:
+  - "People whose calendar is the bottleneck and tasks are deadline-driven."
+  - "Teams with a calendar-centric workflow and budget for a productivity tool."
+skip_when:
+  - "You just want a simple to-do list without calendar rearrangement."
+  - "The price and onboarding overhead outweigh the scheduling benefit."
+  - "AI-credit limits would throttle how you plan work."
 limitations:
   - Expensive for a personal productivity tool.
   - Requires aggressive onboarding to get value.

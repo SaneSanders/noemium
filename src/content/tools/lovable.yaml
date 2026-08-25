@@ -8,12 +8,24 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   The polished sibling of Bolt: credits, roles, custom domains, Git sync.
   Pro is $25 for 100 monthly credits plus 5 daily builds; Business is the
   same credit floor with SSO. Daily credits die at midnight UTC. Cloud and
   AI grants are extra meters. No production app shipped from here.
+strengths:
+  - Polished prompt-to-full-stack builder with GitHub/GitLab sync and custom domains.
+  - Pro tier adds 100 monthly credits on top of daily free builds.
+  - Credit-based pricing separates build consumption from seat count.
+use_for:
+  - Rapid MVPs and internal tools that need Git sync and a hosted backend.
+  - Teams that want a polished Bolt alternative inside the React/full-stack ecosystem.
+skip_when:
+  - You need free code download or a white-label build without the Lovable badge.
+  - Daily credit resets at midnight UTC would break your workflow.
+  - You cannot tolerate opaque credit burn per prompt.
 limitations:
   - Daily build credits reset 00:00 UTC and do not roll over.
   - Free cannot download code or hide the Lovable badge.

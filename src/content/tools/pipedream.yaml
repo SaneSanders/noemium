@@ -19,6 +19,17 @@ limitations:
   - Memory bumps multiply credits (512MB = 2×).
   - Connect production and unique-user billing are easy to miss at prototype time.
   - Custom private event sources are not covered by the "source run is free" rule.
+strengths:
+  - Write Node.js in a step for code-level flexibility.
+  - 3,000+ app integrations.
+  - Connect APIs for embedding automations in your product.
+use_for:
+  - Developers who want scriptable workflow automation.
+  - Products that need embedded integrations via Connect.
+skip_when:
+  - You need simple no-code automation without daily limits.
+  - The free daily credit cap is too low for your volume.
+  - Connect's unique end-user billing would surprise the budget.
 receipts:
   - https://pipedream.com/docs/pricing
   - https://pipedream.com/pricing

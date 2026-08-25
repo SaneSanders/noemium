@@ -15,6 +15,17 @@ verdict_text: >-
   want one hub instead of a dozen tabs and logins. The bundle cuts both ways —
   "unlimited" runs on fair use, and a direct model subscription buys more
   control for similar money. Pick it for convenience, not for depth.
+strengths:
+  - Browser extension puts 70+ tools and top models on any page.
+  - Single subscription replaces multiple model logins.
+  - Free tier offers 102 queries/day to test the bundle.
+use_for:
+  - Users who want one browser hub instead of juggling model tabs.
+  - Quick writing, research, and image tasks inside the existing browser flow.
+skip_when:
+  - '"Unlimited" Pro fair-use caps would throttle your volume.'
+  - You need a single dedicated model with more control than the bundle allows.
+  - You are buying for a team smaller than the 5-seat Teams minimum.
 limitations:
   - '"Unlimited" Pro queries are subject to a fair-use policy.'
   - Free tier is capped at 102 queries per day.

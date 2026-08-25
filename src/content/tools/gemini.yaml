@@ -17,6 +17,20 @@ verdict_text: >-
   usable; Plus is $4.99 for 2× caps; Pro at $19.99 also unlocks Jules and
   Antigravity entry limits. Caps refresh on a 5-hour window until a weekly
   ceiling. Sit it next to ChatGPT/Claude, not Grammarly.
+strengths:
+  - Free tier is genuinely usable with just a Google account.
+  - Bundled Google AI plans add chat, Deep Research, image/video tools, and assistant features.
+  - Pro tier unlocks Jules and Antigravity entry limits inside the same subscription.
+  - Plus tier is cheap at $4.99 for 2× caps.
+use_for:
+  - Existing Google users who want an all-in-one AI assistant.
+  - Quick research, image/video tasks, and chat within the Google ecosystem.
+  - Casual users who can stay within weekly caps.
+skip_when:
+  - You need the Gemini API or AI Studio (those are separate cards).
+  - Usage predictability matters; caps refresh on a 5-hour window with a weekly ceiling.
+  - You need Workspace/enterprise admin controls (that is Gemini Enterprise).
+  - Image/video tools or Veo are region-gated for your location.
 limitations:
   - Usage is compute-weighted, not a simple message count; weekly caps still bite.
   - Image/video (Nano Banana, Veo, Flow credits) are plan-gated and regional.

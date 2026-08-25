@@ -13,12 +13,24 @@ verdict_text: >-
   Visual builder for agentic workflows with built-in browser, document, and
   API nodes. Good for scraping and research pipelines. Still young; expect
   breaking changes and occasional node limitations.
+strengths:
+  - Visual builder for agentic workflows with browser, document and API nodes.
+  - Good fit for scraping and research pipelines.
+  - Lower-code entry point than script-heavy automation stacks.
+use_for:
+  - Research and scraping pipelines that need browser and document nodes.
+  - Teams that want a visual automation builder for agentic tasks.
+skip_when:
+  - You need the integration breadth and maturity of Zapier.
+  - Complex branching logic will outgrow the visual editor.
+  - Occasional node limitations and breaking changes would stall production.
 limitations:
   - Newer platform with a smaller integration library than Zapier.
   - Complex workflows can be hard to debug.
   - Reliability of browser agents varies by site.
 receipts:
   - https://www.gumloop.com
+  - https://www.gumloop.com/pricing
 affiliate: none
 momentum: blueshift
 featured: false

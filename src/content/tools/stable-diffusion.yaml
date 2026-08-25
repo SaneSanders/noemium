@@ -13,6 +13,18 @@ verdict_text: >-
   The value is the ecosystem — ControlNet, LoRAs, ComfyUI, thousands of
   community checkpoints. Base SDXL/SD3 quality lags behind FLUX now, but
   for custom pipelines and tutorials it still has the deepest bench.
+strengths:
+  - The open-weights ecosystem gives you ControlNet, LoRAs, ComfyUI and thousands of checkpoints.
+  - You can self-host pipelines and avoid per-image API metering.
+  - Community tutorials and custom workflows are the deepest in the image category.
+use_for:
+  - Building custom image pipelines where you need full control over the stack.
+  - Self-hosted workflows that should not send assets to a third-party API.
+  - Tutorials and experiments that rely on the largest community checkpoint library.
+skip_when:
+  - You want the best base-model quality out of the box; FLUX currently leads.
+  - You cannot spend time picking and tuning the right community checkpoint.
+  - Vendor roadmap stability matters more than ecosystem breadth.
 limitations:
   - Base models aging against FLUX and newer rivals.
   - Company turbulence eroded trust in the roadmap.
@@ -22,5 +34,8 @@ receipts:
 affiliate: none
 momentum: steady
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

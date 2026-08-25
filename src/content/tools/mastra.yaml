@@ -19,10 +19,25 @@ limitations:
   - 5.5% gateway markup on top of provider rates if you use their gateway.
   - Persistent servers are a $100/project add-on, not included in Starter.
   - Self-host still needs you to run evals, tracing storage, and secrets.
+model_routing: byok
+strengths:
+  - TypeScript-native agent framework with evals built in.
+  - Hosted control plane has a real, published price page.
+  - Starter tier is $0 and self-host is available.
+use_for:
+  - TypeScript teams building agents that need observability.
+  - Teams that want a LangGraph-shaped kit without the Python stack.
+skip_when:
+  - You cannot track three billing meters at once.
+  - The 5.5% gateway markup is a dealbreaker.
+  - Persistent 24/7 servers are needed but the $100 add-on is too much.
 receipts:
   - https://mastra.ai/pricing
   - https://github.com/mastra-ai/mastra
 affiliate: none
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 momentum: blueshift
 featured: false
 last_verified: "2026-08-19"

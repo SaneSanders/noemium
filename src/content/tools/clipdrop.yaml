@@ -13,6 +13,17 @@ verdict_text: >-
   Handy modular tools for quick edits: remove background, upscale, relight,
   inpaint. Individual features work well, but the suite feels fragmented and
   the best quality sits behind the paid tier.
+strengths:
+  - Modular tools for quick edits like background removal, relight and inpaint.
+  - Free tier exists to test before paying.
+  - Paid Pro unlocks high-resolution, unwatermarked exports.
+use_for:
+  - One-off image edits when you don't need a full editor.
+  - Quick prototyping across multiple generative image tasks.
+skip_when:
+  - You need one cohesive editor rather than fragmented tools.
+  - Free watermarks at higher resolution break your deliverable.
+  - You need the latest model quality competing with Midjourney/Flux.
 limitations:
   - Free exports are watermarked at higher resolutions.
   - Multiple tools rather than one cohesive editor.
@@ -20,6 +31,7 @@ limitations:
 receipts:
   - https://clipdrop.co
   - https://clipdrop.co/remove-background
+  - https://clipdrop.co/pricing
 affiliate: none
 momentum: steady
 featured: false

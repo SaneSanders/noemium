@@ -15,6 +15,16 @@ verdict_text: >-
   This fetch saw credits and export caps on photoroom.com/pricing, not a
   stable HTML dollar figure, so the card will not copy blog "$7.50/mo"
   numbers. Free is not a commercial license. API is a second wallet.
+strengths:
+  - "Purpose-built for product listing photos and background removal."
+  - "Paid plans bundle core retouch tools with export quotas."
+use_for:
+  - "E-commerce sellers polishing product photos for listings."
+  - "Teams that want a visual editor rather than a generative-only tool."
+skip_when:
+  - "You need stable, scrapable USD pricing for budget approval."
+  - "Free-tier commercial use is required — the Free Space forbids it."
+  - "Heavy use of video, virtual models or Edit-with-AI would exhaust the credit pool."
 limitations:
   - Dollar amounts are JS-rendered; do not budget from third-party blogs.
   - Free Space forbids commercial use; seats follow the Space, not the user.

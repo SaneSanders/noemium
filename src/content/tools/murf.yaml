@@ -15,12 +15,23 @@ verdict_text: >-
   consumer cloning are not its strength — ElevenLabs is the better fit
   there. Good enough for e-learning, just don't expect a warm, natural
   voice.
+strengths:
+  - "Corporate-friendly voiceover studio with team licenses and export controls."
+  - "Consistency-first output fits training and presentation workflows."
+use_for:
+  - "Corporate training modules and e-learning narration."
+  - "Slide voiceovers where a steady, business-safe tone is enough."
+skip_when:
+  - "You need a warm, natural-sounding voice rather than a corporate-synthetic one."
+  - "Flexible voice cloning or a strong API is the main requirement."
+  - "ElevenLabs-level expressiveness is the benchmark."
 limitations:
   - Voices sound more corporate-synthetic than the leaders.
   - Limited voice-cloning flexibility.
   - Editor-centric product; weaker API story.
 receipts:
   - https://murf.ai
+  - https://murf.ai/pricing
 affiliate: none
 momentum: steady
 featured: false

@@ -16,6 +16,17 @@ verdict_text: >-
   all-day coding and long-horizon SKU, cheaper than ChatGPT Plus on the
   public page. API (La Plateforme) remains a different bill. EU residency
   story is the procurement win. Not field-tested as a daily driver here.
+strengths:
+  - Pro at $14.99 is cheaper than ChatGPT Plus on the public page.
+  - Free tier is a real assistant, not just a teaser.
+  - EU residency and procurement story is the headline advantage.
+use_for:
+  - Users who prioritize EU data residency and vendor location.
+  - All-day coding and long-horizon tasks where Pro unlocks the CLI/IDE.
+skip_when:
+  - You need assistant and API spend on a single bill.
+  - You rely on mature connectors or MCP that are still in beta.
+  - Free coding sessions are enough for your workflow.
 limitations:
   - Vibe Pro and API spend are separate meters; CLI can blow past the sub.
   - Free coding sessions are limited; Pro is the CLI/IDE unlock.

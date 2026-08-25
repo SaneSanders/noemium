@@ -11,6 +11,7 @@ self_host: false
 models_used:
   - kimi-k3
   - kimi-k2-7-code
+model_routing: locked
 verdict: situational
 verdict_text: >-
   The Moonshot token meter, not Kimi Code CLI and not kimi.com chat.
@@ -18,6 +19,17 @@ verdict_text: >-
   cache hit; coding SKU is K2.7 Code. Rate limits follow cumulative
   top-up. China-hosted — same compliance question as other CN labs.
   Not field-called here.
+strengths:
+  - OpenAI-compatible API with K3 1M context and K2.7 Code SKU.
+  - Cheap cache-hit pricing on K3.
+  - Coding SKU is clearly separated from general chat.
+use_for:
+  - Existing OpenAI SDK projects that want to route to Moonshot models.
+  - High-context tasks that fit K3's 1M token window.
+skip_when:
+  - You need a free playground before committing budget.
+  - China-hosted compliance is a hard no for your data.
+  - You want to build on the web_search tool before it stabilizes.
 limitations:
   - "K3 is gated behind a successful top-up (docs: minimum $1); this is not a free playground."
   - Rate limits scale with lifetime recharge, not with a published unlimited Pro seat.

@@ -15,6 +15,18 @@ verdict_text: >-
   vocabulary with the answer. The free tier is genuinely useful, and it works
   with any model. Hosted-only for now; self-hosted deployments are on the
   roadmap.
+strengths:
+  - Deterministic entity-graph traversal reaches connected facts a vector search misses.
+  - Works with any model over MCP; no model lock-in.
+  - Free personal tier is genuinely useful.
+  - No vector database or separate model to run.
+use_for:
+  - Agents that need multi-hop reasoning across disconnected facts.
+  - Users who want persistent memory across sessions and clients.
+skip_when:
+  - You cannot use a hosted service; self-hosted deployment is still on the roadmap.
+  - Your agent will not consistently call recall before answering.
+  - Published Pro/Team pricing is required before you buy.
 limitations:
   - Hosted service; memory text leaves your machine unless you wait for the self-hosted tier.
   - Effectiveness depends on the agent consistently calling recall before answering.

@@ -8,6 +8,7 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Jules is the most hands-off Google coding agent: it reads your repo in a
@@ -15,6 +16,16 @@ verdict_text: >-
   currently free with usage limits, but pricing is coming once beta ends. It
   only works where Gemini is available, and the async workflow means you wait
   rather than pair live.
+strengths:
+  - "Hands-off Google coding agent that clones a repo and plans multi-file changes."
+  - "Public beta is free with usage limits."
+use_for:
+  - "Developers in Gemini-supported regions who want async codebase edits."
+  - "Quick multi-file diffs when you do not need live pair-programming."
+skip_when:
+  - "You are in a region where Gemini is geo-blocked."
+  - "You need real-time feedback or synchronous pair-programming."
+  - "Undefined post-beta pricing is a blocker for your budget."
 limitations:
   - Only available in regions where Gemini is supported; geo-blocked in some countries.
   - Asynchronous execution means no real-time pair-programming feedback.

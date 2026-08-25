@@ -8,12 +8,25 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   A real STT rate card, not a homepage teaser. Async Pro is $0.21/hr;
   streaming Pro is $0.45/hr on WebSocket open time (idle counts). Voice
   Agent is $4.50/hr bundled. EU region is the same price. $50 credits get
   you a prototype. Not Deepgram, not Whisper on your GPU.
+strengths:
+  - "Transparent per-hour rate card ($0.21 async / $0.45 streaming / $4.50 voice agent)."
+  - "$50 free credits let you prototype without a card."
+  - "Voice Agent API bundles everything at one hourly rate."
+use_for:
+  - "Prototyping STT or voice agents on the $50 credit pool."
+  - "Async transcription jobs where per-hour cost is the main metric."
+  - "Real-time streaming when you can tolerate session-duration billing."
+skip_when:
+  - "You need streaming billed by speech time, not idle WebSocket time."
+  - "Multichannel audio would multiply the hourly rate beyond budget."
+  - "Free-tier streaming concurrency (5 streams/min) would be the production path."
 limitations:
   - Streaming bills session duration, not speech duration — leaving a socket open is a bill.
   - Multichannel audio is billed per channel (stereo = 2×).

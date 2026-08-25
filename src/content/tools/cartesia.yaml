@@ -8,6 +8,7 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: ship
 verdict_text: >-
   Sonic models are built for speed: sub-100 ms streaming makes them excellent

@@ -14,6 +14,18 @@ verdict_text: >-
   free. Cloud Starter is $0 plus $2.50/GiB write after a small credit pile;
   Team is a $250 seat on the same meters. Not Pinecone (that's managed-only)
   and not a retrieval API (that's Voyage). Untested at production QPS here.
+strengths:
+  - "Python-native vector store with a free local start."
+  - "Open-source self-host option keeps data on your own hardware."
+  - "Clear Cloud usage meters ($2.50/GiB write, $0.33/GiB-mo storage)."
+use_for:
+  - "Starting vector search locally in a Python project."
+  - "Teams that need a self-hosted vector store for RAG."
+  - "Workloads where local OSS and managed Cloud are both viable."
+skip_when:
+  - "You need a fully managed service like Pinecone with no local ops."
+  - "Large ingest would bill write GiB faster than a flat plan."
+  - "Feature parity between local OSS and Cloud is required."
 limitations:
   - Starter is usage-priced; large ingest bills write GiB, not "free forever".
   - Team's $100 included credits do not roll over.
@@ -25,5 +37,8 @@ receipts:
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

@@ -29,6 +29,7 @@ limitations:
   - Cold starts can be noticeable for some workloads.
 receipts:
   - https://modal.com
+  - https://modal.com/pricing
 affiliate: none
 momentum: blueshift
 featured: false

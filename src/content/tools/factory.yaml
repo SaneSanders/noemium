@@ -13,12 +13,23 @@ verdict_text: >-
   Pitches full-codebase agents that plan, write, and review like senior
   engineers. Impressive demos, but real deployments need tight scoping and
   human-in-the-loop review. Pricing is enterprise-only.
+strengths:
+  - "Markets full-codebase agents that plan, write, and review code end-to-end."
+  - "Impressive demos for autonomous engineering tasks."
+use_for:
+  - "Large teams evaluating autonomous codebase agents with vendor support."
+  - "Pilots where human-in-the-loop review is already required."
+skip_when:
+  - "You need a self-serve tier or transparent pricing."
+  - "You cannot invest in onboarding and guardrails to limit wrong changes."
+  - "Closed platform and limited model visibility are non-starters."
 limitations:
   - No self-serve tier or transparent pricing.
   - Requires onboarding and guardrails to avoid large, wrong changes.
   - Closed platform; limited visibility into model behavior.
 receipts:
   - https://factory.ai
+  - https://docs.factory.ai/harness/agents-md
 affiliate: none
 momentum: steady
 featured: false

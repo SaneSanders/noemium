@@ -8,17 +8,31 @@ free_tier: false
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: situational
 verdict_text: >-
   Fast inference with a focus on enterprise deployment and data sovereignty.
   Strong for regulated industries. The developer experience is less polished
   than API-first rivals, and self-serve onboarding is limited.
+strengths:
+  - "Fast inference focused on enterprise deployment and data sovereignty."
+  - "Strong positioning for regulated industries."
+  - "Runs open-source models on dedicated hardware."
+use_for:
+  - "Regulated enterprises that need data-sovereign inference."
+  - "Teams prioritizing inference speed on open-source models."
+  - "Organizations with existing enterprise procurement channels."
+skip_when:
+  - "You need transparent, self-serve pricing and a polished developer UX."
+  - "You rely on a large community and example base."
+  - "You want to start with a free tier or small self-serve account."
 limitations:
   - Developer onboarding is more enterprise-focused.
   - Pricing is not as transparent as pure API providers.
   - Smaller community and example base than OpenAI/Anthropic.
 receipts:
   - https://sambanova.ai
+  - https://docs.sambanova.ai
 affiliate: none
 momentum: steady
 featured: false

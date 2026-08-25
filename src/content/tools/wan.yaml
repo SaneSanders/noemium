@@ -14,6 +14,18 @@ verdict_text: >-
   Wanxiang; API is DashScope. GitHub Wan2.1 is the open-weights generation,
   not a promise that the latest hosted Wan is OSI. China-region console and
   moderation apply. No USD list price we could pin without the billing console.
+strengths:
+  - "Alibaba-hosted video generation through Tongyi Wanxiang."
+  - "Wan2.1 Apache weights are available for self-hosting."
+  - "API access via DashScope for programmatic use."
+use_for:
+  - "Video generation projects that can work within Alibaba Cloud's region."
+  - "Teams that want to self-host Wan2.1 open weights."
+  - "Users already inside the Tongyi ecosystem."
+skip_when:
+  - "You need a stable public USD price card without console access."
+  - "China-region account, payment or moderation constraints are blockers."
+  - "You expected the latest hosted Wan to match the open Wan2.1 weights."
 limitations:
   - No durable public USD price table fetched; treat Alibaba console as source of truth.
   - Latest hosted Wan is not the same artifact as Apache Wan2.1 weights.

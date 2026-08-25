@@ -15,11 +15,24 @@ limitations:
   - Early-stage; breaking changes are common.
   - Works best with specific React setups.
   - Cloud collaboration features are not essential for solo use.
+strengths:
+  - Open-source visual editor that writes code directly into your React project.
+  - Designer-friendly layer on top of a real codebase.
+use_for:
+  - React teams that want a visual editor synced to a real codebase.
+  - Designers and developers who share the same React repository.
+skip_when:
+  - You need a stable, mature tool without breaking changes.
+  - Your stack is not one of the React setups Onlook supports well.
+  - Solo users who don't need the paid cloud collaboration tier.
 receipts:
   - "https://onlook.com"
   - "https://github.com/onlook-dev/onlook"
 affiliate: none
 momentum: blueshift
 featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 last_verified: "2026-08-19"
 observed_by: whysanesanders

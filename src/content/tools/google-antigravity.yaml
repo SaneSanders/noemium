@@ -10,12 +10,25 @@ api: false
 self_host: false
 models_used:
   - gemini-3-1-pro-preview
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   A real Google coding surface, not Gemini Code Assist: agent models (Gemini,
   Claude, gpt-oss) inside Antigravity, unlimited tab/command on the free
   individual plan, paid quota bolted onto Google AI Pro/Ultra. Rate-limit
   opacity is the tax. Separate from the Gemini consumer app and from Code Assist.
+strengths:
+  - "Real Google coding surface with agent models from multiple labs."
+  - "Free individual tier with unlimited tab and command completions."
+  - "Paid quota through familiar Google AI Pro/Ultra subscriptions."
+use_for:
+  - "Developers who want a Google-native agentic coding environment."
+  - "Individual users who can stay within weekly free-tier agent caps."
+  - "Teams already buying Google AI Pro/Ultra for extra quota."
+skip_when:
+  - "You need a published token rate card for agent quota."
+  - "You cannot risk hitting a weekly cap mid-project."
+  - "You want to plug into existing JetBrains/VS Code via Gemini Code Assist."
 limitations:
   - Agent quota is weekly/credit-shaped; the public page does not publish a token rate card.
   - Hitting the cap locks you until refresh unless you buy AI credits or Ultra.

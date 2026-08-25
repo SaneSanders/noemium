@@ -8,6 +8,7 @@ free_tier: true
 open_source: false
 api: true
 self_host: false
+model_routing: locked
 verdict: ship
 verdict_text: >-
   Sub-second responses really do change what you can build — voice agents,

@@ -17,10 +17,25 @@ limitations:
   - Plugin and template ecosystem is smaller than Figma's.
   - Advanced prototyping and animation features are more limited.
   - Self-hosting requires infrastructure; the managed free plan has storage caps.
+strengths:
+  - Genuine open-source Figma alternative with CSS-friendly layout tools.
+  - Dev handoff is built in, not an afterthought.
+  - Free plan covers small teams generously.
+  - Self-host option keeps design data in-house.
+use_for:
+  - Teams wanting an open-source design and prototyping tool.
+  - Small teams that fit the free plan limits.
+skip_when:
+  - You need Figma's plugin and template ecosystem.
+  - Advanced prototyping and animation are required.
+  - You cannot operate a self-hosted instance.
 receipts:
   - https://penpot.app
   - https://penpot.app/pricing
 affiliate: none
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 evidence_tier: source-verified
 momentum: steady
 featured: false

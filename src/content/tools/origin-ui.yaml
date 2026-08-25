@@ -13,6 +13,17 @@ verdict_text: >-
   Origin UI has moved into COSS UI after its acquisition by Cal.com. The new
   library remains a polished shadcn-compatible alternative with a distinct
   visual style, but the migration is still in progress.
+strengths:
+  - Polished shadcn-compatible alternative with a distinct visual style.
+  - Free and open source after the Cal.com acquisition.
+  - Components remain usable while the COSS UI migration proceeds.
+use_for:
+  - Teams that want a shadcn alternative with a different visual direction.
+  - Projects that can tolerate a migration-phase component library.
+skip_when:
+  - You need the ecosystem maturity and community of shadcn/ui today.
+  - The opinionated style does not match the brand you are building.
+  - You cannot accept roadmap uncertainty during the COSS UI migration.
 limitations:
   - Smaller ecosystem than shadcn/ui.
   - Original Origin UI components are now legacy and receive limited support.

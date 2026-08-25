@@ -14,6 +14,17 @@ verdict_text: >-
   or screenshot into an editable wireframe or prototype. The catch: the free tier
   is capped and watermarked, paid seats are per-editor, and high-fidelity polish
   still needs a designer or Figma handoff.
+strengths:
+  - AI wireframing and prototyping for non-designers from prompt or screenshot.
+  - Fast path for product managers and founders to editable mockups.
+  - Sketch-to-editable-wireframe conversion lowers the design starting barrier.
+use_for:
+  - Product managers and founders turning ideas into shareable wireframes.
+  - Teams that need mid-fi prototypes without hiring a designer first.
+skip_when:
+  - You need production-ready, high-fidelity visual design in the same tool.
+  - Free watermarked exports and credit caps break your workflow.
+  - Per-editor pricing would outpace a small team's budget.
 limitations:
   - Free Starter has limited boards/elements and watermarked 1x exports.
   - AI credits are consumed per action; heavy AI use burns through monthly allowances quickly.

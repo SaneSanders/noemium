@@ -14,6 +14,17 @@ verdict_text: >-
   meeting notes and accent conversion. The free trial is short; paid plans add
   transcription, CRM sync, and admin controls. Best for remote workers and
   call centers, not casual users.
+strengths:
+  - Real-time noise cancellation that remains the category benchmark.
+  - Paid plans add meeting notes, accent conversion, and admin controls.
+  - Strong fit for remote workers and call-center environments.
+use_for:
+  - Remote workers who need clean audio on calls in noisy environments.
+  - Call centers that want accent conversion and CRM-linked meeting notes.
+skip_when:
+  - You are a casual user who only needs occasional noise suppression.
+  - Server-side accent conversion raises privacy concerns for your calls.
+  - The 7-day free trial is too short to evaluate the full paid feature set.
 limitations:
   - Full feature set requires a paid plan after a 7-day trial.
   - Meeting assistant and call-center products are priced separately.

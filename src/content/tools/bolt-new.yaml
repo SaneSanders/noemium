@@ -8,12 +8,24 @@ free_tier: true
 open_source: false
 api: false
 self_host: false
+model_routing: bundled
 verdict: situational
 verdict_text: >-
   Fastest path from a sentence to a public URL, running in WebContainers.
   Token burn scales with project size because the filesystem is synced into
   context. Free is a demo with branding and a daily cap. Not a replacement
   for a real repo once the app outgrows the sandbox.
+strengths:
+  - Fastest path from a sentence to a public URL inside a browser.
+  - Runs full-stack prototypes in WebContainers without local setup.
+  - Free tier lets anyone demo the workflow before paying.
+use_for:
+  - Quick prototypes and demo sites that can stay in the sandbox.
+  - First-time builders who want a deployed URL without tooling setup.
+skip_when:
+  - The project will outgrow a sandboxed filesystem.
+  - Token burn on a large codebase would exceed the monthly bucket.
+  - You need production-grade auth, data, or ops review.
 limitations:
   - Token cost tracks project size; big codebases eat the monthly bucket fast.
   - Free sites carry Bolt branding and a 10MB upload cap.

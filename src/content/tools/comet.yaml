@@ -16,6 +16,17 @@ verdict_text: >-
   tracks the Perplexity seat. This pass hit Cloudflare/timeouts on the
   Comet URLs — receipts are the Plus announcement and hub pricing, not a
   live install. Not Dia.
+strengths:
+  - Chromium-based assistant browser that can click and fill forms.
+  - The browser itself is free; Comet Plus is a cheap $5 journalism add-on.
+  - Agent quotas follow the existing Perplexity Pro/Max seat structure.
+use_for:
+  - Users who want an AI assistant baked into the browser rather than a separate tab.
+  - Existing Perplexity subscribers who can reuse Pro/Max agent quotas.
+skip_when:
+  - You need a guaranteed live download; the Comet URLs timed out during verification.
+  - You expect the free browser to include unlimited agent actions.
+  - You want a standalone search product rather than a browser assistant.
 limitations:
   - perplexity.ai/comet timed out for this bot; confirm download in a browser.
   - Comet Agent is quota-gated on Free vs Pro/Max — the free browser is not unlimited agent.

@@ -19,6 +19,18 @@ limitations:
   - s2.1-pro-free has no TTFA or DPA guarantees — not a production SLA.
   - API concurrency starts at 5 in-flight until you prepaid ≥$100.
   - fish.audio/pricing 404'd; the live card is docs.fish.audio models-pricing.
+strengths:
+  - Unusually readable API pricing by UTF-8 byte of input text.
+  - $0 s2.1-pro-free tier for prototypes.
+  - Covers TTS, voice cloning, and STT in one platform.
+use_for:
+  - Projects that need transparent byte-based TTS billing.
+  - Prototyping voice pipelines without a monthly minimum.
+  - Creators who need cloning plus STT alongside TTS.
+skip_when:
+  - You need commercial rights or latency SLAs without paying.
+  - You cannot meet the $100 prepaid threshold for higher API concurrency.
+  - You need a public pricing page rather than the docs card.
 receipts:
   - https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits
   - https://docs.fish.audio/developer-guide/models-pricing/models-overview

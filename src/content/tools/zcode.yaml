@@ -11,12 +11,26 @@ self_host: false
 models_used:
   - glm-5-3
   - glm-5-2
+model_routing: locked
 verdict: situational
 verdict_text: >-
   A practical pick for developers already inside the Z.ai/GLM ecosystem who want
   a dedicated agentic IDE with predictable monthly credits. The catch: model choice
   is effectively GLM-only, the Linux build is still in beta, and the IDE itself is
   not open source despite some third-party claims.
+strengths:
+  - Dedicated agentic IDE built around GLM-5.3 for goal-driven coding.
+  - Multi-agent workflows inside a single editor.
+  - Free app download with predictable monthly credit plans.
+  - Pay-as-you-go model API available via BigModel.cn.
+use_for:
+  - Developers already inside the Z.ai/GLM ecosystem.
+  - Teams that want predictable monthly credits for agentic IDE use.
+skip_when:
+  - You require open-source or auditable tooling.
+  - You need model choice beyond the GLM family and partner models.
+  - Linux is your primary OS; the build is still marked Beta.
+  - You need clear international payment support or documented BYOK.
 limitations:
   - Not open source; no public source repository could be verified.
   - Model selection is tightly coupled to the GLM family and partner models.

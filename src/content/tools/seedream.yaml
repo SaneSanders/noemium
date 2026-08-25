@@ -14,6 +14,16 @@ verdict_text: >-
   aggressive per-image prices. Western access is through BytePlus ModelArk,
   with CNY-first billing and sparse USD documentation. A capable option for
   bulk asset generation if you accept ByteDance's trust boundary.
+strengths:
+  - "Seedream 5.0 Pro delivers strong prompt adherence and visual quality."
+  - "Aggressive per-image pricing, with packages starting around $0.045/image."
+use_for:
+  - "Bulk image asset generation where low cost per image matters."
+  - "Teams already comfortable with ByteDance's trust boundary for non-sensitive visuals."
+skip_when:
+  - "You need clean USD rate cards and Western billing documentation."
+  - "Closed weights with no self-host or open-weights fallback is a dealbreaker."
+  - "Data-sovereignty or Western signup concerns outweigh the price advantage."
 limitations:
   - Access and pricing are CNY-first; clean USD rate cards are hard to find.
   - Closed weights with no self-host or open-weights fallback.

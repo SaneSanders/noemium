@@ -9,13 +9,27 @@ api: false
 self_host: false
 verdict: situational
 verdict_text: >-
-  Great for browsing navbar patterns before you design your own. It is purely inspirational, so expect to implement everything yourself.
+  Curated navbar screenshots for early design reference, not copy-paste
+  components. Useful for locking a navigation direction before you open Figma,
+  but expect to build and refine the markup yourself and do not count on a
+  steady stream of new examples.
+strengths:
+  - "Curated navigation patterns from real websites, sorted by style."
+  - "Quick visual reference before you design your own navbar."
+use_for:
+  - "Early ideation for a navigation component."
+  - "Mood-boarding header directions with a team."
+skip_when:
+  - "You need exported code; only screenshots and ideas are shown."
+  - "You need powerful search and filtering beyond the basics."
+  - "The curator's update pace is too slow for your project timeline."
 limitations:
   - No code export; just screenshots and ideas.
   - Search and filtering are basic.
   - Updates depend on the curator's pace.
 receipts:
   - "https://navbar.gallery"
+  - "https://www.navbar.gallery/style/minimal"
 affiliate: none
 momentum: steady
 featured: false

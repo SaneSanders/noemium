@@ -13,6 +13,17 @@ verdict_text: >-
   A clean, focused long-form writing app. Inline prompts and version
   history help if drafting is your main job. Overkill for occasional
   paragraph help, and ChatGPT Canvas covers part of it free.
+strengths:
+  - "Minimal, focused writing surface for long-form drafting."
+  - "Inline prompts and version history are built around writing workflows."
+  - "Cheaper entry point than sprawling all-in-one docs tools."
+use_for:
+  - "Writers and editors whose main job is drafting long articles or newsletters."
+  - "Teams that want a Google Docs-like co-writer without Notion's complexity."
+skip_when:
+  - "You only need occasional paragraph rewrites that ChatGPT Canvas already handles."
+  - "You need a capable mobile writing experience."
+  - "You rely on databases, wikis, or advanced document features."
 limitations:
   - A subscription on top of what ChatGPT Canvas partially does free.
   - Far smaller feature set than Notion or Google Docs.

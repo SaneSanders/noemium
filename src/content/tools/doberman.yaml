@@ -8,6 +8,9 @@ free_tier: true
 open_source: true
 api: true
 self_host: true
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
 verdict: situational
 verdict_text: >-
   Sits on the MCP execution path and gives every tool call a PASS, AUTH, or
@@ -15,12 +18,24 @@ verdict_text: >-
   prompt-injection-driven actions. It fails closed and logs redacted decisions.
   The project is early but already ships CI-proven parity matrices and a plugin
   API for custom guardrails.
+strengths:
+  - "PASS/AUTH/BLOCK verdict on every tool call before it executes."
+  - "Fail-closed with redacted decision logs."
+  - "CI-proven parity matrices and a plugin API for custom guardrails."
+use_for:
+  - "Securing MCP-based coding agents against destructive or exfiltrating calls."
+  - "Teams that need an open, auditable guardrail they can self-host."
+skip_when:
+  - "Your host integration is still experimental or manual to wire."
+  - "You need behavioral guards beyond the MCP proxy path."
+  - "Runtime-constructed URLs or non-verb channels would evade static egress parsing."
 limitations:
   - Some host integrations are still experimental or manual to wire.
   - Adaptive behavioral features currently run only on the MCP proxy path, not all host hooks.
   - Static egress parsing can be evaded by runtime-constructed URLs or non-verb channels.
 receipts:
   - https://github.com/fu351/Doberman-Core
+  - https://github.com/fu351/Doberman-Core/blob/main/docs/ADAPTER_GUIDE.md
 affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
