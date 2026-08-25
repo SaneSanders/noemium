@@ -253,23 +253,28 @@
 }
 
 @media (max-width: 800px) {
-  :root { --nm-page-x: 16px; --nm-mast-h: 96px; }
+  :root { --nm-page-x: 16px; --nm-mast-h: 60px; }
   .mast:not(:has(#nm-nav-open)) {
-    height: auto;
-    min-height: var(--nm-mast-h);
-    padding: 16px var(--nm-page-x) 14px;
+    height: var(--nm-mast-h);
+    padding: 0 var(--nm-page-x);
   }
   .mast:not(:has(#nm-nav-open)) .mast-nav {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 10px;
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-between;
+    column-gap: 8px;
   }
   .mast:not(:has(#nm-nav-open)) .brand {
-    grid-column: 1 / -1;
-    order: -1;
-    font-size: 16px;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    margin-right: -0.16em;
   }
-  .mast-nav a { font-size: 12px; letter-spacing: 0.12em; }
+  .mast-nav a { font-size: 10px; letter-spacing: 0.06em; }
   .cover-lede { padding: 24px 0 16px; }
+}
+
+@media (max-width: 360px) {
+  .mast:not(:has(#nm-nav-open)) .brand { font-size: 12px; }
+  .mast-nav a { font-size: 9px; letter-spacing: 0.04em; }
 }
 
 /* ---- hero ---- */
@@ -311,6 +316,10 @@
   height: calc(100vh - var(--nm-mast-h) - 150px - 4vh);
   object-fit: contain;
   pointer-events: none;
+  /* The source art slices her arm at the left canvas edge — dissolve it into
+     the night the way the right side dissolves into particles. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 12%);
+  mask-image: linear-gradient(to right, transparent 0, black 12%);
 }
 .hero .ground {
   position: absolute;
