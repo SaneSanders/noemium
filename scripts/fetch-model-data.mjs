@@ -53,7 +53,7 @@ const MODELS = [
     slug: 'gpt-5-6-sol',
     litellm: ['gpt-5.6-sol'],
     helicone: null,
-    note: '>272K input bills 2x input / 1.5x output',
+    note: 'promotional $4/$20 at least through 2026-11-21 (list $5/$30); >272K input bills 2x input / 1.5x output',
     seed: {
       name: 'GPT-5.6 Sol',
       provider: 'OpenAI',
