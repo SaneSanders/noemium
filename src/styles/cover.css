@@ -323,18 +323,18 @@
   transform: translateX(-50%);
   z-index: 4;
   width: auto;
-  top: calc(var(--nm-mast-h) + 124px);
+  top: calc(var(--nm-mast-h) + 110px);
   bottom: auto;
-  height: calc(100vh - var(--nm-mast-h) - 124px - 3vh);
-  height: calc(100dvh - var(--nm-mast-h) - 124px - 3vh);
-  max-width: min(900px, 92vw);
+  height: calc(100vh - var(--nm-mast-h) - 110px - 2vh);
+  height: calc(100dvh - var(--nm-mast-h) - 110px - 2vh);
+  max-width: min(980px, 94vw);
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  object-position: 50% 38%;
+  object-position: 50% 30%;
   pointer-events: none;
-  /* Dissolve the square bust into the night on every edge. */
-  -webkit-mask-image: radial-gradient(ellipse 78% 86% at 50% 40%, black 48%, transparent 100%);
-  mask-image: radial-gradient(ellipse 78% 86% at 50% 40%, black 48%, transparent 100%);
+  /* Cutout has no background; only fade the bottom edge into the ground. */
+  -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 98%);
+  mask-image: linear-gradient(to bottom, black 78%, transparent 98%);
 }
 .hero .ground {
   position: absolute;
@@ -395,13 +395,13 @@
 @media (max-width: 800px) {
   .hero .moon { display: none; }
   .hero .nema {
-    top: calc(var(--nm-mast-h) + 96px);
-    height: calc(100vh - var(--nm-mast-h) - 96px - 6vh);
-    height: calc(100dvh - var(--nm-mast-h) - 96px - 6vh);
-    max-width: 96vw;
-    object-position: 50% 34%;
-    -webkit-mask-image: radial-gradient(ellipse 82% 88% at 50% 36%, black 48%, transparent 100%);
-    mask-image: radial-gradient(ellipse 82% 88% at 50% 36%, black 48%, transparent 100%);
+    top: calc(var(--nm-mast-h) + 86px);
+    height: calc(100vh - var(--nm-mast-h) - 86px - 3vh);
+    height: calc(100dvh - var(--nm-mast-h) - 86px - 3vh);
+    max-width: 98vw;
+    object-position: 50% 28%;
+    -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 98%);
+    mask-image: linear-gradient(to bottom, black 78%, transparent 98%);
   }
   .hero .punch { font-size: clamp(24px, 7vw, 34px); max-width: 94vw; }
   .hero .foot {
