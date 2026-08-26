@@ -1,0 +1,40 @@
+name: Sequential Thinking MCP
+tagline: Official sequential-thinking MCP — a loop that spends tokens to look like reasoning.
+url: https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking
+category: mcp
+pricing: free
+price_note: "MIT reference; npx -y @modelcontextprotocol/server-sequential-thinking"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: skip
+verdict_text: >-
+  A stdio loop that asks the model to emit thought / nextThoughtNeeded /
+  thoughtNumber. The model already thinks. This bills extra tokens for a
+  ritual. Keep it off the default mcp.json.
+strengths:
+  - Official reference, MIT, one npx line.
+  - Visible thought steps in the host inspector if you are debugging a prompt.
+use_for:
+  - Teaching someone what an MCP tool call looks like, not for production work.
+  - A host inspector demo of repeated tool calls.
+skip_when:
+  - You want better answers — spend the tokens on the task, not on a thinking costume.
+  - The agent already plans (Claude, Codex, Cursor agent).
+  - You are paying API rates and this would sit in every session.
+limitations:
+  - Each "thought" is another model round-trip you pay for.
+  - Does not add tools, files, or a browser — only a structured monologue.
+  - Easy to cargo-cult into every mcp.json because the name sounds serious.
+receipts:
+  - https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking
+affiliate: none
+evidence_tier: source-verified
+momentum: redshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
+last_verified: "2026-08-26"
+observed_by: whysanesanders

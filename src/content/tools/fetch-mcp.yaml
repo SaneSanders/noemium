@@ -1,0 +1,40 @@
+name: Fetch MCP
+tagline: Official MCP fetch server — URL to markdown. Can hit local IPs; Python SDK 1.x only.
+url: https://github.com/modelcontextprotocol/servers/tree/main/src/fetch
+category: mcp
+pricing: free
+price_note: "MIT reference; uvx mcp-server-fetch or pip mcp-server-fetch"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  The teaching fetch: URL in, markdown out, chunked with start_index. Official
+  README warns it can reach local/internal IPs. Still on MCP Python SDK 1.x;
+  the v2 port is "in progress".
+strengths:
+  - Official reference fetch with markdown conversion and chunked reads.
+  - Zero cost, MIT, uvx one-liner.
+use_for:
+  - Agents that need a page as markdown and do not already have a browser MCP.
+  - Demos of stdio MCP without standing up a full browser.
+skip_when:
+  - You cannot accept SSRF to local/internal IPs — the official README flags it.
+  - You are on MCP Python SDK 2.x; this server still requires 1.x.
+  - Playwright or Chrome DevTools MCP already covers the page.
+limitations:
+  - "Official caution: can access local/internal IP addresses."
+  - Requires MCP Python SDK 1.x (`mcp>=1.29.0,<2`); SDK 2 port is unfinished.
+  - Truncates by default (max_length 5000); not a crawler.
+receipts:
+  - https://github.com/modelcontextprotocol/servers/tree/main/src/fetch
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
+last_verified: "2026-08-26"
+observed_by: whysanesanders

@@ -1,0 +1,43 @@
+name: Context7
+tagline: Upstash Context7 — current library docs in the agent's context, via hosted MCP.
+url: https://context7.com
+category: mcp
+pricing: freemium
+price_note: "Free $0 (1,000 API calls/mo, public repos); Pro $10/seat/mo (5,000/seat); hosted https://mcp.context7.com/mcp"
+free_tier: true
+open_source: true
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  The docs MCP people actually keep on: resolve a library, pull current
+  examples, stop hallucinating last year's API. Hosted at mcp.context7.com.
+  Free is 1,000 calls/month; it used to be much higher. Queries go to Upstash.
+strengths:
+  - Current, version-specific library docs instead of training-cut snapshots.
+  - Hosted Streamable HTTP plus a local npm/stdio option; npx ctx7 setup.
+  - MIT server, OAuth or API key, works across Cursor / Claude / VS Code.
+use_for:
+  - Coding agents that keep inventing APIs the package no longer has.
+  - Public-repo library work on the free 1,000-call month.
+skip_when:
+  - 1,000 free calls/month will not cover a "always use Context7" rule.
+  - The repo cannot leave your machine; there is no offline mode.
+  - You need private-repo parsing — that is Pro, billed extra.
+limitations:
+  - Free tier is 1,000 API calls/month (cut hard in Jan 2026, now 1,000 + 20/day bonus after cap).
+  - All queries route through Upstash; library name and query text leave the machine.
+  - Pro is $10/seat/mo then $10 per 1,000 extra calls.
+receipts:
+  - https://github.com/upstash/context7
+  - https://context7.com/plans
+  - https://mcp.context7.com/mcp
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: false
+last_verified: "2026-08-26"
+observed_by: whysanesanders

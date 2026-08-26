@@ -15,7 +15,8 @@ const { shelf, related } = collectMcp(
 );
 
 const ship = shelf.filter((t) => t.verdict === 'ship');
-const rest = shelf.filter((t) => t.verdict !== 'ship');
+const situational = shelf.filter((t) => t.verdict === 'situational');
+const skip = shelf.filter((t) => t.verdict === 'skip');
 ---
 
 <Cover
@@ -45,11 +46,27 @@ const rest = shelf.filter((t) => t.verdict !== 'ship');
     </div>
 
     {
-      rest.length > 0 && (
+      situational.length > 0 && (
         <>
           <p class="cover-kicker">Situational</p>
           <div class="cover-doors">
-            {rest.map((t) => (
+            {situational.map((t) => (
+              <a class="cover-door" href={`/tools/${t.slug}/`}>
+                <b>{t.name}</b>
+                <span>{t.tagline}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    {
+      skip.length > 0 && (
+        <>
+          <p class="cover-kicker">Skip</p>
+          <div class="cover-doors">
+            {skip.map((t) => (
               <a class="cover-door" href={`/tools/${t.slug}/`}>
                 <b>{t.name}</b>
                 <span>{t.tagline}</span>

@@ -1,0 +1,40 @@
+name: Memory MCP
+tagline: Official MCP memory server — a local entity graph the agent can read and write.
+url: https://github.com/modelcontextprotocol/servers/tree/main/src/memory
+category: mcp
+pricing: free
+price_note: "MIT reference; npx -y @modelcontextprotocol/server-memory"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  A local knowledge graph (entities, relations, observations) on disk. Fine as
+  the reference memory, and still the snippet tutorials copy. If you want a
+  product on this job, that is Cogni, not this demo.
+strengths:
+  - Official reference graph with entities, relations, and atomic observations.
+  - Local, MIT, npx — no hosted memory leaving the machine.
+use_for:
+  - A first persistent-memory MCP on one machine, one agent.
+  - Demos of graph memory without a vendor account.
+skip_when:
+  - You need hosted, multi-client memory — use Cogni.
+  - The agent already has project memory (Claude Code, Cursor, Noemium).
+  - You expected search quality beyond exact entity names.
+limitations:
+  - Teaching graph, not a managed memory product.
+  - Lives in the reference-servers repo; no support desk.
+  - Effectiveness is whether the agent actually writes and recalls.
+receipts:
+  - https://github.com/modelcontextprotocol/servers/tree/main/src/memory
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+data_sensitivity:
+  trains_on_inputs: no
+  local_processing: true
+last_verified: "2026-08-26"
+observed_by: whysanesanders

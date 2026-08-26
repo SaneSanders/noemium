@@ -1,0 +1,42 @@
+name: Sentry MCP
+tagline: Sentry's remote MCP for coding agents — issues, traces, debug, not a full Sentry API.
+url: https://mcp.sentry.dev
+category: mcp
+pricing: free
+price_note: "included with a Sentry account; hosted https://mcp.sentry.dev/mcp; stdio npx @sentry/mcp-server for self-hosted"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Official Sentry remote MCP, aimed at human-in-the-loop coding agents, not a
+  general Sentry bot. Hosted on Cloudflare. stdio exists for self-hosted
+  Sentry and still needs a user auth token with write scopes.
+strengths:
+  - Official Sentry server at mcp.sentry.dev, built for Cursor / Claude Code.
+  - Claude Code plugin with a delegated sentry-mcp subagent.
+  - Remote by default; stdio for self-hosted Sentry.
+use_for:
+  - Agents debugging an error that already lives in Sentry.
+  - Teams that want issue/trace context inside the coding agent, not another tab.
+skip_when:
+  - You needed the whole Sentry product API — this is a coding-agent slice.
+  - AI search tools (search_events / search_issues) need a separate LLM provider.
+  - You will not give event:write on a user auth token.
+limitations:
+  - Tooling is for developer debug workflows, not full Sentry administration.
+  - stdio AI search tools need OpenAI/Anthropic/OpenRouter or they disappear.
+  - Self-hosted Seer and some skills are missing; disable them explicitly.
+receipts:
+  - https://github.com/getsentry/sentry-mcp
+  - https://mcp.sentry.dev
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: false
+last_verified: "2026-08-26"
+observed_by: whysanesanders
