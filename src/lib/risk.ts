@@ -89,7 +89,7 @@ export function buildWeekRisk(week: RiskWeek): RiskEvent[] {
     if (cls === 'retirement') {
       const to = typeof c.to === 'object' && c.to ? (c.to as { date?: string; successor?: string }) : null;
       const from = typeof c.from === 'object' && c.from ? (c.from as { date?: string; successor?: string }) : null;
-      const active = to ?? from;
+      const active = to ?? from ?? c.retiring ?? null;
       detail = active ? `retiring ${active.date ?? '—'} → ${active.successor ?? '—'}` : 'retiring status changed';
     } else {
       detail = `${c.field}: ${c.from ?? '—'} → ${c.to ?? '—'}`;

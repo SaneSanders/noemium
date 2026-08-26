@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import VerdictBadge from '../components/VerdictBadge.astro';
 import CopyButton from '../components/CopyButton.astro';
+import { formatChangeValue } from '../lib/changelog-value';
 import { formatWeekThread } from '../lib/week-thread';
 
 type Entry = { collection: string; slug: string; name: string; category?: string };
@@ -37,8 +38,8 @@ const link = (e: Entry) =>
         : undefined;
 const commitsHref = (w: Week) =>
   `https://github.com/SaneSanders/noemium/commits/main/src/content?since=${w.from}&until=${w.to}`;
-const short = (v: string | number | null) => {
-  const s = String(v ?? '—');
+const short = (v: unknown) => {
+  const s = formatChangeValue(v);
   return s.length > 72 ? `${s.slice(0, 69)}…` : s;
 };
 // Risk detail strings look like "price note: was → now" or "retiring DATE → X".

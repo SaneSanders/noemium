@@ -305,10 +305,7 @@
           },
           "field": "retiring",
           "from": null,
-          "to": {
-            "date": "2026-08-31",
-            "successor": "mistral-medium-3-5"
-          }
+          "to": "2026-08-31 → mistral-medium-3-5"
         }
       ],
       "risk": [

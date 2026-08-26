@@ -14,6 +14,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as yaml from 'js-yaml';
+import { serializeChangeValue } from '../src/lib/changelog-value.ts';
 import { buildWeekRisk } from '../src/lib/risk.ts';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -197,7 +198,12 @@ for (const [path, events] of eventsByPath) {
       const b = after?.[field];
       if (a === undefined && b === undefined) continue;
       if (valuesDiffer(a, b)) {
-        wk.changed.push({ ...meta(path, after), field: label, from: a ?? null, to: b ?? null });
+        wk.changed.push({
+          ...meta(path, after),
+          field: label,
+          from: serializeChangeValue(a),
+          to: serializeChangeValue(b),
+        });
       }
     }
   }

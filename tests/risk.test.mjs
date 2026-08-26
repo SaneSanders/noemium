@@ -61,6 +61,27 @@ test('buildWeekRisk picks price and verdict changes, ignores tagline edits', () 
   assert.equal(risk[1].slug, 'yi-api');
 });
 
+test('buildWeekRisk retiring change uses retiring meta when to is a string', () => {
+  const week = {
+    ...baseWeek,
+    changed: [
+      {
+        name: 'Mistral Large 3',
+        slug: 'mistral-large-2512',
+        collection: 'models',
+        field: 'retiring',
+        from: null,
+        to: '2026-08-31 → mistral-medium-3-5',
+        retiring: { date: '2026-08-31', successor: 'mistral-medium-3-5' },
+      },
+    ],
+  };
+  const risk = buildWeekRisk(week);
+  assert.equal(risk.length, 1);
+  assert.equal(risk[0].class, 'retirement');
+  assert.equal(risk[0].detail, 'retiring 2026-08-31 → mistral-medium-3-5');
+});
+
 test('buildWeekRisk detects graveyard deaths and model retirements', () => {
   const week = {
     ...baseWeek,
