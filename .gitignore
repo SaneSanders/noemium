@@ -23,9 +23,23 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# maintainer-local session continuity files (internal strategy; not tracked)
+# maintainer-local / not for the public tree
 HANDOFF.md
 MEMORY.md
+AGENTS.md
+CLAUDE.md
+docs/superpowers/
+docs/audits/
+docs/research/
+docs/decide/
+
+# local-only experiment (not in production, not tracked)
+src/pages/decide.astro
+src/islands/DecideForm.tsx
+src/lib/decide-brief.ts
+src/data/decide-intake.json
+tests/decide-brief.test.mjs
+tests/decide-pages.test.mjs
 
 # link-check reports
 reports/

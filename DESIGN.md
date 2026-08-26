@@ -96,7 +96,7 @@ Signature patterns (CSS lives in `src/styles/theme.css`):
 - Logos — committed PNGs in `public/logos/` (`scripts/fetch-logos.mjs`).
   Every catalog surface shows a hairline tile. Missing files fall back to
   a letter tile (Fraunces first letter, accent, on paper). Models reuse
-  the lab's logo; they do not get a unique mark per checkpoint.
+  the catalog default logo; they do not get a unique mark per checkpoint.
 - `KbdHint` — keyboard shortcut hint (`⌘K` etc.), mono, ink border.
 - `CommandPalette` — global search/navigation overlay.
 - Theme toggle — sun/moon button in the header; icons swap via
