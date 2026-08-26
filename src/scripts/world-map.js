@@ -257,16 +257,25 @@ let root;
 // A 2600-wide canvas squeezed into a phone is unreadable, so narrow screens get
 // a slice: about three territories at a time, switched with the chips.
 const narrow = () => innerWidth < 760;
+// On phones the find/chips bar overlays the top of the scene and covers the
+// 'frontier' rail caption, so the narrow viewBox starts above the canvas and
+// the whole map renders a little lower.
+const MOBILE_TOP = 160;
+// Actual viewBox in use; pan/zoom math must follow it, not the raw VW/VH.
+let vbX = 0, vbY = 0, vbW = VW, vbH = VH;
 function applyViewport() {
   if (!narrow()) {
+    vbX = 0; vbY = 0; vbW = VW; vbH = VH;
     scene.setAttribute('viewBox', `0 0 ${VW} ${VH}`);
     return;
   }
-  const w = Math.round(VH * (innerWidth / innerHeight));
+  const h = VH + MOBILE_TOP;
+  const w = Math.round(h * (innerWidth / innerHeight));
   const r = state.regions.find((rr) => rr.id === state.activeRegion);
   const cx = r ? r.x0 + r.w / 2 : VW / 2;
   const x0 = Math.max(0, Math.min(VW - w, cx - w / 2));
-  scene.setAttribute('viewBox', `${x0} 0 ${w} ${VH}`);
+  vbX = x0; vbY = -MOBILE_TOP; vbW = w; vbH = h;
+  scene.setAttribute('viewBox', `${x0} ${-MOBILE_TOP} ${w} ${h}`);
 }
 
 function draw() {
@@ -493,8 +502,8 @@ function applyLod() {
 scene.addEventListener('wheel', (e) => {
   e.preventDefault();
   const rect = scene.getBoundingClientRect();
-  const sx = ((e.clientX - rect.left) / rect.width) * VW;
-  const sy = ((e.clientY - rect.top) / rect.height) * VH;
+  const sx = vbX + ((e.clientX - rect.left) / rect.width) * vbW;
+  const sy = vbY + ((e.clientY - rect.top) / rect.height) * vbH;
   const next = Math.max(0.85, Math.min(7, zoom * (e.deltaY < 0 ? 1.12 : 1 / 1.12)));
   panX = sx - (sx - panX) * (next / zoom);
   panY = sy - (sy - panY) * (next / zoom);
@@ -510,8 +519,8 @@ scene.addEventListener('pointerdown', (e) => {
 scene.addEventListener('pointermove', (e) => {
   if (!drag) return;
   const rect = scene.getBoundingClientRect();
-  panX = drag.px + ((e.clientX - drag.x) / rect.width) * VW;
-  panY = drag.py + ((e.clientY - drag.y) / rect.height) * VH;
+  panX = drag.px + ((e.clientX - drag.x) / rect.width) * vbW;
+  panY = drag.py + ((e.clientY - drag.y) / rect.height) * vbH;
   apply();
 });
 addEventListener('pointerup', () => { drag = null; scene.classList.remove('dragging'); });
