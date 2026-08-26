@@ -1,0 +1,40 @@
+name: Everything MCP
+tagline: Official everything MCP — a test server that exercises the protocol, not a tool you run.
+url: https://github.com/modelcontextprotocol/servers/tree/main/src/everything
+category: mcp
+pricing: free
+price_note: "MIT reference; npx -y @modelcontextprotocol/server-everything"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: skip
+verdict_text: >-
+  A protocol gym: prompts, tools, resources, sampling. The official README
+  says it is not intended to be a useful server. Putting it in mcp.json
+  burns context on a test fixture. Keep it off production hosts.
+strengths:
+  - Official reference that hits every MCP primitive in one process.
+  - npx @modelcontextprotocol/server-everything, also a Docker image mcp/everything.
+use_for:
+  - Building or debugging an MCP client, not doing product work.
+  - A conformance check that the host actually speaks prompts and sampling.
+skip_when:
+  - You wanted a kitchen-sink of real tools — this is a test double, not a gateway.
+  - The agent session is billed per token; this server is noisy on purpose.
+  - You copied it from a tutorial into a working mcp.json.
+limitations:
+  - "Official README: not intended to be a useful server, but rather a test server."
+  - Exercises prompts, resources, sampling — easy to dump a large catalog into context.
+  - Lives in the reference-servers repo; no product, no support desk.
+receipts:
+  - https://github.com/modelcontextprotocol/servers/tree/main/src/everything
+affiliate: none
+evidence_tier: source-verified
+momentum: redshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
+last_verified: "2026-08-26"
+observed_by: whysanesanders

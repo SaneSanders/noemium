@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { KIT_MAX, KIT_STORAGE_KEY, kitHref, mergeKit, parseKitSlugs } from '../lib/kit';
+import { openInNoemiumHref } from '../lib/open-app';
 import { LogoMark, VerdictStamp, YesNo, type Verdict } from './ui';
 
 export interface KitTool {
@@ -259,6 +260,17 @@ export default function KitBoard({ catalog }: { catalog: KitTool[] }) {
         {compareHref && (
           <a href={compareHref} class="nm-btn nm-btn-outline">
             Compare these
+          </a>
+        )}
+        {selected.length > 0 && (
+          <a
+            href={openInNoemiumHref(
+              'Kit',
+              selected.map((tool) => tool.name).join(', '),
+            )}
+            class="nm-btn nm-btn-outline"
+          >
+            Open in Noemium
           </a>
         )}
         {selected.length > 0 && (

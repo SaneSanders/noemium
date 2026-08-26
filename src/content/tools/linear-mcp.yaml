@@ -1,0 +1,42 @@
+name: Linear MCP
+tagline: Linear's hosted MCP — issues, projects, comments. Read-write at /mcp, read-only at /readonly.
+url: https://linear.app/docs/mcp
+category: mcp
+pricing: free
+price_note: "included with a Linear account; hosted https://mcp.linear.app/mcp; readonly https://mcp.linear.app/mcp/readonly; OAuth 2.1 or API key"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+verdict: ship
+verdict_text: >-
+  Linear's own remote MCP: Streamable HTTP, OAuth 2.1, find/create/update on
+  issues, projects, comments. A /readonly URL exists so you do not have to
+  hand the agent a write token. No extra MCP seat — you already pay Linear.
+strengths:
+  - Official hosted server at mcp.linear.app, not a community wrapper.
+  - Separate /readonly URL; read OAuth scope cannot reach write APIs.
+  - Native in Claude, Cursor, Codex, VS Code, Windsurf, Zed; mcp-remote for older clients.
+use_for:
+  - Coding agents that triage Linear issues or open tickets from a session.
+  - Hosts that speak remote MCP and should not run a local Linear binary.
+skip_when:
+  - The team lives in GitHub Issues — use GitHub MCP, not this.
+  - You will not give an agent write on the tracker — then use /mcp/readonly only.
+  - You needed self-hosted Linear; this server is Linear's cloud.
+limitations:
+  - Hosted-only; your Linear workspace leaves the machine.
+  - Default /mcp is read-write. Use /mcp/readonly if the agent should not file issues.
+  - No separate MCP price, but Linear Free is still 2 teams / 250 issues.
+receipts:
+  - https://linear.app/docs/mcp
+  - https://mcp.linear.app/mcp
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: false
+last_verified: "2026-08-26"
+observed_by: whysanesanders

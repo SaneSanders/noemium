@@ -1,0 +1,42 @@
+name: Git MCP
+tagline: Official MCP git server — status, diff, log, and it can commit. Python SDK 1.x only.
+url: https://github.com/modelcontextprotocol/servers/tree/main/src/git
+category: mcp
+pricing: free
+price_note: "MIT reference; uvx mcp-server-git or pip mcp-server-git"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  The teaching git MCP: status, diff, log, branch, and also add / commit /
+  checkout / reset. Official README still calls it early development and
+  pins MCP Python SDK 1.x. Most coding agents already have git; this is extra
+  write surface, not a missing capability.
+strengths:
+  - Official reference from the MCP steering group, uvx one-liner.
+  - Structured git_status / git_diff / git_log without scraping terminal output.
+  - Docker image mcp/git with a bind mount if you do not want uvx.
+use_for:
+  - A first MCP install to prove the client can talk to a local repo.
+  - Agents that are not already sitting inside the git repo they need to read.
+skip_when:
+  - The agent already has git (Claude Code, Cursor, Codex, Aider).
+  - You cannot accept git_commit / git_checkout from an MCP tool.
+  - You are on MCP Python SDK 2.x; this server still requires 1.x.
+limitations:
+  - "Requires MCP Python SDK 1.x (`mcp>=1.29.0,<2`); SDK 2 port is unfinished."
+  - git_commit, git_add, git_reset, git_checkout are write tools on the repo you pass.
+  - "README: currently in early development; tools can change."
+receipts:
+  - https://github.com/modelcontextprotocol/servers/tree/main/src/git
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+data_sensitivity:
+  trains_on_inputs: no
+  local_processing: true
+last_verified: "2026-08-26"
+observed_by: whysanesanders

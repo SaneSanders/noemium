@@ -33,7 +33,7 @@ test('collectMcp shelves only category mcp', () => {
 });
 
 test('related cousins stay a named list, not a scrape', () => {
-  assert.deepEqual([...RELATED_MCP], ['pharos', 'cogni', 'doberman']);
+  assert.deepEqual([...RELATED_MCP], ['pharos', 'cogni', 'doberman', 'firecrawl', 'linear']);
 });
 
 test('collectMcp does not invent a skip that was not passed in', () => {

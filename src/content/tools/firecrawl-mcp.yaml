@@ -1,0 +1,44 @@
+name: Firecrawl MCP
+tagline: Hosted Firecrawl MCP — scrape, search, parse. Keyless free tier; full tools need a Firecrawl key.
+url: https://docs.firecrawl.dev/mcp-server
+category: mcp
+pricing: freemium
+price_note: "hosted https://mcp.firecrawl.dev/v2/mcp; keyless scrape/search/parse (rate-limited); full tools need a Firecrawl key or OAuth. Firecrawl Free $0 = 1,000 credits/mo; Hobby $16/mo billed yearly (https://www.firecrawl.dev/pricing). npx firecrawl-mcp"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The web MCP that actually returns markdown: hosted at mcp.firecrawl.dev,
+  keyless scrape/search/parse for a first try, then a Firecrawl key or OAuth
+  for crawl/map/agent. Self-host and npx firecrawl-mcp exist. Credits are the
+  Firecrawl plan, not a second bill.
+strengths:
+  - Hosted Streamable HTTP with a keyless free slice (scrape, search, parse).
+  - Same Firecrawl credits as the API — Free is 1,000 credits/month, no extra MCP SKU.
+  - Local npx firecrawl-mcp and self-host when the URL should not leave your cloud.
+use_for:
+  - Coding agents that need a live page as markdown, not a browser MCP.
+  - Keyless first try of scrape/search/parse before creating a Firecrawl key.
+skip_when:
+  - Playwright or Chrome DevTools MCP already covers the page you would scrape.
+  - Crawl, map, or agent tools — those need a Firecrawl key, not the keyless URL.
+  - The target cannot leave your network; then self-host, do not use mcp.firecrawl.dev.
+limitations:
+  - Keyless hosted tools are scrape, search, and parse only, and rate-limited.
+  - Crawl, map, interact, and agent still need a Firecrawl API key or OAuth.
+  - Credits do not roll over on self-serve plans (Firecrawl pricing, 2026-08-26).
+receipts:
+  - https://docs.firecrawl.dev/mcp-server
+  - https://github.com/firecrawl/firecrawl-mcp-server
+  - https://www.firecrawl.dev/pricing
+affiliate: none
+evidence_tier: field-tested
+momentum: blueshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: false
+last_verified: "2026-08-26"
+observed_by: whysanesanders

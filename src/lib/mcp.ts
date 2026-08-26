@@ -3,7 +3,7 @@
  * Not a scrape of the official registry.
  */
 
-export const RELATED_MCP = ['pharos', 'cogni', 'doberman'] as const;
+export const RELATED_MCP = ['pharos', 'cogni', 'doberman', 'firecrawl', 'linear'] as const;
 
 export type McpTool = {
   slug: string;

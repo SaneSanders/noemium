@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { kitHref, mergeKit, parseKitSlugs } from '../src/lib/kit.ts';
+import { openInNoemiumHref } from '../src/lib/open-app.ts';
 import { catalogHealth, hasBriefing } from '../src/lib/catalog-health.ts';
 
 test('kit parser keeps allowed slugs, drops junk, caps at eight', () => {
@@ -13,6 +14,14 @@ test('kit parser keeps allowed slugs, drops junk, caps at eight', () => {
     parseKitSlugs('a,b,c,d,e,f,g,h,i', ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']),
     ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
   );
+});
+
+test('openInNoemiumHref is a new-project deep link, not a web URL', () => {
+  const href = openInNoemiumHref('Studio stack', 'ship the catalog');
+  assert.match(href, /^noemium:\/\/new\?/);
+  assert.match(href, /name=Studio/);
+  assert.match(href, /goal=ship/);
+  assert.doesNotMatch(href, /^https?:/);
 });
 
 test('kit merge appends from add= without inventing a monthly total', () => {

@@ -1,0 +1,43 @@
+name: Supabase MCP
+tagline: Supabase's hosted MCP — SQL, migrations, functions. Vendor says keep it off production.
+url: https://supabase.com/docs/guides/ai-tools/mcp
+category: mcp
+pricing: free
+price_note: "included with a Supabase account; hosted https://mcp.supabase.com/mcp; read_only=true and project_ref query params; branching tools need a paid plan"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: situational
+verdict_text: >-
+  Official hosted MCP at mcp.supabase.com: list tables, execute SQL, apply
+  migrations, deploy functions, even create projects. A read_only flag and
+  project_ref exist. Supabase's own docs say never point this at production
+  data — development and testing only.
+strengths:
+  - Official Supabase server with OAuth (no PAT required for interactive clients).
+  - Feature groups and read_only=true / project_ref on the URL, not a fork.
+  - Local CLI MCP at http://localhost:54321/mcp for local development.
+use_for:
+  - Agents scaffolding a new Supabase project or reading schema in development.
+  - A read-only URL against a staging project, not the prod database.
+skip_when:
+  - The project is production — vendor docs say this MCP is not for that.
+  - You only needed docs search — that is a feature group, not a reason to enable SQL.
+  - Branching tools on a Free plan — branching is a paid-plan group.
+limitations:
+  - execute_sql and apply_migration are write tools unless read_only=true is set.
+  - Unscoped URL can see every project in the org.
+  - Storage group is off by default; branching is experimental and paid-plan.
+receipts:
+  - https://supabase.com/docs/guides/ai-tools/mcp
+  - https://github.com/supabase/mcp
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: false
+last_verified: "2026-08-26"
+observed_by: whysanesanders

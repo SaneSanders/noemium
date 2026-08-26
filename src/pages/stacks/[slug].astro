@@ -7,6 +7,7 @@ import CopyButton from '../../components/CopyButton.astro';
 import { logoSrc } from '../../lib/logos';
 import LogoTile from '../../components/LogoTile.astro';
 import { hostname } from '../../lib/shelf';
+import { openInNoemiumHref } from '../../lib/open-app';
 
 export const getStaticPaths = (async () => {
   const stacks = await getCollection('stacks');
@@ -64,6 +65,11 @@ const markdown = [
     </p>
     <h1 class="mt-6 max-w-4xl font-display text-5xl leading-[0.98] font-medium tracking-tight md:text-7xl">{s.title}</h1>
     <p class="mt-6 max-w-2xl text-xl leading-relaxed font-medium text-ink opacity-80">{s.use_case}</p>
+    <p class="mt-7">
+      <a class="nm-btn nm-btn-outline" href={openInNoemiumHref(s.title, s.use_case)}>
+        Open in Noemium
+      </a>
+    </p>
     <p class="mt-5 flex flex-wrap items-center gap-3 font-mono text-[13px] text-ink-dim">
       <span>observed by @{s.observed_by}</span>
       <span class="nm-verified">Verified {s.last_verified}</span>

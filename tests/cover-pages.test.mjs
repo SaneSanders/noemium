@@ -67,9 +67,12 @@ test('mcp page is a graded shelf, not a registry scrape', () => {
   assert.match(html, /Chrome DevTools MCP/);
   assert.match(html, /GitHub MCP/);
   assert.match(html, /Context7/);
+  assert.match(html, /Firecrawl MCP/);
   assert.match(html, /Sequential Thinking/);
+  assert.match(html, /Everything MCP/);
   assert.match(html, />Skip</);
   assert.match(html, /href="\/tools\/pharos\//);
+  assert.match(html, /noemium:\/\/new/);
   assert.doesNotMatch(html, /114,?000/);
   mastDoors(html);
 });

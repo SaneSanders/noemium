@@ -13,6 +13,7 @@ import ToolBriefing from '../../components/ToolBriefing.astro';
 import { observationMarkdown } from '../../lib/observation';
 import { hostname, relatedIds, SKIP_ALTERNATIVE } from '../../lib/shelf';
 import { COMPARE_PAIRS } from '../../data/compare-presets';
+import { openInNoemiumHref } from '../../lib/open-app';
 import changelog from '../../data/changelog.json';
 
 export const getStaticPaths = (async () => {
@@ -155,6 +156,7 @@ const disputePrompt = [
         text={observationMarkdown(t, new URL(`/tools/${tool.id}/`, Astro.site).href)}
       />
       <a href={`/kit/?add=${tool.id}`} class="nm-btn nm-btn-outline">Add to kit</a>
+      <a href={openInNoemiumHref(t.name, t.tagline)} class="nm-btn nm-btn-outline">Open in Noemium</a>
       <CopyButton label="Dispute this verdict" text={disputePrompt} />
       <VerifiedStamp slug={tool.id} date={t.last_verified} />
     </p>

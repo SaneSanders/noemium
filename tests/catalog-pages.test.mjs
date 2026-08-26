@@ -68,6 +68,8 @@ test('contribute stays a PR vitrine', () => {
 test('tool page exposes Dispute this verdict copy prompt', () => {
   const html = built('tools/cursor/index.html');
   assert.match(html, /Dispute this verdict/);
+  assert.match(html, /noemium:\/\/new\?/);
+  assert.match(html, /Open in Noemium/);
 });
 
 test('tool page renders Models row with resolved names and routing badge', () => {
