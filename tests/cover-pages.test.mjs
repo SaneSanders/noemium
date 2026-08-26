@@ -55,6 +55,17 @@ test('reference is the catalogue facade', () => {
   assert.match(html, /href="\/tools\/"/);
   assert.match(html, /href="\/graveyard\/"/);
   assert.match(html, /href="\/free\/"/);
+  assert.match(html, /href="\/plans\/"/);
+  mastDoors(html);
+});
+
+test('plans page prices Max 20x from catalog dollars, not invented usage', () => {
+  const html = built('plans/index.html');
+  assert.match(html, /\$200/);
+  assert.match(html, /Max 20x/);
+  assert.match(html, /8\.0 MTok/);
+  assert.match(html, /Not a usage claim/);
+  assert.doesNotMatch(html, /typical developer uses/i);
   mastDoors(html);
 });
 

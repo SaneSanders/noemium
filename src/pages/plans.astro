@@ -1,0 +1,151 @@
+---
+import { getCollection } from 'astro:content';
+import Cover from '../layouts/Cover.astro';
+import { SEATS, collectSeats, formatMtok } from '../lib/seats';
+import { hostname } from '../lib/shelf';
+
+const tools = await getCollection('tools');
+const models = await getCollection('models');
+const rows = collectSeats({
+  seats: SEATS,
+  tools: tools.map((t) => ({
+    slug: t.id,
+    name: t.data.name,
+    price_note: t.data.price_note,
+  })),
+  models: models.map((m) => ({
+    slug: m.id,
+    name: m.data.name,
+    price_input_per_mtok: m.data.price_input_per_mtok,
+    price_output_per_mtok: m.data.price_output_per_mtok,
+    price_unit: m.data.price_unit,
+  })),
+});
+
+const punch = rows.find((r) => r.tool === 'claude-code' && r.plan === 'Max 20x');
+const receipts = [...new Map(rows.map((r) => [hostname(r.receipt), r.receipt])).values()];
+const groups: { group: string; rows: typeof rows }[] = [];
+for (const row of rows) {
+  const last = groups.at(-1);
+  if (last?.group === row.group) last.rows.push(row);
+  else groups.push({ group: row.group, rows: [row] });
+}
+---
+
+<Cover
+  title="Seat versus API"
+  description="What a coding subscription buys at public API list rates. Arithmetic, not a usage claim."
+  page="reference"
+>
+  <div class="cover-doc">
+    <section class="cover-lede">
+      <h1>What <em>$200</em> actually buys.</h1>
+      <p>
+        {
+          punch
+            ? `${formatMtok(punch.output_mtok)} of ${punch.model_name} output at list. Or ${formatMtok(punch.input_mtok)} input. Same dollars, public API rates.`
+            : 'Seats the catalogue can price from a dollar already on the card.'
+        }
+      </p>
+    </section>
+
+    <p class="cover-note">
+      Not a usage claim. Extra usage, cache, and rate windows are not in these numbers.
+    </p>
+
+    {
+      rows.length === 0 ? (
+        <p class="cover-note">No seat had both a dollar on its card and a token rate on its model.</p>
+      ) : (
+        <div class="cover-sheet-mobile">
+          {
+            groups.map((g) => (
+              <>
+                <p class="cover-kicker">{g.group}</p>
+                <div class="cover-doors">
+                  {g.rows.map((row) => (
+                    <a class="cover-door" href={`/tools/${row.tool}/`}>
+                      <b>
+                        {row.plan} · ${row.usd_month}
+                      </b>
+                      <span>
+                        vs {row.model_name} · {formatMtok(row.output_mtok)} out ·{' '}
+                        {formatMtok(row.input_mtok)} in
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </>
+            ))
+          }
+        </div>
+        <div class="cover-sheet-wrap">
+          <table class="cover-sheet">
+            <thead>
+              <tr>
+                <th>seat</th>
+                <th>$/mo</th>
+                <th>vs</th>
+                <th>all in</th>
+                <th>50/50</th>
+                <th>all out</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                rows.map((row) => (
+                  <tr>
+                    <td>
+                      <a class="plan" href={`/tools/${row.tool}/`}>
+                        {row.tool_name} {row.plan}
+                      </a>
+                      <span class="meta">{row.group}</span>
+                    </td>
+                    <td class="nm-num">${row.usd_month}</td>
+                    <td>
+                      <a href={`/models/#${row.model}`}>{row.model_name}</a>
+                    </td>
+                    <td class="nm-num">{formatMtok(row.input_mtok)}</td>
+                    <td class="nm-num">{formatMtok(row.mid_mtok)}</td>
+                    <td class="nm-num">{formatMtok(row.output_mtok)}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      )
+    }
+
+    <article class="cover-prose">
+      <h2>What this is</h2>
+      <p>
+        Seat dollars from the tool card. Input and output rates from the model card. 50/50 is
+        split down the middle, not a claim about your sessions.
+      </p>
+      <h2>What this is not</h2>
+      <p>
+        Not how many tokens the seat actually issues. Claude Code extra usage bills at API rates
+        on top of the pool. Cursor routes a mix — we price against the model on that card.
+        ChatGPT Pro is a 5x/20x toggle, not a token wallet.
+      </p>
+      <h2>Receipts</h2>
+      <p>
+        {
+          receipts.map((url, i) => (
+            <>
+              {i > 0 ? ' · ' : ''}
+              <a href={url} rel="noopener">
+                {hostname(url)}
+              </a>
+            </>
+          ))
+        }
+        {' · '}
+        <a href="/prices/">Price tape</a>
+        {' · '}
+        <a href="/models/">Model rates</a>
+      </p>
+    </article>
+  </div>
+</Cover>

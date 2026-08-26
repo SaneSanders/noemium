@@ -3,7 +3,7 @@ tagline: Anthropic's terminal agent that edits, runs and tests code in your repo
 url: https://docs.anthropic.com/en/docs/claude-code
 category: coding
 pricing: paid
-price_note: "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
+price_note: "included in Claude Pro $20/mo ($17/mo yearly) and Max 5x $100 / Max 20x $200; shares the plan usage pool; extra usage at API rates"
 free_tier: false
 open_source: false
 api: true
@@ -46,5 +46,5 @@ featured: true
 data_sensitivity:
   trains_on_inputs: yes
   local_processing: false
-last_verified: "2026-08-24"
+last_verified: "2026-08-26"
 observed_by: whysanesanders
