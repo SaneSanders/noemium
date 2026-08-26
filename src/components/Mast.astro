@@ -6,9 +6,11 @@ interface Props {
 const { page = '' } = Astro.props;
 const hasEnd = Astro.slots.has('end');
 
-const items = [
+const left = [
   { id: 'map', href: '/map/', label: 'Map' },
   { id: 'autopsy', href: '/autopsy/', label: 'Autopsy' },
+] as const;
+const right = [
   { id: 'reference', href: '/reference/', label: 'Catalog' },
   { id: 'method', href: '/method/', label: 'Method' },
 ] as const;
@@ -18,7 +20,7 @@ const items = [
   <nav class="mast-nav" aria-label="Primary">
     <span class="mast-pair">
       {
-        items.slice(0, 2).map((d) => (
+        left.map((d) => (
           <a href={d.href} aria-current={d.id === page ? 'page' : undefined}>
             {d.label}
           </a>
@@ -28,7 +30,7 @@ const items = [
     <a class="brand" href="/">Noemium</a>
     <span class="mast-pair">
       {
-        items.slice(2).map((d) => (
+        right.map((d) => (
           <a href={d.href} aria-current={d.id === page ? 'page' : undefined}>
             {d.label}
           </a>
