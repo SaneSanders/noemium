@@ -21,7 +21,7 @@ test('cover home is the night hero, not the old floor', () => {
   const html = built('index.html');
   assert.match(html, /Bring/);
   assert.match(html, /the frontier/i);
-  assert.match(html, /nema-final2-cut\.png/);
+  assert.match(html, /nema-final3-cut\.png/);
   assert.match(html, />Map</);
   assert.match(html, />Autopsy</);
   assert.match(html, />Catalog</);
