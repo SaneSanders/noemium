@@ -3,7 +3,7 @@ import changelog from '../data/changelog.json';
 
 export const MAP_REGIONS = [
   { id: 'code', label: 'Code', categories: ['coding'] },
-  { id: 'infra', label: 'Infra', categories: ['dev-infra', 'data'] },
+  { id: 'infra', label: 'Infra', categories: ['dev-infra', 'data', 'mcp'] },
   { id: 'apis', label: 'APIs', categories: ['models-api'] },
   { id: 'agents', label: 'Agents', categories: ['agents', 'automation'] },
   { id: 'design', label: 'Design', categories: ['design'] },

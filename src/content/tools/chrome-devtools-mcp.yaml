@@ -1,0 +1,42 @@
+name: Chrome DevTools MCP
+tagline: Official Chrome DevTools MCP — control and inspect a live Chrome from a coding agent.
+url: https://github.com/ChromeDevTools/chrome-devtools-mcp
+category: mcp
+pricing: free
+price_note: "Apache-2.0; npx chrome-devtools-mcp@latest; Node 22+ and a current Chrome"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The Chrome team's own MCP: traces, network, console, heap, a live debugging
+  session. Complementary to Playwright MCP (this inspects Chrome, that drives
+  any browser via snapshots). Needs a real Chrome and Node 22+.
+strengths:
+  - Official Chrome DevTools team server — traces, network, console, heap.
+  - Can attach to a running Chrome instead of spawning a throwaway profile.
+  - Apache-2.0, npm chrome-devtools-mcp, published as io.github.ChromeDevTools.
+use_for:
+  - Coding agents that need to debug or profile a live Chrome session.
+  - Performance work (LCP, traces) that Playwright snapshots cannot see.
+skip_when:
+  - You only need to click through a page — Playwright MCP is the thinner tool.
+  - You cannot run current Chrome and Node 22+ on the machine.
+  - You refuse to give an agent DevTools-level access to a browser profile.
+limitations:
+  - Requires Node 22+ and a current stable Chrome, not just any Chromium.
+  - stdio server with the privileges of the user — a live debugging port is a live debugging port.
+  - Tool catalog is large (heap, PWA, memory) and easy to over-enable.
+receipts:
+  - https://github.com/ChromeDevTools/chrome-devtools-mcp
+  - https://developer.chrome.com/docs/devtools/agents/get-started
+affiliate: none
+evidence_tier: field-tested
+momentum: blueshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
+last_verified: "2026-08-26"
+observed_by: whysanesanders

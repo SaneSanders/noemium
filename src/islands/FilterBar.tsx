@@ -33,6 +33,7 @@ const CATEGORIES = [
   'productivity',
   'dev-infra',
   'models-api',
+  'mcp',
 ] as const;
 const PRICING = ['free', 'freemium', 'paid'] as const;
 const VERDICTS: Verdict[] = ['ship', 'situational', 'skip'];

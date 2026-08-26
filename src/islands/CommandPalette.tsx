@@ -213,6 +213,7 @@ export default function CommandPalette() {
     const pages: Row[] = [
       { kind: 'command', label: 'Status', hint: 'catalog health', href: '/status/' },
       { kind: 'command', label: 'Plans', hint: 'seat versus API', href: '/plans/' },
+      { kind: 'command', label: 'MCP', hint: 'servers with a verdict', href: '/mcp/' },
       { kind: 'command', label: 'Kit', hint: 'save a set', href: '/kit/' },
       { kind: 'command', label: 'Why directories lie', hint: 'essay', href: '/why/' },
       { kind: 'command', label: 'Contribute', hint: 'open a PR', href: '/contribute/' },

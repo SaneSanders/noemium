@@ -76,7 +76,7 @@ const QUESTIONS: {
 ];
 
 const GOAL_CATEGORIES: Record<string, string[]> = {
-  app: ['coding', 'dev-infra', 'models-api', 'agents'],
+  app: ['coding', 'dev-infra', 'models-api', 'agents', 'mcp'],
   content: ['writing', 'image', 'video', 'audio'],
   research: ['data', 'writing', 'productivity'],
   automation: ['automation', 'agents', 'productivity', 'dev-infra', 'data'],

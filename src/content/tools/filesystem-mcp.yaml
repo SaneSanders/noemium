@@ -1,0 +1,41 @@
+name: Filesystem MCP
+tagline: Official MCP reference server that exposes a local directory to the agent.
+url: https://github.com/modelcontextprotocol/servers
+category: mcp
+pricing: free
+price_note: "MIT reference; npx -y @modelcontextprotocol/server-filesystem <allowed-dir>"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+verdict: situational
+verdict_text: >-
+  The teaching example: an allowlisted folder over stdio. Fine for a demo, and
+  still the snippet every mcp.json tutorial copies. Most coding agents already
+  have files; adding this is extra disk surface, not a new capability.
+strengths:
+  - Official reference from the MCP steering group, not a random registry listing.
+  - Allowlist is a path argument — you can keep it smaller than $HOME.
+  - Zero cost, MIT, npx one-liner.
+use_for:
+  - A first MCP install to prove the client actually talks stdio.
+  - Agents that are not already sitting inside the repo they need to read.
+skip_when:
+  - The agent already has workspace tools (Claude Code, Cursor, Codex, Aider).
+  - You would pass $HOME or / as the allowed path.
+  - You needed a package manager for many servers — that is Pharos, not this.
+limitations:
+  - Lives in the reference-servers repo, not a product with a support desk.
+  - stdio process can read whatever you allowlisted — the allowlist is the security model.
+  - Does not replace a coding agent's own file tools.
+receipts:
+  - https://github.com/modelcontextprotocol/servers
+affiliate: none
+evidence_tier: source-verified
+momentum: steady
+featured: false
+data_sensitivity:
+  trains_on_inputs: no
+  local_processing: true
+last_verified: "2026-08-26"
+observed_by: whysanesanders

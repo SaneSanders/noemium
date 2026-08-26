@@ -1,0 +1,42 @@
+name: GitHub MCP
+tagline: GitHub's official MCP server — repos, issues, PRs, locally or hosted at api.githubcopilot.com.
+url: https://github.com/github/github-mcp-server
+category: mcp
+pricing: free
+price_note: "MIT; local Docker/Go or remote https://api.githubcopilot.com/mcp/; PAT or OAuth, no GitHub seat fee for the server"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The GitHub-shaped MCP: local image ghcr.io/github/github-mcp-server or the
+  hosted remote. Toolsets and a read-only URL exist. The old npm
+  @modelcontextprotocol/server-github is dead (April 2025) — do not copy it.
+strengths:
+  - Official GitHub server with remote hosted option — no local runtime required.
+  - Toolsets and /readonly URLs so you do not dump the whole API into context.
+  - MIT, v1.11.0 (2026-08-25), Docker image ghcr.io/github/github-mcp-server.
+use_for:
+  - Agents that triage issues, read PRs, or search code on GitHub.
+  - Hosts that speak remote MCP and should not run a local GitHub binary.
+skip_when:
+  - You still have @modelcontextprotocol/server-github in mcp.json — that package is retired.
+  - The repo cannot leave GitHub's hosted agent or your PAT scopes.
+  - You needed GitLab or Gitea; this server is GitHub-only.
+limitations:
+  - Remote extra tools (Copilot coding agent) are not in the local binary.
+  - A PAT or OAuth token with repo scope is a repo-scope token sitting in mcp.json.
+  - npm @modelcontextprotocol/server-github is unsupported as of 2025-04.
+receipts:
+  - https://github.com/github/github-mcp-server
+  - https://github.com/github/github-mcp-server/blob/main/docs/remote-server.md
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: false
+last_verified: "2026-08-26"
+observed_by: whysanesanders

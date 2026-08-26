@@ -33,6 +33,7 @@ export const toolCategories = [
   'productivity',
   'dev-infra',
   'models-api',
+  'mcp',
 ] as const;
 
 export const toolSchema = z.object({

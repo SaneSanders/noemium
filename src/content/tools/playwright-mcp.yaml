@@ -1,0 +1,42 @@
+name: Playwright MCP
+tagline: Microsoft's MCP server for browser automation via accessibility snapshots — no vision model required.
+url: https://github.com/microsoft/playwright-mcp
+category: mcp
+pricing: free
+price_note: "Apache-2.0; npx @playwright/mcp@latest; you pay the model, not Microsoft"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+verdict: ship
+verdict_text: >-
+  The default browser MCP: structured accessibility snapshots instead of
+  screenshots, npx install, published to the official MCP registry on each
+  release. Still a 0.0.x line, and it launches a real browser on your machine.
+strengths:
+  - Official Microsoft server with a11y snapshots — no vision model required.
+  - "One-line install: npx @playwright/mcp@latest; works with Cursor, Claude, VS Code."
+  - Released to the official MCP registry on each tag.
+use_for:
+  - Agents that need to click through a live page without screenshot tokens.
+  - Coding agents that already speak MCP and need a browser, not a test runner.
+skip_when:
+  - You need Chrome DevTools traces, heap snapshots, or a live debugging session.
+  - You cannot let an agent drive a local browser process.
+  - You wanted the unmaintained ExecuteAutomation fork instead of Microsoft's.
+limitations:
+  - Version line is still 0.0.x (v0.0.79 as of 2026-08-06).
+  - Launches a real browser on the host — stdio is a local-privilege process.
+  - Not a replacement for Playwright Test; this is agent control, not CI.
+receipts:
+  - https://github.com/microsoft/playwright-mcp
+  - https://playwright.dev/docs/getting-started-mcp
+affiliate: none
+evidence_tier: source-verified
+momentum: blueshift
+featured: false
+data_sensitivity:
+  trains_on_inputs: unknown
+  local_processing: true
+last_verified: "2026-08-26"
+observed_by: whysanesanders

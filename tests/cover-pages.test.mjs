@@ -56,6 +56,18 @@ test('reference is the catalogue facade', () => {
   assert.match(html, /href="\/graveyard\/"/);
   assert.match(html, /href="\/free\/"/);
   assert.match(html, /href="\/plans\/"/);
+  assert.match(html, /href="\/mcp\/"/);
+  mastDoors(html);
+});
+
+test('mcp page is a graded shelf, not a registry scrape', () => {
+  const html = built('mcp/index.html');
+  assert.match(html, /MCP, with a/);
+  assert.match(html, /Playwright MCP/);
+  assert.match(html, /Chrome DevTools MCP/);
+  assert.match(html, /GitHub MCP/);
+  assert.match(html, /href="\/tools\/pharos\//);
+  assert.doesNotMatch(html, /114,?000/);
   mastDoors(html);
 });
 

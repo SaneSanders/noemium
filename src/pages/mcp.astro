@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import Cover from '../layouts/Cover.astro';
+import { collectMcp } from '../lib/mcp';
+
+const tools = await getCollection('tools');
+const { shelf, related } = collectMcp(
+  tools.map((t) => ({
+    slug: t.id,
+    name: t.data.name,
+    tagline: t.data.tagline,
+    verdict: t.data.verdict,
+    category: t.data.category,
+  })),
+);
+
+const ship = shelf.filter((t) => t.verdict === 'ship');
+const rest = shelf.filter((t) => t.verdict !== 'ship');
+---
+
+<Cover
+  title="MCP"
+  description="MCP servers with verdicts. Not a scrape of the official registry."
+  page="reference"
+>
+  <div class="cover-doc">
+    <section class="cover-lede">
+      <h1>MCP, with a <em>verdict</em>.</h1>
+      <p>
+        {shelf.length} servers we graded. The official registry is a firehose;
+        this is a shelf.
+      </p>
+    </section>
+
+    <p class="cover-kicker">Ship</p>
+    <div class="cover-doors">
+      {
+        ship.map((t) => (
+          <a class="cover-door" href={`/tools/${t.slug}/`}>
+            <b>{t.name}</b>
+            <span>{t.tagline}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      rest.length > 0 && (
+        <>
+          <p class="cover-kicker">Situational</p>
+          <div class="cover-doors">
+            {rest.map((t) => (
+              <a class="cover-door" href={`/tools/${t.slug}/`}>
+                <b>{t.name}</b>
+                <span>{t.tagline}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    {
+      related.length > 0 && (
+        <>
+          <p class="cover-kicker">In the catalogue, not this category</p>
+          <div class="cover-doors">
+            {related.map((t) => (
+              <a class="cover-door" href={`/tools/${t.slug}/`}>
+                <b>{t.name}</b>
+                <span>{t.tagline}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    <article class="cover-prose">
+      <h2>What this is not</h2>
+      <p>
+        Not the official MCP Registry. That lives at{' '}
+        <a href="https://registry.modelcontextprotocol.io" rel="noopener">
+          registry.modelcontextprotocol.io
+        </a>
+        {' '}and is a metadata firehose. We do not scrape it into cards.
+      </p>
+      <p>
+        stdio is a local process with your privileges. A server in this shelf is
+        still a process you chose to run.
+      </p>
+    </article>
+  </div>
+</Cover>
