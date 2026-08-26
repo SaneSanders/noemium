@@ -323,16 +323,18 @@
   transform: translateX(-50%);
   z-index: 4;
   width: auto;
-  top: calc(var(--nm-mast-h) + 150px);
+  top: calc(var(--nm-mast-h) + 124px);
   bottom: auto;
-  height: calc(100vh - var(--nm-mast-h) - 150px - 4vh);
-  height: calc(100dvh - var(--nm-mast-h) - 150px - 4vh);
+  height: calc(100vh - var(--nm-mast-h) - 124px - 3vh);
+  height: calc(100dvh - var(--nm-mast-h) - 124px - 3vh);
+  max-width: min(900px, 92vw);
+  aspect-ratio: 1 / 1;
   object-fit: contain;
+  object-position: 50% 38%;
   pointer-events: none;
-  /* The source art slices her arm at the left canvas edge — dissolve it into
-     the night the way the right side dissolves into particles. */
-  -webkit-mask-image: linear-gradient(to right, transparent 0, black 12%);
-  mask-image: linear-gradient(to right, transparent 0, black 12%);
+  /* Dissolve the square bust into the night on every edge. */
+  -webkit-mask-image: radial-gradient(ellipse 78% 86% at 50% 40%, black 48%, transparent 100%);
+  mask-image: radial-gradient(ellipse 78% 86% at 50% 40%, black 48%, transparent 100%);
 }
 .hero .ground {
   position: absolute;
@@ -393,9 +395,13 @@
 @media (max-width: 800px) {
   .hero .moon { display: none; }
   .hero .nema {
-    top: calc(var(--nm-mast-h) + 108px);
-    height: calc(100vh - var(--nm-mast-h) - 108px - 6vh);
-    height: calc(100dvh - var(--nm-mast-h) - 108px - 6vh);
+    top: calc(var(--nm-mast-h) + 96px);
+    height: calc(100vh - var(--nm-mast-h) - 96px - 6vh);
+    height: calc(100dvh - var(--nm-mast-h) - 96px - 6vh);
+    max-width: 96vw;
+    object-position: 50% 34%;
+    -webkit-mask-image: radial-gradient(ellipse 82% 88% at 50% 36%, black 48%, transparent 100%);
+    mask-image: radial-gradient(ellipse 82% 88% at 50% 36%, black 48%, transparent 100%);
   }
   .hero .punch { font-size: clamp(24px, 7vw, 34px); max-width: 94vw; }
   .hero .foot {
