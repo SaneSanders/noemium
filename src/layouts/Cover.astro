@@ -21,7 +21,7 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImageUrl = new URL('/og/noemium.png', Astro.site);
+const ogImageUrl = new URL('/og-default.png', Astro.site);
 const night = page === 'home' || page === 'map';
 ---
 
