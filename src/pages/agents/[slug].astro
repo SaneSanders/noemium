@@ -6,6 +6,7 @@ import VerdictBadge from '../../components/VerdictBadge.astro';
 import LogoTile from '../../components/LogoTile.astro';
 import { agentLayerLabels, evidenceTierLabels, formatCostScenario } from '../../lib/agent-display';
 import { hostname } from '../../lib/shelf';
+import { openInNoemiumHref } from '../../lib/open-app';
 
 export const getStaticPaths = (async () => {
   const agents = await getCollection('agents');
@@ -50,6 +51,7 @@ const jsonLd = {
 
     <p class="mt-7 flex flex-wrap items-center gap-4">
       <a href={a.url} class="nm-btn nm-btn-solid" rel="noopener">Visit {hostname(a.url)} →</a>
+      <a href={openInNoemiumHref(a.name, a.tagline)} class="nm-btn nm-btn-outline">Open in Noemium</a>
       {
         a.catalog_tool && (
           <a href={`/tools/${a.catalog_tool}/`} class="nm-btn nm-btn-outline">Catalog card</a>

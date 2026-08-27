@@ -22,6 +22,8 @@ test('builds the Superpowers skill page and OG art', () => {
   const html = built('skills/superpowers/index.html');
   assert.match(html, /Superpowers/);
   assert.match(html, /obra/);
+  assert.match(html, /noemium:\/\/new\?/);
+  assert.match(html, /Open in Noemium/);
   assert.equal(existsSync(new URL('dist/og/skills/superpowers.png', root)), true);
 });
 

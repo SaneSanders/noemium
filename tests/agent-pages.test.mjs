@@ -33,6 +33,8 @@ test('builds an agent index that keeps Grok Bot and Grok Build separate', () => 
 
 test('builds the Grok Bot field guide with every current qualifying plan', () => {
   const html = built('agents/grok-bot/index.html');
+  assert.match(html, /Open in Noemium/);
+  assert.match(html, /noemium:\/\/new\?/);
   assert.match(html, /Cursor Ultra/);
   assert.match(html, /\$200\/mo/);
   assert.match(html, /SuperGrok Heavy/);
