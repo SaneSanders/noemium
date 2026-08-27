@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Cover from '../layouts/Cover.astro';
+import CoverOut from '../components/CoverOut.astro';
 
 const [tools, models, stacks] = await Promise.all([
   getCollection('tools'),
@@ -57,10 +58,13 @@ const websiteJsonLd = {
     />
     <div class="foot">
       <p>The map of the AI world — {countsLine}. Verdicts with receipts, prices with dates.</p>
-      <nav class="foot-doors" aria-label="Start here">
-        <a href="/map/">Enter the map →</a>
-        <a href="/reference/">Catalog →</a>
-      </nav>
+      <div class="foot-end">
+        <nav class="foot-doors" aria-label="Start here">
+          <a href="/map/">Enter the map →</a>
+          <a href="/reference/">Catalog →</a>
+        </nav>
+        <CoverOut />
+      </div>
     </div>
   </section>
 </Cover>

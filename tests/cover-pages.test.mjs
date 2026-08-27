@@ -26,6 +26,10 @@ test('cover home is the night hero, not the old floor', () => {
   assert.match(html, />Autopsy</);
   assert.match(html, />Catalog</);
   assert.match(html, />Method</);
+  assert.match(html, /github\.com\/SaneSanders\/noemium/);
+  assert.match(html, /x\.com\/noemiumai/);
+  assert.match(html, /aria-label="Start here"/);
+  assert.doesNotMatch(html, /aria-label="Start here"[\s\S]*Autopsy/);
   assert.doesNotMatch(html, />Signals</);
   assert.doesNotMatch(html, /Agent Field Guide/);
   mastDoors(html);
@@ -47,6 +51,8 @@ test('autopsy ships the stack autopsy engine', () => {
   assert.match(html, /Your stack,.*opened up/i);
   assert.match(html, /Cut it open/);
   assert.match(html, /application\/json/);
+  assert.match(html, /og\/autopsy\.png/);
+  assert.equal(existsSync(new URL('dist/og/autopsy.png', root)), true);
   mastDoors(html);
 });
 

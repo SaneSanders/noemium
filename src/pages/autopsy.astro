@@ -398,6 +398,10 @@ const dataJson = JSON.stringify(autopsyData).replace(/</g, '\\u003c');
     /* report */
     .autopsy-report {
       padding-top: 26px;
+      scroll-margin-top: calc(var(--nm-mast-h) + 16px);
+    }
+    #lede {
+      scroll-margin-top: calc(var(--nm-mast-h) + 8px);
     }
     .autopsy-score {
       border-top: 1px solid color-mix(in srgb, var(--nm-cream) 20%, transparent);

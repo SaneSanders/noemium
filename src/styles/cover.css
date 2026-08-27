@@ -433,7 +433,13 @@
   color: color-mix(in srgb, var(--nm-deep) 78%, transparent);
 }
 .hero .foot p { margin: 0; max-width: 56ch; }
-.hero .foot-doors { display: flex; gap: 20px; flex: 0 0 auto; }
+.hero .foot-end {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex: 0 0 auto;
+}
+.hero .foot-doors { display: flex; gap: 20px; }
 .hero .foot-doors a {
   color: var(--nm-deep);
   text-decoration: none;
@@ -441,6 +447,25 @@
   letter-spacing: 0.04em;
 }
 .hero .foot-doors a:hover { color: var(--nm-field); }
+.hero .foot-out {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero .foot-out a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--nm-deep);
+  border: 1px solid color-mix(in srgb, var(--nm-deep) 22%, transparent);
+  text-decoration: none;
+}
+.hero .foot-out a:hover {
+  color: var(--nm-field);
+  border-color: var(--nm-field);
+}
+.hero .foot-out svg { display: block; }
 
 @media (max-width: 800px) {
   .hero .moon { display: none; }
@@ -458,8 +483,12 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 8px;
+    gap: 12px;
     font-size: 12px;
+  }
+  .hero .foot-end {
+    flex-direction: column;
+    gap: 14px;
   }
   .hero .foot p {
     position: absolute;

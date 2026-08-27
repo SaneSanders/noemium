@@ -64,6 +64,9 @@ interface QuizProps {
 interface KitProps {
   kind: 'kit';
 }
+interface AutopsyProps {
+  kind: 'autopsy';
+}
 interface QuizResultProps {
   kind: 'quiz-result';
   title: string;
@@ -104,7 +107,16 @@ interface StackProps {
   difficulty: string;
   lastVerified: string;
 }
-type OgProps = GenericProps | ToolProps | AgentProps | SkillProps | StackProps | QuizProps | KitProps | QuizResultProps;
+type OgProps =
+  | GenericProps
+  | ToolProps
+  | AgentProps
+  | SkillProps
+  | StackProps
+  | QuizProps
+  | KitProps
+  | QuizResultProps
+  | AutopsyProps;
 
 export const getStaticPaths = (async () => {
   const [tools, agents, skills, stacks, models] = await Promise.all([
@@ -145,6 +157,10 @@ export const getStaticPaths = (async () => {
     {
       params: { slug: 'kit' },
       props: { kind: 'kit' } satisfies OgProps,
+    },
+    {
+      params: { slug: 'autopsy' },
+      props: { kind: 'autopsy' } satisfies OgProps,
     },
     ...stacks.map((s) => ({
       params: { slug: `quiz/${s.id}` },
@@ -428,6 +444,20 @@ export const GET: APIRoute = async ({ props }) => {
         ),
       ),
       footer(`${p.evidenceTier} · ${p.layer} · verified ${p.lastVerified}`),
+    ]);
+  } else if (p.kind === 'autopsy') {
+    tree = frame([
+      header('Stack Autopsy'),
+      h(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column' } },
+        headline('Your stack, opened up.', 72),
+        mono('A verdict on the tools you already run. No score, no stars.', {
+          fontSize: 20,
+          marginTop: 28,
+        }),
+      ),
+      footer('url in the browser · nothing sent anywhere'),
     ]);
   } else if (p.kind === 'skill') {
     tree = frame([

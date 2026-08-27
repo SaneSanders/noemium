@@ -13,16 +13,18 @@ interface Props {
   title: string;
   description?: string;
   page: 'home' | 'map' | 'autopsy' | 'signals' | 'reference' | 'method';
+  ogImage?: string;
 }
 
 const {
   title,
   description = 'Noemium — the map of the AI world. An open catalog of AI tools, stacks and models. No pay-to-list.',
   page,
+  ogImage = page === 'autopsy' ? '/og/autopsy.png' : '/og-default.png',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImageUrl = new URL('/og-default.png', Astro.site);
+const ogImageUrl = new URL(ogImage, Astro.site);
 const night = page === 'home' || page === 'map';
 ---
 
