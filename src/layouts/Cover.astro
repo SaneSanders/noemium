@@ -20,7 +20,7 @@ const {
   title,
   description = 'Noemium — the map of the AI world. An open catalog of AI tools, stacks and models. No pay-to-list.',
   page,
-  ogImage = page === 'autopsy' ? '/og/autopsy.png' : '/og-default.png',
+  ogImage = page === 'autopsy' ? '/og/autopsy.png' : page === 'home' || page === 'map' ? '/og/home.png' : '/og-default.png',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);

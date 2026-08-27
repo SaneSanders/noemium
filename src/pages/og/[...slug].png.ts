@@ -1,5 +1,5 @@
 /**
- * Build-time Open Graph images: /og/noemium.png, /og/tools/<slug>.png,
+ * Build-time Open Graph images: /og/home.png, /og/noemium.png, /og/tools/<slug>.png,
  * /og/agents/<slug>.png, /og/skills/<slug>.png, /og/stacks/<slug>.png —
  * 1200×630 PNGs rendered with satori + resvg.
  * Colors are parsed out of src/styles/tokens.css so the design tokens stay
@@ -67,6 +67,10 @@ interface KitProps {
 interface AutopsyProps {
   kind: 'autopsy';
 }
+interface HomeProps {
+  kind: 'home';
+  counts: { tools: number; ground: number; unsettled: number; buried: number };
+}
 interface QuizResultProps {
   kind: 'quiz-result';
   title: string;
@@ -116,15 +120,17 @@ type OgProps =
   | QuizProps
   | KitProps
   | QuizResultProps
-  | AutopsyProps;
+  | AutopsyProps
+  | HomeProps;
 
 export const getStaticPaths = (async () => {
-  const [tools, agents, skills, stacks, models] = await Promise.all([
+  const [tools, agents, skills, stacks, models, graves] = await Promise.all([
     getCollection('tools'),
     getCollection('agents'),
     getCollection('skills'),
     getCollection('stacks'),
     getCollection('models'),
+    getCollection('graveyard'),
   ]);
   const counts = {
     tools: tools.length,
@@ -133,7 +139,17 @@ export const getStaticPaths = (async () => {
     stacks: stacks.length,
     models: models.length,
   };
+  const homeCounts = {
+    tools: tools.length,
+    ground: tools.filter((t) => t.data.verdict === 'ship').length,
+    unsettled: tools.filter((t) => t.data.verdict === 'situational').length,
+    buried: graves.length,
+  };
   return [
+    {
+      params: { slug: 'home' },
+      props: { kind: 'home', counts: homeCounts } satisfies OgProps,
+    },
     {
       params: { slug: 'noemium' },
       props: {
@@ -347,14 +363,30 @@ export const GET: APIRoute = async ({ props }) => {
   const p = props as OgProps;
 
   let tree: any;
-  if (p.kind === 'generic') {
+  if (p.kind === 'home') {
     tree = frame([
-      header('The open AI tools catalog'),
+      header('The map of the AI world'),
       h(
         'div',
         { style: { display: 'flex', flexDirection: 'column' } },
-        headline('Pick AI tools without getting played.', 72),
-        mono('Honest verdicts, verified prices, a receipt wherever we print a number.', {
+        headline('The map of the AI world.', 72),
+        mono('Height is how settled. Not how good.', {
+          fontSize: 20,
+          marginTop: 28,
+        }),
+      ),
+      footer(
+        `TOOLS: ${p.counts.tools} · GROUND: ${p.counts.ground} · UNSETTLED: ${p.counts.unsettled} · BURIED: ${p.counts.buried} · PAID: 0`,
+      ),
+    ]);
+  } else if (p.kind === 'generic') {
+    tree = frame([
+      header('The map of the AI world'),
+      h(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column' } },
+        headline('The map of the AI world.', 72),
+        mono('Height is how settled. Not how good.', {
           fontSize: 20,
           marginTop: 28,
         }),
