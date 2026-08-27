@@ -29,10 +29,11 @@ test('cover home is the night hero, not the old floor', () => {
   assert.match(html, /github\.com\/SaneSanders\/noemium/);
   assert.match(html, /x\.com\/noemiumai/);
   assert.match(html, /aria-label="Start here"/);
-  assert.match(html, /og\/home\.png/);
+  assert.match(html, /og-cover\.png/);
   assert.doesNotMatch(html, /og-default\.png/);
+  assert.doesNotMatch(html, /og\/home\.png/);
   assert.doesNotMatch(html, /Pick AI tools without getting played/);
-  assert.equal(existsSync(new URL('dist/og/home.png', root)), true);
+  assert.equal(existsSync(new URL('dist/og-cover.png', root)), true);
   assert.doesNotMatch(html, /aria-label="Start here"[\s\S]*Autopsy/);
   assert.doesNotMatch(html, />Signals</);
   assert.doesNotMatch(html, /Agent Field Guide/);
@@ -43,7 +44,7 @@ test('map page ships the scene and the data dump', () => {
   const html = built('map/index.html');
   assert.match(html, /id="scene"/);
   assert.match(html, /Height = how settled it is/);
-  assert.match(html, /og\/home\.png/);
+  assert.match(html, /og-cover\.png/);
   mastDoors(html);
   const data = JSON.parse(built('api/map.json'));
   assert.ok(data.counts.tools > 200);
