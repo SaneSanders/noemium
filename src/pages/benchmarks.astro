@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import Cover from '../layouts/Cover.astro';
+import { benchCounts, collectBenches } from '../lib/benchmark-honesty';
+
+const models = await getCollection('models');
+const rows = collectBenches(
+  models.map((m) => ({
+    slug: m.id,
+    name: m.data.name,
+    benchmarks: m.data.benchmarks,
+  })),
+);
+const counts = benchCounts(rows);
+const independent = rows.filter((r) => r.kind === 'independent');
+const vendor = rows.filter((r) => r.kind === 'vendor');
+const unclear = rows.filter((r) => r.kind === 'unclear');
+
+function kindLabel(kind: 'independent' | 'vendor' | 'unclear') {
+  if (kind === 'independent') return 'Independent';
+  if (kind === 'vendor') return 'Vendor';
+  return 'Unclear';
+}
+---
+
+<Cover
+  title="Benchmarks"
+  description="Scores on the cards, tagged by who ran them. Vendor charts stay vendor charts. We do not invent an independent layer."
+  page="reference"
+>
+  <div class="cover-doc">
+    <section class="cover-lede">
+      <h1>Who ran the <em>score</em>.</h1>
+      <p>
+        {counts.total} scores on model cards.
+        {' '}{counts.independent} independent.
+        {' '}{counts.vendor} vendor-published.
+        {' '}{counts.unclear} unclear.
+        No invented leaderboard.
+      </p>
+    </section>
+
+    {
+      independent.length === 0 && (
+        <p class="cover-note">
+          Independent layer is an honest zero. LiveBench, LMSYS, HELM, SWE-bench,
+          Aider — only when a card cites them. We do not scrape a board to fill this.
+        </p>
+      )
+    }
+
+    {
+      independent.length > 0 && (
+        <>
+          <p class="cover-kicker">Independent</p>
+          <div class="cover-doors">
+            {independent.map((r) => (
+              <a class="cover-door" href="/models/">
+                <b>{r.model} · {r.name}</b>
+                <span>{r.score} · {r.source}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    {
+      vendor.length > 0 && (
+        <>
+          <p class="cover-kicker">Vendor</p>
+          <div class="cover-doors">
+            {vendor.map((r) => (
+              <a class="cover-door" href="/models/">
+                <b>{r.model} · {r.name}</b>
+                <span>{kindLabel(r.kind)} · {r.score} · {r.source}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    {
+      unclear.length > 0 && (
+        <>
+          <p class="cover-kicker">Unclear source</p>
+          <div class="cover-doors">
+            {unclear.map((r) => (
+              <a class="cover-door" href="/models/">
+                <b>{r.model} · {r.name}</b>
+                <span>{r.score} · {r.source}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    <article class="cover-prose">
+      <h2>What this is not</h2>
+      <p>
+        Not a mirror of LMSYS or Artificial Analysis. Those boards move daily
+        and several vendors publish their own evals on the same name.
+        A score without a who-ran-it is advertising.
+      </p>
+      <p>
+        <a href="/models/">Models</a>
+        {' · '}
+        <a href="/method/">Method</a>
+        {' · '}
+        <a href="/plans/">Plans</a>
+      </p>
+    </article>
+  </div>
+</Cover>

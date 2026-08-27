@@ -57,6 +57,17 @@ test('reference is the catalogue facade', () => {
   assert.match(html, /href="\/free\/"/);
   assert.match(html, /href="\/plans\/"/);
   assert.match(html, /href="\/mcp\/"/);
+  assert.match(html, /href="\/benchmarks\/"/);
+  mastDoors(html);
+});
+
+test('benchmarks page tags vendor scores and does not invent an independent board', () => {
+  const html = built('benchmarks/index.html');
+  assert.match(html, /Who ran the/);
+  assert.match(html, /honest zero/);
+  assert.match(html, /Vendor/);
+  assert.match(html, /GLM 5\.3|DeepSeek|Gemini/);
+  assert.doesNotMatch(html, /LMSYS Arena rank/);
   mastDoors(html);
 });
 

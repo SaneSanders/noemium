@@ -11,11 +11,26 @@ const countsLine = `${tools.length} tools · ${models.length} models · ${stacks
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Noemium',
-  url: 'https://noemium.com/',
-  description:
-    'An open, auditable catalog of AI tools, stacks and models. Verdicts with receipts, prices with dates.',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'Noemium',
+      url: 'https://noemium.com/',
+      description:
+        'An open, auditable catalog of AI tools, stacks and models. Verdicts with receipts, prices with dates.',
+    },
+    {
+      '@type': 'Organization',
+      name: 'Noemium',
+      url: 'https://noemium.com/',
+      logo: 'https://noemium.com/apple-touch-icon.png',
+      sameAs: [
+        'https://github.com/SaneSanders/noemium',
+        'https://x.com/noemiumai',
+        'https://x.com/whysanesanders',
+      ],
+    },
+  ],
 };
 ---
 

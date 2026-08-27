@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <!-- Bold Grid mark: electric offset behind an ink slab, white "n". -->
-  <!-- Mirrors --nm-accent (dark theme: #5B74FF); static SVG cannot import CSS. -->
-  <rect x="22" y="22" width="84" height="84" rx="14" fill="#5B74FF"/>
-  <!-- Mirrors --nm-bg-paper (dark theme: #111114); static SVG cannot import CSS. -->
-  <rect x="14" y="14" width="84" height="84" rx="14" fill="#111114"/>
-  <!-- Mirrors --nm-on-accent (#FFFFFF); static SVG cannot import CSS. -->
-  <text x="56" y="79" font-family="Archivo, Arial Black, sans-serif" font-size="52" font-weight="900" fill="#FFFFFF" text-anchor="middle">n</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Noemium">
+  <rect width="32" height="32" fill="#0D1F4B"/>
+  <path fill="#F3EFE4" d="M8 26V6h3.6l8.8 13.2V6H24v20h-3.6L11.6 12.8V26H8z"/>
 </svg>

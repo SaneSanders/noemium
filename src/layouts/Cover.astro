@@ -7,6 +7,7 @@ import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
 import '@fontsource/ibm-plex-mono/600.css';
 import Mast from '../components/Mast.astro';
+import HeadMeta from '../components/HeadMeta.astro';
 
 interface Props {
   title: string;
@@ -34,10 +35,7 @@ const night = page === 'home' || page === 'map';
     <title>Noemium — {title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <HeadMeta />
     <link rel="alternate" type="application/rss+xml" title="Noemium weekly catalog diff" href="/rss.xml" />
     <slot name="head" />
     <meta property="og:type" content="website" />

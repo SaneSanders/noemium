@@ -10,6 +10,7 @@ import '@fontsource/fraunces/500.css';
 import '@fontsource/ibm-plex-mono/600.css';
 import CommandPalette from '../islands/CommandPalette';
 import ProofDrawer from '../islands/ProofDrawer';
+import HeadMeta from '../components/HeadMeta.astro';
 import { COMPARE_HREF } from '../lib/shelf';
 
 interface Props {
@@ -82,7 +83,7 @@ const mastPage = (
     <title>Noemium — {title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <HeadMeta />
     <link rel="alternate" type="application/rss+xml" title="Noemium — weekly risk feed" href="/rss.xml" />
     <slot name="head" />
     <meta property="og:type" content="website" />
@@ -261,6 +262,7 @@ const mastPage = (
           <a href="/free/" class="hover:text-ink">Free</a>
           <a href="/plans/" class="hover:text-ink">Plans</a>
           <a href="/mcp/" class="hover:text-ink">MCP</a>
+          <a href="/benchmarks/" class="hover:text-ink">Benchmarks</a>
           <a href="/money/" class="hover:text-ink">Money</a>
           <a href="/why/" class="hover:text-ink">Why</a>
           <a href="/search/" class="hover:text-ink">Search</a>

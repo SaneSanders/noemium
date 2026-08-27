@@ -242,6 +242,7 @@ export default function CommandPalette() {
       { kind: 'command', label: 'Status', hint: 'catalog health', href: '/status/' },
       { kind: 'command', label: 'Plans', hint: 'seat versus API', href: '/plans/' },
       { kind: 'command', label: 'MCP', hint: 'servers with a verdict', href: '/mcp/' },
+      { kind: 'command', label: 'Benchmarks', hint: 'who ran the score', href: '/benchmarks/' },
       { kind: 'command', label: 'Skills', hint: 'installable SKILL.md', href: '/skills/' },
       { kind: 'command', label: 'Kit', hint: 'save a set', href: '/kit/' },
       { kind: 'command', label: 'Why directories lie', hint: 'essay', href: '/why/' },
