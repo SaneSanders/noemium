@@ -1,0 +1,69 @@
+name: "Claude Code"
+vendor: "Anthropic"
+tagline: "Anthropic terminal coding harness: edits, runs tests, and uses git inside the repo."
+url: "https://docs.anthropic.com/en/docs/claude-code"
+catalog_tool: "claude-code"
+license_kind: "proprietary"
+maturity: "stable"
+summary: "Claude Code is Anthropic's local coding harness. It lives in the repository, runs tools, and shares the Claude Pro/Max usage pool. This guide is the field-guide twin of the /tools/claude-code/ card."
+best_for:
+  - "Terminal-native agents on a Claude seat you already pay for"
+  - "Multi-file refactors you will still review before merge"
+deployment:
+  - "local"
+  - "hybrid"
+verdict: "ship"
+verdict_text: "Strong agentic coding in the repo. The bill climbs on a big tree, and it rewrites with more confidence than the diff always earns."
+install:
+  - method: "command"
+    platform: "macOS, Linux, WSL"
+    command: "curl -fsSL https://claude.ai/install.sh | bash"
+    url: "https://docs.anthropic.com/en/docs/claude-code/quickstart"
+requirements:
+  - "A Claude Pro or Max seat, or an Anthropic API key"
+  - "A git repository the harness is allowed to edit"
+providers:
+  - "Claude Pro / Max"
+  - "Anthropic API"
+channels:
+  - "interactive terminal"
+  - "headless CLI"
+cost_scenarios:
+  - name: "Claude Pro seat"
+    monthly_usd_min: 17
+    monthly_usd_max: 20
+    assumptions: "Plan list price; Code shares the same usage pool as claude.ai chat."
+  - name: "Claude Max 5x"
+    monthly_usd_min: 100
+    monthly_usd_max: 100
+    assumptions: "Max 5x list; extra usage bills at API rates after the pool."
+security:
+  privilege: "high"
+  data_boundary: "Repo contents and tool results leave the machine toward Anthropic unless you use a private setup you control."
+  cautions:
+    - "Do not run unsupervised on secrets-bearing repos."
+    - "Review large diffs; the harness is confident."
+limitations:
+  - "Usage is shared with claude.ai chat on the same seat."
+  - "No first-party GUI diff viewer."
+  - "API-billed overflow on large repos escalates fast."
+evidence:
+  - kind: "availability"
+    url: "https://docs.anthropic.com/en/docs/claude-code"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://docs.anthropic.com/en/docs/claude-code"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://docs.anthropic.com/en/docs/claude-code"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://docs.anthropic.com/en/docs/claude-code"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://docs.anthropic.com/en/docs/claude-code"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

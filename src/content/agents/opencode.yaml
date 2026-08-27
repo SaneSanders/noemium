@@ -1,0 +1,69 @@
+name: "OpenCode"
+vendor: "anomalyco"
+tagline: "Open-source coding harness with TUI, headless serve, and an OpenAPI control surface."
+url: "https://opencode.ai"
+catalog_tool: "opencode"
+license_kind: "osi-open-source"
+maturity: "beta"
+summary: "OpenCode spins a full agent loop in the project: edit, test, commit. Good on well-scoped tasks with tests. Less mature editor integration than Cursor."
+best_for:
+  - "Bounded coding jobs with existing test coverage"
+  - "A terminal agent when you do not want a full AI IDE"
+deployment:
+  - "local"
+verdict: "ship"
+verdict_text: "Full agent loop in the repo. Still rough on large refactors and can hallucinate library APIs."
+install:
+  - method: "command"
+    platform: "npm"
+    command: "npm i -g opencode"
+    url: "https://opencode.ai"
+requirements:
+  - "Node.js"
+  - "A repository with a working test command if you want the loop to close"
+providers:
+  - "BYOK / configured model"
+channels:
+  - "interactive TUI"
+  - "headless serve"
+cost_scenarios:
+  - name: "Open-source harness"
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: "Binary is free; you pay the model."
+  - name: "Paid OpenCode plan"
+    monthly_usd_min: 20
+    monthly_usd_max: 20
+    assumptions: "Vendor paid plan from $20/mo as listed on the site."
+security:
+  privilege: "high"
+  data_boundary: "Local process with shell and file access. Model traffic goes to whatever provider you configure."
+  cautions:
+    - "Treat headless serve as an open control plane."
+    - "Do not YOLO-approve on untrusted trees."
+limitations:
+  - "Agent loops can wander on ambiguous requirements."
+  - "Less mature editor integration than Cursor or Windsurf."
+evidence:
+  - kind: "availability"
+    url: "https://github.com/anomalyco/opencode"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://github.com/anomalyco/opencode"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://github.com/anomalyco/opencode"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://github.com/anomalyco/opencode"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://github.com/anomalyco/opencode"
+    checked_at: "2026-08-26"
+  - kind: "license"
+    url: "https://github.com/anomalyco/opencode"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

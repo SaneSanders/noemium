@@ -1,0 +1,68 @@
+name: "Kilo Code"
+vendor: "Kilo"
+tagline: "Open BYOK coding harness spanning IDE, CLI, and cloud routing."
+url: "https://kilo.ai"
+catalog_tool: "kilo-code"
+license_kind: "osi-open-source"
+maturity: "beta"
+summary: "Open harness that will take local, BYOK, or cloud routing. Useful when you refuse a locked vendor IDE and still want an agent in the editor."
+best_for:
+  - "BYOK/local routing in an IDE-shaped agent"
+  - "People comparing open harnesses against Cline/Continue"
+deployment:
+  - "local"
+  - "hybrid"
+verdict: "situational"
+verdict_text: "Open and flexible. You operate the model quality. Not a reason to leave Cursor if Cursor already pays for itself."
+install:
+  - method: "web"
+    platform: "docs"
+    url: "https://kilo.ai"
+requirements:
+  - "An editor Kilo supports"
+  - "A model route"
+providers:
+  - "BYOK"
+  - "local"
+  - "optional cloud routing"
+channels:
+  - "IDE"
+  - "CLI"
+  - "cloud"
+cost_scenarios:
+  - name: "Harness only"
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: "Software is free/open. Model spend is the bill."
+security:
+  privilege: "high"
+  data_boundary: "Local edits plus whatever provider you route to."
+  cautions:
+    - "Cloud routing is a different privacy story than local BYOK."
+    - "Treat marketplace plugins as untrusted code."
+limitations:
+  - "You operate routing and quality."
+  - "Docs and polish move fast; re-verify before a team rollout."
+evidence:
+  - kind: "availability"
+    url: "https://kilo.ai"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://kilo.ai"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://kilo.ai"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://kilo.ai"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://kilo.ai"
+    checked_at: "2026-08-26"
+  - kind: "license"
+    url: "https://kilo.ai"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

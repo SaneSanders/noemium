@@ -26,7 +26,7 @@ export const GET: APIRoute = async (context) => {
     '',
     ...testedTools.map(
       (tool) =>
-        `- [${tool.data.name}](${new URL(`/tools/${tool.id}/`, site).href}): ${tool.data.tagline} — ${tool.data.verdict}`,
+        `- [${tool.data.name}](${new URL(`/tools/${tool.id}/`, site).href}): ${tool.data.tagline} — ${tool.data.verdict ?? 'radar'}`,
     ),
     '',
     '## Jobs',

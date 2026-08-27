@@ -1,0 +1,72 @@
+name: "Cursor"
+vendor: "Anysphere"
+tagline: "AI-first editor (VS Code fork) with agent mode, tab completions, and a headless CLI."
+url: "https://cursor.com"
+catalog_tool: "cursor"
+license_kind: "proprietary"
+maturity: "stable"
+summary: "Cursor remains the default AI editor. Agent mode and tab completions save hours; model routing is a black box. The desktop app is the product; cursor-agent is the headless twin."
+best_for:
+  - "Daily product coding in a VS Code layout"
+  - "Multi-file agent runs when you can sit with the diff"
+deployment:
+  - "local"
+  - "managed"
+verdict: "ship"
+verdict_text: "Still the default AI editor. Pro token limits throttle heavy agent months, and you cannot audit or self-host the editor."
+install:
+  - method: "download"
+    platform: "macOS, Windows, Linux"
+    url: "https://cursor.com/download"
+requirements:
+  - "A Cursor account (Hobby free, Pro $20/mo and up)"
+  - "A project folder the editor is allowed to index"
+providers:
+  - "Cursor bundled models"
+  - "optional API keys where the product allows"
+channels:
+  - "desktop editor"
+  - "headless CLI"
+cost_scenarios:
+  - name: "Hobby"
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: "Free Hobby limits. Agent work hits the ceiling fast."
+  - name: "Pro"
+    monthly_usd_min: 20
+    monthly_usd_max: 20
+    assumptions: "Pro list. Heavy agent months still throttle."
+  - name: "Ultra"
+    monthly_usd_min: 200
+    monthly_usd_max: 200
+    assumptions: "Ultra 20× agent limits."
+security:
+  privilege: "high"
+  data_boundary: "Source is indexed locally and sent to Cursor/model providers. Trains-on-inputs is yes on the catalog card."
+  cautions:
+    - "Closed source; no self-host."
+    - "Privacy mode is a setting, not a proof."
+limitations:
+  - "Pro plan token limits throttle heavy agent sessions mid-month."
+  - "Closed source; no way to self-host or audit data handling."
+  - "Black-box model routing."
+evidence:
+  - kind: "availability"
+    url: "https://cursor.com/docs"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://cursor.com/docs"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://cursor.com/docs"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://cursor.com/docs"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://cursor.com/docs"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

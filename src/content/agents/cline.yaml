@@ -1,0 +1,63 @@
+name: "Cline"
+vendor: "Cline"
+tagline: "Open-source VS Code agent that plans, edits, and runs commands in the editor."
+url: "https://cline.bot"
+catalog_tool: "cline"
+license_kind: "osi-open-source"
+maturity: "stable"
+summary: "Cline is the in-editor open agent: plan, edit, terminal, MCP. You bring a model. It is not a Cursor clone with a different skin — it is a VS Code extension with a visible plan."
+best_for:
+  - "VS Code users who want an open agent instead of a forked IDE"
+  - "BYOK setups that already live in VS Code"
+deployment:
+  - "local"
+verdict: "situational"
+verdict_text: "Strong open VS Code agent. You operate the model bill and the permission prompts. Not the fastest path if you wanted a battery-included editor."
+install:
+  - method: "package"
+    platform: "VS Code marketplace"
+    url: "https://cline.bot"
+requirements:
+  - "VS Code or a compatible fork"
+  - "A model provider or API key"
+providers:
+  - "BYOK"
+channels:
+  - "VS Code extension"
+cost_scenarios:
+  - name: "Extension only"
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: "Cline is free. Inference is the bill."
+security:
+  privilege: "high"
+  data_boundary: "The extension can edit files and run commands. Prompts go to the provider you set."
+  cautions:
+    - "Auto-approve is a loaded gun."
+    - "Review MCP servers the same way you review extensions."
+limitations:
+  - "You operate permissions and spend."
+  - "Editor-bound — no first-party headless control plane."
+evidence:
+  - kind: "availability"
+    url: "https://cline.bot"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://cline.bot"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://cline.bot"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://cline.bot"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://cline.bot"
+    checked_at: "2026-08-26"
+  - kind: "license"
+    url: "https://cline.bot"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

@@ -26,6 +26,7 @@ const collections = [
   { name: 'models', dir: join(contentDir, 'models'), exts: ['.yaml', '.yml'] },
   { name: 'stacks', dir: join(contentDir, 'stacks'), exts: ['.md'] },
   { name: 'agents', dir: join(contentDir, 'agents'), exts: ['.yaml', '.yml'] },
+  { name: 'skills', dir: join(contentDir, 'skills'), exts: ['.yaml', '.yml'] },
   { name: 'graveyard', dir: join(contentDir, 'graveyard'), exts: ['.yaml', '.yml'] },
 ];
 

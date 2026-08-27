@@ -5,7 +5,7 @@ export interface FloorTool {
   name: string;
   category: string;
   pricing: 'free' | 'freemium' | 'paid';
-  verdict: Verdict;
+  verdict?: Verdict;
   momentum: Momentum;
   featured: boolean;
   last_verified: string;
@@ -62,12 +62,16 @@ export function floorSlice(tools: FloorTool[], tab: FloorTab, freshAfter: string
     .slice(0, FLOOR_ROWS);
 }
 
-export function verdictMix(rows: { verdict: Verdict }[]): {
+export function verdictMix(rows: { verdict?: Verdict }[]): {
   ship: number;
   situational: number;
   skip: number;
 } {
   const mix = { ship: 0, situational: 0, skip: 0 };
-  for (const row of rows) mix[row.verdict] += 1;
+  for (const row of rows) {
+    if (row.verdict === 'ship' || row.verdict === 'situational' || row.verdict === 'skip') {
+      mix[row.verdict] += 1;
+    }
+  }
   return mix;
 }

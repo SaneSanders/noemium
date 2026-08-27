@@ -32,6 +32,7 @@ limitations:
 receipts:
   - https://github.com/Stability-AI/generative-models
 affiliate: none
+evidence_tier: source-verified
 momentum: steady
 featured: false
 data_sensitivity:

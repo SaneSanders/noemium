@@ -1,0 +1,22 @@
+name: "Tabby"
+tagline: "Self-hosted coding assistant: completions and an agent, runs on your GPU or a small box."
+url: "https://tabby.tabbyml.com"
+category: "coding"
+pricing: "free"
+price_note: "Apache-2.0 self-host; you pay the hardware"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: we have not reproduced a Tabby deploy here."
+  - "Quality is the local model, not a Cursor-class bundled router."
+receipts:
+  - "https://tabby.tabbyml.com"
+  - "https://github.com/TabbyML/tabby"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

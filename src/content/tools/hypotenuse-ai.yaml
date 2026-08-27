@@ -1,0 +1,20 @@
+name: "Hypotenuse AI"
+tagline: "E-commerce and SEO copy generator with bulk article workflows."
+url: "https://www.hypotenuse.ai"
+category: "writing"
+pricing: "freemium"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: SEO bulk writers are a graveyard-adjacent category."
+  - "Output quality not reproduced here."
+receipts:
+  - "https://www.hypotenuse.ai"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

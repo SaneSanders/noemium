@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { agentSchema, graveyardSchema, jobSchema, modelSchema, stackSchema, toolSchema } from '../src/content-schemas.ts';
+import { agentSchema, graveyardSchema, jobSchema, modelSchema, skillSchema, stackSchema, toolSchema } from '../src/content-schemas.ts';
 
 const strictAgent = {
   name: 'Example Agent',
@@ -89,6 +89,7 @@ const toolBase = {
   limitations: ['Needs a human in the loop.'],
   receipts: ['https://example.com/pricing'],
   affiliate: 'none',
+  evidence_tier: 'source-verified',
   momentum: 'steady',
   last_verified: '2026-08-23',
   observed_by: 'tester',
@@ -264,6 +265,39 @@ test('accepts model_routing on a tool', () => {
     model_routing: 'byok',
   };
   assert.equal(toolSchema.safeParse(data).success, true);
+});
+
+test('rejects a radar tool with a verdict', () => {
+  const data = { ...toolBase, evidence_tier: 'radar' };
+  assert.equal(toolSchema.safeParse(data).success, false);
+});
+
+test('accepts a radar tool with no verdict', () => {
+  const { verdict: _verdict, verdict_text: _text, ...rest } = toolBase;
+  assert.equal(toolSchema.safeParse({ ...rest, evidence_tier: 'radar' }).success, true);
+});
+
+test('rejects a source-verified tool without a verdict', () => {
+  const { verdict: _verdict, verdict_text: _text, ...rest } = toolBase;
+  assert.equal(toolSchema.safeParse(rest).success, false);
+});
+
+test('rejects a radar skill with a verdict', () => {
+  const skill = {
+    name: 'Example Skill',
+    tagline: 'A fixture for the skill contract.',
+    url: 'https://example.com/skill',
+    compatible: ['claude-code'],
+    install: 'Copy SKILL.md into .claude/skills/example/',
+    summary: 'A radar fixture with no verdict.',
+    limitations: ['Not field-tested.'],
+    evidence_tier: 'radar',
+    receipts: ['https://example.com/skill'],
+    last_verified: '2026-08-26',
+    observed_by: 'tester',
+  };
+  assert.equal(skillSchema.safeParse(skill).success, true);
+  assert.equal(skillSchema.safeParse({ ...skill, verdict: 'ship', verdict_text: 'Nope.' }).success, false);
 });
 
 test('requires a graveyard successor or an explicit none', () => {

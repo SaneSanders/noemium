@@ -1,0 +1,21 @@
+name: "Superpowers"
+tagline: "obra's Claude Code skill pack: brainstorm, plan, subagents, TDD, and finish-the-job discipline."
+url: "https://github.com/obra/superpowers"
+compatible:
+  - "claude-code"
+install: "Install from the repo into ~/.claude/skills (see README). Do not curl|bash a random fork."
+summary: "A curated set of SKILL.md files for Claude Code. The point is process (plan, then implement, then verify), not a prompt pack you paste once."
+limitations:
+  - "Written for Claude Code paths; other harnesses may ignore SKILL.md layout."
+  - "A skill is instructions, not a sandbox — it can still tell the agent to do something dumb."
+evidence_tier: "source-verified"
+verdict: "situational"
+verdict_text: "The most cited Claude Code skill pack. Useful if you wanted the harness to stop cowboy-coding. Not a substitute for tests you actually run."
+related_tools:
+  - "claude-code"
+related_agents:
+  - "claude-code"
+receipts:
+  - "https://github.com/obra/superpowers"
+last_verified: "2026-08-26"
+observed_by: "whysanesanders"

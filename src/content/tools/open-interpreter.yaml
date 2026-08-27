@@ -1,0 +1,22 @@
+name: "Open Interpreter"
+tagline: "Natural-language computer use: a ChatGPT-like prompt that runs code locally."
+url: "https://openinterpreter.com"
+category: "coding"
+pricing: "freemium"
+price_note: "OSS local; optional hosted/computer-use products"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Full local computer use is a critical privilege boundary."
+  - "Radar: we have not reproduced current install against this year's CLI."
+receipts:
+  - "https://openinterpreter.com"
+  - "https://github.com/openinterpreter/open-interpreter"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

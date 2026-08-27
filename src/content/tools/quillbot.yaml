@@ -1,0 +1,20 @@
+name: "QuillBot"
+tagline: "Paraphrase / grammar / citation helper, still a student-tool more than an agent stack."
+url: "https://quillbot.com"
+category: "writing"
+pricing: "freemium"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+limitations:
+  - "Radar: paraphrasers are a crowded, low-trust category."
+  - "Citation features need a primary-source check, not this card."
+receipts:
+  - "https://quillbot.com"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

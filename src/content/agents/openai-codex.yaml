@@ -1,0 +1,74 @@
+name: "OpenAI Codex"
+vendor: "OpenAI"
+tagline: "OpenAI coding harness spanning terminal CLI, IDE, and cloud tasks on ChatGPT plans."
+url: "https://github.com/openai/codex"
+catalog_tool: "openai-codex"
+license_kind: "osi-open-source"
+maturity: "stable"
+summary: "Codex is the product you run against a repo, not a second Responses API card. Local CLI is open-source; cloud tasks and GitHub review sit on ChatGPT Plus and up."
+best_for:
+  - "Repo work on an OpenAI seat you already have"
+  - "Mixed local CLI and cloud tasks inside the ChatGPT plan"
+deployment:
+  - "local"
+  - "hybrid"
+  - "managed"
+verdict: "situational"
+verdict_text: "Lowest-friction OpenAI coding agent if you already pay for ChatGPT. Caps sit on a five-hour window and credits replaced per-message billing."
+install:
+  - method: "command"
+    platform: "npm"
+    command: "npm i -g @openai/codex"
+    url: "https://github.com/openai/codex"
+requirements:
+  - "A ChatGPT account or OpenAI API key"
+  - "Node.js for the CLI install path"
+providers:
+  - "ChatGPT Free/Go/Plus/Pro"
+  - "OpenAI API"
+channels:
+  - "interactive terminal"
+  - "IDE"
+  - "cloud tasks"
+cost_scenarios:
+  - name: "ChatGPT Plus"
+    monthly_usd_min: 20
+    monthly_usd_max: 20
+    assumptions: "Plus list; cloud GitHub review is Plus-and-up. Local CLI can also burn API credits."
+  - name: "ChatGPT Pro 20x"
+    monthly_usd_min: 200
+    monthly_usd_max: 200
+    assumptions: "Pro 20x list; extra credits after the 5-hour window."
+security:
+  privilege: "high"
+  data_boundary: "Conversation and repo context leave for OpenAI hosted agents. Local CLI still sends prompts to OpenAI unless you point it at a custom endpoint the docs currently allow."
+  cautions:
+    - "Cloud tasks are Plus-and-up and run off your machine."
+    - "Do not treat the 5-hour window as a hard sandbox."
+limitations:
+  - "Local and cloud usage share a rolling 5-hour window."
+  - "Token-credit metering makes a session cost hard to predict."
+  - "No self-host of the hosted cloud agent."
+evidence:
+  - kind: "availability"
+    url: "https://github.com/openai/codex"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://github.com/openai/codex"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://github.com/openai/codex"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://github.com/openai/codex"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://github.com/openai/codex"
+    checked_at: "2026-08-26"
+  - kind: "license"
+    url: "https://github.com/openai/codex"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

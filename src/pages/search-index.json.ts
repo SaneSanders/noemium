@@ -4,11 +4,12 @@ import { logoSrc, providerLogoSrc } from '../lib/logos';
 
 /** Compact search index consumed by the ⌘K command palette (fetched on first open). */
 export const GET: APIRoute = async () => {
-  const [tools, stacks, models, agents] = await Promise.all([
+  const [tools, stacks, models, agents, skills] = await Promise.all([
     getCollection('tools'),
     getCollection('stacks'),
     getCollection('models'),
     getCollection('agents'),
+    getCollection('skills'),
   ]);
 
   const body = {
@@ -17,7 +18,7 @@ export const GET: APIRoute = async () => {
       name: t.data.name,
       tagline: t.data.tagline,
       category: t.data.category,
-      verdict: t.data.verdict,
+      verdict: t.data.verdict ?? 'radar',
       logo: logoSrc(t.id),
     })),
     stacks: stacks.map((s) => ({
@@ -39,6 +40,13 @@ export const GET: APIRoute = async () => {
       agent_layer: a.data.agent_layer,
       evidence_tier: a.data.evidence_tier,
       logo: logoSrc(a.id),
+    })),
+    skills: skills.map((s) => ({
+      slug: s.id,
+      name: s.data.name,
+      tagline: s.data.tagline,
+      evidence_tier: s.data.evidence_tier,
+      compatible: s.data.compatible,
     })),
   };
 

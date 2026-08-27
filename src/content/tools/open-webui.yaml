@@ -36,6 +36,7 @@ receipts:
   - https://github.com/open-webui/open-webui
   - https://docs.openwebui.com
 affiliate: none
+evidence_tier: source-verified
 momentum: blueshift
 featured: false
 data_sensitivity:

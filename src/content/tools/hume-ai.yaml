@@ -1,0 +1,21 @@
+name: "Hume AI"
+tagline: "Expressive voice / EVI APIs — emotion-conditioned speech, not a generic TTS clone."
+url: "https://www.hume.ai"
+category: "audio"
+pricing: "freemium"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: pricing and emotion-model claims not reproduced here."
+  - "Voice cloning / affect is a consent minefield in production."
+receipts:
+  - "https://www.hume.ai"
+  - "https://dev.hume.ai"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

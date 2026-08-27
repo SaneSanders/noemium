@@ -7,7 +7,7 @@ export const ADOPT_STALE_DAYS = 60;
 export type ToolHealth = {
   id: string;
   name: string;
-  verdict: string;
+  verdict?: string;
   last_verified: string;
   featured?: boolean;
   receipts: string[];

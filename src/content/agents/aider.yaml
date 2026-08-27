@@ -1,0 +1,65 @@
+name: "Aider"
+vendor: "Paul Gauthier"
+tagline: "Git-native terminal pair-programmer. BYOK, automatic commits, no IDE lock-in."
+url: "https://aider.chat"
+catalog_tool: "aider"
+license_kind: "osi-open-source"
+maturity: "stable"
+summary: "The terminal purist harness. Works with almost any model, including local weights. Automatic commits are the product, not a plugin."
+best_for:
+  - "Git-native terminal work with automatic commits"
+  - "Cheap Chinese or local models instead of a $20 IDE seat"
+deployment:
+  - "local"
+verdict: "ship"
+verdict_text: "Wire up a good model and this beats most paid IDEs for a fraction of the cost. You bring the key and the taste."
+install:
+  - method: "command"
+    platform: "pip"
+    command: "python -m pip install aider-chat"
+    url: "https://aider.chat/docs/install.html"
+requirements:
+  - "Python 3"
+  - "A git repo"
+  - "An API key or local model endpoint"
+providers:
+  - "BYOK — OpenAI, Anthropic, Gemini, local, others"
+channels:
+  - "interactive terminal"
+cost_scenarios:
+  - name: "Harness only"
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: "Aider is free. Model spend is yours."
+security:
+  privilege: "high"
+  data_boundary: "Code and diffs go to the model provider you configure. Commits are local git."
+  cautions:
+    - "Automatic commits are a feature — review the log."
+    - "A leaked API key is your incident, not Aider's."
+limitations:
+  - "No first-party GUI."
+  - "Quality is the model you wired, not a bundled \"smart\" router."
+evidence:
+  - kind: "availability"
+    url: "https://aider.chat/docs/install.html"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://aider.chat/docs/install.html"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://aider.chat/docs/install.html"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://aider.chat/docs/install.html"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://aider.chat/docs/install.html"
+    checked_at: "2026-08-26"
+  - kind: "license"
+    url: "https://aider.chat/docs/install.html"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

@@ -1,0 +1,17 @@
+name: "OpenClaw skills"
+tagline: "Skills/plugins as OpenClaw actually loads them — persistent personal agent, not a coding-harness SKILL.md."
+url: "https://docs.openclaw.ai"
+compatible:
+  - "openclaw"
+install: "Follow OpenClaw docs for skills/plugins. Do not paste a Claude Code SKILL.md and expect it to boot."
+summary: "OpenClaw has its own skill surface (always-on personal agent). Compatible with this catalog's /agents/openclaw/ guide, not with Cursor."
+limitations:
+  - "Different object than Claude Code SKILL.md."
+  - "Always-on + skills is a larger security boundary than a one-shot coding agent."
+evidence_tier: "radar"
+related_agents:
+  - "openclaw"
+receipts:
+  - "https://docs.openclaw.ai"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

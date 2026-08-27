@@ -1,0 +1,17 @@
+name: "mcp-builder"
+tagline: "Official skill for scaffolding an MCP server instead of hand-rolling stdio boilerplate."
+url: "https://github.com/anthropics/skills"
+compatible:
+  - "claude-code"
+install: "Copy mcp-builder from anthropics/skills. Point it at the server you actually need, not a toy echo tool."
+summary: "A generator for MCP servers. The resulting server still needs auth, scopes, and a threat model."
+limitations:
+  - "Generated MCP is not a security review."
+  - "Official MCP registry remains preview — publishing is a separate job."
+evidence_tier: "radar"
+related_tools:
+  - "github-mcp"
+receipts:
+  - "https://github.com/anthropics/skills"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

@@ -1,0 +1,15 @@
+name: "xlsx"
+tagline: "Anthropic document skill for spreadsheets the agent can actually write, not dump as CSV."
+url: "https://github.com/anthropics/skills"
+compatible:
+  - "claude-code"
+install: "Copy the xlsx skill from anthropics/skills (document-skills)."
+summary: "Better than \"here is a CSV\" when the job is an Excel artifact. Formulas still need a human eye."
+limitations:
+  - "Pivot-heavy workbooks will lie."
+  - "Macros are a threat, not a feature."
+evidence_tier: "radar"
+receipts:
+  - "https://github.com/anthropics/skills"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

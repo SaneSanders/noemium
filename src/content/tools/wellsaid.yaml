@@ -1,0 +1,20 @@
+name: "WellSaid"
+tagline: "Studio TTS for enterprise voiceovers, older than the ElevenLabs wave, still sold into learning/ops."
+url: "https://wellsaidlabs.com"
+category: "audio"
+pricing: "paid"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: no current price page reproduced this week."
+  - "If you wanted character/emotion, Hume/ElevenLabs are the comparison set, not this card as a verdict."
+receipts:
+  - "https://wellsaidlabs.com"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

@@ -26,11 +26,28 @@ function loadAgents() {
     });
 }
 
-test('ships four strict guides and ten explicitly labeled Radar entries', () => {
+const HARNESS_SLUGS = [
+  'claude-code',
+  'openai-codex',
+  'cursor',
+  'amp',
+  'opencode',
+  'aider',
+  'cline',
+  'goose',
+  'pi',
+  'kilo-code',
+];
+
+test('ships coding harness field guides without a fake radar stamp', () => {
   const agents = loadAgents();
-  assert.equal(agents.length, 14);
-  assert.equal(agents.filter((agent) => agent.data.evidence_tier === 'source-verified').length, 4);
-  assert.equal(agents.filter((agent) => agent.data.evidence_tier === 'radar').length, 10);
+  const bySlug = new Map(agents.map((agent) => [agent.slug, agent.data]));
+  for (const slug of HARNESS_SLUGS) {
+    assert.equal(bySlug.has(slug), true, slug);
+    assert.notEqual(bySlug.get(slug)?.evidence_tier, 'radar', slug);
+    assert.equal(bySlug.get(slug)?.agent_layer, 'coding-harness', slug);
+  }
+  assert.ok(agents.filter((agent) => agent.data.evidence_tier === 'radar').length >= 1);
 });
 
 test('keeps Grok Bot separate from the Grok Build coding harness', () => {

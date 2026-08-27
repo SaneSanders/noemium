@@ -26,6 +26,8 @@ const t = tool.data;
 const logo = logoSrc(tool.id);
 
 const catalog = await getCollection('tools');
+const agents = await getCollection('agents');
+const skills = await getCollection('skills');
 const models = await getCollection('models');
 const modelNames = new Map(models.map((m) => [m.id, m.data.name]));
 const relatedIdList = relatedIds(
@@ -44,6 +46,10 @@ const related = relatedIdList
   .filter((x) => x !== undefined);
 const skipPeer = SKIP_ALTERNATIVE[tool.id];
 const skipPeerTool = skipPeer ? catalog.find((x) => x.id === skipPeer) : undefined;
+const harness = agents.find((a) => a.data.catalog_tool === tool.id || a.id === tool.id);
+const skillLinks = skills.filter(
+  (s) => s.data.related_tools?.includes(tool.id) || s.data.related_agents?.includes(harness?.id ?? ''),
+);
 
 const comparePairs = COMPARE_PAIRS.filter((p) => p.a === tool.id || p.b === tool.id)
   .map((p) => {
@@ -61,6 +67,7 @@ const facts: [string, string][] = [
   ['api', t.api ? 'yes' : 'no'],
   ['self-host', t.self_host ? 'yes' : 'no'],
   ['category', t.category],
+  ['evidence', t.evidence_tier],
 ];
 
 const archiveUrl = (url: string) => `https://web.archive.org/web/2026/${url}`;
@@ -108,18 +115,30 @@ const briefing =
     ? { strengths: t.strengths, use_for: t.use_for, skip_when: t.skip_when }
     : null;
 
-const disputePrompt = [
-  `Fact-check this catalog entry for ${t.name} (${t.category}).`,
-  `Verdict: ${t.verdict}`,
-  `Verdict text: ${t.verdict_text}`,
-  `Limitations:`,
-  ...t.limitations.map((l) => `- ${l}`),
-  `Receipts:`,
-  ...t.receipts,
-  `Last verified: ${t.last_verified}`,
-  '',
-  'Find outdated prices, wrong claims, or missing limitations. Cite primary sources (docs, pricing pages, benchmarks, model cards). Do not use marketing pages.',
-].join('\n');
+const disputePrompt = t.verdict
+  ? [
+      `Fact-check this catalog entry for ${t.name} (${t.category}).`,
+      `Verdict: ${t.verdict}`,
+      `Verdict text: ${t.verdict_text}`,
+      `Limitations:`,
+      ...t.limitations.map((l) => `- ${l}`),
+      `Receipts:`,
+      ...t.receipts,
+      `Last verified: ${t.last_verified}`,
+      '',
+      'Find outdated prices, wrong claims, or missing limitations. Cite primary sources (docs, pricing pages, benchmarks, model cards). Do not use marketing pages.',
+    ].join('\n')
+  : [
+      `Fact-check this radar listing for ${t.name} (${t.category}).`,
+      `Noemium has not issued a verdict. Evidence tier: ${t.evidence_tier}.`,
+      `Limitations:`,
+      ...t.limitations.map((l) => `- ${l}`),
+      `Receipts:`,
+      ...t.receipts,
+      `Last verified: ${t.last_verified}`,
+      '',
+      'Confirm the project still exists, the URL is canonical, and the limitations are still true. Do not invent a ship/skip stamp.',
+    ].join('\n');
 ---
 
 <Base title={t.name} description={t.tagline} ogImage={`/og/tools/${tool.id}.png`}>
@@ -157,7 +176,7 @@ const disputePrompt = [
       />
       <a href={`/kit/?add=${tool.id}`} class="nm-btn nm-btn-outline">Add to kit</a>
       <a href={openInNoemiumHref(t.name, t.tagline)} class="nm-btn nm-btn-outline">Open in Noemium</a>
-      <CopyButton label="Dispute this verdict" text={disputePrompt} />
+      <CopyButton label={t.verdict ? 'Dispute this verdict' : 'Dispute this listing'} text={disputePrompt} />
       <VerifiedStamp slug={tool.id} date={t.last_verified} />
     </p>
     {
@@ -180,7 +199,39 @@ const disputePrompt = [
       <p class="font-mono text-xs tracking-[0.14em] text-ink-dim uppercase">
         ledger entry · observed by <span class="normal-case">@{t.observed_by}</span>
       </p>
-      <p class="mt-4 max-w-3xl text-lg leading-relaxed">{t.verdict_text}</p>
+      <p class="mt-4 max-w-3xl text-lg leading-relaxed">{t.verdict_text ?? t.tagline}</p>
+      {
+        t.evidence_tier === 'radar' && (
+          <p class="mt-4 max-w-3xl font-mono text-[13px] leading-relaxed text-ink-dim">
+            Radar · no verdict. Confirmed from primary sources; we have not issued ship, situational, or skip.
+          </p>
+        )
+      }
+      {
+        harness && (
+          <p class="mt-4 font-mono text-[13px]">
+            Field guide:{' '}
+            <a href={`/agents/${harness.id}/`} class="text-accent hover:underline">
+              {harness.data.name} →
+            </a>
+          </p>
+        )
+      }
+      {
+        skillLinks.length > 0 && (
+          <p class="mt-2 font-mono text-[13px]">
+            Skills:{' '}
+            {skillLinks.map((s, i) => (
+              <>
+                {i > 0 && <span class="mx-1.5 text-ink-dim">·</span>}
+                <a href={`/skills/${s.id}/`} class="text-accent hover:underline">
+                  {s.data.name}
+                </a>
+              </>
+            ))}
+          </p>
+        )
+      }
       {
         t.verdict === 'skip' && skipPeerTool && (
           <p class="mt-4 font-mono text-[13px] text-ink-dim">
@@ -202,6 +253,58 @@ const disputePrompt = [
           use_for={briefing.use_for}
           skip_when={briefing.skip_when}
         />
+      )
+    }
+
+    {
+      t.guide && (
+        <section class="nm-card mt-10 p-6 md:p-8">
+          <h2 class="font-mono text-[14px] font-medium tracking-[0.08em] text-ink uppercase">Floor guide</h2>
+          {
+            t.guide.install && (
+              <div class="mt-5">
+                <h3 class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase">Install</h3>
+                <p class="mt-2 text-[15px] leading-relaxed">{t.guide.install}</p>
+              </div>
+            )
+          }
+          {
+            t.guide.requirements && (
+              <div class="mt-5">
+                <h3 class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase">Requirements</h3>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-[15px] leading-relaxed">
+                  {t.guide.requirements.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            )
+          }
+          {
+            t.guide.cost && (
+              <div class="mt-5">
+                <h3 class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase">Cost</h3>
+                <p class="mt-2 text-[15px] leading-relaxed">{t.guide.cost}</p>
+              </div>
+            )
+          }
+          {
+            t.guide.security && (
+              <div class="mt-5">
+                <h3 class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase">Security</h3>
+                <p class="mt-2 text-[15px] leading-relaxed">{t.guide.security}</p>
+              </div>
+            )
+          }
+          {
+            t.guide.breaks_when && (
+              <div class="mt-5">
+                <h3 class="font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase">Breaks when</h3>
+                <ul class="mt-2 list-disc space-y-1 pl-5 text-[15px] leading-relaxed marker:text-verdict-skip">
+                  {t.guide.breaks_when.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            )
+          }
+        </section>
       )
     }
 
@@ -441,7 +544,7 @@ const disputePrompt = [
                           <a href={`/tools/${row.id}/`} class="hover:text-accent">{row.data.name}</a>
                         )}
                       </th>
-                      <td class="p-3 font-mono text-[13px] uppercase">{row.data.verdict}</td>
+                      <td class="p-3 font-mono text-[13px] uppercase">{row.data.verdict ?? 'radar'}</td>
                       <td class="p-3 font-mono text-[13px]">{row.data.pricing}</td>
                       <td class="p-3 font-mono text-[13px]">{row.data.open_source ? 'yes' : 'no'}</td>
                       <td class="p-3 font-mono text-[13px]">{row.data.self_host ? 'yes' : 'no'}</td>

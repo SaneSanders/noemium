@@ -31,10 +31,21 @@ limitations:
 receipts:
   - https://github.com/n8n-io/n8n
 affiliate: none
+evidence_tier: source-verified
 momentum: blueshift
 featured: false
 data_sensitivity:
   trains_on_inputs: unknown
   local_processing: true
+guide:
+  install: Self-host with Docker (n8n docs) or n8n Cloud. Pin the image tag.
+  requirements:
+    - A place to run Docker or a Cloud workspace
+    - Credentials for every node you enable
+  cost: Self-host software is free; Cloud starts around €20–24/mo on the public list. Execution volume is the real meter.
+  security: Every credential in the workflow is a secret. Do not expose the editor to the internet without auth.
+  breaks_when:
+    - A workflow has dozens of branches and no tests — debug time exceeds build time.
+    - Fair-code licensing blocks the way you wanted to resell it.
 last_verified: "2026-08-19"
 observed_by: whysanesanders

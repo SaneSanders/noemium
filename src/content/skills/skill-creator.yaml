@@ -1,0 +1,16 @@
+name: "skill-creator"
+tagline: "Official meta-skill for writing new SKILL.md files that a harness will actually load."
+url: "https://github.com/anthropics/skills"
+compatible:
+  - "claude-code"
+  - "generic"
+install: "Copy skill-creator from anthropics/skills, then have the agent write a new skill against that template."
+summary: "Use this when the job is \"capture a repeatable workflow as a skill\", not when the job is to ship product code."
+limitations:
+  - "Easy to generate skill spam. One skill per real loop."
+  - "Does not validate that the new skill works in Cursor or OpenClaw."
+evidence_tier: "radar"
+receipts:
+  - "https://github.com/anthropics/skills"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

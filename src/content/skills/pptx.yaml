@@ -1,0 +1,15 @@
+name: "pptx"
+tagline: "Anthropic document skill for PowerPoint decks generated from a brief."
+url: "https://github.com/anthropics/skills"
+compatible:
+  - "claude-code"
+install: "Copy the pptx skill from anthropics/skills (document-skills)."
+summary: "Deck output for people who already accepted that the agent will design like an agent."
+limitations:
+  - "Brand kits will not survive."
+  - "Speaker notes are extra work."
+evidence_tier: "radar"
+receipts:
+  - "https://github.com/anthropics/skills"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

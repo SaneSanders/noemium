@@ -41,7 +41,7 @@ const liveHref = `/tools/compare/?tools=${a.id},${b.id}`;
 const yesNo = (v: boolean) => (v ? 'yes' : 'no');
 
 const verdictRank = { ship: 3, situational: 2, skip: 1 } as const;
-const rankOf = (v: Tool['verdict']) => verdictRank[v];
+const rankOf = (v: Tool['verdict']) => (v ? verdictRank[v] : 0);
 
 const truncate = (s: string, n: number) =>
   s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
@@ -77,7 +77,7 @@ const pickSentence = (tool: Tool, other: Tool): string => {
   ) {
     return `Same verdict, same shape — decide on the receipt dates and your stack, not on this page.`;
   }
-  return `Pick ${tool.name} if ${tool.verdict} is the right verdict for your stack.`;
+  return `Pick ${tool.name} if ${tool.verdict ?? 'radar'} is the right stamp for your stack.`;
 };
 
 const flags = (t: typeof da) =>
@@ -95,7 +95,7 @@ const intro =
     /, ([^,]*)$/,
     ' and $1',
   ) +
-  `The catalog verdict is ${da.verdict} for ${da.name} and ${db.verdict} for ${db.name}, last verified ${da.last_verified} and ${db.last_verified} respectively.`;
+  `The catalog stamp is ${da.verdict ?? 'radar'} for ${da.name} and ${db.verdict ?? 'radar'} for ${db.name}, last verified ${da.last_verified} and ${db.last_verified} respectively.`;
 
 const title = `${da.name} vs ${db.name}`;
 const description = `Compare ${da.name} and ${db.name} on pricing, free tier, open source, API, self-host, verdict and momentum.`;

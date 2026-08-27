@@ -1,0 +1,68 @@
+name: "Amp"
+vendor: "Sourcegraph"
+tagline: "Sourcegraph agentic coding harness with orb-hours and optional ChatGPT/Grok attachment."
+url: "https://ampcode.com"
+catalog_tool: "amp"
+license_kind: "proprietary"
+maturity: "beta"
+summary: "Amp is the product Sourcegraph actually pushes (Cody is the skip). Closed, hosted, second-IDE habit, with a $20 Megawatt on-ramp."
+best_for:
+  - "Developers who want agentic coding in a second IDE and already tolerate Sourcegraph"
+  - "Teams reusing a ChatGPT or SuperGrok subscription at no Amp markup"
+deployment:
+  - "managed"
+  - "hybrid"
+verdict: "situational"
+verdict_text: "Credible agentic coding from Sourcegraph. No public free tier. Orb hours and included agent dollars are two different meters."
+install:
+  - method: "download"
+    platform: "desktop"
+    url: "https://ampcode.com"
+requirements:
+  - "An Amp account"
+  - "A workspace the product can index"
+providers:
+  - "Amp bundled"
+  - "optional ChatGPT / SuperGrok attachment"
+channels:
+  - "desktop IDE"
+  - "agent sessions"
+cost_scenarios:
+  - name: "Megawatt"
+    monthly_usd_min: 20
+    monthly_usd_max: 20
+    assumptions: "750 orb-hours and $20 included agent usage at list."
+  - name: "Gigawatt"
+    monthly_usd_min: 200
+    monthly_usd_max: 200
+    assumptions: "Gigawatt list; unconstrained usage billing on top."
+security:
+  privilege: "high"
+  data_boundary: "Hosted Sourcegraph product. Code leaves your machine for Amp inference."
+  cautions:
+    - "No public free tier to evaluate privately."
+    - "Manual team billing — no auto-seat provisioning yet."
+limitations:
+  - "No public free tier on the Amp pricing page."
+  - "Max two subscriptions per human; orbs are not a resale compute pool."
+  - "Team workspace billing is manual."
+evidence:
+  - kind: "availability"
+    url: "https://ampcode.com/pricing"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://ampcode.com/pricing"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://ampcode.com/pricing"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://ampcode.com/pricing"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://ampcode.com/pricing"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

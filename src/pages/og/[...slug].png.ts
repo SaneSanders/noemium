@@ -1,6 +1,7 @@
 /**
  * Build-time Open Graph images: /og/noemium.png, /og/tools/<slug>.png,
- * /og/agents/<slug>.png, /og/stacks/<slug>.png — 1200×630 PNGs rendered with satori + resvg.
+ * /og/agents/<slug>.png, /og/skills/<slug>.png, /og/stacks/<slug>.png —
+ * 1200×630 PNGs rendered with satori + resvg.
  * Colors are parsed out of src/styles/tokens.css so the design tokens stay
  * the single source of truth; fonts come from the installed @fontsource packs.
  */
@@ -54,7 +55,7 @@ const fontFiles = [
 
 interface GenericProps {
   kind: 'generic';
-  counts: { tools: number; agents: number; stacks: number; models: number };
+  counts: { tools: number; agents: number; skills: number; stacks: number; models: number };
 }
 interface QuizProps {
   kind: 'quiz';
@@ -75,7 +76,7 @@ interface ToolProps {
   tagline: string;
   category: string;
   pricing: string;
-  verdict: 'ship' | 'situational' | 'skip';
+  verdict?: 'ship' | 'situational' | 'skip';
   lastVerified: string;
 }
 interface AgentProps {
@@ -83,6 +84,14 @@ interface AgentProps {
   name: string;
   tagline: string;
   layer: string;
+  evidenceTier: 'field-tested' | 'source-verified' | 'radar';
+  verdict?: 'ship' | 'situational' | 'skip';
+  lastVerified: string;
+}
+interface SkillProps {
+  kind: 'skill';
+  name: string;
+  tagline: string;
   evidenceTier: 'field-tested' | 'source-verified' | 'radar';
   verdict?: 'ship' | 'situational' | 'skip';
   lastVerified: string;
@@ -95,26 +104,29 @@ interface StackProps {
   difficulty: string;
   lastVerified: string;
 }
-type OgProps = GenericProps | ToolProps | AgentProps | StackProps | QuizProps | KitProps | QuizResultProps;
+type OgProps = GenericProps | ToolProps | AgentProps | SkillProps | StackProps | QuizProps | KitProps | QuizResultProps;
 
 export const getStaticPaths = (async () => {
-  const [tools, agents, stacks, models] = await Promise.all([
+  const [tools, agents, skills, stacks, models] = await Promise.all([
     getCollection('tools'),
     getCollection('agents'),
+    getCollection('skills'),
     getCollection('stacks'),
     getCollection('models'),
   ]);
+  const counts = {
+    tools: tools.length,
+    agents: agents.length,
+    skills: skills.length,
+    stacks: stacks.length,
+    models: models.length,
+  };
   return [
     {
       params: { slug: 'noemium' },
       props: {
         kind: 'generic',
-        counts: {
-          tools: tools.length,
-          agents: agents.length,
-          stacks: stacks.length,
-          models: models.length,
-        },
+        counts,
       } satisfies OgProps,
     },
     // Local-only /decide experiment: build an unreferenced OG PNG so local
@@ -123,12 +135,7 @@ export const getStaticPaths = (async () => {
       params: { slug: 'decide' },
       props: {
         kind: 'generic',
-        counts: {
-          tools: tools.length,
-          agents: agents.length,
-          stacks: stacks.length,
-          models: models.length,
-        },
+        counts,
       } satisfies OgProps,
     },
     {
@@ -158,6 +165,17 @@ export const getStaticPaths = (async () => {
         pricing: t.data.pricing,
         verdict: t.data.verdict,
         lastVerified: t.data.last_verified,
+      } satisfies OgProps,
+    })),
+    ...skills.map((skill) => ({
+      params: { slug: `skills/${skill.id}` },
+      props: {
+        kind: 'skill',
+        name: skill.data.name,
+        tagline: skill.data.tagline,
+        evidenceTier: skill.data.evidence_tier,
+        verdict: skill.data.verdict,
+        lastVerified: skill.data.last_verified,
       } satisfies OgProps,
     })),
     ...agents.map((agent) => ({
@@ -269,6 +287,30 @@ function verdictSticker(verdict: string) {
   );
 }
 
+function radarOrVerdict(verdict?: string) {
+  if (verdict) {
+    return h('div', { style: { marginLeft: 32, display: 'flex' } }, verdictSticker(verdict));
+  }
+  return h(
+    'span',
+    {
+      style: {
+        fontFamily: MONO,
+        fontWeight: 700,
+        fontSize: 18,
+        letterSpacing: 2,
+        textTransform: 'uppercase' as const,
+        color: C.accent,
+        border: `2px solid ${C.accent}`,
+        borderRadius: 6,
+        padding: '8px 14px',
+        marginLeft: 32,
+      },
+    },
+    'radar · no verdict',
+  );
+}
+
 const headline = (text: string, size: number) =>
   h(
     'span',
@@ -302,7 +344,7 @@ export const GET: APIRoute = async ({ props }) => {
         }),
       ),
       footer(
-        `TOOLS: ${p.counts.tools} · AGENTS: ${p.counts.agents} · STACKS: ${p.counts.stacks} · MODELS: ${p.counts.models} · PAID: 0`,
+        `TOOLS: ${p.counts.tools} · AGENTS: ${p.counts.agents} · SKILLS: ${p.counts.skills} · STACKS: ${p.counts.stacks} · MODELS: ${p.counts.models} · PAID: 0`,
       ),
     ]);
   } else if (p.kind === 'kit') {
@@ -357,7 +399,7 @@ export const GET: APIRoute = async ({ props }) => {
           'div',
           { style: { display: 'flex', alignItems: 'center' } },
           headline(p.name, p.name.length > 18 ? 64 : 88),
-          h('div', { style: { marginLeft: 32, display: 'flex' } }, verdictSticker(p.verdict)),
+          radarOrVerdict(p.verdict),
         ),
         h(
           'span',
@@ -377,26 +419,7 @@ export const GET: APIRoute = async ({ props }) => {
           'div',
           { style: { display: 'flex', alignItems: 'center' } },
           headline(p.name, p.name.length > 18 ? 64 : 82),
-          p.verdict
-            ? h('div', { style: { marginLeft: 32, display: 'flex' } }, verdictSticker(p.verdict))
-            : h(
-                'span',
-                {
-                  style: {
-                    fontFamily: MONO,
-                    fontWeight: 700,
-                    fontSize: 18,
-                    letterSpacing: 2,
-                    textTransform: 'uppercase' as const,
-                    color: C.accent,
-                    border: `2px solid ${C.accent}`,
-                    borderRadius: 6,
-                    padding: '8px 14px',
-                    marginLeft: 32,
-                  },
-                },
-                'radar · no verdict',
-              ),
+          radarOrVerdict(p.verdict),
         ),
         h(
           'span',
@@ -405,6 +428,26 @@ export const GET: APIRoute = async ({ props }) => {
         ),
       ),
       footer(`${p.evidenceTier} · ${p.layer} · verified ${p.lastVerified}`),
+    ]);
+  } else if (p.kind === 'skill') {
+    tree = frame([
+      header(`Skill · ${p.evidenceTier.replaceAll('-', ' ')}`),
+      h(
+        'div',
+        { style: { display: 'flex', flexDirection: 'column' } },
+        h(
+          'div',
+          { style: { display: 'flex', alignItems: 'center' } },
+          headline(p.name, p.name.length > 18 ? 64 : 82),
+          radarOrVerdict(p.verdict),
+        ),
+        h(
+          'span',
+          { style: { fontFamily: MONO, fontSize: 22, color: C.inkDim, marginTop: 20 } },
+          p.tagline,
+        ),
+      ),
+      footer(`skill · ${p.evidenceTier} · verified ${p.lastVerified}`),
     ]);
   } else {
     tree = frame([

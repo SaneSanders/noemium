@@ -10,8 +10,15 @@ const verdictTone: Record<Verdict, string> = {
   skip: 'nm-sticker-skip',
 };
 
-export function VerdictStamp({ verdict }: { verdict: Verdict }) {
-  return <span class={`nm-sticker ${verdictTone[verdict]}`}>{verdict}</span>;
+export function VerdictStamp({ verdict }: { verdict?: string }) {
+  if (!verdict || !(verdict in verdictTone)) {
+    return (
+      <span class="rounded-sm border-[1.5px] border-dashed border-ink-dim px-2 py-1 font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase">
+        radar
+      </span>
+    );
+  }
+  return <span class={`nm-sticker ${verdictTone[verdict as Verdict]}`}>{verdict}</span>;
 }
 
 const momentumConfig: Record<Momentum, { label: string; tone: string; path: string }> = {

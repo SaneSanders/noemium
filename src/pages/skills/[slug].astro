@@ -1,0 +1,145 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import VerdictBadge from '../../components/VerdictBadge.astro';
+import { evidenceTierLabels, skillHarnessLabels } from '../../lib/agent-display';
+import { hostname } from '../../lib/shelf';
+
+export const getStaticPaths = (async () => {
+  const skills = await getCollection('skills');
+  return skills.map((skill) => ({ params: { slug: skill.id }, props: { skill } }));
+}) satisfies GetStaticPaths;
+
+const { skill } = Astro.props;
+const s = skill.data;
+const strict = s.evidence_tier !== 'radar';
+const tools = s.related_tools ?? [];
+const agents = s.related_agents ?? [];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: s.name,
+  url: s.url,
+  description: s.tagline,
+};
+---
+
+<Base title={s.name} description={s.tagline} ogImage={`/og/skills/${skill.id}.png`}>
+  <article class="py-14 md:py-20">
+    <p class="flex flex-wrap items-center gap-3 font-mono text-[13px] font-medium tracking-[0.14em] text-accent uppercase">
+      <span aria-hidden="true" class="inline-block h-0.5 w-9 bg-accent"></span>
+      <a href="/skills/" class="hover:underline">Skills</a>
+      <span aria-hidden="true" class="text-ink-dim">/</span>
+      <span>{evidenceTierLabels[s.evidence_tier]}</span>
+    </p>
+
+    <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
+      <h1 class="font-display text-5xl leading-[0.98] font-medium tracking-tight md:text-7xl">{s.name}</h1>
+      {s.verdict ? <VerdictBadge verdict={s.verdict} class="text-sm" /> : <VerdictBadge class="text-sm" />}
+    </div>
+    <p class="mt-6 max-w-3xl text-xl leading-relaxed font-medium text-ink opacity-80">{s.tagline}</p>
+
+    <p class="mt-7 flex flex-wrap items-center gap-4">
+      <a href={s.url} class="nm-btn nm-btn-solid" rel="noopener">Visit {hostname(s.url)} →</a>
+      <span
+        class:list={[
+          strict
+            ? 'nm-verified'
+            : 'rounded-sm border-[1.5px] border-dashed border-ink-dim px-2 py-1 font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase',
+        ]}
+      >
+        {evidenceTierLabels[s.evidence_tier]} {s.last_verified}
+      </span>
+    </p>
+
+    <section class="nm-card mt-10 p-6 md:p-8">
+      <p class="font-mono text-xs tracking-[0.14em] text-ink-dim uppercase">
+        ledger entry · observed by <span class="normal-case">@{s.observed_by}</span>
+      </p>
+      <p class="mt-4 max-w-4xl text-lg leading-relaxed">{s.verdict_text ?? s.summary}</p>
+    </section>
+
+    {!strict && (
+      <section class="mt-6 rounded-lg border-[1.5px] border-dashed border-ink p-6">
+        <p class="font-mono text-[14px] font-bold tracking-[0.12em] text-ink uppercase">Radar · no verdict</p>
+        <p class="mt-2 max-w-3xl text-[15px] leading-relaxed text-ink opacity-75">
+          Canonical repo confirmed. We have not issued ship, situational, or skip. This is not a scrape of skills.sh.
+        </p>
+      </section>
+    )}
+
+    <section class="mt-12">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Compatible harnesses</h2>
+      <p class="mt-4 flex flex-wrap gap-2">
+        {s.compatible.map((h) => (
+          <span class="rounded-sm border-[1.5px] border-ink px-2.5 py-1.5 font-mono text-[14px]">
+            {skillHarnessLabels[h] ?? h}
+          </span>
+        ))}
+      </p>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Install</h2>
+      <pre class="nm-card mt-4 max-w-full overflow-x-auto p-5 font-mono text-[13px] leading-relaxed"><code>{s.install}</code></pre>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Known limitations</h2>
+      <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-relaxed marker:font-mono marker:text-verdict-skip">
+        {s.limitations.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Sources</h2>
+      <ol class="mt-4 space-y-2">
+        {s.receipts.map((r, i) => (
+          <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-mono text-[13px]">
+            <sup class="font-bold text-accent">{i + 1}</sup>
+            <a href={r} class="text-accent hover:underline" rel="noopener">
+              {hostname(r)}
+              <span class="text-ink-dim">{new URL(r).pathname === '/' ? '' : new URL(r).pathname}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    {
+      (tools.length > 0 || agents.length > 0) && (
+        <section class="mt-12">
+          <h2 class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">Related</h2>
+          <p class="mt-4 font-mono text-[13px]">
+            {tools.map((id, i) => (
+              <>
+                {i > 0 && <span class="mx-1.5 text-ink-dim">·</span>}
+                <a href={`/tools/${id}/`} class="text-accent hover:underline">{id}</a>
+              </>
+            ))}
+            {tools.length > 0 && agents.length > 0 && <span class="mx-1.5 text-ink-dim">·</span>}
+            {agents.map((id, i) => (
+              <>
+                {i > 0 && <span class="mx-1.5 text-ink-dim">·</span>}
+                <a href={`/agents/${id}/`} class="text-accent hover:underline">{id}</a>
+              </>
+            ))}
+          </p>
+        </section>
+      )
+    }
+
+    <p class="mt-12">
+      <a
+        href={`https://github.com/SaneSanders/noemium/edit/main/src/content/skills/${skill.id}.yaml`}
+        class="nm-btn nm-btn-outline"
+        rel="noopener"
+      >
+        Edit this page on GitHub
+      </a>
+    </p>
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} is:inline />
+</Base>

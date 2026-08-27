@@ -7,7 +7,7 @@ interface ToolHit {
   name: string;
   tagline: string;
   category: string;
-  verdict: Verdict;
+  verdict?: Verdict;
   logo?: string | null;
 }
 interface StackHit {
@@ -30,15 +30,23 @@ interface AgentHit {
   evidence_tier: 'field-tested' | 'source-verified' | 'radar';
   logo?: string | null;
 }
+interface SkillHit {
+  slug: string;
+  name: string;
+  tagline: string;
+  evidence_tier: 'field-tested' | 'source-verified' | 'radar';
+  compatible: string[];
+}
 interface Index {
   tools: ToolHit[];
   stacks: StackHit[];
   models: ModelHit[];
   agents: AgentHit[];
+  skills?: SkillHit[];
 }
 
 interface Row {
-  kind: 'tool' | 'agent' | 'stack' | 'model' | 'command';
+  kind: 'tool' | 'agent' | 'skill' | 'stack' | 'model' | 'command';
   label: string;
   hint: string;
   href: string;
@@ -89,7 +97,7 @@ export default function CommandPalette() {
     if (index) return;
     fetch('/search-index.json')
       .then((r) => r.json())
-      .then((data: Index) => setIndex(data))
+      .then((data: Index) => setIndex({ ...data, skills: data.skills ?? [] }))
       .catch(() => {});
   }, [index]);
 
@@ -180,6 +188,25 @@ export default function CommandPalette() {
           logo: s.logo,
         }));
       }
+      if (cmd === 'skill') {
+        const list = index.skills ?? [];
+        const hits = list
+          .map((skill) => ({
+            skill,
+            score: arg
+              ? Math.max(fuzzy(arg, skill.name), fuzzy(arg, skill.tagline), ...skill.compatible.map((c) => fuzzy(arg, c)))
+              : 1,
+          }))
+          .filter((x) => x.score >= 0)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 8);
+        return hits.map(({ skill }) => ({
+          kind: 'skill' as const,
+          label: skill.name,
+          hint: skill.evidence_tier === 'radar' ? 'skill · radar' : 'skill',
+          href: `/skills/${skill.slug}/`,
+        }));
+      }
       if (cmd === 'agent') {
         const hits = index.agents
           .map((agent) => ({
@@ -202,6 +229,7 @@ export default function CommandPalette() {
       return [
         { kind: 'command', label: 'compare <a> <b>', hint: 'side-by-side table', href: '/tools/compare/?tools=cursor,claude-code' },
         { kind: 'command', label: 'agent <query>', hint: 'search agent guides', href: '/agents/' },
+        { kind: 'command', label: 'skill <query>', hint: 'search skills', href: '/skills/' },
         { kind: 'command', label: 'stack <query>', hint: 'search stacks', href: '/stacks/' },
         { kind: 'command', label: 'status', hint: 'catalog health', href: '/status/' },
         { kind: 'command', label: 'kit', hint: 'save a set', href: '/kit/' },
@@ -214,6 +242,7 @@ export default function CommandPalette() {
       { kind: 'command', label: 'Status', hint: 'catalog health', href: '/status/' },
       { kind: 'command', label: 'Plans', hint: 'seat versus API', href: '/plans/' },
       { kind: 'command', label: 'MCP', hint: 'servers with a verdict', href: '/mcp/' },
+      { kind: 'command', label: 'Skills', hint: 'installable SKILL.md', href: '/skills/' },
       { kind: 'command', label: 'Kit', hint: 'save a set', href: '/kit/' },
       { kind: 'command', label: 'Why directories lie', hint: 'essay', href: '/why/' },
       { kind: 'command', label: 'Contribute', hint: 'open a PR', href: '/contribute/' },
@@ -241,6 +270,15 @@ export default function CommandPalette() {
             href: `/agents/${agent.slug}/`,
             logo: agent.logo,
           })),
+        ...(index.skills ?? [])
+          .filter((skill) => skill.evidence_tier !== 'radar')
+          .slice(0, 2)
+          .map((skill) => ({
+            kind: 'skill' as const,
+            label: skill.name,
+            hint: 'skill',
+            href: `/skills/${skill.slug}/`,
+          })),
         ...index.stacks.slice(0, 3).map((s) => ({
           kind: 'stack' as const,
           label: s.title,
@@ -256,7 +294,7 @@ export default function CommandPalette() {
         row: {
           kind: 'tool' as const,
           label: t.name,
-          hint: `${t.category} · ${t.verdict}`,
+          hint: `${t.category} · ${t.verdict ?? 'radar'}`,
           href: `/tools/${t.slug}/`,
           logo: t.logo,
         },
@@ -297,6 +335,19 @@ export default function CommandPalette() {
       .filter((x) => x.score >= 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 4);
+    const skillHits = (index.skills ?? [])
+      .map((skill) => ({
+        row: {
+          kind: 'skill' as const,
+          label: skill.name,
+          hint: skill.evidence_tier === 'radar' ? 'skill · radar' : 'skill',
+          href: `/skills/${skill.slug}/`,
+        },
+        score: Math.max(fuzzy(q, skill.name), fuzzy(q, skill.tagline) * 0.6),
+      }))
+      .filter((x) => x.score >= 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3);
     const models = index.models
       .map((m) => ({
         row: {
@@ -319,7 +370,7 @@ export default function CommandPalette() {
       .filter((x) => x.score >= 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 3);
-    return [...pageHits, ...tools, ...agents, ...stacks, ...models].map((x) => x.row);
+    return [...pageHits, ...tools, ...agents, ...skillHits, ...stacks, ...models].map((x) => x.row);
   }, [index, query, commandMode, commandBody]);
 
   useEffect(() => setSelected(0), [rows.length, query]);
@@ -379,6 +430,7 @@ export default function CommandPalette() {
   const kindTone: Record<Row['kind'], string> = {
     tool: 'text-accent',
     agent: 'text-accent',
+    skill: 'text-accent',
     stack: 'text-ink-dim',
     model: 'text-ink-dim',
     command: 'text-accent',

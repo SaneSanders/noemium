@@ -9,7 +9,7 @@ export interface KitTool {
   tagline: string;
   category: string;
   pricing: 'free' | 'freemium' | 'paid';
-  verdict: Verdict;
+  verdict?: Verdict;
   open_source: boolean;
   self_host: boolean;
   logo?: string | null;

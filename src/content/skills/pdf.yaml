@@ -1,0 +1,15 @@
+name: "pdf"
+tagline: "Anthropic document skill for reading and writing PDFs from the agent."
+url: "https://github.com/anthropics/skills"
+compatible:
+  - "claude-code"
+install: "Copy the pdf skill from anthropics/skills (document-skills)."
+summary: "Useful for form-ish PDFs and reports. Scanned pages still need OCR you provide."
+limitations:
+  - "Scans and layout-heavy pages fail closed."
+  - "Not a PDF/A compliance tool."
+evidence_tier: "radar"
+receipts:
+  - "https://github.com/anthropics/skills"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

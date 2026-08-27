@@ -1,0 +1,65 @@
+name: "Goose"
+vendor: "Block / AAIF"
+tagline: "Open local agent from Block: recipes, MCP, BYOK, desktop and CLI."
+url: "https://github.com/aaif-goose/goose"
+catalog_tool: "goose"
+license_kind: "osi-open-source"
+maturity: "beta"
+summary: "A local agent you can actually read. Recipes and extensions, runs on your machine against whatever provider you wire. Quality is the model."
+best_for:
+  - "Local-first agents with MCP and recipes"
+  - "Teams that want to read the harness, not rent it"
+deployment:
+  - "local"
+verdict: "situational"
+verdict_text: "Readable local agent. You pay the model. Maturity is still catching the closed IDEs on polish."
+install:
+  - method: "command"
+    platform: "macOS / Linux"
+    command: "curl -fsSL https://github.com/block/goose/releases/latest/download/download_cli.sh | bash"
+    url: "https://github.com/aaif-goose/goose"
+requirements:
+  - "A supported OS"
+  - "A model provider or local endpoint"
+providers:
+  - "BYOK"
+channels:
+  - "CLI"
+  - "desktop"
+cost_scenarios:
+  - name: "Harness only"
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: "Apache-licensed. Model spend is yours."
+security:
+  privilege: "high"
+  data_boundary: "Local process. Tool and MCP access are the threat surface."
+  cautions:
+    - "Review recipes the way you review shell scripts."
+    - "Pin extension sources."
+limitations:
+  - "Polish trails Cursor/Claude Code."
+  - "You own provider outages and keys."
+evidence:
+  - kind: "availability"
+    url: "https://github.com/aaif-goose/goose"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://github.com/aaif-goose/goose"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://github.com/aaif-goose/goose"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://github.com/aaif-goose/goose"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://github.com/aaif-goose/goose"
+    checked_at: "2026-08-26"
+  - kind: "license"
+    url: "https://github.com/aaif-goose/goose"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

@@ -1,0 +1,21 @@
+name: "Dust"
+tagline: "Team agents over company data: connectors, workflows, and a managed workspace."
+url: "https://dust.tt"
+category: "automation"
+pricing: "freemium"
+free_tier: true
+open_source: true
+api: true
+self_host: false
+limitations:
+  - "Radar: connector security not reviewed here."
+  - "A workspace product, not a drop-in n8n replacement."
+receipts:
+  - "https://dust.tt"
+  - "https://github.com/dust-tt/dust"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

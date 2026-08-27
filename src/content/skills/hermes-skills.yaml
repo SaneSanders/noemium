@@ -1,0 +1,17 @@
+name: "Hermes learning loop"
+tagline: "Nous Hermes agent can write and improve its own skills — treat new skills as untrusted code."
+url: "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/"
+compatible:
+  - "hermes"
+install: "Use Hermes setup; the learning loop is part of the agent, not a file you copy from skills.sh."
+summary: "The interesting part of Hermes is that it authors skills. That is also the supply-chain part. Review what it writes."
+limitations:
+  - "Self-written skills can encode the agent's last mistake."
+  - "Not portable to Claude Code without a rewrite."
+evidence_tier: "radar"
+related_agents:
+  - "hermes-agent"
+receipts:
+  - "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

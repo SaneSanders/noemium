@@ -25,7 +25,8 @@ const flags = [t.open_source && 'OSS', t.api && 'API', t.free_tier && 'FREE TIER
   data-tagline={t.tagline}
   data-category={t.category}
   data-pricing={t.pricing}
-  data-verdict={t.verdict}
+  data-verdict={t.verdict ?? 'radar'}
+  data-evidence-tier={t.evidence_tier}
   data-momentum={t.momentum}
   data-free-tier={String(t.free_tier)}
   data-open-source={String(t.open_source)}
@@ -43,7 +44,7 @@ const flags = [t.open_source && 'OSS', t.api && 'API', t.free_tier && 'FREE TIER
       <span class="font-mono text-[13px] font-medium tracking-[0.1em] text-ink-dim uppercase">
         {t.category}
       </span>
-      <VerdictBadge verdict={t.verdict} />
+      {t.verdict ? <VerdictBadge verdict={t.verdict} /> : <VerdictBadge />}
     </div>
     <div class="mt-4 flex items-center gap-3">
       <LogoTile slug={tool.id} name={t.name} size="md" />

@@ -1,0 +1,17 @@
+name: "Vercel agent skills"
+tagline: "Vercel Labs skills for React/Next agent workflows — not a marketplace dump."
+url: "https://github.com/vercel-labs/agent-skills"
+compatible:
+  - "claude-code"
+  - "cursor"
+  - "generic"
+install: "Clone vercel-labs/agent-skills and copy the skill you need. Read the repo README for the current layout."
+summary: "A small official-ish set from Vercel Labs. Use as discovery, then pin. Do not treat Labs as a stability contract."
+limitations:
+  - "Labs repos move or vanish."
+  - "Next.js-shaped; not a generic frontend skill."
+evidence_tier: "radar"
+receipts:
+  - "https://github.com/vercel-labs/agent-skills"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

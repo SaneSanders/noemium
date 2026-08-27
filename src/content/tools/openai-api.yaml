@@ -37,6 +37,7 @@ limitations:
 receipts:
   - https://platform.openai.com/docs
 affiliate: none
+evidence_tier: source-verified
 momentum: steady
 featured: false
 last_verified: "2026-08-19"

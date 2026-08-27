@@ -39,6 +39,7 @@ function place(
   if (tool.verdict === 'skip') return { band: 'crust', t: 0.5 };
 
   let t = 0.45;
+  if (!tool.verdict) t += 0.16;
   if (tool.momentum === 'blueshift') t += 0.28;
   if (tool.momentum === 'redshift') t -= 0.26;
   if (freshSlugs.has(slug)) t += 0.14;
@@ -72,6 +73,7 @@ export function buildMapPayload(
     open_source?: boolean;
     featured?: boolean;
     last_verified?: string;
+    evidence_tier?: string;
     fresh: boolean;
     band: string;
     level: number;
@@ -84,13 +86,14 @@ export function buildMapPayload(
       tagline: t.data.tagline,
       category: t.data.category,
       region: regionOf(t.data.category),
-      verdict: t.data.verdict,
+      verdict: t.data.verdict ?? 'radar',
       momentum: t.data.momentum,
       pricing: t.data.pricing,
       free_tier: t.data.free_tier,
       open_source: t.data.open_source,
       featured: t.data.featured,
       last_verified: t.data.last_verified,
+      evidence_tier: t.data.evidence_tier,
       fresh: freshSlugs.has(t.id),
       band,
       level,
@@ -136,6 +139,7 @@ export function buildMapPayload(
       ship: tools.filter((t) => t.data.verdict === 'ship').length,
       situational: tools.filter((t) => t.data.verdict === 'situational').length,
       skip: tools.filter((t) => t.data.verdict === 'skip').length,
+      radar: tools.filter((t) => t.data.evidence_tier === 'radar').length,
     },
     fresh_week: latestWeek?.id ?? null,
     nodes,

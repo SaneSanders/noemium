@@ -33,6 +33,7 @@ limitations:
 receipts:
   - https://github.com/langchain-ai/langgraph
 affiliate: none
+evidence_tier: source-verified
 momentum: blueshift
 featured: false
 data_sensitivity:

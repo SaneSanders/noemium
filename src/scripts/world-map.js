@@ -31,7 +31,7 @@ function seed(str) {
   };
 }
 
-const state = { nodes: [], stars: [], regions: [], counts: {}, activeRegion: null, query: '' };
+const state = { nodes: [], stars: [], regions: [], counts: {}, activeRegion: null, query: '', hideRadar: false };
 
 // Autopsy hands the stack over in the hash: map.html#stack=cursor,veo-3
 const myStack = new Set(
@@ -44,11 +44,13 @@ fetch('/api/map.json').then((r) => r.json()).then((data) => {
   state.stars = data.stars;
   state.regions = data.regions;
   state.counts = data.counts;
+  state.hideRadar = (data.counts?.radar ?? 0) >= 400;
   layout();
   draw();
   buildChips();
   showCounts();
   showMine();
+  if (state.hideRadar) applyFilter();
 });
 
 // When Autopsy sends a stack over, say where it actually sits.
@@ -373,6 +375,7 @@ function draw() {
   for (const n of state.nodes) {
     const g = el('g', {
       class: `node n-${n.band}` + (n.fresh ? ' fresh' : '')
+        + (n.evidence_tier === 'radar' ? ' radar' : '')
         + (myStack.has(n.slug) ? ' mine' : ''),
       'data-slug': n.slug,
       tabindex: '0',
@@ -491,8 +494,7 @@ function applyLod() {
     const show =
       myStack.has(n.slug) ||
       level === 2 ||
-      (level === 1 && (n.featured || n.band === 'land' || n.fresh)) ||
-      // On the ground everything is named: 63 marks read, 176 would not.
+      (level === 1 && (n.featured || n.band === 'land' || n.fresh) && n.evidence_tier !== 'radar') ||
       (level === 0 && (n.featured || n.band === 'land'));
     n.lbl.style.display = show ? '' : 'none';
     const base = n.band === 'land' || n.band === 'crust' ? 15 : 17;
@@ -547,6 +549,16 @@ function buildChips() {
   all.textContent = 'all';
   all.onclick = () => { state.activeRegion = null; syncChips(); applyFilter(); applyViewport(); };
   wrap.appendChild(all);
+  const floor = document.createElement('button');
+  floor.className = state.hideRadar ? 'chip on' : 'chip';
+  floor.textContent = 'floor';
+  floor.title = 'Hide radar marks (no verdict)';
+  floor.onclick = () => {
+    state.hideRadar = !state.hideRadar;
+    floor.classList.toggle('on', !!state.hideRadar);
+    applyFilter();
+  };
+  wrap.appendChild(floor);
   for (const r of state.regions) {
     const b = document.createElement('button');
     b.className = 'chip';
@@ -565,6 +577,10 @@ function buildChips() {
 }
 function syncChips() {
   document.querySelectorAll('#regionChips .chip').forEach((c) => {
+    if (c.textContent === 'floor') {
+      c.classList.toggle('on', !!state.hideRadar);
+      return;
+    }
     const on = c.dataset.region ? c.dataset.region === state.activeRegion : !state.activeRegion;
     c.classList.toggle('on', on);
   });
@@ -580,7 +596,8 @@ function applyFilter() {
     const hit = query && (n.name.toLowerCase().includes(query) || n.slug.includes(query));
     const queryOk = !query || hit;
     const mineOk = !state.onlyMine || myStack.has(n.slug);
-    n.g.classList.toggle('dim', !(regionOk && queryOk && mineOk));
+    const radarOk = !state.hideRadar || n.evidence_tier !== 'radar';
+    n.g.classList.toggle('dim', !(regionOk && queryOk && mineOk && radarOk));
     n.g.classList.toggle('hit-match', !!hit);
     if (hit) n.lbl.style.display = '';
   }
@@ -609,6 +626,7 @@ function showNode(n, e) {
     <p>${n.tagline ?? ''}</p>
     <div class="tags">
       ${n.verdict ? `<span class="tag ${n.verdict === 'ship' ? 'ship' : ''}${n.verdict === 'dead' ? 'dead' : ''}">${n.verdict}</span>` : ''}
+      ${n.evidence_tier === 'radar' ? '<span class="tag">radar · no verdict</span>' : ''}
       ${n.pricing ? `<span class="tag">${n.pricing}</span>` : ''}
       ${n.free_tier ? '<span class="tag">free tier</span>' : ''}
       ${n.open_source ? '<span class="tag">open source</span>' : ''}
@@ -637,5 +655,5 @@ function showCounts() {
   const c = state.counts;
   document.getElementById('counts').innerHTML =
     `<b>${c.tools}</b> tools · <b>${c.ship}</b> solid ground · <b>${c.situational}</b> unsettled · ` +
-    `<b>${c.skip}</b> rejected · <b>${c.dead}</b> buried · <b>${c.models}</b> models`;
+    `<b>${c.skip}</b> rejected · <b>${c.radar ?? 0}</b> radar · <b>${c.dead}</b> buried · <b>${c.models}</b> models`;
 }

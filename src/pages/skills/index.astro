@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import SkillCard from '../../components/SkillCard.astro';
+
+const skills = await getCollection('skills');
+const strict = skills
+  .filter((skill) => skill.data.evidence_tier !== 'radar')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const radar = skills
+  .filter((skill) => skill.data.evidence_tier === 'radar')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Noemium skills',
+  itemListElement: skills.map((skill, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: skill.data.name,
+    url: new URL(`/skills/${skill.id}/`, Astro.site).href,
+  })),
+};
+---
+
+<Base
+  title="Skills"
+  description={`${strict.length} graded SKILL.md packs and ${radar.length} radar entries. Not a scrape of skills.sh.`}
+>
+  <SectionHeader
+    title="Skills"
+    sub={`${strict.length} graded. ${radar.length} radar.`}
+  />
+
+  <section class="-mt-2 grid gap-4 md:grid-cols-2">
+    <div class="nm-card p-5">
+      <p class="font-mono text-[14px] font-bold tracking-[0.12em] text-accent uppercase">Installable</p>
+      <p class="mt-2 text-[17px] leading-relaxed">
+        A skill is a file a harness loads. We list canonical repos, not a marketplace dump.
+      </p>
+    </div>
+    <div class="nm-card border-dashed p-5">
+      <p class="font-mono text-[14px] font-bold tracking-[0.12em] text-ink-dim uppercase">Radar</p>
+      <p class="mt-2 text-[17px] leading-relaxed">Discovery from the upstream repo. No fake ship stamp.</p>
+    </div>
+  </section>
+
+  <section class="mt-14">
+    <h2 class="font-display text-4xl leading-[0.98] font-medium tracking-tight md:text-5xl">Graded</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      {strict.map((skill) => <SkillCard skill={skill} />)}
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <h2 class="font-display text-4xl leading-[0.98] font-medium tracking-tight md:text-5xl">Radar</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {radar.map((skill) => <SkillCard skill={skill} />)}
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} is:inline />
+</Base>

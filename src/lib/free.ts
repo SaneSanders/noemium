@@ -11,7 +11,7 @@ export type FreeTool = {
   free_tier: boolean;
   open_source: boolean;
   self_host: boolean;
-  verdict: 'ship' | 'situational' | 'skip';
+  verdict?: 'ship' | 'situational' | 'skip';
   price_note?: string;
   limitations?: string[];
   skip_when?: string[];
@@ -66,14 +66,15 @@ export function collectFree(tools: FreeTool[]): Record<FreeKind, FreeRow[]> {
     bait: [],
     paid: [],
   };
-  const rank = { ship: 0, situational: 1, skip: 2 };
+  const rank: Record<string, number> = { ship: 0, situational: 1, skip: 2 };
   for (const tool of tools) {
     const call = classifyFree(tool);
     buckets[call.kind].push({ ...tool, ...call });
   }
   for (const kind of Object.keys(buckets) as FreeKind[]) {
     buckets[kind].sort(
-      (a, b) => rank[a.verdict] - rank[b.verdict] || a.name.localeCompare(b.name),
+      (a, b) =>
+        (rank[a.verdict ?? ''] ?? 9) - (rank[b.verdict ?? ''] ?? 9) || a.name.localeCompare(b.name),
     );
   }
   return buckets;

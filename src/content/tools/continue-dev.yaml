@@ -1,0 +1,22 @@
+name: "Continue"
+tagline: "Open-source IDE agent (VS Code/JetBrains) with hub configs, BYOK, and local models."
+url: "https://continue.dev"
+category: "coding"
+pricing: "freemium"
+price_note: "OSS extension free; Continue Hub has paid team features"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Noemium has not field-run Continue in this wave — listing is from the project site and GitHub."
+  - "Hub vs local config is two products; do not assume the OSS extension equals the cloud hub."
+receipts:
+  - "https://continue.dev"
+  - "https://github.com/continuedev/continue"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

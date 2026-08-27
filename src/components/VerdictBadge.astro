@@ -1,18 +1,29 @@
 ---
 interface Props {
-  verdict: 'ship' | 'situational' | 'skip';
+  verdict?: 'ship' | 'situational' | 'skip';
   class?: string;
 }
 
 const { verdict, class: className = '' } = Astro.props;
 
-const tone: Record<Props['verdict'], string> = {
+const tone: Record<NonNullable<Props['verdict']>, string> = {
   ship: 'nm-sticker-ship',
   situational: 'nm-sticker-situational',
   skip: 'nm-sticker-skip',
 };
 ---
 
-<span class:list={['nm-sticker', tone[verdict], className]}>
-  {verdict}
-</span>
+{
+  verdict ? (
+    <span class:list={['nm-sticker', tone[verdict], className]}>{verdict}</span>
+  ) : (
+    <span
+      class:list={[
+        'rounded-sm border-[1.5px] border-dashed border-ink-dim px-2 py-1 font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase',
+        className,
+      ]}
+    >
+      radar
+    </span>
+  )
+}

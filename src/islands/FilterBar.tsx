@@ -12,7 +12,7 @@ export interface ToolRecord {
   free_tier: boolean;
   open_source: boolean;
   api: boolean;
-  verdict: Verdict;
+  verdict?: Verdict;
   momentum: Momentum;
   featured: boolean;
   last_verified: string;
@@ -48,6 +48,8 @@ interface Filters {
   free_tier: boolean;
   open_source: boolean;
   api: boolean;
+  floor: boolean;
+  radar: boolean;
 }
 
 const EMPTY: Filters = {
@@ -59,12 +61,16 @@ const EMPTY: Filters = {
   free_tier: false,
   open_source: false,
   api: false,
+  floor: false,
+  radar: false,
 };
 
 // Layer-1 presets: one click applies a whole filter bundle.
 const PRESETS: { key: string; label: string; apply: Partial<Filters> }[] = [
   { key: 'free-oss', label: 'free + open source', apply: { free_tier: true, open_source: true } },
   { key: 'ship', label: 'ship it only', apply: { verdicts: ['ship'] } },
+  { key: 'floor', label: 'floor (has verdict)', apply: { floor: true } },
+  { key: 'radar', label: 'radar only', apply: { radar: true } },
   { key: 'gaining', label: 'gaining (blueshift)', apply: { momenta: ['blueshift'] } },
   { key: 'api', label: 'has API', apply: { api: true } },
 ];
@@ -83,6 +89,8 @@ function parseUrl(): Filters {
     free_tier: p.get('free') === '1',
     open_source: p.get('oss') === '1',
     api: p.get('api') === '1',
+    floor: p.get('floor') === '1',
+    radar: p.get('radar') === '1',
   };
 }
 
@@ -96,6 +104,8 @@ function writeUrl(f: Filters) {
   if (f.free_tier) p.set('free', '1');
   if (f.open_source) p.set('oss', '1');
   if (f.api) p.set('api', '1');
+  if (f.floor) p.set('floor', '1');
+  if (f.radar) p.set('radar', '1');
   const qs = p.toString();
   window.history.replaceState(null, '', qs ? `?${qs}` : window.location.pathname);
 }
@@ -125,6 +135,7 @@ function applyFilters(f: Filters, cards: HTMLElement[]) {
     const freeTier = card.dataset.freeTier === 'true';
     const openSource = card.dataset.openSource === 'true';
     const api = card.dataset.api === 'true';
+    const tier = card.dataset.evidenceTier ?? '';
     const name = card.dataset.name ?? '';
     const tagline = card.dataset.tagline ?? '';
 
@@ -137,6 +148,8 @@ function applyFilters(f: Filters, cards: HTMLElement[]) {
     if (f.free_tier && !freeTier) visible = false;
     if (f.open_source && !openSource) visible = false;
     if (f.api && !api) visible = false;
+    if (f.floor && tier === 'radar') visible = false;
+    if (f.radar && tier !== 'radar') visible = false;
 
     card.classList.toggle('hidden', !visible);
   });
@@ -182,7 +195,7 @@ export default function FilterBar() {
     const initial = parseUrl();
     setFilters(initial);
     // Landing from a category tile with fine filters in the URL opens layer 2.
-    if (initial.pricing.length || initial.verdicts.length || initial.momenta.length) {
+    if (initial.pricing.length || initial.verdicts.length || initial.momenta.length || initial.floor || initial.radar) {
       setFineOpen(true);
     }
     applyFilters(initial, cards);
@@ -227,7 +240,9 @@ export default function FilterBar() {
     filters.momenta.length +
     (filters.free_tier ? 1 : 0) +
     (filters.open_source ? 1 : 0) +
-    (filters.api ? 1 : 0);
+    (filters.api ? 1 : 0) +
+    (filters.floor ? 1 : 0) +
+    (filters.radar ? 1 : 0);
 
   return (
     <section>
@@ -340,6 +355,19 @@ export default function FilterBar() {
               </Chip>
               <Chip active={filters.api} onClick={() => update({ ...filters, api: !filters.api })}>
                 api
+              </Chip>
+              <span class="mx-1 h-5 w-px bg-line-soft" aria-hidden="true" />
+              <Chip
+                active={filters.floor}
+                onClick={() => update({ ...filters, floor: !filters.floor, radar: filters.floor ? filters.radar : false })}
+              >
+                floor
+              </Chip>
+              <Chip
+                active={filters.radar}
+                onClick={() => update({ ...filters, radar: !filters.radar, floor: filters.radar ? filters.floor : false })}
+              >
+                radar
               </Chip>
             </div>
             <div class="flex flex-wrap items-center gap-2">

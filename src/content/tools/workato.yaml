@@ -32,6 +32,7 @@ receipts:
   - https://www.workato.com
   - https://docs.workato.com
 affiliate: none
+evidence_tier: source-verified
 momentum: steady
 featured: false
 last_verified: "2026-08-19"

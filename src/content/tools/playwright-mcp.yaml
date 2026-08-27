@@ -38,5 +38,16 @@ featured: false
 data_sensitivity:
   trains_on_inputs: unknown
   local_processing: true
+guide:
+  install: >-
+    npx @playwright/mcp@latest — then attach the stdio server in the harness MCP config.
+  requirements:
+    - A desktop/CI that can launch Chromium
+    - A harness that speaks MCP
+  cost: The server is Apache-2.0. You pay the model tokens and the machine that runs the browser.
+  security: This launches a real browser on the host. Stdio MCP is a local-privilege process. Do not attach it to an agent that talks to strangers.
+  breaks_when:
+    - You needed DevTools traces or heap snapshots — use chrome-devtools-mcp instead.
+    - The environment cannot launch a browser (some CI images).
 last_verified: "2026-08-26"
 observed_by: whysanesanders

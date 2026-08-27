@@ -1,0 +1,22 @@
+name: "Notion MCP"
+tagline: "Official Notion MCP server — workspace pages and databases as tools for coding agents."
+url: "https://github.com/makenotion/notion-mcp-server"
+category: "mcp"
+pricing: "free"
+price_note: "Server is free; you need a Notion workspace and integration token"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: OAuth/token scopes not reproduced in this wave."
+  - "A writable Notion integration is a data-exfil path. Least privilege or skip."
+receipts:
+  - "https://github.com/makenotion/notion-mcp-server"
+  - "https://developers.notion.com/docs/mcp"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

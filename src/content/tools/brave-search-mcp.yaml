@@ -1,0 +1,22 @@
+name: "Brave Search MCP"
+tagline: "Official-ish MCP wrapper around Brave Search API for agents that need web results without a browser."
+url: "https://github.com/modelcontextprotocol/servers"
+category: "mcp"
+pricing: "freemium"
+price_note: "Server free; Brave Search API has a free tier then paid"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: API quota and current package name not re-verified beyond the servers repo."
+  - "Search quality ≠ Tavily-style LLM-ready snippets."
+receipts:
+  - "https://github.com/modelcontextprotocol/servers"
+  - "https://brave.com/search/api/"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

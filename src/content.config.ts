@@ -1,6 +1,6 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { agentSchema, graveyardSchema, jobSchema, modelSchema, stackSchema, toolSchema } from './content-schemas';
+import { agentSchema, graveyardSchema, jobSchema, modelSchema, skillSchema, stackSchema, toolSchema } from './content-schemas';
 
 const tools = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/tools' }),
@@ -32,4 +32,9 @@ const jobs = defineCollection({
   schema: jobSchema,
 });
 
-export const collections = { tools, stacks, models, graveyard, agents, jobs };
+const skills = defineCollection({
+  loader: glob({ pattern: '**/*.yaml', base: './src/content/skills' }),
+  schema: skillSchema,
+});
+
+export const collections = { tools, stacks, models, graveyard, agents, jobs, skills };

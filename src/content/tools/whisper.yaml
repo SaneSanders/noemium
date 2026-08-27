@@ -36,6 +36,7 @@ receipts:
   - https://github.com/openai/whisper
   - https://developers.openai.com/api/docs/pricing
 affiliate: none
+evidence_tier: source-verified
 momentum: steady
 featured: false
 data_sensitivity:

@@ -1,0 +1,20 @@
+name: "Kokoro"
+tagline: "Small open TTS model (82M) that runs locally at usable quality for the size."
+url: "https://github.com/hexgrad/kokoro"
+category: "audio"
+pricing: "free"
+free_tier: true
+open_source: true
+api: false
+self_host: true
+limitations:
+  - "Radar: we have not bench'd Kokoro against ElevenLabs on a studio job."
+  - "Local GPU/CPU story depends on the runtime you wrap it in."
+receipts:
+  - "https://github.com/hexgrad/kokoro"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

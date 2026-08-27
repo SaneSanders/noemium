@@ -1,0 +1,21 @@
+name: "Anthropic skills"
+tagline: "Official Anthropic SKILL.md collection — documents, mcp-builder, skill-creator, and related starters."
+url: "https://github.com/anthropics/skills"
+compatible:
+  - "claude-code"
+install: "Clone anthropics/skills and copy the skill folder you want into the harness skills directory."
+summary: "Canonical upstream for several document and meta skills. Prefer this repo over random marketplace copies."
+limitations:
+  - "A monorepo of many skills — pick one, do not dump the tree into every project."
+  - "Official does not mean field-tested on your stack."
+evidence_tier: "source-verified"
+verdict: "situational"
+verdict_text: "Start here when you want an official SKILL.md, not a scrape of skills.sh. Still instructions, still needs a receipt in the repo that uses it."
+related_tools:
+  - "claude-code"
+related_agents:
+  - "claude-code"
+receipts:
+  - "https://github.com/anthropics/skills"
+last_verified: "2026-08-26"
+observed_by: "whysanesanders"

@@ -10,6 +10,7 @@ import LogoTile from '../components/LogoTile.astro';
 
 const tools = await getCollection('tools');
 const agents = await getCollection('agents');
+const skills = await getCollection('skills');
 const asOf = new Date().toISOString().slice(0, 10);
 const health = catalogHealth(
   tools.map((tool) => ({
@@ -27,9 +28,11 @@ const health = catalogHealth(
 );
 
 const fieldTestedTools = tools.filter((tool) => tool.data.evidence_tier === 'field-tested').length;
+const radarTools = tools.filter((tool) => tool.data.evidence_tier === 'radar').length;
 const fieldTestedAgents = agents.filter((agent) => agent.data.evidence_tier === 'field-tested').length;
 const radarAgents = agents.filter((agent) => agent.data.evidence_tier === 'radar').length;
 const strictAgents = agents.length - radarAgents;
+const radarSkills = skills.filter((skill) => skill.data.evidence_tier === 'radar').length;
 
 const stats = [
   { value: health.total, label: 'tools' },
@@ -98,11 +101,17 @@ const stats = [
       <p class="mt-4 font-mono text-[13px] leading-relaxed">
         tools field-tested <span class="nm-num font-bold">{fieldTestedTools}</span>
         <span class="mx-2 text-ink-dim">·</span>
+        tools radar <span class="nm-num font-bold">{radarTools}</span>
+        <span class="mx-2 text-ink-dim">·</span>
         agents field-tested <span class="nm-num font-bold">{fieldTestedAgents}</span>
         <span class="mx-2 text-ink-dim">·</span>
         agents source-verified <span class="nm-num font-bold">{strictAgents}</span>
         <span class="mx-2 text-ink-dim">·</span>
-        radar <span class="nm-num font-bold">{radarAgents}</span>
+        agents radar <span class="nm-num font-bold">{radarAgents}</span>
+        <span class="mx-2 text-ink-dim">·</span>
+        skills <span class="nm-num font-bold">{skills.length}</span>
+        <span class="mx-2 text-ink-dim">·</span>
+        skills radar <span class="nm-num font-bold">{radarSkills}</span>
       </p>
     </div>
   </section>

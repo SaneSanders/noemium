@@ -23,6 +23,16 @@ export const evidenceTierLabels: Record<Agent['evidence_tier'], string> = {
   radar: 'Radar',
 };
 
+export const skillHarnessLabels: Record<string, string> = {
+  'claude-code': 'Claude Code',
+  cursor: 'Cursor',
+  codex: 'Codex',
+  opencode: 'OpenCode',
+  openclaw: 'OpenClaw',
+  hermes: 'Hermes',
+  generic: 'Harness-agnostic',
+};
+
 const usd = (value: number) => `$${Number.isInteger(value) ? value : value.toFixed(2)}`;
 
 export function formatCostScenario(

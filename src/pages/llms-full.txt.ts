@@ -4,10 +4,11 @@ import type { APIRoute } from 'astro';
 /** llms-full.txt — complete machine-readable dump of the Noemium catalog. */
 export const GET: APIRoute = async (context) => {
   const site = context.site ?? new URL('https://noemium.com');
-  const [tools, models, stacks] = await Promise.all([
+  const [tools, models, stacks, skills] = await Promise.all([
     getCollection('tools'),
     getCollection('models'),
     getCollection('stacks'),
+    getCollection('skills'),
   ]);
 
   const sortedTools = [...tools].sort((a, b) => {
@@ -18,6 +19,7 @@ export const GET: APIRoute = async (context) => {
 
   const sortedModels = [...models].sort((a, b) => a.id.localeCompare(b.id));
   const sortedStacks = [...stacks].sort((a, b) => a.id.localeCompare(b.id));
+  const sortedSkills = [...skills].sort((a, b) => a.id.localeCompare(b.id));
 
   const formatPrice = (m: (typeof models)[number]['data']) => {
     if (m.price_unit && m.price_unit !== 'mtok' && m.price_amount !== undefined) {
@@ -36,7 +38,7 @@ export const GET: APIRoute = async (context) => {
     '> No paid listings, ever. Every verdict is a pull request anyone can audit,',
     '> with receipts linked and limitations named next to the praise.',
     '',
-    `This file contains the complete ${sortedTools.length}-tool catalog, the ${sortedModels.length}-model price/context table, and the ${sortedStacks.length}-stack recipe list in plain text.`,
+    `This file contains the complete ${sortedTools.length}-tool catalog, the ${sortedModels.length}-model price/context table, the ${sortedStacks.length}-stack recipe list, and ${sortedSkills.length} skills in plain text.`,
     `Canonical site: ${site.origin}`,
     `Source: https://github.com/SaneSanders/noemium`,
     `License: CC BY 4.0 (code MIT).`,
@@ -51,7 +53,8 @@ export const GET: APIRoute = async (context) => {
       `- page: ${new URL(`/tools/${t.id}/`, site).href}`,
       `- per-tool JSON: ${new URL(`/tools/${t.id}.json`, site).href}`,
       `- category: ${t.data.category}`,
-      `- verdict: ${t.data.verdict}`,
+      `- evidence_tier: ${t.data.evidence_tier}`,
+      `- verdict: ${t.data.verdict ?? 'radar'}`,
       `- pricing: ${t.data.pricing}${t.data.price_note ? ` — ${t.data.price_note}` : ''}`,
       `- free tier: ${t.data.free_tier ? 'yes' : 'no'}`,
       `- api: ${t.data.api ? 'yes' : 'no'}`,
@@ -82,6 +85,19 @@ export const GET: APIRoute = async (context) => {
       `- difficulty: ${s.data.difficulty}`,
       `- tools: ${s.data.tools.join(', ')}`,
       `- page: ${new URL(`/stacks/${s.id}/`, site).href}`,
+      '',
+    ]),
+    '## Skills',
+    '',
+    ...sortedSkills.flatMap((s) => [
+      `### ${s.data.name}`,
+      `- slug: ${s.id}`,
+      `- page: ${new URL(`/skills/${s.id}/`, site).href}`,
+      `- evidence_tier: ${s.data.evidence_tier}`,
+      `- verdict: ${s.data.verdict ?? 'radar'}`,
+      `- compatible: ${s.data.compatible.join(', ')}`,
+      `- tagline: ${s.data.tagline}`,
+      `- receipts: ${s.data.receipts.join(', ')}`,
       '',
     ]),
   ];

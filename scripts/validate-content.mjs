@@ -131,7 +131,7 @@ function formatZodIssues(error) {
   return error.issues.map((i) => `${i.path.join('.') || '(root)'}: ${i.message}`).join('; ');
 }
 
-const { toolSchema, stackSchema, modelSchema, graveyardSchema, agentSchema, jobSchema } = await loadSchemas();
+const { toolSchema, stackSchema, modelSchema, graveyardSchema, agentSchema, jobSchema, skillSchema } = await loadSchemas();
 
 const collections = [
   { name: 'tools', dir: path.join(CONTENT_DIR, 'tools'), exts: ['.yaml', '.yml'], schema: toolSchema },
@@ -140,6 +140,7 @@ const collections = [
   { name: 'graveyard', dir: path.join(CONTENT_DIR, 'graveyard'), exts: ['.yaml', '.yml'], schema: graveyardSchema },
   { name: 'agents', dir: path.join(CONTENT_DIR, 'agents'), exts: ['.yaml', '.yml'], schema: agentSchema },
   { name: 'jobs', dir: path.join(CONTENT_DIR, 'jobs'), exts: ['.yaml', '.yml'], schema: jobSchema },
+  { name: 'skills', dir: path.join(CONTENT_DIR, 'skills'), exts: ['.yaml', '.yml'], schema: skillSchema },
 ];
 
 // URL fields that must stay referral-free per collection.
@@ -155,6 +156,7 @@ const cleanUrlFields = {
     ...d.evidence.map((item) => item.url),
     ...(d.install ?? []).flatMap((method) => (method.url ? [method.url] : [])),
   ],
+  skills: (d) => [d.url, ...d.receipts],
 };
 
 // Every URL field, across every collection — also checked for homographs,
@@ -176,6 +178,10 @@ const allUrlFields = {
     ['url', d.url],
     ...d.evidence.map((item) => ['evidence.url', item.url]),
     ...(d.install ?? []).flatMap((method) => (method.url ? [['install.url', method.url]] : [])),
+  ],
+  skills: (d) => [
+    ['url', d.url],
+    ...d.receipts.map((u) => ['receipts', u]),
   ],
 };
 
@@ -332,6 +338,25 @@ for (const [slug, model] of entries.models) {
       `src/content/models/${slug}.yaml`,
       `retiring.successor references unknown model "${model.retiring.successor}"`,
     );
+  }
+}
+
+for (const [slug, agent] of entries.agents) {
+  if (agent.catalog_tool && !entries.tools.has(agent.catalog_tool)) {
+    fail(`src/content/agents/${slug}.yaml`, `catalog_tool references unknown tool "${agent.catalog_tool}"`);
+  }
+}
+
+for (const [slug, skill] of entries.skills ?? []) {
+  for (const toolSlug of skill.related_tools ?? []) {
+    if (!entries.tools.has(toolSlug)) {
+      fail(`src/content/skills/${slug}.yaml`, `related_tools references unknown tool "${toolSlug}"`);
+    }
+  }
+  for (const agentSlug of skill.related_agents ?? []) {
+    if (!entries.agents.has(agentSlug)) {
+      fail(`src/content/skills/${slug}.yaml`, `related_agents references unknown agent "${agentSlug}"`);
+    }
   }
 }
 

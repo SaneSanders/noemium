@@ -26,7 +26,7 @@ export interface RelatedTool {
   name: string;
   category: string;
   tagline?: string;
-  verdict: string;
+  verdict?: string;
   last_verified: string;
 }
 
@@ -46,7 +46,7 @@ export function relatedIds(slug: string, tools: RelatedTool[], limit = 3): strin
     .filter((t) => t.id !== slug && t.category === category)
     .sort(
       (a, b) =>
-        (VERDICT_RANK[a.verdict] ?? 9) - (VERDICT_RANK[b.verdict] ?? 9) ||
+        (VERDICT_RANK[a.verdict ?? ''] ?? 9) - (VERDICT_RANK[b.verdict ?? ''] ?? 9) ||
         b.last_verified.localeCompare(a.last_verified) ||
         a.name.localeCompare(b.name),
     )
@@ -69,7 +69,7 @@ export function alternativeIds(slug: string, tools: RelatedTool[]): string[] {
     .filter((t) => t.id !== slug && t.category === self?.category)
     .sort(
       (a, b) =>
-        (VERDICT_RANK[a.verdict] ?? 9) - (VERDICT_RANK[b.verdict] ?? 9) ||
+        (VERDICT_RANK[a.verdict ?? ''] ?? 9) - (VERDICT_RANK[b.verdict ?? ''] ?? 9) ||
         b.last_verified.localeCompare(a.last_verified) ||
         a.name.localeCompare(b.name),
     )

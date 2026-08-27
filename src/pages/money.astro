@@ -60,7 +60,7 @@ const featuredAffiliateCount = featuredTools.filter((t) => t.data.affiliate === 
                       {tool.data.name}
                     </a>
                   </td>
-                  <td class="p-3 font-mono text-[13px]">{tool.data.verdict}</td>
+                  <td class="p-3 font-mono text-[13px]">{tool.data.verdict ?? 'radar'}</td>
                   <td class="p-3 font-mono text-[13px]">
                     <a
                       href={tool.data.affiliate_url}

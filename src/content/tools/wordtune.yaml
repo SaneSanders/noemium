@@ -1,0 +1,20 @@
+name: "Wordtune"
+tagline: "AI rewrite/compose assistant from AI21, aimed at emails and docs rather than long-form novels."
+url: "https://www.wordtune.com"
+category: "writing"
+pricing: "freemium"
+free_tier: true
+open_source: false
+api: false
+self_host: false
+limitations:
+  - "Radar: no field run. Browser-extension privacy not verified here."
+  - "Not a replacement for a model API you already pay for."
+receipts:
+  - "https://www.wordtune.com"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

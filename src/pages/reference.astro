@@ -3,13 +3,14 @@ import { getCollection } from 'astro:content';
 import Cover from '../layouts/Cover.astro';
 import { plural } from '../lib/shelf';
 
-const [tools, models, stacks, agents, jobs, graveyard] = await Promise.all([
+const [tools, models, stacks, agents, jobs, graveyard, skills] = await Promise.all([
   getCollection('tools'),
   getCollection('models'),
   getCollection('stacks'),
   getCollection('agents'),
   getCollection('jobs'),
   getCollection('graveyard'),
+  getCollection('skills'),
 ]);
 
 const counts = {
@@ -19,6 +20,7 @@ const counts = {
   agents: agents.length,
   jobs: jobs.length,
   graveyard: graveyard.length,
+  skills: skills.length,
 };
 ---
 
@@ -36,6 +38,7 @@ const counts = {
       <a class="cover-door" href="/models/"><b>Models</b><span>{plural(counts.models, 'model')} · prices and sunsets</span></a>
       <a class="cover-door" href="/stacks/"><b>Stacks</b><span>{plural(counts.stacks, 'stack')} · recipes with a cheaper cut</span></a>
       <a class="cover-door" href="/agents/"><b>Agents</b><span>{plural(counts.agents, 'agent')} · field guide</span></a>
+      <a class="cover-door" href="/skills/"><b>Skills</b><span>{plural(counts.skills, 'skill')} · installable, not a scrape</span></a>
       <a class="cover-door" href="/jobs/"><b>Jobs</b><span>{plural(counts.jobs, 'job')} · one job, one pick</span></a>
       <a class="cover-door" href="/graveyard/"><b>Graveyard</b><span>{plural(counts.graveyard, 'grave')} · dead, with a receipt</span></a>
       <a class="cover-door" href="/changelog/"><b>Changelog</b><span>What we wrote this week</span></a>

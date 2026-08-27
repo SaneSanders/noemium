@@ -50,6 +50,11 @@ const jsonLd = {
 
     <p class="mt-7 flex flex-wrap items-center gap-4">
       <a href={a.url} class="nm-btn nm-btn-solid" rel="noopener">Visit {hostname(a.url)} →</a>
+      {
+        a.catalog_tool && (
+          <a href={`/tools/${a.catalog_tool}/`} class="nm-btn nm-btn-outline">Catalog card</a>
+        )
+      }
       <span class={strict ? 'nm-verified' : 'rounded-sm border-[1.5px] border-dashed border-ink-dim px-2 py-1 font-mono text-[13px] font-bold tracking-[0.12em] text-ink-dim uppercase'}>
         {evidenceTierLabels[a.evidence_tier]} {a.last_verified}
       </span>

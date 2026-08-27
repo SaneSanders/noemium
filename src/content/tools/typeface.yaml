@@ -1,0 +1,20 @@
+name: "Typeface"
+tagline: "Enterprise brand-safe generative content platform (not a consumer writer)."
+url: "https://www.typeface.ai"
+category: "writing"
+pricing: "paid"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: sales-led pricing, no public list we verified this week."
+  - "Enterprise brand vaults are the product; a solo founder does not need this."
+receipts:
+  - "https://www.typeface.ai"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

@@ -1,0 +1,20 @@
+name: "Postgres MCP"
+tagline: "Reference MCP server for querying Postgres — useful and easy to point at production by mistake."
+url: "https://github.com/modelcontextprotocol/servers"
+category: "mcp"
+pricing: "free"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: the official servers monorepo moves; pin a path/commit."
+  - "Read-write SQL from an agent is a high-privilege boundary. Use a read replica or skip."
+receipts:
+  - "https://github.com/modelcontextprotocol/servers"
+momentum: "steady"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

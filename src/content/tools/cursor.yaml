@@ -38,10 +38,23 @@ receipts:
   - https://cursor.com/pricing
   - https://cursor.com/docs
 affiliate: none
+evidence_tier: source-verified
 momentum: blueshift
 featured: true
 data_sensitivity:
   trains_on_inputs: yes
   local_processing: false
+guide:
+  install: >-
+    Download from cursor.com/download. Sign in. Optional: cursor-agent CLI for headless runs.
+  requirements:
+    - A Cursor account
+    - A project folder
+  cost: Hobby $0, Pro $20/mo, Pro+ $60/mo, Ultra $200/mo, Teams from $40/user/mo — as of the catalog card.
+  security: >-
+    Closed editor. Trains-on-inputs is yes on the card. Privacy mode is a setting, not a proof. Field guide: /agents/cursor/.
+  breaks_when:
+    - A heavy agent month hits Pro token limits mid-sprint.
+    - You need to audit or self-host the editor.
 last_verified: "2026-08-26"
 observed_by: whysanesanders

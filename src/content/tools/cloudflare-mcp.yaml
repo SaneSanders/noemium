@@ -1,0 +1,21 @@
+name: "Cloudflare MCP"
+tagline: "Cloudflare MCP servers for Workers/docs/builds — agent access to the account, not just docs search."
+url: "https://developers.cloudflare.com/agents/model-context-protocol/"
+category: "mcp"
+pricing: "free"
+price_note: "MCP is free; Cloudflare usage is the bill"
+free_tier: true
+open_source: true
+api: true
+self_host: false
+limitations:
+  - "Radar: account-scoped MCP can mutate production Workers."
+  - "Docs URL is the receipt; we have not run every Cloudflare MCP server in this wave."
+receipts:
+  - "https://developers.cloudflare.com/agents/model-context-protocol/"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

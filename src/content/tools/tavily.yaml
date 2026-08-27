@@ -31,7 +31,18 @@ receipts:
   - https://tavily.com
   - https://docs.tavily.com/faq/faq
 affiliate: none
+evidence_tier: source-verified
 momentum: blueshift
 featured: false
+guide:
+  install: Create a Tavily key and call the Search API. Most agent frameworks have a first-party Tavily tool.
+  requirements:
+    - An API key
+    - A job that needs sourced web snippets, not a full crawl
+  cost: Free 1k calls/mo, then from $30/mo on the public list. Reranking sits on paid plans.
+  security: Queries leave for Tavily. Do not put customer secrets in the search string.
+  breaks_when:
+    - The query is obscure and the snippets come back thin.
+    - You needed site-wide markdown — that is Firecrawl, not this.
 last_verified: "2026-08-19"
 observed_by: whysanesanders

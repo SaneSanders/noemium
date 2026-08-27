@@ -72,6 +72,18 @@ test('tool page exposes Dispute this verdict copy prompt', () => {
   assert.match(html, /Open in Noemium/);
 });
 
+test('radar tool page disputes the listing, not a fake verdict', () => {
+  const html = built('tools/continue-dev/index.html');
+  assert.match(html, /Dispute this listing/);
+  assert.match(html, /Radar · no verdict/);
+  assert.doesNotMatch(html, /Dispute this verdict/);
+});
+
+test('floor guide renders on a graded automation card', () => {
+  const html = built('tools/n8n/index.html');
+  assert.match(html, /Floor guide/);
+});
+
 test('tool page renders Models row with resolved names and routing badge', () => {
   const html = built('tools/cursor/index.html');
   assert.match(html, /Models/);

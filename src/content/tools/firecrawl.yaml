@@ -31,10 +31,22 @@ receipts:
   - https://www.firecrawl.dev
   - https://github.com/mendableai/firecrawl
 affiliate: none
+evidence_tier: source-verified
 momentum: blueshift
 featured: false
 data_sensitivity:
   trains_on_inputs: unknown
   local_processing: true
+guide:
+  install: Cloud at firecrawl.dev or self-host from mendableai/firecrawl. Start with the cloud free credits.
+  requirements:
+    - A target site you are allowed to crawl
+    - A sink (markdown files or a vector store)
+  cost: >-
+    OSS self-host is free. Cloud: 1,000 credits/mo free, then Hobby/Standard/Growth. Page volume is the bill.
+  security: Crawling sends the target HTML to Firecrawl Cloud unless you self-host. Do not point it at authenticated app pages you do not own.
+  breaks_when:
+    - The site is a brittle SPA and extraction comes back empty.
+    - You crawl a huge site with no rate limit and get banned.
 last_verified: "2026-08-19"
 observed_by: whysanesanders

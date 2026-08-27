@@ -599,7 +599,8 @@
 .n-crust .mk { stroke: color-mix(in srgb, var(--nm-deep) 55%, transparent); stroke-width: 1.4; }
 .n-under .mk { fill: color-mix(in srgb, var(--nm-deep) 46%, transparent); }
 .node.fresh .ring { fill: none; stroke: var(--nm-field); stroke-width: 1.4; }
-.node.dim { opacity: 0.12; }
+.node.radar { opacity: 0.42; }
+.node.radar .mk { stroke-dasharray: 2.4 2.2; }
 .node.hit-match .mk { stroke: var(--nm-field); }
 .node.mine .mk { fill: var(--nm-field); stroke: var(--nm-field); }
 .node.mine .halo { fill: none; stroke: var(--nm-field); stroke-width: 1.2; opacity: 0.55; }

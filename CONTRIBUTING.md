@@ -1,19 +1,28 @@
 # Contributing to Noemium
 
 Every entry in this directory is a pull request. If you have real,
-hands-on experience with an AI tool, operational agent, stack or model, you can add it in
+hands-on experience with an AI tool, operational agent, skill, stack or model, you can add it in
 about 5 minutes.
 
-## Submit a tool (or agent, or stack, or model)
+The catalog is two layers. **Radar** is an index card from primary docs — no
+`ship` / `situational` / `skip`. **Floor** is a graded card (and, when we have
+it, a short install/cost/security guide). Do not invent a verdict to fill the
+index. Skills live at `/skills/`, not as a 13th tool category. Do not scrape
+skills.sh or TAAFT into YAML.
+
+## Submit a tool (or agent, skill, stack, or model)
 
 1. **Fork** this repository.
 2. **Copy the example** for the collection you're adding to:
-   - `src/content/tools/cursor.yaml`
+   - `src/content/tools/cursor.yaml` (graded) or `src/content/tools/continue-dev.yaml` (radar)
    - `src/content/agents/grok-bot.yaml`
+   - `src/content/skills/superpowers.yaml`
    - `src/content/stacks/solo-founder-saas.md`
    - `src/content/models/claude-sonnet-5.yaml`
 3. **Rename** it to a kebab-case slug (`my-tool.yaml`).
-4. **Fill it in** from your own experience (see the rules below).
+4. **Fill it in** from your own experience (see the rules below). Radar
+   listings may use the vendor homepage plus GitHub as fact receipts — that
+   still does not justify a verdict.
 5. **Validate locally:**
 
    ```sh
@@ -26,11 +35,13 @@ about 5 minutes.
 ## The rules
 
 - **Verdicts come from real use.** `ship`, `situational` or `skip` must
-  reflect something you actually built or ran, not marketing pages.
-- **Agent evidence tiers are binding.** `field-tested` and `source-verified`
-  guides need typed primary evidence for availability, installation,
-  requirements, pricing, security, and license when applicable. `radar` is
-  discovery-only: no verdict and no hard cost scenario.
+  reflect something you actually built or ran, not marketing pages. Radar
+  cards must omit `verdict`, `verdict_text`, and `guide`.
+- **Evidence tiers are binding on tools, agents, and skills.**
+  `field-tested` and `source-verified` entries need a verdict. `radar` is
+  discovery-only: no verdict and no hard cost scenario. Agent guides also
+  need typed primary evidence for availability, installation, requirements,
+  pricing, security, and license when applicable.
 - **At least one receipt.** A receipt is a link that backs a claim. Two
   kinds count:
   - *Fact evidence* — official docs, pricing pages, GitHub repos, model

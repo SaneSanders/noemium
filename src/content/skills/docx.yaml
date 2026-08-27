@@ -1,0 +1,15 @@
+name: "docx"
+tagline: "Anthropic document skill for creating and editing Word .docx from the agent."
+url: "https://github.com/anthropics/skills"
+compatible:
+  - "claude-code"
+install: "Copy the docx skill from anthropics/skills (document-skills)."
+summary: "Gives the agent a documented path to Office files. Not a replacement for a human legal review of the output."
+limitations:
+  - "Complex tracked-changes / styles will drift."
+  - "You still open the file in Word."
+evidence_tier: "radar"
+receipts:
+  - "https://github.com/anthropics/skills"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

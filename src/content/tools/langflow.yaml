@@ -1,0 +1,21 @@
+name: "Langflow"
+tagline: "Open visual framework for RAG and multi-agent graphs, now under IBM/DataStax."
+url: "https://www.langflow.org"
+category: "automation"
+pricing: "freemium"
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: no field run. IBM/DataStax gravity may change the OSS cadence."
+  - "Graphs screenshot well and fail in production the same way all visual LLM builders do."
+receipts:
+  - "https://www.langflow.org"
+  - "https://github.com/langflow-ai/langflow"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

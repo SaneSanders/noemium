@@ -1,0 +1,20 @@
+name: "Relay.app"
+tagline: "AI-native workflow product with human-in-the-loop steps, aimed at ops not iPaaS veterans."
+url: "https://www.relay.app"
+category: "automation"
+pricing: "freemium"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: vendor marketing is ahead of our reproduction."
+  - "Human-in-the-loop is the feature — it will not fully replace n8n."
+receipts:
+  - "https://www.relay.app"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

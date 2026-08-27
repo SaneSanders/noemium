@@ -1,0 +1,66 @@
+name: "Pi"
+vendor: "Mario Zechner"
+tagline: "Minimal open coding-agent toolkit: TUI, SDK, RPC, extend instead of feature-bloat."
+url: "https://pi.dev"
+catalog_tool: "pi"
+license_kind: "osi-open-source"
+maturity: "beta"
+summary: "Small prompt, tree-structured sessions, 15+ providers, bias toward building the feature as an extension."
+best_for:
+  - "People who want a small harness they can extend"
+  - "RPC/SDK integration rather than a full IDE"
+deployment:
+  - "local"
+verdict: "situational"
+verdict_text: "Minimal on purpose. If you wanted batteries included, this is the wrong product. If you wanted a core, it is the point."
+install:
+  - method: "command"
+    platform: "npm"
+    command: "npm i -g @mariozechner/pi-coding-agent"
+    url: "https://pi.dev"
+requirements:
+  - "Node.js"
+  - "A model provider"
+providers:
+  - "BYOK — 15+ providers documented on the site"
+channels:
+  - "TUI"
+  - "SDK"
+  - "RPC"
+cost_scenarios:
+  - name: "Harness only"
+    monthly_usd_min: 0
+    monthly_usd_max: 0
+    assumptions: "Packages are free. You pay the model."
+security:
+  privilege: "high"
+  data_boundary: "Local. RPC widens the surface if you expose it."
+  cautions:
+    - "Do not expose the RPC port to the network."
+    - "Extensions are code you run."
+limitations:
+  - "You assemble the product around the core."
+  - "Not a team control plane."
+evidence:
+  - kind: "availability"
+    url: "https://pi.dev"
+    checked_at: "2026-08-26"
+  - kind: "install"
+    url: "https://pi.dev"
+    checked_at: "2026-08-26"
+  - kind: "requirements"
+    url: "https://pi.dev"
+    checked_at: "2026-08-26"
+  - kind: "pricing"
+    url: "https://pi.dev"
+    checked_at: "2026-08-26"
+  - kind: "security"
+    url: "https://pi.dev"
+    checked_at: "2026-08-26"
+  - kind: "license"
+    url: "https://pi.dev"
+    checked_at: "2026-08-26"
+agent_layer: "coding-harness"
+evidence_tier: "source-verified"
+observed_by: "whysanesanders"
+last_verified: "2026-08-26"

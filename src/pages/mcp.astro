@@ -17,6 +17,7 @@ const { shelf, related } = collectMcp(
 const ship = shelf.filter((t) => t.verdict === 'ship');
 const situational = shelf.filter((t) => t.verdict === 'situational');
 const skip = shelf.filter((t) => t.verdict === 'skip');
+const radar = shelf.filter((t) => !t.verdict);
 ---
 
 <Cover
@@ -28,8 +29,8 @@ const skip = shelf.filter((t) => t.verdict === 'skip');
     <section class="cover-lede">
       <h1>MCP, with a <em>verdict</em>.</h1>
       <p>
-        {shelf.length} servers we graded. The official registry is a firehose;
-        this is a shelf.
+        {shelf.length} servers. Graded cards carry a verdict; radar is discovery
+        from primary docs, not a scrape of the official registry.
       </p>
     </section>
 
@@ -67,6 +68,22 @@ const skip = shelf.filter((t) => t.verdict === 'skip');
           <p class="cover-kicker">Skip</p>
           <div class="cover-doors">
             {skip.map((t) => (
+              <a class="cover-door" href={`/tools/${t.slug}/`}>
+                <b>{t.name}</b>
+                <span>{t.tagline}</span>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+
+    {
+      radar.length > 0 && (
+        <>
+          <p class="cover-kicker">Radar · no verdict</p>
+          <div class="cover-doors">
+            {radar.map((t) => (
               <a class="cover-door" href={`/tools/${t.slug}/`}>
                 <b>{t.name}</b>
                 <span>{t.tagline}</span>

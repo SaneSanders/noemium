@@ -1,0 +1,20 @@
+name: "Rytr"
+tagline: "Cheap consumer writing assistant with templates and a small free allowance."
+url: "https://rytr.me"
+category: "writing"
+pricing: "freemium"
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: vendor site only. Not compared in the field against Jasper/Sudowrite."
+  - "Template writers age badly when models jump."
+receipts:
+  - "https://rytr.me"
+momentum: "redshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

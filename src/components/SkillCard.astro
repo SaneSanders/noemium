@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import VerdictBadge from './VerdictBadge.astro';
+import { evidenceTierLabels, skillHarnessLabels } from '../lib/agent-display';
+
+interface Props {
+  skill: CollectionEntry<'skills'>;
+}
+
+const { skill } = Astro.props;
+const s = skill.data;
+const strict = s.evidence_tier !== 'radar';
+---
+
+<a href={`/skills/${skill.id}/`} class="nm-card nm-card-hover group flex h-full flex-col p-6">
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <span class="border border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] px-2 py-1 font-mono text-[13px] tracking-[0.08em] text-ink uppercase">
+      skill
+    </span>
+    <span
+      class:list={[
+        'rounded-sm px-2 py-1 font-mono text-[13px] font-bold tracking-[0.1em] uppercase',
+        strict ? 'border-[1.5px] border-accent text-accent' : 'border-[1.5px] border-dashed border-ink-dim text-ink-dim',
+      ]}
+    >
+      {evidenceTierLabels[s.evidence_tier]}
+    </span>
+  </div>
+
+  <h3 class="mt-5 font-display text-2xl font-medium tracking-tight group-hover:text-accent">
+    {s.name}
+  </h3>
+  <p class="mt-2 line-clamp-2 min-h-[2.9em] flex-1 text-[15px] leading-relaxed text-ink opacity-75">{s.tagline}</p>
+
+  <p class="mt-4 flex flex-wrap gap-1.5">
+    {s.compatible.map((h) => (
+      <span class="border border-[color-mix(in_srgb,var(--nm-ink)_18%,transparent)] px-2 py-1 font-mono text-[13px] tracking-[0.08em] text-ink uppercase">
+        {skillHarnessLabels[h] ?? h}
+      </span>
+    ))}
+  </p>
+
+  <div class="mt-6 flex flex-wrap items-end justify-between gap-3 border-t-[1.5px] border-line-soft pt-4">
+    <p class="font-mono text-[14px] text-ink-dim">install in the harness</p>
+    {s.verdict ? <VerdictBadge verdict={s.verdict} /> : <VerdictBadge />}
+  </div>
+</a>

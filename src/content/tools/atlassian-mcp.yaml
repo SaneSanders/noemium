@@ -1,0 +1,21 @@
+name: "Atlassian MCP"
+tagline: "Jira/Confluence MCP so the coding agent can read tickets instead of pasting them into chat."
+url: "https://www.atlassian.com/platform/remote-mcp-server"
+category: "mcp"
+pricing: "freemium"
+price_note: "Requires an Atlassian cloud site; MCP itself is not a separate SKU we found"
+free_tier: false
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: remote MCP + company Jira is a data-boundary decision, not a toy."
+  - "On-prem Jira is a different story — this card is cloud-shaped."
+receipts:
+  - "https://www.atlassian.com/platform/remote-mcp-server"
+momentum: "blueshift"
+affiliate: "none"
+evidence_tier: "radar"
+featured: false
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"

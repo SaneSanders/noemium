@@ -39,6 +39,7 @@ receipts:
   - https://platform.openai.com/docs/api-reference/responses
   - https://platform.openai.com/docs/pricing
 affiliate: none
+evidence_tier: source-verified
 momentum: blueshift
 featured: false
 last_verified: "2026-08-19"

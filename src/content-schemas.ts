@@ -36,6 +36,74 @@ export const toolCategories = [
   'mcp',
 ] as const;
 
+export const evidenceTiers = ['field-tested', 'source-verified', 'radar'] as const;
+
+export const skillHarnesses = [
+  'claude-code',
+  'cursor',
+  'codex',
+  'opencode',
+  'openclaw',
+  'hermes',
+  'generic',
+] as const;
+
+const toolGuideSchema = z
+  .object({
+    install: z.string().min(1).optional(),
+    requirements: z.array(z.string().min(1)).min(1).optional(),
+    cost: z.string().min(1).optional(),
+    security: z.string().min(1).optional(),
+    breaks_when: z.array(z.string().min(1)).min(1).optional(),
+  })
+  .strict();
+
+function rejectRadarVerdict(
+  ctx: z.RefinementCtx,
+  tier: (typeof evidenceTiers)[number],
+  verdict: string | undefined,
+  verdictText: string | undefined,
+) {
+  if (tier !== 'radar') return;
+  if (verdict) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['verdict'],
+      message: 'radar entries cannot carry a verdict',
+    });
+  }
+  if (verdictText) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['verdict_text'],
+      message: 'radar entries cannot carry verdict text',
+    });
+  }
+}
+
+function requireVerdictUnlessRadar(
+  ctx: z.RefinementCtx,
+  tier: (typeof evidenceTiers)[number],
+  verdict: string | undefined,
+  verdictText: string | undefined,
+) {
+  if (tier === 'radar') return;
+  if (!verdict) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['verdict'],
+      message: `${tier} entries require a verdict`,
+    });
+  }
+  if (!verdictText) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['verdict_text'],
+      message: `${tier} entries require verdict text`,
+    });
+  }
+}
+
 export const toolSchema = z.object({
   name: z.string().min(1),
   tagline: z.string().max(120),
@@ -51,8 +119,8 @@ export const toolSchema = z.object({
   // How the tool routes models: bundled (vendor mix you can't pick), locked
   // (one provider), byok (bring your own key/model).
   model_routing: z.enum(['bundled', 'locked', 'byok']).optional(),
-  verdict: z.enum(['ship', 'situational', 'skip']),
-  verdict_text: z.string().min(1),
+  verdict: z.enum(['ship', 'situational', 'skip']).optional(),
+  verdict_text: z.string().min(1).optional(),
   limitations: z.array(z.string()).min(1),
   // Optional decision briefing. If any field is set, all three must be.
   strengths: z.array(z.string().min(1).max(180)).min(2).max(6).optional(),
@@ -62,7 +130,9 @@ export const toolSchema = z.object({
   affiliate: z.enum(['none', 'declared']),
   // Referral links live ONLY here — never in `url` or `receipts`.
   affiliate_url: httpsUrl.optional(),
-  evidence_tier: z.enum(['field-tested', 'source-verified', 'radar']).optional(),
+  evidence_tier: z.enum(evidenceTiers),
+  // Optional field-guide block for floor cards. Radar should omit this.
+  guide: toolGuideSchema.optional(),
   momentum: z.enum(['blueshift', 'steady', 'redshift']),
   featured: z.boolean().default(false),
   // Data handling facts. unknown is an honest value, not a gap.
@@ -77,6 +147,15 @@ export const toolSchema = z.object({
   last_verified: isoDate,
   observed_by: z.string().min(1),
 }).strict().superRefine((tool, ctx) => {
+  rejectRadarVerdict(ctx, tool.evidence_tier, tool.verdict, tool.verdict_text);
+  requireVerdictUnlessRadar(ctx, tool.evidence_tier, tool.verdict, tool.verdict_text);
+  if (tool.evidence_tier === 'radar' && tool.guide) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['guide'],
+      message: 'radar entries cannot carry a floor guide',
+    });
+  }
   // Cross-field: affiliate_url and affiliate: declared must come together.
   if (tool.affiliate_url && tool.affiliate !== 'declared') {
     ctx.addIssue({
@@ -186,7 +265,8 @@ export const agentSchema = z
       'proprietary',
       'unknown',
     ]),
-    evidence_tier: z.enum(['field-tested', 'source-verified', 'radar']),
+    evidence_tier: z.enum(evidenceTiers),
+    catalog_tool: z.string().min(1).optional(),
     summary: z.string().min(1),
     best_for: z.array(z.string().min(1)).min(1),
     deployment: z.array(z.enum(['local', 'self-hosted', 'managed', 'hybrid'])).min(1),
@@ -421,8 +501,33 @@ export const graveyardSchema = z.object({
   succeeded_by: z.union([successorSchema, noSuccessorSchema]),
 }).strict();
 
+export const skillSchema = z
+  .object({
+    name: z.string().min(1),
+    tagline: z.string().max(140),
+    url: httpsUrl,
+    compatible: z.array(z.enum(skillHarnesses)).min(1),
+    install: z.string().min(1),
+    summary: z.string().min(1),
+    limitations: z.array(z.string().min(1)).min(1),
+    evidence_tier: z.enum(evidenceTiers),
+    verdict: z.enum(['ship', 'situational', 'skip']).optional(),
+    verdict_text: z.string().min(1).optional(),
+    related_tools: z.array(z.string().min(1)).optional(),
+    related_agents: z.array(z.string().min(1)).optional(),
+    receipts: z.array(httpsUrl).min(1),
+    last_verified: isoDate,
+    observed_by: z.string().min(1),
+  })
+  .strict()
+  .superRefine((skill, ctx) => {
+    rejectRadarVerdict(ctx, skill.evidence_tier, skill.verdict, skill.verdict_text);
+    requireVerdictUnlessRadar(ctx, skill.evidence_tier, skill.verdict, skill.verdict_text);
+  });
+
 export type Tool = z.infer<typeof toolSchema>;
 export type Agent = z.infer<typeof agentSchema>;
+export type Skill = z.infer<typeof skillSchema>;
 export type Job = z.infer<typeof jobSchema>;
 export type Stack = z.infer<typeof stackSchema>;
 export type Model = z.infer<typeof modelSchema>;

@@ -1,0 +1,17 @@
+name: "frontend-design"
+tagline: "Anthropic skill that pushes the agent toward distinctive UI instead of generic AI-slop layouts."
+url: "https://github.com/anthropics/skills"
+compatible:
+  - "claude-code"
+install: "Copy the frontend-design skill directory from anthropics/skills into the project or user skills folder."
+summary: "A design-taste skill, not a component library. It changes what the agent aims at. It does not ship tokens or a design system for you."
+limitations:
+  - "Taste is subjective; this will not match a locked brand kit."
+  - "Lives inside the anthropics/skills tree — pin a commit."
+evidence_tier: "radar"
+related_tools:
+  - "claude-code"
+receipts:
+  - "https://github.com/anthropics/skills"
+last_verified: "2026-08-26"
+observed_by: "catalog-radar"
