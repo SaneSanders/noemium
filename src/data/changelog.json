@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T10:34:32.593Z",
+  "generated_at": "2026-09-01T10:48:50.683Z",
   "weeks": [
     {
       "id": "2026-W36",
@@ -8,7 +8,7 @@
       "counts": {
         "added": 56,
         "removed": 3,
-        "changed": 0
+        "changed": 3
       },
       "added": [
         {
@@ -366,8 +366,50 @@
           "category": "coding"
         }
       ],
-      "changed": [],
+      "changed": [
+        {
+          "collection": "tools",
+          "slug": "krea",
+          "name": "Krea",
+          "category": "image",
+          "field": "price note",
+          "from": "free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business/Enterprise custom",
+          "to": "free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business flat up to 50 seats, Enterprise custom"
+        },
+        {
+          "collection": "tools",
+          "slug": "synthesia",
+          "name": "Synthesia",
+          "category": "video",
+          "field": "price note",
+          "from": "from $22/mo (Starter)",
+          "to": "from $29/mo (Starter)"
+        },
+        {
+          "collection": "tools",
+          "slug": "synthesia",
+          "name": "Synthesia",
+          "category": "video",
+          "field": "free tier",
+          "from": false,
+          "to": true
+        }
+      ],
       "risk": [
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "krea",
+          "name": "Krea",
+          "detail": "price note: free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business/Enterprise custom → free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business flat up to 50 seats, Enterprise custom"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "synthesia",
+          "name": "Synthesia",
+          "detail": "price note: from $22/mo (Starter) → from $29/mo (Starter)"
+        },
         {
           "class": "death",
           "collection": "graveyard",
@@ -853,6 +895,24 @@
       "changed": [
         {
           "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "category": "coding",
+          "field": "price note",
+          "from": "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates",
+          "to": "included in Claude Pro $20/mo ($17/mo yearly) and Max 5x $100 / Max 20x $200; shares the plan usage pool; extra usage at API rates"
+        },
+        {
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding",
+          "field": "price note",
+          "from": "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters",
+          "to": "Hobby free; Pro $20/mo; Pro+ $60/mo (3× Agent limits); Ultra $200/mo (20×); Teams from $40/user/mo"
+        },
+        {
+          "collection": "tools",
           "slug": "21st-dev",
           "name": "21st.dev",
           "category": "design",
@@ -871,30 +931,12 @@
         },
         {
           "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "category": "coding",
-          "field": "price note",
-          "from": "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates",
-          "to": "included in Claude Pro $20/mo ($17/mo yearly) and Max 5x $100 / Max 20x $200; shares the plan usage pool; extra usage at API rates"
-        },
-        {
-          "collection": "tools",
           "slug": "comet",
           "name": "Comet",
           "category": "productivity",
           "field": "price note",
           "from": "browser free worldwide; Comet Plus $5/mo standalone, included with Perplexity Pro/Max; Comet Agent quotas follow Pro/Max on the hub pricing table",
           "to": "browser free worldwide; Comet Plus $5/mo standalone (included with Perplexity Pro $20/mo or Max $200/mo); Comet Agent quotas follow Pro/Max on the hub pricing table"
-        },
-        {
-          "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "category": "coding",
-          "field": "price note",
-          "from": "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters",
-          "to": "Hobby free; Pro $20/mo; Pro+ $60/mo (3× Agent limits); Ultra $200/mo (20×); Teams from $40/user/mo"
         },
         {
           "collection": "tools",
@@ -1073,6 +1115,20 @@
         {
           "class": "price_change",
           "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "detail": "price note: included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates → included in Claude Pro $20/mo ($17/mo yearly) and Max 5x $100 / Max 20x $200; shares the plan usage pool; extra usage at API rates"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "detail": "price note: Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters → Hobby free; Pro $20/mo; Pro+ $60/mo (3× Agent limits); Ultra $200/mo (20×); Teams from $40/user/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
           "slug": "21st-dev",
           "name": "21st.dev",
           "detail": "price note: free registry; paid pro features → free tier (browse + 2 component copies/day); Builder $6/mo yearly, Builder + AI $15/mo yearly, Team $7.50/seat/mo yearly"
@@ -1087,23 +1143,9 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "detail": "price note: included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates → included in Claude Pro $20/mo ($17/mo yearly) and Max 5x $100 / Max 20x $200; shares the plan usage pool; extra usage at API rates"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "comet",
           "name": "Comet",
           "detail": "price note: browser free worldwide; Comet Plus $5/mo standalone, included with Perplexity Pro/Max; Comet Agent quotas follow Pro/Max on the hub pricing table → browser free worldwide; Comet Plus $5/mo standalone (included with Perplexity Pro $20/mo or Max $200/mo); Comet Agent quotas follow Pro/Max on the hub pricing table"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "detail": "price note: Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters → Hobby free; Pro $20/mo; Pro+ $60/mo (3× Agent limits); Ultra $200/mo (20×); Teams from $40/user/mo"
         },
         {
           "class": "price_change",
@@ -1906,6 +1948,141 @@
       "changed": [
         {
           "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "category": "coding",
+          "field": "price note",
+          "from": "included in Claude Pro from $20/mo; API pay-per-token",
+          "to": "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
+        },
+        {
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding",
+          "field": "price note",
+          "from": "from $20/mo (Pro)",
+          "to": "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
+        },
+        {
+          "collection": "tools",
+          "slug": "dify",
+          "name": "Dify",
+          "category": "agents",
+          "field": "price note",
+          "from": "open source self-host free; cloud from $29/mo",
+          "to": "Cloud Sandbox free; self-host Community free under restricted license; cloud Professional/Team paid yearly"
+        },
+        {
+          "collection": "tools",
+          "slug": "exa",
+          "name": "Exa",
+          "category": "data",
+          "field": "price note",
+          "from": "free tier; paid from $50/mo",
+          "to": "free $10 credits/mo; usage-based PayGO; Enterprise custom"
+        },
+        {
+          "collection": "tools",
+          "slug": "flux",
+          "name": "FLUX (Black Forest Labs)",
+          "category": "image",
+          "field": "price note",
+          "from": "open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image",
+          "to": "open weights (FLUX.2 Klein, Apache-2.0); API from ~$0.014/image"
+        },
+        {
+          "collection": "tools",
+          "slug": "google-ai-studio",
+          "name": "Google AI Studio / Gemini API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01)",
+          "to": "free tier (text models); paid from $0.75/1M input (Gemini 3.7 Flash promo till 2027-01)"
+        },
+        {
+          "collection": "tools",
+          "slug": "granola",
+          "name": "Granola",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free tier; Business from ~$14/user/mo",
+          "to": "free Basic tier; Business $14/user/mo; Enterprise $35/user/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "heroui",
+          "name": "HeroUI",
+          "category": "design",
+          "field": "pricing",
+          "from": "freemium",
+          "to": "free"
+        },
+        {
+          "collection": "tools",
+          "slug": "heroui",
+          "name": "HeroUI",
+          "category": "design",
+          "field": "price note",
+          "from": "free core; paid templates and support",
+          "to": "free and open source"
+        },
+        {
+          "collection": "tools",
+          "slug": "krea",
+          "name": "Krea",
+          "category": "image",
+          "field": "price note",
+          "from": "free tier with daily credits; Pro from $24/mo",
+          "to": "free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business/Enterprise custom"
+        },
+        {
+          "collection": "tools",
+          "slug": "modal",
+          "name": "Modal",
+          "category": "dev-infra",
+          "field": "price note",
+          "from": "free tier; pay-as-you-go for compute",
+          "to": "free tier ($30/mo compute); pay-as-you-go beyond"
+        },
+        {
+          "collection": "tools",
+          "slug": "suno",
+          "name": "Suno",
+          "category": "audio",
+          "field": "price note",
+          "from": "free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo",
+          "to": "free tier (10 songs/day, non-commercial); Pro $10/mo, Premier $30/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "pricing",
+          "from": "paid",
+          "to": "freemium"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "price note",
+          "from": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo",
+          "to": "free daily credits in Flow; Google AI Pro $19.99/mo (1000 Flow credits/mo); Ultra 5x $99.99/mo (10k Flow credits/mo) / 20x $199.99/mo (25k Flow credits/mo)"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "free tier",
+          "from": false,
+          "to": true
+        },
+        {
+          "collection": "tools",
           "slug": "activepieces",
           "name": "Activepieces",
           "category": "automation",
@@ -2032,15 +2209,6 @@
         },
         {
           "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "category": "coding",
-          "field": "price note",
-          "from": "included in Claude Pro from $20/mo; API pay-per-token",
-          "to": "included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
-        },
-        {
-          "collection": "tools",
           "slug": "claude",
           "name": "Claude",
           "category": "productivity",
@@ -2068,48 +2236,12 @@
         },
         {
           "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "category": "coding",
-          "field": "price note",
-          "from": "from $20/mo (Pro)",
-          "to": "Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
-        },
-        {
-          "collection": "tools",
-          "slug": "dify",
-          "name": "Dify",
-          "category": "agents",
-          "field": "price note",
-          "from": "open source self-host free; cloud from $29/mo",
-          "to": "Cloud Sandbox free; self-host Community free under restricted license; cloud Professional/Team paid yearly"
-        },
-        {
-          "collection": "tools",
-          "slug": "exa",
-          "name": "Exa",
-          "category": "data",
-          "field": "price note",
-          "from": "free tier; paid from $50/mo",
-          "to": "free $10 credits/mo; usage-based PayGO; Enterprise custom"
-        },
-        {
-          "collection": "tools",
           "slug": "firecrawl",
           "name": "Firecrawl",
           "category": "data",
           "field": "price note",
           "from": "open source self-host free; cloud from $16/mo",
           "to": "open source self-host free; cloud 1,000 credits/mo free, then Hobby/Standard/Growth paid"
-        },
-        {
-          "collection": "tools",
-          "slug": "flux",
-          "name": "FLUX (Black Forest Labs)",
-          "category": "image",
-          "field": "price note",
-          "from": "open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image",
-          "to": "open weights (FLUX.2 Klein, Apache-2.0); API from ~$0.014/image"
         },
         {
           "collection": "tools",
@@ -2167,24 +2299,6 @@
         },
         {
           "collection": "tools",
-          "slug": "google-ai-studio",
-          "name": "Google AI Studio / Gemini API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01)",
-          "to": "free tier (text models); paid from $0.75/1M input (Gemini 3.7 Flash promo till 2027-01)"
-        },
-        {
-          "collection": "tools",
-          "slug": "granola",
-          "name": "Granola",
-          "category": "productivity",
-          "field": "price note",
-          "from": "free tier; Business from ~$14/user/mo",
-          "to": "free Basic tier; Business $14/user/mo; Enterprise $35/user/mo"
-        },
-        {
-          "collection": "tools",
           "slug": "gumloop",
           "name": "Gumloop",
           "category": "automation",
@@ -2200,24 +2314,6 @@
           "field": "price note",
           "from": "Consumer Standard $7.99/mo, Pro $27.99/mo, Master $63.99/mo (credit-based); API via third-party providers only, e.g. fal.ai ~$0.045/s standard, Segmind ~$0.34–$0.60/video; no first-party public price card",
           "to": "Consumer plans from ¥105/mo (promo ¥55) to ¥1399/mo, credit-based; API via third-party resellers only; no first-party public price card"
-        },
-        {
-          "collection": "tools",
-          "slug": "heroui",
-          "name": "HeroUI",
-          "category": "design",
-          "field": "pricing",
-          "from": "freemium",
-          "to": "free"
-        },
-        {
-          "collection": "tools",
-          "slug": "heroui",
-          "name": "HeroUI",
-          "category": "design",
-          "field": "price note",
-          "from": "free core; paid templates and support",
-          "to": "free and open source"
         },
         {
           "collection": "tools",
@@ -2266,15 +2362,6 @@
         },
         {
           "collection": "tools",
-          "slug": "krea",
-          "name": "Krea",
-          "category": "image",
-          "field": "price note",
-          "from": "free tier with daily credits; Pro from $24/mo",
-          "to": "free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business/Enterprise custom"
-        },
-        {
-          "collection": "tools",
           "slug": "lindy",
           "name": "Lindy",
           "category": "automation",
@@ -2317,15 +2404,6 @@
           "field": "price note",
           "from": "free limited browse; paid from $8/mo",
           "to": "free limited browse; Pro kr100/mo billed yearly"
-        },
-        {
-          "collection": "tools",
-          "slug": "modal",
-          "name": "Modal",
-          "category": "dev-infra",
-          "field": "price note",
-          "from": "free tier; pay-as-you-go for compute",
-          "to": "free tier ($30/mo compute); pay-as-you-go beyond"
         },
         {
           "collection": "tools",
@@ -2452,15 +2530,6 @@
           "field": "price note",
           "from": "free tier; Premium from $139/year",
           "to": "free tier; Premium $29/mo"
-        },
-        {
-          "collection": "tools",
-          "slug": "suno",
-          "name": "Suno",
-          "category": "audio",
-          "field": "price note",
-          "from": "free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo",
-          "to": "free tier (10 songs/day, non-commercial); Pro $10/mo, Premier $30/mo"
         },
         {
           "collection": "tools",
@@ -2652,33 +2721,6 @@
           "to": "editor free; Pro $10/mo includes $5 token credits, overage at API list price +10%; Business $30/seat/mo; BYOK free"
         },
         {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "pricing",
-          "from": "paid",
-          "to": "freemium"
-        },
-        {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "price note",
-          "from": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo",
-          "to": "free daily credits in Flow; Google AI Pro $19.99/mo (1000 Flow credits/mo); Ultra 5x $99.99/mo (10k Flow credits/mo) / 20x $199.99/mo (25k Flow credits/mo)"
-        },
-        {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "free tier",
-          "from": false,
-          "to": true
-        },
-        {
           "collection": "models",
           "slug": "glm-5-3",
           "name": "GLM 5.3",
@@ -2712,6 +2754,90 @@
         }
       ],
       "risk": [
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "detail": "price note: included in Claude Pro from $20/mo; API pay-per-token → included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "detail": "price note: from $20/mo (Pro) → Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "dify",
+          "name": "Dify",
+          "detail": "price note: open source self-host free; cloud from $29/mo → Cloud Sandbox free; self-host Community free under restricted license; cloud Professional/Team paid yearly"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "exa",
+          "name": "Exa",
+          "detail": "price note: free tier; paid from $50/mo → free $10 credits/mo; usage-based PayGO; Enterprise custom"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "flux",
+          "name": "FLUX (Black Forest Labs)",
+          "detail": "price note: open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image → open weights (FLUX.2 Klein, Apache-2.0); API from ~$0.014/image"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "google-ai-studio",
+          "name": "Google AI Studio / Gemini API",
+          "detail": "price note: free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01) → free tier (text models); paid from $0.75/1M input (Gemini 3.7 Flash promo till 2027-01)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "granola",
+          "name": "Granola",
+          "detail": "price note: free tier; Business from ~$14/user/mo → free Basic tier; Business $14/user/mo; Enterprise $35/user/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "heroui",
+          "name": "HeroUI",
+          "detail": "pricing: freemium → free"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "krea",
+          "name": "Krea",
+          "detail": "price note: free tier with daily credits; Pro from $24/mo → free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business/Enterprise custom"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "modal",
+          "name": "Modal",
+          "detail": "price note: free tier; pay-as-you-go for compute → free tier ($30/mo compute); pay-as-you-go beyond"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "suno",
+          "name": "Suno",
+          "detail": "price note: free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo → free tier (10 songs/day, non-commercial); Pro $10/mo, Premier $30/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "detail": "pricing: paid → freemium"
+        },
         {
           "class": "price_change",
           "collection": "tools",
@@ -2785,13 +2911,6 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "detail": "price note: included in Claude Pro from $20/mo; API pay-per-token → included in Claude Pro $20/mo ($17/mo yearly) and all paid plans; shares the plan usage pool; extra usage at API rates"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "claude",
           "name": "Claude",
           "detail": "price note: free tier; Pro $20/mo → free tier; Pro $20/mo ($17/mo billed yearly, $200 up front); Max from $100/mo"
@@ -2813,37 +2932,9 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "detail": "price note: from $20/mo (Pro) → Hobby free; Individual Pro from $20/mo; Teams from $40/user/mo; Ultra and Pro+ are higher Individual meters"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "dify",
-          "name": "Dify",
-          "detail": "price note: open source self-host free; cloud from $29/mo → Cloud Sandbox free; self-host Community free under restricted license; cloud Professional/Team paid yearly"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "exa",
-          "name": "Exa",
-          "detail": "price note: free tier; paid from $50/mo → free $10 credits/mo; usage-based PayGO; Enterprise custom"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "firecrawl",
           "name": "Firecrawl",
           "detail": "price note: open source self-host free; cloud from $16/mo → open source self-host free; cloud 1,000 credits/mo free, then Hobby/Standard/Growth paid"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "flux",
-          "name": "FLUX (Black Forest Labs)",
-          "detail": "price note: open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image → open weights (FLUX.2 Klein, Apache-2.0); API from ~$0.014/image"
         },
         {
           "class": "price_change",
@@ -2876,20 +2967,6 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "google-ai-studio",
-          "name": "Google AI Studio / Gemini API",
-          "detail": "price note: free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01) → free tier (text models); paid from $0.75/1M input (Gemini 3.7 Flash promo till 2027-01)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "granola",
-          "name": "Granola",
-          "detail": "price note: free tier; Business from ~$14/user/mo → free Basic tier; Business $14/user/mo; Enterprise $35/user/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "gumloop",
           "name": "Gumloop",
           "detail": "price note: free tier; paid from $19/mo → Pro from $37/mo"
@@ -2900,13 +2977,6 @@
           "slug": "hailuo-ai",
           "name": "Hailuo AI",
           "detail": "price note: Consumer Standard $7.99/mo, Pro $27.99/mo, Master $63.99/mo (credit-based); API via third-party providers only, e.g. fal.ai ~$0.045/s standard, Segmind ~$0.34–$0.60/video; no first-party public price card → Consumer plans from ¥105/mo (promo ¥55) to ¥1399/mo, credit-based; API via third-party resellers only; no first-party public price card"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "heroui",
-          "name": "HeroUI",
-          "detail": "pricing: freemium → free"
         },
         {
           "class": "price_change",
@@ -2946,13 +3016,6 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "krea",
-          "name": "Krea",
-          "detail": "price note: free tier with daily credits; Pro from $24/mo → free 100 units/day; Basic $9/mo, Pro $35/mo, Max $105/mo (yearly ~$5/$21/$63); Business/Enterprise custom"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "lindy",
           "name": "Lindy",
           "detail": "pricing: freemium → paid"
@@ -2970,13 +3033,6 @@
           "slug": "mobbin",
           "name": "Mobbin",
           "detail": "price note: free limited browse; paid from $8/mo → free limited browse; Pro kr100/mo billed yearly"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "modal",
-          "name": "Modal",
-          "detail": "price note: free tier; pay-as-you-go for compute → free tier ($30/mo compute); pay-as-you-go beyond"
         },
         {
           "class": "price_change",
@@ -3061,13 +3117,6 @@
           "slug": "speechify",
           "name": "Speechify",
           "detail": "price note: free tier; Premium from $139/year → free tier; Premium $29/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "suno",
-          "name": "Suno",
-          "detail": "price note: free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo → free tier (10 songs/day, non-commercial); Pro $10/mo, Premier $30/mo"
         },
         {
           "class": "price_change",
@@ -3211,13 +3260,6 @@
         },
         {
           "class": "price_change",
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "detail": "pricing: paid → freemium"
-        },
-        {
-          "class": "price_change",
           "collection": "models",
           "slug": "glm-5-3",
           "name": "GLM 5.3",
@@ -3235,6 +3277,179 @@
         "changed": 73
       },
       "added": [
+        {
+          "collection": "models",
+          "slug": "gemini-3-7-flash",
+          "name": "Gemini 3.7 Flash"
+        },
+        {
+          "collection": "tools",
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "category": "writing"
+        },
+        {
+          "collection": "tools",
+          "slug": "claude-code",
+          "name": "Claude Code",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "cursor",
+          "name": "Cursor",
+          "category": "coding"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepgram",
+          "name": "Deepgram",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "dify",
+          "name": "Dify",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "elevenlabs",
+          "name": "ElevenLabs",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "exa",
+          "name": "Exa",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "flux",
+          "name": "FLUX (Black Forest Labs)",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "google-ai-studio",
+          "name": "Google AI Studio / Gemini API",
+          "category": "models-api"
+        },
+        {
+          "collection": "tools",
+          "slug": "granola",
+          "name": "Granola",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "heroui",
+          "name": "HeroUI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "krea",
+          "name": "Krea",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "lucide",
+          "name": "Lucide",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "magic-ui",
+          "name": "Magic UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "midjourney",
+          "name": "Midjourney",
+          "category": "image"
+        },
+        {
+          "collection": "tools",
+          "slug": "modal",
+          "name": "Modal",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "motion-dev",
+          "name": "Motion",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "n8n",
+          "name": "n8n",
+          "category": "agents"
+        },
+        {
+          "collection": "tools",
+          "slug": "openrouter",
+          "name": "OpenRouter",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "radix-ui",
+          "name": "Radix UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "raycast",
+          "name": "Raycast",
+          "category": "productivity"
+        },
+        {
+          "collection": "tools",
+          "slug": "replicate",
+          "name": "Replicate",
+          "category": "dev-infra"
+        },
+        {
+          "collection": "tools",
+          "slug": "runway",
+          "name": "Runway",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "suno",
+          "name": "Suno",
+          "category": "audio"
+        },
+        {
+          "collection": "tools",
+          "slug": "synthesia",
+          "name": "Synthesia",
+          "category": "video"
+        },
+        {
+          "collection": "tools",
+          "slug": "tailwind-ui",
+          "name": "Tailwind UI",
+          "category": "design"
+        },
+        {
+          "collection": "tools",
+          "slug": "tavily",
+          "name": "Tavily",
+          "category": "data"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3",
+          "category": "video"
+        },
         {
           "collection": "models",
           "slug": "claude-fable-5",
@@ -3357,18 +3572,6 @@
         },
         {
           "collection": "tools",
-          "slug": "chatgpt",
-          "name": "ChatGPT",
-          "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "claude-code",
-          "name": "Claude Code",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "claude",
           "name": "Claude",
           "category": "writing"
@@ -3405,21 +3608,9 @@
         },
         {
           "collection": "tools",
-          "slug": "cursor",
-          "name": "Cursor",
-          "category": "coding"
-        },
-        {
-          "collection": "tools",
           "slug": "daisyui",
           "name": "DaisyUI",
           "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "deepgram",
-          "name": "Deepgram",
-          "category": "audio"
         },
         {
           "collection": "tools",
@@ -3429,26 +3620,8 @@
         },
         {
           "collection": "tools",
-          "slug": "dify",
-          "name": "Dify",
-          "category": "agents"
-        },
-        {
-          "collection": "tools",
-          "slug": "elevenlabs",
-          "name": "ElevenLabs",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
           "slug": "elicit",
           "name": "Elicit",
-          "category": "data"
-        },
-        {
-          "collection": "tools",
-          "slug": "exa",
-          "name": "Exa",
           "category": "data"
         },
         {
@@ -3474,12 +3647,6 @@
           "slug": "fireworks-ai",
           "name": "Fireworks AI",
           "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "flux",
-          "name": "FLUX (Black Forest Labs)",
-          "category": "image"
         },
         {
           "collection": "tools",
@@ -3519,21 +3686,9 @@
         },
         {
           "collection": "tools",
-          "slug": "google-ai-studio",
-          "name": "Google AI Studio / Gemini API",
-          "category": "models-api"
-        },
-        {
-          "collection": "tools",
           "slug": "grammarly",
           "name": "Grammarly",
           "category": "writing"
-        },
-        {
-          "collection": "tools",
-          "slug": "granola",
-          "name": "Granola",
-          "category": "productivity"
         },
         {
           "collection": "tools",
@@ -3546,12 +3701,6 @@
           "slug": "hailuo-ai",
           "name": "Hailuo AI",
           "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "heroui",
-          "name": "HeroUI",
-          "category": "design"
         },
         {
           "collection": "tools",
@@ -3615,12 +3764,6 @@
         },
         {
           "collection": "tools",
-          "slug": "krea",
-          "name": "Krea",
-          "category": "image"
-        },
-        {
-          "collection": "tools",
           "slug": "lambda",
           "name": "Lambda",
           "category": "models-api"
@@ -3651,21 +3794,9 @@
         },
         {
           "collection": "tools",
-          "slug": "lucide",
-          "name": "Lucide",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
           "slug": "luma-dream-machine",
           "name": "Luma Dream Machine",
           "category": "video"
-        },
-        {
-          "collection": "tools",
-          "slug": "magic-ui",
-          "name": "Magic UI",
-          "category": "design"
         },
         {
           "collection": "tools",
@@ -3678,12 +3809,6 @@
           "slug": "mem-ai",
           "name": "Mem",
           "category": "productivity"
-        },
-        {
-          "collection": "tools",
-          "slug": "midjourney",
-          "name": "Midjourney",
-          "category": "image"
         },
         {
           "collection": "tools",
@@ -3711,18 +3836,6 @@
         },
         {
           "collection": "tools",
-          "slug": "modal",
-          "name": "Modal",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
-          "slug": "motion-dev",
-          "name": "Motion",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
           "slug": "motion",
           "name": "Motion",
           "category": "productivity"
@@ -3732,12 +3845,6 @@
           "slug": "murf",
           "name": "Murf AI",
           "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "n8n",
-          "name": "n8n",
-          "category": "agents"
         },
         {
           "collection": "tools",
@@ -3792,12 +3899,6 @@
           "slug": "opencode",
           "name": "OpenCode",
           "category": "coding"
-        },
-        {
-          "collection": "tools",
-          "slug": "openrouter",
-          "name": "OpenRouter",
-          "category": "dev-infra"
         },
         {
           "collection": "tools",
@@ -3861,18 +3962,6 @@
         },
         {
           "collection": "tools",
-          "slug": "radix-ui",
-          "name": "Radix UI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "raycast",
-          "name": "Raycast",
-          "category": "productivity"
-        },
-        {
-          "collection": "tools",
           "slug": "react-bits",
           "name": "React Bits",
           "category": "design"
@@ -3915,21 +4004,9 @@
         },
         {
           "collection": "tools",
-          "slug": "replicate",
-          "name": "Replicate",
-          "category": "dev-infra"
-        },
-        {
-          "collection": "tools",
           "slug": "resemble-ai",
           "name": "Resemble AI",
           "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "runway",
-          "name": "Runway",
-          "category": "video"
         },
         {
           "collection": "tools",
@@ -3969,33 +4046,9 @@
         },
         {
           "collection": "tools",
-          "slug": "suno",
-          "name": "Suno",
-          "category": "audio"
-        },
-        {
-          "collection": "tools",
-          "slug": "synthesia",
-          "name": "Synthesia",
-          "category": "video"
-        },
-        {
-          "collection": "tools",
           "slug": "tailark",
           "name": "Tailark",
           "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "tailwind-ui",
-          "name": "Tailwind UI",
-          "category": "design"
-        },
-        {
-          "collection": "tools",
-          "slug": "tavily",
-          "name": "Tavily",
-          "category": "data"
         },
         {
           "collection": "tools",
@@ -4202,12 +4255,6 @@
           "category": "coding"
         },
         {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3",
-          "category": "video"
-        },
-        {
           "collection": "models",
           "slug": "gemini-omni-flash",
           "name": "Gemini Omni Flash"
@@ -4241,11 +4288,6 @@
           "collection": "models",
           "slug": "gemini-3-1-pro-preview",
           "name": "Gemini 3.1 Pro Preview"
-        },
-        {
-          "collection": "models",
-          "slug": "gemini-3-7-flash",
-          "name": "Gemini 3.7 Flash"
         },
         {
           "collection": "models",
@@ -4454,21 +4496,102 @@
       "changed": [
         {
           "collection": "tools",
-          "slug": "anthropic-api",
-          "name": "Anthropic API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input",
-          "to": "pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
-        },
-        {
-          "collection": "tools",
           "slug": "chatgpt",
           "name": "ChatGPT",
           "category": "writing",
           "field": "price note",
           "from": "free tier; Plus $20/mo",
           "to": "free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "deepgram",
+          "name": "Deepgram",
+          "category": "audio",
+          "field": "price note",
+          "from": "$200 free credits; then from ~$0.0043/min (Nova models)",
+          "to": "$200 free credits; Nova-3 STT from $0.0048/min (promo)"
+        },
+        {
+          "collection": "tools",
+          "slug": "elevenlabs",
+          "name": "ElevenLabs",
+          "category": "audio",
+          "field": "price note",
+          "from": "free tier (10k credits/mo); Starter $6/mo",
+          "to": "free tier (10k credits/mo, non-commercial); Starter $6/mo, Creator $22/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "flux",
+          "name": "FLUX (Black Forest Labs)",
+          "category": "image",
+          "field": "price note",
+          "from": "API from $0.04/image (FLUX1.1 pro); dev/schnell weights free",
+          "to": "open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image"
+        },
+        {
+          "collection": "tools",
+          "slug": "google-ai-studio",
+          "name": "Google AI Studio / Gemini API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "free tier; Gemini 2.5 Pro from $1.25/1M input",
+          "to": "free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01)"
+        },
+        {
+          "collection": "tools",
+          "slug": "n8n",
+          "name": "n8n",
+          "category": "automation",
+          "field": "price note",
+          "from": "self-host free; cloud from ~$24/mo (Starter)",
+          "to": "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "raycast",
+          "name": "Raycast",
+          "category": "productivity",
+          "field": "price note",
+          "from": "free; Pro with AI from $8/mo (annual)",
+          "to": "free tier (50 AI messages incl.); Pro $10/mo ($8/mo yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "runway",
+          "name": "Runway",
+          "category": "video",
+          "field": "price note",
+          "from": "free one-time credits; from $15/mo (Standard)",
+          "to": "free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
+        },
+        {
+          "collection": "tools",
+          "slug": "suno",
+          "name": "Suno",
+          "category": "audio",
+          "field": "price note",
+          "from": "free (50 credits/day); Pro $10/mo",
+          "to": "free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "category": "video",
+          "field": "price note",
+          "from": "via Google AI Pro $20/mo (limited); API from $0.75/sec",
+          "to": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
+        },
+        {
+          "collection": "tools",
+          "slug": "anthropic-api",
+          "name": "Anthropic API",
+          "category": "models-api",
+          "field": "price note",
+          "from": "Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input",
+          "to": "pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
         },
         {
           "collection": "tools",
@@ -4517,30 +4640,12 @@
         },
         {
           "collection": "tools",
-          "slug": "deepgram",
-          "name": "Deepgram",
-          "category": "audio",
-          "field": "price note",
-          "from": "$200 free credits; then from ~$0.0043/min (Nova models)",
-          "to": "$200 free credits; Nova-3 STT from $0.0048/min (promo)"
-        },
-        {
-          "collection": "tools",
           "slug": "deepseek-api",
           "name": "DeepSeek API",
           "category": "models-api",
           "field": "price note",
           "from": "deepseek-chat $0.27/1M input (cache miss), $1.10/1M output",
           "to": "no free API tier; V4 Flash peak $0.44 input (cache miss) / $0.014 cache hit / $1.32 output per 1M, V4 Pro peak $1.32 input / $0.044 cache hit / $3.96 output per 1M; off-peak 50% off (01:00–04:00, 06:00–10:00 UTC); effective 2026-08-16 16:00 UTC"
-        },
-        {
-          "collection": "tools",
-          "slug": "elevenlabs",
-          "name": "ElevenLabs",
-          "category": "audio",
-          "field": "price note",
-          "from": "free tier (10k credits/mo); Starter $6/mo",
-          "to": "free tier (10k credits/mo, non-commercial); Starter $6/mo, Creator $22/mo"
         },
         {
           "collection": "tools",
@@ -4571,30 +4676,12 @@
         },
         {
           "collection": "tools",
-          "slug": "flux",
-          "name": "FLUX (Black Forest Labs)",
-          "category": "image",
-          "field": "price note",
-          "from": "API from $0.04/image (FLUX1.1 pro); dev/schnell weights free",
-          "to": "open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image"
-        },
-        {
-          "collection": "tools",
           "slug": "github-copilot",
           "name": "GitHub Copilot",
           "category": "coding",
           "field": "price note",
           "from": "free tier; Pro $10/mo",
           "to": "free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
-        },
-        {
-          "collection": "tools",
-          "slug": "google-ai-studio",
-          "name": "Google AI Studio / Gemini API",
-          "category": "models-api",
-          "field": "price note",
-          "from": "free tier; Gemini 2.5 Pro from $1.25/1M input",
-          "to": "free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01)"
         },
         {
           "collection": "tools",
@@ -4697,15 +4784,6 @@
         },
         {
           "collection": "tools",
-          "slug": "n8n",
-          "name": "n8n",
-          "category": "automation",
-          "field": "price note",
-          "from": "self-host free; cloud from ~$24/mo (Starter)",
-          "to": "self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
-        },
-        {
-          "collection": "tools",
           "slug": "notion-ai",
           "name": "Notion AI",
           "category": "writing",
@@ -4760,39 +4838,12 @@
         },
         {
           "collection": "tools",
-          "slug": "raycast",
-          "name": "Raycast",
-          "category": "productivity",
-          "field": "price note",
-          "from": "free; Pro with AI from $8/mo (annual)",
-          "to": "free tier (50 AI messages incl.); Pro $10/mo ($8/mo yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "runway",
-          "name": "Runway",
-          "category": "video",
-          "field": "price note",
-          "from": "free one-time credits; from $15/mo (Standard)",
-          "to": "free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
-        },
-        {
-          "collection": "tools",
           "slug": "stable-diffusion",
           "name": "Stable Diffusion (Stability AI)",
           "category": "image",
           "field": "price note",
           "from": "weights free under community license; API pay-per-image",
           "to": "open weights free; Brand Studio Core $50/mo; API from ~$0.03/image"
-        },
-        {
-          "collection": "tools",
-          "slug": "suno",
-          "name": "Suno",
-          "category": "audio",
-          "field": "price note",
-          "from": "free (50 credits/day); Pro $10/mo",
-          "to": "free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo"
         },
         {
           "collection": "tools",
@@ -4865,15 +4916,6 @@
           "field": "price note",
           "from": "$30/mo",
           "to": "free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
-        },
-        {
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "category": "video",
-          "field": "price note",
-          "from": "via Google AI Pro $20/mo (limited); API from $0.75/sec",
-          "to": "free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
         },
         {
           "collection": "models",
@@ -5092,16 +5134,79 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "anthropic-api",
-          "name": "Anthropic API",
-          "detail": "price note: Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input → pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
+          "slug": "chatgpt",
+          "name": "ChatGPT",
+          "detail": "price note: free tier; Plus $20/mo → free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
         },
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "chatgpt",
-          "name": "ChatGPT",
-          "detail": "price note: free tier; Plus $20/mo → free tier; Go $8/mo, Plus $20/mo, Pro from $100/mo"
+          "slug": "deepgram",
+          "name": "Deepgram",
+          "detail": "price note: $200 free credits; then from ~$0.0043/min (Nova models) → $200 free credits; Nova-3 STT from $0.0048/min (promo)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "elevenlabs",
+          "name": "ElevenLabs",
+          "detail": "price note: free tier (10k credits/mo); Starter $6/mo → free tier (10k credits/mo, non-commercial); Starter $6/mo, Creator $22/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "flux",
+          "name": "FLUX (Black Forest Labs)",
+          "detail": "price note: API from $0.04/image (FLUX1.1 pro); dev/schnell weights free → open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "google-ai-studio",
+          "name": "Google AI Studio / Gemini API",
+          "detail": "price note: free tier; Gemini 2.5 Pro from $1.25/1M input → free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "n8n",
+          "name": "n8n",
+          "detail": "price note: self-host free; cloud from ~$24/mo (Starter) → self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "raycast",
+          "name": "Raycast",
+          "detail": "price note: free; Pro with AI from $8/mo (annual) → free tier (50 AI messages incl.); Pro $10/mo ($8/mo yearly)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "runway",
+          "name": "Runway",
+          "detail": "price note: free one-time credits; from $15/mo (Standard) → free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "suno",
+          "name": "Suno",
+          "detail": "price note: free (50 credits/day); Pro $10/mo → free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "veo-3",
+          "name": "Veo 3.1",
+          "detail": "price note: via Google AI Pro $20/mo (limited); API from $0.75/sec → free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
+        },
+        {
+          "class": "price_change",
+          "collection": "tools",
+          "slug": "anthropic-api",
+          "name": "Anthropic API",
+          "detail": "price note: Sonnet $3/1M input, $15/1M output; Haiku from $0.80/1M input → pay-as-you-go, from $1/1M input (Haiku 4.5); small free credits for new users"
         },
         {
           "class": "price_change",
@@ -5127,23 +5232,9 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "deepgram",
-          "name": "Deepgram",
-          "detail": "price note: $200 free credits; then from ~$0.0043/min (Nova models) → $200 free credits; Nova-3 STT from $0.0048/min (promo)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "deepseek-api",
           "name": "DeepSeek API",
           "detail": "price note: deepseek-chat $0.27/1M input (cache miss), $1.10/1M output → no free API tier; V4 Flash peak $0.44 input (cache miss) / $0.014 cache hit / $1.32 output per 1M, V4 Pro peak $1.32 input / $0.044 cache hit / $3.96 output per 1M; off-peak 50% off (01:00–04:00, 06:00–10:00 UTC); effective 2026-08-16 16:00 UTC"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "elevenlabs",
-          "name": "ElevenLabs",
-          "detail": "price note: free tier (10k credits/mo); Starter $6/mo → free tier (10k credits/mo, non-commercial); Starter $6/mo, Creator $22/mo"
         },
         {
           "class": "price_change",
@@ -5169,23 +5260,9 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "flux",
-          "name": "FLUX (Black Forest Labs)",
-          "detail": "price note: API from $0.04/image (FLUX1.1 pro); dev/schnell weights free → open weights (FLUX.2 klein, Apache-2.0); API from ~$0.014/image"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "github-copilot",
           "name": "GitHub Copilot",
           "detail": "price note: free tier; Pro $10/mo → free tier; Pro $10/mo, Pro+ $39/mo, Max $100/mo"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "google-ai-studio",
-          "name": "Google AI Studio / Gemini API",
-          "detail": "price note: free tier; Gemini 2.5 Pro from $1.25/1M input → free tier (text models); paid from $0.75/1M input (Gemini 3.6 Flash promo till 2027-01)"
         },
         {
           "class": "price_change",
@@ -5267,13 +5344,6 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "n8n",
-          "name": "n8n",
-          "detail": "price note: self-host free; cloud from ~$24/mo (Starter) → self-host free; cloud Starter €24/mo (€20/mo billed yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "notion-ai",
           "name": "Notion AI",
           "detail": "price note: add-on from $8/user/mo (annual billing) → limited AI trial on free/Plus; full AI in Business $20/member/mo (yearly)"
@@ -5316,30 +5386,9 @@
         {
           "class": "price_change",
           "collection": "tools",
-          "slug": "raycast",
-          "name": "Raycast",
-          "detail": "price note: free; Pro with AI from $8/mo (annual) → free tier (50 AI messages incl.); Pro $10/mo ($8/mo yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "runway",
-          "name": "Runway",
-          "detail": "price note: free one-time credits; from $15/mo (Standard) → free tier (125 one-off credits); Standard $12/mo, Pro $28/mo (yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
           "slug": "stable-diffusion",
           "name": "Stable Diffusion (Stability AI)",
           "detail": "price note: weights free under community license; API pay-per-image → open weights free; Brand Studio Core $50/mo; API from ~$0.03/image"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "suno",
-          "name": "Suno",
-          "detail": "price note: free (50 credits/day); Pro $10/mo → free tier (50 credits/day, non-commercial); Pro $10/mo, Premier $30/mo"
         },
         {
           "class": "price_change",
@@ -5396,13 +5445,6 @@
           "slug": "superhuman",
           "name": "Superhuman",
           "detail": "price note: $30/mo → free suite tier (no mail); Mail from $25/mo (Starter, yearly)"
-        },
-        {
-          "class": "price_change",
-          "collection": "tools",
-          "slug": "veo-3",
-          "name": "Veo 3.1",
-          "detail": "price note: via Google AI Pro $20/mo (limited); API from $0.75/sec → free 100 credits/mo in Flow; Google AI Pro $19.99/mo, Ultra $249.99/mo"
         },
         {
           "class": "price_change",
