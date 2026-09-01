@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import SeatCalc from '../islands/SeatCalc';
+import { SEATS, collectSeats } from '../lib/seats';
+
+const tools = await getCollection('tools');
+const models = await getCollection('models');
+
+const seats = collectSeats({
+  seats: SEATS,
+  tools: tools.map((t) => ({
+    slug: t.id,
+    name: t.data.name,
+    price_note: t.data.price_note,
+  })),
+  models: models.map((m) => ({
+    slug: m.id,
+    name: m.data.name,
+    price_input_per_mtok: m.data.price_input_per_mtok,
+    price_output_per_mtok: m.data.price_output_per_mtok,
+    price_unit: m.data.price_unit,
+  })),
+});
+
+const pricedModels = models
+  .map((m) => ({
+    slug: m.id,
+    name: m.data.name,
+    price_input_per_mtok: m.data.price_input_per_mtok,
+    price_output_per_mtok: m.data.price_output_per_mtok,
+    price_unit: m.data.price_unit,
+  }))
+  .filter((m) => (m.price_unit ?? 'mtok') === 'mtok' && m.price_input_per_mtok > 0 && m.price_output_per_mtok > 0)
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Base
+  title="Stack math"
+  description="What $/mo buys across seats and list-rate API, with receipts. Arithmetic, not a usage claim."
+  ogImage="/og-default.png"
+>
+  <SectionHeader title="Stack math" sub="What $/mo buys across seats and list-rate API, with receipts." />
+  <SeatCalc client:load seats={seats} models={pricedModels} />
+</Base>
