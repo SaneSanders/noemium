@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-25T09:20:03.551Z",
+  "generated_at": "2026-09-01T09:53:10.668Z",
   "counts": {
     "pages": 10,
-    "down": 1,
+    "down": 2,
     "errors": 0
   },
   "pages": [
@@ -23,10 +23,15 @@
       "indicator": "minor",
       "description": "Minor Service Outage",
       "incidents": [
-        "Increased Latency"
+        "Requests from wrangler or other OAuth clients may experience elevated errors",
+        "HTTP/3 issue affecting R2 custom domains",
+        "Incorrect geo location for some Cloudflare WARP users"
       ],
       "components": [
-        "CDN/Cache"
+        "D1",
+        "Workflows",
+        "R2",
+        "WARP"
       ],
       "error": null
     },
@@ -84,8 +89,8 @@
       "id": "openai",
       "name": "OpenAI",
       "url": "https://status.openai.com/",
-      "indicator": "none",
-      "description": "All Systems Operational",
+      "indicator": "minor",
+      "description": "Partial System Degradation",
       "incidents": [],
       "components": [],
       "error": null

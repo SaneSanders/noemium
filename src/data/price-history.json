@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T09:05:42.491Z",
+  "generated_at": "2026-09-01T10:34:33.598Z",
   "started_tracking": "2026-08-15",
   "models": [
     {
@@ -46,6 +46,18 @@
           "date": "2026-08-15",
           "in": 2,
           "out": 10,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "deepseek-v4-flash-vision-exp",
+      "name": "DeepSeek V4 Flash Vision Exp",
+      "points": [
+        {
+          "date": "2026-09-01",
+          "in": 0.44,
+          "out": 1.32,
           "unit": "mtok"
         }
       ]
@@ -213,6 +225,18 @@
           "date": "2026-08-15",
           "in": 1.4,
           "out": 4.4,
+          "unit": "mtok"
+        }
+      ]
+    },
+    {
+      "slug": "glm-5-3-flash",
+      "name": "GLM 5.3 Flash",
+      "points": [
+        {
+          "date": "2026-09-01",
+          "in": 0.15,
+          "out": 0.5,
           "unit": "mtok"
         }
       ]
