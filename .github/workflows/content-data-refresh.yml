@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   refresh:
@@ -15,6 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: main
           fetch-depth: 0
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -29,9 +29,7 @@ jobs:
           path: |
             src/data/changelog.json
             src/data/price-history.json
-      - name: Open draft PR if data changed
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit data refresh to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -40,9 +38,5 @@ jobs:
             echo "No data changes"
             exit 0
           fi
-          git checkout -b "chore/content-data-$(date -u +%Y-W%V)"
           git commit -m "chore: refresh changelog and price-history JSON"
-          git push -u origin HEAD
-          gh pr create --draft --base main \
-            --title "chore: refresh changelog.json and price-history.json" \
-            --body "Automated weekly data refresh. Review, then merge — merge to main deploys."
+          git push origin main

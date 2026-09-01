@@ -15,6 +15,10 @@ const TIMEOUT_MS = 15_000;
 const CONCURRENCY = 8;
 const MAX_REDIRECTS = 5;
 
+// Some domains return 404 to the link-check bot UA but 200 to a browser UA.
+// Count these as flaky instead of dead so CI is not tripped by bot-blocking.
+const KNOWN_BOT_BLOCK_404 = new Set(['www.codebuddy.ai', 'www.codebuddy.cn']);
+
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const contentDir = join(root, 'src', 'content');
 const reportsDir = join(root, 'reports');
@@ -173,7 +177,17 @@ function classifyError(err) {
   return { status: 'flaky', statusCode: 0, reason: `network error (${message})` };
 }
 
+function reclassifyBotBlock(originalUrl, result) {
+  if (result.status !== 'dead' || ![404, 410].includes(result.statusCode)) return result;
+  const hostname = new URL(originalUrl).hostname;
+  if (KNOWN_BOT_BLOCK_404.has(hostname)) {
+    return { status: 'flaky', statusCode: result.statusCode, reason: `known bot-block 404 (${hostname})` };
+  }
+  return result;
+}
+
 async function checkUrl(url, attempt = 0) {
+  const originalUrl = url;
   let lastResult = null;
 
   for (const method of ['HEAD', 'GET']) {
@@ -181,21 +195,21 @@ async function checkUrl(url, attempt = 0) {
       const result = await fetchOnce(url, method, 0);
       lastResult = result;
 
-      if (result.status === 405 || result.status === 501) {
-        // Method not allowed / not implemented: fall back to GET.
+      if ((result.status === 405 || result.status === 501) && method === 'HEAD') {
+        // Method not allowed / not implemented on HEAD: fall back to GET.
         continue;
       }
 
       if (result.status >= 200 && result.status < 400) {
         return { status: 'ok', statusCode: result.status, finalUrl: result.finalUrl };
       }
-      if ([403, 429, 408].includes(result.status) || result.status >= 500) {
+      if ([401, 403, 405, 429, 408].includes(result.status) || result.status >= 500) {
         return { status: 'flaky', statusCode: result.status, finalUrl: result.finalUrl };
       }
       if ([404, 410].includes(result.status)) {
-        return { status: 'dead', statusCode: result.status, finalUrl: result.finalUrl };
+        return reclassifyBotBlock(originalUrl, { status: 'dead', statusCode: result.status, finalUrl: result.finalUrl });
       }
-      return { status: 'dead', statusCode: result.status, finalUrl: result.finalUrl };
+      return reclassifyBotBlock(originalUrl, { status: 'dead', statusCode: result.status, finalUrl: result.finalUrl });
     } catch (err) {
       if (method === 'HEAD') {
         // HEAD failed: try GET next, unless it was a method-not-allowed handled above.
@@ -215,7 +229,7 @@ async function checkUrl(url, attempt = 0) {
   // If we exhausted both methods and only saw 405/501, the GET loop would have run.
   // This fallback covers unexpected exhaustion.
   if (lastResult) {
-    return { status: 'dead', statusCode: lastResult.status, finalUrl: lastResult.finalUrl };
+    return reclassifyBotBlock(originalUrl, { status: 'dead', statusCode: lastResult.status, finalUrl: lastResult.finalUrl });
   }
   return { status: 'flaky', statusCode: 0, reason: 'exhausted methods' };
 }
