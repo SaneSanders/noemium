@@ -12,7 +12,7 @@
     "astro": "astro",
     "check": "astro check",
     "test": "node --test tests/content-schemas.test.mjs tests/agent-content.test.mjs tests/skill-content.test.mjs tests/shelf.test.mjs tests/catalog-surfaces.test.mjs tests/logos.test.mjs tests/kit.test.mjs tests/briefing-coverage.test.mjs tests/risk.test.mjs tests/changelog-value.test.mjs tests/harvest.test.mjs tests/deaths.test.mjs tests/world-status.test.mjs tests/free.test.mjs tests/seats.test.mjs tests/mcp.test.mjs tests/benchmarks.test.mjs",
-    "test:dist": "node --test tests/agent-pages.test.mjs tests/skill-pages.test.mjs tests/pack-page.test.mjs tests/catalog-pages.test.mjs tests/cover-pages.test.mjs",
+    "test:dist": "node --test tests/agent-pages.test.mjs tests/skill-pages.test.mjs tests/pack-page.test.mjs tests/catalog-pages.test.mjs tests/cover-pages.test.mjs tests/deaths-page.test.mjs tests/badge.test.mjs",
     "test:all": "node --test tests/*.test.mjs",
     "validate": "node scripts/validate-content.mjs",
     "weekly-diff": "node scripts/weekly-diff.mjs",

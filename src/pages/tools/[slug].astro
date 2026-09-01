@@ -177,6 +177,14 @@ const disputePrompt = t.verdict
       <a href={`/kit/?add=${tool.id}`} class="nm-btn nm-btn-outline">Add to kit</a>
       <a href={openInNoemiumHref(t.name, t.tagline)} class="nm-btn nm-btn-outline">Open in Noemium</a>
       <CopyButton label={t.verdict ? 'Dispute this verdict' : 'Dispute this listing'} text={disputePrompt} />
+      {
+        t.verdict && (
+          <CopyButton
+            label="Embed verdict"
+            text={`[![Noemium verdict: ${t.verdict}](${new URL(`/badge/${tool.id}.svg`, Astro.site).href})](${new URL(`/tools/${tool.id}/`, Astro.site).href})`}
+          />
+        )
+      }
       <VerifiedStamp slug={tool.id} date={t.last_verified} />
     </p>
     {
