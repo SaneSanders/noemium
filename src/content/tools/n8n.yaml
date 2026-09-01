@@ -30,6 +30,7 @@ limitations:
   - Cloud per-execution pricing stings at volume.
 receipts:
   - https://github.com/n8n-io/n8n
+  - https://n8n.io/pricing
 affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
@@ -47,5 +48,5 @@ guide:
   breaks_when:
     - A workflow has dozens of branches and no tests — debug time exceeds build time.
     - Fair-code licensing blocks the way you wanted to resell it.
-last_verified: "2026-08-19"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

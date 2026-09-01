@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - hardest reasoning tasks (use 3.1 Pro)
   - open-weights requirements
-source_attribution: "Prices: Google Cloud Agent Platform pricing (gemini-3.7-flash), 2026-08-19; promo price until 2026-12-31, then $1.50/$7.50; snapshot 2026-08-19"
-last_verified: "2026-08-19"
+source_attribution: "Prices: Gemini API pricing page (ai.google.dev/gemini-api/docs/pricing), 2026-09-01 — $0.75/$3.75 promo through 2026-12-31, then $1.50/$7.50; stable endpoint gemini-3.7-flash per vendor models list (updated 2026-08-27); snapshot 2026-09-01"
+last_verified: "2026-09-01"

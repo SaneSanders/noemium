@@ -34,11 +34,10 @@ limitations:
   - API surface and model names change quickly.
   - Image/video generation is paid-tier only; Flash promo prices double 2027-01-01.
 receipts:
-  - https://aistudio.google.com
-  - https://ai.google.dev/pricing
+  - https://ai.google.dev/gemini-api/docs/pricing
 affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
-last_verified: "2026-08-19"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

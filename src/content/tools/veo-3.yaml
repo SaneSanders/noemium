@@ -29,15 +29,15 @@ limitations:
   - Per-second API pricing is steep for experimentation.
   - Access tiers and quotas across Gemini/Flow/Vertex are confusing.
   - Roughly 8-second clip limit per generation.
-  - Veo 3.0 retired 2026-06-30; no standalone Veo subscription (via Google AI plans/Flow).
+  - Veo 3.0 shutdown is marked "coming soon" on Google's deprecations page (no date set); no standalone Veo subscription (via Google AI plans/Flow).
 receipts:
   - https://deepmind.google/models/veo/
   - https://ai.google.dev/pricing
-  - https://ai.google.dev/gemini-api/docs/deprecations
+  - https://ai.google.dev/gemini-api/docs/deprecations?hl=en
   - https://one.google.com/about/ai-premium
 affiliate: none
 momentum: blueshift
 featured: true
 evidence_tier: source-verified
-last_verified: "2026-08-24"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

@@ -1,5 +1,5 @@
 name: Runway
-tagline: The incumbent AI video suite — Gen-4 generation plus a full editing toolchain.
+tagline: The incumbent AI video suite — Gen-4.5 generation plus a full editing toolchain.
 url: https://runway.com
 category: video
 pricing: freemium
@@ -10,13 +10,13 @@ api: true
 self_host: false
 verdict: ship
 verdict_text: >-
-  Still the most complete AI video workflow. Gen-4 quality is competitive,
+  Still the most complete AI video workflow. Gen-4.5 quality is competitive,
   and the editing tools — inpainting, motion brush, green screen — let you
   finish a shot instead of just generating a clip. Credit math gets painful
   if you iterate heavily, and the best quality modes sit behind pricier tiers.
 strengths:
   - "Most complete AI video workflow: generate plus inpainting, motion brush, green screen."
-  - "Gen-4 quality is competitive, and you can finish a shot in the same suite."
+  - "Gen-4.5 quality is competitive, and you can finish a shot in the same suite."
 use_for:
   - "Short-form video that needs edit tools, not just a clip generator."
   - Teams that will pay to iterate inside one vendor.
@@ -36,5 +36,5 @@ affiliate: none
 evidence_tier: source-verified
 momentum: steady
 featured: true
-last_verified: "2026-08-19"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

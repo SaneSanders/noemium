@@ -37,5 +37,5 @@ featured: true
 data_sensitivity:
   trains_on_inputs: yes
   local_processing: false
-last_verified: "2026-08-24"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

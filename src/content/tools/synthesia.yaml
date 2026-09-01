@@ -3,8 +3,8 @@ tagline: AI avatar video platform for corporate training and marketing.
 url: https://www.synthesia.io
 category: video
 pricing: paid
-price_note: "from $22/mo (Starter)"
-free_tier: false
+price_note: "from $29/mo (Starter)"
+free_tier: true
 open_source: false
 api: true
 self_host: false
@@ -34,5 +34,5 @@ affiliate: none
 evidence_tier: source-verified
 momentum: steady
 featured: false
-last_verified: "2026-08-19"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

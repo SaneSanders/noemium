@@ -20,19 +20,21 @@ use_for:
   - Daily driver launcher on a Mac.
   - Light AI chat from the keyboard without opening a browser.
 skip_when:
-  - The team is not on macOS.
+  - You need Linux support.
   - AI quality on your plan tier is not good enough.
   - You would depend on extensions of wildly uneven quality.
 limitations:
-  - macOS-only (Windows version still catching up).
+  - macOS + Windows only; no Linux build.
   - AI model quality depends on your plan tier.
   - Extension quality varies wildly.
 receipts:
   - https://www.raycast.com
   - https://www.raycast.com/pricing
+  - https://www.raycast.com/changelog/windows
+  - https://manual.raycast.com/ai/usage-limits
 affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
 featured: false
-last_verified: "2026-08-19"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

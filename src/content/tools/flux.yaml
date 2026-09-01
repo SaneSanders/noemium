@@ -31,6 +31,7 @@ limitations:
   - Local runs want a 24GB GPU for comfortable speed.
 receipts:
   - https://github.com/black-forest-labs/flux
+  - https://docs.bfl.ai/flux_2/flux2_overview
 affiliate: none
 evidence_tier: source-verified
 momentum: blueshift
@@ -38,5 +39,5 @@ featured: false
 data_sensitivity:
   trains_on_inputs: unknown
   local_processing: true
-last_verified: "2026-08-19"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

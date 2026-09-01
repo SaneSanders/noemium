@@ -56,5 +56,5 @@ guide:
   breaks_when:
     - A heavy agent month hits Pro token limits mid-sprint.
     - You need to audit or self-host the editor.
-last_verified: "2026-08-26"
+last_verified: "2026-09-01"
 observed_by: whysanesanders

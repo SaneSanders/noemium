@@ -1,6 +1,6 @@
 name: Radix UI
 tagline: "Low-level, accessible UI primitives for React."
-url: "https://radix-ui.com"
+url: "https://radix-ui.com/primitives"
 category: design
 pricing: free
 price_note: MIT open source
@@ -26,7 +26,7 @@ limitations:
   - Not a drop-in component library for non-technical users.
   - Some primitives have a learning curve.
 receipts:
-  - "https://radix-ui.com"
+  - "https://radix-ui.com/primitives"
   - "https://github.com/radix-ui/primitives"
 affiliate: none
 evidence_tier: source-verified
@@ -35,5 +35,5 @@ featured: false
 data_sensitivity:
   trains_on_inputs: unknown
   local_processing: true
-last_verified: "2026-08-19"
+last_verified: "2026-09-01"
 observed_by: whysanesanders
