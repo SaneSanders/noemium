@@ -1,0 +1,23 @@
+name: Roomote
+tagline: Source-available cloud coding teammate from the Roo Code team, working in chat and returning PRs with live previews.
+url: https://roomote.dev
+category: agents
+pricing: freemium
+price_note: "Self-hosted free up to 10 users (Fair Core License, ALv2 after 2 years); paid per-capability tiers above; Roomote Cloud: 7-day trial, BYO inference key"
+free_tier: true
+open_source: false
+api: false
+self_host: true
+model_routing: byok
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Source-available Fair Core, not OSI open source; more than 10 users needs a paid license key."
+  - "Single-tenant design; cloud is bring-your-own-inference-key, so real cost is usage-based."
+receipts:
+  - https://roomote.dev
+affiliate: none
+evidence_tier: radar
+momentum: blueshift
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

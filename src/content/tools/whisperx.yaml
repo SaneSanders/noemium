@@ -1,0 +1,21 @@
+name: WhisperX
+tagline: Open-source speech recognition toolkit with batched Whisper, word-level timestamps, and speaker diarization.
+url: https://github.com/m-bain/whisperX
+category: audio
+pricing: free
+free_tier: true
+open_source: true
+api: false
+self_host: true
+model_routing: bundled
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Overlapping speech is not handled well and speaker diarization is far from perfect, per the project's own limitations list."
+receipts:
+  - https://github.com/m-bain/whisperX
+affiliate: none
+evidence_tier: radar
+momentum: blueshift
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

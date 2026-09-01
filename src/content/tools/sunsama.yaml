@@ -1,0 +1,22 @@
+name: Sunsama
+tagline: Daily planner that unifies tasks and calendars so modern professionals can stay calm and focused.
+url: https://www.sunsama.com
+category: productivity
+pricing: paid
+price_note: "No free forever plan; 14-day free trial, then paid subscription priced around $1/workday with a 20% annual discount."
+free_tier: false
+open_source: false
+api: false
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "No free forever plan; after the 14-day trial the service requires a paid subscription."
+receipts:
+  - https://www.sunsama.com
+  - https://www.sunsama.com/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

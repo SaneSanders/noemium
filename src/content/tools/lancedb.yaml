@@ -1,0 +1,20 @@
+name: LanceDB
+tagline: AI-native multimodal lakehouse unifying data curation, retrieval, and training.
+url: https://www.lancedb.com
+category: data
+pricing: freemium
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Cloud and enterprise pricing is not published on the site; sales contact is required."
+receipts:
+  - https://www.lancedb.com
+affiliate: none
+evidence_tier: radar
+momentum: blueshift
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

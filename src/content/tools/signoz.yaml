@@ -1,0 +1,23 @@
+name: SigNoz
+tagline: OpenTelemetry-native observability platform for traces, metrics, logs, and AI-agent telemetry.
+url: https://signoz.io
+category: dev-infra
+pricing: freemium
+price_note: "Self-hosted Community edition is free; SigNoz Cloud Teams starts at $49 per month with $49 of usage credit; Enterprise starts at $4,000 per month."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Cloud Teams has a $49 monthly minimum and bills per GB of traces/logs and per million metric samples beyond the included credit."
+receipts:
+  - https://signoz.io
+  - https://signoz.io/docs/
+  - https://signoz.io/pricing/
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

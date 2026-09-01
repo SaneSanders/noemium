@@ -1,0 +1,23 @@
+name: Hyperbolic
+tagline: Open-access AI cloud for on-demand GPUs and pay-as-you-go serverless inference with OpenAI-compatible APIs.
+url: https://hyperbolic.xyz
+category: models-api
+pricing: paid
+price_note: "Serverless text inference from $0.10–$4.00 per 1M tokens; dedicated GPU hosting billed hourly by GPU type."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Basic tier is capped at 60 RPM; higher throughput requires Pro or Enterprise tiers."
+receipts:
+  - https://hyperbolic.xyz
+  - https://www.hyperbolic.ai/docs
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

@@ -1,0 +1,20 @@
+name: Marqo
+tagline: AI-native product discovery platform that trains dedicated models on catalogs and shopper behavior.
+url: https://www.marqo.ai
+category: data
+pricing: paid
+free_tier: false
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pricing and self-hosted options are not published; the platform is commerce-centric."
+receipts:
+  - https://www.marqo.ai
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

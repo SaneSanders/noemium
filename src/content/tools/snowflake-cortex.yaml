@@ -1,0 +1,23 @@
+name: Snowflake Cortex
+tagline: Managed LLM, RAG, and AI functions inside the Snowflake data cloud, priced in AI Credits.
+url: https://www.snowflake.com/en/data-cloud/cortex
+category: models-api
+pricing: paid
+price_note: "AI Credits at $2.00 (global) or $2.20 (regional) per credit; features billed per million tokens, pages, or GB-month."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Requires a Snowflake account; AI Credit spend is separate from warehouse spend and can be hard to budget."
+receipts:
+  - https://www.snowflake.com/en/data-cloud/cortex
+  - https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

@@ -1,0 +1,21 @@
+name: Roo Code
+url: https://github.com/RooCodeInc/Roo-Code
+category: coding
+died: "2026-05-15"
+cause: >-
+  Roo Code Inc shut down the VS Code extension (plus Roo Code Cloud and Router)
+  and pivoted to a cloud agent.
+obituary: >-
+  Open-source VS Code extension in the Cline lineage, with modes (Code,
+  Architect, Ask, Debug), MCP support, and bring-your-own-model routing. The
+  extension shut down on May 15, 2026 and the repository was archived. The
+  README now points users to ZooCode as a community fork and to Cline as the
+  upstream open option.
+receipt: https://github.com/RooCodeInc/Roo-Code
+last_verified: "2026-09-01"
+succeeded_by:
+  name: Roomote
+  slug: roomote
+  note: >-
+    By the same team (roomote.dev states "By the creators of Roo Code"). The
+    extension's community continues as ZooCode.

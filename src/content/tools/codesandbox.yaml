@@ -1,0 +1,23 @@
+name: CodeSandbox
+tagline: Instant, isolated cloud sandboxes for code execution, development environments, and AI-agent runtimes.
+url: https://codesandbox.io
+category: dev-infra
+pricing: freemium
+price_note: "Build plan is free with 5 members, 20 GB storage, 20 new SDK sandboxes per hour, and 10 concurrent VM sandboxes; Pro, Scale, and Enterprise are paid."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Build plan caps members at 5, new SDK sandboxes at 20 per hour, and concurrent VM sandboxes at 10."
+receipts:
+  - https://codesandbox.io
+  - https://codesandbox.io/docs
+  - https://codesandbox.io/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

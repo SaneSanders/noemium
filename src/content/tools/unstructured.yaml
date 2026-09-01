@@ -1,0 +1,20 @@
+name: Unstructured
+tagline: Enterprise platform that turns complex unstructured files into clean, AI-ready structured data.
+url: https://unstructured.io
+category: data
+pricing: freemium
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Managed platform pricing is not shown on the homepage; open-source library requires self-hosted infrastructure."
+receipts:
+  - https://unstructured.io
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

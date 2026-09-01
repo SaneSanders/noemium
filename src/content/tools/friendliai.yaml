@@ -1,0 +1,23 @@
+name: FriendliAI
+tagline: Frontier AI inference cloud with fast model APIs, dedicated endpoints, and container deployments.
+url: https://friendli.ai
+category: models-api
+pricing: paid
+price_note: "Model APIs from $0.03–$4.40 per 1M tokens; dedicated endpoints from $2.90–$12.00/GPU-hr; container pricing is contact sales."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Container and enterprise deployments are not self-serve and require sales engagement."
+receipts:
+  - https://friendli.ai
+  - https://friendli.ai/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

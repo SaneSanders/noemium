@@ -1,0 +1,21 @@
+name: GPT-SoVITS
+tagline: Open-source few-shot voice cloning and text-to-speech toolkit with a built-in WebUI.
+url: https://github.com/RVC-Boss/GPT-SoVITS
+category: audio
+pricing: free
+free_tier: true
+open_source: true
+api: false
+self_host: true
+model_routing: bundled
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pretrained models are released under a CC-BY-NC license, limiting commercial use without permission."
+receipts:
+  - https://github.com/RVC-Boss/GPT-SoVITS
+affiliate: none
+evidence_tier: radar
+momentum: blueshift
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

@@ -1,0 +1,23 @@
+name: HoneyHive
+tagline: Agent observability and evaluation platform for tracing, scoring, and iterating on production agents.
+url: https://www.honeyhive.ai
+category: dev-infra
+pricing: freemium
+price_note: "Developer plan is free with 10,000 events per month, up to 5 users, and 30-day retention; Enterprise is custom with self-host and hybrid options."
+free_tier: true
+open_source: false
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Developer plan is limited to 10,000 events per month, 5 users, and multi-tenant SaaS hosting only."
+receipts:
+  - https://www.honeyhive.ai
+  - https://docs.honeyhive.ai
+  - https://www.honeyhive.ai/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

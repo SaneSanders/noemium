@@ -16,5 +16,5 @@ benchmarks:
     score: "87.9"
     source: DeepSeek official changelog
     date: "2026-08-13"
-source_attribution: "Prices: DeepSeek API pricing page (https://api-docs.deepseek.com/quick_start/pricing), 2026-08-19; official peak price (off-peak $0.66/$1.98); snapshot 2026-08-19"
-last_verified: "2026-08-19"
+source_attribution: "Prices: DeepSeek API pricing page (https://api-docs.deepseek.com/quick_start/pricing), 2026-09-01; printed price is PEAK (off-peak $0.66/$1.98; peak hours 01:00-04:00 and 06:00-10:00 UTC Mon-Fri); GA 2026-08-13 added Responses API with one-click Codex config and low/high/max thinking effort; snapshot 2026-09-01"
+last_verified: "2026-09-01"

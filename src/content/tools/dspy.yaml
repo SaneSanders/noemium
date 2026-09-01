@@ -1,0 +1,21 @@
+name: DSPy
+tagline: Python framework that compiles declarative LLM programs with optimizers instead of hand-written prompts.
+url: https://dspy.ai
+category: data
+pricing: free
+free_tier: true
+open_source: true
+api: false
+self_host: true
+model_routing: byok
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Requires your own model provider keys; optimization quality depends on labeled examples and metrics."
+receipts:
+  - https://dspy.ai
+affiliate: none
+evidence_tier: radar
+momentum: blueshift
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

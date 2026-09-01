@@ -1,0 +1,23 @@
+name: Amazon Transcribe
+tagline: Fully managed AWS speech foundation model that converts real-time or recorded speech into text.
+url: https://aws.amazon.com/transcribe
+category: audio
+pricing: freemium
+price_note: "60 minutes/month free for 12 months; standard streaming is $0.01/min and batch $0.006/min, with add-ons for PII redaction and custom language models."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Free tier covers only 60 minutes per month for the first 12 months; add-ons like PII redaction cost extra."
+receipts:
+  - https://aws.amazon.com/transcribe
+  - https://aws.amazon.com/transcribe/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

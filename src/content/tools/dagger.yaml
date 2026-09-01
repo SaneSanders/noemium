@@ -1,0 +1,24 @@
+name: Dagger
+tagline: Programmable CI platform that replaces artisanal scripts with a portable DAG execution engine and language SDKs.
+url: https://dagger.io
+category: dev-infra
+pricing: freemium
+price_note: "Individual plan is free with 1 user and 1,000,000 events per month; Team is $50 per month after a 2-week trial; Enterprise is custom."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Individual plan is limited to one user, 1,000,000 monthly events, and one month of run history."
+receipts:
+  - https://dagger.io
+  - https://docs.dagger.io
+  - https://github.com/dagger/dagger
+  - https://dagger.io/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

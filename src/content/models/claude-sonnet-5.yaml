@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - latency-critical autocomplete at scale (cost per call)
   - on-prem or air-gapped deployments
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key claude-sonnet-5), cross-checked via Google Cloud Agent Platform partner pricing; intro price $2/$10 until 2026-08-31, then $3/$15 (secondary sources, unconfirmed); batch API -50%, cache read 0.1x; snapshot 2026-08-19"
-last_verified: "2026-08-19"
+source_attribution: "Prices: Anthropic models docs (docs.claude.com models overview), $2/$10 confirmed on 2026-09-01 — press reported a rise to $3/$15 effective 08-31, but the vendor page still lists $2/$10; new tokenizer (Opus 4.7 and later) can emit up to 35% more tokens for the same code text, real cost above headline; batch API -50%, cache read 0.1x; snapshot 2026-09-01"
+last_verified: "2026-09-01"

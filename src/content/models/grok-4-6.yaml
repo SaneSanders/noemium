@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - on-prem or open-weights requirements
   - budget high-volume workloads
-source_attribution: "Prices: xAI vendor pricing page, 2026-08-19; ≥200K input bills at 2x; snapshot 2026-08-19"
-last_verified: "2026-08-19"
+source_attribution: "Prices: xAI vendor pricing page, 2026-09-01; ≥200K input bills at 2x; also on Amazon Bedrock since 2026-08-19 at the same $2/$6 with US-geo and global inference profiles (AWS announcement via datanorth.ai, 2026-08-20); snapshot 2026-09-01"
+last_verified: "2026-09-01"

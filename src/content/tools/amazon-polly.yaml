@@ -1,0 +1,23 @@
+name: Amazon Polly
+tagline: Fully managed AWS service that converts text into lifelike speech in dozens of languages.
+url: https://aws.amazon.com/polly
+category: audio
+pricing: freemium
+price_note: "Free tier lasts 12 months and varies by engine (e.g., 1M neural characters/month); Standard voices are $4 per 1M characters, Neural $16, Generative $30, Long-Form $100."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Free tier is limited to 12 months and varies by voice engine; Long-Form and Generative voices are significantly more expensive."
+receipts:
+  - https://aws.amazon.com/polly
+  - https://aws.amazon.com/polly/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

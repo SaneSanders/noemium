@@ -1,0 +1,20 @@
+name: Flowise
+url: https://flowiseai.com
+category: automation
+died: "2026-08-31"
+cause: >-
+  Company wind-down — the team says developers moved from rigid low-code
+  workflows to coding agents (Claude Code/OpenClaw).
+obituary: >-
+  Open-source (Apache 2.0) visual builder for LLM apps and agents, self-hostable.
+  On July 29, 2026 the team announced the shutdown and a code freeze; the
+  FlowiseAI/Flowise repository was archived on August 10, 2026. The August 31,
+  2026 end-of-life meant the core team left Discord and GitHub support. The
+  code remains public and the team encourages forks.
+receipt: https://flowiseai.com/sunset
+last_verified: "2026-09-01"
+succeeded_by:
+  none: true
+  note: >-
+    The Flowise team left the category. An unofficial community fork exists
+    (dblagbro/flow-wiser, unvetted), but coding agents ate the use case.

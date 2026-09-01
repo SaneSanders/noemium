@@ -1,0 +1,23 @@
+name: Upstage
+tagline: Enterprise AI platform with Solar LLM, document parsing, and information extraction APIs.
+url: https://upstage.ai
+category: models-api
+pricing: freemium
+price_note: "Every agent includes 10 free runs; prepaid commitment tiers start at $100/month; per-page and per-step billing."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pricing is credit-based with prepaid commitments, and purchased credits are generally non-refundable."
+receipts:
+  - https://upstage.ai
+  - https://www.upstage.ai/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

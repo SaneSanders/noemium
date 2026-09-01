@@ -1,0 +1,22 @@
+name: Morgen
+tagline: AI-powered daily planner that combines calendars and tasks from multiple apps into one schedule.
+url: https://morgen.so
+category: productivity
+pricing: paid
+price_note: "Free trial available; paid subscription required after trial."
+free_tier: false
+open_source: false
+api: false
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Morgen Assist currently integrates with Outlook, Google, iCloud, and Fastmail calendars only, and some organizations limit third-party calendar tools."
+receipts:
+  - https://morgen.so
+  - https://morgen.so/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

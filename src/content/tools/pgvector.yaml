@@ -1,0 +1,20 @@
+name: pgvector
+tagline: Open-source vector similarity search extension for Postgres.
+url: https://github.com/pgvector/pgvector
+category: data
+pricing: free
+free_tier: true
+open_source: true
+api: false
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Requires a running Postgres server and manual extension build/install; hosted provider support varies."
+receipts:
+  - https://github.com/pgvector/pgvector
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

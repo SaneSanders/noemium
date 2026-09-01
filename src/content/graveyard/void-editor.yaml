@@ -1,0 +1,19 @@
+name: Void
+url: https://voideditor.com
+category: coding
+died: "2026-06-02"
+cause: >-
+  Deprecated by Glass Devtools — the repository was archived on June 2, 2026
+  and is no longer accepting contributions.
+obituary: >-
+  Open-source Cursor-like editor, local-first, bring-your-own-model. It was
+  technically notable for mounting React and Tailwind inside a VS Code fork and
+  for its packaging and auto-update pipeline. The archived README now pitches
+  the codebase as a reference for anyone forking VS Code. There is no official
+  successor; voideditor.com lists community forks.
+receipt: https://github.com/voideditor/void
+last_verified: "2026-09-01"
+succeeded_by:
+  none: true
+  note: >-
+    No official successor. Community forks are listed on voideditor.com.

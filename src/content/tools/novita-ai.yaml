@@ -1,0 +1,23 @@
+name: Novita AI
+tagline: AI-native cloud with serverless APIs for 200+ text, image, audio, and video models plus dedicated endpoints.
+url: https://novita.ai
+category: models-api
+pricing: paid
+price_note: "Usage-based per-token, per-image, and per-second rates for 200+ models; dedicated endpoints priced separately."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pricing varies widely by modality and model; video and audio workloads can exceed text-only costs."
+receipts:
+  - https://novita.ai
+  - https://novita.ai/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

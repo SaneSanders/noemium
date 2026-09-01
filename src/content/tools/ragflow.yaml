@@ -1,0 +1,21 @@
+name: RagFlow
+tagline: Open-source RAG engine that ingests multi-format data and combines hybrid search with agent orchestration.
+url: https://ragflow.io
+category: data
+pricing: freemium
+price_note: "Free tier: 5 apps, 1 team member, 0.1 GB storage, 500 credits/month; paid tiers from $29/month."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "API key access is unavailable on the free tier; some deployment options require paid plans."
+receipts:
+  - https://ragflow.io
+affiliate: none
+evidence_tier: radar
+momentum: blueshift
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

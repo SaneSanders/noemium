@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - cost-sensitive bulk workloads
   - sub-second latency requirements
-source_attribution: "Prices: LiteLLM model_prices_and_context_window.json (MIT, key claude-opus-5), cross-checked via Google Cloud Agent Platform partner pricing; batch API -50%, cache read 0.1x; snapshot 2026-08-19"
-last_verified: "2026-08-19"
+source_attribution: "Prices: Anthropic models docs (docs.claude.com models overview), $5/$25 confirmed 2026-09-01; vendor positions Opus 5 as the default pick for complex agentic coding ('Migrating to Claude Opus 5' guide live); new tokenizer (Opus 4.7 and later) can emit up to 35% more tokens for the same text; batch API -50%, cache read 0.1x; snapshot 2026-09-01"
+last_verified: "2026-09-01"

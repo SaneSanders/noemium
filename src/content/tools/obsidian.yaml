@@ -1,0 +1,25 @@
+name: Obsidian
+tagline: Private, local-first notes app with open file formats and thousands of plugins to shape your thinking.
+url: https://obsidian.md
+category: productivity
+pricing: freemium
+price_note: "Core app is free for personal use; paid add-ons include Obsidian Sync, Publish, Catalyst, and commercial licenses."
+free_tier: true
+open_source: false
+api: false
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Core app is free for personal use; organizations are encouraged to purchase a commercial license, and Sync/Publish/Catalyst are paid add-ons."
+receipts:
+  - https://obsidian.md
+  - https://obsidian.md/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar
+data_sensitivity:
+  trains_on_inputs: "no"
+  local_processing: true

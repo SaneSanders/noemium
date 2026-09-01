@@ -1,0 +1,25 @@
+name: Notion
+tagline: AI workspace where teams capture context, find answers, and automate tasks together.
+url: https://www.notion.so
+category: productivity
+pricing: freemium
+price_note: "Free for individuals with unlimited blocks; paid plans add AI features, guests, and advanced admin controls."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Free plan blocks are unlimited for individuals but limited for multi-member workspaces, and Notion AI is only a limited trial on lower tiers."
+receipts:
+  - https://www.notion.so
+  - https://www.notion.so/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar
+data_sensitivity:
+  trains_on_inputs: "no"
+  local_processing: false

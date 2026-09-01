@@ -1,0 +1,23 @@
+name: LangWatch
+tagline: Open-source LLMOps platform for agent observability, evaluations, simulations, and prompt management.
+url: https://langwatch.ai
+category: dev-infra
+pricing: freemium
+price_note: "Developer plan is free forever with 50,000 events per month, 14-day data access, and 2 users; Growth is $34 per core-seat per month; Enterprise is custom."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Developer plan limits data access to 14 days, 2 users, and 3 scenarios, 3 simulations, and 3 custom evals each."
+receipts:
+  - https://langwatch.ai
+  - https://docs.langwatch.ai
+  - https://langwatch.ai/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

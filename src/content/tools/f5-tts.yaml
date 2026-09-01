@@ -1,0 +1,21 @@
+name: F5-TTS
+tagline: Open-source text-to-speech model using flow matching for fast, faithful speech synthesis.
+url: https://github.com/SWivid/F5-TTS
+category: audio
+pricing: free
+free_tier: true
+open_source: true
+api: false
+self_host: true
+model_routing: bundled
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pretrained models are licensed CC-BY-NC due to the training dataset, so commercial use is restricted."
+receipts:
+  - https://github.com/SWivid/F5-TTS
+affiliate: none
+evidence_tier: radar
+momentum: blueshift
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

@@ -1,0 +1,21 @@
+name: LlamaIndex
+tagline: Data framework and document parsing platform for building context-augmented generative AI apps.
+url: https://www.llamaindex.ai
+category: data
+pricing: freemium
+price_note: "LlamaParse free plan includes 10,000 credits per month (~1000 pages)."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Cloud APIs such as LlamaParse are metered beyond the free credit allowance."
+receipts:
+  - https://www.llamaindex.ai
+affiliate: none
+evidence_tier: radar
+momentum: blueshift
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

@@ -1,0 +1,15 @@
+name: GLM 5.3 Flash
+provider: Z.ai (GLM)
+context_window: 1048576
+price_input_per_mtok: 0.15
+price_output_per_mtok: 0.5
+open_weights: true
+popularity: 58
+best_for:
+  - "budget agentic coding: vendor claims above GLM-5.2 at one-tenth the price"
+  - "self-hosted multimodal agents (MIT weights, 320B total / 18B active MoE)"
+avoid_for:
+  - "teams needing a first-party managed SLA"
+  - "workloads needing GLM-5.3-class peak quality"
+source_attribution: "Prices: Z.ai developer docs pricing page (https://docs.z.ai/guides/overview/pricing), 2026-09-01 — list $0.15/$0.50, 50% launch promo ($0.075/$0.25) until 2026-09-09 24:00 UTC+8; first natively multimodal GLM-5 model, hybrid sparse+linear attention, reasoning_effort low/high/max; weights MIT on Hugging Face (zai-org/GLM-5.3-Flash, 2026-08-25); vendor claims near Claude Opus 4.8 on coding/agentic benchmarks — unaudited; snapshot 2026-09-01"
+last_verified: "2026-09-01"

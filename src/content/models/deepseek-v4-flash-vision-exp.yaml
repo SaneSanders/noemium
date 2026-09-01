@@ -1,0 +1,24 @@
+name: DeepSeek V4 Flash Vision Exp
+provider: DeepSeek
+context_window: 1000000
+price_input_per_mtok: 0.44
+price_output_per_mtok: 1.32
+open_weights: false
+popularity: 38
+best_for:
+  - "agent tasks that need vision: screenshots, charts, UI states at Flash prices"
+  - "multimodal agents close to Opus-4.8-class visual understanding (vendor claim)"
+avoid_for:
+  - "production stability requirements — experimental model, API-only"
+  - "text-only workloads: same price as V4-Flash with no gain"
+benchmarks:
+  - name: Terminal-Bench 2.1
+    score: "83.9"
+    source: DeepSeek official changelog
+    date: "2026-08-21"
+  - name: DeepSWE
+    score: "59.3"
+    source: DeepSeek official changelog
+    date: "2026-08-21"
+source_attribution: "Prices: DeepSeek API pricing page (https://api-docs.deepseek.com/quick_start/pricing), 2026-09-01; printed price is PEAK (off-peak $0.22/$0.66; peak 01:00-04:00 and 06:00-10:00 UTC Mon-Fri); images billed as input tokens by dimension; model id deepseek-v4-flash-vision-exp, released 2026-08-21; pure-text performance on par with V4-Flash per vendor; no weights released; snapshot 2026-09-01"
+last_verified: "2026-09-01"

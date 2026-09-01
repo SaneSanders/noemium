@@ -1,0 +1,23 @@
+name: AI21
+tagline: Enterprise AI platform with Jamba models, Maestro optimization, and agent execution strategies.
+url: https://ai21.com
+category: models-api
+pricing: freemium
+price_note: "New accounts get a $10 credit for three months; usage is then charged per token monthly."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Billing information is required once the trial credit expires or is exhausted."
+receipts:
+  - https://ai21.com
+  - https://docs.ai21.com/docs/usage-cost
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

@@ -1,0 +1,20 @@
+name: Cohere Embed
+tagline: Embedding service that turns text and images into vectors for semantic retrieval and agentic applications.
+url: https://cohere.com/embed
+category: data
+pricing: paid
+free_tier: false
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pricing is not listed on the Embed product page; usage is through the Cohere API."
+receipts:
+  - https://cohere.com/embed
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

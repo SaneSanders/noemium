@@ -1,0 +1,21 @@
+name: Milvus
+tagline: Open-source vector database for high-dimensional similarity search on massive datasets.
+url: https://milvus.io
+category: data
+pricing: freemium
+price_note: "Milvus Lite is free for local prototyping; Zilliz Cloud offers paid serverless and dedicated cluster tiers."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Distributed deployment and enterprise features carry operational complexity beyond the local library."
+receipts:
+  - https://milvus.io
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

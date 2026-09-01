@@ -1,0 +1,23 @@
+name: DeepInfra
+tagline: Serverless inference cloud for 100+ open-source LLMs, embeddings, image, video, and speech models.
+url: https://deepinfra.com
+category: models-api
+pricing: paid
+price_note: "Pay per token with model-specific rates shown on model cards; private deployments on A100/H100/H200/B200/B300 billed per GPU-hour."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "No free tier is shown; private deployments and GPU clusters move you from per-token to hourly GPU billing."
+receipts:
+  - https://deepinfra.com
+  - https://deepinfra.com/docs
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

@@ -1,0 +1,25 @@
+name: Fellow
+tagline: Secure AI meeting assistant that records, transcribes, and summarizes meetings with privacy built in.
+url: https://fellow.app
+category: productivity
+pricing: freemium
+price_note: "Free plan supports up to 5 users with 5 AI meeting notes and 5 AI recordings per user; Team, Business, and Enterprise plans add automations and CRM integrations."
+free_tier: true
+open_source: false
+api: false
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Free plan is limited to 5 users, 5 AI meeting notes per user, and 5 AI recordings per user."
+receipts:
+  - https://fellow.app
+  - https://fellow.app/pricing/
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar
+data_sensitivity:
+  trains_on_inputs: "no"
+  local_processing: false

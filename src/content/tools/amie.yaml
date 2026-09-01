@@ -1,0 +1,22 @@
+name: Amie
+tagline: AI calendar and meeting-notes app that summarizes meetings and automates follow-ups without a bot.
+url: https://amie.so
+category: productivity
+pricing: paid
+price_note: "Pro is €20/user/mo billed annually; Business is €40/user/mo billed annually with CRM integrations and custom branding."
+free_tier: false
+open_source: false
+api: false
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pro and Business plans are billed annually; CRM integrations and custom branding on shared notes are limited to Business."
+receipts:
+  - https://amie.so
+  - https://amie.so/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

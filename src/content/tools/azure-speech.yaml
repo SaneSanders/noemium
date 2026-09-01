@@ -1,6 +1,6 @@
 name: "Azure AI Speech"
 tagline: "Microsoft speech-to-text, TTS, and translation APIs — boring, regional, and actually contractable."
-url: "https://azure.microsoft.com/products/ai-services/ai-speech"
+url: "https://azure.microsoft.com/en-us/products/ai-foundry/tools/speech"
 category: "audio"
 pricing: "paid"
 price_note: "Azure meter; free trial credits exist on new accounts"
@@ -12,7 +12,7 @@ limitations:
   - "Radar: we did not re-price the meter this week — open the Azure calculator."
   - "Enterprise procurement is the feature; indie UX is not."
 receipts:
-  - "https://azure.microsoft.com/products/ai-services/ai-speech"
+  - "https://azure.microsoft.com/en-us/products/ai-foundry/tools/speech"
   - "https://learn.microsoft.com/azure/ai-services/speech-service/"
 momentum: "steady"
 affiliate: "none"

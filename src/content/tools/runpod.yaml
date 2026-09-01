@@ -1,0 +1,24 @@
+name: RunPod
+tagline: Serverless GPU cloud for deploying containerized inference endpoints that scale from zero to production.
+url: https://runpod.io
+category: models-api
+pricing: paid
+price_note: "Serverless GPU workers from $0.58/hr to $9.98/hr, metered per second; pods and clusters billed hourly."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+model_routing: byok
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "You bring your own container and model; billing is per GPU-second/hour, not per token."
+receipts:
+  - https://runpod.io
+  - https://runpod.io/pricing
+  - https://runpod.io/serverless
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

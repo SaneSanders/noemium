@@ -1,0 +1,23 @@
+name: Cloudflare Workers AI
+tagline: Serverless GPU inference for 50+ open-source models on Cloudflare's global network, with free and paid plans.
+url: https://developers.cloudflare.com/workers-ai/
+category: models-api
+pricing: freemium
+price_note: "Pay-for-what-you-use per-token/neuron rates; a free plan is available with limits."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Model catalog is a curated set of 50+ open-source models, not the full Hugging Face hub."
+receipts:
+  - https://developers.cloudflare.com/workers-ai/
+  - https://developers.cloudflare.com/workers-ai/platform/pricing/
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

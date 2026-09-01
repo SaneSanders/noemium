@@ -1,0 +1,23 @@
+name: Google Cloud Text-to-Speech
+tagline: Cloud API that turns text into natural-sounding speech with hundreds of voices across 75+ languages.
+url: https://cloud.google.com/text-to-speech
+category: audio
+pricing: freemium
+price_note: "Free monthly character allowances vary by voice type (e.g., 1M for WaveNet, 4M for Standard); paid per million characters after that."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pricing is per character and billing starts once monthly free character limits are exceeded."
+receipts:
+  - https://cloud.google.com/text-to-speech
+  - https://cloud.google.com/text-to-speech/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

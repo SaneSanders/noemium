@@ -11,5 +11,5 @@ best_for:
 avoid_for:
   - strict compliance/data-residency requirements (China-hosted API)
   - top-tier agentic coding (use V4 Pro)
-source_attribution: "Prices: DeepSeek API pricing page (https://api-docs.deepseek.com/quick_start/pricing), 2026-08-19; official peak price (off-peak $0.22/$0.66); snapshot 2026-08-19"
-last_verified: "2026-08-19"
+source_attribution: "Prices: DeepSeek API pricing page (https://api-docs.deepseek.com/quick_start/pricing), 2026-09-01; printed price is PEAK (off-peak $0.22/$0.66; peak hours 01:00-04:00 and 06:00-10:00 UTC Mon-Fri); GA build V4-Flash-0731 supports low/high/max thinking effort; snapshot 2026-09-01"
+last_verified: "2026-09-01"

@@ -1,0 +1,23 @@
+name: Promptfoo
+tagline: Open-source CLI and library for evaluating, benchmarking, and red-teaming LLM apps.
+url: https://www.promptfoo.dev
+category: dev-infra
+pricing: freemium
+price_note: "Community plan is free forever with all core evaluation features and 10,000 red-team probes per month; Enterprise and On-Premise are custom."
+free_tier: true
+open_source: true
+api: false
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Community red teaming is capped at 10,000 probes per month and omits team sharing, continuous monitoring, and managed cloud."
+receipts:
+  - https://www.promptfoo.dev
+  - https://www.promptfoo.dev/docs/
+  - https://www.promptfoo.dev/pricing/
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

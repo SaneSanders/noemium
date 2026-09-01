@@ -1,0 +1,21 @@
+name: Upstash Vector
+tagline: Serverless vector database with dense, sparse, and hybrid indexes via REST API or SDKs.
+url: https://upstash.com/vector
+category: data
+pricing: freemium
+price_note: "Free plan includes 10,000 queries and 10,000 updates daily; paid tiers include Pay-as-you-go, Fixed, Pro, and Enterprise."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Eventually consistent; newly upserted vectors may have a short delay before querying."
+receipts:
+  - https://upstash.com/vector
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

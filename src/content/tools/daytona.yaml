@@ -1,0 +1,23 @@
+name: Daytona
+tagline: Secure, elastic infrastructure for running AI-generated code in isolated, stateful sandboxes.
+url: https://www.daytona.io
+category: dev-infra
+pricing: freemium
+price_note: "Pay-as-you-go compute with $200 in free credits at sign-up; vCPU $0.0504/h, memory $0.0162/h, storage $0.000108/h after first 5 GiB; startup credits up to $50,000."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pricing is usage-based per vCPU, memory, storage, and GPU hours; Windows sandboxes add an OS surcharge and long-running workloads accumulate cost."
+receipts:
+  - https://www.daytona.io
+  - https://www.daytona.io/docs
+  - https://www.daytona.io/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

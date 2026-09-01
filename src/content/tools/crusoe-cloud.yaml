@@ -1,0 +1,23 @@
+name: Crusoe Cloud
+tagline: AI cloud platform for managed inference, serverless fine-tuning, and self-serve GPU deployments.
+url: https://crusoecloud.com
+category: models-api
+pricing: paid
+price_note: "Serverless inference from $0.03–$4.40 per 1M tokens; GPU instances from $2.00–$4.29/GPU-hr; fine-tuning from $0.40–$10.00 per 1M tokens."
+free_tier: false
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Spot pricing is only suitable for fault-tolerant workloads; guaranteed reserved rates require contacting sales."
+receipts:
+  - https://crusoecloud.com
+  - https://www.crusoe.ai/cloud/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

@@ -1,0 +1,23 @@
+name: Arize Phoenix
+tagline: Open-source platform for AI application tracing, evaluation, prompt engineering, and experiments.
+url: https://arize.com/phoenix
+category: dev-infra
+pricing: freemium
+price_note: "Open-source self-host is free; Phoenix Cloud includes 2 free instances; Arize AX Pro is $50 per month; Enterprise is custom."
+free_tier: true
+open_source: true
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Phoenix Cloud free tier is limited to two instances; Arize AX Free caps traces at 25,000 spans and retention at 15 days."
+receipts:
+  - https://arize.com/phoenix
+  - https://docs.arize.com/phoenix/
+  - https://arize.com/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

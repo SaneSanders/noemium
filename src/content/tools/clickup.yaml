@@ -1,0 +1,22 @@
+name: ClickUp
+tagline: All-in-one productivity platform with AI agents and 100+ tools to replace fragmented work software.
+url: https://clickup.com
+category: productivity
+pricing: freemium
+price_note: "Free Forever plan includes unlimited tasks and members with 60 MB storage; Unlimited, Business, and Enterprise plans add views, automations, and governance."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Free Forever plan storage is capped at 60 MB and guests must be given full access with no permission controls."
+receipts:
+  - https://clickup.com
+  - https://clickup.com/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

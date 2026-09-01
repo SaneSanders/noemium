@@ -1,0 +1,22 @@
+name: Todoist
+tagline: To-do list and task manager that helps professionals organize work and life with natural-language capture.
+url: https://todoist.com
+category: productivity
+pricing: freemium
+price_note: "Beginner plan is free with 5 personal projects; Pro and Business plans add projects, filters, and team workspace features."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Beginner free plan is limited to 5 personal projects, 3 filter views, and 1 week of activity history."
+receipts:
+  - https://todoist.com
+  - https://todoist.com/en/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

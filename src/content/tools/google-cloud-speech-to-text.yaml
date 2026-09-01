@@ -1,0 +1,23 @@
+name: Google Cloud Speech-to-Text
+tagline: Cloud API that transcribes audio into text in 85+ languages with streaming and speaker diarization.
+url: https://cloud.google.com/speech-to-text
+category: audio
+pricing: freemium
+price_note: "V2 API standard recognition starts at $0.016/min; V1 offers 60 free minutes per month, then $0.016–$0.024/min depending on data logging."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Charged per second of successfully processed audio; multiple channels are billed separately."
+receipts:
+  - https://cloud.google.com/speech-to-text
+  - https://cloud.google.com/speech-to-text/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

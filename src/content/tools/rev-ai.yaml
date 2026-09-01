@@ -1,0 +1,23 @@
+name: Rev AI
+tagline: Developer-first speech-to-text API offering accurate transcription in 57+ languages at scale.
+url: https://rev.ai
+category: audio
+pricing: freemium
+price_note: "Pay-as-you-go plan includes free credits equivalent to 5 hours of Reverb ASR usage; volume pricing is available."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+model_routing: locked
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Pay-as-you-go plan includes free credits equivalent to 5 hours of Reverb ASR usage."
+receipts:
+  - https://rev.ai
+  - https://www.rev.ai/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

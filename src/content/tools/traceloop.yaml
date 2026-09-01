@@ -1,0 +1,23 @@
+name: Traceloop
+tagline: LLM reliability platform that monitors output quality, traces requests, and runs evaluations in CI.
+url: https://www.traceloop.com
+category: dev-infra
+pricing: freemium
+price_note: "Free forever for up to 50,000 spans per month and 5 seats; Enterprise is custom with on-premise and air-gapped deployment options."
+free_tier: true
+open_source: false
+api: true
+self_host: true
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Free tier retains data for only 24 hours and is limited to 50,000 spans and 5 seats per month."
+receipts:
+  - https://www.traceloop.com
+  - https://www.traceloop.com/docs
+  - https://www.traceloop.com/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar

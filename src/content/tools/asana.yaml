@@ -1,0 +1,22 @@
+name: Asana
+tagline: AI-powered work management platform that helps teams plan, track, and get things done across projects and goals.
+url: https://asana.com
+category: productivity
+pricing: freemium
+price_note: "Personal plan is free for up to 2 users; Starter $10.99/user/mo annually and Advanced $24.99/user/mo annually."
+free_tier: true
+open_source: false
+api: true
+self_host: false
+limitations:
+  - "Radar: not field-run in this catalog wave."
+  - "Personal free plan caps projects and teams at 2 users, and AI Studio credits are limited on lower tiers."
+receipts:
+  - https://asana.com
+  - https://asana.com/pricing
+affiliate: none
+evidence_tier: radar
+momentum: steady
+featured: false
+last_verified: "2026-09-01"
+observed_by: catalog-radar
