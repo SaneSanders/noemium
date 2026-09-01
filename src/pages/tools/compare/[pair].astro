@@ -9,12 +9,13 @@ import LogoTile from '../../../components/LogoTile.astro';
 import { COMPARE_PAIRS } from '../../../data/compare-presets';
 import type { Tool } from '../../../content-schemas';
 import { hostname } from '../../../lib/shelf';
+import { buildAutoPairs, type CompareAutoTool } from '../../../lib/compare-auto';
 
 export const getStaticPaths = (async () => {
   const tools = await getCollection('tools');
   const byId = new Map(tools.map((t) => [t.id, t]));
 
-  return COMPARE_PAIRS.map(({ a, b }) => {
+  const curated = COMPARE_PAIRS.map(({ a, b }) => {
     const ta = byId.get(a);
     const tb = byId.get(b);
     if (!ta || !tb) {
@@ -28,12 +29,36 @@ export const getStaticPaths = (async () => {
     }
     return {
       params: { pair: `${a}-vs-${b}` },
-      props: { a: ta, b: tb },
+      props: { a: ta, b: tb, isAuto: false },
     };
   });
+
+  const autoToolList: CompareAutoTool[] = tools.map((t) => ({
+    id: t.id,
+    name: t.data.name,
+    category: t.data.category,
+    verdict: t.data.verdict,
+    featured: t.data.featured,
+    last_verified: t.data.last_verified,
+  }));
+  const autoPairs = buildAutoPairs(autoToolList, COMPARE_PAIRS);
+  const auto = autoPairs.map(({ a, b }) => {
+    const ta = byId.get(a);
+    const tb = byId.get(b);
+    if (!ta || !tb) {
+      const missing = [!ta && a, !tb && b].filter(Boolean).join(', ');
+      throw new Error(`Auto compare pair references missing tool slug(s): ${missing}`);
+    }
+    return {
+      params: { pair: `${a}-vs-${b}` },
+      props: { a: ta, b: tb, isAuto: true },
+    };
+  });
+
+  return [...curated, ...auto];
 }) satisfies GetStaticPaths;
 
-const { a, b } = Astro.props;
+const { a, b, isAuto } = Astro.props;
 const da = a.data;
 const db = b.data;
 const liveHref = `/tools/compare/?tools=${a.id},${b.id}`;
@@ -142,6 +167,15 @@ const rows: { label: string; a: string | null; b: string | null }[] = [
   <SectionHeader title={`${da.name} vs ${db.name}`} sub={description} />
 
   <p class="max-w-3xl text-[15px] leading-relaxed text-ink opacity-80 md:text-base">{intro}</p>
+
+  {
+    isAuto && (
+      <p class="mt-4 max-w-3xl font-mono text-[13px] text-ink-dim">
+        Auto-paired from catalog data — the verdicts are hand-set, the pairing is
+        algorithmic.
+      </p>
+    )
+  }
 
   <div class="mt-8 grid gap-4 md:grid-cols-2">
     <a href={`/tools/${a.id}/`} class="nm-card nm-card-hover group block p-5">

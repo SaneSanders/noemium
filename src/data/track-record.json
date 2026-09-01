@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-09-01T11:05:03.953Z",
+  "flips": [
+    {
+      "collection": "tools",
+      "slug": "yi-api",
+      "from": "situational",
+      "to": "skip",
+      "date": "2026-08-20",
+      "shortHash": "da242bf",
+      "subject": "catalog: daily audit 2026-08-20 (24 cards re-verified) + 18 new (11 tools / 7 models)",
+      "hash": "da242bf4f107486bd9cc7c1e224235575a60a3ea"
+    }
+  ],
+  "burials": [
+    {
+      "slug": "play-ht",
+      "name": "Play.ht",
+      "date": "2026-08-16",
+      "shortHash": "ed450da",
+      "subject": "feat: graveyard — dead tools with dates, causes and receipts",
+      "hash": "ed450dacf9ba0dcb08fde6be9e8a785cdfe20a28",
+      "died": "2025-12-31"
+    },
+    {
+      "slug": "sora",
+      "name": "Sora",
+      "date": "2026-08-24",
+      "shortHash": "7207588",
+      "subject": "catalog: daily 2026-08-24 — 3 new, Sora buried, 6 re-verified",
+      "hash": "72075888d590f2092c126ad2d8f84c9ac5e7b705",
+      "died": "2026-04-26"
+    },
+    {
+      "slug": "artifact",
+      "name": "Artifact",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2024-04-02"
+    },
+    {
+      "slug": "galactica",
+      "name": "Galactica",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2022-11-17"
+    },
+    {
+      "slug": "humane-ai-pin",
+      "name": "Humane AI Pin",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2025-02-28"
+    },
+    {
+      "slug": "kite",
+      "name": "Kite",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2022-11-16"
+    },
+    {
+      "slug": "microsoft-cortana",
+      "name": "Microsoft Cortana",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2023-08-01"
+    },
+    {
+      "slug": "skiff",
+      "name": "Skiff",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2024-08-09"
+    },
+    {
+      "slug": "supermaven",
+      "name": "Supermaven",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2025-11-21"
+    },
+    {
+      "slug": "tome",
+      "name": "Tome",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2025-04-30"
+    },
+    {
+      "slug": "woebot",
+      "name": "Woebot",
+      "date": "2026-08-24",
+      "shortHash": "eb08288",
+      "subject": "Graveyard: ten confirmed dead, each with a receipt",
+      "hash": "eb082888ae4fa03323cc86524d002e3174ba2682",
+      "died": "2025-06-30"
+    },
+    {
+      "slug": "flowise",
+      "name": "Flowise",
+      "date": "2026-09-01",
+      "shortHash": "32ac07d",
+      "subject": "catalog: 2026-09-01 world update — Flowise/Roo Code/Void to graveyard, Roomote radar card, +60 radar cards across six shelves, model shelf re-verified against vendor pages",
+      "hash": "32ac07d82ad5970bf1417b895058bd7fd0243ab1",
+      "died": "2026-08-31"
+    },
+    {
+      "slug": "roo-code",
+      "name": "Roo Code",
+      "date": "2026-09-01",
+      "shortHash": "32ac07d",
+      "subject": "catalog: 2026-09-01 world update — Flowise/Roo Code/Void to graveyard, Roomote radar card, +60 radar cards across six shelves, model shelf re-verified against vendor pages",
+      "hash": "32ac07d82ad5970bf1417b895058bd7fd0243ab1",
+      "died": "2026-05-15"
+    },
+    {
+      "slug": "void-editor",
+      "name": "Void",
+      "date": "2026-09-01",
+      "shortHash": "32ac07d",
+      "subject": "catalog: 2026-09-01 world update — Flowise/Roo Code/Void to graveyard, Roomote radar card, +60 radar cards across six shelves, model shelf re-verified against vendor pages",
+      "hash": "32ac07d82ad5970bf1417b895058bd7fd0243ab1",
+      "died": "2026-06-02"
+    }
+  ]
+}

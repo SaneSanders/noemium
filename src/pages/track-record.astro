@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import VerdictBadge from '../components/VerdictBadge.astro';
+import record from '../data/track-record.json';
+
+const tools = await getCollection('tools');
+const toolNames = new Map(tools.map((t) => [t.id, t.data.name]));
+
+const commitHref = (hash: string) => `https://github.com/SaneSanders/noemium/commit/${hash}`;
+const toolHref = (slug: string) => `/tools/${slug}/`;
+
+const { flips, burials } = record;
+---
+
+<Base
+  title="Track record"
+  description="Noemium's public verdict track record: every verdict change and every burial since the repo started, mined from git history with the commit."
+>
+  <SectionHeader
+    title="Track record"
+    sub="Every verdict change and every burial since the repo started, mined from git history."
+  />
+
+  <article class="max-w-3xl space-y-12 pb-16 text-[17px] leading-relaxed">
+    <p>
+      A public ledger of where the catalog changed its mind. Few flips means the
+      verdicts mostly hold; each miss stays here anyway.
+    </p>
+
+    <section>
+      <h2 class="flex items-baseline justify-between font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        <span>Verdict changes</span>
+        <span class="nm-num text-ink-dim">{flips.length}</span>
+      </h2>
+      {flips.length === 0 ? (
+        <p class="mt-4">No verdict changes yet.</p>
+      ) : (
+        <div class="nm-card mt-4 overflow-x-auto">
+          <table class="w-full border-collapse bg-card text-left">
+            <thead>
+              <tr class="border-b-[1.5px] border-ink">
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">date</th>
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">tool</th>
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">from</th>
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">to</th>
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">commit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {flips.map((flip) => (
+                <tr class="border-b border-line-soft last:border-b-0">
+                  <td class="nm-num p-3 text-[13px]">{flip.date}</td>
+                  <td class="p-3 text-[15px]">
+                    <a href={toolHref(flip.slug)} class="font-bold hover:text-accent">
+                      {toolNames.get(flip.slug) ?? flip.slug}
+                    </a>
+                  </td>
+                  <td class="p-3">
+                    <VerdictBadge verdict={flip.from as 'ship' | 'situational' | 'skip'} />
+                  </td>
+                  <td class="p-3">
+                    <VerdictBadge verdict={flip.to as 'ship' | 'situational' | 'skip'} />
+                  </td>
+                  <td class="p-3 font-mono text-[13px]">
+                    <a href={commitHref(flip.hash)} class="text-accent hover:underline" rel="noopener">
+                      {flip.shortHash}
+                    </a>
+                    <span class="block text-ink-dim">{flip.subject}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+
+    <section>
+      <h2 class="flex items-baseline justify-between font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase">
+        <span>Buried</span>
+        <span class="nm-num text-ink-dim">{burials.length}</span>
+      </h2>
+      {burials.length === 0 ? (
+        <p class="mt-4">Nothing in the graveyard yet.</p>
+      ) : (
+        <div class="nm-card mt-4 overflow-x-auto">
+          <table class="w-full border-collapse bg-card text-left">
+            <thead>
+              <tr class="border-b-[1.5px] border-ink">
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">admitted</th>
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">name</th>
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">died</th>
+                <th class="p-3 font-mono text-[13px] font-normal tracking-[0.12em] text-ink-dim uppercase">commit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {burials.map((b) => (
+                <tr class="border-b border-line-soft last:border-b-0">
+                  <td class="nm-num p-3 text-[13px]">{b.date}</td>
+                  <td class="p-3 text-[15px]">
+                    <a href="/graveyard/" class="font-bold hover:text-accent">
+                      {b.name}
+                    </a>
+                  </td>
+                  <td class="nm-num p-3 text-[13px]">{b.died ?? '—'}</td>
+                  <td class="p-3 font-mono text-[13px]">
+                    <a href={commitHref(b.hash)} class="text-accent hover:underline" rel="noopener">
+                      {b.shortHash}
+                    </a>
+                    <span class="block text-ink-dim">{b.subject}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </section>
+
+    <p class="font-mono text-[13px] leading-relaxed text-ink-dim">
+      Regenerated on demand from git history (npm run track-record). Verdicts only
+      count as flips when a single commit changes an existing card's verdict; new
+      cards and deletions are not flips.
+    </p>
+  </article>
+</Base>

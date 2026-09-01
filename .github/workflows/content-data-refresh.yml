@@ -23,20 +23,22 @@ jobs:
       - run: npm ci
       - run: npm run weekly-diff
       - run: npm run price-history
+      - run: npm run track-record
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: content-data
           path: |
             src/data/changelog.json
             src/data/price-history.json
+            src/data/track-record.json
       - name: Commit data refresh to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/changelog.json src/data/price-history.json
+          git add src/data/changelog.json src/data/price-history.json src/data/track-record.json
           if git diff --cached --quiet; then
             echo "No data changes"
             exit 0
           fi
-          git commit -m "chore: refresh changelog and price-history JSON"
+          git commit -m "chore: refresh changelog, price-history and track-record JSON"
           git push origin main

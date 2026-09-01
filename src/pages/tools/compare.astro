@@ -4,6 +4,7 @@ import Base from '../../layouts/Base.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CompareTable from '../../islands/CompareTable';
 import { COMPARE_PAIRS } from '../../data/compare-presets';
+import { buildAutoPairs, type CompareAutoTool } from '../../lib/compare-auto';
 
 const tools = await getCollection('tools');
 const byId = new Map(tools.map((t) => [t.id, t]));
@@ -25,6 +26,24 @@ const conflictSlugs = new Set([
   'runway-vs-descript',
 ]);
 const conflicts = presets.filter((p) => conflictSlugs.has(`${p.aSlug}-vs-${p.bSlug}`));
+
+const autoToolList: CompareAutoTool[] = tools.map((t) => ({
+  id: t.id,
+  name: t.data.name,
+  category: t.data.category,
+  verdict: t.data.verdict,
+  featured: t.data.featured,
+  last_verified: t.data.last_verified,
+}));
+const autoPairs = buildAutoPairs(autoToolList, COMPARE_PAIRS);
+const autoByCategory = autoPairs.reduce((acc, { a, b }) => {
+  const cat = byId.get(a)?.data.category;
+  if (!cat) return acc;
+  const list = acc.get(cat) ?? [];
+  list.push({ a, b });
+  acc.set(cat, list);
+  return acc;
+}, new Map<string, { a: string; b: string }[]>());
 ---
 
 <Base
@@ -85,6 +104,48 @@ const conflicts = presets.filter((p) => conflictSlugs.has(`${p.aSlug}-vs-${p.bSl
             </a>
           ))}
         </div>
+      </section>
+    )
+  }
+
+  {
+    autoPairs.length > 0 && (
+      <section class="mb-10" aria-labelledby="compare-auto-heading">
+        <h2
+          id="compare-auto-heading"
+          class="font-mono text-[13px] font-bold tracking-[0.14em] text-ink uppercase"
+        >
+          Generated from the catalog
+        </h2>
+        {Array.from(autoByCategory.entries())
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([category, pairs]) => (
+            <div class="mt-6">
+              <h3 class="font-mono text-[13px] font-medium tracking-[0.12em] text-ink-dim uppercase">
+                {category}
+              </h3>
+              <div class="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {pairs.map(({ a, b }) => {
+                  const ta = byId.get(a)?.data;
+                  const tb = byId.get(b)?.data;
+                  if (!ta || !tb) return null;
+                  return (
+                    <a
+                      href={`/tools/compare/${a}-vs-${b}/`}
+                      class="nm-card nm-card-hover flex items-baseline justify-between gap-3 px-4 py-3"
+                    >
+                      <span class="font-display text-lg font-medium tracking-tight">
+                        {ta.name}
+                        <span class="mx-1.5 font-mono text-[13px] font-normal tracking-wider text-ink-dim uppercase">vs</span>
+                        {tb.name}
+                      </span>
+                      <span class="font-mono text-[13px] tracking-[0.08em] text-ink-dim uppercase">{category}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
       </section>
     )
   }
