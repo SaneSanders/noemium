@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
+    "mcp:snapshot": "node scripts/mcp-snapshot.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
