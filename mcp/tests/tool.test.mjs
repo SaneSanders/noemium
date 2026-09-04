@@ -94,3 +94,38 @@ test('the fix does not over-apply: a real cheap per-Mtok model still passes, and
     'a non-token-priced model must still be returned by a query that filters on something other than token price',
   );
 });
+
+test('a per-Mtok price filter excludes a mtok-unit card whose zero price is contradicted by price_amount', () => {
+  const cheap = modelLookup(realIndex, { max_input_per_mtok: 1 });
+  assert.ok(
+    cheap.every((m) => !(m.price_input_per_mtok === 0 && m.price_amount)),
+    'a model whose price_input_per_mtok is 0 but whose price_amount is non-zero has a placeholder zero, ' +
+      'not a real price, and must not pass a per-Mtok price filter',
+  );
+});
+
+test('seedance-2-5 (price_unit mtok, 0/0 per-Mtok fields, real price of 70 in price_amount) is excluded from the cheap-model filter', () => {
+  const cheap = modelLookup(realIndex, { max_input_per_mtok: 1 });
+  assert.ok(
+    cheap.every((m) => m.slug !== 'seedance-2-5'),
+    'seedance-2-5 records its real ~70-per-Mtok price in price_amount, not price_input_per_mtok, ' +
+      'so it must not slip through as a nearly-free model',
+  );
+});
+
+test('the placeholder-zero guard is about price comparability, not about hiding the card', () => {
+  const [bySlug] = modelLookup(realIndex, { slug: 'seedance-2-5' });
+  assert.equal(bySlug.slug, 'seedance-2-5', 'looking it up directly by slug must still return the card');
+
+  const byOpenWeights = modelLookup(realIndex, { open_weights: false });
+  assert.ok(
+    byOpenWeights.some((m) => m.slug === 'seedance-2-5'),
+    'a query filtering only on open_weights must still include a model the price guard excludes',
+  );
+
+  const byProvider = modelLookup(realIndex, { provider: 'ByteDance (Seed / Volcano Engine)' });
+  assert.ok(
+    byProvider.some((m) => m.slug === 'seedance-2-5'),
+    'a query filtering only on provider must still include a model the price guard excludes',
+  );
+});

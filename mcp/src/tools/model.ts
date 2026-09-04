@@ -32,6 +32,19 @@ function isPerMtokPriced(model: ModelCard): boolean {
   return !model.price_unit || model.price_unit === PER_MTOK_UNIT;
 }
 
+// A zero `price_input_per_mtok` is only trustworthy when nothing contradicts
+// it. Some catalog cards declare `price_unit: 'mtok'` but record their real
+// price in `price_amount` (a different unit or currency, or just a data-entry
+// quirk) while leaving the per-Mtok fields at the schema's `0` default — see
+// seedance-2-5, whose `price_amount: 70` (CNY per million tokens) contradicts
+// the `0`/`0` sitting in price_input_per_mtok/price_output_per_mtok. That zero
+// is a placeholder, not a price: do NOT let it read as "free" here. A
+// genuinely free model (zero token price, no contradicting `price_amount`)
+// must still pass — do not "simplify" this into a plain zero check.
+function hasPlaceholderZeroPrice(model: ModelCard): boolean {
+  return model.price_input_per_mtok === 0 && Boolean(model.price_amount);
+}
+
 // Human labels for the non-token price units a media model can carry.
 const UNIT_LABELS: Record<string, string> = {
   mtok: 'Mtok',
@@ -55,7 +68,7 @@ export function modelLookup(index: CatalogIndex, args: ModelLookupArgs): ModelRe
       if (args.provider && model.provider.toLowerCase() !== args.provider.toLowerCase()) return false;
       if (args.open_weights !== undefined && model.open_weights !== args.open_weights) return false;
       if (args.max_input_per_mtok !== undefined) {
-        if (!isPerMtokPriced(model)) return false;
+        if (!isPerMtokPriced(model) || hasPlaceholderZeroPrice(model)) return false;
         if (model.price_input_per_mtok > args.max_input_per_mtok) return false;
       }
       if (args.min_context !== undefined && (model.context_window ?? 0) < args.min_context) return false;
