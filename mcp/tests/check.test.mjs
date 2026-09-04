@@ -183,6 +183,47 @@ test('real catalog: a death still wins where it should', () => {
   assert.equal(rooCode.succeeded_by, 'Roomote');
 });
 
+// --- Fix round 2: a death needs a name/slug match, never a bare host ---
+
+test('real catalog: "Microsoft" is not the death of the Cortana grave hosted there', () => {
+  // The graveyard entry for Microsoft Cortana carries url
+  // "https://www.microsoft.com/en-us/windows/cortana"; its host normalizes to
+  // "microsoft", which is otherwise nobody's name or slug. That is exactly one
+  // via: 'host' entry — weak evidence a company died, not proof. The honest
+  // answer is `unknown`, with the grave still surfaced as a candidate.
+  const bucket = realIndex.byNormalizedName.get('microsoft') ?? [];
+  assert.equal(bucket.length, 1, `expected a single host-only hit, got ${JSON.stringify(bucket)}`);
+  assert.equal(bucket[0].via, 'host');
+  assert.equal(bucket[0].kind, 'grave');
+
+  const [result] = check(realIndex, ['Microsoft']);
+  assert.notEqual(result.status, 'dead', 'a bare host must never declare a death');
+  assert.equal(result.status, 'unknown');
+  assert.equal(result.slug, undefined);
+  assert.ok(
+    result.candidates?.some((c) => c.slug === 'microsoft-cortana' && c.kind === 'grave'),
+    'the grave is still offered as a candidate, just not asserted as fact',
+  );
+});
+
+test('real catalog: a host-only match on a LIVE card still answers with its verdict', () => {
+  // Proves the round-2 rule is about evidence, not a special case carved out
+  // for Microsoft. "aider.chat" is aider's url host ("aider.chat" is not a
+  // recognized TLD suffix here, so it survives normalization whole) and does
+  // not collide with any product's own name/slug — a genuine via: 'host'
+  // single hit, same shape as the Microsoft case, but landing on a live tool.
+  // That must resolve exactly as before: the tool's real verdict, not 'unknown'.
+  const bucket = realIndex.byNormalizedName.get('aiderchat') ?? [];
+  assert.equal(bucket.length, 1, `expected a single host-only hit, got ${JSON.stringify(bucket)}`);
+  assert.equal(bucket[0].via, 'host');
+  assert.equal(bucket[0].kind, 'tool');
+
+  const [result] = check(realIndex, ['aider.chat']);
+  assert.equal(result.status, 'ship');
+  assert.equal(result.slug, 'aider');
+  assert.equal(result.verdict, 'ship');
+});
+
 // --- Rendering ---
 
 test('a radar card carries no verdict text, in the result or the rendered line', () => {

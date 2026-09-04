@@ -82,21 +82,41 @@ function toolResult(index: CatalogIndex, query: string, slug: string): CheckResu
  * up as both a grave and a tool card is one product whose card is stale, and
  * there the death wins — that is the whole of grave-over-tool. Two different
  * slugs are two products, and the only honest answer is `ambiguous`.
+ *
+ * `allowDeath` gates whether a lone grave may be reported as `dead`. A url
+ * host is weak evidence — it names a domain, not a product ("microsoft.com"
+ * is the host of a Cortana graveyard entry, not proof the company died) — so
+ * a host-only match that lands on a graveyard entry must never assert a
+ * death. It answers `unknown` instead, with that entry still offered as a
+ * `kind: 'grave'` candidate. Only a name or slug match (`allowDeath: true`)
+ * may produce `dead`.
  */
-function decideExact(index: CatalogIndex, query: string, entries: IndexEntry[]): CheckResult {
+function decideExact(
+  index: CatalogIndex,
+  query: string,
+  entries: IndexEntry[],
+  allowDeath: boolean,
+): CheckResult {
   const unique = dedupe(entries);
   if (new Set(unique.map((e) => e.slug)).size > 1) {
     return { query, status: 'ambiguous', candidates: toCandidates(unique) };
   }
   const grave = unique.find((e) => e.kind === 'grave');
-  return grave ? deadResult(index, query, grave.slug) : toolResult(index, query, unique[0].slug);
+  if (!grave) return toolResult(index, query, unique[0].slug);
+  return allowDeath
+    ? deadResult(index, query, grave.slug)
+    : { query, status: 'unknown', candidates: toCandidates(unique) };
 }
 
 /**
  * Three tiers, tried in order, so that no weaker kind of match can ever be
  * presented as a fact:
- *   1. exact normalized key, `via: 'name'` entries only;
- *   2. exact normalized key, `via: 'host'` entries only (only if tier 1 is empty);
+ *   1. exact normalized key, `via: 'name'` entries only — a real name or slug
+ *      match, so it may say `dead`;
+ *   2. exact normalized key, `via: 'host'` entries only (only if tier 1 is
+ *      empty) — a url host is weak evidence, so it may report a live card's
+ *      verdict but may never declare a death; landing on a lone grave here
+ *      answers `unknown` with that grave offered as a candidate instead;
  *   3. substring — suggestions only. It never yields a verdict and never yields
  *      a death, because "github" appearing inside a url is not a product name.
  */
@@ -107,10 +127,10 @@ function resolve(index: CatalogIndex, query: string): CheckResult {
   const bucket = index.byNormalizedName.get(normalized) ?? [];
 
   const nameHits = bucket.filter((e) => e.via === 'name');
-  if (nameHits.length) return decideExact(index, query, nameHits);
+  if (nameHits.length) return decideExact(index, query, nameHits, true);
 
   const hostHits = bucket.filter((e) => e.via === 'host');
-  if (hostHits.length) return decideExact(index, query, hostHits);
+  if (hostHits.length) return decideExact(index, query, hostHits, false);
 
   const substringHits = preferNameOverHost(
     [...index.byNormalizedName.entries()]
