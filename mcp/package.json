@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.0.0",
-    "@cloudflare/workers-types": "^4.20260101.0",
+    "@cloudflare/workers-types": "^5.20260101.0",
     "typescript": "^5.7.0",
     "wrangler": "^4.106.0"
   }

@@ -47,3 +47,21 @@ test('name/slug hits are distinguishable from host hits on a collision', () => {
   const hostHit = entries.find((e) => e.via === 'host');
   assert.deepEqual(hostHit, { kind: 'tool', slug: 'claude-code', via: 'host' });
 });
+
+test('graveyard succeeded_by is a discriminated union: explicit non-successor vs. a named one', () => {
+  // GraveCard.succeeded_by is REQUIRED and is either { name, note, ... } or
+  // { none: true, note }, never a loosely-optional bag of both. Asserting the
+  // runtime shape here — not just the type — is what would have caught the
+  // old fully-optional `succeeded_by?: { name?; url?; note?; none?: boolean }`
+  // type, which let both branches be simultaneously absent or present.
+  const index = buildIndex(fixture);
+  const flowise = index.graveBySlug.get('flowise');
+  const rooCode = index.graveBySlug.get('roo-code');
+
+  assert.equal(flowise.succeeded_by.none, true, 'flowise explicitly has no successor');
+  assert.equal('name' in flowise.succeeded_by, false, 'the none branch carries no successor name');
+  assert.equal(flowise.succeeded_by.note, 'No successor.');
+
+  assert.equal(rooCode.succeeded_by.name, 'Roomote', 'roo-code names its successor');
+  assert.equal('none' in rooCode.succeeded_by, false, 'the successor branch carries no none flag');
+});

@@ -1,31 +1,61 @@
 export type Verdict = 'ship' | 'situational' | 'skip';
 
+// Field shape mirrors `toolSchema` in `src/content-schemas.ts` (the source of
+// truth for required vs. optional) plus `slug` and the `alternatives`/`compare`
+// fields the snapshot builder (`scripts/mcp-snapshot.mjs`) adds on top.
 export interface ToolCard {
   slug: string; name: string; tagline: string; url: string; category: string;
-  pricing?: string; price_note?: string; free_tier?: boolean; open_source?: boolean; api?: boolean;
-  self_host?: boolean; models_used?: string[]; model_routing?: string; verdict?: Verdict;
+  pricing: string; price_note?: string; free_tier: boolean; open_source: boolean; api: boolean;
+  self_host: boolean; models_used?: string[]; model_routing?: string; verdict?: Verdict;
   verdict_text?: string; strengths?: string[]; use_for?: string[]; skip_when?: string[];
-  limitations?: string[]; receipts?: string[]; affiliate?: string; momentum?: string;
-  evidence_tier?: string; last_verified: string; alternatives: string[];
-  compare: Array<{ pair: string; url: string }>;
+  limitations: string[]; receipts: string[]; affiliate: string; affiliate_url?: string;
+  evidence_tier: string;
+  guide?: {
+    install?: string; requirements?: string[]; cost?: string; security?: string;
+    breaks_when?: string[];
+  };
+  momentum: string;
+  // `featured` has a zod `.default(false)`, so the parsed output always
+  // carries a value — it is required, never absent.
+  featured: boolean;
+  data_sensitivity?: {
+    trains_on_inputs: string; eu_region?: string; local_processing?: boolean;
+  };
+  last_verified: string; observed_by: string;
+  alternatives: string[]; compare: Array<{ pair: string; url: string }>;
 }
 
+// Mirrors `modelSchema`.
 export interface ModelCard {
   slug: string; name: string; provider: string; context_window?: number;
-  price_input_per_mtok?: number; price_output_per_mtok?: number; open_weights?: boolean;
-  best_for?: string[]; avoid_for?: string[]; source_attribution?: string; last_verified: string;
+  price_input_per_mtok: number; price_output_per_mtok: number;
+  // `price_unit` has a zod `.default('mtok')` — always present in output.
+  price_unit: string; price_amount?: number; open_weights: boolean;
+  popularity: number; best_for: string[]; avoid_for: string[];
+  retiring?: { date: string; successor: string };
+  benchmarks?: Array<{ name: string; score: number | string; source: string; date: string }>;
+  source_attribution: string; last_verified: string;
 }
 
+// Mirrors `stackSchema`.
 export interface StackCard {
-  slug: string; title: string; use_case: string; difficulty?: string;
-  monthly_cost_usd?: number; tools: string[]; receipts?: string[]; last_verified: string;
-  budget?: { monthly_cost_usd?: number; tools?: string[] };
+  slug: string; title: string; use_case: string; difficulty: string;
+  monthly_cost_usd: number; tools: string[]; receipts: string[]; last_verified: string;
+  observed_by: string;
+  budget?: { monthly_cost_usd: number; tools: string[]; tradeoff: string };
+  twin?: { slug: string; kind: string; tradeoff: string };
 }
 
+// Mirrors `graveyardSchema`. `succeeded_by` is a REQUIRED discriminated union:
+// either a named successor (`successorSchema`) or an explicit `{ none: true }`
+// (`noSuccessorSchema`) — never absent, never both. Task 4's `check` tool
+// branches on this union to decide whether to name a successor.
 export interface GraveCard {
-  slug: string; name: string; url: string; category?: string; died: string;
-  cause: string; obituary?: string; receipt?: string; last_verified: string;
-  succeeded_by?: { name?: string; url?: string; note?: string; none?: boolean };
+  slug: string; name: string; url: string; category: string; died: string;
+  cause: string; obituary: string; receipt: string; last_verified: string;
+  succeeded_by:
+    | { name: string; slug?: string; url?: string; note: string }
+    | { none: true; note: string };
 }
 
 export interface Snapshot {
