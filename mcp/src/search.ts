@@ -90,18 +90,21 @@ type HitBase = Omit<SearchHit, 'why' | 'score'>;
 
 /**
  * Scores a card and turns it into a hit, or returns undefined if it does not
- * clear MIN_SCORE. The ship/skip nudge and the freshness bonus apply on top
- * of the text match, never in place of one — a card with zero text relevance
- * (score 0) is never bumped into contention by verdict or recency alone.
+ * clear MIN_SCORE. The floor applies to RAW text relevance only — a card must
+ * earn MIN_SCORE from field-weight matches alone before it is considered a
+ * hit at all. The ship/skip nudge and the freshness bonus are applied only
+ * afterward, and only for ORDERING among cards that already cleared the
+ * floor on their own merit: they can move a hit up or down the list, but
+ * they can never be what lifts a coincidental one-word match over the floor
+ * (that would let "weak evidence" read as a confident recommendation).
  */
 function buildHit(base: HitBase, fields: WeightedField[], queryTokens: string[], now: number): SearchHit | undefined {
   const { score, why } = matchScore(fields, queryTokens);
-  if (score === 0) return undefined;
+  if (score < MIN_SCORE) return undefined;
   let total = score;
   if (base.verdict === 'ship') total += 1;
   if (base.verdict === 'skip') total -= 2;
   if (isFresh(base.last_verified, now)) total += 1;
-  if (total < MIN_SCORE) return undefined;
   return { ...base, score: total, why };
 }
 
@@ -133,10 +136,11 @@ export function search(index: CatalogIndex, query: string, filters: SearchFilter
     if (hit) hits.push(hit);
   }
 
-  // Stacks, models and graves carry neither `verdict` nor `pricing` — a
-  // filter on either field can only ever mean "no match" for these kinds, so
-  // they are left out entirely rather than silently ignoring the filter.
-  if (!filters.verdict && !filters.pricing) {
+  // Stacks and models carry neither `category`, `verdict` nor `pricing` — a
+  // filter on any of those can only ever mean "no match" for these two kinds
+  // (kinds without the field are excluded, not silently passed), so they are
+  // left out entirely rather than silently ignoring the filter.
+  if (!filters.verdict && !filters.pricing && !filters.category) {
     for (const stack of snapshot.stacks) {
       const hit = buildHit(
         {
@@ -160,7 +164,14 @@ export function search(index: CatalogIndex, query: string, filters: SearchFilter
       );
       if (hit) hits.push(hit);
     }
+  }
+
+  // Graves carry neither `verdict` nor `pricing` (same exclusion as stacks
+  // and models above), but they DO carry their own `category` — so a
+  // `category` filter scopes them by that field instead of dropping them.
+  if (!filters.verdict && !filters.pricing) {
     for (const grave of snapshot.graveyard) {
+      if (filters.category && grave.category !== filters.category) continue;
       const hit = buildHit(
         {
           kind: 'dead', slug: grave.slug, name: grave.name, tagline: `Dead ${grave.died}: ${grave.cause}`,
