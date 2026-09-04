@@ -190,3 +190,17 @@ test('rss feed only contains weeks with risk events', () => {
   // The feed should not contain the old full-diff title format.
   assert.doesNotMatch(rss, /catalog diff: \+\d+ \/ −\d+ \/ ~\d+/);
 });
+
+test('api/graveyard.json exposes every graveyard entry with a receipt', () => {
+  const raw = built('api/graveyard.json');
+  const payload = JSON.parse(raw);
+  assert.ok(payload.count >= 14, 'graveyard should have at least 14 entries');
+  assert.equal(payload.count, payload.graveyard.length);
+  const flowise = payload.graveyard.find((entry) => entry.slug === 'flowise');
+  assert.ok(flowise, 'flowise must be in the graveyard payload');
+  assert.equal(flowise.died, '2026-08-31');
+  assert.ok(flowise.receipt.startsWith('http'), 'every entry needs a receipt URL');
+  for (const entry of payload.graveyard) {
+    assert.ok(entry.slug && entry.name && entry.died, `incomplete entry: ${entry.slug}`);
+  }
+});
