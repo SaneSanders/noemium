@@ -7,47 +7,12 @@
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { alternativeIds } from '../src/lib/shelf.ts';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const readJson = async (rel) => JSON.parse(await readFile(join(root, rel), 'utf8'));
 
-const VERDICT_RANK = { ship: 0, situational: 1, skip: 2 };
 const MAX_ALTERNATIVES = 6;
-
-/** Mirrors JOB_PEERS in src/lib/shelf.ts — keep in sync; snapshot tests pin the cursor case. */
-const JOB_PEERS = {
-  chatgpt: ['claude', 'gemini', 'grok', 'perplexity', 'notion-ai'],
-  claude: ['chatgpt', 'gemini', 'grok', 'perplexity'],
-  gemini: ['chatgpt', 'claude', 'grok', 'perplexity'],
-  grok: ['chatgpt', 'claude', 'gemini', 'perplexity'],
-  cursor: ['claude-code', 'github-copilot', 'windsurf', 'aider', 'zed'],
-  'claude-code': ['cursor', 'aider', 'github-copilot', 'opencode'],
-  'github-copilot': ['cursor', 'claude-code', 'gemini-code-assist', 'zed'],
-  perplexity: ['chatgpt', 'claude', 'elicit', 'consensus'],
-};
-
-/** Mirrors alternativeIds() in src/lib/shelf.ts, adapted to the `slug` field used by the API payloads. */
-function alternativeIds(slug, tools) {
-  const byId = new Map(tools.map((t) => [t.slug, t]));
-  const peers = JOB_PEERS[slug];
-  if (peers) {
-    const ordered = peers.filter((id) => id !== slug && byId.has(id));
-    const incoming = tools
-      .filter((t) => t.slug !== slug && (JOB_PEERS[t.slug] ?? []).includes(slug) && !ordered.includes(t.slug))
-      .map((t) => t.slug);
-    return [...ordered, ...incoming];
-  }
-  const self = byId.get(slug);
-  return tools
-    .filter((t) => t.slug !== slug && t.category === self?.category)
-    .sort(
-      (a, b) =>
-        (VERDICT_RANK[a.verdict ?? ''] ?? 9) - (VERDICT_RANK[b.verdict ?? ''] ?? 9) ||
-        String(b.last_verified).localeCompare(String(a.last_verified)) ||
-        a.name.localeCompare(b.name),
-    )
-    .map((t) => t.slug);
-}
 
 /**
  * dist/tools/compare/<a>-vs-<b>/ is the site's own generated compare pages
@@ -92,6 +57,10 @@ const tools = toolsPayload.tools;
 const toolSlugs = tools.map((t) => t.slug);
 const compareDirNames = await compareDirs();
 const compareBySlug = comparePairsBySlug(compareDirNames, toolSlugs);
+// shelf.ts's alternativeIds() expects RelatedTool objects keyed `id`; the API
+// payloads (and this snapshot) key tools by `slug` (see api/tools.json.ts).
+// Same strings, different field name — adapt here rather than in shelf.ts.
+const toolsById = tools.map((t) => ({ ...t, id: t.slug }));
 
 const snapshot = {
   built: new Date().toISOString().slice(0, 10),
@@ -103,7 +72,7 @@ const snapshot = {
   },
   tools: tools.map((tool) => ({
     ...tool,
-    alternatives: alternativeIds(tool.slug, tools).slice(0, MAX_ALTERNATIVES),
+    alternatives: alternativeIds(tool.slug, toolsById).slice(0, MAX_ALTERNATIVES),
     compare: compareBySlug.get(tool.slug) ?? [],
   })),
   models: modelsPayload.models,
