@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { buildIndex } from '../src/data.ts';
 import { toolDetail, toolText } from '../src/tools/tool.ts';
 import { stackLookup } from '../src/tools/stack.ts';
@@ -7,6 +8,11 @@ import { modelLookup } from '../src/tools/model.ts';
 import { fixture } from './fixtures.mjs';
 
 const index = buildIndex(fixture);
+
+// `npm run mcp:snapshot` from the mcp/ dir if this file is missing.
+const realIndex = buildIndex(
+  JSON.parse(await readFile(new URL('../data/snapshot.json', import.meta.url), 'utf8')),
+);
 
 test('a full card carries verdict, limits, receipts and alternatives', () => {
   const detail = toolDetail(index, 'cursor');
@@ -55,4 +61,36 @@ test('models filter by price and open weights', () => {
   assert.ok(open.every((m) => m.open_weights === true));
   const [one] = modelLookup(index, { slug: 'claude-fable-5' });
   assert.equal(one.provider, 'Anthropic');
+});
+
+test('a per-Mtok price filter excludes models priced by a different unit', () => {
+  const cheap = modelLookup(realIndex, { max_input_per_mtok: 1 });
+  assert.ok(cheap.length >= 1);
+  assert.ok(
+    cheap.every((m) => m.price_unit === 'mtok'),
+    'a model not priced per million tokens must not pass a per-Mtok price filter, ' +
+      'even when its price_input_per_mtok sentinel reads as 0',
+  );
+});
+
+test('the video model the review caught (Veo 3.1) never qualifies as a cheap text model', () => {
+  const cheap = modelLookup(realIndex, { max_input_per_mtok: 1 });
+  assert.ok(
+    cheap.every((m) => m.slug !== 'veo-3-1-generate'),
+    'Veo 3.1 is priced per video-second, not per Mtok, and must not appear under a cheap-per-Mtok filter',
+  );
+});
+
+test('the fix does not over-apply: a real cheap per-Mtok model still passes, and a non-token-priced model still passes filters that are not about token price', () => {
+  const cheap = modelLookup(realIndex, { max_input_per_mtok: 1 });
+  assert.ok(
+    cheap.some((m) => m.slug === 'hunyuan-turbos' && m.price_unit === 'mtok'),
+    'a genuinely cheap per-Mtok model must still be returned by max_input_per_mtok filtering',
+  );
+
+  const openWeights = modelLookup(realIndex, { open_weights: true });
+  assert.ok(
+    openWeights.some((m) => m.slug === 'minimax-h3' && m.price_unit !== 'mtok'),
+    'a non-token-priced model must still be returned by a query that filters on something other than token price',
+  );
 });

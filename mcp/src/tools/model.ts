@@ -16,6 +16,22 @@ export interface ModelLookupArgs {
 
 const DEFAULT_LIMIT = 10;
 
+// The only `price_unit` value that means "this number is dollars per million
+// tokens." Every other unit (image / video_second / audio_second / character)
+// carries a `0`/`0` sentinel in price_input_per_mtok/price_output_per_mtok —
+// see content-schemas.ts's modelSchema comment. A per-Mtok numeric filter
+// must exclude those cards rather than let the sentinel zero pass as "free".
+const PER_MTOK_UNIT = 'mtok';
+
+function isPerMtokPriced(model: ModelCard): boolean {
+  // `price_unit` defaults to 'mtok' via zod in the real snapshot pipeline
+  // and is only ever something else for genuinely unit-priced media models —
+  // never absent there. A falsy value here (e.g. a hand-built test fixture
+  // that omits the field, since `buildIndex` does not run zod defaults) is
+  // treated the same as that default rather than excluded.
+  return !model.price_unit || model.price_unit === PER_MTOK_UNIT;
+}
+
 // Human labels for the non-token price units a media model can carry.
 const UNIT_LABELS: Record<string, string> = {
   mtok: 'Mtok',
@@ -38,7 +54,10 @@ export function modelLookup(index: CatalogIndex, args: ModelLookupArgs): ModelRe
     .filter((model) => {
       if (args.provider && model.provider.toLowerCase() !== args.provider.toLowerCase()) return false;
       if (args.open_weights !== undefined && model.open_weights !== args.open_weights) return false;
-      if (args.max_input_per_mtok !== undefined && model.price_input_per_mtok > args.max_input_per_mtok) return false;
+      if (args.max_input_per_mtok !== undefined) {
+        if (!isPerMtokPriced(model)) return false;
+        if (model.price_input_per_mtok > args.max_input_per_mtok) return false;
+      }
       if (args.min_context !== undefined && (model.context_window ?? 0) < args.min_context) return false;
       return true;
     })
