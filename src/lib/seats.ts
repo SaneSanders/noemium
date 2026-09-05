@@ -24,6 +24,10 @@ export type SeatModel = {
   price_input_per_mtok: number;
   price_output_per_mtok: number;
   price_unit?: string;
+  // Absent (or 'usd') means dollars. A non-'usd' card (e.g. seedance-2-5,
+  // priced in CNY) is never converted, so it must not enter a dollar total —
+  // see the currency guards in apiLineUsd and collectSeats below.
+  price_currency?: string;
 };
 
 export type SeatRow = SeatDef & {
@@ -162,6 +166,7 @@ export function seatSubtotal(seats: SeatRow[], counts: Record<string, number>): 
 export function apiLineUsd(model: SeatModel | undefined, inputMtok: number, outputMtok: number): number {
   if (!model) return 0;
   if ((model.price_unit ?? 'mtok') !== 'mtok') return 0;
+  if ((model.price_currency ?? 'usd') !== 'usd') return 0;
   if (!Number.isFinite(model.price_input_per_mtok) || !Number.isFinite(model.price_output_per_mtok)) return 0;
   if (model.price_input_per_mtok <= 0 || model.price_output_per_mtok <= 0) return 0;
   const input = Number.isFinite(inputMtok) && inputMtok > 0 ? inputMtok : 0;
@@ -259,6 +264,7 @@ export function collectSeats(input: {
     const model = models.get(seat.model);
     if (!tool || !model) continue;
     if ((model.price_unit ?? 'mtok') !== 'mtok') continue;
+    if ((model.price_currency ?? 'usd') !== 'usd') continue;
     if (model.price_input_per_mtok <= 0 || model.price_output_per_mtok <= 0) continue;
     if (!dollarOnCard(tool.price_note, seat.usd_month)) continue;
     rows.push({

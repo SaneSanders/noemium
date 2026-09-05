@@ -5,6 +5,7 @@ import {
   formatModelPrice,
   hasPlaceholderZeroPrice,
   isPerMtokPriced,
+  isUsdPriced,
 } from '../model-format.ts';
 
 export interface ModelResult extends ModelCard {
@@ -72,7 +73,10 @@ export function modelLookup(index: CatalogIndex, args: ModelLookupArgs): ModelRe
       if (args.provider && model.provider.toLowerCase() !== args.provider.toLowerCase()) return false;
       if (args.open_weights !== undefined && model.open_weights !== args.open_weights) return false;
       if (args.max_input_per_mtok !== undefined) {
-        if (!isPerMtokPriced(model) || hasPlaceholderZeroPrice(model)) return false;
+        // A per-Mtok price filter compares dollars, so a card priced in
+        // another currency (seedance-2-5's 70 CNY) must be excluded here too,
+        // not just the non-mtok and placeholder-zero cases.
+        if (!isPerMtokPriced(model) || hasPlaceholderZeroPrice(model) || !isUsdPriced(model)) return false;
         if (model.price_input_per_mtok > args.max_input_per_mtok) return false;
       }
       if (args.min_context !== undefined && (model.context_window ?? 0) < args.min_context) return false;

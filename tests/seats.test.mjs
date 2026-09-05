@@ -123,3 +123,37 @@ test('collectSeats skips unit-priced media models', () => {
   });
   assert.equal(rows.length, 0);
 });
+
+// named regression: a non-USD card must never enter a seat-vs-API row, even
+// one with a real non-zero per-Mtok split in its own currency (not just
+// seedance-2-5's placeholder 0/0) — mixing 70 CNY into a dollar total would
+// silently understate the real cost.
+test('collectSeats excludes a non-USD model even with a real, non-zero per-Mtok split', () => {
+  const rows = collectSeats({
+    seats: [{ ...max20, model: 'yuan-model' }],
+    tools: [{ slug: 'claude-code', name: 'Claude Code', price_note: 'Max 20x $200/mo' }],
+    models: [
+      {
+        slug: 'yuan-model',
+        name: 'Yuan Model',
+        price_input_per_mtok: 5,
+        price_output_per_mtok: 25,
+        price_unit: 'mtok',
+        price_currency: 'cny',
+      },
+    ],
+  });
+  assert.equal(rows.length, 0);
+});
+
+// counter-case: an ordinary USD model (opus fixture above, no price_currency
+// at all) still produces a row exactly as before.
+test('collectSeats still prices an ordinary USD model with no price_currency field', () => {
+  const rows = collectSeats({
+    seats: [max20],
+    tools: [{ slug: 'claude-code', name: 'Claude Code', price_note: 'Max 20x $200/mo' }],
+    models: [opus],
+  });
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].model, 'claude-opus-5');
+});

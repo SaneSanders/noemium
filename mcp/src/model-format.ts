@@ -44,6 +44,23 @@ export function hasPlaceholderZeroPrice(model: ModelCard): boolean {
   return model.price_input_per_mtok === 0 && Boolean(model.price_amount);
 }
 
+// `price_currency` defaults to 'usd' via zod in the real snapshot pipeline —
+// same fixture caveat as `isPerMtokPriced` above, a hand-built test object
+// that omits the field is treated as USD rather than excluded. A per-Mtok
+// numeric filter compares dollars, so a card whose real price lives in
+// another currency (seedance-2-5's 70 CNY) must never pass that comparison,
+// even one whose per-Mtok fields already read 0 for an unrelated reason.
+export function isUsdPriced(model: ModelCard): boolean {
+  return !model.price_currency || model.price_currency === 'usd';
+}
+
+// A non-USD amount is printed with its currency code, never a dollar sign —
+// see content-schemas.ts's modelSchema `price_currency` comment: it is never
+// converted, so there is no dollar figure to print for it.
+function formatAmount(amount: number, currency: string): string {
+  return currency === 'usd' || !currency ? `$${amount}` : `${amount} ${currency.toUpperCase()}`;
+}
+
 /**
  * `price_input_per_mtok`/`price_output_per_mtok` are `0`/`0` as a schema
  * sentinel for unit-priced media models (per-image, per-video-second, ...) —
@@ -53,12 +70,13 @@ export function hasPlaceholderZeroPrice(model: ModelCard): boolean {
  * token price (including a real, non-sentinel $0) prints the Mtok form.
  */
 export function formatModelPrice(model: ModelCard): string {
+  const currency = model.price_currency || 'usd';
   const meteredZero = model.price_input_per_mtok === 0 && model.price_output_per_mtok === 0;
   if (meteredZero && model.price_amount !== undefined) {
     const unit = UNIT_LABELS[model.price_unit] ?? model.price_unit;
-    return `$${model.price_amount} per ${unit}`;
+    return `${formatAmount(model.price_amount, currency)} per ${unit}`;
   }
-  return `$${model.price_input_per_mtok}/$${model.price_output_per_mtok} per Mtok`;
+  return `${formatAmount(model.price_input_per_mtok, currency)}/${formatAmount(model.price_output_per_mtok, currency)} per Mtok`;
 }
 
 // `context_window` is optional and genuinely absent for media models

@@ -132,6 +132,42 @@ test('models index surfaces retirement with successor link', () => {
   assert.match(html, /Mistral Medium 3\.5/);
 });
 
+// named regression: seedance-2-5's real price (70 CNY per Mtok, per its own
+// source_attribution) must render in its own currency, never as a dollar
+// figure and never as the $0.00 placeholder the per-Mtok fields carry.
+test('models table renders seedance-2-5 in its real CNY price, never a dollar sign, never $0.00', () => {
+  const html = built('models/index.html');
+  const rowStart = html.indexOf('id="seedance-2-5"');
+  assert.notEqual(rowStart, -1, 'seedance-2-5 must have a row in the models table');
+  const rowEnd = html.indexOf('</tr>', rowStart);
+  const row = html.slice(rowStart, rowEnd);
+  assert.match(row, /70 CNY\/Mtok/, 'seedance-2-5 must show its real 70 CNY per-Mtok price');
+  assert.doesNotMatch(row, /\$/, 'a CNY-priced card must never render with a dollar sign');
+  assert.doesNotMatch(row, /\$0\.00/, 'seedance-2-5 must not render as the free-looking $0.00 placeholder');
+});
+
+// counter-case: an ordinary USD model on the same page still renders with a
+// real dollar figure, exactly as before.
+test('models table still renders an ordinary USD model with a real dollar price', () => {
+  const html = built('models/index.html');
+  const rowStart = html.indexOf('id="claude-opus-5"');
+  assert.notEqual(rowStart, -1, 'claude-opus-5 must have a row in the models table');
+  const rowEnd = html.indexOf('</tr>', rowStart);
+  const row = html.slice(rowStart, rowEnd);
+  assert.match(row, /\$5\.00/);
+  assert.match(row, /\$25\.00/);
+});
+
+// named regression: the same card in the machine-readable full-catalog dump.
+test('llms-full.txt prices seedance-2-5 in CNY, never as a dollar figure or "pricing unavailable"', () => {
+  const txt = built('llms-full.txt');
+  const line = txt.split('\n').find((l) => l.startsWith('| Seedance 2.5 |'));
+  assert.ok(line, 'llms-full.txt must list Seedance 2.5');
+  assert.match(line, /70 CNY\/mtok/);
+  assert.doesNotMatch(line, /\$/);
+  assert.doesNotMatch(line, /pricing unavailable/);
+});
+
 test('price tape renders with disclaimer and honest empty state if no movers', () => {
   const html = built('prices/index.html');
   assert.match(html, />Price tape</);

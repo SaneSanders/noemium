@@ -18,7 +18,7 @@ import { search } from '../src/search.ts';
 import { deadText, modelCardText, toolDetail } from '../src/tools/tool.ts';
 import { modelLookup } from '../src/tools/model.ts';
 import { stackLookup, stackText } from '../src/tools/stack.ts';
-import { formatModelPrice } from '../src/model-format.ts';
+import { formatModelPrice, hasPlaceholderZeroPrice, isUsdPriced } from '../src/model-format.ts';
 import { createHandler } from '../src/server.ts';
 import { createWorker } from '../src/worker.ts';
 import { loadRealSnapshot } from './real-snapshot.mjs';
@@ -426,6 +426,88 @@ test('named regression: whisper transcription no longer prices Whisper Large v3 
   assert.doesNotMatch(res.content[0].text, /\$0\/\$0 per Mtok/, 'the rendered text must not say it either');
   assert.doesNotMatch(res.content[0].text, /\?\s*ctx/);
   await client.close();
+});
+
+// ---------------------------------------------------------------------------
+// Currency — a card priced in something other than USD (seedance-2-5, in
+// CNY) is never rendered with a dollar sign and never enters a dollar
+// per-Mtok filter; a real price is never a bare 0 or $0.
+// ---------------------------------------------------------------------------
+
+test('property: no rendered price string pairs a dollar sign with a non-USD card, and no model with a real price renders as a bare 0 or $0', () => {
+  let nonUsdChecked = 0;
+  let realPriceChecked = 0;
+  for (const model of snapshot.models) {
+    const priceText = formatModelPrice(model);
+    if (!isUsdPriced(model)) {
+      nonUsdChecked += 1;
+      assert.doesNotMatch(
+        priceText, /\$/,
+        `${model.slug} is priced in ${model.price_currency}, not USD, and must never render with a dollar sign: "${priceText}"`,
+      );
+    }
+    // hasPlaceholderZeroPrice() flags a card whose 0/0 per-Mtok fields are
+    // contradicted by a real price_amount (a unit-priced media model, or
+    // seedance-2-5's mtok-unit headline number) — that price must never
+    // render as free.
+    if (hasPlaceholderZeroPrice(model)) {
+      realPriceChecked += 1;
+      assert.doesNotMatch(
+        priceText, /\$0(?!\.\d)/,
+        `${model.slug} has a real price and must not render as $0: "${priceText}"`,
+      );
+      assert.notEqual(priceText.trim(), '0', `${model.slug} has a real price and must not render as a bare 0`);
+    }
+  }
+  assert.ok(nonUsdChecked > 0, 'the sweep must include at least one non-USD model (seedance-2-5)');
+  assert.ok(realPriceChecked > 0, 'the sweep must include at least one placeholder-zero-with-real-price model');
+});
+
+test('named regression: seedance-2-5 renders its real CNY price, never a dollar sign, in search, check and model, and never passes a dollar per-Mtok filter', () => {
+  const model = index.modelBySlug.get('seedance-2-5');
+  assert.ok(model, 'seedance-2-5 must be in the real catalog');
+  assert.equal(model.price_currency, 'cny');
+
+  const priceText = formatModelPrice(model);
+  assert.match(priceText, /CNY/);
+  assert.doesNotMatch(priceText, /\$/);
+
+  const searchHit = search(index, 'seedance', { limit: 20 }).find((h) => h.slug === 'seedance-2-5');
+  assert.ok(searchHit, 'search must surface seedance-2-5');
+  assert.equal(searchHit.price_note, priceText);
+
+  const [checkResult] = check(index, ['seedance-2-5']);
+  assert.equal(checkResult.status, 'model');
+  assert.equal(checkResult.price_note, priceText);
+
+  const [modelResult] = modelLookup(index, { slug: 'seedance-2-5' });
+  assert.equal(modelResult.slug, 'seedance-2-5');
+  assert.equal(formatModelPrice(modelResult), priceText);
+
+  const cheap = modelLookup(index, { max_input_per_mtok: 1000 });
+  assert.ok(
+    cheap.every((m) => m.slug !== 'seedance-2-5'),
+    'a per-Mtok filter compares dollars and must exclude a CNY card even at a generous ceiling',
+  );
+});
+
+test('counter-case: an ordinary USD model still renders with a dollar sign and still passes a generous dollar per-Mtok filter', () => {
+  const model = index.modelBySlug.get('claude-opus-5');
+  assert.ok(model, 'claude-opus-5 must be in the real catalog');
+  assert.ok(isUsdPriced(model));
+
+  const priceText = formatModelPrice(model);
+  assert.match(priceText, /^\$/);
+
+  // `limit` is set past the model count, matching the pattern the
+  // placeholder-zero guard test above uses: the default page size (10) plus
+  // ascending price-sort would otherwise push a $5/Mtok model like Opus off
+  // the first page long before this assertion says anything about currency.
+  const cheap = modelLookup(index, { max_input_per_mtok: 1000, limit: snapshot.models.length });
+  assert.ok(
+    cheap.some((m) => m.slug === 'claude-opus-5'),
+    'an ordinary USD model must still pass a generous per-Mtok filter, exactly as before',
+  );
 });
 
 // ---------------------------------------------------------------------------

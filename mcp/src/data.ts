@@ -30,7 +30,12 @@ export interface ModelCard {
   slug: string; name: string; provider: string; context_window?: number;
   price_input_per_mtok: number; price_output_per_mtok: number;
   // `price_unit` has a zod `.default('mtok')` — always present in output.
-  price_unit: string; price_amount?: number; open_weights: boolean;
+  price_unit: string; price_amount?: number;
+  // `price_currency` has a zod `.default('usd')` — always present in output.
+  // Never converted: a non-'usd' value means the price is genuinely in that
+  // currency and must not be rendered with a dollar sign or fed into a
+  // dollar cost total or per-Mtok filter.
+  price_currency: string; open_weights: boolean;
   popularity: number; best_for: string[]; avoid_for: string[];
   retiring?: { date: string; successor: string };
   benchmarks?: Array<{ name: string; score: number | string; source: string; date: string }>;

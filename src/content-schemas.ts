@@ -450,6 +450,15 @@ export const modelSchema = z.object({
     .enum(['mtok', 'image', 'video_second', 'audio_second', 'character'])
     .default('mtok'),
   price_amount: z.number().nonnegative().optional(),
+  // Currency of price_amount/price_input_per_mtok/price_output_per_mtok.
+  // Prices are USD unless a vendor publishes pricing only in another currency
+  // (e.g. a China-only product billed in CNY, docs/console/rate card never
+  // in USD). A non-USD price is NEVER converted to USD here or anywhere it
+  // is rendered — a converted figure with no dated exchange-rate source is
+  // exactly the kind of fabrication this catalog exists to avoid. Instead it
+  // is displayed in its own currency and excluded from every dollar cost
+  // total or per-Mtok filter.
+  price_currency: z.enum(['usd', 'cny']).default('usd'),
   open_weights: z.boolean(),
   // Editorial heat score 0–100: how much the model is actually being used
   // and talked about right now (user base, board presence, launch buzz).
