@@ -4,6 +4,7 @@ price_input_per_mtok: 0
 price_output_per_mtok: 0
 price_unit: mtok
 price_amount: 70
+price_currency: cny
 open_weights: false
 popularity: 65
 best_for:

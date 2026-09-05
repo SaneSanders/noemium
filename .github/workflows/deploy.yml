@@ -46,3 +46,18 @@ jobs:
           rsync -avzr --delete --quiet \
             -e "ssh -i $HOME/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
             dist/ "${VPS_USER}@${VPS_HOST}:/var/www/noemium/"
+      - name: Build MCP snapshot
+        run: npm run mcp:snapshot
+      - name: Install MCP worker deps
+        run: npm --prefix mcp ci
+      - name: Test MCP worker
+        run: npm --prefix mcp test
+      - name: Deploy MCP worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        # Run through mcp's own package script, not `npx wrangler` from the
+        # repo root: wrangler is not a root dependency, so npx would fetch an
+        # unpinned latest instead of the ^4.106.0 that mcp/package-lock.json
+        # pins and that `npm --prefix mcp ci` just installed.
+        run: npm --prefix mcp run deploy

@@ -34,6 +34,29 @@ const radar = shelf.filter((t) => !t.verdict);
       </p>
     </section>
 
+    <article class="cover-prose">
+      <h2>Connect your agent</h2>
+      <p>
+        This catalog is also served over its own read-only MCP server: an agent can
+        check verdicts, death dates and prices before it recommends or installs
+        anything. No account. It records anonymous request counters only — method,
+        status, duration — never headers, IPs or request bodies.
+      </p>
+      <p>
+        Claude Code:{' '}
+        <code>claude mcp add --transport http noemium https://mcp.noemium.com/mcp</code>
+      </p>
+      <p>
+        Codex: <code>codex mcp add noemium --url https://mcp.noemium.com/mcp</code>
+      </p>
+      <p>
+        Cursor and other clients: add{' '}
+        <code>{'"noemium": { "url": "https://mcp.noemium.com/mcp" }'}</code> under{' '}
+        <code>mcpServers</code>. Source on{' '}
+        <a href="https://github.com/SaneSanders/noemium" rel="noopener">GitHub</a>.
+      </p>
+    </article>
+
     <p class="cover-kicker">Ship</p>
     <div class="cover-doors">
       {

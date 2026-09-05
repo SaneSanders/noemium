@@ -132,6 +132,82 @@ test('models index surfaces retirement with successor link', () => {
   assert.match(html, /Mistral Medium 3\.5/);
 });
 
+// named regression: seedance-2-5's real price (70 CNY per Mtok, per its own
+// source_attribution) must render in its own currency, never as a dollar
+// figure and never as the $0.00 placeholder the per-Mtok fields carry.
+test('models table renders seedance-2-5 in its real CNY price, never a dollar sign, never $0.00', () => {
+  const html = built('models/index.html');
+  const rowStart = html.indexOf('id="seedance-2-5"');
+  assert.notEqual(rowStart, -1, 'seedance-2-5 must have a row in the models table');
+  const rowEnd = html.indexOf('</tr>', rowStart);
+  const row = html.slice(rowStart, rowEnd);
+  assert.match(row, /70 CNY\/Mtok/, 'seedance-2-5 must show its real 70 CNY per-Mtok price');
+  assert.doesNotMatch(row, /\$/, 'a CNY-priced card must never render with a dollar sign');
+  assert.doesNotMatch(row, /\$0\.00/, 'seedance-2-5 must not render as the free-looking $0.00 placeholder');
+});
+
+// counter-case: an ordinary USD model on the same page still renders with a
+// real dollar figure, exactly as before.
+test('models table still renders an ordinary USD model with a real dollar price', () => {
+  const html = built('models/index.html');
+  const rowStart = html.indexOf('id="claude-opus-5"');
+  assert.notEqual(rowStart, -1, 'claude-opus-5 must have a row in the models table');
+  const rowEnd = html.indexOf('</tr>', rowStart);
+  const row = html.slice(rowStart, rowEnd);
+  assert.match(row, /\$5\.00/);
+  assert.match(row, /\$25\.00/);
+});
+
+// Property test: whatever the catalog currently contains, no model with a
+// non-USD price_currency may ever render with a dollar sign next to its
+// price, on any page that shows a per-model "current price". The non-USD
+// set is derived from the built JSON itself, not hardcoded to seedance-2-5,
+// so this keeps meaning something once the catalog carries more of them —
+// this is the test that would have caught the original $0.00-for-CNY bug.
+test('property: no built page renders a dollar sign next to a non-USD model\'s price', () => {
+  const modelsJson = JSON.parse(built('api/models.json'));
+  const nonUsdModels = modelsJson.models.filter((m) => m.price_currency && m.price_currency !== 'usd');
+  assert.ok(
+    nonUsdModels.length > 0,
+    'expected at least one non-USD model in the built catalog to exercise this property',
+  );
+
+  const modelsHtml = built('models/index.html');
+  const pricesHtml = built('prices/index.html');
+
+  for (const m of nonUsdModels) {
+    // /models/ table row, keyed by its `id="<slug>"` anchor.
+    const modelsRowStart = modelsHtml.indexOf(`id="${m.slug}"`);
+    assert.notEqual(modelsRowStart, -1, `${m.slug} must have a row in the models table`);
+    const modelsRow = modelsHtml.slice(modelsRowStart, modelsHtml.indexOf('</tr>', modelsRowStart));
+    assert.doesNotMatch(
+      modelsRow,
+      /\$/,
+      `${m.slug} (${m.price_currency.toUpperCase()}) must not render with a dollar sign on the models table`,
+    );
+
+    // /prices/ tape row, keyed by its `href="/models/#<slug>"` link.
+    const pricesRowStart = pricesHtml.indexOf(`href="/models/#${m.slug}"`);
+    assert.notEqual(pricesRowStart, -1, `${m.slug} must have a row on the price tape`);
+    const pricesRow = pricesHtml.slice(pricesRowStart, pricesHtml.indexOf('</tr>', pricesRowStart));
+    assert.doesNotMatch(
+      pricesRow,
+      /\$/,
+      `${m.slug} (${m.price_currency.toUpperCase()}) must not render with a dollar sign on the price tape`,
+    );
+  }
+});
+
+// named regression: the same card in the machine-readable full-catalog dump.
+test('llms-full.txt prices seedance-2-5 in CNY, never as a dollar figure or "pricing unavailable"', () => {
+  const txt = built('llms-full.txt');
+  const line = txt.split('\n').find((l) => l.startsWith('| Seedance 2.5 |'));
+  assert.ok(line, 'llms-full.txt must list Seedance 2.5');
+  assert.match(line, /70 CNY\/mtok/);
+  assert.doesNotMatch(line, /\$/);
+  assert.doesNotMatch(line, /pricing unavailable/);
+});
+
 test('price tape renders with disclaimer and honest empty state if no movers', () => {
   const html = built('prices/index.html');
   assert.match(html, />Price tape</);
@@ -189,4 +265,31 @@ test('rss feed only contains weeks with risk events', () => {
   assert.equal(itemCount, riskWeeks.length, 'RSS item count should match weeks with risk');
   // The feed should not contain the old full-diff title format.
   assert.doesNotMatch(rss, /catalog diff: \+\d+ \/ −\d+ \/ ~\d+/);
+});
+
+test('api/graveyard.json exposes every graveyard entry with a receipt', () => {
+  const raw = built('api/graveyard.json');
+  const payload = JSON.parse(raw);
+  assert.ok(payload.count >= 14, 'graveyard should have at least 14 entries');
+  assert.equal(payload.count, payload.graveyard.length);
+  const flowise = payload.graveyard.find((entry) => entry.slug === 'flowise');
+  assert.ok(flowise, 'flowise must be in the graveyard payload');
+  assert.equal(flowise.died, '2026-08-31');
+  assert.ok(flowise.receipt.startsWith('http'), 'every entry needs a receipt URL');
+  for (const entry of payload.graveyard) {
+    assert.ok(entry.slug && entry.name && entry.died, `incomplete entry: ${entry.slug}`);
+  }
+});
+
+test('the mcp page tells an agent how to connect to the Noemium server', () => {
+  const html = built('mcp/index.html');
+  assert.match(html, /mcp\.noemium\.com\/mcp/, 'the endpoint must be printed');
+  assert.match(html, /claude mcp add --transport http noemium/, 'Claude Code command');
+  assert.match(html, /codex mcp add noemium --url/, 'Codex command');
+  assert.match(html, /read-only/i, 'state plainly that the server is read-only');
+});
+
+test('llms.txt points machine readers at the MCP endpoint', () => {
+  const txt = built('llms.txt');
+  assert.match(txt, /https:\/\/mcp\.noemium\.com\/mcp/);
 });

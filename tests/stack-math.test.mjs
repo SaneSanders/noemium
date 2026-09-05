@@ -96,6 +96,21 @@ test('apiLineUsd drops unpriced or unit-priced models', () => {
   assert.equal(apiLineUsd(negativeInput, 10, 5), 0);
 });
 
+// named regression: a non-USD card must never contribute to a dollar total,
+// even one that (unlike seedance-2-5's placeholder 0/0) carries a genuine
+// non-zero per-Mtok split in its own currency — the currency guard has to be
+// its own check, not a side effect of the zero guard above.
+test('apiLineUsd excludes a non-USD model even with a real, non-zero per-Mtok split', () => {
+  const cnyModel = { ...opus, slug: 'yuan-model', price_currency: 'cny' };
+  assert.equal(apiLineUsd(cnyModel, 10, 5), 0);
+});
+
+// counter-case: an ordinary USD model (no price_currency field at all, same
+// as every pre-existing card) still prices exactly as before.
+test('apiLineUsd still prices an ordinary USD model with no price_currency field', () => {
+  assert.equal(apiLineUsd(opus, 10, 5), 10 * 5 + 5 * 25);
+});
+
 test('apiSubtotal sums only allowed priced models', () => {
   const models = new Map([
     [opus.slug, opus],

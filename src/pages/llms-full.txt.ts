@@ -21,14 +21,24 @@ export const GET: APIRoute = async (context) => {
   const sortedStacks = [...stacks].sort((a, b) => a.id.localeCompare(b.id));
   const sortedSkills = [...skills].sort((a, b) => a.id.localeCompare(b.id));
 
+  // Non-USD amounts print with a currency code, never a dollar sign — see
+  // content-schemas.ts's modelSchema `price_currency` comment; the price is
+  // never converted.
+  const amount = (value: number, currency: string) =>
+    currency === 'usd' ? `$${value}` : `${value} ${currency.toUpperCase()}`;
   const formatPrice = (m: (typeof models)[number]['data']) => {
-    if (m.price_unit && m.price_unit !== 'mtok' && m.price_amount !== undefined) {
-      return `$${m.price_amount}/${m.price_unit.replace('_', '-')}`;
-    }
+    const currency = m.price_currency ?? 'usd';
     if (m.price_input_per_mtok === 0 && m.price_output_per_mtok === 0) {
-      return 'pricing unavailable';
+      // 0/0 is a schema sentinel, not a price, whenever price_amount is set —
+      // whether the card is priced per image/video-second/etc, or (like
+      // seedance-2-5) nominally `price_unit: mtok` with one headline number
+      // instead of an input/output split. Only a genuinely unpublished rate
+      // (no price_amount at all) is "pricing unavailable".
+      if (m.price_amount === undefined) return 'pricing unavailable';
+      const unit = (m.price_unit ?? 'mtok').replace('_', '-');
+      return `${amount(m.price_amount, currency)}/${unit}`;
     }
-    return `$${m.price_input_per_mtok}/1M in · $${m.price_output_per_mtok}/1M out`;
+    return `${amount(m.price_input_per_mtok, currency)}/1M in · ${amount(m.price_output_per_mtok, currency)}/1M out`;
   };
 
   const lines = [

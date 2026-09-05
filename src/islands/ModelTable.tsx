@@ -17,6 +17,10 @@ export interface ModelRecord {
   price_output_per_mtok: number;
   price_unit: 'mtok' | 'image' | 'video_second' | 'audio_second' | 'character';
   price_amount?: number;
+  // Absent (or 'usd') means dollars. A non-'usd' card is never converted —
+  // it renders in its own currency, never with a dollar sign, and never
+  // enters a per-task dollar cost (see taskCost below).
+  price_currency?: 'usd' | 'cny';
   open_weights: boolean;
   popularity: number;
   best_for: string[];
@@ -58,7 +62,8 @@ const PRESETS: Record<PresetKey, { label: string; hint: string; inTok: number; o
   },
 };
 
-const UNIT_LABEL: Record<Exclude<ModelRecord['price_unit'], 'mtok'>, string> = {
+const UNIT_LABEL: Record<ModelRecord['price_unit'], string> = {
+  mtok: '/Mtok',
   image: '/image',
   video_second: '/video-sec',
   audio_second: '/audio-sec',
@@ -89,15 +94,36 @@ function formatUsd(value: number): string {
   return `$${value.toFixed(2)}`;
 }
 
+// Non-USD amount, printed with its currency code — never a dollar sign, and
+// never run through formatUsd's dollar-shaped rounding.
+function formatCurrencyAmount(value: number, currency: 'usd' | 'cny'): string {
+  return currency === 'usd' ? formatUsd(value) : `${value} ${currency.toUpperCase()}`;
+}
+
+// `price_input_per_mtok`/`price_output_per_mtok` read 0/0 as a schema
+// sentinel whenever the real number lives in `price_amount` instead — either
+// because the card is priced per image/video-second/etc, or (seedance-2-5)
+// because it is nominally `price_unit: mtok` but its one headline number is
+// not an input/output split. Both cases must render `price_amount` in its
+// own unit, never the per-Mtok $0/$0 that would read as free.
+function isUnitPriced(m: ModelRecord): boolean {
+  return m.price_input_per_mtok === 0 && m.price_output_per_mtok === 0 && m.price_amount !== undefined;
+}
+
 function taskCost(m: ModelRecord, preset: (typeof PRESETS)[PresetKey]): number | null {
   if (unpublishedRate(m)) return null;
   if ((m.price_unit ?? 'mtok') !== 'mtok') return null;
+  if ((m.price_currency ?? 'usd') !== 'usd') return null;
+  // A metered-zero card (see isUnitPriced) has no real input/output split to
+  // multiply by preset token counts — its 0/0 would otherwise compute a fake
+  // $0.00 task cost for a model that is not free.
+  if (isUnitPriced(m)) return null;
   return (preset.inTok * m.price_input_per_mtok + preset.outTok * m.price_output_per_mtok) / 1e6;
 }
 
 function unitPrice(m: ModelRecord): string | null {
-  if (!m.price_unit || m.price_unit === 'mtok' || m.price_amount === undefined) return null;
-  return `${formatUsd(m.price_amount)}${UNIT_LABEL[m.price_unit]}`;
+  if (!isUnitPriced(m)) return null;
+  return `${formatCurrencyAmount(m.price_amount!, m.price_currency ?? 'usd')}${UNIT_LABEL[m.price_unit]}`;
 }
 
 function Chip({
@@ -165,7 +191,7 @@ export default function ModelTable({ models }: { models: ModelRecord[] }) {
 
     // Token-priced models sort among themselves; unit-priced media models
     // always stay at the bottom (their own group, sorted internally).
-    const isToken = (m: ModelRecord) => (m.price_unit ?? 'mtok') === 'mtok';
+    const isToken = (m: ModelRecord) => (m.price_unit ?? 'mtok') === 'mtok' && !isUnitPriced(m);
     const tokenRows = filtered.filter(isToken);
     const unitRows = filtered.filter((m) => !isToken(m));
     const cmp = (a: ModelRecord, b: ModelRecord) => {

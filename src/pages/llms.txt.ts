@@ -19,6 +19,8 @@ export const GET: APIRoute = async (context) => {
     '> No paid listings, ever. Every verdict is a pull request anyone can audit,',
     '> with receipts linked and limitations named next to the praise.',
     '',
+    'MCP server (read-only catalog access for agents): https://mcp.noemium.com/mcp',
+    '',
     'This is a curated view: the verified shelf (tools we ran hands-on) plus the job guides.',
     `For the complete catalog dump, see [llms-full.txt](${new URL('/llms-full.txt', site).href}).`,
     '',

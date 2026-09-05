@@ -43,3 +43,8 @@ tests/decide-pages.test.mjs
 
 # link-check reports
 reports/
+
+# mcp server generated/runtime artifacts
+mcp/data/snapshot.json
+mcp/node_modules
+mcp/.wrangler

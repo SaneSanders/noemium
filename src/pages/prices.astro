@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import priceHistory from '../data/price-history.json';
@@ -22,7 +23,15 @@ const { started_tracking, models } = priceHistory as {
   models: ModelHistory[];
 };
 
+// price-history.json carries no currency field (see content-schemas.ts's
+// modelSchema `price_currency` comment) and none should be backfilled into
+// it — a currency is a property of the model card, not of a historical price
+// point. Read it from the model card at render time instead.
+const modelCards = await getCollection('models');
+const currencyBySlug = new Map(modelCards.map((m) => [m.id, m.data.price_currency ?? 'usd']));
+
 const UNIT_LABEL: Record<string, string> = {
+  mtok: '/Mtok',
   image: '/image',
   video_second: '/video-sec',
   audio_second: '/audio-sec',
@@ -36,10 +45,31 @@ function formatUsd(value: number): string {
   return `$${value.toFixed(2)}`;
 }
 
-function currentPrice(m: ModelHistory): string {
+// Non-USD amount, printed with its currency code — never a dollar sign. A
+// non-USD price is never converted (content-schemas.ts's modelSchema
+// `price_currency` comment), so there is no dollar figure to print for it.
+// Mirrors ModelTable.tsx's formatCurrencyAmount / mcp/src/model-format.ts's
+// formatAmount.
+function formatAmount(value: number, currency: string): string {
+  return currency === 'usd' ? formatUsd(value) : `${value} ${currency.toUpperCase()}`;
+}
+
+// A card whose per-Mtok fields are 0/0 but carries a defined price_amount is
+// unit-priced, not free — the 0/0 is a schema sentinel (see
+// content-schemas.ts's modelSchema comment; same test as ModelTable.tsx's
+// isUnitPriced). seedance-2-5 is nominally `price_unit: mtok` but its one
+// headline number is not an input/output split — do not read its 0/0 as a
+// real (and, worse, un-converted-currency) price.
+function isUnitPriced(p: Point): boolean {
+  return p.in === 0 && p.out === 0 && p.amount != null;
+}
+
+function currentPrice(m: ModelHistory, currency: string): string {
   const p = m.points.at(-1)!;
-  if (p.unit === 'mtok') return `${formatUsd(p.in)} / ${formatUsd(p.out)} per 1M in/out`;
-  return `${formatUsd(p.amount ?? 0)}${UNIT_LABEL[p.unit] ?? `/${p.unit}`}`;
+  if (p.unit === 'mtok' && !isUnitPriced(p)) {
+    return `${formatAmount(p.in, currency)} / ${formatAmount(p.out, currency)} per 1M in/out`;
+  }
+  return `${formatAmount(p.amount ?? 0, currency)}${UNIT_LABEL[p.unit] ?? `/${p.unit}`}`;
 }
 
 function priceChanged(prev: Point, curr: Point): boolean {
@@ -74,7 +104,7 @@ function latestChange(m: ModelHistory): { text: string; up: boolean } | null {
 const rows = models
   .map((m) => ({
     ...m,
-    current: currentPrice(m),
+    current: currentPrice(m, currencyBySlug.get(m.slug) ?? 'usd'),
     change: latestChange(m),
     latestDate: m.points.at(-1)!.date,
     hasMove: m.points.length >= 2 && m.points.slice(1).some((p, i) => priceChanged(m.points[i], p)),

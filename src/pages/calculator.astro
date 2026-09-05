@@ -21,6 +21,7 @@ const seats = collectSeats({
     price_input_per_mtok: m.data.price_input_per_mtok,
     price_output_per_mtok: m.data.price_output_per_mtok,
     price_unit: m.data.price_unit,
+    price_currency: m.data.price_currency,
   })),
 });
 
@@ -31,8 +32,15 @@ const pricedModels = models
     price_input_per_mtok: m.data.price_input_per_mtok,
     price_output_per_mtok: m.data.price_output_per_mtok,
     price_unit: m.data.price_unit,
+    price_currency: m.data.price_currency,
   }))
-  .filter((m) => (m.price_unit ?? 'mtok') === 'mtok' && m.price_input_per_mtok > 0 && m.price_output_per_mtok > 0)
+  .filter(
+    (m) =>
+      (m.price_unit ?? 'mtok') === 'mtok' &&
+      (m.price_currency ?? 'usd') === 'usd' &&
+      m.price_input_per_mtok > 0 &&
+      m.price_output_per_mtok > 0,
+  )
   .sort((a, b) => a.name.localeCompare(b.name));
 ---
 

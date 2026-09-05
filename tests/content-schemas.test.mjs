@@ -177,6 +177,19 @@ test('accepts a model with a retiring successor', () => {
   assert.equal(modelSchema.safeParse(data).success, true);
 });
 
+test('price_currency defaults to usd and accepts cny', () => {
+  const usd = modelSchema.parse(modelBase);
+  assert.equal(usd.price_currency, 'usd');
+
+  const cny = modelSchema.parse({ ...modelBase, price_currency: 'cny' });
+  assert.equal(cny.price_currency, 'cny');
+});
+
+test('rejects a price_currency outside the enum', () => {
+  const data = { ...modelBase, price_currency: 'eur' };
+  assert.equal(modelSchema.safeParse(data).success, false);
+});
+
 test('rejects a retiring block without a successor', () => {
   const data = {
     ...modelBase,
