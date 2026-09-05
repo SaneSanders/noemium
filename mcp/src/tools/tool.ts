@@ -1,4 +1,4 @@
-import { nearSlugs, siteUrl } from '../data.ts';
+import { nearSlugs, normalizeSlug, siteUrl } from '../data.ts';
 import type { CatalogIndex, GraveCard, ToolCard, Verdict } from '../data.ts';
 import { formatContextWindow, formatModelPrice } from '../model-format.ts';
 import { withUrl } from './model.ts';
@@ -83,17 +83,24 @@ function deadDetail(grave: GraveCard): DeadDetail {
  * precedence for one slug stays tool > model, matching `check`: a slug that
  * is genuinely both keeps answering as the tool. `isError` stays for slugs
  * the catalog genuinely does not know at all.
+ *
+ * The slug argument is matched case-insensitively and trimmed of surrounding
+ * whitespace before every lookup: `check` hands an agent a lowercase slug,
+ * but the single most likely way a caller mistypes it is the product's
+ * natural capitalization (`tool({slug: "Flowise"})`), and that should
+ * resolve the card, not error with no suggestions.
  */
 export function toolDetail(index: CatalogIndex, slug: string): ToolLookup {
-  const card = index.toolBySlug.get(slug);
+  const key = normalizeSlug(slug);
+  const card = index.toolBySlug.get(key);
   if (!card) {
-    const grave = index.graveBySlug.get(slug);
+    const grave = index.graveBySlug.get(key);
     if (grave) return deadDetail(grave);
-    const model = index.modelBySlug.get(slug);
+    const model = index.modelBySlug.get(key);
     if (model) return withUrl(model);
     const suggestions = nearSlugs(
       [...index.toolBySlug.keys(), ...index.graveBySlug.keys(), ...index.modelBySlug.keys()],
-      slug,
+      key,
       SUGGESTION_CAP,
     );
     return { error: `Unknown slug "${slug}". Use search to find the card.`, suggestions };
@@ -104,7 +111,7 @@ export function toolDetail(index: CatalogIndex, slug: string): ToolLookup {
     .filter((alt): alt is ToolCard => Boolean(alt))
     .map((alt) => ({ slug: alt.slug, name: alt.name, verdict: alt.verdict, url: siteUrl('tool', alt.slug) }));
 
-  const grave = index.graveBySlug.get(slug);
+  const grave = index.graveBySlug.get(key);
   const dead = grave
     ? {
         died: grave.died,

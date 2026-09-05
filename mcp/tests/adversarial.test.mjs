@@ -151,6 +151,83 @@ test('counter-cases: a host that does name its own card still answers', () => {
 });
 
 // ---------------------------------------------------------------------------
+// Owner-approved fix: a host key may answer with a verdict only when the
+// HOST contains the card's own name, never the reverse. The reverse
+// direction let a vendor's bare domain answer for one of its own products
+// (`nvidia` -> NVIDIA Riva, `supabase` -> Supabase MCP) — the right company,
+// but a specific product the caller did not name.
+// ---------------------------------------------------------------------------
+
+/** The fixed rule, restated independently of the implementation that enforces it. */
+function hostContainsName(key, card) {
+  return [normalizeName(card.name), normalizeName(card.slug)].some(
+    (candidate) => candidate !== '' && key.includes(candidate),
+  );
+}
+
+test('property: a host-only match never answers with a verdict unless the host contains the card\'s own name', () => {
+  // Restricted to keys that exist ONLY as a url host (no competing name/slug
+  // hit at the same key) — that is the one tier `hostNamesTheCard` gates.
+  let asserted = 0;
+  for (const [key, entries] of index.byNormalizedName) {
+    if (entries.some((e) => e.via === 'name')) continue;
+    const [result] = check(index, [key]);
+    if (!CARD_BEARING.has(result.status)) continue;
+    asserted += 1;
+    const card = answeredCard(result);
+    assert.ok(card, `${key} answered ${result.status} for slug ${result.slug} with no card behind it`);
+    assert.ok(
+      hostContainsName(key, card),
+      `"${key}" answered ${result.status.toUpperCase()} about "${card.name}" (${result.slug}), but the ` +
+        'host does not contain the card\'s own name or slug — no exceptions',
+    );
+  }
+  assert.ok(asserted > 0, 'expected the sweep to exercise at least one host-only verdict');
+});
+
+test('named regressions: a vendor\'s bare domain no longer answers with one of its products\' verdicts', () => {
+  const cases = [
+    ['nvidia', 'nvidia-riva'],
+    ['mistral', 'mistral-vibe'],
+    ['supabase', 'supabase-mcp'],
+    ['atlassian', 'atlassian-mcp'],
+  ];
+  for (const [query, expectedCandidate] of cases) {
+    const [result] = check(index, [query]);
+    assert.equal(result.status, 'unknown', `${query} must not answer with a verdict`);
+    assert.equal(result.verdict, undefined);
+    assert.equal(result.slug, undefined);
+    assert.ok(
+      result.candidates?.some((c) => c.slug === expectedCandidate),
+      `${query} should still suggest ${expectedCandidate}`,
+    );
+  }
+
+  // `cohere` is a special case worth spelling out: the catalog also has a
+  // tool literally named "Cohere" (the platform, distinct from "Cohere
+  // Embed"), so an exact NAME match wins the query before the host tier is
+  // ever reached — that is correct, unrelated tier-1-beats-tier-2 behaviour
+  // (see "an exact name match beats a colliding url-host match" above), not
+  // the host-leak this fix targets. What must never happen, with or without
+  // that shadowing card, is the query resolving to Cohere Embed specifically.
+  const [cohereResult] = check(index, ['cohere']);
+  assert.notEqual(cohereResult.slug, 'cohere-embed', '"cohere" must never resolve AS Cohere Embed');
+});
+
+test('named counter-cases: a domain that is genuinely the product\'s own still answers with its verdict', () => {
+  for (const [query, expectedSlug] of [
+    ['cursor.com', 'cursor'],
+    ['klingai.com', 'kling'],
+    ['aider.chat', 'aider'],
+  ]) {
+    const [result] = check(index, [query]);
+    assert.ok(CARD_BEARING.has(result.status), `${query} must still resolve, got ${result.status}`);
+    assert.equal(result.slug, expectedSlug);
+    assert.ok(result.verdict || result.status === 'model' || result.status === 'radar');
+  }
+});
+
+// ---------------------------------------------------------------------------
 // Very short queries
 // ---------------------------------------------------------------------------
 
@@ -568,6 +645,81 @@ test('named regression over MCP: stack({slug:"nope"}) is an explicit error, and 
   assert.match(nothingMatches.content[0].text, /does not guess/);
 
   await client.close();
+});
+
+// ---------------------------------------------------------------------------
+// Owner-approved fix: slug lookups are case-insensitive and trim whitespace,
+// in `tool`, `stack` and `model` alike. `tool({slug: "Flowise"})` used to
+// answer "Unknown slug" with no suggestions, even though `check` had just
+// handed the agent that exact capitalisation one call earlier.
+// ---------------------------------------------------------------------------
+
+test('tool: a slug that only differs by case or padding still resolves the card', async () => {
+  const client = await connect(createHandler(snapshot));
+
+  // A graveyard slug, capitalised the way its own name is spelled.
+  const dead = await client.callTool({ name: 'tool', arguments: { slug: 'Flowise' } });
+  assert.notEqual(dead.isError, true, 'tool({slug:"Flowise"}) must not error');
+  assert.match(dead.content[0].text, /DEAD since 2026-08-31/);
+
+  // A live tool slug, upper-cased.
+  const shipped = await client.callTool({ name: 'tool', arguments: { slug: 'CURSOR' } });
+  assert.notEqual(shipped.isError, true, 'tool({slug:"CURSOR"}) must not error');
+  assert.equal(shipped.structuredContent.slug, 'cursor');
+
+  // Padded with whitespace on both sides, mixed case.
+  const padded = await client.callTool({ name: 'tool', arguments: { slug: '  Cursor  ' } });
+  assert.notEqual(padded.isError, true);
+  assert.equal(padded.structuredContent.slug, 'cursor');
+
+  await client.close();
+});
+
+test('stack and model: a mixed-case slug resolves the same card as its lowercase form', async () => {
+  const client = await connect(createHandler(snapshot));
+  const [{ slug: stackSlug }] = snapshot.stacks;
+  const [{ slug: modelSlug }] = snapshot.models;
+  const shout = (s) => s.toUpperCase();
+
+  const stackRes = await client.callTool({ name: 'stack', arguments: { slug: shout(stackSlug) } });
+  assert.notEqual(stackRes.isError, true, `stack({slug:"${shout(stackSlug)}"}) must not error`);
+  assert.equal(stackRes.structuredContent.results[0]?.slug, stackSlug);
+
+  const modelRes = await client.callTool({ name: 'model', arguments: { slug: shout(modelSlug) } });
+  assert.notEqual(modelRes.isError, true, `model({slug:"${shout(modelSlug)}"}) must not error`);
+  assert.equal(modelRes.structuredContent.results[0]?.slug, modelSlug);
+
+  await client.close();
+});
+
+test('a genuinely unknown slug still errors after case-folding, in tool, stack and model alike', async () => {
+  const client = await connect(createHandler(snapshot));
+  for (const name of ['tool', 'stack', 'model']) {
+    const res = await client.callTool({ name, arguments: { slug: 'NoSuchThingAtAll' } });
+    assert.equal(res.isError, true, `${name}({slug:"NoSuchThingAtAll"}) must still be an error`);
+  }
+  await client.close();
+});
+
+test('property: every tool, stack and model slug resolves under any case, and a one-character query still suggests nothing', () => {
+  for (const tool of snapshot.tools) {
+    const detail = toolDetail(index, tool.slug.toUpperCase());
+    assert.ok(!('error' in detail), `${tool.slug} must resolve upper-cased`);
+  }
+  for (const stack of snapshot.stacks) {
+    const result = stackLookup(index, { slug: ` ${stack.slug.toUpperCase()} ` });
+    assert.ok(!('error' in result), `${stack.slug} must resolve upper-cased and padded`);
+  }
+  for (const model of snapshot.models) {
+    const result = modelLookup(index, { slug: model.slug.toUpperCase() });
+    assert.ok(!('error' in result), `${model.slug} must resolve upper-cased`);
+  }
+
+  // The minimum-length suggestion floor survives normalization: a
+  // one-character (or blank-padded one-character) slug still suggests
+  // nothing, it does not become "no suggestions" only by accident of case.
+  assert.deepEqual(toolDetail(index, 'X').suggestions, []);
+  assert.deepEqual(toolDetail(index, '  x  ').suggestions, []);
 });
 
 // ---------------------------------------------------------------------------

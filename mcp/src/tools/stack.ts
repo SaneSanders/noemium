@@ -1,5 +1,5 @@
 import { search } from '../search.ts';
-import { nearSlugs, siteUrl } from '../data.ts';
+import { nearSlugs, normalizeSlug, siteUrl } from '../data.ts';
 import type { CatalogIndex, StackCard, Verdict } from '../data.ts';
 
 export interface StackDetail extends StackCard {
@@ -79,11 +79,13 @@ function budgetOk(stack: StackCard, maxMonthlyUsd: number | undefined): boolean 
  */
 export function stackLookup(index: CatalogIndex, args: StackLookupArgs): StackDetail[] | StackLookupError {
   if (args.slug) {
-    const stack = index.stackBySlug.get(args.slug);
+    // Matched case-insensitively and trimmed, same as `tool` and `model`.
+    const key = normalizeSlug(args.slug);
+    const stack = index.stackBySlug.get(key);
     if (!stack) {
       return {
         error: `Unknown stack slug "${args.slug}". Use a task query, or search, to find the stack.`,
-        suggestions: nearSlugs(index.stackBySlug.keys(), args.slug, SUGGESTION_CAP),
+        suggestions: nearSlugs(index.stackBySlug.keys(), key, SUGGESTION_CAP),
       };
     }
     return budgetOk(stack, args.max_monthly_usd) ? [decorate(index, stack)] : [];

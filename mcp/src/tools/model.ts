@@ -1,4 +1,4 @@
-import { nearSlugs, siteUrl } from '../data.ts';
+import { nearSlugs, normalizeSlug, siteUrl } from '../data.ts';
 import type { CatalogIndex, ModelCard } from '../data.ts';
 import {
   formatContextWindow,
@@ -39,7 +39,11 @@ export function withUrl(model: ModelCard): ModelResult {
 
 export function modelLookup(index: CatalogIndex, args: ModelLookupArgs): ModelResult[] | ModelLookupError {
   if (args.slug) {
-    const model = index.modelBySlug.get(args.slug);
+    // Matched case-insensitively and trimmed, same as `tool` and `stack`: a
+    // slug that only differs in case or padding (`"Claude-Opus-5"`) should
+    // resolve the card, not error with no suggestions.
+    const key = normalizeSlug(args.slug);
+    const model = index.modelBySlug.get(key);
     // An unknown slug is a mistake to name, not an empty catalog: answering
     // "No model matches those filters" for a call that carried no filters
     // reads as "Noemium has nothing like this", which is a different and
@@ -48,7 +52,7 @@ export function modelLookup(index: CatalogIndex, args: ModelLookupArgs): ModelRe
     if (!model) {
       return {
         error: `Unknown model slug "${args.slug}". Use search, or model filters, to find the card.`,
-        suggestions: nearSlugs(index.modelBySlug.keys(), args.slug, SUGGESTION_CAP),
+        suggestions: nearSlugs(index.modelBySlug.keys(), key, SUGGESTION_CAP),
       };
     }
     return [withUrl(model)];

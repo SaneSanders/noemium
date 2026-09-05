@@ -109,17 +109,31 @@ export function siteUrl(kind: 'tool' | 'stack' | 'model' | 'grave', slug: string
 }
 
 /**
+ * Normalizes a slug argument for lookup: trims surrounding whitespace and
+ * lowercases it. Every catalog slug is already lowercase-hyphenated, so this
+ * makes "Flowise", "FLOWISE" and " flowise " all resolve to the same card —
+ * natural capitalization is the single most likely way a caller mistypes a
+ * slug it copied from a name, and it should not read as "not in the catalog".
+ */
+export function normalizeSlug(slug: string): string {
+  return slug.trim().toLowerCase();
+}
+
+/**
  * Slug suggestions for a lookup that found nothing. A suggestion is only ever
  * offered for a query long enough to carry a signal: `slug.includes(key)` with
  * a one- or two-character query matches almost every slug in the catalog, so
  * `tool({slug: "-"})` used to answer with an alphabetical sample of the whole
- * map. Below the minimum the honest answer is "no suggestions".
+ * map. Below the minimum the honest answer is "no suggestions". The query is
+ * normalized the same way an exact slug lookup is (trimmed, lowercased) so
+ * that case and padding never hide a suggestion a lowercase query would find.
  */
 const MIN_SUGGESTION_QUERY = 3;
 
 export function nearSlugs(keys: Iterable<string>, query: string, cap: number): string[] {
-  if (query.length < MIN_SUGGESTION_QUERY) return [];
-  return [...keys].filter((key) => key.includes(query) || query.includes(key)).slice(0, cap);
+  const normalized = normalizeSlug(query);
+  if (normalized.length < MIN_SUGGESTION_QUERY) return [];
+  return [...keys].filter((key) => key.includes(normalized) || normalized.includes(key)).slice(0, cap);
 }
 
 export function buildIndex(snapshot: Snapshot): CatalogIndex {

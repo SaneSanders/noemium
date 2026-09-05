@@ -64,19 +64,26 @@ function cardNameAndSlug(index: CatalogIndex, entry: IndexEntry): { name: string
 /**
  * Is a url host actually evidence about THIS product?
  *
- * A host key answers for a card only when the two names contain one another:
- * `cursor.com` -> cursor, `klingai` -> kling, `aider.chat` -> aider are all
- * the same product under a domain. `langchain` -> LangGraph, `tailwindcss` ->
- * Tailwind Plus, `jetbrains` -> Junie, `x` -> Grok Imagine are a vendor's
- * domain pointing at a differently-named product, and answering with that
- * product's verdict states a fact about something the caller did not ask
- * about. Measured against the real snapshot, this rule drops 41 of 107
- * host-only keys — every one of them a differently-named card — and keeps all
- * 66 same-product ones.
+ * A host key answers for a card only when the HOST contains the card's own
+ * name or slug — the host is the product's own domain, possibly with
+ * branding fluff: `cursor.com` -> cursor, `klingai` -> kling, `aider.chat` ->
+ * aider. The reverse direction (the product's name contains the host) used
+ * to pass too, which let a bare vendor domain answer for one of that
+ * vendor's specific products: `nvidia` -> NVIDIA Riva, `mistral` -> Mistral
+ * Vibe, `supabase` -> Supabase MCP, `atlassian` -> Atlassian MCP, `cohere` ->
+ * Cohere Embed, `replit` -> Replit Agent, `canva` -> Canva Code, `github` ->
+ * GitHub Copilot/GitHub MCP. A vendor's domain is not evidence of which of
+ * its products the caller meant, so that direction is dropped. Measured
+ * against the real snapshot (all 345 url-bearing catalog items), the
+ * either-direction rule passed 258 of them; host-contains-name alone passes
+ * 222 — every dropped one a differently-named (or same-vendor-different-
+ * product) card, every kept one a domain that is genuinely the product's own
+ * (cursor.com, klingai.com, aider.chat, 21st.dev, activepieces.com among
+ * them).
  */
 function hostNamesTheCard(key: string, card: { name: string; slug: string }): boolean {
   return [normalizeName(card.name), normalizeName(card.slug)].some(
-    (candidate) => candidate !== '' && (key.includes(candidate) || candidate.includes(key)),
+    (candidate) => candidate !== '' && key.includes(candidate),
   );
 }
 
