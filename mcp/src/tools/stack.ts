@@ -1,5 +1,5 @@
 import { search } from '../search.ts';
-import { siteUrl } from '../data.ts';
+import { nearSlugs, siteUrl } from '../data.ts';
 import type { CatalogIndex, StackCard, Verdict } from '../data.ts';
 
 export interface StackDetail extends StackCard {
@@ -7,11 +7,19 @@ export interface StackDetail extends StackCard {
   tools_detail: Array<{ slug: string; name: string; verdict?: Verdict; url: string }>;
 }
 
+export interface StackLookupError {
+  error: string;
+  suggestions: string[];
+}
+
 export interface StackLookupArgs {
   task?: string;
   slug?: string;
   max_monthly_usd?: number;
 }
+
+/** How many near-slug suggestions to offer on an unknown slug. Same cap as `tool` and `model`. */
+const SUGGESTION_CAP = 5;
 
 function decorate(index: CatalogIndex, stack: StackCard): StackDetail {
   return {
@@ -46,10 +54,21 @@ function budgetOk(stack: StackCard, maxMonthlyUsd: number | undefined): boolean 
 }
 
 /**
- * By `slug`, a direct lookup. By `task`, runs the Task 5 search scorer and
- * keeps only `kind: 'stack'` hits — that scorer applies its MIN_SCORE floor
- * to raw relevance, so a weak/unrelated task phrase legitimately returns an
- * empty list rather than a guessed stack.
+ * By `slug`, a direct lookup. An unknown slug is a mistake to name, not an
+ * empty catalog: `stackText([])` renders "No stack for this. Noemium does
+ * not guess.", which reads as "the catalog has no such stack" when the truth
+ * is "you asked for a slug that does not exist" — the same defect `tool` and
+ * `model` were fixed for, over the stack catalog instead. So an unknown slug
+ * is an explicit error with near-slug suggestions, same contract as those
+ * two. A known slug that the budget ceiling rules out is a different,
+ * genuinely honest zero (see `budgetOk`) and stays an empty list, not an
+ * error.
+ *
+ * By `task`, runs the Task 5 search scorer and keeps only `kind: 'stack'`
+ * hits — that scorer applies its MIN_SCORE floor to raw relevance, so a
+ * weak/unrelated task phrase legitimately returns an empty list rather than
+ * a guessed stack. That is a real answer to a real question and must stay
+ * the honest-zero line, never an error.
  *
  * With neither `task` nor `slug` — including a budget-only call, or a call
  * with no criteria at all — there is no question to answer "no" to: the
@@ -58,10 +77,16 @@ function budgetOk(stack: StackCard, maxMonthlyUsd: number | undefined): boolean 
  * when given), cheapest cut first, instead of the confident-sounding "no
  * stack for this" that a criteria-free call used to get for free.
  */
-export function stackLookup(index: CatalogIndex, args: StackLookupArgs): StackDetail[] {
+export function stackLookup(index: CatalogIndex, args: StackLookupArgs): StackDetail[] | StackLookupError {
   if (args.slug) {
     const stack = index.stackBySlug.get(args.slug);
-    return stack && budgetOk(stack, args.max_monthly_usd) ? [decorate(index, stack)] : [];
+    if (!stack) {
+      return {
+        error: `Unknown stack slug "${args.slug}". Use a task query, or search, to find the stack.`,
+        suggestions: nearSlugs(index.stackBySlug.keys(), args.slug, SUGGESTION_CAP),
+      };
+    }
+    return budgetOk(stack, args.max_monthly_usd) ? [decorate(index, stack)] : [];
   }
   if (args.task) {
     return search(index, args.task)

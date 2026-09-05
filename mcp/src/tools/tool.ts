@@ -1,5 +1,8 @@
 import { nearSlugs, siteUrl } from '../data.ts';
 import type { CatalogIndex, GraveCard, ToolCard, Verdict } from '../data.ts';
+import { formatContextWindow, formatModelPrice } from '../model-format.ts';
+import { withUrl } from './model.ts';
+import type { ModelResult } from './model.ts';
 
 export interface ToolDetail extends ToolCard {
   noemium_url: string;
@@ -38,7 +41,7 @@ export interface ToolLookupError {
   suggestions: string[];
 }
 
-export type ToolLookup = ToolDetail | DeadDetail | ToolLookupError;
+export type ToolLookup = ToolDetail | DeadDetail | ModelResult | ToolLookupError;
 
 /** How many near-slug suggestions to offer on an unknown slug. */
 const SUGGESTION_CAP = 5;
@@ -71,15 +74,25 @@ function deadDetail(grave: GraveCard): DeadDetail {
  * is never read as if it named one.
  *
  * A slug with no tool card but a graveyard entry returns that death as a
- * `DeadDetail`. `isError` stays for slugs the catalog genuinely does not know.
+ * `DeadDetail`. A slug with no tool card and no graveyard entry, but a model
+ * card, returns that model's own record — the same shape the `model` tool
+ * returns for it (built by the one shared `withUrl`, never a second copy of
+ * it) — because `check` hands an agent a model's slug exactly the way it
+ * hands over a graveyard slug, and answering that with "Unknown slug" is the
+ * same broken handoff H4 fixed for the graveyard, recreated for models. Kind
+ * precedence for one slug stays tool > model, matching `check`: a slug that
+ * is genuinely both keeps answering as the tool. `isError` stays for slugs
+ * the catalog genuinely does not know at all.
  */
 export function toolDetail(index: CatalogIndex, slug: string): ToolLookup {
   const card = index.toolBySlug.get(slug);
   if (!card) {
     const grave = index.graveBySlug.get(slug);
     if (grave) return deadDetail(grave);
+    const model = index.modelBySlug.get(slug);
+    if (model) return withUrl(model);
     const suggestions = nearSlugs(
-      [...index.toolBySlug.keys(), ...index.graveBySlug.keys()],
+      [...index.toolBySlug.keys(), ...index.graveBySlug.keys(), ...index.modelBySlug.keys()],
       slug,
       SUGGESTION_CAP,
     );
@@ -155,4 +168,22 @@ export function deadText(detail: DeadDetail): string {
   ]
     .filter(Boolean)
     .join('\n');
+}
+
+/**
+ * Rendered so it cannot be skimmed as a tool verdict: the first line says
+ * plainly that this is a model card and points the reader at `model` for
+ * filtering, before any price or spec appears. Uses the one shared price
+ * formatter (`model-format.ts`) — the same rendering `model` and `check` use
+ * for this same card, never a third copy of it.
+ */
+export function modelCardText(model: ModelResult): string {
+  const weights = model.open_weights ? 'open weights' : 'closed weights';
+  return [
+    `${model.name} is a MODEL card, not a tool: Noemium never rates models ship/situational/skip. ` +
+      'Use the `model` tool to filter or compare models.',
+    `${model.name} by ${model.provider} — ${formatModelPrice(model)}, ` +
+      `${formatContextWindow(model.context_window)}, ${weights}`,
+    `Verified ${model.last_verified} · ${model.url}`,
+  ].join('\n');
 }

@@ -30,7 +30,10 @@ const DEFAULT_LIMIT = 10;
 /** How many near-slug suggestions to offer on an unknown slug. */
 const SUGGESTION_CAP = 5;
 
-function withUrl(model: ModelCard): ModelResult {
+// Exported so `tool.ts` can hand back exactly this shape for a slug that
+// names a model card — the "same content the `model` tool returns for that
+// slug" the residual-fix ruling asks for, not a second, drifting builder of it.
+export function withUrl(model: ModelCard): ModelResult {
   return { ...model, url: siteUrl('model', model.slug) };
 }
 

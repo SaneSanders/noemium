@@ -15,8 +15,9 @@ import { Client, StreamableHTTPClientTransport } from '@modelcontextprotocol/cli
 import { buildIndex, normalizeName, siteUrl } from '../src/data.ts';
 import { check } from '../src/tools/check.ts';
 import { search } from '../src/search.ts';
-import { deadText, toolDetail } from '../src/tools/tool.ts';
+import { deadText, modelCardText, toolDetail } from '../src/tools/tool.ts';
 import { modelLookup } from '../src/tools/model.ts';
+import { stackLookup, stackText } from '../src/tools/stack.ts';
 import { formatModelPrice } from '../src/model-format.ts';
 import { createHandler } from '../src/server.ts';
 import { createWorker } from '../src/worker.ts';
@@ -441,6 +442,131 @@ test('an unknown model slug is an explicit error with suggestions, not "no match
   const suggested = await client.callTool({ name: 'model', arguments: { slug: 'veo-3-1' } });
   assert.equal(suggested.isError, true);
   assert.match(suggested.content[0].text, /Did you mean: .*veo-3-1-generate/);
+  await client.close();
+});
+
+// ---------------------------------------------------------------------------
+// Residual fix 1 — `tool` denying every model slug, right after `check`
+// learned to hand them out
+// ---------------------------------------------------------------------------
+
+test('property: every slug `check` resolves as a model answers through `tool` too, identified as a model', () => {
+  // The exact H3/H4 handoff shape: `check` now returns `slug: "claude-opus-5"`
+  // for a model name, and the natural next call is `tool({slug})`. Sweeps
+  // every real model by both name and slug (skipping the rare name collision
+  // that `check` itself reports as `ambiguous`, e.g. "Veo 3.1") and asserts
+  // `tool` never denies what `check` just handed out.
+  let answered = 0;
+  for (const model of snapshot.models) {
+    for (const query of [model.name, model.slug]) {
+      const [result] = check(index, [query]);
+      if (result.status !== 'model') continue;
+      answered += 1;
+      const detail = toolDetail(index, result.slug);
+      assert.ok(!('error' in detail), `tool({slug:"${result.slug}"}) denied a model card check just handed out`);
+      assert.ok('provider' in detail, `tool({slug:"${result.slug}"}) did not identify the model card`);
+      assert.equal(detail.slug, model.slug);
+      assert.equal(
+        formatModelPrice(detail), formatModelPrice(model),
+        `tool({slug:"${result.slug}"}) must price the model with the one shared formatter`,
+      );
+      const text = modelCardText(detail);
+      assert.match(text, /is a MODEL card, not a tool/, `${result.slug} must read plainly as a model card`);
+      assert.doesNotMatch(
+        text, /\bSHIP\b|\bSITUATIONAL\b|\bSKIP\b|\bRADAR\b/,
+        `${result.slug} must not read like a tool verdict`,
+      );
+    }
+  }
+  assert.ok(answered > 40, `expected the sweep to reach most models, got ${answered}`);
+});
+
+test('named regression: tool({slug:"claude-opus-5"}) answers as a model, not an unknown-slug error', async () => {
+  const client = await connect(createHandler(snapshot));
+  const res = await client.callTool({ name: 'tool', arguments: { slug: 'claude-opus-5' } });
+  assert.notEqual(res.isError, true);
+  assert.equal(res.structuredContent.provider, 'Anthropic');
+  assert.match(res.content[0].text, /is a MODEL card, not a tool/);
+  assert.doesNotMatch(res.content[0].text, /Unknown slug/i);
+  await client.close();
+});
+
+test('the model handoff does not regress the graveyard one: every graveyard slug still answers dead through `tool`', () => {
+  for (const grave of snapshot.graveyard) {
+    const detail = toolDetail(index, grave.slug);
+    assert.ok(!('error' in detail), `${grave.slug} must not be an unknown-slug error`);
+    if ('died' in detail) {
+      assert.equal(detail.died, grave.died);
+      assert.ok(!('provider' in detail), `${grave.slug} must not be mistaken for a model card`);
+    } else {
+      // A slug that is both a live tool card and a grave keeps the composed
+      // tool-card answer, with the death carried in its `dead` block.
+      assert.ok(detail.dead, `${grave.slug} has both cards, so the tool answer must still carry the death`);
+    }
+  }
+});
+
+test('property: every tool slug still answers as a tool card, never mistaken for a model or a death it does not have', () => {
+  let checked = 0;
+  for (const tool of snapshot.tools) {
+    const detail = toolDetail(index, tool.slug);
+    assert.ok(!('error' in detail), `${tool.slug} must not be an unknown-slug error`);
+    assert.ok(!('provider' in detail), `${tool.slug} must not be rendered as a model card`);
+    assert.ok(!('died' in detail), `${tool.slug} has its own card and must not read as a graveyard-only entry`);
+    checked += 1;
+  }
+  assert.ok(checked > 200, `expected the sweep to reach most tools, got ${checked}`);
+});
+
+// ---------------------------------------------------------------------------
+// Residual fix 2 — an unknown `stack` slug is an explicit error, not the
+// confident-sounding "does not guess" honest zero
+// ---------------------------------------------------------------------------
+
+test('an unknown stack slug is an explicit error with suggestions, never the "does not guess" line', () => {
+  const result = stackLookup(index, { slug: 'not-a-real-stack' });
+  assert.ok('error' in result, 'an unknown stack slug must be an error, not an empty result');
+  assert.match(result.error, /Unknown stack slug/i);
+  assert.ok(Array.isArray(result.suggestions));
+});
+
+test('a task query matching nothing in the stack catalog still returns the honest-zero line, not an error', () => {
+  // The residual's own distinction: a real question that genuinely matches
+  // nothing is a real answer, and must stay `stackText`'s honest zero rather
+  // than being folded into the new unknown-slug error path.
+  const result = stackLookup(index, { task: 'zzzz qqqq wubalubadubdub, a task nobody in this catalog does' });
+  assert.ok(Array.isArray(result), 'a genuinely unmatched task query must be a real empty answer, not an error');
+  assert.equal(result.length, 0);
+  assert.equal(stackText(result), 'No stack for this. Noemium does not guess.');
+});
+
+test('a one-character stack slug suggests nothing', () => {
+  const result = stackLookup(index, { slug: '-' });
+  assert.ok('error' in result);
+  assert.deepEqual(result.suggestions, [], 'a one-character slug must not suggest the alphabet');
+});
+
+test('named regression over MCP: stack({slug:"nope"}) is an explicit error, and a real slug still answers', async () => {
+  const client = await connect(createHandler(snapshot));
+
+  const unknown = await client.callTool({ name: 'stack', arguments: { slug: 'nope' } });
+  assert.equal(unknown.isError, true);
+  assert.match(unknown.content[0].text, /Unknown stack slug/i);
+  assert.doesNotMatch(unknown.content[0].text, /does not guess/);
+
+  const [{ slug: realSlug }] = snapshot.stacks;
+  const known = await client.callTool({ name: 'stack', arguments: { slug: realSlug } });
+  assert.notEqual(known.isError, true);
+  assert.ok(known.structuredContent.results.length > 0);
+
+  const nothingMatches = await client.callTool({
+    name: 'stack',
+    arguments: { task: 'zzzz qqqq wubalubadubdub, a task nobody in this catalog does' },
+  });
+  assert.notEqual(nothingMatches.isError, true, 'a genuinely unmatched task query must not become an error');
+  assert.equal(nothingMatches.structuredContent.results.length, 0);
+  assert.match(nothingMatches.content[0].text, /does not guess/);
+
   await client.close();
 });
 

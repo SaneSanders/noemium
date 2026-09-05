@@ -4,7 +4,7 @@ import { buildIndex, normalizeName } from './data.ts';
 import type { Snapshot } from './data.ts';
 import { check, checkText } from './tools/check.ts';
 import { search, searchText } from './search.ts';
-import { deadText, toolDetail, toolText } from './tools/tool.ts';
+import { deadText, modelCardText, toolDetail, toolText } from './tools/tool.ts';
 import { stackLookup, stackText } from './tools/stack.ts';
 import { modelLookup, modelText } from './tools/model.ts';
 
@@ -191,8 +191,11 @@ export function createHandler(snapshot: Snapshot, onCall?: ToolCallReporter) {
           'Full Noemium card for one tool slug: verdict with named limitations, prices, receipts and ' +
           'alternatives. Use the slug returned by `check` or `search`. A slug from the graveyard returns ' +
           'the death itself — date, cause, successor and receipt — not an error, so a dead product is ' +
-          'never mistaken for one the catalog has not heard of. An unknown slug is returned as an ' +
-          'explicit error with near-slug suggestions — never as a fabricated card.',
+          'never mistaken for one the catalog has not heard of. A slug that names a model card instead ' +
+          'returns that model\'s price/spec sheet (the same content `model` returns for it) rather than ' +
+          'an error — a model carries no tool verdict, so use `model` to filter or compare models. An ' +
+          'unknown slug is returned as an explicit error with near-slug suggestions — never as a ' +
+          'fabricated card.',
         inputSchema: z.object({ slug: z.string().min(1) }),
         outputSchema: CARD_OUTPUT_SCHEMA,
         annotations: READ_ONLY,
@@ -209,6 +212,10 @@ export function createHandler(snapshot: Snapshot, onCall?: ToolCallReporter) {
           report('tool', started, slug, 'dead', 1);
           return { content: [{ type: 'text', text: deadText(detail) }], structuredContent: detail };
         }
+        if ('provider' in detail) {
+          report('tool', started, slug, 'model', 1);
+          return { content: [{ type: 'text', text: modelCardText(detail) }], structuredContent: detail };
+        }
         report('tool', started, slug, detail.verdict ?? 'radar', 1);
         return { content: [{ type: 'text', text: toolText(detail) }], structuredContent: detail };
       },
@@ -219,8 +226,9 @@ export function createHandler(snapshot: Snapshot, onCall?: ToolCallReporter) {
       {
         description:
           'Field-tested tool stacks for a task, with monthly cost and a budget variant. Look up by `task` ' +
-          '(free text) or `slug`, optionally capped with `max_monthly_usd`. Returns no results rather than a ' +
-          'guessed combination when nothing in the catalog matches.',
+          '(free text) or `slug`, optionally capped with `max_monthly_usd`. An unknown `slug` is an ' +
+          'explicit error with near-slug suggestions, never an empty "no match". A `task` query that ' +
+          'matches nothing in the catalog still returns no results rather than a guessed combination.',
         inputSchema: z.object({
           task: z.string().optional(),
           slug: z.string().optional(),
@@ -232,6 +240,11 @@ export function createHandler(snapshot: Snapshot, onCall?: ToolCallReporter) {
       async (args) => {
         const started = Date.now();
         const results = stackLookup(index, args);
+        if ('error' in results) {
+          report('stack', started, args.slug ?? '', 'unknown', 0);
+          const hint = results.suggestions.length ? ` Did you mean: ${results.suggestions.join(', ')}?` : '';
+          return { content: [{ type: 'text', text: `${results.error}${hint}` }], isError: true };
+        }
         report('stack', started, args.slug ?? args.task ?? '', results.length ? 'hits' : 'empty', results.length);
         return { content: [{ type: 'text', text: stackText(results) }], structuredContent: { results } };
       },
