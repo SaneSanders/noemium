@@ -34,9 +34,12 @@ jobs:
       - run: npm run test:dist
       - name: MCP worker deps
         run: npm --prefix mcp ci
-      - name: MCP worker typecheck
-        run: npm --prefix mcp run typecheck
+      # The snapshot must exist before typecheck and tests: the worker imports
+      # mcp/data/snapshot.json statically, and every mcp test reads it. The
+      # snapshot is generated from dist/api/*.json, so it has to follow the build.
       - name: MCP snapshot
         run: npm run mcp:snapshot
+      - name: MCP worker typecheck
+        run: npm --prefix mcp run typecheck
       - name: MCP worker tests
         run: npm --prefix mcp test
