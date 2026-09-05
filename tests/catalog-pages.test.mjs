@@ -158,6 +158,46 @@ test('models table still renders an ordinary USD model with a real dollar price'
   assert.match(row, /\$25\.00/);
 });
 
+// Property test: whatever the catalog currently contains, no model with a
+// non-USD price_currency may ever render with a dollar sign next to its
+// price, on any page that shows a per-model "current price". The non-USD
+// set is derived from the built JSON itself, not hardcoded to seedance-2-5,
+// so this keeps meaning something once the catalog carries more of them —
+// this is the test that would have caught the original $0.00-for-CNY bug.
+test('property: no built page renders a dollar sign next to a non-USD model\'s price', () => {
+  const modelsJson = JSON.parse(built('api/models.json'));
+  const nonUsdModels = modelsJson.models.filter((m) => m.price_currency && m.price_currency !== 'usd');
+  assert.ok(
+    nonUsdModels.length > 0,
+    'expected at least one non-USD model in the built catalog to exercise this property',
+  );
+
+  const modelsHtml = built('models/index.html');
+  const pricesHtml = built('prices/index.html');
+
+  for (const m of nonUsdModels) {
+    // /models/ table row, keyed by its `id="<slug>"` anchor.
+    const modelsRowStart = modelsHtml.indexOf(`id="${m.slug}"`);
+    assert.notEqual(modelsRowStart, -1, `${m.slug} must have a row in the models table`);
+    const modelsRow = modelsHtml.slice(modelsRowStart, modelsHtml.indexOf('</tr>', modelsRowStart));
+    assert.doesNotMatch(
+      modelsRow,
+      /\$/,
+      `${m.slug} (${m.price_currency.toUpperCase()}) must not render with a dollar sign on the models table`,
+    );
+
+    // /prices/ tape row, keyed by its `href="/models/#<slug>"` link.
+    const pricesRowStart = pricesHtml.indexOf(`href="/models/#${m.slug}"`);
+    assert.notEqual(pricesRowStart, -1, `${m.slug} must have a row on the price tape`);
+    const pricesRow = pricesHtml.slice(pricesRowStart, pricesHtml.indexOf('</tr>', pricesRowStart));
+    assert.doesNotMatch(
+      pricesRow,
+      /\$/,
+      `${m.slug} (${m.price_currency.toUpperCase()}) must not render with a dollar sign on the price tape`,
+    );
+  }
+});
+
 // named regression: the same card in the machine-readable full-catalog dump.
 test('llms-full.txt prices seedance-2-5 in CNY, never as a dollar figure or "pricing unavailable"', () => {
   const txt = built('llms-full.txt');

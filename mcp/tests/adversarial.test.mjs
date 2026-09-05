@@ -158,11 +158,21 @@ test('counter-cases: a host that does name its own card still answers', () => {
 // but a specific product the caller did not name.
 // ---------------------------------------------------------------------------
 
-/** The fixed rule, restated independently of the implementation that enforces it. */
+/**
+ * The fixed rule, restated independently of the implementation that enforces
+ * it — including the "ai" TLD-vs-word-tail fix: a host loses its ".ai" TLD
+ * (`fireworks.ai` -> "fireworks") but a card's own name/slug keeps the literal
+ * word "ai" (`Fireworks AI` -> "fireworksai"), so an EXACT match against the
+ * candidate with its trailing "ai" dropped is also accepted, mirroring
+ * `dropTrailingAi` in `check.ts` (exact, not substring, so an unrelated "ai."
+ * subdomain collision like `ai.pydantic.dev` does not accidentally qualify).
+ */
 function hostContainsName(key, card) {
-  return [normalizeName(card.name), normalizeName(card.slug)].some(
-    (candidate) => candidate !== '' && key.includes(candidate),
-  );
+  const dropTrailingAi = (n) => (n.length > 2 && n.endsWith('ai') ? n.slice(0, -2) : n);
+  return [normalizeName(card.name), normalizeName(card.slug)].some((candidate) => {
+    if (candidate === '') return false;
+    return key.includes(candidate) || key === dropTrailingAi(candidate);
+  });
 }
 
 test('property: a host-only match never answers with a verdict unless the host contains the card\'s own name', () => {
@@ -225,6 +235,83 @@ test('named counter-cases: a domain that is genuinely the product\'s own still a
     assert.equal(result.slug, expectedSlug);
     assert.ok(result.verdict || result.status === 'model' || result.status === 'radar');
   }
+});
+
+test('named regressions: more vendor bare domains still refuse to answer for a specific product', () => {
+  // Extends the nvidia/mistral/supabase/atlassian regression above with the
+  // rest of the task's named sweep, so the "ai" fix below is proven not to
+  // have reopened any of them.
+  for (const [query, expectedCandidate] of [
+    ['canva', 'canva-code'],
+    ['replit', 'replit-agent'],
+    ['sourcegraph', 'cody'],
+  ]) {
+    const [result] = check(index, [query]);
+    assert.equal(result.status, 'unknown', `${query} must not answer with a verdict`);
+    assert.equal(result.verdict, undefined);
+    assert.equal(result.slug, undefined);
+    assert.ok(
+      result.candidates?.some((c) => c.slug === expectedCandidate),
+      `${query} should still suggest ${expectedCandidate}`,
+    );
+  }
+  // `github` has always had many same-vendor products and stays `ambiguous`
+  // (multiple distinct slugs answer the key), not a single wrong verdict.
+  const [githubResult] = check(index, ['github']);
+  assert.equal(githubResult.status, 'ambiguous', 'github must not collapse to one product\'s verdict');
+  assert.equal(githubResult.verdict, undefined);
+});
+
+// ---------------------------------------------------------------------------
+// Owner-approved fix: `normalizeName` strips a `.ai` TLD from a HOST but not
+// from a card's own name/slug (the "ai" there sits after a space or hyphen,
+// not a dot), so `hostNamesTheCard` missed 11 legitimate own-domain aliases —
+// see `dropTrailingAi` in check.ts.
+// ---------------------------------------------------------------------------
+
+test('named regressions: a product\'s own ".ai" domain answers with its own verdict again', () => {
+  for (const [query, expectedSlug] of [
+    ['fireworks.ai', 'fireworks-ai'],
+    ['hume.ai', 'hume-ai'],
+    ['together.ai', 'together-ai'],
+    ['leonardo.ai', 'leonardo-ai'],
+    ['rev.ai', 'rev-ai'],
+    ['novita.ai', 'novita-ai'],
+    ['friendli.ai', 'friendliai'],
+    ['resemble.ai', 'resemble-ai'],
+  ]) {
+    const [result] = check(index, [query]);
+    assert.ok(CARD_BEARING.has(result.status), `${query} must resolve, got ${result.status}`);
+    assert.equal(result.slug, expectedSlug);
+  }
+});
+
+test('counter-cases: the ".ai" fix does not re-admit any vendor-domain case', () => {
+  // Same bare-vendor-domain queries as the two regression tests above, run
+  // again after the "ai" fix, restated here so a future edit to
+  // `dropTrailingAi` cannot silently widen the match and re-admit one of
+  // these without breaking a test that says so explicitly.
+  for (const query of ['nvidia', 'mistral', 'supabase', 'atlassian', 'canva', 'replit', 'sourcegraph']) {
+    const [result] = check(index, [query]);
+    assert.equal(result.status, 'unknown', `${query} must still not answer with a verdict`);
+  }
+  const [githubResult] = check(index, ['github']);
+  assert.equal(githubResult.status, 'ambiguous');
+  const [cohereResult] = check(index, ['cohere']);
+  assert.notEqual(cohereResult.slug, 'cohere-embed', '"cohere" must still never resolve AS Cohere Embed');
+});
+
+test('counter-case: an "ai." subdomain prefix does not accidentally satisfy the "ai" fix', () => {
+  // `ai.pydantic.dev` normalizes to "aipydantic", which contains "pydantic"
+  // (PydanticAI's name with its trailing "ai" dropped) as a plain substring —
+  // an accidental collision from the leading "ai" having nowhere else to go,
+  // not evidence the host is PydanticAI's own domain. `dropTrailingAi`'s
+  // equality check (not `.includes`) must reject this: "aipydantic" !==
+  // "pydantic".
+  const [result] = check(index, ['ai.pydantic.dev']);
+  assert.equal(result.status, 'unknown', 'must not answer with a verdict');
+  assert.equal(result.slug, undefined);
+  assert.ok(result.candidates?.some((c) => c.slug === 'pydantic-ai'), 'must still suggest pydantic-ai');
 });
 
 // ---------------------------------------------------------------------------

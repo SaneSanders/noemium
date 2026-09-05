@@ -73,18 +73,56 @@ function cardNameAndSlug(index: CatalogIndex, entry: IndexEntry): { name: string
  * Vibe, `supabase` -> Supabase MCP, `atlassian` -> Atlassian MCP, `cohere` ->
  * Cohere Embed, `replit` -> Replit Agent, `canva` -> Canva Code, `github` ->
  * GitHub Copilot/GitHub MCP. A vendor's domain is not evidence of which of
- * its products the caller meant, so that direction is dropped. Measured
- * against the real snapshot (all 345 url-bearing catalog items), the
- * either-direction rule passed 258 of them; host-contains-name alone passes
- * 222 — every dropped one a differently-named (or same-vendor-different-
- * product) card, every kept one a domain that is genuinely the product's own
- * (cursor.com, klingai.com, aider.chat, 21st.dev, activepieces.com among
- * them).
+ * its products the caller meant, so that direction is dropped.
+ *
+ * `normalizeName` strips a `.ai` TLD from a HOST (`fireworks.ai` ->
+ * "fireworks") but cannot do the same for a card's own name/slug, where "AI"
+ * sits after a space or hyphen rather than a dot (`Fireworks AI` / `fireworks-
+ * ai` -> "fireworksai") — so the host-contains-name test above missed a
+ * product's own `.ai` domain outright: "fireworks" never contains
+ * "fireworksai". An EXACT match (not substring) against the candidate with
+ * its trailing "ai" dropped is also accepted, so these still match — exact,
+ * because substring containment after stripping can misfire on an unrelated
+ * collision (`ai.pydantic.dev` normalizes to "aipydantic", which happens to
+ * contain "pydantic" purely because the leading "ai" subdomain has nowhere
+ * else to go, not because the host is PydanticAI's own domain). This
+ * recovered 10 real own-domain aliases the rule above had dropped, including
+ * fireworks.ai, hume.ai, together.ai, leonardo.ai, rev.ai, novita.ai,
+ * friendli.ai and resemble.ai; checked against the same vendor-domain cases
+ * the rule above exists to reject (nvidia, mistral, supabase, atlassian,
+ * canva, replit, cohere, sourcegraph, github), none of them re-admit, and
+ * the ai.pydantic.dev collision above is confirmed rejected too.
+ *
+ * Measured against the real snapshot (all 345 url-bearing catalog items):
+ * the either-direction rule this function replaced passed 258 of them;
+ * host-contains-name alone (before this "ai" fix) passed 222; with the "ai"
+ * fix, 232 — every one of the 10 newly recovered a domain that is genuinely
+ * the product's own, and every kept case still a domain that is genuinely
+ * the product's own (cursor.com, klingai.com, aider.chat, 21st.dev,
+ * activepieces.com among them).
  */
+function dropTrailingAi(normalized: string): string {
+  // Guard against reducing to '' (which would make every key "equal" it):
+  // the shortest real card name/slug ending in "ai" in the catalog today
+  // normalizes to 5 characters, so requiring > 2 leaves comfortable margin.
+  return normalized.length > 2 && normalized.endsWith('ai') ? normalized.slice(0, -2) : normalized;
+}
+
 function hostNamesTheCard(key: string, card: { name: string; slug: string }): boolean {
-  return [normalizeName(card.name), normalizeName(card.slug)].some(
-    (candidate) => candidate !== '' && key.includes(candidate),
-  );
+  return [normalizeName(card.name), normalizeName(card.slug)].some((candidate) => {
+    if (candidate === '') return false;
+    // Exact equality, not `.includes`, for the ai-stripped comparison: a
+    // real `name.ai` domain strips to exactly the brand (`fireworks.ai` ->
+    // "fireworks" == "fireworks"), but substring containment after stripping
+    // can accidentally fire on an unrelated collision — e.g. an "ai."
+    // SUBdomain (`ai.pydantic.dev` normalizes to "aipydantic", which
+    // contains "pydantic" as a substring purely because the leading "ai"
+    // has nowhere else to go, not because it is evidence about anything).
+    // The un-stripped branch below still allows substring containment for
+    // branding fluff that has nothing to do with this "ai" case (`klingai`
+    // -> Kling).
+    return key.includes(candidate) || key === dropTrailingAi(candidate);
+  });
 }
 
 function deadResult(index: CatalogIndex, query: string, slug: string): CheckResult {
