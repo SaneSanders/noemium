@@ -204,3 +204,16 @@ test('api/graveyard.json exposes every graveyard entry with a receipt', () => {
     assert.ok(entry.slug && entry.name && entry.died, `incomplete entry: ${entry.slug}`);
   }
 });
+
+test('the mcp page tells an agent how to connect to the Noemium server', () => {
+  const html = built('mcp/index.html');
+  assert.match(html, /mcp\.noemium\.com\/mcp/, 'the endpoint must be printed');
+  assert.match(html, /claude mcp add --transport http noemium/, 'Claude Code command');
+  assert.match(html, /codex mcp add noemium --url/, 'Codex command');
+  assert.match(html, /read-only/i, 'state plainly that the server is read-only');
+});
+
+test('llms.txt points machine readers at the MCP endpoint', () => {
+  const txt = built('llms.txt');
+  assert.match(txt, /https:\/\/mcp\.noemium\.com\/mcp/);
+});

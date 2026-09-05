@@ -32,3 +32,11 @@ jobs:
       - run: npm run build
       - run: npm test
       - run: npm run test:dist
+      - name: MCP worker deps
+        run: npm --prefix mcp ci
+      - name: MCP worker typecheck
+        run: npm --prefix mcp run typecheck
+      - name: MCP snapshot
+        run: npm run mcp:snapshot
+      - name: MCP worker tests
+        run: npm --prefix mcp test
