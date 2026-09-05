@@ -5,6 +5,18 @@
   "compatibility_date": "2026-09-01",
   "compatibility_flags": ["nodejs_compat"],
   "routes": [{ "pattern": "mcp.noemium.com", "custom_domain": true }],
-  "analytics_engine_datasets": [{ "binding": "TELEMETRY", "dataset": "noemium_mcp" }],
+  // Analytics Engine binding. The design spec called this binding TELEMETRY,
+  // but it also names the kill switch `TELEMETRY=off` — and a Worker binding
+  // and a Worker var share one namespace. The operator-facing flag keeps the
+  // documented name; the internal binding is ANALYTICS.
+  "analytics_engine_datasets": [{ "binding": "ANALYTICS", "dataset": "noemium_mcp" }],
+  "vars": {
+    // Telemetry kill switch (spec §6). Set to "off" — here, or with
+    // `wrangler secret`/the dashboard — to stop recording every per-tool data
+    // point (tool name, normalized query, result status, result count, ms).
+    // Any other value, or none, leaves recording on. Headers, IPs, user
+    // agents and request bodies are never recorded either way.
+    "TELEMETRY": "on"
+  },
   "observability": { "enabled": true }
 }

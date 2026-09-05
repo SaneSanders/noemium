@@ -2,11 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
+import { loadRealSnapshot } from './real-snapshot.mjs';
+
 const root = new URL('../../', import.meta.url);
 const readJson = async (path) => JSON.parse(await readFile(new URL(path, root), 'utf8'));
 
 test('snapshot counts match the site API payloads', async () => {
-  const snapshot = await readJson('mcp/data/snapshot.json');
+  const snapshot = await loadRealSnapshot();
   const [tools, models, stacks, graveyard] = await Promise.all([
     readJson('dist/api/tools.json'),
     readJson('dist/api/models.json'),
@@ -22,7 +24,7 @@ test('snapshot counts match the site API payloads', async () => {
 });
 
 test('every tool carries last_verified and alternatives', async () => {
-  const snapshot = await readJson('mcp/data/snapshot.json');
+  const snapshot = await loadRealSnapshot();
   for (const tool of snapshot.tools) {
     assert.ok(tool.slug, 'tool needs a slug');
     assert.ok(tool.last_verified, `${tool.slug} missing last_verified`);
@@ -33,7 +35,7 @@ test('every tool carries last_verified and alternatives', async () => {
 });
 
 test('cursor resolves alternatives from its job peers', async () => {
-  const snapshot = await readJson('mcp/data/snapshot.json');
+  const snapshot = await loadRealSnapshot();
   const cursor = snapshot.tools.find((t) => t.slug === 'cursor');
   assert.ok(cursor, 'cursor card must exist');
   assert.equal(cursor.verdict, 'ship');
@@ -41,7 +43,7 @@ test('cursor resolves alternatives from its job peers', async () => {
 });
 
 test('flowise is in the graveyard with a death date', async () => {
-  const snapshot = await readJson('mcp/data/snapshot.json');
+  const snapshot = await loadRealSnapshot();
   const flowise = snapshot.graveyard.find((entry) => entry.slug === 'flowise');
   assert.ok(flowise, 'flowise must be present');
   assert.equal(flowise.died, '2026-08-31');

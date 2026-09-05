@@ -1,18 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { buildIndex } from '../src/data.ts';
 import { toolDetail, toolText } from '../src/tools/tool.ts';
 import { stackLookup } from '../src/tools/stack.ts';
 import { modelLookup } from '../src/tools/model.ts';
 import { fixture } from './fixtures.mjs';
+import { loadRealSnapshot } from './real-snapshot.mjs';
 
 const index = buildIndex(fixture);
 
-// `npm run mcp:snapshot` from the mcp/ dir if this file is missing.
-const realIndex = buildIndex(
-  JSON.parse(await readFile(new URL('../data/snapshot.json', import.meta.url), 'utf8')),
-);
+const realIndex = buildIndex(await loadRealSnapshot());
 
 test('a full card carries verdict, limits, receipts and alternatives', () => {
   const detail = toolDetail(index, 'cursor');
@@ -117,7 +114,17 @@ test('the placeholder-zero guard is about price comparability, not about hiding 
   const [bySlug] = modelLookup(realIndex, { slug: 'seedance-2-5' });
   assert.equal(bySlug.slug, 'seedance-2-5', 'looking it up directly by slug must still return the card');
 
-  const byOpenWeights = modelLookup(realIndex, { open_weights: false });
+  // `limit` is set past the model count so this asserts about the price guard
+  // and nothing else. Without it the assertion silently also depended on the
+  // default page size of 10 plus the old price-ascending ordering, which
+  // floated every sentinel-zero card (seedance-2-5 among them) to the top of
+  // an unfiltered list. Ordering with no price filter is now by popularity,
+  // where this card sits 19th of 30 — outside the first page, though the
+  // filter plainly still returns it.
+  const byOpenWeights = modelLookup(realIndex, {
+    open_weights: false,
+    limit: realIndex.snapshot.models.length,
+  });
   assert.ok(
     byOpenWeights.some((m) => m.slug === 'seedance-2-5'),
     'a query filtering only on open_weights must still include a model the price guard excludes',

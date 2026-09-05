@@ -1,15 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { buildIndex } from '../src/data.ts';
 import { check, checkText } from '../src/tools/check.ts';
 import { fixture } from './fixtures.mjs';
+import { loadRealSnapshot } from './real-snapshot.mjs';
 
 const index = buildIndex(fixture);
 
-const realIndex = buildIndex(
-  JSON.parse(await readFile(new URL('../data/snapshot.json', import.meta.url), 'utf8')),
-);
+const realIndex = buildIndex(await loadRealSnapshot());
 
 const slugsOf = (result) => (result.candidates ?? []).map((c) => c.slug);
 
@@ -59,7 +57,14 @@ test('a substring-only prefix is unknown with candidates, never ambiguous and ne
   assert.ok(slugsOf(result).includes('claude-code'));
   assert.ok(slugsOf(result).includes('claude'));
   for (const candidate of result.candidates) {
-    assert.ok(candidate.kind === 'tool' || candidate.kind === 'grave', 'candidates carry kind');
+    // 'model' joined 'tool'/'grave' when model cards became indexable, so
+    // that `check` can answer for a model name instead of denying the card
+    // exists. The assertion's point is unchanged: every candidate says what
+    // kind of card it is.
+    assert.ok(
+      ['tool', 'grave', 'model'].includes(candidate.kind),
+      `candidates carry kind, got ${candidate.kind}`,
+    );
   }
 });
 
@@ -101,7 +106,13 @@ test('real catalog: "GitHub" is ambiguous, not the death of the one grave hosted
     assert.ok(result.candidates.some((c) => c.kind === 'grave' && c.slug === 'roo-code'),
       'the dead candidate is still listed, marked as dead');
     for (const candidate of result.candidates) {
-      assert.ok(candidate.kind === 'tool' || candidate.kind === 'grave', 'candidates carry kind');
+      // Model cards carry no url, so a host bucket can never hold one — but
+      // the assertion accepts the same three kinds everywhere rather than
+      // encoding that as a second rule.
+      assert.ok(
+        ['tool', 'grave', 'model'].includes(candidate.kind),
+        `candidates carry kind, got ${candidate.kind}`,
+      );
     }
   }
 });

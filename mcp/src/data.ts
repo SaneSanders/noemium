@@ -63,17 +63,31 @@ export interface Snapshot {
   models: ModelCard[]; stacks: StackCard[]; graveyard: GraveCard[];
 }
 
+/**
+ * What a normalized key resolved to. `kind` is the card type — model cards are
+ * indexed alongside tools and graves so that `check` can answer for a model
+ * name instead of claiming the catalog has never heard of it (models carry no
+ * `url`, so they only ever produce `via: 'name'` entries). `via` records how
+ * the key matched: 'name' for a slug/name hit, 'host' for a URL-host hit. A
+ * lookup should prefer 'name' hits — the real catalog has collisions like the
+ * "claude" tool vs. the "claude-code" tool's url host (claude.com), which both
+ * normalize to "claude".
+ */
+export type CardKind = 'tool' | 'grave' | 'model';
+
+export interface IndexEntry {
+  kind: CardKind;
+  slug: string;
+  via: 'name' | 'host';
+}
+
 export interface CatalogIndex {
   snapshot: Snapshot;
   toolBySlug: Map<string, ToolCard>;
   graveBySlug: Map<string, GraveCard>;
   stackBySlug: Map<string, StackCard>;
   modelBySlug: Map<string, ModelCard>;
-  // via records how the normalized key was matched: 'name' for a slug/name hit,
-  // 'host' for a URL-host hit. A lookup should prefer 'name' hits — the real
-  // catalog has collisions like the "claude" tool vs. the "claude-code" tool's
-  // url host (claude.com), which both normalize to "claude".
-  byNormalizedName: Map<string, Array<{ kind: 'tool' | 'grave'; slug: string; via: 'name' | 'host' }>>;
+  byNormalizedName: Map<string, IndexEntry[]>;
 }
 
 const TLD = /\.(com|ai|io|dev|app|so|co|sh|net|org)$/;
@@ -94,9 +108,23 @@ export function siteUrl(kind: 'tool' | 'stack' | 'model' | 'grave', slug: string
   return `https://noemium.com${PATHS[kind](slug)}`;
 }
 
+/**
+ * Slug suggestions for a lookup that found nothing. A suggestion is only ever
+ * offered for a query long enough to carry a signal: `slug.includes(key)` with
+ * a one- or two-character query matches almost every slug in the catalog, so
+ * `tool({slug: "-"})` used to answer with an alphabetical sample of the whole
+ * map. Below the minimum the honest answer is "no suggestions".
+ */
+const MIN_SUGGESTION_QUERY = 3;
+
+export function nearSlugs(keys: Iterable<string>, query: string, cap: number): string[] {
+  if (query.length < MIN_SUGGESTION_QUERY) return [];
+  return [...keys].filter((key) => key.includes(query) || query.includes(key)).slice(0, cap);
+}
+
 export function buildIndex(snapshot: Snapshot): CatalogIndex {
-  const byNormalizedName = new Map<string, Array<{ kind: 'tool' | 'grave'; slug: string; via: 'name' | 'host' }>>();
-  const add = (key: string, entry: { kind: 'tool' | 'grave'; slug: string; via: 'name' | 'host' }) => {
+  const byNormalizedName = new Map<string, IndexEntry[]>();
+  const add = (key: string, entry: IndexEntry) => {
     const normalized = normalizeName(key);
     if (!normalized) return;
     const bucket = byNormalizedName.get(normalized) ?? [];
@@ -112,6 +140,12 @@ export function buildIndex(snapshot: Snapshot): CatalogIndex {
     add(grave.slug, { kind: 'grave', slug: grave.slug, via: 'name' });
     add(grave.name, { kind: 'grave', slug: grave.slug, via: 'name' });
     if (grave.url) add(grave.url, { kind: 'grave', slug: grave.slug, via: 'host' });
+  }
+  // Model cards have no `url` field, so they contribute name/slug keys only —
+  // there is no model host that could be mistaken for a product name.
+  for (const model of snapshot.models) {
+    add(model.slug, { kind: 'model', slug: model.slug, via: 'name' });
+    add(model.name, { kind: 'model', slug: model.slug, via: 'name' });
   }
   return {
     snapshot,

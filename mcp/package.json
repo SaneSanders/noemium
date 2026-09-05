@@ -2,7 +2,9 @@
   "name": "@noemium/mcp",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22.12.0" },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "test": "node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
@@ -14,8 +16,9 @@
     "zod": "^4.2.0"
   },
   "devDependencies": {
-    "@modelcontextprotocol/client": "2.0.0",
     "@cloudflare/workers-types": "^5.20260101.0",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@types/node": "^22.20.1",
     "typescript": "^5.7.0",
     "wrangler": "^4.106.0"
   }

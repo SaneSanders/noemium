@@ -1,5 +1,6 @@
 import { siteUrl } from './data.ts';
 import type { CatalogIndex, GraveCard, ModelCard, StackCard, ToolCard, Verdict } from './data.ts';
+import { formatModelContext, formatModelPrice } from './model-format.ts';
 
 export const NO_RESULTS_NOTE = 'No card for this. Noemium does not guess.';
 
@@ -156,8 +157,12 @@ export function search(index: CatalogIndex, query: string, filters: SearchFilter
       const hit = buildHit(
         {
           kind: 'model', slug: model.slug, name: model.name,
-          tagline: `${model.provider} · ${model.context_window ?? '?'} ctx`,
-          price_note: `$${model.price_input_per_mtok}/$${model.price_output_per_mtok} per Mtok`,
+          // Both strings come from the single shared renderer in
+          // model-format.ts. Building them here is what made `search` print
+          // "$0/$0 per Mtok" for Whisper (really $0.00003083 per audio-second)
+          // and "? ctx" for every model with no context window.
+          tagline: `${model.provider} · ${formatModelContext(model)}`,
+          price_note: formatModelPrice(model),
           last_verified: model.last_verified, url: siteUrl('model', model.slug),
         },
         modelFields(model), queryTokens, now,

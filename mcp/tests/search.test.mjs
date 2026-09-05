@@ -1,17 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { buildIndex } from '../src/data.ts';
 import { search, searchText, NO_RESULTS_NOTE } from '../src/search.ts';
 import { fixture } from './fixtures.mjs';
+import { loadRealSnapshot } from './real-snapshot.mjs';
 
 const index = buildIndex(fixture);
 
-// Same real-catalog loading pattern as tests/check.test.mjs — regenerate with
-// `npm run mcp:snapshot` from the mcp/ dir if this file is missing.
-const realSnapshot = JSON.parse(
-  await readFile(new URL('../data/snapshot.json', import.meta.url), 'utf8'),
-);
+const realSnapshot = await loadRealSnapshot();
 const realIndex = buildIndex(realSnapshot);
 
 test('a task query finds the matching tool with reasons', () => {

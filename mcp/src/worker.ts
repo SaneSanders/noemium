@@ -1,10 +1,20 @@
+import { AsyncLocalStorage } from 'node:async_hooks';
 import rawSnapshot from '../data/snapshot.json' with { type: 'json' };
 import { catalogCounts, createHandler } from './server.ts';
+import type { ToolCallReport } from './server.ts';
 import type { Snapshot } from './data.ts';
 
 interface Env {
-  TELEMETRY?: { writeDataPoint: (point: { blobs?: string[]; doubles?: number[]; indexes?: string[] }) => void };
-  TELEMETRY_MODE?: string;
+  /**
+   * Workers Analytics Engine dataset. Named ANALYTICS rather than the spec's
+   * TELEMETRY because a Worker binding and a Worker var share one namespace,
+   * and the spec also names the operator kill switch `TELEMETRY=off` — that
+   * documented, externally-visible flag keeps the name; the internal binding
+   * yields it.
+   */
+  ANALYTICS?: { writeDataPoint: (point: { blobs?: string[]; doubles?: number[]; indexes?: string[] }) => void };
+  /** Kill switch, exactly as spec §6 names it: `TELEMETRY=off` disables all recording. */
+  TELEMETRY?: string;
 }
 
 // Served instead of a broken snapshot: every count is honestly zero rather
@@ -54,6 +64,18 @@ function isValidSnapshot(value: unknown): value is Snapshot {
 }
 
 /**
+ * Per-request collection point for the tool-call reports spec §6 asks for.
+ *
+ * The MCP handler and its catalog index are built once per isolate, but each
+ * request needs its own list of reports to hand to its own `ctx.waitUntil`.
+ * AsyncLocalStorage carries that list from the fetch handler down into the
+ * tool callbacks without threading it through the SDK. If the context is ever
+ * lost, `getStore()` is undefined and nothing is recorded — telemetry goes
+ * quiet, the answer is unaffected.
+ */
+const callReports = new AsyncLocalStorage<ToolCallReport[]>();
+
+/**
  * Builds the Worker's `fetch` handler from a raw (untrusted-shape) snapshot
  * value. Factored out from the module-level `export default` so tests can
  * exercise `/health` and the landing page against a deliberately malformed
@@ -64,7 +86,9 @@ function isValidSnapshot(value: unknown): value is Snapshot {
 export function createWorker(rawSnapshot: unknown) {
   const snapshotValid = isValidSnapshot(rawSnapshot);
   const data: Snapshot = snapshotValid ? rawSnapshot : EMPTY_SNAPSHOT;
-  const handler = createHandler(data);
+  const handler = createHandler(data, (call) => {
+    callReports.getStore()?.push(call);
+  });
 
   // The numbers reported to `/health` and the landing page are always the
   // real, indexed array lengths — never the snapshot's own self-declared
@@ -113,25 +137,27 @@ export function createWorker(rawSnapshot: unknown) {
       }
       if (url.pathname !== '/mcp') return new Response('Not found', { status: 404 });
 
-      const started = Date.now();
-      const response = await handler.fetch(request);
-      if (env.TELEMETRY && env.TELEMETRY_MODE !== 'off') {
-        // Request-level telemetry only: method, status, duration. Fire-and-forget
-        // via waitUntil, so it can never block or alter the response. Never
-        // record headers, IPs, user agents or any request body — and never parse
-        // the MCP JSON-RPC body here to extract a tool name for a per-tool
-        // counter, even though that would be easy to bolt on. If per-tool detail
-        // is wanted later, thread an optional `onCall` callback through
-        // `createHandler` (it already sees each tool's args after they've been
-        // validated) instead of sniffing the wire format in this fetch handler.
+      const reports: ToolCallReport[] = [];
+      const response = await callReports.run(reports, () => handler.fetch(request));
+      const analytics = env.ANALYTICS;
+      if (analytics && env.TELEMETRY !== 'off' && reports.length) {
+        // One data point per tool call, exactly as spec §6 defines it. The
+        // reports come from the tool handlers themselves (after zod
+        // validation), never from sniffing the JSON-RPC wire format — and
+        // they carry only the tool name, the normalized query or slug, the
+        // result status, the result count and the elapsed ms. Never headers,
+        // IPs, user agents or request bodies. Fire-and-forget via waitUntil,
+        // so it can neither block nor alter the response.
         ctx.waitUntil(
           (async () => {
             try {
-              env.TELEMETRY!.writeDataPoint({
-                blobs: [request.method, String(response.status)],
-                doubles: [Date.now() - started],
-                indexes: ['mcp'],
-              });
+              for (const call of reports) {
+                analytics.writeDataPoint({
+                  blobs: [call.tool, call.query, call.status],
+                  doubles: [call.count, call.ms],
+                  indexes: [call.tool],
+                });
+              }
             } catch {
               // Telemetry must never affect the answer.
             }

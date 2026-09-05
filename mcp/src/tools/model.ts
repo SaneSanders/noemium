@@ -1,8 +1,19 @@
-import { siteUrl } from '../data.ts';
+import { nearSlugs, siteUrl } from '../data.ts';
 import type { CatalogIndex, ModelCard } from '../data.ts';
+import {
+  formatContextWindow,
+  formatModelPrice,
+  hasPlaceholderZeroPrice,
+  isPerMtokPriced,
+} from '../model-format.ts';
 
 export interface ModelResult extends ModelCard {
   url: string;
+}
+
+export interface ModelLookupError {
+  error: string;
+  suggestions: string[];
 }
 
 export interface ModelLookupArgs {
@@ -16,53 +27,39 @@ export interface ModelLookupArgs {
 
 const DEFAULT_LIMIT = 10;
 
-// The only `price_unit` value that means "this number is dollars per million
-// tokens." Every other unit (image / video_second / audio_second / character)
-// carries a `0`/`0` sentinel in price_input_per_mtok/price_output_per_mtok —
-// see content-schemas.ts's modelSchema comment. A per-Mtok numeric filter
-// must exclude those cards rather than let the sentinel zero pass as "free".
-const PER_MTOK_UNIT = 'mtok';
-
-function isPerMtokPriced(model: ModelCard): boolean {
-  // `price_unit` defaults to 'mtok' via zod in the real snapshot pipeline
-  // and is only ever something else for genuinely unit-priced media models —
-  // never absent there. A falsy value here (e.g. a hand-built test fixture
-  // that omits the field, since `buildIndex` does not run zod defaults) is
-  // treated the same as that default rather than excluded.
-  return !model.price_unit || model.price_unit === PER_MTOK_UNIT;
-}
-
-// A zero `price_input_per_mtok` is only trustworthy when nothing contradicts
-// it. Some catalog cards declare `price_unit: 'mtok'` but record their real
-// price in `price_amount` (a different unit or currency, or just a data-entry
-// quirk) while leaving the per-Mtok fields at the schema's `0` default — see
-// seedance-2-5, whose `price_amount: 70` (CNY per million tokens) contradicts
-// the `0`/`0` sitting in price_input_per_mtok/price_output_per_mtok. That zero
-// is a placeholder, not a price: do NOT let it read as "free" here. A
-// genuinely free model (zero token price, no contradicting `price_amount`)
-// must still pass — do not "simplify" this into a plain zero check.
-function hasPlaceholderZeroPrice(model: ModelCard): boolean {
-  return model.price_input_per_mtok === 0 && Boolean(model.price_amount);
-}
-
-// Human labels for the non-token price units a media model can carry.
-const UNIT_LABELS: Record<string, string> = {
-  mtok: 'Mtok',
-  image: 'image',
-  video_second: 'video-second',
-  audio_second: 'audio-second',
-  character: 'character',
-};
+/** How many near-slug suggestions to offer on an unknown slug. */
+const SUGGESTION_CAP = 5;
 
 function withUrl(model: ModelCard): ModelResult {
   return { ...model, url: siteUrl('model', model.slug) };
 }
 
-export function modelLookup(index: CatalogIndex, args: ModelLookupArgs): ModelResult[] {
+export function modelLookup(index: CatalogIndex, args: ModelLookupArgs): ModelResult[] | ModelLookupError {
   if (args.slug) {
     const model = index.modelBySlug.get(args.slug);
-    return model ? [withUrl(model)] : [];
+    // An unknown slug is a mistake to name, not an empty catalog: answering
+    // "No model matches those filters" for a call that carried no filters
+    // reads as "Noemium has nothing like this", which is a different and
+    // false claim. Same contract as `tool` — an explicit error plus near-slug
+    // suggestions.
+    if (!model) {
+      return {
+        error: `Unknown model slug "${args.slug}". Use search, or model filters, to find the card.`,
+        suggestions: nearSlugs(index.modelBySlug.keys(), args.slug, SUGGESTION_CAP),
+      };
+    }
+    return [withUrl(model)];
   }
+
+  // Ordering must not be built on a field full of sentinels. Ten of the
+  // catalog's models are priced per image / video-second / audio-second /
+  // character and carry `0` in price_input_per_mtok as a schema placeholder,
+  // so sorting by that field with no price filter in play floats all ten to
+  // the top and answers "the cheapest models" with the ones whose token price
+  // is not merely unknown but nonexistent. A token-price sort is honest only
+  // when a token-price filter has already narrowed the set to cards that are
+  // actually priced per token; otherwise order by popularity, then name.
+  const byTokenPrice = args.max_input_per_mtok !== undefined;
   return index.snapshot.models
     .filter((model) => {
       if (args.provider && model.provider.toLowerCase() !== args.provider.toLowerCase()) return false;
@@ -74,32 +71,13 @@ export function modelLookup(index: CatalogIndex, args: ModelLookupArgs): ModelRe
       if (args.min_context !== undefined && (model.context_window ?? 0) < args.min_context) return false;
       return true;
     })
-    .sort((a, b) => a.price_input_per_mtok - b.price_input_per_mtok || a.slug.localeCompare(b.slug))
+    .sort((a, b) =>
+      byTokenPrice
+        ? a.price_input_per_mtok - b.price_input_per_mtok || a.slug.localeCompare(b.slug)
+        : (b.popularity ?? 0) - (a.popularity ?? 0) || a.name.localeCompare(b.name) || a.slug.localeCompare(b.slug),
+    )
     .slice(0, args.limit ?? DEFAULT_LIMIT)
     .map(withUrl);
-}
-
-/**
- * `price_input_per_mtok`/`price_output_per_mtok` are `0`/`0` as a schema
- * sentinel for unit-priced media models (per-image, per-video-second, ...) —
- * the real number lives in `price_amount` + `price_unit`. Printing "$0/$0
- * per Mtok" for those would read as a free model when it is not, so a
- * metered-zero card renders its `price_amount` instead; only a genuine
- * token price (including a real, non-sentinel $0) prints the Mtok form.
- */
-function formatPrice(model: ModelCard): string {
-  const meteredZero = model.price_input_per_mtok === 0 && model.price_output_per_mtok === 0;
-  if (meteredZero && model.price_amount !== undefined) {
-    const unit = UNIT_LABELS[model.price_unit] ?? model.price_unit;
-    return `$${model.price_amount} per ${unit}`;
-  }
-  return `$${model.price_input_per_mtok}/$${model.price_output_per_mtok} per Mtok`;
-}
-
-// `context_window` is optional and genuinely absent for media models
-// (image/video/audio) — never print "undefined ctx" for those.
-function formatContext(model: ModelCard): string {
-  return model.context_window ? `${model.context_window} ctx` : 'context window n/a';
 }
 
 export function modelText(models: ModelResult[]): string {
@@ -108,7 +86,8 @@ export function modelText(models: ModelResult[]): string {
     .map((model) => {
       const openNote = model.open_weights ? ', open weights' : '';
       return (
-        `${model.name} (${model.provider}) — ${formatPrice(model)}, ${formatContext(model)}${openNote} ` +
+        `${model.name} (${model.provider}) — ${formatModelPrice(model)}, ` +
+        `${formatContextWindow(model.context_window)}${openNote} ` +
         `(verified ${model.last_verified}) · ${model.url}`
       );
     })

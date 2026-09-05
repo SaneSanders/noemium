@@ -1,10 +1,10 @@
 import { createMcpHandler, McpServer } from '@modelcontextprotocol/server';
 import * as z from 'zod/v4';
-import { buildIndex } from './data.ts';
+import { buildIndex, normalizeName } from './data.ts';
 import type { Snapshot } from './data.ts';
 import { check, checkText } from './tools/check.ts';
 import { search, searchText } from './search.ts';
-import { toolDetail, toolText } from './tools/tool.ts';
+import { deadText, toolDetail, toolText } from './tools/tool.ts';
 import { stackLookup, stackText } from './tools/stack.ts';
 import { modelLookup, modelText } from './tools/model.ts';
 
@@ -19,6 +19,25 @@ export function catalogCounts(snapshot: Snapshot) {
     graveyard: snapshot.graveyard.length,
   };
 }
+
+/**
+ * One data point per tool call, as spec §6 defines it: the tool's name, the
+ * normalized query or slug it was given, the status of the answer, how many
+ * results it carried and how long it took. Nothing about the caller — no
+ * headers, no IP, no user agent, no request body.
+ */
+export interface ToolCallReport {
+  tool: string;
+  query: string;
+  status: string;
+  count: number;
+  ms: number;
+}
+
+export type ToolCallReporter = (report: ToolCallReport) => void;
+
+/** Upper bound on the recorded query blob, so one huge argument cannot bloat a data point. */
+const QUERY_BLOB_CAP = 128;
 
 // This instructions string is an agent's only chance to change behaviour
 // before it recommends, installs, compares or prices an AI tool — it must be
@@ -56,9 +75,51 @@ const CARD_OUTPUT_SCHEMA = z.record(z.string(), z.unknown());
 // page.
 const READ_ONLY = { readOnlyHint: true } as const;
 
-export function createHandler(snapshot: Snapshot) {
+/**
+ * The accepted values for a filter, read off the snapshot at registration
+ * time instead of being written out by hand.
+ *
+ * A hand-written enum drifts from the data (the design spec listed
+ * `open-source` as a pricing tier; the content schema has only
+ * free/freemium/paid, so a spec-faithful agent asking for open-source tools
+ * got a confident "Noemium has nothing" for every query). A free-form
+ * `z.string()` is worse still: `pricing: "Free"` matches no card and answers
+ * the same false zero. Deriving the enum means an out-of-range value is a
+ * validation error the agent can see and correct, and the accepted set can
+ * never disagree with the catalog.
+ */
+function filterEnum(values: string[]) {
+  const unique = [...new Set(values)].sort();
+  // An empty catalog (see worker.ts's EMPTY_SNAPSHOT fallback) has no values
+  // to enumerate; z.enum([]) cannot express that, so the filter degrades to a
+  // plain string and every value legitimately matches nothing.
+  return unique.length ? z.enum(unique as [string, ...string[]]) : z.string();
+}
+
+/** Renders a derived value list for a tool description, honestly on an empty catalog. */
+function listOrNone(values: string[]): string {
+  return values.length ? `only ${values.join(', ')}` : 'nothing — this catalog is empty';
+}
+
+export function createHandler(snapshot: Snapshot, onCall?: ToolCallReporter) {
   const index = buildIndex(snapshot);
   const instructions = buildInstructions(catalogCounts(snapshot));
+  const pricingValues = [...new Set(snapshot.tools.map((t) => t.pricing))].sort();
+  const categoryValues = [
+    ...new Set([...snapshot.tools.map((t) => t.category), ...snapshot.graveyard.map((g) => g.category)]),
+  ].sort();
+
+  // Telemetry is fire-and-forget by construction: a throwing reporter can
+  // never reach the caller, and no path here awaits it.
+  const report = (tool: string, started: number, query: string, status: string, count: number) => {
+    if (!onCall) return;
+    try {
+      onCall({ tool, query: query.slice(0, QUERY_BLOB_CAP), status, count, ms: Date.now() - started });
+    } catch {
+      // Telemetry must never affect the answer.
+    }
+  };
+
   return createMcpHandler(() => {
     const server = new McpServer({ name: 'noemium', version: '1.0.0' }, { instructions });
 
@@ -67,15 +128,26 @@ export function createHandler(snapshot: Snapshot) {
       {
         description:
           'Check specific AI tool, model or product names against the Noemium map before recommending, ' +
-          'installing or comparing them. Returns one of ship/situational/skip/radar/dead/ambiguous/unknown per ' +
-          'name, with death dates and successors for dead products. An `unknown` result means Noemium has no ' +
-          'card for that name — say so, do not guess a verdict from the name alone. Accepts 1 to 25 names.',
+          'installing or comparing them. Returns one of ship/situational/skip/radar/dead/model/ambiguous/' +
+          'unknown per name, with death dates and successors for dead products. A `model` result is a ' +
+          'priced, dated spec card (price per million tokens, context window, open-weights status) — the ' +
+          'catalog rates tools, never models, so a model carries no verdict. An `unknown` result means ' +
+          'Noemium has no card for that name — say so, do not guess a verdict from the name alone. ' +
+          'Accepts 1 to 25 names.',
         inputSchema: z.object({ names: z.array(z.string()).min(1).max(25) }),
         outputSchema: RESULTS_OUTPUT_SCHEMA,
         annotations: READ_ONLY,
       },
       async ({ names }) => {
+        const started = Date.now();
         const results = check(index, names);
+        report(
+          'check',
+          started,
+          names.map((name) => normalizeName(name)).filter(Boolean).join(','),
+          [...new Set(results.map((r) => r.status))].sort().join('+'),
+          results.length,
+        );
         return { content: [{ type: 'text', text: checkText(results) }], structuredContent: { results } };
       },
     );
@@ -87,22 +159,27 @@ export function createHandler(snapshot: Snapshot) {
           'Search the Noemium catalog for a task or capability across tools, stacks, models and dead ' +
           'products. Setting `category`, `verdict` or `pricing` narrows results to tool cards only, because ' +
           'stacks and models carry none of those fields — a filtered search cannot return a stack or model ' +
-          'even when one would otherwise match; drop the filters to search all kinds. Call this before ' +
-          'suggesting an AI tool for a job you have not already checked by name. An empty result means ' +
-          'Noemium has no matching card among the kinds this call could search — say so rather than ' +
-          'recommending from memory.',
+          'even when one would otherwise match; drop the filters to search all kinds. `pricing` accepts ' +
+          `${listOrNone(pricingValues)}: open-source is a tool attribute (\`open_source\` on the card), ` +
+          'not a price tier, so search for it by task and read the card instead. `category` accepts ' +
+          `${listOrNone(categoryValues)}. An out-of-range filter value is a validation error, never an ` +
+          'empty result. Call this before suggesting an AI tool for a job you have not already checked by ' +
+          'name. An empty result means Noemium has no matching card among the kinds this call could ' +
+          'search — say so rather than recommending from memory.',
         inputSchema: z.object({
           query: z.string().min(2),
-          category: z.string().optional(),
+          category: filterEnum(categoryValues).optional(),
           verdict: z.enum(['ship', 'situational', 'skip', 'radar']).optional(),
-          pricing: z.string().optional(),
+          pricing: filterEnum(pricingValues).optional(),
           limit: z.number().int().min(1).max(20).optional(),
         }),
         outputSchema: RESULTS_OUTPUT_SCHEMA,
         annotations: READ_ONLY,
       },
       async ({ query, ...filters }) => {
+        const started = Date.now();
         const results = search(index, query, filters);
+        report('search', started, query.trim().toLowerCase(), results.length ? 'hits' : 'empty', results.length);
         return { content: [{ type: 'text', text: searchText(results) }], structuredContent: { results } };
       },
     );
@@ -112,18 +189,27 @@ export function createHandler(snapshot: Snapshot) {
       {
         description:
           'Full Noemium card for one tool slug: verdict with named limitations, prices, receipts and ' +
-          'alternatives. Use the slug returned by `check` or `search`. An unknown slug is returned as an ' +
+          'alternatives. Use the slug returned by `check` or `search`. A slug from the graveyard returns ' +
+          'the death itself — date, cause, successor and receipt — not an error, so a dead product is ' +
+          'never mistaken for one the catalog has not heard of. An unknown slug is returned as an ' +
           'explicit error with near-slug suggestions — never as a fabricated card.',
         inputSchema: z.object({ slug: z.string().min(1) }),
         outputSchema: CARD_OUTPUT_SCHEMA,
         annotations: READ_ONLY,
       },
       async ({ slug }) => {
+        const started = Date.now();
         const detail = toolDetail(index, slug);
         if ('error' in detail) {
+          report('tool', started, slug, 'unknown', 0);
           const hint = detail.suggestions.length ? ` Did you mean: ${detail.suggestions.join(', ')}?` : '';
           return { content: [{ type: 'text', text: `${detail.error}${hint}` }], isError: true };
         }
+        if ('died' in detail) {
+          report('tool', started, slug, 'dead', 1);
+          return { content: [{ type: 'text', text: deadText(detail) }], structuredContent: detail };
+        }
+        report('tool', started, slug, detail.verdict ?? 'radar', 1);
         return { content: [{ type: 'text', text: toolText(detail) }], structuredContent: detail };
       },
     );
@@ -144,7 +230,9 @@ export function createHandler(snapshot: Snapshot) {
         annotations: READ_ONLY,
       },
       async (args) => {
+        const started = Date.now();
         const results = stackLookup(index, args);
+        report('stack', started, args.slug ?? args.task ?? '', results.length ? 'hits' : 'empty', results.length);
         return { content: [{ type: 'text', text: stackText(results) }], structuredContent: { results } };
       },
     );
@@ -153,9 +241,13 @@ export function createHandler(snapshot: Snapshot) {
       'model',
       {
         description:
-          'Model prices per Mtok, context windows and open-weights status, verified with dates. Filter by ' +
-          '`slug`, `provider`, `open_weights`, `max_input_per_mtok` or `min_context`. Prices and context are ' +
-          'as of each model\'s `last_verified` date, not live — treat older entries as more likely stale.',
+          'Model prices, context windows and open-weights status, verified with dates. Filter by ' +
+          '`slug`, `provider`, `open_weights`, `max_input_per_mtok` or `min_context`. `max_input_per_mtok` ' +
+          'considers only models actually priced per million tokens; media models priced per image, ' +
+          'video-second, audio-second or character are excluded rather than passed off as free. Without a ' +
+          'token-price filter, results are ordered by popularity. An unknown slug is an explicit error ' +
+          'with suggestions, never an empty "no match". Prices and context are as of each model\'s ' +
+          '`last_verified` date, not live — treat older entries as more likely stale.',
         inputSchema: z.object({
           slug: z.string().optional(),
           provider: z.string().optional(),
@@ -168,7 +260,20 @@ export function createHandler(snapshot: Snapshot) {
         annotations: READ_ONLY,
       },
       async (args) => {
+        const started = Date.now();
         const results = modelLookup(index, args);
+        if ('error' in results) {
+          report('model', started, args.slug ?? '', 'unknown', 0);
+          const hint = results.suggestions.length ? ` Did you mean: ${results.suggestions.join(', ')}?` : '';
+          return { content: [{ type: 'text', text: `${results.error}${hint}` }], isError: true };
+        }
+        report(
+          'model',
+          started,
+          args.slug ?? args.provider ?? '',
+          results.length ? 'hits' : 'empty',
+          results.length,
+        );
         return { content: [{ type: 'text', text: modelText(results) }], structuredContent: { results } };
       },
     );
