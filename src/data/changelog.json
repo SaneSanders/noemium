@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T11:02:18.472Z",
+  "generated_at": "2026-09-07T13:25:36.188Z",
   "weeks": [
     {
       "id": "2026-W36",
@@ -1335,6 +1335,11 @@
       },
       "added": [
         {
+          "collection": "models",
+          "slug": "seedance-2-5",
+          "name": "Seedance 2.5"
+        },
+        {
           "collection": "tools",
           "slug": "activepieces",
           "name": "Activepieces",
@@ -1867,11 +1872,6 @@
           "collection": "models",
           "slug": "recraft-v4-1",
           "name": "Recraft V4.1"
-        },
-        {
-          "collection": "models",
-          "slug": "seedance-2-5",
-          "name": "Seedance 2.5"
         },
         {
           "collection": "agents",
